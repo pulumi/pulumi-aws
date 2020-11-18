@@ -4,23 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an Gamelift Game Session Queue resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.gamelift.GameSessionQueue("test", {
  *     destinations: [
- *         aws_gamelift_fleet_us_west_2_fleet.arn,
- *         aws_gamelift_fleet_eu_central_1_fleet.arn,
+ *         aws_gamelift_fleet.us_west_2_fleet.arn,
+ *         aws_gamelift_fleet.eu_central_1_fleet.arn,
  *     ],
  *     playerLatencyPolicies: [
  *         {
@@ -34,8 +33,6 @@ import * as utilities from "../utilities";
  *     timeoutInSeconds: 60,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_game_session_queue.html.markdown.
  */
 export class GameSessionQueue extends pulumi.CustomResource {
     /**
@@ -45,6 +42,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GameSessionQueueState, opts?: pulumi.CustomResourceOptions): GameSessionQueue {
         return new GameSessionQueue(name, <any>state, { ...opts, id: id });
@@ -81,9 +79,9 @@ export class GameSessionQueue extends pulumi.CustomResource {
      */
     public readonly playerLatencyPolicies!: pulumi.Output<outputs.gamelift.GameSessionQueuePlayerLatencyPolicy[] | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
@@ -148,9 +146,9 @@ export interface GameSessionQueueState {
      */
     readonly playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
@@ -174,9 +172,9 @@ export interface GameSessionQueueArgs {
      */
     readonly playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Maximum time a game session request can remain in the queue.
      */

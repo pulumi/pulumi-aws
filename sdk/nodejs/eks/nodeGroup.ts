@@ -4,13 +4,77 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
- * 
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_node_group.html.markdown.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.eks.NodeGroup("example", {
+ *     clusterName: aws_eks_cluster.example.name,
+ *     nodeRoleArn: aws_iam_role.example.arn,
+ *     subnetIds: aws_subnet.example.map(__item => __item.id),
+ *     scalingConfig: {
+ *         desiredSize: 1,
+ *         maxSize: 1,
+ *         minSize: 1,
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         aws_iam_role_policy_attachment["example-AmazonEKSWorkerNodePolicy"],
+ *         aws_iam_role_policy_attachment["example-AmazonEKS_CNI_Policy"],
+ *         aws_iam_role_policy_attachment["example-AmazonEC2ContainerRegistryReadOnly"],
+ *     ],
+ * });
+ * ```
+ * ### Ignoring Changes to Desired Size
+ *
+ * You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ... other configurations ...
+ * const example = new aws.eks.NodeGroup("example", {scalingConfig: {
+ *     desiredSize: 2,
+ * }});
+ * ```
+ * ### Example IAM Role for EKS Node Group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
+ *     Statement: [{
+ *         Action: "sts:AssumeRole",
+ *         Effect: "Allow",
+ *         Principal: {
+ *             Service: "ec2.amazonaws.com",
+ *         },
+ *     }],
+ *     Version: "2012-10-17",
+ * })});
+ * const example_AmazonEKSWorkerNodePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", {
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+ *     role: example.name,
+ * });
+ * const example_AmazonEKSCNIPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy", {
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+ *     role: example.name,
+ * });
+ * const example_AmazonEC2ContainerRegistryReadOnly = new aws.iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly", {
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+ *     role: example.name,
+ * });
+ * ```
  */
 export class NodeGroup extends pulumi.CustomResource {
     /**
@@ -20,6 +84,7 @@ export class NodeGroup extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NodeGroupState, opts?: pulumi.CustomResourceOptions): NodeGroup {
         return new NodeGroup(name, <any>state, { ...opts, id: id });
@@ -40,7 +105,7 @@ export class NodeGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
+     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
      */
     public readonly amiType!: pulumi.Output<string>;
     /**
@@ -56,13 +121,21 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly diskSize!: pulumi.Output<number>;
     /**
+     * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+     */
+    public readonly forceUpdateVersion!: pulumi.Output<boolean | undefined>;
+    /**
      * Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
      */
     public readonly instanceTypes!: pulumi.Output<string>;
     /**
-     * Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+     * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
     public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Configuration block with Launch Template settings. Detailed below.
+     */
+    public readonly launchTemplate!: pulumi.Output<outputs.eks.NodeGroupLaunchTemplate | undefined>;
     /**
      * Name of the EKS Node Group.
      */
@@ -98,10 +171,7 @@ export class NodeGroup extends pulumi.CustomResource {
     /**
      * Key-value mapping of resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
-    /**
-     * Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
-     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly version!: pulumi.Output<string>;
 
     /**
@@ -120,8 +190,10 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clusterName"] = state ? state.clusterName : undefined;
             inputs["diskSize"] = state ? state.diskSize : undefined;
+            inputs["forceUpdateVersion"] = state ? state.forceUpdateVersion : undefined;
             inputs["instanceTypes"] = state ? state.instanceTypes : undefined;
             inputs["labels"] = state ? state.labels : undefined;
+            inputs["launchTemplate"] = state ? state.launchTemplate : undefined;
             inputs["nodeGroupName"] = state ? state.nodeGroupName : undefined;
             inputs["nodeRoleArn"] = state ? state.nodeRoleArn : undefined;
             inputs["releaseVersion"] = state ? state.releaseVersion : undefined;
@@ -149,8 +221,10 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["amiType"] = args ? args.amiType : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["diskSize"] = args ? args.diskSize : undefined;
+            inputs["forceUpdateVersion"] = args ? args.forceUpdateVersion : undefined;
             inputs["instanceTypes"] = args ? args.instanceTypes : undefined;
             inputs["labels"] = args ? args.labels : undefined;
+            inputs["launchTemplate"] = args ? args.launchTemplate : undefined;
             inputs["nodeGroupName"] = args ? args.nodeGroupName : undefined;
             inputs["nodeRoleArn"] = args ? args.nodeRoleArn : undefined;
             inputs["releaseVersion"] = args ? args.releaseVersion : undefined;
@@ -179,7 +253,7 @@ export class NodeGroup extends pulumi.CustomResource {
  */
 export interface NodeGroupState {
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
+     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
      */
     readonly amiType?: pulumi.Input<string>;
     /**
@@ -195,13 +269,21 @@ export interface NodeGroupState {
      */
     readonly diskSize?: pulumi.Input<number>;
     /**
+     * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+     */
+    readonly forceUpdateVersion?: pulumi.Input<boolean>;
+    /**
      * Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
      */
     readonly instanceTypes?: pulumi.Input<string>;
     /**
-     * Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+     * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
     readonly labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block with Launch Template settings. Detailed below.
+     */
+    readonly launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
      * Name of the EKS Node Group.
      */
@@ -237,10 +319,7 @@ export interface NodeGroupState {
     /**
      * Key-value mapping of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
-    /**
-     * Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
-     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly version?: pulumi.Input<string>;
 }
 
@@ -249,7 +328,7 @@ export interface NodeGroupState {
  */
 export interface NodeGroupArgs {
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
+     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
      */
     readonly amiType?: pulumi.Input<string>;
     /**
@@ -261,13 +340,21 @@ export interface NodeGroupArgs {
      */
     readonly diskSize?: pulumi.Input<number>;
     /**
+     * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+     */
+    readonly forceUpdateVersion?: pulumi.Input<boolean>;
+    /**
      * Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
      */
     readonly instanceTypes?: pulumi.Input<string>;
     /**
-     * Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+     * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
     readonly labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block with Launch Template settings. Detailed below.
+     */
+    readonly launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
      * Name of the EKS Node Group.
      */
@@ -295,9 +382,6 @@ export interface NodeGroupArgs {
     /**
      * Key-value mapping of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
-    /**
-     * Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
-     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly version?: pulumi.Input<string>;
 }

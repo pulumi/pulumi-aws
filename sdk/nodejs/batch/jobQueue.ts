@@ -2,32 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Batch Job Queue resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testQueue = new aws.batch.JobQueue("testQueue", {
- *     computeEnvironments: [
- *         aws_batch_compute_environment_test_environment_1.arn,
- *         aws_batch_compute_environment_test_environment_2.arn,
- *     ],
- *     priority: 1,
  *     state: "ENABLED",
+ *     priority: 1,
+ *     computeEnvironments: [
+ *         aws_batch_compute_environment.test_environment_1.arn,
+ *         aws_batch_compute_environment.test_environment_2.arn,
+ *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_job_queue.html.markdown.
  */
 export class JobQueue extends pulumi.CustomResource {
     /**
@@ -37,6 +31,7 @@ export class JobQueue extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: JobQueueState, opts?: pulumi.CustomResourceOptions): JobQueue {
         return new JobQueue(name, <any>state, { ...opts, id: id });
@@ -80,6 +75,10 @@ export class JobQueue extends pulumi.CustomResource {
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
     public readonly state!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a JobQueue resource with the given unique name, arguments, and options.
@@ -98,6 +97,7 @@ export class JobQueue extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["state"] = state ? state.state : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as JobQueueArgs | undefined;
             if (!args || args.computeEnvironments === undefined) {
@@ -113,6 +113,7 @@ export class JobQueue extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["state"] = args ? args.state : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -154,6 +155,10 @@ export interface JobQueueState {
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
     readonly state?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -180,4 +185,8 @@ export interface JobQueueArgs {
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
     readonly state: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

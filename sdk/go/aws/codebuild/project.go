@@ -7,10 +7,10 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a CodeBuild Project resource. See also the [`codebuild.Webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
+// Provides a CodeBuild Project resource. See also the `codebuild.Webhook` resource, which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
 type Project struct {
 	pulumi.CustomResourceState
 
@@ -48,8 +48,8 @@ type Project struct {
 	Source ProjectSourceOutput `pulumi:"source"`
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrOutput `pulumi:"sourceVersion"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig ProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
@@ -128,8 +128,8 @@ type projectState struct {
 	Source *ProjectSource `pulumi:"source"`
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
 }
@@ -169,8 +169,8 @@ type ProjectState struct {
 	Source ProjectSourcePtrInput
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig ProjectVpcConfigPtrInput
 }
@@ -210,8 +210,8 @@ type projectArgs struct {
 	Source ProjectSource `pulumi:"source"`
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
 }
@@ -248,8 +248,8 @@ type ProjectArgs struct {
 	Source ProjectSourceInput
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig ProjectVpcConfigPtrInput
 }

@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM user. By using this data source, you can reference IAM user
-        /// properties without having to hard code ARNs or unique IDs as input.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_user.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetUser.InvokeAsync() instead")]
-        public static Task<GetUserResult> GetUser(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:iam/getUser:getUser", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetUser
     {
         /// <summary>
@@ -31,13 +16,33 @@ namespace Pulumi.Aws.Iam
         /// IAM user. By using this data source, you can reference IAM user
         /// properties without having to hard code ARNs or unique IDs as input.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_user.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Iam.GetUser.InvokeAsync(new Aws.Iam.GetUserArgs
+        ///         {
+        ///             UserName = "an_example_user_name",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:iam/getUser:getUser", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:iam/getUser:getUser", args ?? new GetUserArgs(), options.WithVersion());
     }
+
 
     public sealed class GetUserArgs : Pulumi.InvokeArgs
     {
@@ -52,6 +57,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
+
     [OutputType]
     public sealed class GetUserResult
     {
@@ -59,6 +65,10 @@ namespace Pulumi.Aws.Iam
         /// The Amazon Resource Name (ARN) assigned by AWS for this user.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Path in which this user was created.
         /// </summary>
@@ -75,26 +85,27 @@ namespace Pulumi.Aws.Iam
         /// The name associated to this User
         /// </summary>
         public readonly string UserName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetUserResult(
             string arn,
+
+            string id,
+
             string path,
+
             string permissionsBoundary,
+
             string userId,
-            string userName,
-            string id)
+
+            string userName)
         {
             Arn = arn;
+            Id = id;
             Path = path;
             PermissionsBoundary = permissionsBoundary;
             UserId = userId;
             UserName = userName;
-            Id = id;
         }
     }
 }

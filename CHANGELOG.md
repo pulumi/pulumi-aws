@@ -2,9 +2,197 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v3.15.0 of the AWS Terraform Provider
+* Add support for autonaming RDS Aurora Clusters
 
 ---
+
+## 3.12.2 (2020-11-12)
+* Add support for the autonaming of MSK Clusters
+
+## 3.12.1 (2020-11-06)
+* Upgrade to v3.14.1 of the AWS Terraform Provider
+
+## 3.12.0 (2020-11-06)
+* Upgrade to v3.14.0 of the AWS Terraform Provider
+
+## 3.11.1 (2020-11-05)
+* Upgrade to pulumi-terraform-bridge v2.12.1
+
+## 3.11.0 (2020-10-30)
+* Upgrade to v3.13.0 of the AWS Terraform Provider
+* Add enum values for `aws.iam.ManagedPolicy`: `AmazonSSMAutomationApproverAccess`, `AmazonSSMDirectoryServiceAccess`, `AmazonSSMPatchAssociation`
+
+## 3.10.1 (2020-10-28)
+* Ensure `aws.lex.BotAlias`, `aws.lex.Bot`, `aws.lex.Intent` and `aws.lex.SlotType` have autonaming rules in place that adhere to AWS requirements
+* Add missing enum values for `aws.autoscaling.Group` `EnabledMetrics`
+* Add enum value for `aws.iam.ManagedPolicy` `AWSLambdaSQSQueueExecutionRole`
+
+## 3.10.0 (2020-10-26)
+* Upgrade to v3.12.0 of the AWS Terraform Provider
+
+## 3.9.0 (2020-10-23)
+* Upgrade to Pulumi v2.12.0 and pulumi-terraform-bridge v2.11.0
+* Improving the accuracy of previews leading to a more accurate understanding of what will actually change rather than assuming all output properties will change.  
+  ** PLEASE NOTE:**  
+  This new preview functionality can be disabled by setting `PULUMI_DISABLE_PROVIDER_PREVIEW` to `1` or `false`.
+
+## 3.8.0 (2020-10-16)
+* Upgrade to v3.11.0 of the AWS Terraform Provider
+
+## 3.7.0 (2020-10-14)
+* Upgrade to v3.10.0 of the AWS Terraform Provider
+* Disable autonaming on `directoryservice.Directory` as the `name` needs to be a fully qualified name for the directory
+* Schematize enums, generate new constants and update existing constants for Nodejs. [#1151](https://github.com/pulumi/pulumi-aws/pull/1151)
+* Upgrade to pulumi-terraform-bridge v2.11.0
+
+## 3.6.1 (2020-10-08)
+* Upgrade to pulumi-terraform-bridge v2.10.4 which fixes a regression in how config values are passed to the provider
+
+## 3.6.0 (2020-10-07)
+* Upgrade to v3.9.0 of the AWS Terraform Provider
+* Upgrade to pulumi-terraform-bridge v2.10.2
+* Upgrade to Pulumi v2.10.2
+
+## 3.5.0 (2020-09-25)
+* Upgrade to v3.8.0 of the AWS Terraform Provider
+* Ensure default values for codebuild project are the correct schema type
+
+## 3.4.0 (2020-09-21)
+* Upgrade to v3.7.0 of the AWS Terraform Provider
+
+## 3.3.0 (2020-09-19)
+* Add gov regions for east (us-gov-east-1) and west (us-gov-west-1)
+* Enforce `appsync.DataSource` to adhere to AWS naming conventions of not using `-` in names.
+* Upgrade to pulumi-terraform-bridge v2.9.2
+* Upgrade to Pulumi v2.10.1
+* Upgrade to v3.6.0 of the AWS Terraform Provider
+
+## 3.2.1 (2020-08-26)
+* Upgrade to pulumi-terraform-bridge v2.7.3
+
+## 3.2.0 (2020-08-24)
+* Upgrade to pulumi-terraform-bridge v2.7.0
+* Upgrade to Pulumi v2.9.0, which adds type annotations and input/output classes to Python
+
+## 3.1.0 (2020-08-12)
+* Upgrade to v3.1.0 of the AWS Terraform Provider
+* Relax naming restrictions on `elasticache.ReplicationGroup` `replicationGroupId` to allow 40 characters as per
+  [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)
+
+## 3.0.0 (2020-08-11)
+* Upgrade to v3.0.0 of the AWS Terraform Provider  
+  **Please Note:**
+  * A number of `deprecated` properties on resources have been removed. You can check the full list in the
+  [upstream CHANGELOG](https://github.com/pulumi/terraform-provider-aws/blob/upstream-v3.0.0/CHANGELOG.md#300-july-31-2020)
+  * Some of the v3.0.0 highlights:
+    * Improved Credential Ordering
+    * Major changes to the `aws.acm.Certificate` to fix a number of issues regarding perpetual diffs of propertes
+    * Enabling drift detection of `loadBalancers` and `targetGroupArns` in `aws.autoscaling.Group`
+* Add ManagedPolicies.AWSXRayDaemonWriteAccess
+* Upgrade to pulumi-terraform-bridge v2.6.0
+* Upgrade to Pulumi v2.7.1
+
+## 2.13.1 (2020-07-22)
+* Update `aws.Tags` interface to reflect changes from version `2.10.0`
+
+## 2.13.0 (2020-07-10)
+* Upgrade to v2.70.0 of the AWS Terraform Provider
+
+## 2.12.0 (2020-07-06)
+* Upgrade to v2.69.0 of the AWS Terraform Provider  
+  ** Please Note the following **
+  * `ec2.CustomerGateway.bgpAsn` has changed from an `int` to `string` to allow 4-byte ASNs
+* Add `C5A` instance type family to `aws.ec2.InstanceTypes`.
+* Add the ability to specify aws.queue.QueuePolicy `policy` as iam.PolicyDocument
+
+## 2.11.0 (2020-06-26)
+* Upgrade to v2.68.0 of the AWS Terraform Provider
+
+## 2.10.1 (2020-06-24)
+* Ensure `autoscaling.Group.Tag` and `autoscaling.Group.Tags` do not panic due to their underlying types in the Terraform schema
+
+## 2.10.0 (2020-06-23)
+* Upgrade to v2.67.0 of the AWS Terraform Provider  
+  ** Please Note the following **
+  * The use of maps when specifying `tags` has changed to be a map that can only contain string values
+  * `apigateway.state.variables` has changed to be a map that can only contain string values
+  * `budgets.budget.costFilters`  has changed to be a map that can only contain string values
+  * `cloudformation.stack.parameters` has been changed to a map  that can only contain string values
+  * `cloudwatch.metricAlarm.dimensions`  has changed to be a map that can only contain string values
+  * `cognito.identityProvider.providerDetails`  has changed to be a map that can only contain string values
+  * `dml.lifecyclePolicy.targetTags`  has changed to be a map that can only contain string values
+  * `elastictranscoder.preset.videoCodecOptions`  has changed to be a map that can only contain string values
+  * `elasticsearch.domain.advancedOptions`  has changed to be a map that can only contain string values
+  * `glue.connection.connectionProperties`  has changed to be a map that can only contain string values
+  * `glue.job.defaultArguments`  has changed to be a map that can only contain string values
+  * `iot.thing.attributes`  has changed to be a map that can only contain string values
+  * `lb.listener.*.authenticationRequestExtraParams`  has changed to be a map that can only contain string values
+  * `lb.listenerRule.*.authenticationRequestExtraParams`  has changed to be a map that can only contain string values
+  * `sagemaker.model.*.environment`  has changed to be a map that can only contain string values
+  * `ec2.spotInstanceRequest.*.volumeTags`  has changed to be a map that can only contain string values
+  * `ssm.association.parameters`  has changed to be a map that can only contain string values
+
+## 2.9.1 (2020-06-16)
+* Adding support for EFS configuration in AWS Lambda Functions
+
+## 2.9.0 (2020-06-12)
+* Upgrade to v2.66.0 of the AWS Terraform Provider
+
+## 2.8.0 (2020-06-05)
+* Upgrade to v2.65.0 of the AWS Terraform Provider
+
+## 2.7.0 (2020-06-02)
+* Upgrade to v2.64.0 of the AWS Terraform Provider
+
+## 2.6.1 (2020-05-28)
+* Upgrade to Pulumi v2.3.0
+* Upgrade to pulumi-terraform-bridge v2.4.0
+
+## 2.6.0 (2020-05-22)
+* Upgrade to pulumi-terraform-bridge v2.3.3
+* Add ManagedPolicies.AmazonRDSDataFullAccess
+* Add ManagedPolicies.AmazonSSMManagedInstanceCore
+* Add ManagedPolicies.AWSCodeDeployRoleForECS
+* Upgrade to v2.63.0 of the AWS Terraform Provider
+
+## 2.5.0 (2020-05-19)
+* Upgrade to v2.62.0 of the AWS Terraform Provider
+
+## 2.4.0 (2020-05-11)
+* Upgrade to pulumi-terraform-bridge v2.3.1
+* Upgrade to v2.61.0 of the AWS Terraform Provider  
+  ** Please Note: **
+  * `aws.ssm.Document` `permissions` has changed to be a map
+  * `aws.cognito.IdentityPoolRoleAttachment` `roles` has changed to be a map
+
+## 2.3.0 (2020-05-04)
+* Upgrade to pulumi-terraform-bridge v2.2.0
+* Add new region Milan eu-south-1
+* Upgrade to v2.60.0 of the AWS Terraform Provider
+
+## 2.2.0 (2020-04-29)
+* Add new region South Africa (Cape Town) af-south-1
+* Add ManagedPolicies.AmazonEC2SpotFleetTaggingRole
+* Add Principals.BatchPrincipal
+* Add Principals.SpotFleetPrincipal
+* Switch deprecated Buffer constructor to Buffer.from in LogGroup.onDecodedEvent
+* Update `dynamodb.TableEventSubscriptionArgs` to include latest Lambda Event Source Mapping parameters
+* Update `kinesis.TableEventSubscriptionArgs` to include latest Lambda Event Source Mapping parameters
+* Upgrade to pulumi-terraform-bridge v2.1.0
+* Regenerate datasource examples to be async
+
+## 2.1.0 (2020-04-20)
+* Remove deprecated IAM Policy types and ec2 InstanceTypes
+* Upgrade to v2.58.0 of the AWS Terraform Provider
+
+## 2.0.0 (2020-04-16)
+* Upgrade to v2.0.0 of Pulumi
+* Upgrade to v2.0.0 of pulumi-terraform-bridge
+
+## 1.31.0 (2020-04-13)
+* Add support for DotNet 3.1 Lambda Runtime
+* Upgrade to v2.57.0 of the AWS Terraform Provider
 
 ## 1.30.0 (2020-04-03)
 * Upgrade to v2.56.0 of the AWS Terraform Provider
@@ -30,7 +218,7 @@ _(none)_
 ## 1.25.0 (2020-03-09)
 * Upgrade to v2.52.0 of the AWS Terraform Provider
 * Ensure that resource types are primitive types and move any
-  existing direct type references to be AltTypes 
+  existing direct type references to be AltTypes
 
 ## 1.24.0 (2020-03-03)
 * Upgrade to v2.51.0 of the AWS Terraform Provider
@@ -63,7 +251,7 @@ _(none)_
 * Upgrade to v2.44.0 of the AWS Terraform Provider
 
 ## 1.17.0 (2019-12-19)
-* Default Lambda NodeJS usage to Node JS 12.x  
+* Default Lambda NodeJS usage to Node JS 12.x
   **Please Note:** Existing lambdas will stay on their specified version. Users need to explicitly create a replacement to move them
 * Autoname the `nodeGroupName` property of `aws.eks.NodeGroup`
 * Upgrade to v2.43.0 of the AWS Terraform Provider

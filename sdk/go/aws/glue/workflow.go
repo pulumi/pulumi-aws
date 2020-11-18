@@ -6,21 +6,80 @@ package glue
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Glue Workflow resource.
 // The workflow graph (DAG) can be build using the `glue.Trigger` resource.
 // See the example below for creating a graph with four nodes (two triggers and two jobs).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := glue.NewWorkflow(ctx, "example", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = glue.NewTrigger(ctx, "example_start", &glue.TriggerArgs{
+// 			Type:         pulumi.String("ON_DEMAND"),
+// 			WorkflowName: example.Name,
+// 			Actions: glue.TriggerActionArray{
+// 				&glue.TriggerActionArgs{
+// 					JobName: pulumi.String("example-job"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = glue.NewTrigger(ctx, "example_inner", &glue.TriggerArgs{
+// 			Type:         pulumi.String("CONDITIONAL"),
+// 			WorkflowName: example.Name,
+// 			Predicate: &glue.TriggerPredicateArgs{
+// 				Conditions: glue.TriggerPredicateConditionArray{
+// 					&glue.TriggerPredicateConditionArgs{
+// 						JobName: pulumi.String("example-job"),
+// 						State:   pulumi.String("SUCCEEDED"),
+// 					},
+// 				},
+// 			},
+// 			Actions: glue.TriggerActionArray{
+// 				&glue.TriggerActionArgs{
+// 					JobName: pulumi.String("another-example-job"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Workflow struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of Glue Workflow
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
 	DefaultRunProperties pulumi.MapOutput `pulumi:"defaultRunProperties"`
 	// Description of the workflow.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+	MaxConcurrentRuns pulumi.IntPtrOutput `pulumi:"maxConcurrentRuns"`
 	// The name you assign to this workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -51,21 +110,33 @@ func GetWorkflow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
+	// Amazon Resource Name (ARN) of Glue Workflow
+	Arn *string `pulumi:"arn"`
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
 	DefaultRunProperties map[string]interface{} `pulumi:"defaultRunProperties"`
 	// Description of the workflow.
 	Description *string `pulumi:"description"`
+	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+	MaxConcurrentRuns *int `pulumi:"maxConcurrentRuns"`
 	// The name you assign to this workflow.
 	Name *string `pulumi:"name"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type WorkflowState struct {
+	// Amazon Resource Name (ARN) of Glue Workflow
+	Arn pulumi.StringPtrInput
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
 	DefaultRunProperties pulumi.MapInput
 	// Description of the workflow.
 	Description pulumi.StringPtrInput
+	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+	MaxConcurrentRuns pulumi.IntPtrInput
 	// The name you assign to this workflow.
 	Name pulumi.StringPtrInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (WorkflowState) ElementType() reflect.Type {
@@ -77,8 +148,12 @@ type workflowArgs struct {
 	DefaultRunProperties map[string]interface{} `pulumi:"defaultRunProperties"`
 	// Description of the workflow.
 	Description *string `pulumi:"description"`
+	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+	MaxConcurrentRuns *int `pulumi:"maxConcurrentRuns"`
 	// The name you assign to this workflow.
 	Name *string `pulumi:"name"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workflow resource.
@@ -87,8 +162,12 @@ type WorkflowArgs struct {
 	DefaultRunProperties pulumi.MapInput
 	// Description of the workflow.
 	Description pulumi.StringPtrInput
+	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+	MaxConcurrentRuns pulumi.IntPtrInput
 	// The name you assign to this workflow.
 	Name pulumi.StringPtrInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {

@@ -6,25 +6,104 @@ package elasticache
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
 // For working with Redis (Cluster Mode Enabled) replication groups, see the
-// [`elasticache.ReplicationGroup` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group.html).
+// `elasticache.ReplicationGroup` resource.
 //
 // > **Note:** When you change an attribute, such as `nodeType`, by default
 // it is applied in the next maintenance window. Because of this, this provider may report
 // a difference in its planning phase because the actual modification has not yet taken
 // place. You can use the `applyImmediately` flag to instruct the service to apply the
 // change immediately. Using `applyImmediately` can result in a brief downtime as the server reboots.
-// See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
+// See the AWS Docs on [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Modify.html) for more information.
+//
+// ## Example Usage
+// ### Memcached Cluster
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
+// 			Engine:             pulumi.String("memcached"),
+// 			NodeType:           pulumi.String("cache.m4.large"),
+// 			NumCacheNodes:      pulumi.Int(2),
+// 			ParameterGroupName: pulumi.String("default.memcached1.4"),
+// 			Port:               pulumi.Int(11211),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Redis Instance
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
+// 			Engine:             pulumi.String("redis"),
+// 			EngineVersion:      pulumi.String("3.2.10"),
+// 			NodeType:           pulumi.String("cache.m4.large"),
+// 			NumCacheNodes:      pulumi.Int(1),
+// 			ParameterGroupName: pulumi.String("default.redis3.2"),
+// 			Port:               pulumi.Int(6379),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Redis Cluster Mode Disabled Read Replica Instance
+//
+// These inherit their settings from the replication group.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := elasticache.NewCluster(ctx, "replica", &elasticache.ClusterArgs{
+// 			ReplicationGroupId: pulumi.Any(aws_elasticache_replication_group.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
+	// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
 	// (Available since v0.6.0)
 	ApplyImmediately pulumi.BoolOutput   `pulumi:"applyImmediately"`
 	Arn              pulumi.StringOutput `pulumi:"arn"`
@@ -99,8 +178,8 @@ type Cluster struct {
 	// Name of the subnet group to be used
 	// for the cache cluster.
 	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -133,7 +212,7 @@ func GetCluster(ctx *pulumi.Context,
 type clusterState struct {
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
+	// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
 	// (Available since v0.6.0)
 	ApplyImmediately *bool   `pulumi:"applyImmediately"`
 	Arn              *string `pulumi:"arn"`
@@ -208,14 +287,14 @@ type clusterState struct {
 	// Name of the subnet group to be used
 	// for the cache cluster.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ClusterState struct {
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
+	// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
 	// (Available since v0.6.0)
 	ApplyImmediately pulumi.BoolPtrInput
 	Arn              pulumi.StringPtrInput
@@ -290,8 +369,8 @@ type ClusterState struct {
 	// Name of the subnet group to be used
 	// for the cache cluster.
 	SubnetGroupName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -301,7 +380,7 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
+	// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
 	// (Available since v0.6.0)
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
@@ -368,15 +447,15 @@ type clusterArgs struct {
 	// Name of the subnet group to be used
 	// for the cache cluster.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
+	// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
 	// (Available since v0.6.0)
 	ApplyImmediately pulumi.BoolPtrInput
 	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
@@ -443,8 +522,8 @@ type ClusterArgs struct {
 	// Name of the subnet group to be used
 	// for the cache cluster.
 	SubnetGroupName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

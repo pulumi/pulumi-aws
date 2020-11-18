@@ -2,36 +2,35 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The CloudFormation Stack data source allows access to stack
  * outputs and other useful data including the template body.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const network = aws.cloudformation.getStack({
  *     name: "my-network-stack",
  * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-abb07bcb",
- *     instanceType: "t1.micro",
- *     subnetId: network.outputs["SubnetId"],
+ *     instanceType: "t2.micro",
+ *     subnetId: network.then(network => network.outputs.SubnetId),
  *     tags: {
  *         Name: "HelloWorld",
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_stack.html.markdown.
  */
-export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> & GetStackResult {
+export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> {
     if (!opts) {
         opts = {}
     }
@@ -39,12 +38,10 @@ export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetStackResult> = pulumi.runtime.invoke("aws:cloudformation/getStack:getStack", {
+    return pulumi.runtime.invoke("aws:cloudformation/getStack:getStack", {
         "name": args.name,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -58,7 +55,7 @@ export interface GetStackArgs {
     /**
      * A map of tags associated with this stack.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -81,6 +78,10 @@ export interface GetStackResult {
      * The ARN of the IAM role used to create the stack.
      */
     readonly iamRoleArn: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * A list of SNS topic ARNs to publish stack related events
@@ -89,15 +90,15 @@ export interface GetStackResult {
     /**
      * A map of outputs from the stack.
      */
-    readonly outputs: {[key: string]: any};
+    readonly outputs: {[key: string]: string};
     /**
      * A map of parameters that specify input parameters for the stack.
      */
-    readonly parameters: {[key: string]: any};
+    readonly parameters: {[key: string]: string};
     /**
      * A map of tags associated with this stack.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * Structure containing the template body.
      */
@@ -106,8 +107,4 @@ export interface GetStackResult {
      * The amount of time that can pass before the stack status becomes `CREATE_FAILED`
      */
     readonly timeoutInMinutes: number;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

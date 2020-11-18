@@ -4,7 +4,7 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `ec2.Vpc` provides details about a specific VPC.
@@ -37,9 +37,9 @@ type LookupVpcArgs struct {
 	// The current state of the desired VPC.
 	// Can be either `"pending"` or `"available"`.
 	State *string `pulumi:"state"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired VPC.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpc.
@@ -69,6 +69,6 @@ type LookupVpcResult struct {
 	// The ID of the AWS account that owns the VPC.
 	OwnerId string `pulumi:"ownerId"`
 	// The State of the association.
-	State string                 `pulumi:"state"`
-	Tags  map[string]interface{} `pulumi:"tags"`
+	State string            `pulumi:"state"`
+	Tags  map[string]string `pulumi:"tags"`
 }

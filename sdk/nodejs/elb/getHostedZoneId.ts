@@ -4,36 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
  * in a given region for the purpose of using in an AWS Route53 Alias.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const main = aws.elb.getHostedZoneId();
+ *
+ * const main = aws.elb.getHostedZoneId({});
  * const www = new aws.route53.Record("www", {
- *     aliases: [{
- *         evaluateTargetHealth: true,
- *         name: aws_elb_main.dnsName,
- *         zoneId: main.id,
- *     }],
+ *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "example.com",
  *     type: "A",
- *     zoneId: aws_route53_zone_primary.zoneId,
+ *     aliases: [{
+ *         name: aws_elb.main.dns_name,
+ *         zoneId: main.then(main => main.id),
+ *         evaluateTargetHealth: true,
+ *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id.html.markdown.
  */
-export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> & GetHostedZoneIdResult {
+export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -42,11 +39,9 @@ export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.Invoke
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetHostedZoneIdResult> = pulumi.runtime.invoke("aws:elb/getHostedZoneId:getHostedZoneId", {
+    return pulumi.runtime.invoke("aws:elb/getHostedZoneId:getHostedZoneId", {
         "region": args.region,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -64,9 +59,9 @@ export interface GetHostedZoneIdArgs {
  * A collection of values returned by getHostedZoneId.
  */
 export interface GetHostedZoneIdResult {
-    readonly region?: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region?: string;
 }

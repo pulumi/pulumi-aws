@@ -12,13 +12,35 @@ namespace Pulumi.Aws.Lambda
     /// <summary>
     /// Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
     /// 
-    /// For information about Lambda Layers and how to use them, see [AWS Lambda Layers][1]
+    /// For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var lambdaLayer = new Aws.Lambda.LayerVersion("lambdaLayer", new Aws.Lambda.LayerVersionArgs
+    ///         {
+    ///             CompatibleRuntimes = 
+    ///             {
+    ///                 "nodejs12.x",
+    ///             },
+    ///             Code = new FileArchive("lambda_layer_payload.zip"),
+    ///             LayerName = "lambda_layer_name",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Specifying the Deployment Package
     /// 
     /// AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
-    /// See [Runtimes][2] for the valid values of `compatible_runtimes`.
+    /// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
     /// 
     /// Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
     /// indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
@@ -26,8 +48,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
     /// large files efficiently.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_layer_version.html.markdown.
     /// </summary>
     public partial class LayerVersion : Pulumi.CustomResource
     {
@@ -38,7 +58,13 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        /// </summary>
+        [Output("code")]
+        public Output<Archive?> Code { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         /// </summary>
         [Output("compatibleRuntimes")]
         public Output<ImmutableArray<string>> CompatibleRuntimes { get; private set; } = null!;
@@ -56,12 +82,6 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        /// </summary>
-        [Output("code")]
-        public Output<Archive?> Code { get; private set; } = null!;
-
-        /// <summary>
         /// The Amazon Resource Name (ARN) of the Lambda Layer without version.
         /// </summary>
         [Output("layerArn")]
@@ -74,7 +94,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> LayerName { get; private set; } = null!;
 
         /// <summary>
-        /// License info for your Lambda Layer. See [License Info][3].
+        /// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         /// </summary>
         [Output("licenseInfo")]
         public Output<string?> LicenseInfo { get; private set; } = null!;
@@ -124,7 +144,7 @@ namespace Pulumi.Aws.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LayerVersion(string name, LayerVersionArgs args, CustomResourceOptions? options = null)
-            : base("aws:lambda/layerVersion:LayerVersion", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:lambda/layerVersion:LayerVersion", name, args ?? new LayerVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -161,11 +181,17 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class LayerVersionArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        /// </summary>
+        [Input("code")]
+        public Input<Archive>? Code { get; set; }
+
         [Input("compatibleRuntimes")]
         private InputList<string>? _compatibleRuntimes;
 
         /// <summary>
-        /// A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
+        /// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         /// </summary>
         public InputList<string> CompatibleRuntimes
         {
@@ -180,19 +206,13 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        /// </summary>
-        [Input("code")]
-        public Input<Archive>? Code { get; set; }
-
-        /// <summary>
         /// A unique name for your Lambda Layer
         /// </summary>
         [Input("layerName", required: true)]
         public Input<string> LayerName { get; set; } = null!;
 
         /// <summary>
-        /// License info for your Lambda Layer. See [License Info][3].
+        /// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         /// </summary>
         [Input("licenseInfo")]
         public Input<string>? LicenseInfo { get; set; }
@@ -234,11 +254,17 @@ namespace Pulumi.Aws.Lambda
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        /// </summary>
+        [Input("code")]
+        public Input<Archive>? Code { get; set; }
+
         [Input("compatibleRuntimes")]
         private InputList<string>? _compatibleRuntimes;
 
         /// <summary>
-        /// A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
+        /// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         /// </summary>
         public InputList<string> CompatibleRuntimes
         {
@@ -259,12 +285,6 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        /// </summary>
-        [Input("code")]
-        public Input<Archive>? Code { get; set; }
-
-        /// <summary>
         /// The Amazon Resource Name (ARN) of the Lambda Layer without version.
         /// </summary>
         [Input("layerArn")]
@@ -277,7 +297,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? LayerName { get; set; }
 
         /// <summary>
-        /// License info for your Lambda Layer. See [License Info][3].
+        /// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         /// </summary>
         [Input("licenseInfo")]
         public Input<string>? LicenseInfo { get; set; }

@@ -4,13 +4,115 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages AWS Managed Streaming for Kafka cluster
- * 
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_cluster.html.markdown.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const vpc = new aws.ec2.Vpc("vpc", {cidrBlock: "192.168.0.0/22"});
+ * const azs = aws.getAvailabilityZones({
+ *     state: "available",
+ * });
+ * const subnetAz1 = new aws.ec2.Subnet("subnetAz1", {
+ *     availabilityZone: azs.then(azs => azs.names[0]),
+ *     cidrBlock: "192.168.0.0/24",
+ *     vpcId: vpc.id,
+ * });
+ * const subnetAz2 = new aws.ec2.Subnet("subnetAz2", {
+ *     availabilityZone: azs.then(azs => azs.names[1]),
+ *     cidrBlock: "192.168.1.0/24",
+ *     vpcId: vpc.id,
+ * });
+ * const subnetAz3 = new aws.ec2.Subnet("subnetAz3", {
+ *     availabilityZone: azs.then(azs => azs.names[2]),
+ *     cidrBlock: "192.168.2.0/24",
+ *     vpcId: vpc.id,
+ * });
+ * const sg = new aws.ec2.SecurityGroup("sg", {vpcId: vpc.id});
+ * const kms = new aws.kms.Key("kms", {description: "example"});
+ * const test = new aws.cloudwatch.LogGroup("test", {});
+ * const bucket = new aws.s3.Bucket("bucket", {acl: "private"});
+ * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: `{
+ * "Version": "2012-10-17",
+ * "Statement": [
+ *   {
+ *     "Action": "sts:AssumeRole",
+ *     "Principal": {
+ *       "Service": "firehose.amazonaws.com"
+ *     },
+ *     "Effect": "Allow",
+ *     "Sid": ""
+ *   }
+ *   ]
+ * }
+ * `});
+ * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
+ *     destination: "s3",
+ *     s3Configuration: {
+ *         roleArn: firehoseRole.arn,
+ *         bucketArn: bucket.arn,
+ *     },
+ *     tags: {
+ *         LogDeliveryEnabled: "placeholder",
+ *     },
+ * });
+ * const example = new aws.msk.Cluster("example", {
+ *     kafkaVersion: "2.4.1",
+ *     numberOfBrokerNodes: 3,
+ *     brokerNodeGroupInfo: {
+ *         instanceType: "kafka.m5.large",
+ *         ebsVolumeSize: 1000,
+ *         clientSubnets: [
+ *             subnetAz1.id,
+ *             subnetAz2.id,
+ *             subnetAz3.id,
+ *         ],
+ *         securityGroups: [sg.id],
+ *     },
+ *     encryptionInfo: {
+ *         encryptionAtRestKmsKeyArn: kms.arn,
+ *     },
+ *     openMonitoring: {
+ *         prometheus: {
+ *             jmxExporter: {
+ *                 enabledInBroker: true,
+ *             },
+ *             nodeExporter: {
+ *                 enabledInBroker: true,
+ *             },
+ *         },
+ *     },
+ *     loggingInfo: {
+ *         brokerLogs: {
+ *             cloudwatchLogs: {
+ *                 enabled: true,
+ *                 logGroup: test.name,
+ *             },
+ *             firehose: {
+ *                 enabled: true,
+ *                 deliveryStream: testStream.name,
+ *             },
+ *             s3: {
+ *                 enabled: true,
+ *                 bucket: bucket.id,
+ *                 prefix: "logs/msk-",
+ *             },
+ *         },
+ *     },
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * export const zookeeperConnectString = example.zookeeperConnectString;
+ * export const bootstrapBrokersTls = example.bootstrapBrokersTls;
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -20,6 +122,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterState, opts?: pulumi.CustomResourceOptions): Cluster {
         return new Cluster(name, <any>state, { ...opts, id: id });
@@ -44,11 +147,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+     * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
      */
     public /*out*/ readonly bootstrapBrokers!: pulumi.Output<string>;
     /**
-     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
      */
     public /*out*/ readonly bootstrapBrokersTls!: pulumi.Output<string>;
     /**
@@ -97,9 +200,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
      */
@@ -137,9 +240,6 @@ export class Cluster extends pulumi.CustomResource {
             const args = argsOrState as ClusterArgs | undefined;
             if (!args || args.brokerNodeGroupInfo === undefined) {
                 throw new Error("Missing required property 'brokerNodeGroupInfo'");
-            }
-            if (!args || args.clusterName === undefined) {
-                throw new Error("Missing required property 'clusterName'");
             }
             if (!args || args.kafkaVersion === undefined) {
                 throw new Error("Missing required property 'kafkaVersion'");
@@ -184,11 +284,11 @@ export interface ClusterState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+     * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
      */
     readonly bootstrapBrokers?: pulumi.Input<string>;
     /**
-     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
      */
     readonly bootstrapBrokersTls?: pulumi.Input<string>;
     /**
@@ -237,9 +337,9 @@ export interface ClusterState {
      */
     readonly openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
      */
@@ -261,7 +361,7 @@ export interface ClusterArgs {
     /**
      * Name of the MSK cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    readonly clusterName?: pulumi.Input<string>;
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
@@ -291,7 +391,7 @@ export interface ClusterArgs {
      */
     readonly openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

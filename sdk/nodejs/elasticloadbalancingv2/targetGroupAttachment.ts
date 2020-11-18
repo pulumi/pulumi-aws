@@ -2,55 +2,53 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the [`aws.elb.Attachment` resource](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html).
- * 
+ * Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the `aws.elb.Attachment` resource.
+ *
  * > **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testTargetGroup = new aws.lb.TargetGroup("test", {});
- * const testInstance = new aws.ec2.Instance("test", {});
- * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
- *     port: 80,
+ *
+ * const testTargetGroup = new aws.lb.TargetGroup("testTargetGroup", {});
+ * // ... other configuration ...
+ * const testInstance = new aws.ec2.Instance("testInstance", {});
+ * // ... other configuration ...
+ * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("testTargetGroupAttachment", {
  *     targetGroupArn: testTargetGroup.arn,
  *     targetId: testInstance.id,
+ *     port: 80,
  * });
  * ```
- * 
  * ## Usage with lambda
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testTargetGroup = new aws.lb.TargetGroup("test", {
- *     targetType: "lambda",
- * });
- * const testFunction = new aws.lambda.Function("test", {});
+ *
+ * const testTargetGroup = new aws.lb.TargetGroup("testTargetGroup", {targetType: "lambda"});
+ * const testFunction = new aws.lambda.Function("testFunction", {});
+ * // ... other configuration ...
  * const withLb = new aws.lambda.Permission("withLb", {
  *     action: "lambda:InvokeFunction",
- *     function: testFunction.arn,
+ *     "function": testFunction.arn,
  *     principal: "elasticloadbalancing.amazonaws.com",
  *     sourceArn: testTargetGroup.arn,
  * });
- * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
+ * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("testTargetGroupAttachment", {
  *     targetGroupArn: testTargetGroup.arn,
  *     targetId: testFunction.arn,
- * }, {dependsOn: [withLb]});
+ * }, {
+ *     dependsOn: [withLb],
+ * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group_attachment.html.markdown.
+ * @deprecated aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favor of aws.lb.TargetGroupAttachment
  */
 export class TargetGroupAttachment extends pulumi.CustomResource {
     /**
@@ -60,8 +58,10 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TargetGroupAttachmentState, opts?: pulumi.CustomResourceOptions): TargetGroupAttachment {
+        pulumi.log.warn("TargetGroupAttachment is deprecated: aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favor of aws.lb.TargetGroupAttachment")
         return new TargetGroupAttachment(name, <any>state, { ...opts, id: id });
     }
 
@@ -80,7 +80,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The Availability Zone where the IP address of the target is to be registered.
+     * The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
@@ -103,8 +103,11 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favor of aws.lb.TargetGroupAttachment */
     constructor(name: string, args: TargetGroupAttachmentArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favor of aws.lb.TargetGroupAttachment */
     constructor(name: string, argsOrState?: TargetGroupAttachmentArgs | TargetGroupAttachmentState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("TargetGroupAttachment is deprecated: aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favor of aws.lb.TargetGroupAttachment")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TargetGroupAttachmentState | undefined;
@@ -141,7 +144,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
  */
 export interface TargetGroupAttachmentState {
     /**
-     * The Availability Zone where the IP address of the target is to be registered.
+     * The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
@@ -163,7 +166,7 @@ export interface TargetGroupAttachmentState {
  */
 export interface TargetGroupAttachmentArgs {
     /**
-     * The Availability Zone where the IP address of the target is to be registered.
+     * The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**

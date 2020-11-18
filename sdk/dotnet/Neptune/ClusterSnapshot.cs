@@ -12,9 +12,25 @@ namespace Pulumi.Aws.Neptune
     /// <summary>
     /// Manages a Neptune database cluster snapshot.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_snapshot.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Neptune.ClusterSnapshot("example", new Aws.Neptune.ClusterSnapshotArgs
+    ///         {
+    ///             DbClusterIdentifier = aws_neptune_cluster.Example.Id,
+    ///             DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ClusterSnapshot : Pulumi.CustomResource
     {
@@ -111,7 +127,7 @@ namespace Pulumi.Aws.Neptune
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClusterSnapshot(string name, ClusterSnapshotArgs args, CustomResourceOptions? options = null)
-            : base("aws:neptune/clusterSnapshot:ClusterSnapshot", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:neptune/clusterSnapshot:ClusterSnapshot", name, args ?? new ClusterSnapshotArgs(), MakeResourceOptions(options, ""))
         {
         }
 

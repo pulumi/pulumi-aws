@@ -10,11 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
-    /// Manages a RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the [`aws.rds.Snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_snapshot.html).
+    /// Manages an RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the `aws.rds.Snapshot` resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_cluster_snapshot.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Rds.ClusterSnapshot("example", new Aws.Rds.ClusterSnapshotArgs
+    ///         {
+    ///             DbClusterIdentifier = aws_rds_cluster.Example.Id,
+    ///             DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ClusterSnapshot : Pulumi.CustomResource
     {
@@ -97,10 +113,10 @@ namespace Pulumi.Aws.Rds
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the DB cluster.
+        /// A map of tags to assign to the DB cluster.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The VPC ID associated with the DB cluster snapshot.
@@ -117,7 +133,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClusterSnapshot(string name, ClusterSnapshotArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/clusterSnapshot:ClusterSnapshot", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:rds/clusterSnapshot:ClusterSnapshot", name, args ?? new ClusterSnapshotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -167,14 +183,14 @@ namespace Pulumi.Aws.Rds
         public Input<string> DbClusterSnapshotIdentifier { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the DB cluster.
+        /// A map of tags to assign to the DB cluster.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -270,14 +286,14 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? StorageEncrypted { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the DB cluster.
+        /// A map of tags to assign to the DB cluster.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

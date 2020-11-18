@@ -3,5 +3,6 @@
 
 // Export members:
 export * from "./project";
+export * from "./reportGroup";
 export * from "./sourceCredential";
 export * from "./webhook";

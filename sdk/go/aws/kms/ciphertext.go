@@ -7,16 +7,48 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
 // by using an AWS KMS customer master key. The value returned by this resource
 // is stable across every apply. For a changing ciphertext value each apply, see
-// the [`kms.Ciphertext` data source](https://www.terraform.io/docs/providers/aws/d/kms_ciphertext.html).
+// the `kms.Ciphertext` data source.
 //
 // > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/kms"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		oauthConfig, err := kms.NewKey(ctx, "oauthConfig", &kms.KeyArgs{
+// 			Description: pulumi.String("oauth config"),
+// 			IsEnabled:   pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = kms.NewCiphertext(ctx, "oauth", &kms.CiphertextArgs{
+// 			KeyId:     oauthConfig.KeyId,
+// 			Plaintext: pulumi.String(fmt.Sprintf("%v%v%v%v", "{\n", "  \"client_id\": \"e587dbae22222f55da22\",\n", "  \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Ciphertext struct {
 	pulumi.CustomResourceState
 

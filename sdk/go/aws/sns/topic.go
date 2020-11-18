@@ -6,11 +6,78 @@ package sns
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an SNS topic resource
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sns.NewTopic(ctx, "userUpdates", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Example with Delivery Policy
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
+// 			DeliveryPolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"http\": {\n", "    \"defaultHealthyRetryPolicy\": {\n", "      \"minDelayTarget\": 20,\n", "      \"maxDelayTarget\": 20,\n", "      \"numRetries\": 3,\n", "      \"numMaxDelayRetries\": 0,\n", "      \"numNoDelayRetries\": 0,\n", "      \"numMinDelayRetries\": 0,\n", "      \"backoffFunction\": \"linear\"\n", "    },\n", "    \"disableSubscriptionOverrides\": false,\n", "    \"defaultThrottlePolicy\": {\n", "      \"maxReceivesPerSecond\": 1\n", "    }\n", "  }\n", "}\n", "\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Example with Server-side encryption (SSE)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
+// 			KmsMasterKeyId: pulumi.String("alias/aws/sns"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Message Delivery Status Arguments
 //
@@ -56,8 +123,8 @@ type Topic struct {
 	SqsSuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"sqsSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate pulumi.IntPtrOutput `pulumi:"sqsSuccessFeedbackSampleRate"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewTopic registers a new resource with the given unique name, arguments, and options.
@@ -126,8 +193,8 @@ type topicState struct {
 	SqsSuccessFeedbackRoleArn *string `pulumi:"sqsSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate *int `pulumi:"sqsSuccessFeedbackSampleRate"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type TopicState struct {
@@ -169,8 +236,8 @@ type TopicState struct {
 	SqsSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate pulumi.IntPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (TopicState) ElementType() reflect.Type {
@@ -214,8 +281,8 @@ type topicArgs struct {
 	SqsSuccessFeedbackRoleArn *string `pulumi:"sqsSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate *int `pulumi:"sqsSuccessFeedbackSampleRate"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Topic resource.
@@ -256,8 +323,8 @@ type TopicArgs struct {
 	SqsSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate pulumi.IntPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (TopicArgs) ElementType() reflect.Type {

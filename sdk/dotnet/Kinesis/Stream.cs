@@ -13,11 +13,36 @@ namespace Pulumi.Aws.Kinesis
     /// Provides a Kinesis Stream resource. Amazon Kinesis is a managed service that
     /// scales elastically for real-time processing of streaming big data.
     /// 
-    /// For more details, see the [Amazon Kinesis Documentation][1].
+    /// For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_stream.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testStream = new Aws.Kinesis.Stream("testStream", new Aws.Kinesis.StreamArgs
+    ///         {
+    ///             RetentionPeriod = 48,
+    ///             ShardCount = 1,
+    ///             ShardLevelMetrics = 
+    ///             {
+    ///                 "IncomingBytes",
+    ///                 "OutgoingBytes",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "test" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Stream : Pulumi.CustomResource
     {
@@ -59,22 +84,22 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// The number of shards that the stream will use.
-        /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+        /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Output("shardCount")]
         public Output<int> ShardCount { get; private set; } = null!;
 
         /// <summary>
-        /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         /// </summary>
         [Output("shardLevelMetrics")]
         public Output<ImmutableArray<string>> ShardLevelMetrics { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,7 +110,7 @@ namespace Pulumi.Aws.Kinesis
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Stream(string name, StreamArgs args, CustomResourceOptions? options = null)
-            : base("aws:kinesis/stream:Stream", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:kinesis/stream:Stream", name, args ?? new StreamArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -160,7 +185,7 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// The number of shards that the stream will use.
-        /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+        /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Input("shardCount", required: true)]
         public Input<int> ShardCount { get; set; } = null!;
@@ -169,7 +194,7 @@ namespace Pulumi.Aws.Kinesis
         private InputList<string>? _shardLevelMetrics;
 
         /// <summary>
-        /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         /// </summary>
         public InputList<string> ShardLevelMetrics
         {
@@ -178,14 +203,14 @@ namespace Pulumi.Aws.Kinesis
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -234,7 +259,7 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// The number of shards that the stream will use.
-        /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+        /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Input("shardCount")]
         public Input<int>? ShardCount { get; set; }
@@ -243,7 +268,7 @@ namespace Pulumi.Aws.Kinesis
         private InputList<string>? _shardLevelMetrics;
 
         /// <summary>
-        /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         /// </summary>
         public InputList<string> ShardLevelMetrics
         {
@@ -252,14 +277,14 @@ namespace Pulumi.Aws.Kinesis
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

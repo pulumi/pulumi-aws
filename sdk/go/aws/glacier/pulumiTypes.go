@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type VaultNotification struct {
@@ -17,6 +17,10 @@ type VaultNotification struct {
 	SnsTopic string `pulumi:"snsTopic"`
 }
 
+// VaultNotificationInput is an input type that accepts VaultNotificationArgs and VaultNotificationOutput values.
+// You can construct a concrete instance of `VaultNotificationInput` via:
+//
+//          VaultNotificationArgs{...}
 type VaultNotificationInput interface {
 	pulumi.Input
 
@@ -43,6 +47,10 @@ func (i VaultNotificationArgs) ToVaultNotificationOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationOutput)
 }
 
+// VaultNotificationArrayInput is an input type that accepts VaultNotificationArray and VaultNotificationArrayOutput values.
+// You can construct a concrete instance of `VaultNotificationArrayInput` via:
+//
+//          VaultNotificationArray{ VaultNotificationArgs{...} }
 type VaultNotificationArrayInput interface {
 	pulumi.Input
 

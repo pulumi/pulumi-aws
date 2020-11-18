@@ -10,13 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Macie
 {
     /// <summary>
+    /// &gt; **NOTE:** This resource interacts with [Amazon Macie Classic](https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html). Macie Classic cannot be activated in new accounts. See the [FAQ](https://aws.amazon.com/macie/classic-faqs/) for more details.
+    /// 
     /// Associates an S3 resource with Amazon Macie for monitoring and data classification.
     /// 
     /// &gt; **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/macie_s3_bucket_association.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Macie.S3BucketAssociation("example", new Aws.Macie.S3BucketAssociationArgs
+    ///         {
+    ///             BucketName = "tf-macie-example",
+    ///             ClassificationType = new Aws.Macie.Inputs.S3BucketAssociationClassificationTypeArgs
+    ///             {
+    ///                 OneTime = "FULL",
+    ///             },
+    ///             Prefix = "data",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class S3BucketAssociation : Pulumi.CustomResource
     {
@@ -53,7 +75,7 @@ namespace Pulumi.Aws.Macie
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public S3BucketAssociation(string name, S3BucketAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:macie/s3BucketAssociation:S3BucketAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:macie/s3BucketAssociation:S3BucketAssociation", name, args ?? new S3BucketAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -148,79 +170,5 @@ namespace Pulumi.Aws.Macie
         public S3BucketAssociationState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class S3BucketAssociationClassificationTypeArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-        /// The only valid value is the default value, `FULL`.
-        /// </summary>
-        [Input("continuous")]
-        public Input<string>? Continuous { get; set; }
-
-        /// <summary>
-        /// A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-        /// Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-        /// </summary>
-        [Input("oneTime")]
-        public Input<string>? OneTime { get; set; }
-
-        public S3BucketAssociationClassificationTypeArgs()
-        {
-        }
-    }
-
-    public sealed class S3BucketAssociationClassificationTypeGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-        /// The only valid value is the default value, `FULL`.
-        /// </summary>
-        [Input("continuous")]
-        public Input<string>? Continuous { get; set; }
-
-        /// <summary>
-        /// A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-        /// Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-        /// </summary>
-        [Input("oneTime")]
-        public Input<string>? OneTime { get; set; }
-
-        public S3BucketAssociationClassificationTypeGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class S3BucketAssociationClassificationType
-    {
-        /// <summary>
-        /// A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-        /// The only valid value is the default value, `FULL`.
-        /// </summary>
-        public readonly string? Continuous;
-        /// <summary>
-        /// A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-        /// Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-        /// </summary>
-        public readonly string? OneTime;
-
-        [OutputConstructor]
-        private S3BucketAssociationClassificationType(
-            string? continuous,
-            string? oneTime)
-        {
-            Continuous = continuous;
-            OneTime = oneTime;
-        }
-    }
     }
 }

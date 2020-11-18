@@ -12,9 +12,30 @@ namespace Pulumi.Aws.Batch
     /// <summary>
     /// Provides a Batch Job Queue resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_job_queue.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testQueue = new Aws.Batch.JobQueue("testQueue", new Aws.Batch.JobQueueArgs
+    ///         {
+    ///             State = "ENABLED",
+    ///             Priority = 1,
+    ///             ComputeEnvironments = 
+    ///             {
+    ///                 aws_batch_compute_environment.Test_environment_1.Arn,
+    ///                 aws_batch_compute_environment.Test_environment_2.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class JobQueue : Pulumi.CustomResource
     {
@@ -52,6 +73,12 @@ namespace Pulumi.Aws.Batch
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a JobQueue resource with the given unique name, arguments, and options.
@@ -61,7 +88,7 @@ namespace Pulumi.Aws.Batch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobQueue(string name, JobQueueArgs args, CustomResourceOptions? options = null)
-            : base("aws:batch/jobQueue:JobQueue", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:batch/jobQueue:JobQueue", name, args ?? new JobQueueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -132,6 +159,18 @@ namespace Pulumi.Aws.Batch
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public JobQueueArgs()
         {
         }
@@ -178,6 +217,18 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public JobQueueState()
         {

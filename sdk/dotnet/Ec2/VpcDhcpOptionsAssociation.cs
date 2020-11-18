@@ -12,13 +12,29 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a VPC DHCP Options Association resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dnsResolver = new Aws.Ec2.VpcDhcpOptionsAssociation("dnsResolver", new Aws.Ec2.VpcDhcpOptionsAssociationArgs
+    ///         {
+    ///             VpcId = aws_vpc.Foo.Id,
+    ///             DhcpOptionsId = aws_vpc_dhcp_options.Foo.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Remarks
     /// 
     /// * You can only associate one DHCP Options Set to a given VPC ID.
     /// * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_dhcp_options_association.html.markdown.
     /// </summary>
     public partial class VpcDhcpOptionsAssociation : Pulumi.CustomResource
     {
@@ -43,7 +59,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcDhcpOptionsAssociation(string name, VpcDhcpOptionsAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", name, args ?? new VpcDhcpOptionsAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

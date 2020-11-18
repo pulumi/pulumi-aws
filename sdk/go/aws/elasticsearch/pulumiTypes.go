@@ -7,8 +7,350 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
+
+type DomainAdvancedSecurityOptions struct {
+	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+	Enabled bool `pulumi:"enabled"`
+	// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+	InternalUserDatabaseEnabled *bool `pulumi:"internalUserDatabaseEnabled"`
+	// Credentials for the master user: username and password, or ARN
+	MasterUserOptions *DomainAdvancedSecurityOptionsMasterUserOptions `pulumi:"masterUserOptions"`
+}
+
+// DomainAdvancedSecurityOptionsInput is an input type that accepts DomainAdvancedSecurityOptionsArgs and DomainAdvancedSecurityOptionsOutput values.
+// You can construct a concrete instance of `DomainAdvancedSecurityOptionsInput` via:
+//
+//          DomainAdvancedSecurityOptionsArgs{...}
+type DomainAdvancedSecurityOptionsInput interface {
+	pulumi.Input
+
+	ToDomainAdvancedSecurityOptionsOutput() DomainAdvancedSecurityOptionsOutput
+	ToDomainAdvancedSecurityOptionsOutputWithContext(context.Context) DomainAdvancedSecurityOptionsOutput
+}
+
+type DomainAdvancedSecurityOptionsArgs struct {
+	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+	InternalUserDatabaseEnabled pulumi.BoolPtrInput `pulumi:"internalUserDatabaseEnabled"`
+	// Credentials for the master user: username and password, or ARN
+	MasterUserOptions DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput `pulumi:"masterUserOptions"`
+}
+
+func (DomainAdvancedSecurityOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdvancedSecurityOptions)(nil)).Elem()
+}
+
+func (i DomainAdvancedSecurityOptionsArgs) ToDomainAdvancedSecurityOptionsOutput() DomainAdvancedSecurityOptionsOutput {
+	return i.ToDomainAdvancedSecurityOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainAdvancedSecurityOptionsArgs) ToDomainAdvancedSecurityOptionsOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsOutput)
+}
+
+func (i DomainAdvancedSecurityOptionsArgs) ToDomainAdvancedSecurityOptionsPtrOutput() DomainAdvancedSecurityOptionsPtrOutput {
+	return i.ToDomainAdvancedSecurityOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAdvancedSecurityOptionsArgs) ToDomainAdvancedSecurityOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsOutput).ToDomainAdvancedSecurityOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainAdvancedSecurityOptionsPtrInput is an input type that accepts DomainAdvancedSecurityOptionsArgs, DomainAdvancedSecurityOptionsPtr and DomainAdvancedSecurityOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainAdvancedSecurityOptionsPtrInput` via:
+//
+//          DomainAdvancedSecurityOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainAdvancedSecurityOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainAdvancedSecurityOptionsPtrOutput() DomainAdvancedSecurityOptionsPtrOutput
+	ToDomainAdvancedSecurityOptionsPtrOutputWithContext(context.Context) DomainAdvancedSecurityOptionsPtrOutput
+}
+
+type domainAdvancedSecurityOptionsPtrType DomainAdvancedSecurityOptionsArgs
+
+func DomainAdvancedSecurityOptionsPtr(v *DomainAdvancedSecurityOptionsArgs) DomainAdvancedSecurityOptionsPtrInput {
+	return (*domainAdvancedSecurityOptionsPtrType)(v)
+}
+
+func (*domainAdvancedSecurityOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdvancedSecurityOptions)(nil)).Elem()
+}
+
+func (i *domainAdvancedSecurityOptionsPtrType) ToDomainAdvancedSecurityOptionsPtrOutput() DomainAdvancedSecurityOptionsPtrOutput {
+	return i.ToDomainAdvancedSecurityOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAdvancedSecurityOptionsPtrType) ToDomainAdvancedSecurityOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainAdvancedSecurityOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdvancedSecurityOptions)(nil)).Elem()
+}
+
+func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsOutput() DomainAdvancedSecurityOptionsOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsPtrOutput() DomainAdvancedSecurityOptionsPtrOutput {
+	return o.ToDomainAdvancedSecurityOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptions) *DomainAdvancedSecurityOptions {
+		return &v
+	}).(DomainAdvancedSecurityOptionsPtrOutput)
+}
+
+// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+func (o DomainAdvancedSecurityOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+func (o DomainAdvancedSecurityOptionsOutput) InternalUserDatabaseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptions) *bool { return v.InternalUserDatabaseEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Credentials for the master user: username and password, or ARN
+func (o DomainAdvancedSecurityOptionsOutput) MasterUserOptions() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptions) *DomainAdvancedSecurityOptionsMasterUserOptions {
+		return v.MasterUserOptions
+	}).(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAdvancedSecurityOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdvancedSecurityOptions)(nil)).Elem()
+}
+
+func (o DomainAdvancedSecurityOptionsPtrOutput) ToDomainAdvancedSecurityOptionsPtrOutput() DomainAdvancedSecurityOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsPtrOutput) ToDomainAdvancedSecurityOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsPtrOutput) Elem() DomainAdvancedSecurityOptionsOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) DomainAdvancedSecurityOptions { return *v }).(DomainAdvancedSecurityOptionsOutput)
+}
+
+// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+func (o DomainAdvancedSecurityOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+func (o DomainAdvancedSecurityOptionsPtrOutput) InternalUserDatabaseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InternalUserDatabaseEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Credentials for the master user: username and password, or ARN
+func (o DomainAdvancedSecurityOptionsPtrOutput) MasterUserOptions() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) *DomainAdvancedSecurityOptionsMasterUserOptions {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserOptions
+	}).(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsMasterUserOptions struct {
+	// ARN for the master user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`)
+	MasterUserArn *string `pulumi:"masterUserArn"`
+	// The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+	MasterUserName *string `pulumi:"masterUserName"`
+	// The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+	MasterUserPassword *string `pulumi:"masterUserPassword"`
+}
+
+// DomainAdvancedSecurityOptionsMasterUserOptionsInput is an input type that accepts DomainAdvancedSecurityOptionsMasterUserOptionsArgs and DomainAdvancedSecurityOptionsMasterUserOptionsOutput values.
+// You can construct a concrete instance of `DomainAdvancedSecurityOptionsMasterUserOptionsInput` via:
+//
+//          DomainAdvancedSecurityOptionsMasterUserOptionsArgs{...}
+type DomainAdvancedSecurityOptionsMasterUserOptionsInput interface {
+	pulumi.Input
+
+	ToDomainAdvancedSecurityOptionsMasterUserOptionsOutput() DomainAdvancedSecurityOptionsMasterUserOptionsOutput
+	ToDomainAdvancedSecurityOptionsMasterUserOptionsOutputWithContext(context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsOutput
+}
+
+type DomainAdvancedSecurityOptionsMasterUserOptionsArgs struct {
+	// ARN for the master user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`)
+	MasterUserArn pulumi.StringPtrInput `pulumi:"masterUserArn"`
+	// The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+	MasterUserName pulumi.StringPtrInput `pulumi:"masterUserName"`
+	// The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+	MasterUserPassword pulumi.StringPtrInput `pulumi:"masterUserPassword"`
+}
+
+func (DomainAdvancedSecurityOptionsMasterUserOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdvancedSecurityOptionsMasterUserOptions)(nil)).Elem()
+}
+
+func (i DomainAdvancedSecurityOptionsMasterUserOptionsArgs) ToDomainAdvancedSecurityOptionsMasterUserOptionsOutput() DomainAdvancedSecurityOptionsMasterUserOptionsOutput {
+	return i.ToDomainAdvancedSecurityOptionsMasterUserOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainAdvancedSecurityOptionsMasterUserOptionsArgs) ToDomainAdvancedSecurityOptionsMasterUserOptionsOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsMasterUserOptionsOutput)
+}
+
+func (i DomainAdvancedSecurityOptionsMasterUserOptionsArgs) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return i.ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAdvancedSecurityOptionsMasterUserOptionsArgs) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsMasterUserOptionsOutput).ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput is an input type that accepts DomainAdvancedSecurityOptionsMasterUserOptionsArgs, DomainAdvancedSecurityOptionsMasterUserOptionsPtr and DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput` via:
+//
+//          DomainAdvancedSecurityOptionsMasterUserOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput
+	ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput
+}
+
+type domainAdvancedSecurityOptionsMasterUserOptionsPtrType DomainAdvancedSecurityOptionsMasterUserOptionsArgs
+
+func DomainAdvancedSecurityOptionsMasterUserOptionsPtr(v *DomainAdvancedSecurityOptionsMasterUserOptionsArgs) DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput {
+	return (*domainAdvancedSecurityOptionsMasterUserOptionsPtrType)(v)
+}
+
+func (*domainAdvancedSecurityOptionsMasterUserOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdvancedSecurityOptionsMasterUserOptions)(nil)).Elem()
+}
+
+func (i *domainAdvancedSecurityOptionsMasterUserOptionsPtrType) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return i.ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAdvancedSecurityOptionsMasterUserOptionsPtrType) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsMasterUserOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdvancedSecurityOptionsMasterUserOptions)(nil)).Elem()
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsOutput() DomainAdvancedSecurityOptionsMasterUserOptionsOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return o.ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsMasterUserOptions) *DomainAdvancedSecurityOptionsMasterUserOptions {
+		return &v
+	}).(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput)
+}
+
+// ARN for the master user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`)
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) MasterUserArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsMasterUserOptions) *string { return v.MasterUserArn }).(pulumi.StringPtrOutput)
+}
+
+// The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) MasterUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsMasterUserOptions) *string { return v.MasterUserName }).(pulumi.StringPtrOutput)
+}
+
+// The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) MasterUserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsMasterUserOptions) *string { return v.MasterUserPassword }).(pulumi.StringPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdvancedSecurityOptionsMasterUserOptions)(nil)).Elem()
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) Elem() DomainAdvancedSecurityOptionsMasterUserOptionsOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsMasterUserOptions) DomainAdvancedSecurityOptionsMasterUserOptions {
+		return *v
+	}).(DomainAdvancedSecurityOptionsMasterUserOptionsOutput)
+}
+
+// ARN for the master user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`)
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) MasterUserArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsMasterUserOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) MasterUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsMasterUserOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) MasterUserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsMasterUserOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserPassword
+	}).(pulumi.StringPtrOutput)
+}
 
 type DomainClusterConfig struct {
 	// Number of dedicated master nodes in the cluster
@@ -21,12 +363,22 @@ type DomainClusterConfig struct {
 	InstanceCount *int `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
 	InstanceType *string `pulumi:"instanceType"`
+	// The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
+	WarmCount *int `pulumi:"warmCount"`
+	// Indicates whether to enable warm storage.
+	WarmEnabled *bool `pulumi:"warmEnabled"`
+	// The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+	WarmType *string `pulumi:"warmType"`
 	// Configuration block containing zone awareness settings. Documented below.
 	ZoneAwarenessConfig *DomainClusterConfigZoneAwarenessConfig `pulumi:"zoneAwarenessConfig"`
 	// Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
 	ZoneAwarenessEnabled *bool `pulumi:"zoneAwarenessEnabled"`
 }
 
+// DomainClusterConfigInput is an input type that accepts DomainClusterConfigArgs and DomainClusterConfigOutput values.
+// You can construct a concrete instance of `DomainClusterConfigInput` via:
+//
+//          DomainClusterConfigArgs{...}
 type DomainClusterConfigInput interface {
 	pulumi.Input
 
@@ -45,6 +397,12 @@ type DomainClusterConfigArgs struct {
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
+	WarmCount pulumi.IntPtrInput `pulumi:"warmCount"`
+	// Indicates whether to enable warm storage.
+	WarmEnabled pulumi.BoolPtrInput `pulumi:"warmEnabled"`
+	// The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+	WarmType pulumi.StringPtrInput `pulumi:"warmType"`
 	// Configuration block containing zone awareness settings. Documented below.
 	ZoneAwarenessConfig DomainClusterConfigZoneAwarenessConfigPtrInput `pulumi:"zoneAwarenessConfig"`
 	// Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
@@ -71,6 +429,14 @@ func (i DomainClusterConfigArgs) ToDomainClusterConfigPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigOutput).ToDomainClusterConfigPtrOutputWithContext(ctx)
 }
 
+// DomainClusterConfigPtrInput is an input type that accepts DomainClusterConfigArgs, DomainClusterConfigPtr and DomainClusterConfigPtrOutput values.
+// You can construct a concrete instance of `DomainClusterConfigPtrInput` via:
+//
+//          DomainClusterConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type DomainClusterConfigPtrInput interface {
 	pulumi.Input
 
@@ -145,6 +511,21 @@ func (o DomainClusterConfigOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
+func (o DomainClusterConfigOutput) WarmCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfig) *int { return v.WarmCount }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether to enable warm storage.
+func (o DomainClusterConfigOutput) WarmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.WarmEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+func (o DomainClusterConfigOutput) WarmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfig) *string { return v.WarmType }).(pulumi.StringPtrOutput)
+}
+
 // Configuration block containing zone awareness settings. Documented below.
 func (o DomainClusterConfigOutput) ZoneAwarenessConfig() DomainClusterConfigZoneAwarenessConfigPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *DomainClusterConfigZoneAwarenessConfig { return v.ZoneAwarenessConfig }).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
@@ -175,37 +556,102 @@ func (o DomainClusterConfigPtrOutput) Elem() DomainClusterConfigOutput {
 
 // Number of dedicated master nodes in the cluster
 func (o DomainClusterConfigPtrOutput) DedicatedMasterCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *int { return v.DedicatedMasterCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DedicatedMasterCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether dedicated master nodes are enabled for the cluster.
 func (o DomainClusterConfigPtrOutput) DedicatedMasterEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.DedicatedMasterEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DedicatedMasterEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Instance type of the dedicated master nodes in the cluster.
 func (o DomainClusterConfigPtrOutput) DedicatedMasterType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *string { return v.DedicatedMasterType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DedicatedMasterType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Number of instances in the cluster.
 func (o DomainClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // Instance type of data nodes in the cluster.
 func (o DomainClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
+func (o DomainClusterConfigPtrOutput) WarmCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WarmCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether to enable warm storage.
+func (o DomainClusterConfigPtrOutput) WarmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.WarmEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+func (o DomainClusterConfigPtrOutput) WarmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WarmType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Configuration block containing zone awareness settings. Documented below.
 func (o DomainClusterConfigPtrOutput) ZoneAwarenessConfig() DomainClusterConfigZoneAwarenessConfigPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *DomainClusterConfigZoneAwarenessConfig { return v.ZoneAwarenessConfig }).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *DomainClusterConfigZoneAwarenessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ZoneAwarenessConfig
+	}).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
 }
 
 // Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
 func (o DomainClusterConfigPtrOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.ZoneAwarenessEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ZoneAwarenessEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type DomainClusterConfigZoneAwarenessConfig struct {
@@ -213,6 +659,10 @@ type DomainClusterConfigZoneAwarenessConfig struct {
 	AvailabilityZoneCount *int `pulumi:"availabilityZoneCount"`
 }
 
+// DomainClusterConfigZoneAwarenessConfigInput is an input type that accepts DomainClusterConfigZoneAwarenessConfigArgs and DomainClusterConfigZoneAwarenessConfigOutput values.
+// You can construct a concrete instance of `DomainClusterConfigZoneAwarenessConfigInput` via:
+//
+//          DomainClusterConfigZoneAwarenessConfigArgs{...}
 type DomainClusterConfigZoneAwarenessConfigInput interface {
 	pulumi.Input
 
@@ -245,6 +695,14 @@ func (i DomainClusterConfigZoneAwarenessConfigArgs) ToDomainClusterConfigZoneAwa
 	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigZoneAwarenessConfigOutput).ToDomainClusterConfigZoneAwarenessConfigPtrOutputWithContext(ctx)
 }
 
+// DomainClusterConfigZoneAwarenessConfigPtrInput is an input type that accepts DomainClusterConfigZoneAwarenessConfigArgs, DomainClusterConfigZoneAwarenessConfigPtr and DomainClusterConfigZoneAwarenessConfigPtrOutput values.
+// You can construct a concrete instance of `DomainClusterConfigZoneAwarenessConfigPtrInput` via:
+//
+//          DomainClusterConfigZoneAwarenessConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type DomainClusterConfigZoneAwarenessConfigPtrInput interface {
 	pulumi.Input
 
@@ -319,7 +777,12 @@ func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) Elem() DomainClusterCon
 
 // Number of Availability Zones for the domain to use with `zoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
 func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) AvailabilityZoneCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfigZoneAwarenessConfig) *int { return v.AvailabilityZoneCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfigZoneAwarenessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZoneCount
+	}).(pulumi.IntPtrOutput)
 }
 
 type DomainCognitoOptions struct {
@@ -333,6 +796,10 @@ type DomainCognitoOptions struct {
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
+// DomainCognitoOptionsInput is an input type that accepts DomainCognitoOptionsArgs and DomainCognitoOptionsOutput values.
+// You can construct a concrete instance of `DomainCognitoOptionsInput` via:
+//
+//          DomainCognitoOptionsArgs{...}
 type DomainCognitoOptionsInput interface {
 	pulumi.Input
 
@@ -371,6 +838,14 @@ func (i DomainCognitoOptionsArgs) ToDomainCognitoOptionsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DomainCognitoOptionsOutput).ToDomainCognitoOptionsPtrOutputWithContext(ctx)
 }
 
+// DomainCognitoOptionsPtrInput is an input type that accepts DomainCognitoOptionsArgs, DomainCognitoOptionsPtr and DomainCognitoOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainCognitoOptionsPtrInput` via:
+//
+//          DomainCognitoOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type DomainCognitoOptionsPtrInput interface {
 	pulumi.Input
 
@@ -460,22 +935,42 @@ func (o DomainCognitoOptionsPtrOutput) Elem() DomainCognitoOptionsOutput {
 
 // Specifies whether Amazon Cognito authentication with Kibana is enabled or not
 func (o DomainCognitoOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DomainCognitoOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *DomainCognitoOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // ID of the Cognito Identity Pool to use
-func (o DomainCognitoOptionsPtrOutput) IdentityPoolId() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainCognitoOptions) string { return v.IdentityPoolId }).(pulumi.StringOutput)
+func (o DomainCognitoOptionsPtrOutput) IdentityPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainCognitoOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityPoolId
+	}).(pulumi.StringPtrOutput)
 }
 
 // ARN of the IAM role that has the AmazonESCognitoAccess policy attached
-func (o DomainCognitoOptionsPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainCognitoOptions) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o DomainCognitoOptionsPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainCognitoOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // ID of the Cognito User Pool to use
-func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainCognitoOptions) string { return v.UserPoolId }).(pulumi.StringOutput)
+func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainCognitoOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserPoolId
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainDomainEndpointOptions struct {
@@ -485,6 +980,10 @@ type DomainDomainEndpointOptions struct {
 	TlsSecurityPolicy *string `pulumi:"tlsSecurityPolicy"`
 }
 
+// DomainDomainEndpointOptionsInput is an input type that accepts DomainDomainEndpointOptionsArgs and DomainDomainEndpointOptionsOutput values.
+// You can construct a concrete instance of `DomainDomainEndpointOptionsInput` via:
+//
+//          DomainDomainEndpointOptionsArgs{...}
 type DomainDomainEndpointOptionsInput interface {
 	pulumi.Input
 
@@ -519,6 +1018,14 @@ func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsOutput).ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx)
 }
 
+// DomainDomainEndpointOptionsPtrInput is an input type that accepts DomainDomainEndpointOptionsArgs, DomainDomainEndpointOptionsPtr and DomainDomainEndpointOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainDomainEndpointOptionsPtrInput` via:
+//
+//          DomainDomainEndpointOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type DomainDomainEndpointOptionsPtrInput interface {
 	pulumi.Input
 
@@ -597,13 +1104,23 @@ func (o DomainDomainEndpointOptionsPtrOutput) Elem() DomainDomainEndpointOptions
 }
 
 // Whether or not to require HTTPS
-func (o DomainDomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolOutput {
-	return o.ApplyT(func(v DomainDomainEndpointOptions) bool { return v.EnforceHttps }).(pulumi.BoolOutput)
+func (o DomainDomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnforceHttps
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
 func (o DomainDomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsSecurityPolicy
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainEbsOptions struct {
@@ -612,13 +1129,17 @@ type DomainEbsOptions struct {
 	// The baseline input/output (I/O) performance of EBS volumes
 	// attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
 	Iops *int `pulumi:"iops"`
-	// The size of EBS volumes attached to data nodes (in GB).
+	// The size of EBS volumes attached to data nodes (in GiB).
 	// **Required** if `ebsEnabled` is set to `true`.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The type of EBS volumes attached to data nodes.
 	VolumeType *string `pulumi:"volumeType"`
 }
 
+// DomainEbsOptionsInput is an input type that accepts DomainEbsOptionsArgs and DomainEbsOptionsOutput values.
+// You can construct a concrete instance of `DomainEbsOptionsInput` via:
+//
+//          DomainEbsOptionsArgs{...}
 type DomainEbsOptionsInput interface {
 	pulumi.Input
 
@@ -632,7 +1153,7 @@ type DomainEbsOptionsArgs struct {
 	// The baseline input/output (I/O) performance of EBS volumes
 	// attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The size of EBS volumes attached to data nodes (in GB).
+	// The size of EBS volumes attached to data nodes (in GiB).
 	// **Required** if `ebsEnabled` is set to `true`.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The type of EBS volumes attached to data nodes.
@@ -659,6 +1180,14 @@ func (i DomainEbsOptionsArgs) ToDomainEbsOptionsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEbsOptionsOutput).ToDomainEbsOptionsPtrOutputWithContext(ctx)
 }
 
+// DomainEbsOptionsPtrInput is an input type that accepts DomainEbsOptionsArgs, DomainEbsOptionsPtr and DomainEbsOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainEbsOptionsPtrInput` via:
+//
+//          DomainEbsOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type DomainEbsOptionsPtrInput interface {
 	pulumi.Input
 
@@ -719,7 +1248,7 @@ func (o DomainEbsOptionsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainEbsOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The size of EBS volumes attached to data nodes (in GB).
+// The size of EBS volumes attached to data nodes (in GiB).
 // **Required** if `ebsEnabled` is set to `true`.
 func (o DomainEbsOptionsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainEbsOptions) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
@@ -749,25 +1278,45 @@ func (o DomainEbsOptionsPtrOutput) Elem() DomainEbsOptionsOutput {
 }
 
 // Whether EBS volumes are attached to data nodes in the domain.
-func (o DomainEbsOptionsPtrOutput) EbsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v DomainEbsOptions) bool { return v.EbsEnabled }).(pulumi.BoolOutput)
+func (o DomainEbsOptionsPtrOutput) EbsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainEbsOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EbsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The baseline input/output (I/O) performance of EBS volumes
 // attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
 func (o DomainEbsOptionsPtrOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DomainEbsOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *DomainEbsOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
 }
 
-// The size of EBS volumes attached to data nodes (in GB).
+// The size of EBS volumes attached to data nodes (in GiB).
 // **Required** if `ebsEnabled` is set to `true`.
 func (o DomainEbsOptionsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DomainEbsOptions) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *DomainEbsOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
 }
 
 // The type of EBS volumes attached to data nodes.
 func (o DomainEbsOptionsPtrOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainEbsOptions) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainEbsOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainEncryptAtRest struct {
@@ -777,6 +1326,10 @@ type DomainEncryptAtRest struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
+// DomainEncryptAtRestInput is an input type that accepts DomainEncryptAtRestArgs and DomainEncryptAtRestOutput values.
+// You can construct a concrete instance of `DomainEncryptAtRestInput` via:
+//
+//          DomainEncryptAtRestArgs{...}
 type DomainEncryptAtRestInput interface {
 	pulumi.Input
 
@@ -811,6 +1364,14 @@ func (i DomainEncryptAtRestArgs) ToDomainEncryptAtRestPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEncryptAtRestOutput).ToDomainEncryptAtRestPtrOutputWithContext(ctx)
 }
 
+// DomainEncryptAtRestPtrInput is an input type that accepts DomainEncryptAtRestArgs, DomainEncryptAtRestPtr and DomainEncryptAtRestPtrOutput values.
+// You can construct a concrete instance of `DomainEncryptAtRestPtrInput` via:
+//
+//          DomainEncryptAtRestArgs{...}
+//
+//  or:
+//
+//          nil
 type DomainEncryptAtRestPtrInput interface {
 	pulumi.Input
 
@@ -889,13 +1450,23 @@ func (o DomainEncryptAtRestPtrOutput) Elem() DomainEncryptAtRestOutput {
 }
 
 // Specifies whether Amazon Cognito authentication with Kibana is enabled or not
-func (o DomainEncryptAtRestPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v DomainEncryptAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o DomainEncryptAtRestPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainEncryptAtRest) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
 func (o DomainEncryptAtRestPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainEncryptAtRest) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainEncryptAtRest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainLogPublishingOption struct {
@@ -903,10 +1474,14 @@ type DomainLogPublishingOption struct {
 	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`
 	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
 	Enabled *bool `pulumi:"enabled"`
-	// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+	// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, AUDIT_LOGS
 	LogType string `pulumi:"logType"`
 }
 
+// DomainLogPublishingOptionInput is an input type that accepts DomainLogPublishingOptionArgs and DomainLogPublishingOptionOutput values.
+// You can construct a concrete instance of `DomainLogPublishingOptionInput` via:
+//
+//          DomainLogPublishingOptionArgs{...}
 type DomainLogPublishingOptionInput interface {
 	pulumi.Input
 
@@ -919,7 +1494,7 @@ type DomainLogPublishingOptionArgs struct {
 	CloudwatchLogGroupArn pulumi.StringInput `pulumi:"cloudwatchLogGroupArn"`
 	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+	// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, AUDIT_LOGS
 	LogType pulumi.StringInput `pulumi:"logType"`
 }
 
@@ -935,6 +1510,10 @@ func (i DomainLogPublishingOptionArgs) ToDomainLogPublishingOptionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainLogPublishingOptionOutput)
 }
 
+// DomainLogPublishingOptionArrayInput is an input type that accepts DomainLogPublishingOptionArray and DomainLogPublishingOptionArrayOutput values.
+// You can construct a concrete instance of `DomainLogPublishingOptionArrayInput` via:
+//
+//          DomainLogPublishingOptionArray{ DomainLogPublishingOptionArgs{...} }
 type DomainLogPublishingOptionArrayInput interface {
 	pulumi.Input
 
@@ -980,7 +1559,7 @@ func (o DomainLogPublishingOptionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainLogPublishingOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, AUDIT_LOGS
 func (o DomainLogPublishingOptionOutput) LogType() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainLogPublishingOption) string { return v.LogType }).(pulumi.StringOutput)
 }
@@ -1010,6 +1589,10 @@ type DomainNodeToNodeEncryption struct {
 	Enabled bool `pulumi:"enabled"`
 }
 
+// DomainNodeToNodeEncryptionInput is an input type that accepts DomainNodeToNodeEncryptionArgs and DomainNodeToNodeEncryptionOutput values.
+// You can construct a concrete instance of `DomainNodeToNodeEncryptionInput` via:
+//
+//          DomainNodeToNodeEncryptionArgs{...}
 type DomainNodeToNodeEncryptionInput interface {
 	pulumi.Input
 
@@ -1042,6 +1625,14 @@ func (i DomainNodeToNodeEncryptionArgs) ToDomainNodeToNodeEncryptionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNodeToNodeEncryptionOutput).ToDomainNodeToNodeEncryptionPtrOutputWithContext(ctx)
 }
 
+// DomainNodeToNodeEncryptionPtrInput is an input type that accepts DomainNodeToNodeEncryptionArgs, DomainNodeToNodeEncryptionPtr and DomainNodeToNodeEncryptionPtrOutput values.
+// You can construct a concrete instance of `DomainNodeToNodeEncryptionPtrInput` via:
+//
+//          DomainNodeToNodeEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
 type DomainNodeToNodeEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -1115,8 +1706,13 @@ func (o DomainNodeToNodeEncryptionPtrOutput) Elem() DomainNodeToNodeEncryptionOu
 }
 
 // Specifies whether Amazon Cognito authentication with Kibana is enabled or not
-func (o DomainNodeToNodeEncryptionPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v DomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o DomainNodeToNodeEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainNodeToNodeEncryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type DomainSnapshotOptions struct {
@@ -1125,6 +1721,10 @@ type DomainSnapshotOptions struct {
 	AutomatedSnapshotStartHour int `pulumi:"automatedSnapshotStartHour"`
 }
 
+// DomainSnapshotOptionsInput is an input type that accepts DomainSnapshotOptionsArgs and DomainSnapshotOptionsOutput values.
+// You can construct a concrete instance of `DomainSnapshotOptionsInput` via:
+//
+//          DomainSnapshotOptionsArgs{...}
 type DomainSnapshotOptionsInput interface {
 	pulumi.Input
 
@@ -1158,6 +1758,14 @@ func (i DomainSnapshotOptionsArgs) ToDomainSnapshotOptionsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSnapshotOptionsOutput).ToDomainSnapshotOptionsPtrOutputWithContext(ctx)
 }
 
+// DomainSnapshotOptionsPtrInput is an input type that accepts DomainSnapshotOptionsArgs, DomainSnapshotOptionsPtr and DomainSnapshotOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainSnapshotOptionsPtrInput` via:
+//
+//          DomainSnapshotOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type DomainSnapshotOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1233,8 +1841,13 @@ func (o DomainSnapshotOptionsPtrOutput) Elem() DomainSnapshotOptionsOutput {
 
 // Hour during which the service takes an automated daily
 // snapshot of the indices in the domain.
-func (o DomainSnapshotOptionsPtrOutput) AutomatedSnapshotStartHour() pulumi.IntOutput {
-	return o.ApplyT(func(v DomainSnapshotOptions) int { return v.AutomatedSnapshotStartHour }).(pulumi.IntOutput)
+func (o DomainSnapshotOptionsPtrOutput) AutomatedSnapshotStartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainSnapshotOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AutomatedSnapshotStartHour
+	}).(pulumi.IntPtrOutput)
 }
 
 type DomainVpcOptions struct {
@@ -1246,6 +1859,10 @@ type DomainVpcOptions struct {
 	VpcId     *string  `pulumi:"vpcId"`
 }
 
+// DomainVpcOptionsInput is an input type that accepts DomainVpcOptionsArgs and DomainVpcOptionsOutput values.
+// You can construct a concrete instance of `DomainVpcOptionsInput` via:
+//
+//          DomainVpcOptionsArgs{...}
 type DomainVpcOptionsInput interface {
 	pulumi.Input
 
@@ -1282,6 +1899,14 @@ func (i DomainVpcOptionsArgs) ToDomainVpcOptionsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DomainVpcOptionsOutput).ToDomainVpcOptionsPtrOutputWithContext(ctx)
 }
 
+// DomainVpcOptionsPtrInput is an input type that accepts DomainVpcOptionsArgs, DomainVpcOptionsPtr and DomainVpcOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainVpcOptionsPtrInput` via:
+//
+//          DomainVpcOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type DomainVpcOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1367,21 +1992,147 @@ func (o DomainVpcOptionsPtrOutput) Elem() DomainVpcOptionsOutput {
 }
 
 func (o DomainVpcOptionsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DomainVpcOptions) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DomainVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZones
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
 func (o DomainVpcOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DomainVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
 func (o DomainVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DomainVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o DomainVpcOptionsPtrOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainVpcOptions) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainVpcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetDomainAdvancedSecurityOption struct {
+	// Whether node to node encryption is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// Whether the internal user database is enabled.
+	InternalUserDatabaseEnabled bool `pulumi:"internalUserDatabaseEnabled"`
+}
+
+// GetDomainAdvancedSecurityOptionInput is an input type that accepts GetDomainAdvancedSecurityOptionArgs and GetDomainAdvancedSecurityOptionOutput values.
+// You can construct a concrete instance of `GetDomainAdvancedSecurityOptionInput` via:
+//
+//          GetDomainAdvancedSecurityOptionArgs{...}
+type GetDomainAdvancedSecurityOptionInput interface {
+	pulumi.Input
+
+	ToGetDomainAdvancedSecurityOptionOutput() GetDomainAdvancedSecurityOptionOutput
+	ToGetDomainAdvancedSecurityOptionOutputWithContext(context.Context) GetDomainAdvancedSecurityOptionOutput
+}
+
+type GetDomainAdvancedSecurityOptionArgs struct {
+	// Whether node to node encryption is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Whether the internal user database is enabled.
+	InternalUserDatabaseEnabled pulumi.BoolInput `pulumi:"internalUserDatabaseEnabled"`
+}
+
+func (GetDomainAdvancedSecurityOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainAdvancedSecurityOption)(nil)).Elem()
+}
+
+func (i GetDomainAdvancedSecurityOptionArgs) ToGetDomainAdvancedSecurityOptionOutput() GetDomainAdvancedSecurityOptionOutput {
+	return i.ToGetDomainAdvancedSecurityOptionOutputWithContext(context.Background())
+}
+
+func (i GetDomainAdvancedSecurityOptionArgs) ToGetDomainAdvancedSecurityOptionOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAdvancedSecurityOptionOutput)
+}
+
+// GetDomainAdvancedSecurityOptionArrayInput is an input type that accepts GetDomainAdvancedSecurityOptionArray and GetDomainAdvancedSecurityOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainAdvancedSecurityOptionArrayInput` via:
+//
+//          GetDomainAdvancedSecurityOptionArray{ GetDomainAdvancedSecurityOptionArgs{...} }
+type GetDomainAdvancedSecurityOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainAdvancedSecurityOptionArrayOutput() GetDomainAdvancedSecurityOptionArrayOutput
+	ToGetDomainAdvancedSecurityOptionArrayOutputWithContext(context.Context) GetDomainAdvancedSecurityOptionArrayOutput
+}
+
+type GetDomainAdvancedSecurityOptionArray []GetDomainAdvancedSecurityOptionInput
+
+func (GetDomainAdvancedSecurityOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainAdvancedSecurityOption)(nil)).Elem()
+}
+
+func (i GetDomainAdvancedSecurityOptionArray) ToGetDomainAdvancedSecurityOptionArrayOutput() GetDomainAdvancedSecurityOptionArrayOutput {
+	return i.ToGetDomainAdvancedSecurityOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainAdvancedSecurityOptionArray) ToGetDomainAdvancedSecurityOptionArrayOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAdvancedSecurityOptionArrayOutput)
+}
+
+type GetDomainAdvancedSecurityOptionOutput struct{ *pulumi.OutputState }
+
+func (GetDomainAdvancedSecurityOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainAdvancedSecurityOption)(nil)).Elem()
+}
+
+func (o GetDomainAdvancedSecurityOptionOutput) ToGetDomainAdvancedSecurityOptionOutput() GetDomainAdvancedSecurityOptionOutput {
+	return o
+}
+
+func (o GetDomainAdvancedSecurityOptionOutput) ToGetDomainAdvancedSecurityOptionOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionOutput {
+	return o
+}
+
+// Whether node to node encryption is enabled.
+func (o GetDomainAdvancedSecurityOptionOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Whether the internal user database is enabled.
+func (o GetDomainAdvancedSecurityOptionOutput) InternalUserDatabaseEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.InternalUserDatabaseEnabled }).(pulumi.BoolOutput)
+}
+
+type GetDomainAdvancedSecurityOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainAdvancedSecurityOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainAdvancedSecurityOption)(nil)).Elem()
+}
+
+func (o GetDomainAdvancedSecurityOptionArrayOutput) ToGetDomainAdvancedSecurityOptionArrayOutput() GetDomainAdvancedSecurityOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainAdvancedSecurityOptionArrayOutput) ToGetDomainAdvancedSecurityOptionArrayOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainAdvancedSecurityOptionArrayOutput) Index(i pulumi.IntInput) GetDomainAdvancedSecurityOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainAdvancedSecurityOption {
+		return vs[0].([]GetDomainAdvancedSecurityOption)[vs[1].(int)]
+	}).(GetDomainAdvancedSecurityOptionOutput)
 }
 
 type GetDomainClusterConfig struct {
@@ -1395,12 +2146,22 @@ type GetDomainClusterConfig struct {
 	InstanceCount int `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
 	InstanceType string `pulumi:"instanceType"`
+	// The number of warm nodes in the cluster.
+	WarmCount int `pulumi:"warmCount"`
+	// Indicates warm storage is enabled.
+	WarmEnabled *bool `pulumi:"warmEnabled"`
+	// The instance type for the Elasticsearch cluster's warm nodes.
+	WarmType string `pulumi:"warmType"`
 	// Configuration block containing zone awareness settings.
 	ZoneAwarenessConfigs []GetDomainClusterConfigZoneAwarenessConfig `pulumi:"zoneAwarenessConfigs"`
 	// Indicates whether zone awareness is enabled.
 	ZoneAwarenessEnabled bool `pulumi:"zoneAwarenessEnabled"`
 }
 
+// GetDomainClusterConfigInput is an input type that accepts GetDomainClusterConfigArgs and GetDomainClusterConfigOutput values.
+// You can construct a concrete instance of `GetDomainClusterConfigInput` via:
+//
+//          GetDomainClusterConfigArgs{...}
 type GetDomainClusterConfigInput interface {
 	pulumi.Input
 
@@ -1419,6 +2180,12 @@ type GetDomainClusterConfigArgs struct {
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The number of warm nodes in the cluster.
+	WarmCount pulumi.IntInput `pulumi:"warmCount"`
+	// Indicates warm storage is enabled.
+	WarmEnabled pulumi.BoolPtrInput `pulumi:"warmEnabled"`
+	// The instance type for the Elasticsearch cluster's warm nodes.
+	WarmType pulumi.StringInput `pulumi:"warmType"`
 	// Configuration block containing zone awareness settings.
 	ZoneAwarenessConfigs GetDomainClusterConfigZoneAwarenessConfigArrayInput `pulumi:"zoneAwarenessConfigs"`
 	// Indicates whether zone awareness is enabled.
@@ -1437,6 +2204,10 @@ func (i GetDomainClusterConfigArgs) ToGetDomainClusterConfigOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigOutput)
 }
 
+// GetDomainClusterConfigArrayInput is an input type that accepts GetDomainClusterConfigArray and GetDomainClusterConfigArrayOutput values.
+// You can construct a concrete instance of `GetDomainClusterConfigArrayInput` via:
+//
+//          GetDomainClusterConfigArray{ GetDomainClusterConfigArgs{...} }
 type GetDomainClusterConfigArrayInput interface {
 	pulumi.Input
 
@@ -1497,6 +2268,21 @@ func (o GetDomainClusterConfigOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// The number of warm nodes in the cluster.
+func (o GetDomainClusterConfigOutput) WarmCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) int { return v.WarmCount }).(pulumi.IntOutput)
+}
+
+// Indicates warm storage is enabled.
+func (o GetDomainClusterConfigOutput) WarmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) *bool { return v.WarmEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The instance type for the Elasticsearch cluster's warm nodes.
+func (o GetDomainClusterConfigOutput) WarmType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) string { return v.WarmType }).(pulumi.StringOutput)
+}
+
 // Configuration block containing zone awareness settings.
 func (o GetDomainClusterConfigOutput) ZoneAwarenessConfigs() GetDomainClusterConfigZoneAwarenessConfigArrayOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) []GetDomainClusterConfigZoneAwarenessConfig {
@@ -1534,6 +2320,10 @@ type GetDomainClusterConfigZoneAwarenessConfig struct {
 	AvailabilityZoneCount int `pulumi:"availabilityZoneCount"`
 }
 
+// GetDomainClusterConfigZoneAwarenessConfigInput is an input type that accepts GetDomainClusterConfigZoneAwarenessConfigArgs and GetDomainClusterConfigZoneAwarenessConfigOutput values.
+// You can construct a concrete instance of `GetDomainClusterConfigZoneAwarenessConfigInput` via:
+//
+//          GetDomainClusterConfigZoneAwarenessConfigArgs{...}
 type GetDomainClusterConfigZoneAwarenessConfigInput interface {
 	pulumi.Input
 
@@ -1558,6 +2348,10 @@ func (i GetDomainClusterConfigZoneAwarenessConfigArgs) ToGetDomainClusterConfigZ
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigZoneAwarenessConfigOutput)
 }
 
+// GetDomainClusterConfigZoneAwarenessConfigArrayInput is an input type that accepts GetDomainClusterConfigZoneAwarenessConfigArray and GetDomainClusterConfigZoneAwarenessConfigArrayOutput values.
+// You can construct a concrete instance of `GetDomainClusterConfigZoneAwarenessConfigArrayInput` via:
+//
+//          GetDomainClusterConfigZoneAwarenessConfigArray{ GetDomainClusterConfigZoneAwarenessConfigArgs{...} }
 type GetDomainClusterConfigZoneAwarenessConfigArrayInput interface {
 	pulumi.Input
 
@@ -1629,6 +2423,10 @@ type GetDomainCognitoOption struct {
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
+// GetDomainCognitoOptionInput is an input type that accepts GetDomainCognitoOptionArgs and GetDomainCognitoOptionOutput values.
+// You can construct a concrete instance of `GetDomainCognitoOptionInput` via:
+//
+//          GetDomainCognitoOptionArgs{...}
 type GetDomainCognitoOptionInput interface {
 	pulumi.Input
 
@@ -1659,6 +2457,10 @@ func (i GetDomainCognitoOptionArgs) ToGetDomainCognitoOptionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainCognitoOptionOutput)
 }
 
+// GetDomainCognitoOptionArrayInput is an input type that accepts GetDomainCognitoOptionArray and GetDomainCognitoOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainCognitoOptionArrayInput` via:
+//
+//          GetDomainCognitoOptionArray{ GetDomainCognitoOptionArgs{...} }
 type GetDomainCognitoOptionArrayInput interface {
 	pulumi.Input
 
@@ -1746,6 +2548,10 @@ type GetDomainEbsOption struct {
 	VolumeType string `pulumi:"volumeType"`
 }
 
+// GetDomainEbsOptionInput is an input type that accepts GetDomainEbsOptionArgs and GetDomainEbsOptionOutput values.
+// You can construct a concrete instance of `GetDomainEbsOptionInput` via:
+//
+//          GetDomainEbsOptionArgs{...}
 type GetDomainEbsOptionInput interface {
 	pulumi.Input
 
@@ -1777,6 +2583,10 @@ func (i GetDomainEbsOptionArgs) ToGetDomainEbsOptionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainEbsOptionOutput)
 }
 
+// GetDomainEbsOptionArrayInput is an input type that accepts GetDomainEbsOptionArray and GetDomainEbsOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainEbsOptionArrayInput` via:
+//
+//          GetDomainEbsOptionArray{ GetDomainEbsOptionArgs{...} }
 type GetDomainEbsOptionArrayInput interface {
 	pulumi.Input
 
@@ -1860,6 +2670,10 @@ type GetDomainEncryptionAtRest struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 }
 
+// GetDomainEncryptionAtRestInput is an input type that accepts GetDomainEncryptionAtRestArgs and GetDomainEncryptionAtRestOutput values.
+// You can construct a concrete instance of `GetDomainEncryptionAtRestInput` via:
+//
+//          GetDomainEncryptionAtRestArgs{...}
 type GetDomainEncryptionAtRestInput interface {
 	pulumi.Input
 
@@ -1886,6 +2700,10 @@ func (i GetDomainEncryptionAtRestArgs) ToGetDomainEncryptionAtRestOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainEncryptionAtRestOutput)
 }
 
+// GetDomainEncryptionAtRestArrayInput is an input type that accepts GetDomainEncryptionAtRestArray and GetDomainEncryptionAtRestArrayOutput values.
+// You can construct a concrete instance of `GetDomainEncryptionAtRestArrayInput` via:
+//
+//          GetDomainEncryptionAtRestArray{ GetDomainEncryptionAtRestArgs{...} }
 type GetDomainEncryptionAtRestArrayInput interface {
 	pulumi.Input
 
@@ -1960,6 +2778,10 @@ type GetDomainLogPublishingOption struct {
 	LogType string `pulumi:"logType"`
 }
 
+// GetDomainLogPublishingOptionInput is an input type that accepts GetDomainLogPublishingOptionArgs and GetDomainLogPublishingOptionOutput values.
+// You can construct a concrete instance of `GetDomainLogPublishingOptionInput` via:
+//
+//          GetDomainLogPublishingOptionArgs{...}
 type GetDomainLogPublishingOptionInput interface {
 	pulumi.Input
 
@@ -1988,6 +2810,10 @@ func (i GetDomainLogPublishingOptionArgs) ToGetDomainLogPublishingOptionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainLogPublishingOptionOutput)
 }
 
+// GetDomainLogPublishingOptionArrayInput is an input type that accepts GetDomainLogPublishingOptionArray and GetDomainLogPublishingOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainLogPublishingOptionArrayInput` via:
+//
+//          GetDomainLogPublishingOptionArray{ GetDomainLogPublishingOptionArgs{...} }
 type GetDomainLogPublishingOptionArrayInput interface {
 	pulumi.Input
 
@@ -2063,6 +2889,10 @@ type GetDomainNodeToNodeEncryption struct {
 	Enabled bool `pulumi:"enabled"`
 }
 
+// GetDomainNodeToNodeEncryptionInput is an input type that accepts GetDomainNodeToNodeEncryptionArgs and GetDomainNodeToNodeEncryptionOutput values.
+// You can construct a concrete instance of `GetDomainNodeToNodeEncryptionInput` via:
+//
+//          GetDomainNodeToNodeEncryptionArgs{...}
 type GetDomainNodeToNodeEncryptionInput interface {
 	pulumi.Input
 
@@ -2087,6 +2917,10 @@ func (i GetDomainNodeToNodeEncryptionArgs) ToGetDomainNodeToNodeEncryptionOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainNodeToNodeEncryptionOutput)
 }
 
+// GetDomainNodeToNodeEncryptionArrayInput is an input type that accepts GetDomainNodeToNodeEncryptionArray and GetDomainNodeToNodeEncryptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainNodeToNodeEncryptionArrayInput` via:
+//
+//          GetDomainNodeToNodeEncryptionArray{ GetDomainNodeToNodeEncryptionArgs{...} }
 type GetDomainNodeToNodeEncryptionArrayInput interface {
 	pulumi.Input
 
@@ -2153,6 +2987,10 @@ type GetDomainSnapshotOption struct {
 	AutomatedSnapshotStartHour int `pulumi:"automatedSnapshotStartHour"`
 }
 
+// GetDomainSnapshotOptionInput is an input type that accepts GetDomainSnapshotOptionArgs and GetDomainSnapshotOptionOutput values.
+// You can construct a concrete instance of `GetDomainSnapshotOptionInput` via:
+//
+//          GetDomainSnapshotOptionArgs{...}
 type GetDomainSnapshotOptionInput interface {
 	pulumi.Input
 
@@ -2178,6 +3016,10 @@ func (i GetDomainSnapshotOptionArgs) ToGetDomainSnapshotOptionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainSnapshotOptionOutput)
 }
 
+// GetDomainSnapshotOptionArrayInput is an input type that accepts GetDomainSnapshotOptionArray and GetDomainSnapshotOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainSnapshotOptionArrayInput` via:
+//
+//          GetDomainSnapshotOptionArray{ GetDomainSnapshotOptionArgs{...} }
 type GetDomainSnapshotOptionArrayInput interface {
 	pulumi.Input
 
@@ -2250,6 +3092,10 @@ type GetDomainVpcOption struct {
 	VpcId string `pulumi:"vpcId"`
 }
 
+// GetDomainVpcOptionInput is an input type that accepts GetDomainVpcOptionArgs and GetDomainVpcOptionOutput values.
+// You can construct a concrete instance of `GetDomainVpcOptionInput` via:
+//
+//          GetDomainVpcOptionArgs{...}
 type GetDomainVpcOptionInput interface {
 	pulumi.Input
 
@@ -2280,6 +3126,10 @@ func (i GetDomainVpcOptionArgs) ToGetDomainVpcOptionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainVpcOptionOutput)
 }
 
+// GetDomainVpcOptionArrayInput is an input type that accepts GetDomainVpcOptionArray and GetDomainVpcOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainVpcOptionArrayInput` via:
+//
+//          GetDomainVpcOptionArray{ GetDomainVpcOptionArgs{...} }
 type GetDomainVpcOptionArrayInput interface {
 	pulumi.Input
 
@@ -2356,6 +3206,10 @@ func (o GetDomainVpcOptionArrayOutput) Index(i pulumi.IntInput) GetDomainVpcOpti
 }
 
 func init() {
+	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsOutput{})
+	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsOutput{})
+	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigZoneAwarenessConfigOutput{})
@@ -2376,6 +3230,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainSnapshotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainVpcOptionsOutput{})
 	pulumi.RegisterOutputType(DomainVpcOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionOutput{})
+	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigZoneAwarenessConfigOutput{})

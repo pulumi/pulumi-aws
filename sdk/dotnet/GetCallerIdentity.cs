@@ -9,33 +9,45 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get the access to the effective Account ID, User ID, and ARN in
-        /// which this provider is authorized.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/caller_identity.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCallerIdentity.InvokeAsync() instead")]
-        public static Task<GetCallerIdentityResult> GetCallerIdentity(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCallerIdentityResult>("aws:index/getCallerIdentity:getCallerIdentity", InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCallerIdentity
     {
         /// <summary>
         /// Use this data source to get the access to the effective Account ID, User ID, and ARN in
         /// which this provider is authorized.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/caller_identity.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+        ///         this.AccountId = current.Apply(current =&gt; current.AccountId);
+        ///         this.CallerArn = current.Apply(current =&gt; current.Arn);
+        ///         this.CallerUser = current.Apply(current =&gt; current.UserId);
+        ///     }
+        /// 
+        ///     [Output("accountId")]
+        ///     public Output&lt;string&gt; AccountId { get; set; }
+        ///     [Output("callerArn")]
+        ///     public Output&lt;string&gt; CallerArn { get; set; }
+        ///     [Output("callerUser")]
+        ///     public Output&lt;string&gt; CallerUser { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCallerIdentityResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCallerIdentityResult>("aws:index/getCallerIdentity:getCallerIdentity", InvokeArgs.Empty, options.WithVersion());
     }
+
 
     [OutputType]
     public sealed class GetCallerIdentityResult
@@ -49,25 +61,28 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Arn;
         /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The unique identifier of the calling entity.
         /// </summary>
         public readonly string UserId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetCallerIdentityResult(
             string accountId,
+
             string arn,
-            string userId,
-            string id)
+
+            string id,
+
+            string userId)
         {
             AccountId = accountId;
             Arn = arn;
-            UserId = userId;
             Id = id;
+            UserId = userId;
         }
     }
 }

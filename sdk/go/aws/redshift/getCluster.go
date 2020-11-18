@@ -4,10 +4,58 @@
 package redshift
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides details about a specific redshift cluster.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/kinesis"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/redshift"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testCluster, err := redshift.LookupCluster(ctx, &redshift.LookupClusterArgs{
+// 			ClusterIdentifier: "test-cluster",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
+// 			Destination: pulumi.String("redshift"),
+// 			S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
+// 				RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
+// 				BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+// 				BufferSize:        pulumi.Int(10),
+// 				BufferInterval:    pulumi.Int(400),
+// 				CompressionFormat: pulumi.String("GZIP"),
+// 			},
+// 			RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
+// 				RoleArn:          pulumi.Any(aws_iam_role.Firehose_role.Arn),
+// 				ClusterJdbcurl:   pulumi.String(fmt.Sprintf("%v%v%v%v", "jdbc:redshift://", testCluster.Endpoint, "/", testCluster.DatabaseName)),
+// 				Username:         pulumi.String("testuser"),
+// 				Password:         pulumi.String("T3stPass"),
+// 				DataTableName:    pulumi.String("test-table"),
+// 				CopyOptions:      pulumi.String("delimiter '|'"),
+// 				DataTableColumns: pulumi.String("test-col"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws:redshift/getCluster:getCluster", args, &rv, opts...)
@@ -22,7 +70,7 @@ type LookupClusterArgs struct {
 	// The cluster identifier
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The tags associated to the cluster
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
@@ -64,7 +112,7 @@ type LookupClusterResult struct {
 	EnhancedVpcRouting bool `pulumi:"enhancedVpcRouting"`
 	// The IAM roles associated to the cluster
 	IamRoles []string `pulumi:"iamRoles"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The KMS encryption key associated to the cluster
 	KmsKeyId string `pulumi:"kmsKeyId"`
@@ -83,7 +131,7 @@ type LookupClusterResult struct {
 	// The folder inside the S3 bucket where the log files are stored
 	S3KeyPrefix string `pulumi:"s3KeyPrefix"`
 	// The tags associated to the cluster
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC Id associated with the cluster
 	VpcId string `pulumi:"vpcId"`
 	// The VPC security group Ids associated with the cluster

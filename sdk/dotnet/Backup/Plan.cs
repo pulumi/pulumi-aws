@@ -12,12 +12,52 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Provides an AWS Backup plan resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_plan.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Backup.Plan("example", new Aws.Backup.PlanArgs
+    ///         {
+    ///             Rules = 
+    ///             {
+    ///                 new Aws.Backup.Inputs.PlanRuleArgs
+    ///                 {
+    ///                     RuleName = "tf_example_backup_rule",
+    ///                     TargetVaultName = aws_backup_vault.Test.Name,
+    ///                     Schedule = "cron(0 12 * * ? *)",
+    ///                 },
+    ///             },
+    ///             AdvancedBackupSettings = 
+    ///             {
+    ///                 new Aws.Backup.Inputs.PlanAdvancedBackupSettingArgs
+    ///                 {
+    ///                     BackupOptions = 
+    ///                     {
+    ///                         { "WindowsVSS", "enabled" },
+    ///                     },
+    ///                     ResourceType = "EC2",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Plan : Pulumi.CustomResource
     {
+        /// <summary>
+        /// An object that specifies backup options for each resource type.
+        /// </summary>
+        [Output("advancedBackupSettings")]
+        public Output<ImmutableArray<Outputs.PlanAdvancedBackupSetting>> AdvancedBackupSettings { get; private set; } = null!;
+
         /// <summary>
         /// The ARN of the backup plan.
         /// </summary>
@@ -34,13 +74,13 @@ namespace Pulumi.Aws.Backup
         /// A rule object that specifies a scheduled task that is used to back up a selection of resources.
         /// </summary>
         [Output("rules")]
-        public Output<ImmutableArray<Outputs.PlanRules>> Rules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PlanRule>> Rules { get; private set; } = null!;
 
         /// <summary>
         /// Metadata that you can assign to help organize the plans you create.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
@@ -57,7 +97,7 @@ namespace Pulumi.Aws.Backup
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Plan(string name, PlanArgs args, CustomResourceOptions? options = null)
-            : base("aws:backup/plan:Plan", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:backup/plan:Plan", name, args ?? new PlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -94,6 +134,18 @@ namespace Pulumi.Aws.Backup
 
     public sealed class PlanArgs : Pulumi.ResourceArgs
     {
+        [Input("advancedBackupSettings")]
+        private InputList<Inputs.PlanAdvancedBackupSettingArgs>? _advancedBackupSettings;
+
+        /// <summary>
+        /// An object that specifies backup options for each resource type.
+        /// </summary>
+        public InputList<Inputs.PlanAdvancedBackupSettingArgs> AdvancedBackupSettings
+        {
+            get => _advancedBackupSettings ?? (_advancedBackupSettings = new InputList<Inputs.PlanAdvancedBackupSettingArgs>());
+            set => _advancedBackupSettings = value;
+        }
+
         /// <summary>
         /// The display name of a backup plan.
         /// </summary>
@@ -101,26 +153,26 @@ namespace Pulumi.Aws.Backup
         public Input<string>? Name { get; set; }
 
         [Input("rules", required: true)]
-        private InputList<Inputs.PlanRulesArgs>? _rules;
+        private InputList<Inputs.PlanRuleArgs>? _rules;
 
         /// <summary>
         /// A rule object that specifies a scheduled task that is used to back up a selection of resources.
         /// </summary>
-        public InputList<Inputs.PlanRulesArgs> Rules
+        public InputList<Inputs.PlanRuleArgs> Rules
         {
-            get => _rules ?? (_rules = new InputList<Inputs.PlanRulesArgs>());
+            get => _rules ?? (_rules = new InputList<Inputs.PlanRuleArgs>());
             set => _rules = value;
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Metadata that you can assign to help organize the plans you create.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -131,6 +183,18 @@ namespace Pulumi.Aws.Backup
 
     public sealed class PlanState : Pulumi.ResourceArgs
     {
+        [Input("advancedBackupSettings")]
+        private InputList<Inputs.PlanAdvancedBackupSettingGetArgs>? _advancedBackupSettings;
+
+        /// <summary>
+        /// An object that specifies backup options for each resource type.
+        /// </summary>
+        public InputList<Inputs.PlanAdvancedBackupSettingGetArgs> AdvancedBackupSettings
+        {
+            get => _advancedBackupSettings ?? (_advancedBackupSettings = new InputList<Inputs.PlanAdvancedBackupSettingGetArgs>());
+            set => _advancedBackupSettings = value;
+        }
+
         /// <summary>
         /// The ARN of the backup plan.
         /// </summary>
@@ -144,26 +208,26 @@ namespace Pulumi.Aws.Backup
         public Input<string>? Name { get; set; }
 
         [Input("rules")]
-        private InputList<Inputs.PlanRulesGetArgs>? _rules;
+        private InputList<Inputs.PlanRuleGetArgs>? _rules;
 
         /// <summary>
         /// A rule object that specifies a scheduled task that is used to back up a selection of resources.
         /// </summary>
-        public InputList<Inputs.PlanRulesGetArgs> Rules
+        public InputList<Inputs.PlanRuleGetArgs> Rules
         {
-            get => _rules ?? (_rules = new InputList<Inputs.PlanRulesGetArgs>());
+            get => _rules ?? (_rules = new InputList<Inputs.PlanRuleGetArgs>());
             set => _rules = value;
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Metadata that you can assign to help organize the plans you create.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -176,235 +240,5 @@ namespace Pulumi.Aws.Backup
         public PlanState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class PlanRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
-        /// </summary>
-        [Input("completionWindow")]
-        public Input<int>? CompletionWindow { get; set; }
-
-        /// <summary>
-        /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
-        /// </summary>
-        [Input("lifecycle")]
-        public Input<PlanRulesLifecycleArgs>? Lifecycle { get; set; }
-
-        [Input("recoveryPointTags")]
-        private InputMap<object>? _recoveryPointTags;
-
-        /// <summary>
-        /// Metadata that you can assign to help organize the resources that you create.
-        /// </summary>
-        public InputMap<object> RecoveryPointTags
-        {
-            get => _recoveryPointTags ?? (_recoveryPointTags = new InputMap<object>());
-            set => _recoveryPointTags = value;
-        }
-
-        /// <summary>
-        /// An display name for a backup rule.
-        /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
-
-        /// <summary>
-        /// A CRON expression specifying when AWS Backup initiates a backup job.
-        /// </summary>
-        [Input("schedule")]
-        public Input<string>? Schedule { get; set; }
-
-        /// <summary>
-        /// The amount of time in minutes before beginning a backup.
-        /// </summary>
-        [Input("startWindow")]
-        public Input<int>? StartWindow { get; set; }
-
-        /// <summary>
-        /// The name of a logical container where backups are stored.
-        /// </summary>
-        [Input("targetVaultName", required: true)]
-        public Input<string> TargetVaultName { get; set; } = null!;
-
-        public PlanRulesArgs()
-        {
-        }
-    }
-
-    public sealed class PlanRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
-        /// </summary>
-        [Input("completionWindow")]
-        public Input<int>? CompletionWindow { get; set; }
-
-        /// <summary>
-        /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
-        /// </summary>
-        [Input("lifecycle")]
-        public Input<PlanRulesLifecycleGetArgs>? Lifecycle { get; set; }
-
-        [Input("recoveryPointTags")]
-        private InputMap<object>? _recoveryPointTags;
-
-        /// <summary>
-        /// Metadata that you can assign to help organize the resources that you create.
-        /// </summary>
-        public InputMap<object> RecoveryPointTags
-        {
-            get => _recoveryPointTags ?? (_recoveryPointTags = new InputMap<object>());
-            set => _recoveryPointTags = value;
-        }
-
-        /// <summary>
-        /// An display name for a backup rule.
-        /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
-
-        /// <summary>
-        /// A CRON expression specifying when AWS Backup initiates a backup job.
-        /// </summary>
-        [Input("schedule")]
-        public Input<string>? Schedule { get; set; }
-
-        /// <summary>
-        /// The amount of time in minutes before beginning a backup.
-        /// </summary>
-        [Input("startWindow")]
-        public Input<int>? StartWindow { get; set; }
-
-        /// <summary>
-        /// The name of a logical container where backups are stored.
-        /// </summary>
-        [Input("targetVaultName", required: true)]
-        public Input<string> TargetVaultName { get; set; } = null!;
-
-        public PlanRulesGetArgs()
-        {
-        }
-    }
-
-    public sealed class PlanRulesLifecycleArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the number of days after creation that a recovery point is moved to cold storage.
-        /// </summary>
-        [Input("coldStorageAfter")]
-        public Input<int>? ColdStorageAfter { get; set; }
-
-        /// <summary>
-        /// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
-        /// </summary>
-        [Input("deleteAfter")]
-        public Input<int>? DeleteAfter { get; set; }
-
-        public PlanRulesLifecycleArgs()
-        {
-        }
-    }
-
-    public sealed class PlanRulesLifecycleGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the number of days after creation that a recovery point is moved to cold storage.
-        /// </summary>
-        [Input("coldStorageAfter")]
-        public Input<int>? ColdStorageAfter { get; set; }
-
-        /// <summary>
-        /// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
-        /// </summary>
-        [Input("deleteAfter")]
-        public Input<int>? DeleteAfter { get; set; }
-
-        public PlanRulesLifecycleGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class PlanRules
-    {
-        /// <summary>
-        /// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
-        /// </summary>
-        public readonly int? CompletionWindow;
-        /// <summary>
-        /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
-        /// </summary>
-        public readonly PlanRulesLifecycle? Lifecycle;
-        /// <summary>
-        /// Metadata that you can assign to help organize the resources that you create.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? RecoveryPointTags;
-        /// <summary>
-        /// An display name for a backup rule.
-        /// </summary>
-        public readonly string RuleName;
-        /// <summary>
-        /// A CRON expression specifying when AWS Backup initiates a backup job.
-        /// </summary>
-        public readonly string? Schedule;
-        /// <summary>
-        /// The amount of time in minutes before beginning a backup.
-        /// </summary>
-        public readonly int? StartWindow;
-        /// <summary>
-        /// The name of a logical container where backups are stored.
-        /// </summary>
-        public readonly string TargetVaultName;
-
-        [OutputConstructor]
-        private PlanRules(
-            int? completionWindow,
-            PlanRulesLifecycle? lifecycle,
-            ImmutableDictionary<string, object>? recoveryPointTags,
-            string ruleName,
-            string? schedule,
-            int? startWindow,
-            string targetVaultName)
-        {
-            CompletionWindow = completionWindow;
-            Lifecycle = lifecycle;
-            RecoveryPointTags = recoveryPointTags;
-            RuleName = ruleName;
-            Schedule = schedule;
-            StartWindow = startWindow;
-            TargetVaultName = targetVaultName;
-        }
-    }
-
-    [OutputType]
-    public sealed class PlanRulesLifecycle
-    {
-        /// <summary>
-        /// Specifies the number of days after creation that a recovery point is moved to cold storage.
-        /// </summary>
-        public readonly int? ColdStorageAfter;
-        /// <summary>
-        /// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
-        /// </summary>
-        public readonly int? DeleteAfter;
-
-        [OutputConstructor]
-        private PlanRulesLifecycle(
-            int? coldStorageAfter,
-            int? deleteAfter)
-        {
-            ColdStorageAfter = coldStorageAfter;
-            DeleteAfter = deleteAfter;
-        }
-    }
     }
 }

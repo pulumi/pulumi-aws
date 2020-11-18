@@ -12,9 +12,45 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Provides a Route 53 Resolver endpoint resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_endpoint.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Route53.ResolverEndpoint("foo", new Aws.Route53.ResolverEndpointArgs
+    ///         {
+    ///             Direction = "INBOUND",
+    ///             SecurityGroupIds = 
+    ///             {
+    ///                 aws_security_group.Sg1.Id,
+    ///                 aws_security_group.Sg2.Id,
+    ///             },
+    ///             IpAddresses = 
+    ///             {
+    ///                 new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
+    ///                 {
+    ///                     SubnetId = aws_subnet.Sn1.Id,
+    ///                 },
+    ///                 new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
+    ///                 {
+    ///                     SubnetId = aws_subnet.Sn2.Id,
+    ///                     Ip = "10.0.64.4",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "Prod" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ResolverEndpoint : Pulumi.CustomResource
     {
@@ -43,7 +79,7 @@ namespace Pulumi.Aws.Route53
         /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         /// </summary>
         [Output("ipAddresses")]
-        public Output<ImmutableArray<Outputs.ResolverEndpointIpAddresses>> IpAddresses { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResolverEndpointIpAddress>> IpAddresses { get; private set; } = null!;
 
         /// <summary>
         /// The friendly name of the Route 53 Resolver endpoint.
@@ -58,10 +94,10 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -72,7 +108,7 @@ namespace Pulumi.Aws.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResolverEndpoint(string name, ResolverEndpointArgs args, CustomResourceOptions? options = null)
-            : base("aws:route53/resolverEndpoint:ResolverEndpoint", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:route53/resolverEndpoint:ResolverEndpoint", name, args ?? new ResolverEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -118,15 +154,15 @@ namespace Pulumi.Aws.Route53
         public Input<string> Direction { get; set; } = null!;
 
         [Input("ipAddresses", required: true)]
-        private InputList<Inputs.ResolverEndpointIpAddressesArgs>? _ipAddresses;
+        private InputList<Inputs.ResolverEndpointIpAddressArgs>? _ipAddresses;
 
         /// <summary>
         /// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
         /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         /// </summary>
-        public InputList<Inputs.ResolverEndpointIpAddressesArgs> IpAddresses
+        public InputList<Inputs.ResolverEndpointIpAddressArgs> IpAddresses
         {
-            get => _ipAddresses ?? (_ipAddresses = new InputList<Inputs.ResolverEndpointIpAddressesArgs>());
+            get => _ipAddresses ?? (_ipAddresses = new InputList<Inputs.ResolverEndpointIpAddressArgs>());
             set => _ipAddresses = value;
         }
 
@@ -149,14 +185,14 @@ namespace Pulumi.Aws.Route53
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -188,15 +224,15 @@ namespace Pulumi.Aws.Route53
         public Input<string>? HostVpcId { get; set; }
 
         [Input("ipAddresses")]
-        private InputList<Inputs.ResolverEndpointIpAddressesGetArgs>? _ipAddresses;
+        private InputList<Inputs.ResolverEndpointIpAddressGetArgs>? _ipAddresses;
 
         /// <summary>
         /// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
         /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         /// </summary>
-        public InputList<Inputs.ResolverEndpointIpAddressesGetArgs> IpAddresses
+        public InputList<Inputs.ResolverEndpointIpAddressGetArgs> IpAddresses
         {
-            get => _ipAddresses ?? (_ipAddresses = new InputList<Inputs.ResolverEndpointIpAddressesGetArgs>());
+            get => _ipAddresses ?? (_ipAddresses = new InputList<Inputs.ResolverEndpointIpAddressGetArgs>());
             set => _ipAddresses = value;
         }
 
@@ -219,96 +255,19 @@ namespace Pulumi.Aws.Route53
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public ResolverEndpointState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ResolverEndpointIpAddressesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The IP address in the subnet that you want to use for DNS queries.
-        /// </summary>
-        [Input("ip")]
-        public Input<string>? Ip { get; set; }
-
-        [Input("ipId")]
-        public Input<string>? IpId { get; set; }
-
-        /// <summary>
-        /// The ID of the subnet that contains the IP address.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public ResolverEndpointIpAddressesArgs()
-        {
-        }
-    }
-
-    public sealed class ResolverEndpointIpAddressesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The IP address in the subnet that you want to use for DNS queries.
-        /// </summary>
-        [Input("ip")]
-        public Input<string>? Ip { get; set; }
-
-        [Input("ipId")]
-        public Input<string>? IpId { get; set; }
-
-        /// <summary>
-        /// The ID of the subnet that contains the IP address.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public ResolverEndpointIpAddressesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ResolverEndpointIpAddresses
-    {
-        /// <summary>
-        /// The IP address in the subnet that you want to use for DNS queries.
-        /// </summary>
-        public readonly string Ip;
-        public readonly string IpId;
-        /// <summary>
-        /// The ID of the subnet that contains the IP address.
-        /// </summary>
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private ResolverEndpointIpAddresses(
-            string ip,
-            string ipId,
-            string subnetId)
-        {
-            Ip = ip;
-            IpId = ipId;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

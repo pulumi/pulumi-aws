@@ -24,14 +24,130 @@ namespace Pulumi.Aws.Ec2
     /// VPC Peering Connections use the `aws.ec2.VpcPeeringConnection` resource to manage the requester's side of the
     /// connection and use the `aws.ec2.VpcPeeringConnectionAccepter` resource to manage the accepter's side of the connection.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ec2.VpcPeeringConnection("foo", new Aws.Ec2.VpcPeeringConnectionArgs
+    ///         {
+    ///             PeerOwnerId = @var.Peer_owner_id,
+    ///             PeerVpcId = aws_vpc.Bar.Id,
+    ///             VpcId = aws_vpc.Foo.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Basic usage with connection options:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ec2.VpcPeeringConnection("foo", new Aws.Ec2.VpcPeeringConnectionArgs
+    ///         {
+    ///             PeerOwnerId = @var.Peer_owner_id,
+    ///             PeerVpcId = aws_vpc.Bar.Id,
+    ///             VpcId = aws_vpc.Foo.Id,
+    ///             Accepter = new Aws.Ec2.Inputs.VpcPeeringConnectionAccepterArgs
+    ///             {
+    ///                 AllowRemoteVpcDnsResolution = true,
+    ///             },
+    ///             Requester = new Aws.Ec2.Inputs.VpcPeeringConnectionRequesterArgs
+    ///             {
+    ///                 AllowRemoteVpcDnsResolution = true,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Basic usage with tags:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooVpc = new Aws.Ec2.Vpc("fooVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var bar = new Aws.Ec2.Vpc("bar", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.2.0.0/16",
+    ///         });
+    ///         var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
+    ///         {
+    ///             PeerOwnerId = @var.Peer_owner_id,
+    ///             PeerVpcId = bar.Id,
+    ///             VpcId = fooVpc.Id,
+    ///             AutoAccept = true,
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "VPC Peering between foo and bar" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Basic usage with region:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooVpc = new Aws.Ec2.Vpc("fooVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Us_west_2,
+    ///         });
+    ///         var bar = new Aws.Ec2.Vpc("bar", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.2.0.0/16",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Us_east_1,
+    ///         });
+    ///         var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
+    ///         {
+    ///             PeerOwnerId = @var.Peer_owner_id,
+    ///             PeerVpcId = bar.Id,
+    ///             VpcId = fooVpc.Id,
+    ///             PeerRegion = "us-east-1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Notes
     /// 
     /// If both VPCs are not in the same AWS account do not enable the `auto_accept` attribute.
     /// The accepter can manage its side of the connection using the `aws.ec2.VpcPeeringConnectionAccepter` resource
     /// or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection.html.markdown.
     /// </summary>
     public partial class VpcPeeringConnection : Pulumi.CustomResource
     {
@@ -43,7 +159,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// An optional configuration block that allows for [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
         /// the peering connection (a maximum of one).
         /// </summary>
         [Output("accepter")]
@@ -57,7 +173,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The AWS account ID of the owner of the peer VPC.
-        /// Defaults to the account ID the [AWS provider][1] is currently connected to.
+        /// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
         /// </summary>
         [Output("peerOwnerId")]
         public Output<string> PeerOwnerId { get; private set; } = null!;
@@ -77,17 +193,17 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A optional configuration block that allows for [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
         /// the peering connection (a maximum of one).
         /// </summary>
         [Output("requester")]
         public Output<Outputs.VpcPeeringConnectionRequester> Requester { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the requester VPC.
@@ -104,7 +220,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcPeeringConnection(string name, VpcPeeringConnectionArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpcPeeringConnection:VpcPeeringConnection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpcPeeringConnection:VpcPeeringConnection", name, args ?? new VpcPeeringConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -143,7 +259,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// An optional configuration block that allows for [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
         /// the peering connection (a maximum of one).
         /// </summary>
         [Input("accepter")]
@@ -157,7 +273,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The AWS account ID of the owner of the peer VPC.
-        /// Defaults to the account ID the [AWS provider][1] is currently connected to.
+        /// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
         /// </summary>
         [Input("peerOwnerId")]
         public Input<string>? PeerOwnerId { get; set; }
@@ -177,21 +293,21 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A optional configuration block that allows for [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
         /// the peering connection (a maximum of one).
         /// </summary>
         [Input("requester")]
         public Input<Inputs.VpcPeeringConnectionRequesterArgs>? Requester { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -216,7 +332,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// An optional configuration block that allows for [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
         /// the peering connection (a maximum of one).
         /// </summary>
         [Input("accepter")]
@@ -230,7 +346,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The AWS account ID of the owner of the peer VPC.
-        /// Defaults to the account ID the [AWS provider][1] is currently connected to.
+        /// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
         /// </summary>
         [Input("peerOwnerId")]
         public Input<string>? PeerOwnerId { get; set; }
@@ -250,21 +366,21 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A optional configuration block that allows for [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
         /// the peering connection (a maximum of one).
         /// </summary>
         [Input("requester")]
         public Input<Inputs.VpcPeeringConnectionRequesterGetArgs>? Requester { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -277,211 +393,5 @@ namespace Pulumi.Aws.Ec2
         public VpcPeeringConnectionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VpcPeeringConnectionAccepterArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Allow a local linked EC2-Classic instance to communicate
-        /// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        /// to the remote VPC.
-        /// </summary>
-        [Input("allowClassicLinkToRemoteVpc")]
-        public Input<bool>? AllowClassicLinkToRemoteVpc { get; set; }
-
-        /// <summary>
-        /// Allow a local VPC to resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in the peer VPC. This is
-        /// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-        /// inter-region VPC peering.
-        /// </summary>
-        [Input("allowRemoteVpcDnsResolution")]
-        public Input<bool>? AllowRemoteVpcDnsResolution { get; set; }
-
-        /// <summary>
-        /// Allow a local VPC to communicate with a linked EC2-Classic
-        /// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        /// connection.
-        /// </summary>
-        [Input("allowVpcToRemoteClassicLink")]
-        public Input<bool>? AllowVpcToRemoteClassicLink { get; set; }
-
-        public VpcPeeringConnectionAccepterArgs()
-        {
-        }
-    }
-
-    public sealed class VpcPeeringConnectionAccepterGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Allow a local linked EC2-Classic instance to communicate
-        /// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        /// to the remote VPC.
-        /// </summary>
-        [Input("allowClassicLinkToRemoteVpc")]
-        public Input<bool>? AllowClassicLinkToRemoteVpc { get; set; }
-
-        /// <summary>
-        /// Allow a local VPC to resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in the peer VPC. This is
-        /// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-        /// inter-region VPC peering.
-        /// </summary>
-        [Input("allowRemoteVpcDnsResolution")]
-        public Input<bool>? AllowRemoteVpcDnsResolution { get; set; }
-
-        /// <summary>
-        /// Allow a local VPC to communicate with a linked EC2-Classic
-        /// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        /// connection.
-        /// </summary>
-        [Input("allowVpcToRemoteClassicLink")]
-        public Input<bool>? AllowVpcToRemoteClassicLink { get; set; }
-
-        public VpcPeeringConnectionAccepterGetArgs()
-        {
-        }
-    }
-
-    public sealed class VpcPeeringConnectionRequesterArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Allow a local linked EC2-Classic instance to communicate
-        /// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        /// to the remote VPC.
-        /// </summary>
-        [Input("allowClassicLinkToRemoteVpc")]
-        public Input<bool>? AllowClassicLinkToRemoteVpc { get; set; }
-
-        /// <summary>
-        /// Allow a local VPC to resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in the peer VPC. This is
-        /// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-        /// inter-region VPC peering.
-        /// </summary>
-        [Input("allowRemoteVpcDnsResolution")]
-        public Input<bool>? AllowRemoteVpcDnsResolution { get; set; }
-
-        /// <summary>
-        /// Allow a local VPC to communicate with a linked EC2-Classic
-        /// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        /// connection.
-        /// </summary>
-        [Input("allowVpcToRemoteClassicLink")]
-        public Input<bool>? AllowVpcToRemoteClassicLink { get; set; }
-
-        public VpcPeeringConnectionRequesterArgs()
-        {
-        }
-    }
-
-    public sealed class VpcPeeringConnectionRequesterGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Allow a local linked EC2-Classic instance to communicate
-        /// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        /// to the remote VPC.
-        /// </summary>
-        [Input("allowClassicLinkToRemoteVpc")]
-        public Input<bool>? AllowClassicLinkToRemoteVpc { get; set; }
-
-        /// <summary>
-        /// Allow a local VPC to resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in the peer VPC. This is
-        /// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-        /// inter-region VPC peering.
-        /// </summary>
-        [Input("allowRemoteVpcDnsResolution")]
-        public Input<bool>? AllowRemoteVpcDnsResolution { get; set; }
-
-        /// <summary>
-        /// Allow a local VPC to communicate with a linked EC2-Classic
-        /// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        /// connection.
-        /// </summary>
-        [Input("allowVpcToRemoteClassicLink")]
-        public Input<bool>? AllowVpcToRemoteClassicLink { get; set; }
-
-        public VpcPeeringConnectionRequesterGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VpcPeeringConnectionAccepter
-    {
-        /// <summary>
-        /// Allow a local linked EC2-Classic instance to communicate
-        /// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        /// to the remote VPC.
-        /// </summary>
-        public readonly bool? AllowClassicLinkToRemoteVpc;
-        /// <summary>
-        /// Allow a local VPC to resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in the peer VPC. This is
-        /// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-        /// inter-region VPC peering.
-        /// </summary>
-        public readonly bool? AllowRemoteVpcDnsResolution;
-        /// <summary>
-        /// Allow a local VPC to communicate with a linked EC2-Classic
-        /// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        /// connection.
-        /// </summary>
-        public readonly bool? AllowVpcToRemoteClassicLink;
-
-        [OutputConstructor]
-        private VpcPeeringConnectionAccepter(
-            bool? allowClassicLinkToRemoteVpc,
-            bool? allowRemoteVpcDnsResolution,
-            bool? allowVpcToRemoteClassicLink)
-        {
-            AllowClassicLinkToRemoteVpc = allowClassicLinkToRemoteVpc;
-            AllowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
-            AllowVpcToRemoteClassicLink = allowVpcToRemoteClassicLink;
-        }
-    }
-
-    [OutputType]
-    public sealed class VpcPeeringConnectionRequester
-    {
-        /// <summary>
-        /// Allow a local linked EC2-Classic instance to communicate
-        /// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        /// to the remote VPC.
-        /// </summary>
-        public readonly bool? AllowClassicLinkToRemoteVpc;
-        /// <summary>
-        /// Allow a local VPC to resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in the peer VPC. This is
-        /// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-        /// inter-region VPC peering.
-        /// </summary>
-        public readonly bool? AllowRemoteVpcDnsResolution;
-        /// <summary>
-        /// Allow a local VPC to communicate with a linked EC2-Classic
-        /// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        /// connection.
-        /// </summary>
-        public readonly bool? AllowVpcToRemoteClassicLink;
-
-        [OutputConstructor]
-        private VpcPeeringConnectionRequester(
-            bool? allowClassicLinkToRemoteVpc,
-            bool? allowRemoteVpcDnsResolution,
-            bool? allowVpcToRemoteClassicLink)
-        {
-            AllowClassicLinkToRemoteVpc = allowClassicLinkToRemoteVpc;
-            AllowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
-            AllowVpcToRemoteClassicLink = allowVpcToRemoteClassicLink;
-        }
-    }
     }
 }

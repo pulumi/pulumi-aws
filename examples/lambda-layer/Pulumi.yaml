@@ -1,4 +1,0 @@
-name: lambda-layer
-description: Basic example of a creating an AWS lambda layer.
-runtime: nodejs
-

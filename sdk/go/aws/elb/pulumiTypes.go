@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type LoadBalancerAccessLogs struct {
@@ -21,6 +21,10 @@ type LoadBalancerAccessLogs struct {
 	Interval *int `pulumi:"interval"`
 }
 
+// LoadBalancerAccessLogsInput is an input type that accepts LoadBalancerAccessLogsArgs and LoadBalancerAccessLogsOutput values.
+// You can construct a concrete instance of `LoadBalancerAccessLogsInput` via:
+//
+//          LoadBalancerAccessLogsArgs{...}
 type LoadBalancerAccessLogsInput interface {
 	pulumi.Input
 
@@ -59,6 +63,14 @@ func (i LoadBalancerAccessLogsArgs) ToLoadBalancerAccessLogsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAccessLogsOutput).ToLoadBalancerAccessLogsPtrOutputWithContext(ctx)
 }
 
+// LoadBalancerAccessLogsPtrInput is an input type that accepts LoadBalancerAccessLogsArgs, LoadBalancerAccessLogsPtr and LoadBalancerAccessLogsPtrOutput values.
+// You can construct a concrete instance of `LoadBalancerAccessLogsPtrInput` via:
+//
+//          LoadBalancerAccessLogsArgs{...}
+//
+//  or:
+//
+//          nil
 type LoadBalancerAccessLogsPtrInput interface {
 	pulumi.Input
 
@@ -147,23 +159,43 @@ func (o LoadBalancerAccessLogsPtrOutput) Elem() LoadBalancerAccessLogsOutput {
 }
 
 // The S3 bucket name to store the logs in.
-func (o LoadBalancerAccessLogsPtrOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v LoadBalancerAccessLogs) string { return v.Bucket }).(pulumi.StringOutput)
+func (o LoadBalancerAccessLogsPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerAccessLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
 }
 
 // The S3 bucket prefix. Logs are stored in the root if not configured.
 func (o LoadBalancerAccessLogsPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerAccessLogs) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LoadBalancerAccessLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketPrefix
+	}).(pulumi.StringPtrOutput)
 }
 
 // Boolean to enable / disable `accessLogs`. Default is `true`
 func (o LoadBalancerAccessLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LoadBalancerAccessLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *LoadBalancerAccessLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The publishing interval in minutes. Default: 60 minutes.
 func (o LoadBalancerAccessLogsPtrOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LoadBalancerAccessLogs) *int { return v.Interval }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *LoadBalancerAccessLogs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
 }
 
 type LoadBalancerHealthCheck struct {
@@ -182,6 +214,10 @@ type LoadBalancerHealthCheck struct {
 	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
 }
 
+// LoadBalancerHealthCheckInput is an input type that accepts LoadBalancerHealthCheckArgs and LoadBalancerHealthCheckOutput values.
+// You can construct a concrete instance of `LoadBalancerHealthCheckInput` via:
+//
+//          LoadBalancerHealthCheckArgs{...}
 type LoadBalancerHealthCheckInput interface {
 	pulumi.Input
 
@@ -225,6 +261,14 @@ func (i LoadBalancerHealthCheckArgs) ToLoadBalancerHealthCheckPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerHealthCheckOutput).ToLoadBalancerHealthCheckPtrOutputWithContext(ctx)
 }
 
+// LoadBalancerHealthCheckPtrInput is an input type that accepts LoadBalancerHealthCheckArgs, LoadBalancerHealthCheckPtr and LoadBalancerHealthCheckPtrOutput values.
+// You can construct a concrete instance of `LoadBalancerHealthCheckPtrInput` via:
+//
+//          LoadBalancerHealthCheckArgs{...}
+//
+//  or:
+//
+//          nil
 type LoadBalancerHealthCheckPtrInput interface {
 	pulumi.Input
 
@@ -321,31 +365,56 @@ func (o LoadBalancerHealthCheckPtrOutput) Elem() LoadBalancerHealthCheckOutput {
 }
 
 // The number of checks before the instance is declared healthy.
-func (o LoadBalancerHealthCheckPtrOutput) HealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v LoadBalancerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
+func (o LoadBalancerHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.HealthyThreshold
+	}).(pulumi.IntPtrOutput)
 }
 
 // The interval between checks.
-func (o LoadBalancerHealthCheckPtrOutput) Interval() pulumi.IntOutput {
-	return o.ApplyT(func(v LoadBalancerHealthCheck) int { return v.Interval }).(pulumi.IntOutput)
+func (o LoadBalancerHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(pulumi.IntPtrOutput)
 }
 
 // The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
 // values are:
 // * `HTTP`, `HTTPS` - PORT and PATH are required
 // * `TCP`, `SSL` - PORT is required, PATH is not supported
-func (o LoadBalancerHealthCheckPtrOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func(v LoadBalancerHealthCheck) string { return v.Target }).(pulumi.StringOutput)
+func (o LoadBalancerHealthCheckPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(pulumi.StringPtrOutput)
 }
 
 // The length of time before the check times out.
-func (o LoadBalancerHealthCheckPtrOutput) Timeout() pulumi.IntOutput {
-	return o.ApplyT(func(v LoadBalancerHealthCheck) int { return v.Timeout }).(pulumi.IntOutput)
+func (o LoadBalancerHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Timeout
+	}).(pulumi.IntPtrOutput)
 }
 
 // The number of checks before the instance is declared unhealthy.
-func (o LoadBalancerHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v LoadBalancerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
+func (o LoadBalancerHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.UnhealthyThreshold
+	}).(pulumi.IntPtrOutput)
 }
 
 type LoadBalancerListener struct {
@@ -364,6 +433,10 @@ type LoadBalancerListener struct {
 	SslCertificateId *string `pulumi:"sslCertificateId"`
 }
 
+// LoadBalancerListenerInput is an input type that accepts LoadBalancerListenerArgs and LoadBalancerListenerOutput values.
+// You can construct a concrete instance of `LoadBalancerListenerInput` via:
+//
+//          LoadBalancerListenerArgs{...}
 type LoadBalancerListenerInput interface {
 	pulumi.Input
 
@@ -399,6 +472,10 @@ func (i LoadBalancerListenerArgs) ToLoadBalancerListenerOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerListenerOutput)
 }
 
+// LoadBalancerListenerArrayInput is an input type that accepts LoadBalancerListenerArray and LoadBalancerListenerArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerListenerArrayInput` via:
+//
+//          LoadBalancerListenerArray{ LoadBalancerListenerArgs{...} }
 type LoadBalancerListenerArrayInput interface {
 	pulumi.Input
 
@@ -487,6 +564,10 @@ type LoadBalancerPolicyPolicyAttribute struct {
 	Value *string `pulumi:"value"`
 }
 
+// LoadBalancerPolicyPolicyAttributeInput is an input type that accepts LoadBalancerPolicyPolicyAttributeArgs and LoadBalancerPolicyPolicyAttributeOutput values.
+// You can construct a concrete instance of `LoadBalancerPolicyPolicyAttributeInput` via:
+//
+//          LoadBalancerPolicyPolicyAttributeArgs{...}
 type LoadBalancerPolicyPolicyAttributeInput interface {
 	pulumi.Input
 
@@ -511,6 +592,10 @@ func (i LoadBalancerPolicyPolicyAttributeArgs) ToLoadBalancerPolicyPolicyAttribu
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyPolicyAttributeOutput)
 }
 
+// LoadBalancerPolicyPolicyAttributeArrayInput is an input type that accepts LoadBalancerPolicyPolicyAttributeArray and LoadBalancerPolicyPolicyAttributeArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerPolicyPolicyAttributeArrayInput` via:
+//
+//          LoadBalancerPolicyPolicyAttributeArray{ LoadBalancerPolicyPolicyAttributeArgs{...} }
 type LoadBalancerPolicyPolicyAttributeArrayInput interface {
 	pulumi.Input
 
@@ -581,6 +666,10 @@ type SslNegotiationPolicyAttribute struct {
 	Value string `pulumi:"value"`
 }
 
+// SslNegotiationPolicyAttributeInput is an input type that accepts SslNegotiationPolicyAttributeArgs and SslNegotiationPolicyAttributeOutput values.
+// You can construct a concrete instance of `SslNegotiationPolicyAttributeInput` via:
+//
+//          SslNegotiationPolicyAttributeArgs{...}
 type SslNegotiationPolicyAttributeInput interface {
 	pulumi.Input
 
@@ -607,6 +696,10 @@ func (i SslNegotiationPolicyAttributeArgs) ToSslNegotiationPolicyAttributeOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SslNegotiationPolicyAttributeOutput)
 }
 
+// SslNegotiationPolicyAttributeArrayInput is an input type that accepts SslNegotiationPolicyAttributeArray and SslNegotiationPolicyAttributeArrayOutput values.
+// You can construct a concrete instance of `SslNegotiationPolicyAttributeArrayInput` via:
+//
+//          SslNegotiationPolicyAttributeArray{ SslNegotiationPolicyAttributeArgs{...} }
 type SslNegotiationPolicyAttributeArrayInput interface {
 	pulumi.Input
 
@@ -679,6 +772,10 @@ type GetLoadBalancerAccessLogs struct {
 	Interval     int    `pulumi:"interval"`
 }
 
+// GetLoadBalancerAccessLogsInput is an input type that accepts GetLoadBalancerAccessLogsArgs and GetLoadBalancerAccessLogsOutput values.
+// You can construct a concrete instance of `GetLoadBalancerAccessLogsInput` via:
+//
+//          GetLoadBalancerAccessLogsArgs{...}
 type GetLoadBalancerAccessLogsInput interface {
 	pulumi.Input
 
@@ -743,6 +840,10 @@ type GetLoadBalancerHealthCheck struct {
 	UnhealthyThreshold int    `pulumi:"unhealthyThreshold"`
 }
 
+// GetLoadBalancerHealthCheckInput is an input type that accepts GetLoadBalancerHealthCheckArgs and GetLoadBalancerHealthCheckOutput values.
+// You can construct a concrete instance of `GetLoadBalancerHealthCheckInput` via:
+//
+//          GetLoadBalancerHealthCheckArgs{...}
 type GetLoadBalancerHealthCheckInput interface {
 	pulumi.Input
 
@@ -812,6 +913,10 @@ type GetLoadBalancerListener struct {
 	SslCertificateId string `pulumi:"sslCertificateId"`
 }
 
+// GetLoadBalancerListenerInput is an input type that accepts GetLoadBalancerListenerArgs and GetLoadBalancerListenerOutput values.
+// You can construct a concrete instance of `GetLoadBalancerListenerInput` via:
+//
+//          GetLoadBalancerListenerArgs{...}
 type GetLoadBalancerListenerInput interface {
 	pulumi.Input
 
@@ -839,6 +944,10 @@ func (i GetLoadBalancerListenerArgs) ToGetLoadBalancerListenerOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerListenerOutput)
 }
 
+// GetLoadBalancerListenerArrayInput is an input type that accepts GetLoadBalancerListenerArray and GetLoadBalancerListenerArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerListenerArrayInput` via:
+//
+//          GetLoadBalancerListenerArray{ GetLoadBalancerListenerArgs{...} }
 type GetLoadBalancerListenerArrayInput interface {
 	pulumi.Input
 

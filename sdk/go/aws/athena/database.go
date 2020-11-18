@@ -7,10 +7,39 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an Athena database.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/athena"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		hogeBucket, err := s3.NewBucket(ctx, "hogeBucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = athena.NewDatabase(ctx, "hogeDatabase", &athena.DatabaseArgs{
+// 			Name:   pulumi.String("database_name"),
+// 			Bucket: hogeBucket.Bucket,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Database struct {
 	pulumi.CustomResourceState
 

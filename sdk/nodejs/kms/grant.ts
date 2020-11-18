@@ -4,22 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource-based access control mechanism for a KMS customer master key.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const key = new aws.kms.Key("a", {});
- * const role = new aws.iam.Role("a", {
- *     assumeRolePolicy: `{
+ *
+ * const key = new aws.kms.Key("key", {});
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -32,25 +30,22 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const grant = new aws.kms.Grant("a", {
- *     constraints: [{
- *         encryptionContextEquals: {
- *             Department: "Finance",
- *         },
- *     }],
- *     granteePrincipal: role.arn,
+ * `});
+ * const grant = new aws.kms.Grant("grant", {
  *     keyId: key.keyId,
+ *     granteePrincipal: role.arn,
  *     operations: [
  *         "Encrypt",
  *         "Decrypt",
  *         "GenerateDataKey",
  *     ],
+ *     constraints: [{
+ *         encryptionContextEquals: {
+ *             Department: "Finance",
+ *         },
+ *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_grant.html.markdown.
  */
 export class Grant extends pulumi.CustomResource {
     /**
@@ -60,6 +55,7 @@ export class Grant extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GrantState, opts?: pulumi.CustomResourceOptions): Grant {
         return new Grant(name, <any>state, { ...opts, id: id });
@@ -85,8 +81,6 @@ export class Grant extends pulumi.CustomResource {
     public readonly constraints!: pulumi.Output<outputs.kms.GrantConstraint[] | undefined>;
     /**
      * A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-     * * `retireOnDelete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-     * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      */
     public readonly grantCreationTokens!: pulumi.Output<string[] | undefined>;
     /**
@@ -113,6 +107,10 @@ export class Grant extends pulumi.CustomResource {
      * A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
      */
     public readonly operations!: pulumi.Output<string[]>;
+    /**
+     * -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+     * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+     */
     public readonly retireOnDelete!: pulumi.Output<boolean | undefined>;
     /**
      * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
@@ -184,8 +182,6 @@ export interface GrantState {
     readonly constraints?: pulumi.Input<pulumi.Input<inputs.kms.GrantConstraint>[]>;
     /**
      * A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-     * * `retireOnDelete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-     * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      */
     readonly grantCreationTokens?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -212,6 +208,10 @@ export interface GrantState {
      * A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
      */
     readonly operations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+     * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+     */
     readonly retireOnDelete?: pulumi.Input<boolean>;
     /**
      * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
@@ -229,8 +229,6 @@ export interface GrantArgs {
     readonly constraints?: pulumi.Input<pulumi.Input<inputs.kms.GrantConstraint>[]>;
     /**
      * A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-     * * `retireOnDelete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-     * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      */
     readonly grantCreationTokens?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -249,6 +247,10 @@ export interface GrantArgs {
      * A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
      */
     readonly operations: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+     * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+     */
     readonly retireOnDelete?: pulumi.Input<boolean>;
     /**
      * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.

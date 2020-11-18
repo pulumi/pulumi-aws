@@ -7,12 +7,59 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Redshift event subscription resource.
 //
+// ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/redshift"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		defaultCluster, err := redshift.NewCluster(ctx, "defaultCluster", &redshift.ClusterArgs{
+// 			ClusterIdentifier: pulumi.String("default"),
+// 			DatabaseName:      pulumi.String("default"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		defaultTopic, err := sns.NewTopic(ctx, "defaultTopic", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = redshift.NewEventSubscription(ctx, "defaultEventSubscription", &redshift.EventSubscriptionArgs{
+// 			SnsTopicArn: defaultTopic.Arn,
+// 			SourceType:  pulumi.String("cluster"),
+// 			SourceIds: pulumi.StringArray{
+// 				defaultCluster.ID(),
+// 			},
+// 			Severity: pulumi.String("INFO"),
+// 			EventCategories: pulumi.StringArray{
+// 				pulumi.String("configuration"),
+// 				pulumi.String("management"),
+// 				pulumi.String("monitoring"),
+// 				pulumi.String("security"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("default"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Attributes
 //
 // The following additional atttributes are provided:
@@ -40,8 +87,8 @@ type EventSubscription struct {
 	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
 	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
 	Status     pulumi.StringOutput    `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewEventSubscription registers a new resource with the given unique name, arguments, and options.
@@ -92,8 +139,8 @@ type eventSubscriptionState struct {
 	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
 	SourceType *string `pulumi:"sourceType"`
 	Status     *string `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type EventSubscriptionState struct {
@@ -114,8 +161,8 @@ type EventSubscriptionState struct {
 	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
 	SourceType pulumi.StringPtrInput
 	Status     pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (EventSubscriptionState) ElementType() reflect.Type {
@@ -137,8 +184,8 @@ type eventSubscriptionArgs struct {
 	SourceIds []string `pulumi:"sourceIds"`
 	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
 	SourceType *string `pulumi:"sourceType"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventSubscription resource.
@@ -157,8 +204,8 @@ type EventSubscriptionArgs struct {
 	SourceIds pulumi.StringArrayInput
 	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
 	SourceType pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (EventSubscriptionArgs) ElementType() reflect.Type {

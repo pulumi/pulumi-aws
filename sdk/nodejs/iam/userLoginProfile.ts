@@ -6,30 +6,25 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an IAM User Login Profile with limited support for password creation during this provider resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
- * 
+ *
  * > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleUser = new aws.iam.User("example", {
- *     forceDestroy: true,
+ *
+ * const exampleUser = new aws.iam.User("exampleUser", {
  *     path: "/",
+ *     forceDestroy: true,
  * });
- * const exampleUserLoginProfile = new aws.iam.UserLoginProfile("example", {
- *     pgpKey: "keybase:some_person_that_exists",
+ * const exampleUserLoginProfile = new aws.iam.UserLoginProfile("exampleUserLoginProfile", {
  *     user: exampleUser.name,
+ *     pgpKey: "keybase:some_person_that_exists",
  * });
- * 
  * export const password = exampleUserLoginProfile.encryptedPassword;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_login_profile.html.markdown.
  */
 export class UserLoginProfile extends pulumi.CustomResource {
     /**
@@ -39,6 +34,7 @@ export class UserLoginProfile extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserLoginProfileState, opts?: pulumi.CustomResourceOptions): UserLoginProfile {
         return new UserLoginProfile(name, <any>state, { ...opts, id: id });

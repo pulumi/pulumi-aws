@@ -4,41 +4,38 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Get information on an EC2 Transit Gateway.
- * 
+ *
  * ## Example Usage
- * 
  * ### By Filter
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ec2transitgateway.getTransitGateway({
+ *
+ * const example = pulumi.output(aws.ec2transitgateway.getTransitGateway({
  *     filters: [{
  *         name: "options.amazon-side-asn",
  *         values: ["64512"],
  *     }],
- * });
+ * }, { async: true }));
  * ```
- * 
  * ### By Identifier
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ec2transitgateway.getTransitGateway({
- *     id: "tgw-12345678",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway.html.markdown.
+ * const example = pulumi.output(aws.ec2transitgateway.getTransitGateway({
+ *     id: "tgw-12345678",
+ * }, { async: true }));
+ * ```
  */
-export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayResult> & GetTransitGatewayResult {
+export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -47,13 +44,11 @@ export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.In
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetTransitGatewayResult> = pulumi.runtime.invoke("aws:ec2transitgateway/getTransitGateway:getTransitGateway", {
+    return pulumi.runtime.invoke("aws:ec2transitgateway/getTransitGateway:getTransitGateway", {
         "filters": args.filters,
         "id": args.id,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -71,7 +66,7 @@ export interface GetTransitGatewayArgs {
     /**
      * Key-value tags for the EC2 Transit Gateway
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -126,7 +121,7 @@ export interface GetTransitGatewayResult {
     /**
      * Key-value tags for the EC2 Transit Gateway
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled.
      */

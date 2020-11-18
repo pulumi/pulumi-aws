@@ -4,6 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -11,23 +12,28 @@ import * as utilities from "../utilities";
  * the specified KMS Key with flexible key id input.
  * This can be useful to reference key alias
  * without having to hard code the ARN as input.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const foo = aws.kms.getKey({
- *     keyId: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
+ * const byAlias = pulumi.output(aws.kms.getKey({
+ *     keyId: "alias/my-key",
+ * }, { async: true }));
+ * const byId = pulumi.output(aws.kms.getKey({
+ *     keyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ * }, { async: true }));
+ * const byAliasArn = pulumi.output(aws.kms.getKey({
+ *     keyId: "arn:aws:kms:us-east-1:111122223333:alias/my-key",
+ * }, { async: true }));
+ * const byKeyArn = pulumi.output(aws.kms.getKey({
+ *     keyId: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ * }, { async: true }));
+ * ```
  */
-export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> & GetKeyResult {
+export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
     if (!opts) {
         opts = {}
     }
@@ -35,12 +41,10 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetKeyResult> = pulumi.runtime.invoke("aws:kms/getKey:getKey", {
+    return pulumi.runtime.invoke("aws:kms/getKey:getKey", {
         "grantTokens": args.grantTokens,
         "keyId": args.keyId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -74,14 +78,14 @@ export interface GetKeyResult {
     readonly enabled: boolean;
     readonly expirationModel: string;
     readonly grantTokens?: string[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly keyId: string;
     readonly keyManager: string;
     readonly keyState: string;
     readonly keyUsage: string;
     readonly origin: string;
     readonly validTo: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -2,32 +2,98 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic IP resource.
- * 
+ *
  * > **Note:** EIP may require IGW to exist prior to association. Use `dependsOn` to set an explicit dependency on the IGW.
- * 
+ *
  * > **Note:** Do not use `networkInterface` to associate the EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocationId` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * Single EIP associated with an instance:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const lb = new aws.ec2.Eip("lb", {
- *     instance: aws_instance_web.id,
+ *     instance: aws_instance.web.id,
  *     vpc: true,
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip.html.markdown.
+ * Multiple EIPs associated with a single network interface:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const multi_ip = new aws.ec2.NetworkInterface("multi-ip", {
+ *     subnetId: aws_subnet.main.id,
+ *     privateIps: [
+ *         "10.0.0.10",
+ *         "10.0.0.11",
+ *     ],
+ * });
+ * const one = new aws.ec2.Eip("one", {
+ *     vpc: true,
+ *     networkInterface: multi_ip.id,
+ *     associateWithPrivateIp: "10.0.0.10",
+ * });
+ * const two = new aws.ec2.Eip("two", {
+ *     vpc: true,
+ *     networkInterface: multi_ip.id,
+ *     associateWithPrivateIp: "10.0.0.11",
+ * });
+ * ```
+ *
+ * Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only):
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const _default = new aws.ec2.Vpc("default", {
+ *     cidrBlock: "10.0.0.0/16",
+ *     enableDnsHostnames: true,
+ * });
+ * const gw = new aws.ec2.InternetGateway("gw", {vpcId: _default.id});
+ * const tfTestSubnet = new aws.ec2.Subnet("tfTestSubnet", {
+ *     vpcId: _default.id,
+ *     cidrBlock: "10.0.0.0/24",
+ *     mapPublicIpOnLaunch: true,
+ * }, {
+ *     dependsOn: [gw],
+ * });
+ * const foo = new aws.ec2.Instance("foo", {
+ *     ami: "ami-5189a661",
+ *     instanceType: "t2.micro",
+ *     privateIp: "10.0.0.12",
+ *     subnetId: tfTestSubnet.id,
+ * });
+ * const bar = new aws.ec2.Eip("bar", {
+ *     vpc: true,
+ *     instance: foo.id,
+ *     associateWithPrivateIp: "10.0.0.12",
+ * }, {
+ *     dependsOn: [gw],
+ * });
+ * ```
+ *
+ * Allocating EIP from the BYOIP pool:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const byoip_ip = new aws.ec2.Eip("byoip-ip", {
+ *     publicIpv4Pool: "ipv4pool-ec2-012345",
+ *     vpc: true,
+ * });
+ * ```
  */
 export class Eip extends pulumi.CustomResource {
     /**
@@ -37,6 +103,7 @@ export class Eip extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EipState, opts?: pulumi.CustomResourceOptions): Eip {
         return new Eip(name, <any>state, { ...opts, id: id });
@@ -64,11 +131,26 @@ export class Eip extends pulumi.CustomResource {
      */
     public readonly associateWithPrivateIp!: pulumi.Output<string | undefined>;
     public /*out*/ readonly associationId!: pulumi.Output<string>;
+    /**
+     * Customer owned IP.
+     */
+    public /*out*/ readonly customerOwnedIp!: pulumi.Output<string>;
+    /**
+     * The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+     */
+    public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+     */
     public /*out*/ readonly domain!: pulumi.Output<string>;
     /**
      * EC2 instance ID.
      */
     public readonly instance!: pulumi.Output<string>;
+    /**
+     * The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+     */
+    public readonly networkBorderGroup!: pulumi.Output<string>;
     /**
      * Network interface ID to associate with.
      */
@@ -94,9 +176,9 @@ export class Eip extends pulumi.CustomResource {
      */
     public readonly publicIpv4Pool!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Boolean if the EIP is in a VPC or not.
      */
@@ -117,8 +199,11 @@ export class Eip extends pulumi.CustomResource {
             inputs["allocationId"] = state ? state.allocationId : undefined;
             inputs["associateWithPrivateIp"] = state ? state.associateWithPrivateIp : undefined;
             inputs["associationId"] = state ? state.associationId : undefined;
+            inputs["customerOwnedIp"] = state ? state.customerOwnedIp : undefined;
+            inputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["instance"] = state ? state.instance : undefined;
+            inputs["networkBorderGroup"] = state ? state.networkBorderGroup : undefined;
             inputs["networkInterface"] = state ? state.networkInterface : undefined;
             inputs["privateDns"] = state ? state.privateDns : undefined;
             inputs["privateIp"] = state ? state.privateIp : undefined;
@@ -130,13 +215,16 @@ export class Eip extends pulumi.CustomResource {
         } else {
             const args = argsOrState as EipArgs | undefined;
             inputs["associateWithPrivateIp"] = args ? args.associateWithPrivateIp : undefined;
+            inputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
             inputs["instance"] = args ? args.instance : undefined;
+            inputs["networkBorderGroup"] = args ? args.networkBorderGroup : undefined;
             inputs["networkInterface"] = args ? args.networkInterface : undefined;
             inputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpc"] = args ? args.vpc : undefined;
             inputs["allocationId"] = undefined /*out*/;
             inputs["associationId"] = undefined /*out*/;
+            inputs["customerOwnedIp"] = undefined /*out*/;
             inputs["domain"] = undefined /*out*/;
             inputs["privateDns"] = undefined /*out*/;
             inputs["privateIp"] = undefined /*out*/;
@@ -166,11 +254,26 @@ export interface EipState {
      */
     readonly associateWithPrivateIp?: pulumi.Input<string>;
     readonly associationId?: pulumi.Input<string>;
+    /**
+     * Customer owned IP.
+     */
+    readonly customerOwnedIp?: pulumi.Input<string>;
+    /**
+     * The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+     */
+    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
+    /**
+     * Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+     */
     readonly domain?: pulumi.Input<string>;
     /**
      * EC2 instance ID.
      */
     readonly instance?: pulumi.Input<string>;
+    /**
+     * The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+     */
+    readonly networkBorderGroup?: pulumi.Input<string>;
     /**
      * Network interface ID to associate with.
      */
@@ -196,9 +299,9 @@ export interface EipState {
      */
     readonly publicIpv4Pool?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean if the EIP is in a VPC or not.
      */
@@ -216,9 +319,17 @@ export interface EipArgs {
      */
     readonly associateWithPrivateIp?: pulumi.Input<string>;
     /**
+     * The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+     */
+    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
+    /**
      * EC2 instance ID.
      */
     readonly instance?: pulumi.Input<string>;
+    /**
+     * The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+     */
+    readonly networkBorderGroup?: pulumi.Input<string>;
     /**
      * Network interface ID to associate with.
      */
@@ -228,9 +339,9 @@ export interface EipArgs {
      */
     readonly publicIpv4Pool?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean if the EIP is in a VPC or not.
      */

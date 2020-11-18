@@ -4,30 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides information about a Lambda Layer Version.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const layerName = config.require("layerName");
- * 
  * const existing = aws.lambda.getLayerVersion({
  *     layerName: layerName,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
  */
-export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> & GetLayerVersionResult {
+export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -35,13 +31,11 @@ export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetLayerVersionResult> = pulumi.runtime.invoke("aws:lambda/getLayerVersion:getLayerVersion", {
+    return pulumi.runtime.invoke("aws:lambda/getLayerVersion:getLayerVersion", {
         "compatibleRuntime": args.compatibleRuntime,
         "layerName": args.layerName,
         "version": args.version,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -72,7 +66,7 @@ export interface GetLayerVersionResult {
     readonly arn: string;
     readonly compatibleRuntime?: string;
     /**
-     * A list of [Runtimes][1] the specific Lambda Layer version is compatible with.
+     * A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
      */
     readonly compatibleRuntimes: string[];
     /**
@@ -83,6 +77,10 @@ export interface GetLayerVersionResult {
      * Description of the specific Lambda Layer version.
      */
     readonly description: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     /**
      * The Amazon Resource Name (ARN) of the Lambda Layer without version.
      */
@@ -104,8 +102,4 @@ export interface GetLayerVersionResult {
      * This Lamba Layer version.
      */
     readonly version: number;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

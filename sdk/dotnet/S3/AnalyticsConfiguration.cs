@@ -9,17 +9,101 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
+    /// <summary>
+    /// Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
+    /// 
+    /// ## Example Usage
+    /// ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.S3.Bucket("example", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var analytics = new Aws.S3.Bucket("analytics", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var example_entire_bucket = new Aws.S3.AnalyticsConfiguration("example-entire-bucket", new Aws.S3.AnalyticsConfigurationArgs
+    ///         {
+    ///             Bucket = example.BucketName,
+    ///             StorageClassAnalysis = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisArgs
+    ///             {
+    ///                 DataExport = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs
+    ///                 {
+    ///                     Destination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs
+    ///                     {
+    ///                         S3BucketDestination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs
+    ///                         {
+    ///                             BucketArn = analytics.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Add analytics configuration with S3 bucket object filter
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.S3.Bucket("example", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var example_filtered = new Aws.S3.AnalyticsConfiguration("example-filtered", new Aws.S3.AnalyticsConfigurationArgs
+    ///         {
+    ///             Bucket = example.BucketName,
+    ///             Filter = new Aws.S3.Inputs.AnalyticsConfigurationFilterArgs
+    ///             {
+    ///                 Prefix = "documents/",
+    ///                 Tags = 
+    ///                 {
+    ///                     { "priority", "high" },
+    ///                     { "class", "blue" },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class AnalyticsConfiguration : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the bucket this analytics configuration is associated with.
+        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
+        /// <summary>
+        /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        /// </summary>
         [Output("filter")]
         public Output<Outputs.AnalyticsConfigurationFilter?> Filter { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier of the analytics configuration for the bucket.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration for the analytics data export (documented below).
+        /// </summary>
         [Output("storageClassAnalysis")]
         public Output<Outputs.AnalyticsConfigurationStorageClassAnalysis?> StorageClassAnalysis { get; private set; } = null!;
 
@@ -32,7 +116,7 @@ namespace Pulumi.Aws.S3
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AnalyticsConfiguration(string name, AnalyticsConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws:s3/analyticsConfiguration:AnalyticsConfiguration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:s3/analyticsConfiguration:AnalyticsConfiguration", name, args ?? new AnalyticsConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -69,15 +153,27 @@ namespace Pulumi.Aws.S3
 
     public sealed class AnalyticsConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the bucket this analytics configuration is associated with.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.AnalyticsConfigurationFilterArgs>? Filter { get; set; }
 
+        /// <summary>
+        /// Unique identifier of the analytics configuration for the bucket.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Configuration for the analytics data export (documented below).
+        /// </summary>
         [Input("storageClassAnalysis")]
         public Input<Inputs.AnalyticsConfigurationStorageClassAnalysisArgs>? StorageClassAnalysis { get; set; }
 
@@ -88,246 +184,32 @@ namespace Pulumi.Aws.S3
 
     public sealed class AnalyticsConfigurationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the bucket this analytics configuration is associated with.
+        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
+        /// <summary>
+        /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.AnalyticsConfigurationFilterGetArgs>? Filter { get; set; }
 
+        /// <summary>
+        /// Unique identifier of the analytics configuration for the bucket.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Configuration for the analytics data export (documented below).
+        /// </summary>
         [Input("storageClassAnalysis")]
         public Input<Inputs.AnalyticsConfigurationStorageClassAnalysisGetArgs>? StorageClassAnalysis { get; set; }
 
         public AnalyticsConfigurationState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AnalyticsConfigurationFilterArgs : Pulumi.ResourceArgs
-    {
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        [Input("tags")]
-        private InputMap<object>? _tags;
-        public InputMap<object> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<object>());
-            set => _tags = value;
-        }
-
-        public AnalyticsConfigurationFilterArgs()
-        {
-        }
-    }
-
-    public sealed class AnalyticsConfigurationFilterGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        [Input("tags")]
-        private InputMap<object>? _tags;
-        public InputMap<object> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<object>());
-            set => _tags = value;
-        }
-
-        public AnalyticsConfigurationFilterGetArgs()
-        {
-        }
-    }
-
-    public sealed class AnalyticsConfigurationStorageClassAnalysisArgs : Pulumi.ResourceArgs
-    {
-        [Input("dataExport", required: true)]
-        public Input<AnalyticsConfigurationStorageClassAnalysisDataExportArgs> DataExport { get; set; } = null!;
-
-        public AnalyticsConfigurationStorageClassAnalysisArgs()
-        {
-        }
-    }
-
-    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportArgs : Pulumi.ResourceArgs
-    {
-        [Input("destination", required: true)]
-        public Input<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs> Destination { get; set; } = null!;
-
-        [Input("outputSchemaVersion")]
-        public Input<string>? OutputSchemaVersion { get; set; }
-
-        public AnalyticsConfigurationStorageClassAnalysisDataExportArgs()
-        {
-        }
-    }
-
-    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs : Pulumi.ResourceArgs
-    {
-        [Input("s3BucketDestination", required: true)]
-        public Input<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs> S3BucketDestination { get; set; } = null!;
-
-        public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs()
-        {
-        }
-    }
-
-    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("s3BucketDestination", required: true)]
-        public Input<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationGetArgs> S3BucketDestination { get; set; } = null!;
-
-        public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationGetArgs()
-        {
-        }
-    }
-
-    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs : Pulumi.ResourceArgs
-    {
-        [Input("bucketAccountId")]
-        public Input<string>? BucketAccountId { get; set; }
-
-        [Input("bucketArn", required: true)]
-        public Input<string> BucketArn { get; set; } = null!;
-
-        [Input("format")]
-        public Input<string>? Format { get; set; }
-
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs()
-        {
-        }
-    }
-
-    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("bucketAccountId")]
-        public Input<string>? BucketAccountId { get; set; }
-
-        [Input("bucketArn", required: true)]
-        public Input<string> BucketArn { get; set; } = null!;
-
-        [Input("format")]
-        public Input<string>? Format { get; set; }
-
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationGetArgs()
-        {
-        }
-    }
-
-    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("destination", required: true)]
-        public Input<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationGetArgs> Destination { get; set; } = null!;
-
-        [Input("outputSchemaVersion")]
-        public Input<string>? OutputSchemaVersion { get; set; }
-
-        public AnalyticsConfigurationStorageClassAnalysisDataExportGetArgs()
-        {
-        }
-    }
-
-    public sealed class AnalyticsConfigurationStorageClassAnalysisGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("dataExport", required: true)]
-        public Input<AnalyticsConfigurationStorageClassAnalysisDataExportGetArgs> DataExport { get; set; } = null!;
-
-        public AnalyticsConfigurationStorageClassAnalysisGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AnalyticsConfigurationFilter
-    {
-        public readonly string? Prefix;
-        public readonly ImmutableDictionary<string, object>? Tags;
-
-        [OutputConstructor]
-        private AnalyticsConfigurationFilter(
-            string? prefix,
-            ImmutableDictionary<string, object>? tags)
-        {
-            Prefix = prefix;
-            Tags = tags;
-        }
-    }
-
-    [OutputType]
-    public sealed class AnalyticsConfigurationStorageClassAnalysis
-    {
-        public readonly AnalyticsConfigurationStorageClassAnalysisDataExport DataExport;
-
-        [OutputConstructor]
-        private AnalyticsConfigurationStorageClassAnalysis(AnalyticsConfigurationStorageClassAnalysisDataExport dataExport)
-        {
-            DataExport = dataExport;
-        }
-    }
-
-    [OutputType]
-    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExport
-    {
-        public readonly AnalyticsConfigurationStorageClassAnalysisDataExportDestination Destination;
-        public readonly string? OutputSchemaVersion;
-
-        [OutputConstructor]
-        private AnalyticsConfigurationStorageClassAnalysisDataExport(
-            AnalyticsConfigurationStorageClassAnalysisDataExportDestination destination,
-            string? outputSchemaVersion)
-        {
-            Destination = destination;
-            OutputSchemaVersion = outputSchemaVersion;
-        }
-    }
-
-    [OutputType]
-    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportDestination
-    {
-        public readonly AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination S3BucketDestination;
-
-        [OutputConstructor]
-        private AnalyticsConfigurationStorageClassAnalysisDataExportDestination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination s3BucketDestination)
-        {
-            S3BucketDestination = s3BucketDestination;
-        }
-    }
-
-    [OutputType]
-    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination
-    {
-        public readonly string? BucketAccountId;
-        public readonly string BucketArn;
-        public readonly string? Format;
-        public readonly string? Prefix;
-
-        [OutputConstructor]
-        private AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination(
-            string? bucketAccountId,
-            string bucketArn,
-            string? format,
-            string? prefix)
-        {
-            BucketAccountId = bucketAccountId;
-            BucketArn = bucketArn;
-            Format = format;
-            Prefix = prefix;
-        }
-    }
     }
 }

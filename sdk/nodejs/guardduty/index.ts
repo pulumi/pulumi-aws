@@ -3,8 +3,12 @@
 
 // Export members:
 export * from "./detector";
+export * from "./filter";
 export * from "./getDetector";
-export * from "./iPSet";
 export * from "./inviteAccepter";
+export * from "./ipset";
 export * from "./member";
+export * from "./organizationAdminAccount";
+export * from "./organizationConfiguration";
+export * from "./publishingDestination";
 export * from "./threatIntelSet";

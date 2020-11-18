@@ -9,45 +9,75 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ebs
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSnapshot.InvokeAsync() instead")]
-        public static Task<GetSnapshotResult> GetSnapshot(GetSnapshotArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:ebs/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSnapshot
     {
         /// <summary>
         /// Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var ebsVolume = Output.Create(Aws.Ebs.GetSnapshot.InvokeAsync(new Aws.Ebs.GetSnapshotArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ebs.Inputs.GetSnapshotFilterArgs
+        ///                 {
+        ///                     Name = "volume-size",
+        ///                     Values = 
+        ///                     {
+        ///                         "40",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ebs.Inputs.GetSnapshotFilterArgs
+        ///                 {
+        ///                     Name = "tag:Name",
+        ///                     Values = 
+        ///                     {
+        ///                         "Example",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             MostRecent = true,
+        ///             Owners = 
+        ///             {
+        ///                 "self",
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:ebs/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:ebs/getSnapshot:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSnapshotArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetSnapshotFiltersArgs>? _filters;
+        private List<Inputs.GetSnapshotFilterArgs>? _filters;
 
         /// <summary>
         /// One or more name/value pairs to filter off of. There are
         /// several valid keys, for a full reference, check out
         /// [describe-snapshots in the AWS CLI reference][1].
         /// </summary>
-        public List<Inputs.GetSnapshotFiltersArgs> Filters
+        public List<Inputs.GetSnapshotFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetSnapshotFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetSnapshotFilterArgs>());
             set => _filters = value;
         }
 
@@ -94,14 +124,14 @@ namespace Pulumi.Aws.Ebs
         }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags for the resource.
+        /// A map of tags for the resource.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -110,9 +140,14 @@ namespace Pulumi.Aws.Ebs
         }
     }
 
+
     [OutputType]
     public sealed class GetSnapshotResult
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the EBS Snapshot.
+        /// </summary>
+        public readonly string Arn;
         /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// </summary>
@@ -125,7 +160,11 @@ namespace Pulumi.Aws.Ebs
         /// Whether the snapshot is encrypted.
         /// </summary>
         public readonly bool Encrypted;
-        public readonly ImmutableArray<Outputs.GetSnapshotFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetSnapshotFilterResult> Filters;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The ARN for the KMS encryption key.
         /// </summary>
@@ -151,9 +190,9 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// A mapping of tags for the resource.
+        /// A map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The volume ID (e.g. vol-59fcb34e).
         /// </summary>
@@ -162,35 +201,51 @@ namespace Pulumi.Aws.Ebs
         /// The size of the drive in GiBs.
         /// </summary>
         public readonly int VolumeSize;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSnapshotResult(
+            string arn,
+
             string dataEncryptionKeyId,
+
             string description,
+
             bool encrypted,
-            ImmutableArray<Outputs.GetSnapshotFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetSnapshotFilterResult> filters,
+
+            string id,
+
             string kmsKeyId,
+
             bool? mostRecent,
+
             string ownerAlias,
+
             string ownerId,
+
             ImmutableArray<string> owners,
+
             ImmutableArray<string> restorableByUserIds,
+
             string snapshotId,
+
             ImmutableArray<string> snapshotIds,
+
             string state,
-            ImmutableDictionary<string, object> tags,
+
+            ImmutableDictionary<string, string> tags,
+
             string volumeId,
-            int volumeSize,
-            string id)
+
+            int volumeSize)
         {
+            Arn = arn;
             DataEncryptionKeyId = dataEncryptionKeyId;
             Description = description;
             Encrypted = encrypted;
             Filters = filters;
+            Id = id;
             KmsKeyId = kmsKeyId;
             MostRecent = mostRecent;
             OwnerAlias = ownerAlias;
@@ -203,49 +258,6 @@ namespace Pulumi.Aws.Ebs
             Tags = tags;
             VolumeId = volumeId;
             VolumeSize = volumeSize;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetSnapshotFiltersArgs : Pulumi.InvokeArgs
-    {
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetSnapshotFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSnapshotFiltersResult
-    {
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetSnapshotFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

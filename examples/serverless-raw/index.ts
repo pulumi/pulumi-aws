@@ -31,7 +31,7 @@ let role = new aws.iam.Role("mylambda-role", {
 }, providerOpts);
 let fullAccess = new aws.iam.RolePolicyAttachment("mylambda-access", {
     role: role,
-    policyArn: aws.iam.ManagedPolicies.AWSLambdaFullAccess,
+    policyArn: aws.iam.ManagedPolicy.AWSLambdaFullAccess,
 }, providerOpts);
 let lambda = new aws.lambda.Function("mylambda", {
     code: new asset.AssetArchive({
@@ -65,7 +65,7 @@ let logcollector = new aws.lambda.Function("mylambda-logcollector", {
 let permission = new aws.lambda.Permission("logcollector-permission", {
     action: "lambda:InvokeFunction",
     principal: "logs." + region + ".amazonaws.com",
-    sourceArn: logGroup.arn,
+    sourceArn: pulumi.interpolate`${logGroup.arn}:*`,
     function: logcollector,
 }, providerOpts);
 

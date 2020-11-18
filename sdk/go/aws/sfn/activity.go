@@ -6,10 +6,31 @@ package sfn
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Step Function Activity resource
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sfn"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sfn.NewActivity(ctx, "sfnActivity", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Activity struct {
 	pulumi.CustomResourceState
 
@@ -17,8 +38,8 @@ type Activity struct {
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The name of the activity to create.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewActivity registers a new resource with the given unique name, arguments, and options.
@@ -53,8 +74,8 @@ type activityState struct {
 	CreationDate *string `pulumi:"creationDate"`
 	// The name of the activity to create.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ActivityState struct {
@@ -62,8 +83,8 @@ type ActivityState struct {
 	CreationDate pulumi.StringPtrInput
 	// The name of the activity to create.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (ActivityState) ElementType() reflect.Type {
@@ -73,16 +94,16 @@ func (ActivityState) ElementType() reflect.Type {
 type activityArgs struct {
 	// The name of the activity to create.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Activity resource.
 type ActivityArgs struct {
 	// The name of the activity to create.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (ActivityArgs) ElementType() reflect.Type {

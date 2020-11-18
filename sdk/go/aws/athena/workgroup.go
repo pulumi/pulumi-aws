@@ -6,10 +6,45 @@ package athena
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an Athena Workgroup.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/athena"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := athena.NewWorkgroup(ctx, "example", &athena.WorkgroupArgs{
+// 			Configuration: &athena.WorkgroupConfigurationArgs{
+// 				EnforceWorkgroupConfiguration:   pulumi.Bool(true),
+// 				PublishCloudwatchMetricsEnabled: pulumi.Bool(true),
+// 				ResultConfiguration: &athena.WorkgroupConfigurationResultConfigurationArgs{
+// 					OutputLocation: pulumi.String(fmt.Sprintf("%v%v%v", "s3://", aws_s3_bucket.Example.Bucket, "/output/")),
+// 					EncryptionConfiguration: &athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{
+// 						EncryptionOption: pulumi.String("SSE_KMS"),
+// 						KmsKeyArn:        pulumi.Any(aws_kms_key.Example.Arn),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Workgroup struct {
 	pulumi.CustomResourceState
 
@@ -25,8 +60,8 @@ type Workgroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// Key-value mapping of resource tags for the workgroup.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags for the workgroup.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewWorkgroup registers a new resource with the given unique name, arguments, and options.
@@ -69,8 +104,8 @@ type workgroupState struct {
 	Name *string `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// Key-value mapping of resource tags for the workgroup.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags for the workgroup.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type WorkgroupState struct {
@@ -86,8 +121,8 @@ type WorkgroupState struct {
 	Name pulumi.StringPtrInput
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// Key-value mapping of resource tags for the workgroup.
-	Tags pulumi.MapInput
+	// Key-value map of resource tags for the workgroup.
+	Tags pulumi.StringMapInput
 }
 
 func (WorkgroupState) ElementType() reflect.Type {
@@ -105,8 +140,8 @@ type workgroupArgs struct {
 	Name *string `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// Key-value mapping of resource tags for the workgroup.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags for the workgroup.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workgroup resource.
@@ -121,8 +156,8 @@ type WorkgroupArgs struct {
 	Name pulumi.StringPtrInput
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// Key-value mapping of resource tags for the workgroup.
-	Tags pulumi.MapInput
+	// Key-value map of resource tags for the workgroup.
+	Tags pulumi.StringMapInput
 }
 
 func (WorkgroupArgs) ElementType() reflect.Type {

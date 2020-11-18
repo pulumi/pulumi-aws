@@ -9,60 +9,105 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get IDs and VPC membership of Security Groups that are created
-        /// outside of this provider.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_groups.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSecurityGroups.InvokeAsync() instead")]
-        public static Task<GetSecurityGroupsResult> GetSecurityGroups(GetSecurityGroupsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupsResult>("aws:ec2/getSecurityGroups:getSecurityGroups", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSecurityGroups
     {
         /// <summary>
         /// Use this data source to get IDs and VPC membership of Security Groups that are created
         /// outside of this provider.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_groups.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Ec2.GetSecurityGroups.InvokeAsync(new Aws.Ec2.GetSecurityGroupsArgs
+        ///         {
+        ///             Tags = 
+        ///             {
+        ///                 { "Application", "k8s" },
+        ///                 { "Environment", "dev" },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Ec2.GetSecurityGroups.InvokeAsync(new Aws.Ec2.GetSecurityGroupsArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetSecurityGroupsFilterArgs
+        ///                 {
+        ///                     Name = "group-name",
+        ///                     Values = 
+        ///                     {
+        ///                         "*nodes*",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ec2.Inputs.GetSecurityGroupsFilterArgs
+        ///                 {
+        ///                     Name = "vpc-id",
+        ///                     Values = 
+        ///                     {
+        ///                         @var.Vpc_id,
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecurityGroupsResult> InvokeAsync(GetSecurityGroupsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupsResult>("aws:ec2/getSecurityGroups:getSecurityGroups", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupsResult>("aws:ec2/getSecurityGroups:getSecurityGroups", args ?? new GetSecurityGroupsArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSecurityGroupsArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetSecurityGroupsFiltersArgs>? _filters;
+        private List<Inputs.GetSecurityGroupsFilterArgs>? _filters;
 
         /// <summary>
         /// One or more name/value pairs to use as filters. There are
         /// several valid keys, for a full reference, check out
         /// [describe-security-groups in the AWS CLI reference][1].
         /// </summary>
-        public List<Inputs.GetSecurityGroupsFiltersArgs> Filters
+        public List<Inputs.GetSecurityGroupsFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetSecurityGroupsFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetSecurityGroupsFilterArgs>());
             set => _filters = value;
         }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match for
+        /// A map of tags, each pair of which must exactly match for
         /// desired security groups.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -71,80 +116,43 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetSecurityGroupsResult
     {
-        public readonly ImmutableArray<Outputs.GetSecurityGroupsFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetSecurityGroupsFilterResult> Filters;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// IDs of the matches security groups.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs*
         /// unless the `vpc-id` filter is also used.
         /// </summary>
         public readonly ImmutableArray<string> VpcIds;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSecurityGroupsResult(
-            ImmutableArray<Outputs.GetSecurityGroupsFiltersResult> filters,
+            ImmutableArray<Outputs.GetSecurityGroupsFilterResult> filters,
+
+            string id,
+
             ImmutableArray<string> ids,
-            ImmutableDictionary<string, object> tags,
-            ImmutableArray<string> vpcIds,
-            string id)
+
+            ImmutableDictionary<string, string> tags,
+
+            ImmutableArray<string> vpcIds)
         {
             Filters = filters;
+            Id = id;
             Ids = ids;
             Tags = tags;
             VpcIds = vpcIds;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetSecurityGroupsFiltersArgs : Pulumi.InvokeArgs
-    {
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetSecurityGroupsFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSecurityGroupsFiltersResult
-    {
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetSecurityGroupsFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

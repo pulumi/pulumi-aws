@@ -4,20 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Usage Plan.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myapi = new aws.apigateway.RestApi("myapi", {});
+ * // ...
  * const dev = new aws.apigateway.Deployment("dev", {
  *     restApi: myapi.id,
  *     stageName: "dev",
@@ -26,7 +26,9 @@ import * as utilities from "../utilities";
  *     restApi: myapi.id,
  *     stageName: "prod",
  * });
- * const myUsagePlan = new aws.apigateway.UsagePlan("MyUsagePlan", {
+ * const myUsagePlan = new aws.apigateway.UsagePlan("myUsagePlan", {
+ *     description: "my description",
+ *     productCode: "MYCODE",
  *     apiStages: [
  *         {
  *             apiId: myapi.id,
@@ -37,8 +39,6 @@ import * as utilities from "../utilities";
  *             stage: prod.stageName,
  *         },
  *     ],
- *     description: "my description",
- *     productCode: "MYCODE",
  *     quotaSettings: {
  *         limit: 20,
  *         offset: 2,
@@ -50,8 +50,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_usage_plan.html.markdown.
  */
 export class UsagePlan extends pulumi.CustomResource {
     /**
@@ -61,6 +59,7 @@ export class UsagePlan extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UsagePlanState, opts?: pulumi.CustomResourceOptions): UsagePlan {
         return new UsagePlan(name, <any>state, { ...opts, id: id });
@@ -97,7 +96,7 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     * The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
     public readonly productCode!: pulumi.Output<string | undefined>;
     /**
@@ -105,9 +104,9 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     public readonly quotaSettings!: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The throttling limits of the usage plan.
      */
@@ -176,7 +175,7 @@ export interface UsagePlanState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     * The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
     readonly productCode?: pulumi.Input<string>;
     /**
@@ -184,9 +183,9 @@ export interface UsagePlanState {
      */
     readonly quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throttling limits of the usage plan.
      */
@@ -210,7 +209,7 @@ export interface UsagePlanArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     * The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
     readonly productCode?: pulumi.Input<string>;
     /**
@@ -218,9 +217,9 @@ export interface UsagePlanArgs {
      */
     readonly quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throttling limits of the usage plan.
      */

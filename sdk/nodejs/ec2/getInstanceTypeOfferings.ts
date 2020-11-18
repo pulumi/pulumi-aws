@@ -4,20 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Information about EC2 Instance Type Offerings.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ec2.getInstanceTypeOfferings({
+ *
+ * const example = pulumi.output(aws.ec2.getInstanceTypeOfferings({
  *     filters: [
  *         {
  *             name: "instance-type",
@@ -32,12 +31,10 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     locationType: "availability-zone-id",
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_instance_type_offerings.html.markdown.
  */
-export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> & GetInstanceTypeOfferingsResult {
+export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -46,12 +43,10 @@ export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, op
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetInstanceTypeOfferingsResult> = pulumi.runtime.invoke("aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings", {
+    return pulumi.runtime.invoke("aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings", {
         "filters": args.filters,
         "locationType": args.locationType,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -74,12 +69,12 @@ export interface GetInstanceTypeOfferingsArgs {
 export interface GetInstanceTypeOfferingsResult {
     readonly filters?: outputs.ec2.GetInstanceTypeOfferingsFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Set of EC2 Instance Types.
      */
     readonly instanceTypes: string[];
     readonly locationType?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

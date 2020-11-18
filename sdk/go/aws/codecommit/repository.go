@@ -7,14 +7,34 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a CodeCommit Repository Resource.
 //
-// > **NOTE on CodeCommit Availability**: The CodeCommit is not yet rolled out
-// in all regions - available regions are listed
-// [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/codecommit"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := codecommit.NewRepository(ctx, "test", &codecommit.RepositoryArgs{
+// 			Description:    pulumi.String("This is the Sample App Repository"),
+// 			RepositoryName: pulumi.String("MyTestRepository"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Repository struct {
 	pulumi.CustomResourceState
 
@@ -32,8 +52,8 @@ type Repository struct {
 	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -81,8 +101,8 @@ type repositoryState struct {
 	RepositoryId *string `pulumi:"repositoryId"`
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName *string `pulumi:"repositoryName"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type RepositoryState struct {
@@ -100,8 +120,8 @@ type RepositoryState struct {
 	RepositoryId pulumi.StringPtrInput
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (RepositoryState) ElementType() reflect.Type {
@@ -115,8 +135,8 @@ type repositoryArgs struct {
 	Description *string `pulumi:"description"`
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName string `pulumi:"repositoryName"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Repository resource.
@@ -127,8 +147,8 @@ type RepositoryArgs struct {
 	Description pulumi.StringPtrInput
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {

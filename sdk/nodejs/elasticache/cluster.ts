@@ -4,28 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
  * For working with Redis (Cluster Mode Enabled) replication groups, see the
- * [`aws.elasticache.ReplicationGroup` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group.html).
- * 
+ * `aws.elasticache.ReplicationGroup` resource.
+ *
  * > **Note:** When you change an attribute, such as `nodeType`, by default
  * it is applied in the next maintenance window. Because of this, this provider may report
  * a difference in its planning phase because the actual modification has not yet taken
  * place. You can use the `applyImmediately` flag to instruct the service to apply the
  * change immediately. Using `applyImmediately` can result in a brief downtime as the server reboots.
- * See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
- * 
+ * See the AWS Docs on [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Modify.html) for more information.
+ *
  * ## Example Usage
- * 
  * ### Memcached Cluster
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.elasticache.Cluster("example", {
  *     engine: "memcached",
  *     nodeType: "cache.m4.large",
@@ -34,13 +34,12 @@ import * as utilities from "../utilities";
  *     port: 11211,
  * });
  * ```
- * 
  * ### Redis Instance
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.elasticache.Cluster("example", {
  *     engine: "redis",
  *     engineVersion: "3.2.10",
@@ -50,19 +49,16 @@ import * as utilities from "../utilities";
  *     port: 6379,
  * });
  * ```
- * 
  * ### Redis Cluster Mode Disabled Read Replica Instance
- * 
+ *
+ * These inherit their settings from the replication group.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const replica = new aws.elasticache.Cluster("replica", {
- *     replicationGroupId: aws_elasticache_replication_group_example.id,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_cluster.html.markdown.
+ * const replica = new aws.elasticache.Cluster("replica", {replicationGroupId: aws_elasticache_replication_group.example.id});
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -72,6 +68,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterState, opts?: pulumi.CustomResourceOptions): Cluster {
         return new Cluster(name, <any>state, { ...opts, id: id });
@@ -94,7 +91,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is
-     * `false`. See [Amazon ElastiCache Documentation for more information.][1]
+     * `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
      * (Available since v0.6.0)
      */
     public readonly applyImmediately!: pulumi.Output<boolean>;
@@ -217,9 +214,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly subnetGroupName!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -306,7 +303,7 @@ export interface ClusterState {
     /**
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is
-     * `false`. See [Amazon ElastiCache Documentation for more information.][1]
+     * `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
      * (Available since v0.6.0)
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
@@ -429,9 +426,9 @@ export interface ClusterState {
      */
     readonly subnetGroupName?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -441,7 +438,7 @@ export interface ClusterArgs {
     /**
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is
-     * `false`. See [Amazon ElastiCache Documentation for more information.][1]
+     * `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
      * (Available since v0.6.0)
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
@@ -550,7 +547,7 @@ export interface ClusterArgs {
      */
     readonly subnetGroupName?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

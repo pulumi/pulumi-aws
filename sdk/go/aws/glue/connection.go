@@ -7,18 +7,48 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Glue Connection resource.
+//
+// ## Example Usage
+// ### Non-VPC Connection
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+// 			ConnectionProperties: pulumi.StringMap{
+// 				"JDBC_CONNECTION_URL": pulumi.String("jdbc:mysql://example.com/exampledatabase"),
+// 				"PASSWORD":            pulumi.String("examplepassword"),
+// 				"USERNAME":            pulumi.String("exampleusername"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Connection struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Glue Connection.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
-	ConnectionProperties pulumi.MapOutput `pulumi:"connectionProperties"`
-	// The type of the connection. Defaults to `JBDC`.
+	ConnectionProperties pulumi.StringMapOutput `pulumi:"connectionProperties"`
+	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
 	// Description of the connection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -61,11 +91,13 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
+	// The ARN of the Glue Connection.
+	Arn *string `pulumi:"arn"`
 	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId *string `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
-	ConnectionProperties map[string]interface{} `pulumi:"connectionProperties"`
-	// The type of the connection. Defaults to `JBDC`.
+	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
+	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType *string `pulumi:"connectionType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
@@ -78,11 +110,13 @@ type connectionState struct {
 }
 
 type ConnectionState struct {
+	// The ARN of the Glue Connection.
+	Arn pulumi.StringPtrInput
 	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId pulumi.StringPtrInput
 	// A map of key-value pairs used as parameters for this connection.
-	ConnectionProperties pulumi.MapInput
-	// The type of the connection. Defaults to `JBDC`.
+	ConnectionProperties pulumi.StringMapInput
+	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType pulumi.StringPtrInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput
@@ -102,8 +136,8 @@ type connectionArgs struct {
 	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId *string `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
-	ConnectionProperties map[string]interface{} `pulumi:"connectionProperties"`
-	// The type of the connection. Defaults to `JBDC`.
+	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
+	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType *string `pulumi:"connectionType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
@@ -120,8 +154,8 @@ type ConnectionArgs struct {
 	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId pulumi.StringPtrInput
 	// A map of key-value pairs used as parameters for this connection.
-	ConnectionProperties pulumi.MapInput
-	// The type of the connection. Defaults to `JBDC`.
+	ConnectionProperties pulumi.StringMapInput
+	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType pulumi.StringPtrInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput

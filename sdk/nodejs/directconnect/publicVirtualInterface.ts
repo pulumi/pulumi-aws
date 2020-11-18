@@ -6,15 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Direct Connect public virtual interface resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.directconnect.PublicVirtualInterface("foo", {
  *     addressFamily: "ipv4",
  *     amazonAddress: "175.45.176.2/30",
@@ -28,8 +26,6 @@ import * as utilities from "../utilities";
  *     vlan: 4094,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_public_virtual_interface.html.markdown.
  */
 export class PublicVirtualInterface extends pulumi.CustomResource {
     /**
@@ -39,6 +35,7 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PublicVirtualInterfaceState, opts?: pulumi.CustomResourceOptions): PublicVirtualInterface {
         return new PublicVirtualInterface(name, <any>state, { ...opts, id: id });
@@ -100,9 +97,9 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
      */
     public readonly routeFilterPrefixes!: pulumi.Output<string[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The VLAN ID.
      */
@@ -221,9 +218,9 @@ export interface PublicVirtualInterfaceState {
      */
     readonly routeFilterPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VLAN ID.
      */
@@ -267,9 +264,9 @@ export interface PublicVirtualInterfaceArgs {
      */
     readonly routeFilterPrefixes: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VLAN ID.
      */

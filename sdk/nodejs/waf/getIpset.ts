@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.waf.getIpset({
- *     name: "tfWAFIPSet",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_ipset.html.markdown.
+ * const example = pulumi.output(aws.waf.getIpset({
+ *     name: "tfWAFIPSet",
+ * }, { async: true }));
+ * ```
  */
-export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsetResult> & GetIpsetResult {
+export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsetResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,11 +29,9 @@ export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetIpsetResult> = pulumi.runtime.invoke("aws:waf/getIpset:getIpset", {
+    return pulumi.runtime.invoke("aws:waf/getIpset:getIpset", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -53,9 +48,9 @@ export interface GetIpsetArgs {
  * A collection of values returned by getIpset.
  */
 export interface GetIpsetResult {
-    readonly name: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

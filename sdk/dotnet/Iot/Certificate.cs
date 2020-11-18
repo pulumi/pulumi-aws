@@ -12,9 +12,45 @@ namespace Pulumi.Aws.Iot
     /// <summary>
     /// Creates and manages an AWS IoT certificate.
     /// 
+    /// ## Example Usage
+    /// ### With CSR
     /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_certificate.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cert = new Aws.Iot.Certificate("cert", new Aws.Iot.CertificateArgs
+    ///         {
+    ///             Csr = File.ReadAllText("/my/csr.pem"),
+    ///             Active = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Without CSR
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cert = new Aws.Iot.Certificate("cert", new Aws.Iot.CertificateArgs
+    ///         {
+    ///             Active = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {
@@ -67,7 +103,7 @@ namespace Pulumi.Aws.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("aws:iot/certificate:Certificate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iot/certificate:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 

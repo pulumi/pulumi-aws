@@ -12,10 +12,96 @@ namespace Pulumi.Aws.Elb
     /// <summary>
     /// Attaches a load balancer policy to an ELB backend server.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var wu_tang = new Aws.Elb.LoadBalancer("wu-tang", new Aws.Elb.LoadBalancerArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-east-1a",
+    ///             },
+    ///             Listeners = 
+    ///             {
+    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///                 {
+    ///                     InstancePort = 443,
+    ///                     InstanceProtocol = "http",
+    ///                     LbPort = 443,
+    ///                     LbProtocol = "https",
+    ///                     SslCertificateId = "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "wu-tang" },
+    ///             },
+    ///         });
+    ///         var wu_tang_ca_pubkey_policy = new Aws.Elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", new Aws.Elb.LoadBalancerPolicyArgs
+    ///         {
+    ///             LoadBalancerName = wu_tang.Name,
+    ///             PolicyName = "wu-tang-ca-pubkey-policy",
+    ///             PolicyTypeName = "PublicKeyPolicyType",
+    ///             PolicyAttributes = 
+    ///             {
+    ///                 new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
+    ///                 {
+    ///                     Name = "PublicKey",
+    ///                     Value = File.ReadAllText("wu-tang-pubkey"),
+    ///                 },
+    ///             },
+    ///         });
+    ///         var wu_tang_root_ca_backend_auth_policy = new Aws.Elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", new Aws.Elb.LoadBalancerPolicyArgs
+    ///         {
+    ///             LoadBalancerName = wu_tang.Name,
+    ///             PolicyName = "wu-tang-root-ca-backend-auth-policy",
+    ///             PolicyTypeName = "BackendServerAuthenticationPolicyType",
+    ///             PolicyAttributes = 
+    ///             {
+    ///                 new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
+    ///                 {
+    ///                     Name = "PublicKeyPolicyName",
+    ///                     Value = aws_load_balancer_policy.Wu_tang_root_ca_pubkey_policy.Policy_name,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var wu_tang_backend_auth_policies_443 = new Aws.Elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", new Aws.Elb.LoadBalancerBackendServerPolicyArgs
+    ///         {
+    ///             LoadBalancerName = wu_tang.Name,
+    ///             InstancePort = 443,
+    ///             PolicyNames = 
+    ///             {
+    ///                 wu_tang_root_ca_backend_auth_policy.PolicyName,
+    ///             },
+    ///         });
+    ///     }
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_backend_server_policy.html.markdown.
+    /// }
+    /// ```
+    /// 
+    /// Where the file `pubkey` in the current directory contains only the _public key_ of the certificate.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
     /// </summary>
     public partial class LoadBalancerBackendServerPolicy : Pulumi.CustomResource
     {
@@ -46,7 +132,7 @@ namespace Pulumi.Aws.Elb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LoadBalancerBackendServerPolicy(string name, LoadBalancerBackendServerPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy", name, args ?? new LoadBalancerBackendServerPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -59,7 +145,11 @@ namespace Pulumi.Aws.Elb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy" } },
+                Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

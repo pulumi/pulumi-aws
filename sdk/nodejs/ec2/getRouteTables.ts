@@ -4,39 +4,42 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * The following adds a route for a particular cidr block to every (private
+ * kops) route table in a specified vpc to use a particular vpc peering
+ * connection.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const rts = aws.ec2.getRouteTables({
- *     filters: [{
- *         name: "tag:kubernetes.io/kops/role",
- *         values: ["private*"],
- *     }],
- *     vpcId: var_vpc_id,
- * });
- * const route: aws.ec2.Route[] = [];
- * for (let i = 0; i < rts.ids.length; i++) {
- *     route.push(new aws.ec2.Route(`r-${i}`, {
- *         destinationCidrBlock: "10.0.1.0/22",
- *         routeTableId: rts.ids[i],
- *         vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
- *     }));
+ *
+ * export = async () => {
+ *     const rts = await aws.ec2.getRouteTables({
+ *         vpcId: _var.vpc_id,
+ *         filters: [{
+ *             name: "tag:kubernetes.io/kops/role",
+ *             values: ["private*"],
+ *         }],
+ *     });
+ *     const route: aws.ec2.Route[];
+ *     for (const range = {value: 0}; range.value < rts.ids.length; range.value++) {
+ *         route.push(new aws.ec2.Route(`route-${range.value}`, {
+ *             routeTableId: rts.ids[range.value],
+ *             destinationCidrBlock: "10.0.1.0/22",
+ *             vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
+ *         }));
+ *     }
  * }
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
  */
-export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablesResult> & GetRouteTablesResult {
+export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablesResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -45,13 +48,11 @@ export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRouteTablesResult> = pulumi.runtime.invoke("aws:ec2/getRouteTables:getRouteTables", {
+    return pulumi.runtime.invoke("aws:ec2/getRouteTables:getRouteTables", {
         "filters": args.filters,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -63,10 +64,10 @@ export interface GetRouteTablesArgs {
      */
     readonly filters?: inputs.ec2.GetRouteTablesFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired route tables.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The VPC ID that you want to filter from.
      */
@@ -79,13 +80,13 @@ export interface GetRouteTablesArgs {
 export interface GetRouteTablesResult {
     readonly filters?: outputs.ec2.GetRouteTablesFilter[];
     /**
-     * A list of all the route table ids found. This data source will fail if none are found.
-     */
-    readonly ids: string[];
-    readonly tags: {[key: string]: any};
-    readonly vpcId?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A set of all the route table ids found. This data source will fail if none are found.
+     */
+    readonly ids: string[];
+    readonly tags: {[key: string]: string};
+    readonly vpcId?: string;
 }

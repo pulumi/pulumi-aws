@@ -6,38 +6,30 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a GuardDuty ThreatIntelSet.
- * 
- * > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage ThreatIntelSets. ThreatIntelSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-threat-intel-set.html)
- * 
+ *
+ * > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage ThreatIntelSets. ThreatIntelSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-threat-intel-set.html)
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const master = new aws.guardduty.Detector("master", {
- *     enable: true,
- * });
- * const bucket = new aws.s3.Bucket("bucket", {
- *     acl: "private",
- * });
- * const myThreatIntelSetBucketObject = new aws.s3.BucketObject("MyThreatIntelSet", {
+ *
+ * const primary = new aws.guardduty.Detector("primary", {enable: true});
+ * const bucket = new aws.s3.Bucket("bucket", {acl: "private"});
+ * const myThreatIntelSetBucketObject = new aws.s3.BucketObject("myThreatIntelSetBucketObject", {
  *     acl: "public-read",
- *     bucket: bucket.id,
  *     content: "10.0.0.0/8\n",
+ *     bucket: bucket.id,
  *     key: "MyThreatIntelSet",
  * });
- * const myThreatIntelSetThreatIntelSet = new aws.guardduty.ThreatIntelSet("MyThreatIntelSet", {
+ * const myThreatIntelSetThreatIntelSet = new aws.guardduty.ThreatIntelSet("myThreatIntelSetThreatIntelSet", {
  *     activate: true,
- *     detectorId: master.id,
+ *     detectorId: primary.id,
  *     format: "TXT",
  *     location: pulumi.interpolate`https://s3.amazonaws.com/${myThreatIntelSetBucketObject.bucket}/${myThreatIntelSetBucketObject.key}`,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/guardduty_threatintelset.html.markdown.
  */
 export class ThreatIntelSet extends pulumi.CustomResource {
     /**
@@ -47,6 +39,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ThreatIntelSetState, opts?: pulumi.CustomResourceOptions): ThreatIntelSet {
         return new ThreatIntelSet(name, <any>state, { ...opts, id: id });
@@ -71,6 +64,10 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      */
     public readonly activate!: pulumi.Output<boolean>;
     /**
+     * Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The detector ID of the GuardDuty.
      */
     public readonly detectorId!: pulumi.Output<string>;
@@ -86,6 +83,10 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      * The friendly name to identify the ThreatIntelSet.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ThreatIntelSet resource with the given unique name, arguments, and options.
@@ -100,10 +101,12 @@ export class ThreatIntelSet extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ThreatIntelSetState | undefined;
             inputs["activate"] = state ? state.activate : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["detectorId"] = state ? state.detectorId : undefined;
             inputs["format"] = state ? state.format : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ThreatIntelSetArgs | undefined;
             if (!args || args.activate === undefined) {
@@ -123,6 +126,8 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             inputs["format"] = args ? args.format : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -144,6 +149,10 @@ export interface ThreatIntelSetState {
      */
     readonly activate?: pulumi.Input<boolean>;
     /**
+     * Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The detector ID of the GuardDuty.
      */
     readonly detectorId?: pulumi.Input<string>;
@@ -159,6 +168,10 @@ export interface ThreatIntelSetState {
      * The friendly name to identify the ThreatIntelSet.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -185,4 +198,8 @@ export interface ThreatIntelSetArgs {
      * The friendly name to identify the ThreatIntelSet.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -6,10 +6,34 @@ package kms
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a KMS customer master key.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/kms"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := kms.NewKey(ctx, "key", &kms.KeyArgs{
+// 			DeletionWindowInDays: pulumi.Int(10),
+// 			Description:          pulumi.String("KMS key 1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Key struct {
 	pulumi.CustomResourceState
 
@@ -35,8 +59,8 @@ type Key struct {
 	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
 	// A valid policy JSON document.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.
@@ -89,8 +113,8 @@ type keyState struct {
 	KeyUsage *string `pulumi:"keyUsage"`
 	// A valid policy JSON document.
 	Policy *string `pulumi:"policy"`
-	// A mapping of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type KeyState struct {
@@ -116,8 +140,8 @@ type KeyState struct {
 	KeyUsage pulumi.StringPtrInput
 	// A valid policy JSON document.
 	Policy pulumi.StringPtrInput
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapInput
 }
 
 func (KeyState) ElementType() reflect.Type {
@@ -143,8 +167,8 @@ type keyArgs struct {
 	KeyUsage *string `pulumi:"keyUsage"`
 	// A valid policy JSON document.
 	Policy *string `pulumi:"policy"`
-	// A mapping of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Key resource.
@@ -167,8 +191,8 @@ type KeyArgs struct {
 	KeyUsage pulumi.StringPtrInput
 	// A valid policy JSON document.
 	Policy pulumi.StringPtrInput
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {

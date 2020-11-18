@@ -4,26 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a CodePipeline.
- * 
- * > **NOTE on `aws.codepipeline.Pipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const codepipelineBucket = new aws.s3.Bucket("codepipelineBucket", {
- *     acl: "private",
- * });
- * const codepipelineRole = new aws.iam.Role("codepipelineRole", {
- *     assumeRolePolicy: `{
+ *
+ * const codepipelineBucket = new aws.s3.Bucket("codepipelineBucket", {acl: "private"});
+ * const codepipelineRole = new aws.iam.Role("codepipelineRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -35,9 +29,75 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
+ * `});
+ * const s3kmskey = aws.kms.getAlias({
+ *     name: "alias/myKmsKey",
+ * });
+ * const codepipeline = new aws.codepipeline.Pipeline("codepipeline", {
+ *     roleArn: codepipelineRole.arn,
+ *     artifactStore: {
+ *         location: codepipelineBucket.bucket,
+ *         type: "S3",
+ *         encryptionKey: {
+ *             id: s3kmskey.then(s3kmskey => s3kmskey.arn),
+ *             type: "KMS",
+ *         },
+ *     },
+ *     stages: [
+ *         {
+ *             name: "Source",
+ *             actions: [{
+ *                 name: "Source",
+ *                 category: "Source",
+ *                 owner: "ThirdParty",
+ *                 provider: "GitHub",
+ *                 version: "1",
+ *                 outputArtifacts: ["source_output"],
+ *                 configuration: {
+ *                     Owner: "my-organization",
+ *                     Repo: "test",
+ *                     Branch: "master",
+ *                     OAuthToken: _var.github_token,
+ *                 },
+ *             }],
+ *         },
+ *         {
+ *             name: "Build",
+ *             actions: [{
+ *                 name: "Build",
+ *                 category: "Build",
+ *                 owner: "AWS",
+ *                 provider: "CodeBuild",
+ *                 inputArtifacts: ["source_output"],
+ *                 outputArtifacts: ["build_output"],
+ *                 version: "1",
+ *                 configuration: {
+ *                     ProjectName: "test",
+ *                 },
+ *             }],
+ *         },
+ *         {
+ *             name: "Deploy",
+ *             actions: [{
+ *                 name: "Deploy",
+ *                 category: "Deploy",
+ *                 owner: "AWS",
+ *                 provider: "CloudFormation",
+ *                 inputArtifacts: ["build_output"],
+ *                 version: "1",
+ *                 configuration: {
+ *                     ActionMode: "REPLACE_ON_FAILURE",
+ *                     Capabilities: "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM",
+ *                     OutputFileName: "CreateStackOutput.json",
+ *                     StackName: "MyStack",
+ *                     TemplatePath: "build_output::sam-templated.yaml",
+ *                 },
+ *             }],
+ *         },
+ *     ],
  * });
  * const codepipelinePolicy = new aws.iam.RolePolicy("codepipelinePolicy", {
+ *     role: codepipelineRole.id,
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -65,76 +125,8 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     role: codepipelineRole.id,
- * });
- * const s3kmskey = aws.kms.getAlias({
- *     name: "alias/myKmsKey",
- * });
- * const codepipeline = new aws.codepipeline.Pipeline("codepipeline", {
- *     artifactStores: {
- *         encryptionKey: {
- *             id: s3kmskey.arn,
- *             type: "KMS",
- *         },
- *         location: codepipelineBucket.bucket,
- *         type: "S3",
- *     },
- *     roleArn: codepipelineRole.arn,
- *     stages: [
- *         {
- *             actions: [{
- *                 category: "Source",
- *                 configuration: {
- *                     Branch: "master",
- *                     Owner: "my-organization",
- *                     Repo: "test",
- *                 },
- *                 name: "Source",
- *                 outputArtifacts: ["sourceOutput"],
- *                 owner: "ThirdParty",
- *                 provider: "GitHub",
- *                 version: "1",
- *             }],
- *             name: "Source",
- *         },
- *         {
- *             actions: [{
- *                 category: "Build",
- *                 configuration: {
- *                     ProjectName: "test",
- *                 },
- *                 inputArtifacts: ["sourceOutput"],
- *                 name: "Build",
- *                 outputArtifacts: ["buildOutput"],
- *                 owner: "AWS",
- *                 provider: "CodeBuild",
- *                 version: "1",
- *             }],
- *             name: "Build",
- *         },
- *         {
- *             actions: [{
- *                 category: "Deploy",
- *                 configuration: {
- *                     ActionMode: "REPLACE_ON_FAILURE",
- *                     Capabilities: "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM",
- *                     OutputFileName: "CreateStackOutput.json",
- *                     StackName: "MyStack",
- *                     TemplatePath: "build_output::sam-templated.yaml",
- *                 },
- *                 inputArtifacts: ["buildOutput"],
- *                 name: "Deploy",
- *                 owner: "AWS",
- *                 provider: "CloudFormation",
- *                 version: "1",
- *             }],
- *             name: "Deploy",
- *         },
- *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline.markdown.
  */
 export class Pipeline extends pulumi.CustomResource {
     /**
@@ -144,6 +136,7 @@ export class Pipeline extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PipelineState, opts?: pulumi.CustomResourceOptions): Pipeline {
         return new Pipeline(name, <any>state, { ...opts, id: id });
@@ -169,7 +162,6 @@ export class Pipeline extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
-     * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     public readonly artifactStore!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore>;
     /**
@@ -180,11 +172,14 @@ export class Pipeline extends pulumi.CustomResource {
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * A stage block. Stages are documented below.
+     */
     public readonly stages!: pulumi.Output<outputs.codepipeline.PipelineStage[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -243,7 +238,6 @@ export interface PipelineState {
     readonly arn?: pulumi.Input<string>;
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
-     * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     readonly artifactStore?: pulumi.Input<inputs.codepipeline.PipelineArtifactStore>;
     /**
@@ -254,11 +248,14 @@ export interface PipelineState {
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     readonly roleArn?: pulumi.Input<string>;
+    /**
+     * A stage block. Stages are documented below.
+     */
     readonly stages?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -267,7 +264,6 @@ export interface PipelineState {
 export interface PipelineArgs {
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
-     * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     readonly artifactStore: pulumi.Input<inputs.codepipeline.PipelineArtifactStore>;
     /**
@@ -278,9 +274,12 @@ export interface PipelineArgs {
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     readonly roleArn: pulumi.Input<string>;
+    /**
+     * A stage block. Stages are documented below.
+     */
     readonly stages: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

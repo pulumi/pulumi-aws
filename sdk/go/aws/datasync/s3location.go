@@ -7,10 +7,37 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages an S3 Location within AWS DataSync.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/datasync"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datasync.NewS3Location(ctx, "example", &datasync.S3LocationArgs{
+// 			S3BucketArn:  pulumi.Any(aws_s3_bucket.Example.Arn),
+// 			Subdirectory: pulumi.String("/example/prefix"),
+// 			S3Config: &datasync.S3LocationS3ConfigArgs{
+// 				BucketAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type S3Location struct {
 	pulumi.CustomResourceState
 
@@ -23,8 +50,8 @@ type S3Location struct {
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags pulumi.MapOutput    `pulumi:"tags"`
-	Uri  pulumi.StringOutput `pulumi:"uri"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Uri  pulumi.StringOutput    `pulumi:"uri"`
 }
 
 // NewS3Location registers a new resource with the given unique name, arguments, and options.
@@ -73,8 +100,8 @@ type s3locationState struct {
 	// Prefix to perform actions as source or destination.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags map[string]interface{} `pulumi:"tags"`
-	Uri  *string                `pulumi:"uri"`
+	Tags map[string]string `pulumi:"tags"`
+	Uri  *string           `pulumi:"uri"`
 }
 
 type S3LocationState struct {
@@ -87,7 +114,7 @@ type S3LocationState struct {
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	Uri  pulumi.StringPtrInput
 }
 
@@ -103,7 +130,7 @@ type s3locationArgs struct {
 	// Prefix to perform actions as source or destination.
 	Subdirectory string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a S3Location resource.
@@ -115,7 +142,7 @@ type S3LocationArgs struct {
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringInput
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (S3LocationArgs) ElementType() reflect.Type {

@@ -4,33 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AWS App Mesh virtual router resource.
- * 
+ *
  * ## Breaking Changes
- * 
+ *
  * Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92) and [here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), `aws.appmesh.VirtualRouter` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
- * 
+ *
  * * Remove service `serviceNames` from the `spec` argument.
  * AWS has created a `aws.appmesh.VirtualService` resource for each of service names.
  * These resource can be imported using `import`.
- * 
+ *
  * * Add a `listener` configuration block to the `spec` argument.
- * 
+ *
  * The state associated with existing resources will automatically be migrated.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const serviceb = new aws.appmesh.VirtualRouter("serviceb", {
- *     meshName: aws_appmesh_mesh_simple.id,
+ *     meshName: aws_appmesh_mesh.simple.id,
  *     spec: {
  *         listener: {
  *             portMapping: {
@@ -41,8 +40,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_router.html.markdown.
  */
 export class VirtualRouter extends pulumi.CustomResource {
     /**
@@ -52,6 +49,7 @@ export class VirtualRouter extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VirtualRouterState, opts?: pulumi.CustomResourceOptions): VirtualRouter {
         return new VirtualRouter(name, <any>state, { ...opts, id: id });
@@ -88,17 +86,25 @@ export class VirtualRouter extends pulumi.CustomResource {
      */
     public readonly meshName!: pulumi.Output<string>;
     /**
+     * The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     */
+    public readonly meshOwner!: pulumi.Output<string>;
+    /**
      * The name to use for the virtual router.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The resource owner's AWS account ID.
+     */
+    public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
     /**
      * The virtual router specification to apply.
      */
     public readonly spec!: pulumi.Output<outputs.appmesh.VirtualRouterSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a VirtualRouter resource with the given unique name, arguments, and options.
@@ -116,7 +122,9 @@ export class VirtualRouter extends pulumi.CustomResource {
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
             inputs["meshName"] = state ? state.meshName : undefined;
+            inputs["meshOwner"] = state ? state.meshOwner : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["resourceOwner"] = state ? state.resourceOwner : undefined;
             inputs["spec"] = state ? state.spec : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -128,12 +136,14 @@ export class VirtualRouter extends pulumi.CustomResource {
                 throw new Error("Missing required property 'spec'");
             }
             inputs["meshName"] = args ? args.meshName : undefined;
+            inputs["meshOwner"] = args ? args.meshOwner : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["spec"] = args ? args.spec : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
+            inputs["resourceOwner"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -167,17 +177,25 @@ export interface VirtualRouterState {
      */
     readonly meshName?: pulumi.Input<string>;
     /**
+     * The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     */
+    readonly meshOwner?: pulumi.Input<string>;
+    /**
      * The name to use for the virtual router.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The resource owner's AWS account ID.
+     */
+    readonly resourceOwner?: pulumi.Input<string>;
     /**
      * The virtual router specification to apply.
      */
     readonly spec?: pulumi.Input<inputs.appmesh.VirtualRouterSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -189,6 +207,10 @@ export interface VirtualRouterArgs {
      */
     readonly meshName: pulumi.Input<string>;
     /**
+     * The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     */
+    readonly meshOwner?: pulumi.Input<string>;
+    /**
      * The name to use for the virtual router.
      */
     readonly name?: pulumi.Input<string>;
@@ -197,7 +219,7 @@ export interface VirtualRouterArgs {
      */
     readonly spec: pulumi.Input<inputs.appmesh.VirtualRouterSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

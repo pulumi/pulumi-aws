@@ -4,22 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific S3 bucket.
- * 
+ *
  * This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
  * Distribution.
- * 
+ *
  * ## Example Usage
- * 
  * ### Route53 Record
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const selected = aws.s3.getBucket({
  *     bucket: "bucket.test.com",
  * });
@@ -27,36 +27,31 @@ import * as utilities from "../utilities";
  *     name: "test.com.",
  * });
  * const example = new aws.route53.Record("example", {
- *     aliases: [{
- *         name: selected.websiteDomain,
- *         zoneId: selected.hostedZoneId,
- *     }],
+ *     zoneId: testZone.then(testZone => testZone.id),
  *     name: "bucket",
  *     type: "A",
- *     zoneId: testZone.id,
+ *     aliases: [{
+ *         name: selected.then(selected => selected.websiteDomain),
+ *         zoneId: selected.then(selected => selected.hostedZoneId),
+ *     }],
  * });
  * ```
- * 
  * ### CloudFront Origin
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const selected = aws.s3.getBucket({
  *     bucket: "a-test-bucket",
  * });
- * const test = new aws.cloudfront.Distribution("test", {
- *     origins: [{
- *         domainName: selected.bucketDomainName,
- *         originId: "s3-selected-bucket",
- *     }],
- * });
+ * const test = new aws.cloudfront.Distribution("test", {origins: [{
+ *     domainName: selected.then(selected => selected.bucketDomainName),
+ *     originId: "s3-selected-bucket",
+ * }]});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
  */
-export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> & GetBucketResult {
+export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
     if (!opts) {
         opts = {}
     }
@@ -64,11 +59,9 @@ export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetBucketResult> = pulumi.runtime.invoke("aws:s3/getBucket:getBucket", {
+    return pulumi.runtime.invoke("aws:s3/getBucket:getBucket", {
         "bucket": args.bucket,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -103,6 +96,10 @@ export interface GetBucketResult {
      */
     readonly hostedZoneId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The AWS region this bucket resides in.
      */
     readonly region: string;
@@ -114,8 +111,4 @@ export interface GetBucketResult {
      * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      */
     readonly websiteEndpoint: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

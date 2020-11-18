@@ -7,41 +7,42 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage the accepter's side of a Direct Connect hosted transit virtual interface.
  * This resource accepts ownership of a transit virtual interface created by another AWS account.
- * 
+ *
  * > **NOTE:** AWS allows a Direct Connect hosted transit virtual interface to be deleted from either the allocator's or accepter's side. However, this provider only allows the Direct Connect hosted transit virtual interface to be deleted from the allocator's side by removing the corresponding `aws.directconnect.HostedTransitVirtualInterface` resource from your configuration. Removing a `aws.directconnect.HostedTransitVirtualInterfaceAcceptor` resource from your configuration will remove it from your statefile and management, **but will not delete the Direct Connect virtual interface.**
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const accepter = new aws.Provider("accepter", {});
- * const accepterCallerIdentity = aws.getCallerIdentity({provider: accepter});
+ * // Accepter's credentials.
+ * const accepterCallerIdentity = aws.getCallerIdentity({});
  * // Accepter's side of the VIF.
- * const example = new aws.directconnect.Gateway("example", {
- *     amazonSideAsn: "64512",
- * }, {provider: accepter});
+ * const example = new aws.directconnect.Gateway("example", {amazonSideAsn: 64512}, {
+ *     provider: aws.accepter,
+ * });
  * // Creator's side of the VIF
  * const creator = new aws.directconnect.HostedTransitVirtualInterface("creator", {
+ *     connectionId: "dxcon-zzzzzzzz",
+ *     ownerAccountId: accepterCallerIdentity.then(accepterCallerIdentity => accepterCallerIdentity.accountId),
+ *     vlan: 4094,
  *     addressFamily: "ipv4",
  *     bgpAsn: 65352,
- *     connectionId: "dxcon-zzzzzzzz",
- *     ownerAccountId: accepterCallerIdentity.accountId,
- *     vlan: 4094,
- * }, {dependsOn: [example]});
- * const accepterHostedTransitVirtualInterfaceAcceptor = new aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepter", {
+ * }, {
+ *     dependsOn: [example],
+ * });
+ * const accepterHostedTransitVirtualInterfaceAcceptor = new aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor", {
+ *     virtualInterfaceId: creator.id,
  *     dxGatewayId: example.id,
  *     tags: {
  *         Side: "Accepter",
  *     },
- *     virtualInterfaceId: creator.id,
- * }, {provider: accepter});
+ * }, {
+ *     provider: aws.accepter,
+ * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_transit_virtual_interface_accepter.html.markdown.
  */
 export class HostedTransitVirtualInterfaceAcceptor extends pulumi.CustomResource {
     /**
@@ -51,6 +52,7 @@ export class HostedTransitVirtualInterfaceAcceptor extends pulumi.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: HostedTransitVirtualInterfaceAcceptorState, opts?: pulumi.CustomResourceOptions): HostedTransitVirtualInterfaceAcceptor {
         return new HostedTransitVirtualInterfaceAcceptor(name, <any>state, { ...opts, id: id });
@@ -79,9 +81,9 @@ export class HostedTransitVirtualInterfaceAcceptor extends pulumi.CustomResource
      */
     public readonly dxGatewayId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
@@ -140,9 +142,9 @@ export interface HostedTransitVirtualInterfaceAcceptorState {
      */
     readonly dxGatewayId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
@@ -158,9 +160,9 @@ export interface HostedTransitVirtualInterfaceAcceptorArgs {
      */
     readonly dxGatewayId: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */

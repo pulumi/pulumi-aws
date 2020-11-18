@@ -4,41 +4,38 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Route 53 Resolver endpoint resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.route53.ResolverEndpoint("foo", {
  *     direction: "INBOUND",
+ *     securityGroupIds: [
+ *         aws_security_group.sg1.id,
+ *         aws_security_group.sg2.id,
+ *     ],
  *     ipAddresses: [
  *         {
- *             subnetId: aws_subnet_sn1.id,
+ *             subnetId: aws_subnet.sn1.id,
  *         },
  *         {
+ *             subnetId: aws_subnet.sn2.id,
  *             ip: "10.0.64.4",
- *             subnetId: aws_subnet_sn2.id,
  *         },
- *     ],
- *     securityGroupIds: [
- *         aws_security_group_sg1.id,
- *         aws_security_group_sg2.id,
  *     ],
  *     tags: {
  *         Environment: "Prod",
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_endpoint.html.markdown.
  */
 export class ResolverEndpoint extends pulumi.CustomResource {
     /**
@@ -48,6 +45,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ResolverEndpointState, opts?: pulumi.CustomResourceOptions): ResolverEndpoint {
         return new ResolverEndpoint(name, <any>state, { ...opts, id: id });
@@ -95,9 +93,9 @@ export class ResolverEndpoint extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ResolverEndpoint resource with the given unique name, arguments, and options.
@@ -180,9 +178,9 @@ export interface ResolverEndpointState {
      */
     readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -209,7 +207,7 @@ export interface ResolverEndpointArgs {
      */
     readonly securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

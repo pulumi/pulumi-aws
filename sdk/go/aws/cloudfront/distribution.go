@@ -7,14 +7,14 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates an Amazon CloudFront web distribution.
 //
 // For information about CloudFront distributions, see the
-// [Amazon CloudFront Developer Guide][1]. For specific information about creating
-// CloudFront web distributions, see the [POST Distribution][2] page in the Amazon
+// [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For specific information about creating
+// CloudFront web distributions, see the [POST Distribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) page in the Amazon
 // CloudFront API Reference.
 //
 // > **NOTE:** CloudFront distributions take about 15 minutes to a deployed state
@@ -24,14 +24,10 @@ import (
 type Distribution struct {
 	pulumi.CustomResourceState
 
-	// The key pair IDs that CloudFront is aware of for
-	// each trusted signer, if the distribution is set up to serve private content
-	// with signed URLs.
-	ActiveTrustedSigners pulumi.MapOutput `pulumi:"activeTrustedSigners"`
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
 	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
-	// The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+	// The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future
 	// updates to the distribution configuration.
@@ -57,7 +53,7 @@ type Distribution struct {
 	// `E2QWRUHAPOMQZL`.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The CloudFront Route 53 zone ID that can be used to
-	// route an [Alias Resource Record Set][7] to. This attribute is simply an
+	// route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
 	// alias for the zone ID `Z2FDTNDATAQYW2`.
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 	// The maximum HTTP version to support on the
@@ -99,8 +95,11 @@ type Distribution struct {
 	// distribution's information is fully propagated throughout the Amazon
 	// CloudFront system.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+	TrustedSigners DistributionTrustedSignerArrayOutput `pulumi:"trustedSigners"`
 	// The SSL
 	// configuration for this distribution (maximum
 	// one).
@@ -109,11 +108,13 @@ type Distribution struct {
 	// the distribution status to change from `InProgress` to `Deployed`. Setting
 	// this to`false` will skip the process. Default: `true`.
 	WaitForDeployment pulumi.BoolPtrOutput `pulumi:"waitForDeployment"`
-	// If you're using AWS WAF to filter CloudFront
-	// requests, the Id of the AWS WAF web ACL that is associated with the
-	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned.
+	// A unique identifier that specifies the AWS WAF web ACL,
+	// if any, to associate with this distribution.
+	// To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+	// for example `aws_wafv2_web_acl.example.arn`. To specify a web
+	// ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+	// The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+	// credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
 	WebAclId pulumi.StringPtrOutput `pulumi:"webAclId"`
 }
 
@@ -160,14 +161,10 @@ func GetDistribution(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Distribution resources.
 type distributionState struct {
-	// The key pair IDs that CloudFront is aware of for
-	// each trusted signer, if the distribution is set up to serve private content
-	// with signed URLs.
-	ActiveTrustedSigners map[string]interface{} `pulumi:"activeTrustedSigners"`
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
 	Aliases []string `pulumi:"aliases"`
-	// The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+	// The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn *string `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future
 	// updates to the distribution configuration.
@@ -193,7 +190,7 @@ type distributionState struct {
 	// `E2QWRUHAPOMQZL`.
 	Etag *string `pulumi:"etag"`
 	// The CloudFront Route 53 zone ID that can be used to
-	// route an [Alias Resource Record Set][7] to. This attribute is simply an
+	// route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
 	// alias for the zone ID `Z2FDTNDATAQYW2`.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// The maximum HTTP version to support on the
@@ -235,8 +232,11 @@ type distributionState struct {
 	// distribution's information is fully propagated throughout the Amazon
 	// CloudFront system.
 	Status *string `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+	TrustedSigners []DistributionTrustedSigner `pulumi:"trustedSigners"`
 	// The SSL
 	// configuration for this distribution (maximum
 	// one).
@@ -245,23 +245,21 @@ type distributionState struct {
 	// the distribution status to change from `InProgress` to `Deployed`. Setting
 	// this to`false` will skip the process. Default: `true`.
 	WaitForDeployment *bool `pulumi:"waitForDeployment"`
-	// If you're using AWS WAF to filter CloudFront
-	// requests, the Id of the AWS WAF web ACL that is associated with the
-	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned.
+	// A unique identifier that specifies the AWS WAF web ACL,
+	// if any, to associate with this distribution.
+	// To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+	// for example `aws_wafv2_web_acl.example.arn`. To specify a web
+	// ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+	// The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+	// credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
 	WebAclId *string `pulumi:"webAclId"`
 }
 
 type DistributionState struct {
-	// The key pair IDs that CloudFront is aware of for
-	// each trusted signer, if the distribution is set up to serve private content
-	// with signed URLs.
-	ActiveTrustedSigners pulumi.MapInput
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
 	Aliases pulumi.StringArrayInput
-	// The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+	// The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn pulumi.StringPtrInput
 	// Internal value used by CloudFront to allow future
 	// updates to the distribution configuration.
@@ -287,7 +285,7 @@ type DistributionState struct {
 	// `E2QWRUHAPOMQZL`.
 	Etag pulumi.StringPtrInput
 	// The CloudFront Route 53 zone ID that can be used to
-	// route an [Alias Resource Record Set][7] to. This attribute is simply an
+	// route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
 	// alias for the zone ID `Z2FDTNDATAQYW2`.
 	HostedZoneId pulumi.StringPtrInput
 	// The maximum HTTP version to support on the
@@ -329,8 +327,11 @@ type DistributionState struct {
 	// distribution's information is fully propagated throughout the Amazon
 	// CloudFront system.
 	Status pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
+	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+	TrustedSigners DistributionTrustedSignerArrayInput
 	// The SSL
 	// configuration for this distribution (maximum
 	// one).
@@ -339,11 +340,13 @@ type DistributionState struct {
 	// the distribution status to change from `InProgress` to `Deployed`. Setting
 	// this to`false` will skip the process. Default: `true`.
 	WaitForDeployment pulumi.BoolPtrInput
-	// If you're using AWS WAF to filter CloudFront
-	// requests, the Id of the AWS WAF web ACL that is associated with the
-	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned.
+	// A unique identifier that specifies the AWS WAF web ACL,
+	// if any, to associate with this distribution.
+	// To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+	// for example `aws_wafv2_web_acl.example.arn`. To specify a web
+	// ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+	// The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+	// credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
 	WebAclId pulumi.StringPtrInput
 }
 
@@ -399,8 +402,8 @@ type distributionArgs struct {
 	// deleting it when destroying the resource. If this is set,
 	// the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete *bool `pulumi:"retainOnDelete"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The SSL
 	// configuration for this distribution (maximum
 	// one).
@@ -409,11 +412,13 @@ type distributionArgs struct {
 	// the distribution status to change from `InProgress` to `Deployed`. Setting
 	// this to`false` will skip the process. Default: `true`.
 	WaitForDeployment *bool `pulumi:"waitForDeployment"`
-	// If you're using AWS WAF to filter CloudFront
-	// requests, the Id of the AWS WAF web ACL that is associated with the
-	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned.
+	// A unique identifier that specifies the AWS WAF web ACL,
+	// if any, to associate with this distribution.
+	// To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+	// for example `aws_wafv2_web_acl.example.arn`. To specify a web
+	// ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+	// The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+	// credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
 	WebAclId *string `pulumi:"webAclId"`
 }
 
@@ -466,8 +471,8 @@ type DistributionArgs struct {
 	// deleting it when destroying the resource. If this is set,
 	// the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The SSL
 	// configuration for this distribution (maximum
 	// one).
@@ -476,11 +481,13 @@ type DistributionArgs struct {
 	// the distribution status to change from `InProgress` to `Deployed`. Setting
 	// this to`false` will skip the process. Default: `true`.
 	WaitForDeployment pulumi.BoolPtrInput
-	// If you're using AWS WAF to filter CloudFront
-	// requests, the Id of the AWS WAF web ACL that is associated with the
-	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned.
+	// A unique identifier that specifies the AWS WAF web ACL,
+	// if any, to associate with this distribution.
+	// To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+	// for example `aws_wafv2_web_acl.example.arn`. To specify a web
+	// ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+	// The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+	// credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
 	WebAclId pulumi.StringPtrInput
 }
 

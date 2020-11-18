@@ -2,43 +2,50 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool Domain resource.
- * 
+ *
  * ## Example Usage
- * 
  * ### Amazon Cognito domain
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.cognito.UserPool("example", {});
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     domain: "example-domain",
  *     userPoolId: example.id,
  * });
  * ```
- * 
  * ### Custom Cognito domain
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.cognito.UserPool("example", {});
+ *
+ * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
  * const main = new aws.cognito.UserPoolDomain("main", {
- *     certificateArn: aws_acm_certificate_cert.arn,
  *     domain: "example-domain.example.com",
- *     userPoolId: example.id,
+ *     certificateArn: aws_acm_certificate.cert.arn,
+ *     userPoolId: exampleUserPool.id,
+ * });
+ * const exampleZone = aws.route53.getZone({
+ *     name: "example.com",
+ * });
+ * const auth_cognito_A = new aws.route53.Record("auth-cognito-A", {
+ *     name: main.domain,
+ *     type: "A",
+ *     zoneId: exampleZone.then(exampleZone => exampleZone.zoneId),
+ *     aliases: [{
+ *         evaluateTargetHealth: false,
+ *         name: main.cloudfrontDistributionArn,
+ *         zoneId: "Z2FDTNDATAQYW2",
+ *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_domain.markdown.
  */
 export class UserPoolDomain extends pulumi.CustomResource {
     /**
@@ -48,6 +55,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserPoolDomainState, opts?: pulumi.CustomResourceOptions): UserPoolDomain {
         return new UserPoolDomain(name, <any>state, { ...opts, id: id });
@@ -76,7 +84,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
      */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the CloudFront distribution.
+     * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      */
     public /*out*/ readonly cloudfrontDistributionArn!: pulumi.Output<string>;
     /**
@@ -155,7 +163,7 @@ export interface UserPoolDomainState {
      */
     readonly certificateArn?: pulumi.Input<string>;
     /**
-     * The ARN of the CloudFront distribution.
+     * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      */
     readonly cloudfrontDistributionArn?: pulumi.Input<string>;
     /**

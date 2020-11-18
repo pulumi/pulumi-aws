@@ -12,9 +12,55 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides a Cognito User Group resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_group.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainUserPool = new Aws.Cognito.UserPool("mainUserPool", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///         });
+    ///         var groupRole = new Aws.Iam.Role("groupRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Sid"": """",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Federated"": ""cognito-identity.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRoleWithWebIdentity"",
+    ///       ""Condition"": {
+    ///         ""StringEquals"": {
+    ///           ""cognito-identity.amazonaws.com:aud"": ""us-east-1:12345678-dead-beef-cafe-123456790ab""
+    ///         },
+    ///         ""ForAnyValue:StringLike"": {
+    ///           ""cognito-identity.amazonaws.com:amr"": ""authenticated""
+    ///         }
+    ///       }
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var mainUserGroup = new Aws.Cognito.UserGroup("mainUserGroup", new Aws.Cognito.UserGroupArgs
+    ///         {
+    ///             UserPoolId = mainUserPool.Id,
+    ///             Description = "Managed by Pulumi",
+    ///             Precedence = 42,
+    ///             RoleArn = groupRole.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class UserGroup : Pulumi.CustomResource
     {
@@ -57,7 +103,7 @@ namespace Pulumi.Aws.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserGroup(string name, UserGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:cognito/userGroup:UserGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cognito/userGroup:UserGroup", name, args ?? new UserGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

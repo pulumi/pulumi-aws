@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type CertificateDomainValidationOption struct {
@@ -21,6 +21,10 @@ type CertificateDomainValidationOption struct {
 	ResourceRecordValue *string `pulumi:"resourceRecordValue"`
 }
 
+// CertificateDomainValidationOptionInput is an input type that accepts CertificateDomainValidationOptionArgs and CertificateDomainValidationOptionOutput values.
+// You can construct a concrete instance of `CertificateDomainValidationOptionInput` via:
+//
+//          CertificateDomainValidationOptionArgs{...}
 type CertificateDomainValidationOptionInput interface {
 	pulumi.Input
 
@@ -51,6 +55,10 @@ func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOpti
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionOutput)
 }
 
+// CertificateDomainValidationOptionArrayInput is an input type that accepts CertificateDomainValidationOptionArray and CertificateDomainValidationOptionArrayOutput values.
+// You can construct a concrete instance of `CertificateDomainValidationOptionArrayInput` via:
+//
+//          CertificateDomainValidationOptionArray{ CertificateDomainValidationOptionArgs{...} }
 type CertificateDomainValidationOptionArrayInput interface {
 	pulumi.Input
 
@@ -127,9 +135,14 @@ func (o CertificateDomainValidationOptionArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type CertificateOptions struct {
+	// Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
 	CertificateTransparencyLoggingPreference *string `pulumi:"certificateTransparencyLoggingPreference"`
 }
 
+// CertificateOptionsInput is an input type that accepts CertificateOptionsArgs and CertificateOptionsOutput values.
+// You can construct a concrete instance of `CertificateOptionsInput` via:
+//
+//          CertificateOptionsArgs{...}
 type CertificateOptionsInput interface {
 	pulumi.Input
 
@@ -138,6 +151,7 @@ type CertificateOptionsInput interface {
 }
 
 type CertificateOptionsArgs struct {
+	// Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
 	CertificateTransparencyLoggingPreference pulumi.StringPtrInput `pulumi:"certificateTransparencyLoggingPreference"`
 }
 
@@ -161,6 +175,14 @@ func (i CertificateOptionsArgs) ToCertificateOptionsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOptionsOutput).ToCertificateOptionsPtrOutputWithContext(ctx)
 }
 
+// CertificateOptionsPtrInput is an input type that accepts CertificateOptionsArgs, CertificateOptionsPtr and CertificateOptionsPtrOutput values.
+// You can construct a concrete instance of `CertificateOptionsPtrInput` via:
+//
+//          CertificateOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type CertificateOptionsPtrInput interface {
 	pulumi.Input
 
@@ -209,6 +231,8 @@ func (o CertificateOptionsOutput) ToCertificateOptionsPtrOutputWithContext(ctx c
 		return &v
 	}).(CertificateOptionsPtrOutput)
 }
+
+// Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
 func (o CertificateOptionsOutput) CertificateTransparencyLoggingPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateOptions) *string { return v.CertificateTransparencyLoggingPreference }).(pulumi.StringPtrOutput)
 }
@@ -231,8 +255,14 @@ func (o CertificateOptionsPtrOutput) Elem() CertificateOptionsOutput {
 	return o.ApplyT(func(v *CertificateOptions) CertificateOptions { return *v }).(CertificateOptionsOutput)
 }
 
+// Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
 func (o CertificateOptionsPtrOutput) CertificateTransparencyLoggingPreference() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOptions) *string { return v.CertificateTransparencyLoggingPreference }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *CertificateOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateTransparencyLoggingPreference
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

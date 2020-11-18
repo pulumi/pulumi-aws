@@ -7,27 +7,24 @@ import * as utilities from "../utilities";
 /**
  * Enables AWS Shield Advanced for a specific AWS resource.
  * The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
- * 
+ *
  * ## Example Usage
- * 
  * ### Create protection
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const available = aws.getAvailabilityZones();
- * const currentRegion = aws.getRegion();
- * const currentCallerIdentity = aws.getCallerIdentity();
- * const fooEip = new aws.ec2.Eip("foo", {
+ *
+ * const available = pulumi.output(aws.getAvailabilityZones({ async: true }));
+ * const currentRegion = pulumi.output(aws.getRegion({ async: true }));
+ * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({ async: true }));
+ * const exampleEip = new aws.ec2.Eip("example", {
  *     vpc: true,
  * });
- * const fooProtection = new aws.shield.Protection("foo", {
- *     resourceArn: pulumi.interpolate`arn:aws:ec2:${currentRegion.name!}:${currentCallerIdentity.accountId}:eip-allocation/${fooEip.id}`,
+ * const exampleProtection = new aws.shield.Protection("example", {
+ *     resourceArn: pulumi.interpolate`arn:aws:ec2:${currentRegion.name!}:${currentCallerIdentity.accountId}:eip-allocation/${exampleEip.id}`,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/shield_protection.html.markdown.
  */
 export class Protection extends pulumi.CustomResource {
     /**
@@ -37,6 +34,7 @@ export class Protection extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProtectionState, opts?: pulumi.CustomResourceOptions): Protection {
         return new Protection(name, <any>state, { ...opts, id: id });

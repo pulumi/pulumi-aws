@@ -2,32 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Requests automatic route propagation between a VPN gateway and a route table.
- * 
+ *
  * > **Note:** This resource should not be used with a route table that has
  * the `propagatingVgws` argument set. If that argument is set, any route
  * propagation not explicitly listed in its value will be removed.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2.VpnGatewayRoutePropagation("example", {
- *     routeTableId: aws_route_table_example.id,
- *     vpnGatewayId: aws_vpn_gateway_example.id,
+ *     vpnGatewayId: aws_vpn_gateway.example.id,
+ *     routeTableId: aws_route_table.example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_route_propagation.html.markdown.
  */
 export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
     /**
@@ -37,6 +31,7 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpnGatewayRoutePropagationState, opts?: pulumi.CustomResourceOptions): VpnGatewayRoutePropagation {
         return new VpnGatewayRoutePropagation(name, <any>state, { ...opts, id: id });

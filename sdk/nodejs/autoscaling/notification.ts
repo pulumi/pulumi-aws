@@ -2,28 +2,29 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {NotificationType} from "./notificationType";
+import {NotificationType} from "./index";
 
 /**
  * Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
- * the `notifications` map to a [Notification Configuration][2] inside Amazon Web
+ * the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
  * Services, and are applied to each AutoScaling Group you supply.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * Basic usage:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.sns.Topic("example", {});
+ * // arn is an exported attribute
  * const bar = new aws.autoscaling.Group("bar", {});
+ * // ...
  * const foo = new aws.autoscaling.Group("foo", {});
+ * // ...
  * const exampleNotifications = new aws.autoscaling.Notification("exampleNotifications", {
  *     groupNames: [
  *         bar.name,
@@ -38,8 +39,6 @@ import {NotificationType} from "./notificationType";
  *     topicArn: example.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_notification.html.markdown.
  */
 export class Notification extends pulumi.CustomResource {
     /**
@@ -49,6 +48,7 @@ export class Notification extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NotificationState, opts?: pulumi.CustomResourceOptions): Notification {
         return new Notification(name, <any>state, { ...opts, id: id });
@@ -74,7 +74,7 @@ export class Notification extends pulumi.CustomResource {
     public readonly groupNames!: pulumi.Output<string[]>;
     /**
      * A list of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here][1]
+     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
     public readonly notifications!: pulumi.Output<NotificationType[]>;
     /**
@@ -133,7 +133,7 @@ export interface NotificationState {
     readonly groupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here][1]
+     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
     readonly notifications?: pulumi.Input<pulumi.Input<NotificationType>[]>;
     /**
@@ -152,7 +152,7 @@ export interface NotificationArgs {
     readonly groupNames: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here][1]
+     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
     readonly notifications: pulumi.Input<pulumi.Input<NotificationType>[]>;
     /**

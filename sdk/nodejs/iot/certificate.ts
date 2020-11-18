@@ -6,34 +6,30 @@ import * as utilities from "../utilities";
 
 /**
  * Creates and manages an AWS IoT certificate.
- * 
- * ## Example Usage
- * 
- * ### With CSR
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
- * const cert = new aws.iot.Certificate("cert", {
- *     active: true,
- *     csr: fs.readFileSync("/my/csr.pem", "utf-8"),
- * });
- * ```
- * 
- * ### Without CSR
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const cert = new aws.iot.Certificate("cert", {
- *     active: true,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_certificate.html.markdown.
+ * ## Example Usage
+ * ### With CSR
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * from "fs";
+ *
+ * const cert = new aws.iot.Certificate("cert", {
+ *     csr: fs.readFileSync("/my/csr.pem"),
+ *     active: true,
+ * });
+ * ```
+ * ### Without CSR
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const cert = new aws.iot.Certificate("cert", {
+ *     active: true,
+ * });
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -43,6 +39,7 @@ export class Certificate extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CertificateState, opts?: pulumi.CustomResourceOptions): Certificate {
         return new Certificate(name, <any>state, { ...opts, id: id });

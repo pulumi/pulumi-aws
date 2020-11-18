@@ -4,33 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * This resource can be useful for getting back a list of VPC Ids for a region.
- * 
- * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
- * 
- * ## Example Usage
- * 
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const fooVpcs = aws.ec2.getVpcs({
- *     tags: {
- *         service: "production",
- *     },
- * });
- * 
- * export const foo = fooVpcs.ids;
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpcs.html.markdown.
+ * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
  */
-export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> & GetVpcsResult {
+export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -39,12 +21,10 @@ export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promis
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetVpcsResult> = pulumi.runtime.invoke("aws:ec2/getVpcs:getVpcs", {
+    return pulumi.runtime.invoke("aws:ec2/getVpcs:getVpcs", {
         "filters": args.filters,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -56,10 +36,10 @@ export interface GetVpcsArgs {
      */
     readonly filters?: inputs.ec2.GetVpcsFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired vpcs.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -68,12 +48,12 @@ export interface GetVpcsArgs {
 export interface GetVpcsResult {
     readonly filters?: outputs.ec2.GetVpcsFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of all the VPC Ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
-    readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
+    readonly tags: {[key: string]: string};
 }

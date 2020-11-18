@@ -4,11 +4,44 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The VPC Endpoint data source provides details about
 // a specific VPC endpoint.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := aws_vpc.Foo.Id
+// 		opt1 := "com.amazonaws.us-west-2.s3"
+// 		s3, err := ec2.LookupVpcEndpoint(ctx, &ec2.LookupVpcEndpointArgs{
+// 			VpcId:       &opt0,
+// 			ServiceName: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewVpcEndpointRouteTableAssociation(ctx, "privateS3", &ec2.VpcEndpointRouteTableAssociationArgs{
+// 			VpcEndpointId: pulumi.String(s3.Id),
+// 			RouteTableId:  pulumi.Any(aws_route_table.Private.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupVpcEndpoint(ctx *pulumi.Context, args *LookupVpcEndpointArgs, opts ...pulumi.InvokeOption) (*LookupVpcEndpointResult, error) {
 	var rv LookupVpcEndpointResult
 	err := ctx.Invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", args, &rv, opts...)
@@ -28,15 +61,17 @@ type LookupVpcEndpointArgs struct {
 	ServiceName *string `pulumi:"serviceName"`
 	// The state of the specific VPC Endpoint to retrieve.
 	State *string `pulumi:"state"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the specific VPC Endpoint to retrieve.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the VPC in which the specific VPC Endpoint is used.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getVpcEndpoint.
 type LookupVpcEndpointResult struct {
+	// The Amazon Resource Name (ARN) of the VPC endpoint.
+	Arn string `pulumi:"arn"`
 	// The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
@@ -62,8 +97,8 @@ type LookupVpcEndpointResult struct {
 	ServiceName      string   `pulumi:"serviceName"`
 	State            string   `pulumi:"state"`
 	// One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
-	SubnetIds []string               `pulumi:"subnetIds"`
-	Tags      map[string]interface{} `pulumi:"tags"`
+	SubnetIds []string          `pulumi:"subnetIds"`
+	Tags      map[string]string `pulumi:"tags"`
 	// The VPC Endpoint type, `Gateway` or `Interface`.
 	VpcEndpointType string `pulumi:"vpcEndpointType"`
 	VpcId           string `pulumi:"vpcId"`

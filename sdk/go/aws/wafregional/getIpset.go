@@ -4,10 +4,33 @@
 package wafregional
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/wafregional"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := wafregional.GetIpset(ctx, &wafregional.GetIpsetArgs{
+// 			Name: "tfWAFRegionalIPSet",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetIpset(ctx *pulumi.Context, args *GetIpsetArgs, opts ...pulumi.InvokeOption) (*GetIpsetResult, error) {
 	var rv GetIpsetResult
 	err := ctx.Invoke("aws:wafregional/getIpset:getIpset", args, &rv, opts...)
@@ -25,7 +48,7 @@ type GetIpsetArgs struct {
 
 // A collection of values returned by getIpset.
 type GetIpsetResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }

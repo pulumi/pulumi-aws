@@ -10,9 +10,81 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot
 {
     /// <summary>
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_topic_rule.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mytopic = new Aws.Sns.Topic("mytopic", new Aws.Sns.TopicArgs
+    ///         {
+    ///         });
+    ///         var myerrortopic = new Aws.Sns.Topic("myerrortopic", new Aws.Sns.TopicArgs
+    ///         {
+    ///         });
+    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""iot.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var rule = new Aws.Iot.TopicRule("rule", new Aws.Iot.TopicRuleArgs
+    ///         {
+    ///             Description = "Example rule",
+    ///             Enabled = true,
+    ///             Sql = "SELECT * FROM 'topic/test'",
+    ///             SqlVersion = "2016-03-23",
+    ///             Sns = new Aws.Iot.Inputs.TopicRuleSnsArgs
+    ///             {
+    ///                 MessageFormat = "RAW",
+    ///                 RoleArn = role.Arn,
+    ///                 TargetArn = mytopic.Arn,
+    ///             },
+    ///             ErrorAction = new Aws.Iot.Inputs.TopicRuleErrorActionArgs
+    ///             {
+    ///                 Sns = new Aws.Iot.Inputs.TopicRuleErrorActionSnsArgs
+    ///                 {
+    ///                     MessageFormat = "RAW",
+    ///                     RoleArn = role.Arn,
+    ///                     TargetArn = myerrortopic.Arn,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var iamPolicyForLambda = new Aws.Iam.RolePolicy("iamPolicyForLambda", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = role.Id,
+    ///             Policy = mytopic.Arn.Apply(arn =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///         ""Effect"": ""Allow"",
+    ///         ""Action"": [
+    ///             ""sns:Publish""
+    ///         ],
+    ///         ""Resource"": ""{arn}""
+    ///     }}
+    ///   ]
+    /// }}
+    /// "),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TopicRule : Pulumi.CustomResource
     {
@@ -37,6 +109,9 @@ namespace Pulumi.Aws.Iot
         [Output("dynamodb")]
         public Output<Outputs.TopicRuleDynamodb?> Dynamodb { get; private set; } = null!;
 
+        [Output("dynamodbv2s")]
+        public Output<ImmutableArray<Outputs.TopicRuleDynamodbv2>> Dynamodbv2s { get; private set; } = null!;
+
         [Output("elasticsearch")]
         public Output<Outputs.TopicRuleElasticsearch?> Elasticsearch { get; private set; } = null!;
 
@@ -46,8 +121,20 @@ namespace Pulumi.Aws.Iot
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        /// </summary>
+        [Output("errorAction")]
+        public Output<Outputs.TopicRuleErrorAction?> ErrorAction { get; private set; } = null!;
+
         [Output("firehose")]
         public Output<Outputs.TopicRuleFirehose?> Firehose { get; private set; } = null!;
+
+        [Output("iotAnalytics")]
+        public Output<ImmutableArray<Outputs.TopicRuleIotAnalytic>> IotAnalytics { get; private set; } = null!;
+
+        [Output("iotEvents")]
+        public Output<ImmutableArray<Outputs.TopicRuleIotEvent>> IotEvents { get; private set; } = null!;
 
         [Output("kinesis")]
         public Output<Outputs.TopicRuleKinesis?> Kinesis { get; private set; } = null!;
@@ -85,6 +172,15 @@ namespace Pulumi.Aws.Iot
         [Output("sqs")]
         public Output<Outputs.TopicRuleSqs?> Sqs { get; private set; } = null!;
 
+        [Output("stepFunctions")]
+        public Output<ImmutableArray<Outputs.TopicRuleStepFunction>> StepFunctions { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a TopicRule resource with the given unique name, arguments, and options.
@@ -94,7 +190,7 @@ namespace Pulumi.Aws.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TopicRule(string name, TopicRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:iot/topicRule:TopicRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iot/topicRule:TopicRule", name, args ?? new TopicRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -146,6 +242,14 @@ namespace Pulumi.Aws.Iot
         [Input("dynamodb")]
         public Input<Inputs.TopicRuleDynamodbArgs>? Dynamodb { get; set; }
 
+        [Input("dynamodbv2s")]
+        private InputList<Inputs.TopicRuleDynamodbv2Args>? _dynamodbv2s;
+        public InputList<Inputs.TopicRuleDynamodbv2Args> Dynamodbv2s
+        {
+            get => _dynamodbv2s ?? (_dynamodbv2s = new InputList<Inputs.TopicRuleDynamodbv2Args>());
+            set => _dynamodbv2s = value;
+        }
+
         [Input("elasticsearch")]
         public Input<Inputs.TopicRuleElasticsearchArgs>? Elasticsearch { get; set; }
 
@@ -155,8 +259,30 @@ namespace Pulumi.Aws.Iot
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        /// </summary>
+        [Input("errorAction")]
+        public Input<Inputs.TopicRuleErrorActionArgs>? ErrorAction { get; set; }
+
         [Input("firehose")]
         public Input<Inputs.TopicRuleFirehoseArgs>? Firehose { get; set; }
+
+        [Input("iotAnalytics")]
+        private InputList<Inputs.TopicRuleIotAnalyticArgs>? _iotAnalytics;
+        public InputList<Inputs.TopicRuleIotAnalyticArgs> IotAnalytics
+        {
+            get => _iotAnalytics ?? (_iotAnalytics = new InputList<Inputs.TopicRuleIotAnalyticArgs>());
+            set => _iotAnalytics = value;
+        }
+
+        [Input("iotEvents")]
+        private InputList<Inputs.TopicRuleIotEventArgs>? _iotEvents;
+        public InputList<Inputs.TopicRuleIotEventArgs> IotEvents
+        {
+            get => _iotEvents ?? (_iotEvents = new InputList<Inputs.TopicRuleIotEventArgs>());
+            set => _iotEvents = value;
+        }
 
         [Input("kinesis")]
         public Input<Inputs.TopicRuleKinesisArgs>? Kinesis { get; set; }
@@ -194,6 +320,26 @@ namespace Pulumi.Aws.Iot
         [Input("sqs")]
         public Input<Inputs.TopicRuleSqsArgs>? Sqs { get; set; }
 
+        [Input("stepFunctions")]
+        private InputList<Inputs.TopicRuleStepFunctionArgs>? _stepFunctions;
+        public InputList<Inputs.TopicRuleStepFunctionArgs> StepFunctions
+        {
+            get => _stepFunctions ?? (_stepFunctions = new InputList<Inputs.TopicRuleStepFunctionArgs>());
+            set => _stepFunctions = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public TopicRuleArgs()
         {
         }
@@ -222,6 +368,14 @@ namespace Pulumi.Aws.Iot
         [Input("dynamodb")]
         public Input<Inputs.TopicRuleDynamodbGetArgs>? Dynamodb { get; set; }
 
+        [Input("dynamodbv2s")]
+        private InputList<Inputs.TopicRuleDynamodbv2GetArgs>? _dynamodbv2s;
+        public InputList<Inputs.TopicRuleDynamodbv2GetArgs> Dynamodbv2s
+        {
+            get => _dynamodbv2s ?? (_dynamodbv2s = new InputList<Inputs.TopicRuleDynamodbv2GetArgs>());
+            set => _dynamodbv2s = value;
+        }
+
         [Input("elasticsearch")]
         public Input<Inputs.TopicRuleElasticsearchGetArgs>? Elasticsearch { get; set; }
 
@@ -231,8 +385,30 @@ namespace Pulumi.Aws.Iot
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        /// </summary>
+        [Input("errorAction")]
+        public Input<Inputs.TopicRuleErrorActionGetArgs>? ErrorAction { get; set; }
+
         [Input("firehose")]
         public Input<Inputs.TopicRuleFirehoseGetArgs>? Firehose { get; set; }
+
+        [Input("iotAnalytics")]
+        private InputList<Inputs.TopicRuleIotAnalyticGetArgs>? _iotAnalytics;
+        public InputList<Inputs.TopicRuleIotAnalyticGetArgs> IotAnalytics
+        {
+            get => _iotAnalytics ?? (_iotAnalytics = new InputList<Inputs.TopicRuleIotAnalyticGetArgs>());
+            set => _iotAnalytics = value;
+        }
+
+        [Input("iotEvents")]
+        private InputList<Inputs.TopicRuleIotEventGetArgs>? _iotEvents;
+        public InputList<Inputs.TopicRuleIotEventGetArgs> IotEvents
+        {
+            get => _iotEvents ?? (_iotEvents = new InputList<Inputs.TopicRuleIotEventGetArgs>());
+            set => _iotEvents = value;
+        }
 
         [Input("kinesis")]
         public Input<Inputs.TopicRuleKinesisGetArgs>? Kinesis { get; set; }
@@ -270,1035 +446,28 @@ namespace Pulumi.Aws.Iot
         [Input("sqs")]
         public Input<Inputs.TopicRuleSqsGetArgs>? Sqs { get; set; }
 
+        [Input("stepFunctions")]
+        private InputList<Inputs.TopicRuleStepFunctionGetArgs>? _stepFunctions;
+        public InputList<Inputs.TopicRuleStepFunctionGetArgs> StepFunctions
+        {
+            get => _stepFunctions ?? (_stepFunctions = new InputList<Inputs.TopicRuleStepFunctionGetArgs>());
+            set => _stepFunctions = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public TopicRuleState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class TopicRuleCloudwatchAlarmArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CloudWatch alarm name.
-        /// </summary>
-        [Input("alarmName", required: true)]
-        public Input<string> AlarmName { get; set; } = null!;
-
-        /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The reason for the alarm change.
-        /// </summary>
-        [Input("stateReason", required: true)]
-        public Input<string> StateReason { get; set; } = null!;
-
-        /// <summary>
-        /// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-        /// </summary>
-        [Input("stateValue", required: true)]
-        public Input<string> StateValue { get; set; } = null!;
-
-        public TopicRuleCloudwatchAlarmArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleCloudwatchAlarmGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CloudWatch alarm name.
-        /// </summary>
-        [Input("alarmName", required: true)]
-        public Input<string> AlarmName { get; set; } = null!;
-
-        /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The reason for the alarm change.
-        /// </summary>
-        [Input("stateReason", required: true)]
-        public Input<string> StateReason { get; set; } = null!;
-
-        /// <summary>
-        /// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-        /// </summary>
-        [Input("stateValue", required: true)]
-        public Input<string> StateValue { get; set; } = null!;
-
-        public TopicRuleCloudwatchAlarmGetArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleCloudwatchMetricArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CloudWatch metric name.
-        /// </summary>
-        [Input("metricName", required: true)]
-        public Input<string> MetricName { get; set; } = null!;
-
-        /// <summary>
-        /// The CloudWatch metric namespace name.
-        /// </summary>
-        [Input("metricNamespace", required: true)]
-        public Input<string> MetricNamespace { get; set; } = null!;
-
-        /// <summary>
-        /// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-        /// </summary>
-        [Input("metricTimestamp")]
-        public Input<string>? MetricTimestamp { get; set; }
-
-        /// <summary>
-        /// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-        /// </summary>
-        [Input("metricUnit", required: true)]
-        public Input<string> MetricUnit { get; set; } = null!;
-
-        /// <summary>
-        /// The CloudWatch metric value.
-        /// </summary>
-        [Input("metricValue", required: true)]
-        public Input<string> MetricValue { get; set; } = null!;
-
-        /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch metric.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public TopicRuleCloudwatchMetricArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleCloudwatchMetricGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CloudWatch metric name.
-        /// </summary>
-        [Input("metricName", required: true)]
-        public Input<string> MetricName { get; set; } = null!;
-
-        /// <summary>
-        /// The CloudWatch metric namespace name.
-        /// </summary>
-        [Input("metricNamespace", required: true)]
-        public Input<string> MetricNamespace { get; set; } = null!;
-
-        /// <summary>
-        /// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-        /// </summary>
-        [Input("metricTimestamp")]
-        public Input<string>? MetricTimestamp { get; set; }
-
-        /// <summary>
-        /// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-        /// </summary>
-        [Input("metricUnit", required: true)]
-        public Input<string> MetricUnit { get; set; } = null!;
-
-        /// <summary>
-        /// The CloudWatch metric value.
-        /// </summary>
-        [Input("metricValue", required: true)]
-        public Input<string> MetricValue { get; set; } = null!;
-
-        /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch metric.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public TopicRuleCloudwatchMetricGetArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleDynamodbArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The hash key name.
-        /// </summary>
-        [Input("hashKeyField", required: true)]
-        public Input<string> HashKeyField { get; set; } = null!;
-
-        /// <summary>
-        /// The hash key type. Valid values are "STRING" or "NUMBER".
-        /// </summary>
-        [Input("hashKeyType")]
-        public Input<string>? HashKeyType { get; set; }
-
-        /// <summary>
-        /// The hash key value.
-        /// </summary>
-        [Input("hashKeyValue", required: true)]
-        public Input<string> HashKeyValue { get; set; } = null!;
-
-        /// <summary>
-        /// The action payload.
-        /// </summary>
-        [Input("payloadField")]
-        public Input<string>? PayloadField { get; set; }
-
-        /// <summary>
-        /// The range key name.
-        /// </summary>
-        [Input("rangeKeyField")]
-        public Input<string>? RangeKeyField { get; set; }
-
-        /// <summary>
-        /// The range key type. Valid values are "STRING" or "NUMBER".
-        /// </summary>
-        [Input("rangeKeyType")]
-        public Input<string>? RangeKeyType { get; set; }
-
-        /// <summary>
-        /// The range key value.
-        /// </summary>
-        [Input("rangeKeyValue")]
-        public Input<string>? RangeKeyValue { get; set; }
-
-        /// <summary>
-        /// The ARN of the IAM role that grants access to the DynamoDB table.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the DynamoDB table.
-        /// </summary>
-        [Input("tableName", required: true)]
-        public Input<string> TableName { get; set; } = null!;
-
-        public TopicRuleDynamodbArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleDynamodbGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The hash key name.
-        /// </summary>
-        [Input("hashKeyField", required: true)]
-        public Input<string> HashKeyField { get; set; } = null!;
-
-        /// <summary>
-        /// The hash key type. Valid values are "STRING" or "NUMBER".
-        /// </summary>
-        [Input("hashKeyType")]
-        public Input<string>? HashKeyType { get; set; }
-
-        /// <summary>
-        /// The hash key value.
-        /// </summary>
-        [Input("hashKeyValue", required: true)]
-        public Input<string> HashKeyValue { get; set; } = null!;
-
-        /// <summary>
-        /// The action payload.
-        /// </summary>
-        [Input("payloadField")]
-        public Input<string>? PayloadField { get; set; }
-
-        /// <summary>
-        /// The range key name.
-        /// </summary>
-        [Input("rangeKeyField")]
-        public Input<string>? RangeKeyField { get; set; }
-
-        /// <summary>
-        /// The range key type. Valid values are "STRING" or "NUMBER".
-        /// </summary>
-        [Input("rangeKeyType")]
-        public Input<string>? RangeKeyType { get; set; }
-
-        /// <summary>
-        /// The range key value.
-        /// </summary>
-        [Input("rangeKeyValue")]
-        public Input<string>? RangeKeyValue { get; set; }
-
-        /// <summary>
-        /// The ARN of the IAM role that grants access to the DynamoDB table.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the DynamoDB table.
-        /// </summary>
-        [Input("tableName", required: true)]
-        public Input<string> TableName { get; set; } = null!;
-
-        public TopicRuleDynamodbGetArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleElasticsearchArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The endpoint of your Elasticsearch domain.
-        /// </summary>
-        [Input("endpoint", required: true)]
-        public Input<string> Endpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The unique identifier for the document you are storing.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// The Elasticsearch index where you want to store your data.
-        /// </summary>
-        [Input("index", required: true)]
-        public Input<string> Index { get; set; } = null!;
-
-        /// <summary>
-        /// The IAM role ARN that has access to Elasticsearch.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The type of document you are storing.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public TopicRuleElasticsearchArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleElasticsearchGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The endpoint of your Elasticsearch domain.
-        /// </summary>
-        [Input("endpoint", required: true)]
-        public Input<string> Endpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The unique identifier for the document you are storing.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// The Elasticsearch index where you want to store your data.
-        /// </summary>
-        [Input("index", required: true)]
-        public Input<string> Index { get; set; } = null!;
-
-        /// <summary>
-        /// The IAM role ARN that has access to Elasticsearch.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The type of document you are storing.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public TopicRuleElasticsearchGetArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleFirehoseArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The delivery stream name.
-        /// </summary>
-        [Input("deliveryStreamName", required: true)]
-        public Input<string> DeliveryStreamName { get; set; } = null!;
-
-        /// <summary>
-        /// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-        /// </summary>
-        [Input("separator")]
-        public Input<string>? Separator { get; set; }
-
-        public TopicRuleFirehoseArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleFirehoseGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The delivery stream name.
-        /// </summary>
-        [Input("deliveryStreamName", required: true)]
-        public Input<string> DeliveryStreamName { get; set; } = null!;
-
-        /// <summary>
-        /// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-        /// </summary>
-        [Input("separator")]
-        public Input<string>? Separator { get; set; }
-
-        public TopicRuleFirehoseGetArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleKinesisArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The partition key.
-        /// </summary>
-        [Input("partitionKey")]
-        public Input<string>? PartitionKey { get; set; }
-
-        /// <summary>
-        /// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Amazon Kinesis stream.
-        /// </summary>
-        [Input("streamName", required: true)]
-        public Input<string> StreamName { get; set; } = null!;
-
-        public TopicRuleKinesisArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleKinesisGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The partition key.
-        /// </summary>
-        [Input("partitionKey")]
-        public Input<string>? PartitionKey { get; set; }
-
-        /// <summary>
-        /// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Amazon Kinesis stream.
-        /// </summary>
-        [Input("streamName", required: true)]
-        public Input<string> StreamName { get; set; } = null!;
-
-        public TopicRuleKinesisGetArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleLambdaArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the Lambda function.
-        /// </summary>
-        [Input("functionArn", required: true)]
-        public Input<string> FunctionArn { get; set; } = null!;
-
-        public TopicRuleLambdaArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleLambdaGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the Lambda function.
-        /// </summary>
-        [Input("functionArn", required: true)]
-        public Input<string> FunctionArn { get; set; } = null!;
-
-        public TopicRuleLambdaGetArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleRepublishArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the MQTT topic the message should be republished to.
-        /// </summary>
-        [Input("topic", required: true)]
-        public Input<string> Topic { get; set; } = null!;
-
-        public TopicRuleRepublishArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleRepublishGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the MQTT topic the message should be republished to.
-        /// </summary>
-        [Input("topic", required: true)]
-        public Input<string> Topic { get; set; } = null!;
-
-        public TopicRuleRepublishGetArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleS3Args : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Amazon S3 bucket name.
-        /// </summary>
-        [Input("bucketName", required: true)]
-        public Input<string> BucketName { get; set; } = null!;
-
-        /// <summary>
-        /// The object key.
-        /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public TopicRuleS3Args()
-        {
-        }
-    }
-
-    public sealed class TopicRuleS3GetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Amazon S3 bucket name.
-        /// </summary>
-        [Input("bucketName", required: true)]
-        public Input<string> BucketName { get; set; } = null!;
-
-        /// <summary>
-        /// The object key.
-        /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public TopicRuleS3GetArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleSnsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The message format of the message to publish. Accepted values are "JSON" and "RAW".
-        /// </summary>
-        [Input("messageFormat")]
-        public Input<string>? MessageFormat { get; set; }
-
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The ARN of the SNS topic.
-        /// </summary>
-        [Input("targetArn", required: true)]
-        public Input<string> TargetArn { get; set; } = null!;
-
-        public TopicRuleSnsArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleSnsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The message format of the message to publish. Accepted values are "JSON" and "RAW".
-        /// </summary>
-        [Input("messageFormat")]
-        public Input<string>? MessageFormat { get; set; }
-
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The ARN of the SNS topic.
-        /// </summary>
-        [Input("targetArn", required: true)]
-        public Input<string> TargetArn { get; set; } = null!;
-
-        public TopicRuleSnsGetArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleSqsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The URL of the Amazon SQS queue.
-        /// </summary>
-        [Input("queueUrl", required: true)]
-        public Input<string> QueueUrl { get; set; } = null!;
-
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies whether to use Base64 encoding.
-        /// </summary>
-        [Input("useBase64", required: true)]
-        public Input<bool> UseBase64 { get; set; } = null!;
-
-        public TopicRuleSqsArgs()
-        {
-        }
-    }
-
-    public sealed class TopicRuleSqsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The URL of the Amazon SQS queue.
-        /// </summary>
-        [Input("queueUrl", required: true)]
-        public Input<string> QueueUrl { get; set; } = null!;
-
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies whether to use Base64 encoding.
-        /// </summary>
-        [Input("useBase64", required: true)]
-        public Input<bool> UseBase64 { get; set; } = null!;
-
-        public TopicRuleSqsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class TopicRuleCloudwatchAlarm
-    {
-        /// <summary>
-        /// The CloudWatch alarm name.
-        /// </summary>
-        public readonly string AlarmName;
-        /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// The reason for the alarm change.
-        /// </summary>
-        public readonly string StateReason;
-        /// <summary>
-        /// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-        /// </summary>
-        public readonly string StateValue;
-
-        [OutputConstructor]
-        private TopicRuleCloudwatchAlarm(
-            string alarmName,
-            string roleArn,
-            string stateReason,
-            string stateValue)
-        {
-            AlarmName = alarmName;
-            RoleArn = roleArn;
-            StateReason = stateReason;
-            StateValue = stateValue;
-        }
-    }
-
-    [OutputType]
-    public sealed class TopicRuleCloudwatchMetric
-    {
-        /// <summary>
-        /// The CloudWatch metric name.
-        /// </summary>
-        public readonly string MetricName;
-        /// <summary>
-        /// The CloudWatch metric namespace name.
-        /// </summary>
-        public readonly string MetricNamespace;
-        /// <summary>
-        /// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-        /// </summary>
-        public readonly string? MetricTimestamp;
-        /// <summary>
-        /// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-        /// </summary>
-        public readonly string MetricUnit;
-        /// <summary>
-        /// The CloudWatch metric value.
-        /// </summary>
-        public readonly string MetricValue;
-        /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch metric.
-        /// </summary>
-        public readonly string RoleArn;
-
-        [OutputConstructor]
-        private TopicRuleCloudwatchMetric(
-            string metricName,
-            string metricNamespace,
-            string? metricTimestamp,
-            string metricUnit,
-            string metricValue,
-            string roleArn)
-        {
-            MetricName = metricName;
-            MetricNamespace = metricNamespace;
-            MetricTimestamp = metricTimestamp;
-            MetricUnit = metricUnit;
-            MetricValue = metricValue;
-            RoleArn = roleArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class TopicRuleDynamodb
-    {
-        /// <summary>
-        /// The hash key name.
-        /// </summary>
-        public readonly string HashKeyField;
-        /// <summary>
-        /// The hash key type. Valid values are "STRING" or "NUMBER".
-        /// </summary>
-        public readonly string? HashKeyType;
-        /// <summary>
-        /// The hash key value.
-        /// </summary>
-        public readonly string HashKeyValue;
-        /// <summary>
-        /// The action payload.
-        /// </summary>
-        public readonly string? PayloadField;
-        /// <summary>
-        /// The range key name.
-        /// </summary>
-        public readonly string? RangeKeyField;
-        /// <summary>
-        /// The range key type. Valid values are "STRING" or "NUMBER".
-        /// </summary>
-        public readonly string? RangeKeyType;
-        /// <summary>
-        /// The range key value.
-        /// </summary>
-        public readonly string? RangeKeyValue;
-        /// <summary>
-        /// The ARN of the IAM role that grants access to the DynamoDB table.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// The name of the DynamoDB table.
-        /// </summary>
-        public readonly string TableName;
-
-        [OutputConstructor]
-        private TopicRuleDynamodb(
-            string hashKeyField,
-            string? hashKeyType,
-            string hashKeyValue,
-            string? payloadField,
-            string? rangeKeyField,
-            string? rangeKeyType,
-            string? rangeKeyValue,
-            string roleArn,
-            string tableName)
-        {
-            HashKeyField = hashKeyField;
-            HashKeyType = hashKeyType;
-            HashKeyValue = hashKeyValue;
-            PayloadField = payloadField;
-            RangeKeyField = rangeKeyField;
-            RangeKeyType = rangeKeyType;
-            RangeKeyValue = rangeKeyValue;
-            RoleArn = roleArn;
-            TableName = tableName;
-        }
-    }
-
-    [OutputType]
-    public sealed class TopicRuleElasticsearch
-    {
-        /// <summary>
-        /// The endpoint of your Elasticsearch domain.
-        /// </summary>
-        public readonly string Endpoint;
-        /// <summary>
-        /// The unique identifier for the document you are storing.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The Elasticsearch index where you want to store your data.
-        /// </summary>
-        public readonly string Index;
-        /// <summary>
-        /// The IAM role ARN that has access to Elasticsearch.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// The type of document you are storing.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private TopicRuleElasticsearch(
-            string endpoint,
-            string id,
-            string index,
-            string roleArn,
-            string type)
-        {
-            Endpoint = endpoint;
-            Id = id;
-            Index = index;
-            RoleArn = roleArn;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class TopicRuleFirehose
-    {
-        /// <summary>
-        /// The delivery stream name.
-        /// </summary>
-        public readonly string DeliveryStreamName;
-        /// <summary>
-        /// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-        /// </summary>
-        public readonly string? Separator;
-
-        [OutputConstructor]
-        private TopicRuleFirehose(
-            string deliveryStreamName,
-            string roleArn,
-            string? separator)
-        {
-            DeliveryStreamName = deliveryStreamName;
-            RoleArn = roleArn;
-            Separator = separator;
-        }
-    }
-
-    [OutputType]
-    public sealed class TopicRuleKinesis
-    {
-        /// <summary>
-        /// The partition key.
-        /// </summary>
-        public readonly string? PartitionKey;
-        /// <summary>
-        /// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// The name of the Amazon Kinesis stream.
-        /// </summary>
-        public readonly string StreamName;
-
-        [OutputConstructor]
-        private TopicRuleKinesis(
-            string? partitionKey,
-            string roleArn,
-            string streamName)
-        {
-            PartitionKey = partitionKey;
-            RoleArn = roleArn;
-            StreamName = streamName;
-        }
-    }
-
-    [OutputType]
-    public sealed class TopicRuleLambda
-    {
-        /// <summary>
-        /// The ARN of the Lambda function.
-        /// </summary>
-        public readonly string FunctionArn;
-
-        [OutputConstructor]
-        private TopicRuleLambda(string functionArn)
-        {
-            FunctionArn = functionArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class TopicRuleRepublish
-    {
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// The name of the MQTT topic the message should be republished to.
-        /// </summary>
-        public readonly string Topic;
-
-        [OutputConstructor]
-        private TopicRuleRepublish(
-            string roleArn,
-            string topic)
-        {
-            RoleArn = roleArn;
-            Topic = topic;
-        }
-    }
-
-    [OutputType]
-    public sealed class TopicRuleS3
-    {
-        /// <summary>
-        /// The Amazon S3 bucket name.
-        /// </summary>
-        public readonly string BucketName;
-        /// <summary>
-        /// The object key.
-        /// </summary>
-        public readonly string Key;
-        /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
-        /// </summary>
-        public readonly string RoleArn;
-
-        [OutputConstructor]
-        private TopicRuleS3(
-            string bucketName,
-            string key,
-            string roleArn)
-        {
-            BucketName = bucketName;
-            Key = key;
-            RoleArn = roleArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class TopicRuleSns
-    {
-        /// <summary>
-        /// The message format of the message to publish. Accepted values are "JSON" and "RAW".
-        /// </summary>
-        public readonly string? MessageFormat;
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// The ARN of the SNS topic.
-        /// </summary>
-        public readonly string TargetArn;
-
-        [OutputConstructor]
-        private TopicRuleSns(
-            string? messageFormat,
-            string roleArn,
-            string targetArn)
-        {
-            MessageFormat = messageFormat;
-            RoleArn = roleArn;
-            TargetArn = targetArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class TopicRuleSqs
-    {
-        /// <summary>
-        /// The URL of the Amazon SQS queue.
-        /// </summary>
-        public readonly string QueueUrl;
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// Specifies whether to use Base64 encoding.
-        /// </summary>
-        public readonly bool UseBase64;
-
-        [OutputConstructor]
-        private TopicRuleSqs(
-            string queueUrl,
-            string roleArn,
-            bool useBase64)
-        {
-            QueueUrl = queueUrl;
-            RoleArn = roleArn;
-            UseBase64 = useBase64;
-        }
-    }
     }
 }

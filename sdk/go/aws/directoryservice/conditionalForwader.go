@@ -7,10 +7,38 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/directoryservice"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := directoryservice.NewConditionalForwader(ctx, "example", &directoryservice.ConditionalForwaderArgs{
+// 			DirectoryId:      pulumi.Any(aws_directory_service_directory.Ad.Id),
+// 			RemoteDomainName: pulumi.String("example.com"),
+// 			DnsIps: pulumi.StringArray{
+// 				pulumi.String("8.8.8.8"),
+// 				pulumi.String("8.8.4.4"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ConditionalForwader struct {
 	pulumi.CustomResourceState
 

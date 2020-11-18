@@ -2,41 +2,35 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const fooVpc = new aws.ec2.Vpc("foo", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const fooSubnet = new aws.ec2.Subnet("foo", {
- *     availabilityZone: "us-west-2a",
+ *
+ * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"});
+ * const fooSubnet = new aws.ec2.Subnet("fooSubnet", {
  *     cidrBlock: "10.1.1.0/24",
+ *     availabilityZone: "us-west-2a",
+ *     vpcId: fooVpc.id,
  *     tags: {
  *         Name: "tf-dbsubnet-test-1",
  *     },
- *     vpcId: fooVpc.id,
  * });
  * const bar = new aws.ec2.Subnet("bar", {
- *     availabilityZone: "us-west-2b",
  *     cidrBlock: "10.1.2.0/24",
+ *     availabilityZone: "us-west-2b",
+ *     vpcId: fooVpc.id,
  *     tags: {
  *         Name: "tf-dbsubnet-test-2",
  *     },
- *     vpcId: fooVpc.id,
  * });
- * const fooSubnetGroup = new aws.redshift.SubnetGroup("foo", {
+ * const fooSubnetGroup = new aws.redshift.SubnetGroup("fooSubnetGroup", {
  *     subnetIds: [
  *         fooSubnet.id,
  *         bar.id,
@@ -46,8 +40,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_subnet_group.html.markdown.
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
@@ -57,6 +49,7 @@ export class SubnetGroup extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SubnetGroupState, opts?: pulumi.CustomResourceOptions): SubnetGroup {
         return new SubnetGroup(name, <any>state, { ...opts, id: id });
@@ -93,9 +86,9 @@ export class SubnetGroup extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -157,9 +150,9 @@ export interface SubnetGroupState {
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -179,7 +172,7 @@ export interface SubnetGroupArgs {
      */
     readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

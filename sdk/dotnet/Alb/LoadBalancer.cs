@@ -14,9 +14,131 @@ namespace Pulumi.Aws.Alb
     /// 
     /// &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
     /// 
+    /// ## Example Usage
+    /// ### Application Load Balancer
     /// 
+    /// ```csharp
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.LB.LoadBalancer("test", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///             Internal = false,
+    ///             LoadBalancerType = "application",
+    ///             SecurityGroups = 
+    ///             {
+    ///                 aws_security_group.Lb_sg.Id,
+    ///             },
+    ///             Subnets = aws_subnet.Public.Select(__item =&gt; __item.Id).ToList(),
+    ///             EnableDeletionProtection = true,
+    ///             AccessLogs = new Aws.LB.Inputs.LoadBalancerAccessLogsArgs
+    ///             {
+    ///                 Bucket = aws_s3_bucket.Lb_logs.Bucket,
+    ///                 Prefix = "test-lb",
+    ///                 Enabled = true,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Network Load Balancer
+    /// 
+    /// ```csharp
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.LB.LoadBalancer("test", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///             Internal = false,
+    ///             LoadBalancerType = "network",
+    ///             Subnets = aws_subnet.Public.Select(__item =&gt; __item.Id).ToList(),
+    ///             EnableDeletionProtection = true,
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Specifying Elastic IPs
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.LB.LoadBalancer("example", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///             LoadBalancerType = "network",
+    ///             SubnetMappings = 
+    ///             {
+    ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
+    ///                 {
+    ///                     SubnetId = aws_subnet.Example1.Id,
+    ///                     AllocationId = aws_eip.Example1.Id,
+    ///                 },
+    ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
+    ///                 {
+    ///                     SubnetId = aws_subnet.Example2.Id,
+    ///                     AllocationId = aws_eip.Example2.Id,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Specifying private IP addresses for an internal-facing load balancer
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.LB.LoadBalancer("example", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///             LoadBalancerType = "network",
+    ///             SubnetMappings = 
+    ///             {
+    ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
+    ///                 {
+    ///                     SubnetId = aws_subnet.Example1.Id,
+    ///                     PrivateIpv4Address = "10.0.1.15",
+    ///                 },
+    ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
+    ///                 {
+    ///                     SubnetId = aws_subnet.Example2.Id,
+    ///                     PrivateIpv4Address = "10.0.2.15",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LoadBalancer : Pulumi.CustomResource
     {
@@ -37,6 +159,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Output("arnSuffix")]
         public Output<string> ArnSuffix { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the customer owned ipv4 pool to use for this load balancer.
+        /// </summary>
+        [Output("customerOwnedIpv4Pool")]
+        public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
 
         /// <summary>
         /// The DNS name of the load balancer.
@@ -89,7 +217,7 @@ namespace Pulumi.Aws.Alb
         public Output<string> IpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        /// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Output("loadBalancerType")]
         public Output<string?> LoadBalancerType { get; private set; } = null!;
@@ -118,7 +246,7 @@ namespace Pulumi.Aws.Alb
         /// A subnet mapping block as documented below.
         /// </summary>
         [Output("subnetMappings")]
-        public Output<ImmutableArray<Outputs.LoadBalancerSubnetMappings>> SubnetMappings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LoadBalancerSubnetMapping>> SubnetMappings { get; private set; } = null!;
 
         /// <summary>
         /// A list of subnet IDs to attach to the LB. Subnets
@@ -129,16 +257,17 @@ namespace Pulumi.Aws.Alb
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
         /// <summary>
         /// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+        /// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         /// </summary>
         [Output("zoneId")]
         public Output<string> ZoneId { get; private set; } = null!;
@@ -152,7 +281,7 @@ namespace Pulumi.Aws.Alb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LoadBalancer(string name, LoadBalancerArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:alb/loadBalancer:LoadBalancer", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:alb/loadBalancer:LoadBalancer", name, args ?? new LoadBalancerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -165,7 +294,11 @@ namespace Pulumi.Aws.Alb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:applicationloadbalancing/loadBalancer:LoadBalancer" } },
+                Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "aws:applicationloadbalancing/loadBalancer:LoadBalancer"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -194,6 +327,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("accessLogs")]
         public Input<Inputs.LoadBalancerAccessLogsArgs>? AccessLogs { get; set; }
+
+        /// <summary>
+        /// The ID of the customer owned ipv4 pool to use for this load balancer.
+        /// </summary>
+        [Input("customerOwnedIpv4Pool")]
+        public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
         /// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
@@ -240,7 +379,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        /// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Input("loadBalancerType")]
         public Input<string>? LoadBalancerType { get; set; }
@@ -272,14 +411,14 @@ namespace Pulumi.Aws.Alb
         }
 
         [Input("subnetMappings")]
-        private InputList<Inputs.LoadBalancerSubnetMappingsArgs>? _subnetMappings;
+        private InputList<Inputs.LoadBalancerSubnetMappingArgs>? _subnetMappings;
 
         /// <summary>
         /// A subnet mapping block as documented below.
         /// </summary>
-        public InputList<Inputs.LoadBalancerSubnetMappingsArgs> SubnetMappings
+        public InputList<Inputs.LoadBalancerSubnetMappingArgs> SubnetMappings
         {
-            get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.LoadBalancerSubnetMappingsArgs>());
+            get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.LoadBalancerSubnetMappingArgs>());
             set => _subnetMappings = value;
         }
 
@@ -298,14 +437,14 @@ namespace Pulumi.Aws.Alb
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -333,6 +472,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("arnSuffix")]
         public Input<string>? ArnSuffix { get; set; }
+
+        /// <summary>
+        /// The ID of the customer owned ipv4 pool to use for this load balancer.
+        /// </summary>
+        [Input("customerOwnedIpv4Pool")]
+        public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
         /// The DNS name of the load balancer.
@@ -385,7 +530,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        /// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Input("loadBalancerType")]
         public Input<string>? LoadBalancerType { get; set; }
@@ -417,14 +562,14 @@ namespace Pulumi.Aws.Alb
         }
 
         [Input("subnetMappings")]
-        private InputList<Inputs.LoadBalancerSubnetMappingsGetArgs>? _subnetMappings;
+        private InputList<Inputs.LoadBalancerSubnetMappingGetArgs>? _subnetMappings;
 
         /// <summary>
         /// A subnet mapping block as documented below.
         /// </summary>
-        public InputList<Inputs.LoadBalancerSubnetMappingsGetArgs> SubnetMappings
+        public InputList<Inputs.LoadBalancerSubnetMappingGetArgs> SubnetMappings
         {
-            get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.LoadBalancerSubnetMappingsGetArgs>());
+            get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.LoadBalancerSubnetMappingGetArgs>());
             set => _subnetMappings = value;
         }
 
@@ -443,14 +588,14 @@ namespace Pulumi.Aws.Alb
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -459,6 +604,7 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+        /// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }
@@ -466,151 +612,5 @@ namespace Pulumi.Aws.Alb
         public LoadBalancerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class LoadBalancerAccessLogsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The S3 bucket name to store the logs in.
-        /// </summary>
-        [Input("bucket", required: true)]
-        public Input<string> Bucket { get; set; } = null!;
-
-        /// <summary>
-        /// Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The S3 bucket prefix. Logs are stored in the root if not configured.
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        public LoadBalancerAccessLogsArgs()
-        {
-        }
-    }
-
-    public sealed class LoadBalancerAccessLogsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The S3 bucket name to store the logs in.
-        /// </summary>
-        [Input("bucket", required: true)]
-        public Input<string> Bucket { get; set; } = null!;
-
-        /// <summary>
-        /// Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The S3 bucket prefix. Logs are stored in the root if not configured.
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        public LoadBalancerAccessLogsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LoadBalancerSubnetMappingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The allocation ID of the Elastic IP address.
-        /// </summary>
-        [Input("allocationId")]
-        public Input<string>? AllocationId { get; set; }
-
-        /// <summary>
-        /// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public LoadBalancerSubnetMappingsArgs()
-        {
-        }
-    }
-
-    public sealed class LoadBalancerSubnetMappingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The allocation ID of the Elastic IP address.
-        /// </summary>
-        [Input("allocationId")]
-        public Input<string>? AllocationId { get; set; }
-
-        /// <summary>
-        /// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public LoadBalancerSubnetMappingsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class LoadBalancerAccessLogs
-    {
-        /// <summary>
-        /// The S3 bucket name to store the logs in.
-        /// </summary>
-        public readonly string Bucket;
-        /// <summary>
-        /// Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// The S3 bucket prefix. Logs are stored in the root if not configured.
-        /// </summary>
-        public readonly string? Prefix;
-
-        [OutputConstructor]
-        private LoadBalancerAccessLogs(
-            string bucket,
-            bool? enabled,
-            string? prefix)
-        {
-            Bucket = bucket;
-            Enabled = enabled;
-            Prefix = prefix;
-        }
-    }
-
-    [OutputType]
-    public sealed class LoadBalancerSubnetMappings
-    {
-        /// <summary>
-        /// The allocation ID of the Elastic IP address.
-        /// </summary>
-        public readonly string? AllocationId;
-        /// <summary>
-        /// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-        /// </summary>
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private LoadBalancerSubnetMappings(
-            string? allocationId,
-            string subnetId)
-        {
-            AllocationId = allocationId;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

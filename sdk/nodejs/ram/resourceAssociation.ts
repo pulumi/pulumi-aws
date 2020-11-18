@@ -6,24 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Resource Access Manager (RAM) Resource Association.
- * 
+ *
  * > *NOTE:* Certain AWS resources (e.g. EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ram.ResourceAssociation("example", {
- *     resourceArn: aws_subnet_example.arn,
- *     resourceShareArn: aws_ram_resource_share_example.arn,
+ *     resourceArn: aws_subnet.example.arn,
+ *     resourceShareArn: aws_ram_resource_share.example.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_resource_association.html.markdown.
  */
 export class ResourceAssociation extends pulumi.CustomResource {
     /**
@@ -33,6 +29,7 @@ export class ResourceAssociation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ResourceAssociationState, opts?: pulumi.CustomResourceOptions): ResourceAssociation {
         return new ResourceAssociation(name, <any>state, { ...opts, id: id });

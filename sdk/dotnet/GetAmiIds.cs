@@ -9,31 +9,52 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get a list of AMI IDs matching the specified criteria.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami_ids.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAmiIds.InvokeAsync() instead")]
-        public static Task<GetAmiIdsResult> GetAmiIds(GetAmiIdsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAmiIdsResult>("aws:index/getAmiIds:getAmiIds", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAmiIds
     {
         /// <summary>
         /// Use this data source to get a list of AMI IDs matching the specified criteria.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami_ids.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var ubuntu = Output.Create(Aws.GetAmiIds.InvokeAsync(new Aws.GetAmiIdsArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Inputs.GetAmiIdsFilterArgs
+        ///                 {
+        ///                     Name = "name",
+        ///                     Values = 
+        ///                     {
+        ///                         "ubuntu/images/ubuntu-*-*-amd64-server-*",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             Owners = 
+        ///             {
+        ///                 "099720109477",
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAmiIdsResult> InvokeAsync(GetAmiIdsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAmiIdsResult>("aws:index/getAmiIds:getAmiIds", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAmiIdsResult>("aws:index/getAmiIds:getAmiIds", args ?? new GetAmiIdsArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAmiIdsArgs : Pulumi.InvokeArgs
     {
@@ -51,16 +72,16 @@ namespace Pulumi.Aws
         }
 
         [Input("filters")]
-        private List<Inputs.GetAmiIdsFiltersArgs>? _filters;
+        private List<Inputs.GetAmiIdsFilterArgs>? _filters;
 
         /// <summary>
         /// One or more name/value pairs to filter off of. There
         /// are several valid keys, for a full reference, check out
         /// [describe-images in the AWS CLI reference][1].
         /// </summary>
-        public List<Inputs.GetAmiIdsFiltersArgs> Filters
+        public List<Inputs.GetAmiIdsFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetAmiIdsFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetAmiIdsFilterArgs>());
             set => _filters = value;
         }
 
@@ -97,79 +118,44 @@ namespace Pulumi.Aws
         }
     }
 
+
     [OutputType]
     public sealed class GetAmiIdsResult
     {
         public readonly ImmutableArray<string> ExecutableUsers;
-        public readonly ImmutableArray<Outputs.GetAmiIdsFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetAmiIdsFilterResult> Filters;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly ImmutableArray<string> Ids;
         public readonly string? NameRegex;
         public readonly ImmutableArray<string> Owners;
         public readonly bool? SortAscending;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAmiIdsResult(
             ImmutableArray<string> executableUsers,
-            ImmutableArray<Outputs.GetAmiIdsFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetAmiIdsFilterResult> filters,
+
+            string id,
+
             ImmutableArray<string> ids,
+
             string? nameRegex,
+
             ImmutableArray<string> owners,
-            bool? sortAscending,
-            string id)
+
+            bool? sortAscending)
         {
             ExecutableUsers = executableUsers;
             Filters = filters;
+            Id = id;
             Ids = ids;
             NameRegex = nameRegex;
             Owners = owners;
             SortAscending = sortAscending;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetAmiIdsFiltersArgs : Pulumi.InvokeArgs
-    {
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetAmiIdsFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetAmiIdsFiltersResult
-    {
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetAmiIdsFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

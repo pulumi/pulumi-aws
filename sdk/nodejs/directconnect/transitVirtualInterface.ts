@@ -7,28 +7,22 @@ import * as utilities from "../utilities";
 /**
  * Provides a Direct Connect transit virtual interface resource.
  * A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit gateways.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleGateway = new aws.directconnect.Gateway("example", {
- *     amazonSideAsn: "64512",
- * });
- * const exampleTransitVirtualInterface = new aws.directconnect.TransitVirtualInterface("example", {
- *     addressFamily: "ipv4",
- *     bgpAsn: 65352,
- *     connectionId: aws_dx_connection_example.id,
+ *
+ * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: 64512});
+ * const exampleTransitVirtualInterface = new aws.directconnect.TransitVirtualInterface("exampleTransitVirtualInterface", {
+ *     connectionId: aws_dx_connection.example.id,
  *     dxGatewayId: exampleGateway.id,
  *     vlan: 4094,
+ *     addressFamily: "ipv4",
+ *     bgpAsn: 65352,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_transit_virtual_interface.html.markdown.
  */
 export class TransitVirtualInterface extends pulumi.CustomResource {
     /**
@@ -38,6 +32,7 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TransitVirtualInterfaceState, opts?: pulumi.CustomResourceOptions): TransitVirtualInterface {
         return new TransitVirtualInterface(name, <any>state, { ...opts, id: id });
@@ -108,9 +103,9 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The VLAN ID.
      */
@@ -242,9 +237,9 @@ export interface TransitVirtualInterfaceState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VLAN ID.
      */
@@ -293,9 +288,9 @@ export interface TransitVirtualInterfaceArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VLAN ID.
      */

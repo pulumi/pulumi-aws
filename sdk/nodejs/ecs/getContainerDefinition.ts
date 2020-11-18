@@ -4,29 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The ECS container definition data source allows access to details of
  * a specific container within an AWS ECS service.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const ecsMongo = aws_ecs_task_definition_mongo.id.apply(id => aws.ecs.getContainerDefinition({
- *     containerName: "mongodb",
- *     taskDefinition: id,
- * }));
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
+ * const ecs-mongo = aws.ecs.getContainerDefinition({
+ *     taskDefinition: aws_ecs_task_definition.mongo.id,
+ *     containerName: "mongodb",
+ * });
+ * ```
  */
-export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerDefinitionResult> & GetContainerDefinitionResult {
+export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -34,12 +31,10 @@ export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetContainerDefinitionResult> = pulumi.runtime.invoke("aws:ecs/getContainerDefinition:getContainerDefinition", {
+    return pulumi.runtime.invoke("aws:ecs/getContainerDefinition:getContainerDefinition", {
         "containerName": args.containerName,
         "taskDefinition": args.taskDefinition,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -78,6 +73,10 @@ export interface GetContainerDefinitionResult {
      */
     readonly environment: {[key: string]: string};
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The docker image in use, including the digest
      */
     readonly image: string;
@@ -94,8 +93,4 @@ export interface GetContainerDefinitionResult {
      */
     readonly memoryReservation: number;
     readonly taskDefinition: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

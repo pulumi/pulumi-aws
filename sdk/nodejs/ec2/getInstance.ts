@@ -4,21 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the ID of an Amazon EC2 Instance for use in other
  * resources.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const foo = aws.ec2.getInstance({
+ *
+ * const foo = pulumi.output(aws.ec2.getInstance({
  *     filters: [
  *         {
  *             name: "image-id",
@@ -30,12 +29,10 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     instanceId: "i-instanceid",
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
  */
-export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> & GetInstanceResult {
+export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -44,7 +41,7 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetInstanceResult> = pulumi.runtime.invoke("aws:ec2/getInstance:getInstance", {
+    return pulumi.runtime.invoke("aws:ec2/getInstance:getInstance", {
         "filters": args.filters,
         "getPasswordData": args.getPasswordData,
         "getUserData": args.getUserData,
@@ -52,8 +49,6 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
         "instanceTags": args.instanceTags,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -79,14 +74,14 @@ export interface GetInstanceArgs {
      */
     readonly instanceId?: string;
     /**
-     * A mapping of tags, each pair of which must
+     * A map of tags, each pair of which must
      * exactly match a pair on the desired Instance.
      */
-    readonly instanceTags?: {[key: string]: any};
+    readonly instanceTags?: {[key: string]: string};
     /**
      * A mapping of tags assigned to the Instance.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -137,12 +132,16 @@ export interface GetInstanceResult {
      * The name of the instance profile associated with the Instance.
      */
     readonly iamInstanceProfile: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly instanceId?: string;
     /**
      * The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      */
     readonly instanceState: string;
-    readonly instanceTags: {[key: string]: any};
+    readonly instanceTags: {[key: string]: string};
     /**
      * The type of the Instance.
      */
@@ -163,6 +162,10 @@ export interface GetInstanceResult {
      * The ID of the network interface that was created with the Instance.
      */
     readonly networkInterfaceId: string;
+    /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
+    readonly outpostArn: string;
     /**
      * Base-64 encoded encrypted password data for the instance.
      * Useful for getting the administrator password for instances running Microsoft Windows.
@@ -190,13 +193,17 @@ export interface GetInstanceResult {
      */
     readonly publicDns: string;
     /**
-     * The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`aws.ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
+     * The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
      */
     readonly publicIp: string;
     /**
      * The root block device mappings of the Instance
      */
     readonly rootBlockDevices: outputs.ec2.GetInstanceRootBlockDevice[];
+    /**
+     * The secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
+     */
+    readonly secondaryPrivateIps: string[];
     /**
      * The associated security groups.
      */
@@ -212,7 +219,7 @@ export interface GetInstanceResult {
     /**
      * A mapping of tags assigned to the Instance.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The tenancy of the instance: `dedicated`, `default`, `host`.
      */
@@ -229,8 +236,4 @@ export interface GetInstanceResult {
      * The associated security groups in a non-default VPC.
      */
     readonly vpcSecurityGroupIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

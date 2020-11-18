@@ -4,28 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Storage Gateway NFS File Share.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.storagegateway.NfsFileShare("example", {
  *     clientLists: ["0.0.0.0/0"],
- *     gatewayArn: aws_storagegateway_gateway_example.arn,
- *     locationArn: aws_s3_bucket_example.arn,
- *     roleArn: aws_iam_role_example.arn,
+ *     gatewayArn: aws_storagegateway_gateway.example.arn,
+ *     locationArn: aws_s3_bucket.example.arn,
+ *     roleArn: aws_iam_role.example.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_nfs_file_share.html.markdown.
  */
 export class NfsFileShare extends pulumi.CustomResource {
     /**
@@ -35,6 +32,7 @@ export class NfsFileShare extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NfsFileShareState, opts?: pulumi.CustomResourceOptions): NfsFileShare {
         return new NfsFileShare(name, <any>state, { ...opts, id: id });
@@ -58,6 +56,10 @@ export class NfsFileShare extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the NFS File Share.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Refresh cache information. see Cache Attributes for more details.
+     */
+    public readonly cacheAttributes!: pulumi.Output<outputs.storagegateway.NfsFileShareCacheAttributes | undefined>;
     /**
      * The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
      */
@@ -91,7 +93,7 @@ export class NfsFileShare extends pulumi.CustomResource {
      */
     public readonly locationArn!: pulumi.Output<string>;
     /**
-     * Nested argument with file share default values. More information below.
+     * Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
      */
     public readonly nfsFileShareDefaults!: pulumi.Output<outputs.storagegateway.NfsFileShareNfsFileShareDefaults | undefined>;
     /**
@@ -119,9 +121,9 @@ export class NfsFileShare extends pulumi.CustomResource {
      */
     public readonly squash!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a NfsFileShare resource with the given unique name, arguments, and options.
@@ -136,6 +138,7 @@ export class NfsFileShare extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as NfsFileShareState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
             inputs["clientLists"] = state ? state.clientLists : undefined;
             inputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
             inputs["fileshareId"] = state ? state.fileshareId : undefined;
@@ -166,6 +169,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             if (!args || args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            inputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
             inputs["clientLists"] = args ? args.clientLists : undefined;
             inputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
@@ -204,6 +208,10 @@ export interface NfsFileShareState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * Refresh cache information. see Cache Attributes for more details.
+     */
+    readonly cacheAttributes?: pulumi.Input<inputs.storagegateway.NfsFileShareCacheAttributes>;
+    /**
      * The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
      */
     readonly clientLists?: pulumi.Input<pulumi.Input<string>[]>;
@@ -236,7 +244,7 @@ export interface NfsFileShareState {
      */
     readonly locationArn?: pulumi.Input<string>;
     /**
-     * Nested argument with file share default values. More information below.
+     * Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
      */
     readonly nfsFileShareDefaults?: pulumi.Input<inputs.storagegateway.NfsFileShareNfsFileShareDefaults>;
     /**
@@ -264,15 +272,19 @@ export interface NfsFileShareState {
      */
     readonly squash?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
  * The set of arguments for constructing a NfsFileShare resource.
  */
 export interface NfsFileShareArgs {
+    /**
+     * Refresh cache information. see Cache Attributes for more details.
+     */
+    readonly cacheAttributes?: pulumi.Input<inputs.storagegateway.NfsFileShareCacheAttributes>;
     /**
      * The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
      */
@@ -302,7 +314,7 @@ export interface NfsFileShareArgs {
      */
     readonly locationArn: pulumi.Input<string>;
     /**
-     * Nested argument with file share default values. More information below.
+     * Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
      */
     readonly nfsFileShareDefaults?: pulumi.Input<inputs.storagegateway.NfsFileShareNfsFileShareDefaults>;
     /**
@@ -326,7 +338,7 @@ export interface NfsFileShareArgs {
      */
     readonly squash?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

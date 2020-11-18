@@ -4,41 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * `aws.ec2.Route` provides details about a specific Route.
- * 
+ *
  * This resource can prove useful when finding the resource
  * associated with a CIDR. For example, finding the peering
  * connection associated with a CIDR value.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * The following example shows how one might use a CIDR value to find a network interface id
+ * and use this to create a data source of that network interface.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
- * const subnetId = config.require("subnetId");
- * 
+ * const subnetId = config.requireObject("subnetId");
  * const selected = aws.ec2.getRouteTable({
  *     subnetId: subnetId,
  * });
- * const route = aws_route_table_selected.id.apply(id => aws.ec2.getRoute({
+ * const route = aws.ec2.getRoute({
+ *     routeTableId: aws_route_table.selected.id,
  *     destinationCidrBlock: "10.0.1.0/24",
- *     routeTableId: id,
- * }));
- * const interfaceNetworkInterface = route.apply(route => aws.ec2.getNetworkInterface({
- *     networkInterfaceId: route.networkInterfaceId!,
+ * });
+ * const interface = route.then(route => aws.ec2.getNetworkInterface({
+ *     id: route.networkInterfaceId,
  * }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
  */
-export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> & GetRouteResult {
+export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
     if (!opts) {
         opts = {}
     }
@@ -46,20 +45,19 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRouteResult> = pulumi.runtime.invoke("aws:ec2/getRoute:getRoute", {
+    return pulumi.runtime.invoke("aws:ec2/getRoute:getRoute", {
         "destinationCidrBlock": args.destinationCidrBlock,
         "destinationIpv6CidrBlock": args.destinationIpv6CidrBlock,
         "egressOnlyGatewayId": args.egressOnlyGatewayId,
         "gatewayId": args.gatewayId,
         "instanceId": args.instanceId,
+        "localGatewayId": args.localGatewayId,
         "natGatewayId": args.natGatewayId,
         "networkInterfaceId": args.networkInterfaceId,
         "routeTableId": args.routeTableId,
         "transitGatewayId": args.transitGatewayId,
         "vpcPeeringConnectionId": args.vpcPeeringConnectionId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -86,6 +84,10 @@ export interface GetRouteArgs {
      * The Instance ID of the Route belonging to the Route Table.
      */
     readonly instanceId?: string;
+    /**
+     * The Local Gateway ID of the Route belonging to the Route Table.
+     */
+    readonly localGatewayId?: string;
     /**
      * The NAT Gateway ID of the Route belonging to the Route Table.
      */
@@ -116,14 +118,15 @@ export interface GetRouteResult {
     readonly destinationIpv6CidrBlock: string;
     readonly egressOnlyGatewayId: string;
     readonly gatewayId: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly instanceId: string;
+    readonly localGatewayId: string;
     readonly natGatewayId: string;
     readonly networkInterfaceId: string;
     readonly routeTableId: string;
     readonly transitGatewayId: string;
     readonly vpcPeeringConnectionId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

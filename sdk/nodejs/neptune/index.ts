@@ -7,5 +7,7 @@ export * from "./clusterInstance";
 export * from "./clusterParameterGroup";
 export * from "./clusterSnapshot";
 export * from "./eventSubscription";
+export * from "./getEngineVersion";
+export * from "./getOrderableDbInstance";
 export * from "./parameterGroup";
 export * from "./subnetGroup";

@@ -4,10 +4,36 @@
 package lambda
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides information about a Lambda Layer Version.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		layerName := cfg.Require("layerName")
+// 		_, err := lambda.LookupLayerVersion(ctx, &lambda.LookupLayerVersionArgs{
+// 			LayerName: layerName,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupLayerVersion(ctx *pulumi.Context, args *LookupLayerVersionArgs, opts ...pulumi.InvokeOption) (*LookupLayerVersionResult, error) {
 	var rv LookupLayerVersionResult
 	err := ctx.Invoke("aws:lambda/getLayerVersion:getLayerVersion", args, &rv, opts...)
@@ -32,13 +58,13 @@ type LookupLayerVersionResult struct {
 	// The Amazon Resource Name (ARN) of the Lambda Layer with version.
 	Arn               string  `pulumi:"arn"`
 	CompatibleRuntime *string `pulumi:"compatibleRuntime"`
-	// A list of [Runtimes][1] the specific Lambda Layer version is compatible with.
+	// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
 	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
 	// The date this resource was created.
 	CreatedDate string `pulumi:"createdDate"`
 	// Description of the specific Lambda Layer version.
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Amazon Resource Name (ARN) of the Lambda Layer without version.
 	LayerArn  string `pulumi:"layerArn"`

@@ -4,20 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Role} from "./role";
+import {Role} from "./index";
 
 /**
  * Provides an IAM instance profile.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const role = new aws.iam.Role("role", {
+ *     path: "/",
  *     assumeRolePolicy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
@@ -32,14 +31,9 @@ import {Role} from "./role";
  *     ]
  * }
  * `,
- *     path: "/",
  * });
- * const testProfile = new aws.iam.InstanceProfile("testProfile", {
- *     role: role.name,
- * });
+ * const testProfile = new aws.iam.InstanceProfile("testProfile", {role: role.name});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_instance_profile.html.markdown.
  */
 export class InstanceProfile extends pulumi.CustomResource {
     /**
@@ -49,6 +43,7 @@ export class InstanceProfile extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: InstanceProfileState, opts?: pulumi.CustomResourceOptions): InstanceProfile {
         return new InstanceProfile(name, <any>state, { ...opts, id: id });
@@ -91,12 +86,7 @@ export class InstanceProfile extends pulumi.CustomResource {
     /**
      * The role name to include in the profile.
      */
-    public readonly role!: pulumi.Output<string>;
-    /**
-     * 
-     * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-     */
-    public readonly roles!: pulumi.Output<string[]>;
+    public readonly role!: pulumi.Output<string | undefined>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
@@ -120,7 +110,6 @@ export class InstanceProfile extends pulumi.CustomResource {
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["path"] = state ? state.path : undefined;
             inputs["role"] = state ? state.role : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as InstanceProfileArgs | undefined;
@@ -128,7 +117,6 @@ export class InstanceProfile extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["path"] = args ? args.path : undefined;
             inputs["role"] = args ? args.role : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createDate"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
@@ -173,13 +161,6 @@ export interface InstanceProfileState {
      */
     readonly role?: pulumi.Input<string | Role>;
     /**
-     * 
-     * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-     * 
-     * @deprecated Use `role` instead. Only a single role can be passed to an IAM Instance Profile
-     */
-    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
-    /**
      * The [unique ID][1] assigned by AWS.
      */
     readonly uniqueId?: pulumi.Input<string>;
@@ -205,11 +186,4 @@ export interface InstanceProfileArgs {
      * The role name to include in the profile.
      */
     readonly role?: pulumi.Input<string | Role>;
-    /**
-     * 
-     * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-     * 
-     * @deprecated Use `role` instead. Only a single role can be passed to an IAM Instance Profile
-     */
-    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
 }

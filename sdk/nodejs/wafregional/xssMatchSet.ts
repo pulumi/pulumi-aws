@@ -4,20 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regional XSS Match Set Resource for use with Application Load Balancer.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const xssMatchSet = new aws.wafregional.XssMatchSet("xssMatchSet", {
+ *
+ * const xssMatchSet = new aws.wafregional.XssMatchSet("xss_match_set", {
  *     xssMatchTuples: [
  *         {
  *             fieldToMatch: {
@@ -34,8 +33,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_xss_match_set.html.markdown.
  */
 export class XssMatchSet extends pulumi.CustomResource {
     /**
@@ -45,6 +42,7 @@ export class XssMatchSet extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: XssMatchSetState, opts?: pulumi.CustomResourceOptions): XssMatchSet {
         return new XssMatchSet(name, <any>state, { ...opts, id: id });

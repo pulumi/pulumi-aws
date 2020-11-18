@@ -3,6 +3,9 @@
 
 // Export members:
 export * from "./getSecret";
+export * from "./getSecretRotation";
 export * from "./getSecretVersion";
 export * from "./secret";
+export * from "./secretPolicy";
+export * from "./secretRotation";
 export * from "./secretVersion";

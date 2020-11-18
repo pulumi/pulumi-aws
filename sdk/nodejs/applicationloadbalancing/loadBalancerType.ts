@@ -12,9 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export const ApplicationLoadBalancer: LoadBalancerType = "application";
-export const NetworkLoadBalancer:     LoadBalancerType = "network";
+// This file contains individual constants for each applicationloadbalancing LoadBalancer type.
+//
+// These constants will not be updated with new values.
+// It is recommended to use LoadBalancerType.[Value] instead.
 
-export type LoadBalancerType =
-    "application" |
-    "network"     ;
+import {LoadBalancerType} from ".";
+
+/** Use LoadBalancerType.Application instead. */
+export const ApplicationLoadBalancer: LoadBalancerType = "application";
+/** Use LoadBalancerType.Network instead. */
+export const NetworkLoadBalancer:     LoadBalancerType = "network";

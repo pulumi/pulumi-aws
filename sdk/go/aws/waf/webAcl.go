@@ -7,10 +7,112 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a WAF Web ACL Resource
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/waf"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		ipset, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
+// 			IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
+// 				&waf.IpSetIpSetDescriptorArgs{
+// 					Type:  pulumi.String("IPV4"),
+// 					Value: pulumi.String("192.0.7.0/24"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		wafrule, err := waf.NewRule(ctx, "wafrule", &waf.RuleArgs{
+// 			MetricName: pulumi.String("tfWAFRule"),
+// 			Predicates: waf.RulePredicateArray{
+// 				&waf.RulePredicateArgs{
+// 					DataId:  ipset.ID(),
+// 					Negated: pulumi.Bool(false),
+// 					Type:    pulumi.String("IPMatch"),
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			ipset,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = waf.NewWebAcl(ctx, "wafAcl", &waf.WebAclArgs{
+// 			MetricName: pulumi.String("tfWebACL"),
+// 			DefaultAction: &waf.WebAclDefaultActionArgs{
+// 				Type: pulumi.String("ALLOW"),
+// 			},
+// 			Rules: waf.WebAclRuleArray{
+// 				&waf.WebAclRuleArgs{
+// 					Action: &waf.WebAclRuleActionArgs{
+// 						Type: pulumi.String("BLOCK"),
+// 					},
+// 					Priority: pulumi.Int(1),
+// 					RuleId:   wafrule.ID(),
+// 					Type:     pulumi.String("REGULAR"),
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			ipset,
+// 			wafrule,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Logging
+//
+// > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/waf"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := waf.NewWebAcl(ctx, "example", &waf.WebAclArgs{
+// 			LoggingConfiguration: &waf.WebAclLoggingConfigurationArgs{
+// 				LogDestination: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+// 				RedactedFields: &waf.WebAclLoggingConfigurationRedactedFieldsArgs{
+// 					FieldToMatches: waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{
+// 						&waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
+// 							Type: pulumi.String("URI"),
+// 						},
+// 						&waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
+// 							Data: pulumi.String("referer"),
+// 							Type: pulumi.String("HEADER"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type WebAcl struct {
 	pulumi.CustomResourceState
 
@@ -26,8 +128,8 @@ type WebAcl struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewWebAcl registers a new resource with the given unique name, arguments, and options.
@@ -76,8 +178,8 @@ type webAclState struct {
 	Name *string `pulumi:"name"`
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules []WebAclRule `pulumi:"rules"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type WebAclState struct {
@@ -93,8 +195,8 @@ type WebAclState struct {
 	Name pulumi.StringPtrInput
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules WebAclRuleArrayInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (WebAclState) ElementType() reflect.Type {
@@ -112,8 +214,8 @@ type webAclArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules []WebAclRule `pulumi:"rules"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a WebAcl resource.
@@ -128,8 +230,8 @@ type WebAclArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules WebAclRuleArrayInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (WebAclArgs) ElementType() reflect.Type {

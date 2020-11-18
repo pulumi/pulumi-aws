@@ -12,27 +12,49 @@ namespace Pulumi.Aws.Ecs
     /// <summary>
     /// Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
     /// 
-    /// &gt; **NOTE:** The AWS API does not currently support deleting ECS cluster capacity providers. Removing this resource will only remove the state for it.
+    /// &gt; **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `min_size` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
     /// 
+    /// ## Example Usage
     /// 
-    /// ## auto_scaling_group_provider
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// The `auto_scaling_group_provider` block supports the following:
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ... other configuration, including potentially other tags ...
+    ///         var testGroup = new Aws.AutoScaling.Group("testGroup", new Aws.AutoScaling.GroupArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///                 {
+    ///                     Key = "AmazonECSManaged",
+    ///                     PropagateAtLaunch = true,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var testCapacityProvider = new Aws.Ecs.CapacityProvider("testCapacityProvider", new Aws.Ecs.CapacityProviderArgs
+    ///         {
+    ///             AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
+    ///             {
+    ///                 AutoScalingGroupArn = testGroup.Arn,
+    ///                 ManagedTerminationProtection = "ENABLED",
+    ///                 ManagedScaling = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs
+    ///                 {
+    ///                     MaximumScalingStepSize = 1000,
+    ///                     MinimumScalingStepSize = 1,
+    ///                     Status = "ENABLED",
+    ///                     TargetCapacity = 10,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
     /// 
-    /// * `auto_scaling_group_arn` - (Required) - The Amazon Resource Name (ARN) of the associated auto scaling group.
-    /// * `managed_scaling` - (Optional) - Nested argument defining the parameters of the auto scaling. Defined below.
-    /// * `managed_termination_protection` - (Optional) - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
-    /// 
-    /// ## managed_scaling
-    /// 
-    /// The `managed_scaling` block supports the following:
-    /// 
-    /// * `maximum_scaling_step_size` - (Optional) The maximum step adjustment size. A number between 1 and 10,000.
-    /// * `minimum_scaling_step_size` - (Optional) The minimum step adjustment size. A number between 1 and 10,000.
-    /// * `status` - (Optional) Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
-    /// * `target_capacity` - (Optional) The target utilization for the capacity provider. A number between 1 and 100.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_capacity_provider.html.markdown.
+    /// }
+    /// ```
     /// </summary>
     public partial class CapacityProvider : Pulumi.CustomResource
     {
@@ -55,10 +77,10 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -69,7 +91,7 @@ namespace Pulumi.Aws.Ecs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CapacityProvider(string name, CapacityProviderArgs args, CustomResourceOptions? options = null)
-            : base("aws:ecs/capacityProvider:CapacityProvider", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ecs/capacityProvider:CapacityProvider", name, args ?? new CapacityProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -119,14 +141,14 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -156,138 +178,19 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public CapacityProviderState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class CapacityProviderAutoScalingGroupProviderArgs : Pulumi.ResourceArgs
-    {
-        [Input("autoScalingGroupArn", required: true)]
-        public Input<string> AutoScalingGroupArn { get; set; } = null!;
-
-        [Input("managedScaling")]
-        public Input<CapacityProviderAutoScalingGroupProviderManagedScalingArgs>? ManagedScaling { get; set; }
-
-        [Input("managedTerminationProtection")]
-        public Input<string>? ManagedTerminationProtection { get; set; }
-
-        public CapacityProviderAutoScalingGroupProviderArgs()
-        {
-        }
-    }
-
-    public sealed class CapacityProviderAutoScalingGroupProviderGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("autoScalingGroupArn", required: true)]
-        public Input<string> AutoScalingGroupArn { get; set; } = null!;
-
-        [Input("managedScaling")]
-        public Input<CapacityProviderAutoScalingGroupProviderManagedScalingGetArgs>? ManagedScaling { get; set; }
-
-        [Input("managedTerminationProtection")]
-        public Input<string>? ManagedTerminationProtection { get; set; }
-
-        public CapacityProviderAutoScalingGroupProviderGetArgs()
-        {
-        }
-    }
-
-    public sealed class CapacityProviderAutoScalingGroupProviderManagedScalingArgs : Pulumi.ResourceArgs
-    {
-        [Input("maximumScalingStepSize")]
-        public Input<int>? MaximumScalingStepSize { get; set; }
-
-        [Input("minimumScalingStepSize")]
-        public Input<int>? MinimumScalingStepSize { get; set; }
-
-        [Input("status")]
-        public Input<string>? Status { get; set; }
-
-        [Input("targetCapacity")]
-        public Input<int>? TargetCapacity { get; set; }
-
-        public CapacityProviderAutoScalingGroupProviderManagedScalingArgs()
-        {
-        }
-    }
-
-    public sealed class CapacityProviderAutoScalingGroupProviderManagedScalingGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("maximumScalingStepSize")]
-        public Input<int>? MaximumScalingStepSize { get; set; }
-
-        [Input("minimumScalingStepSize")]
-        public Input<int>? MinimumScalingStepSize { get; set; }
-
-        [Input("status")]
-        public Input<string>? Status { get; set; }
-
-        [Input("targetCapacity")]
-        public Input<int>? TargetCapacity { get; set; }
-
-        public CapacityProviderAutoScalingGroupProviderManagedScalingGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class CapacityProviderAutoScalingGroupProvider
-    {
-        public readonly string AutoScalingGroupArn;
-        public readonly CapacityProviderAutoScalingGroupProviderManagedScaling ManagedScaling;
-        public readonly string ManagedTerminationProtection;
-
-        [OutputConstructor]
-        private CapacityProviderAutoScalingGroupProvider(
-            string autoScalingGroupArn,
-            CapacityProviderAutoScalingGroupProviderManagedScaling managedScaling,
-            string managedTerminationProtection)
-        {
-            AutoScalingGroupArn = autoScalingGroupArn;
-            ManagedScaling = managedScaling;
-            ManagedTerminationProtection = managedTerminationProtection;
-        }
-    }
-
-    [OutputType]
-    public sealed class CapacityProviderAutoScalingGroupProviderManagedScaling
-    {
-        public readonly int MaximumScalingStepSize;
-        public readonly int MinimumScalingStepSize;
-        public readonly string Status;
-        public readonly int TargetCapacity;
-
-        [OutputConstructor]
-        private CapacityProviderAutoScalingGroupProviderManagedScaling(
-            int maximumScalingStepSize,
-            int minimumScalingStepSize,
-            string status,
-            int targetCapacity)
-        {
-            MaximumScalingStepSize = maximumScalingStepSize;
-            MinimumScalingStepSize = minimumScalingStepSize;
-            Status = status;
-            TargetCapacity = targetCapacity;
-        }
-    }
     }
 }

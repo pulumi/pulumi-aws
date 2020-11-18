@@ -10,9 +10,77 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sqs
 {
     /// <summary>
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sqs_queue.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var queue = new Aws.Sqs.Queue("queue", new Aws.Sqs.QueueArgs
+    ///         {
+    ///             DelaySeconds = 90,
+    ///             MaxMessageSize = 2048,
+    ///             MessageRetentionSeconds = 86400,
+    ///             ReceiveWaitTimeSeconds = 10,
+    ///             RedrivePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "deadLetterTargetArn", aws_sqs_queue.Queue_deadletter.Arn },
+    ///                 { "maxReceiveCount", 4 },
+    ///             }),
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ## FIFO queue
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var queue = new Aws.Sqs.Queue("queue", new Aws.Sqs.QueueArgs
+    ///         {
+    ///             ContentBasedDeduplication = true,
+    ///             FifoQueue = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Server-side encryption (SSE)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var queue = new Aws.Sqs.Queue("queue", new Aws.Sqs.QueueArgs
+    ///         {
+    ///             KmsDataKeyReusePeriodSeconds = 300,
+    ///             KmsMasterKeyId = "alias/aws/sqs",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Queue : Pulumi.CustomResource
     {
@@ -95,10 +163,10 @@ namespace Pulumi.Aws.Sqs
         public Output<string?> RedrivePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the queue.
+        /// A map of tags to assign to the queue.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
@@ -115,7 +183,7 @@ namespace Pulumi.Aws.Sqs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Queue(string name, QueueArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:sqs/queue:Queue", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:sqs/queue:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -225,14 +293,14 @@ namespace Pulumi.Aws.Sqs
         public Input<string>? RedrivePolicy { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the queue.
+        /// A map of tags to assign to the queue.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -328,14 +396,14 @@ namespace Pulumi.Aws.Sqs
         public Input<string>? RedrivePolicy { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the queue.
+        /// A map of tags to assign to the queue.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

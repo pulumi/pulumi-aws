@@ -4,31 +4,46 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get IDs and VPC membership of Security Groups that are created
  * outside of this provider.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const test = aws.ec2.getSecurityGroups({
+ *
+ * const test = pulumi.output(aws.ec2.getSecurityGroups({
  *     tags: {
  *         Application: "k8s",
  *         Environment: "dev",
  *     },
- * });
+ * }, { async: true }));
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_groups.html.markdown.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.ec2.getSecurityGroups({
+ *     filters: [
+ *         {
+ *             name: "group-name",
+ *             values: ["*nodes*"],
+ *         },
+ *         {
+ *             name: "vpc-id",
+ *             values: [_var.vpc_id],
+ *         },
+ *     ],
+ * });
+ * ```
  */
-export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupsResult> & GetSecurityGroupsResult {
+export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupsResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -37,12 +52,10 @@ export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.In
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSecurityGroupsResult> = pulumi.runtime.invoke("aws:ec2/getSecurityGroups:getSecurityGroups", {
+    return pulumi.runtime.invoke("aws:ec2/getSecurityGroups:getSecurityGroups", {
         "filters": args.filters,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -56,10 +69,10 @@ export interface GetSecurityGroupsArgs {
      */
     readonly filters?: inputs.ec2.GetSecurityGroupsFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match for
+     * A map of tags, each pair of which must exactly match for
      * desired security groups.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -68,17 +81,17 @@ export interface GetSecurityGroupsArgs {
 export interface GetSecurityGroupsResult {
     readonly filters?: outputs.ec2.GetSecurityGroupsFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * IDs of the matches security groups.
      */
     readonly ids: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs*
      * unless the `vpc-id` filter is also used.
      */
     readonly vpcIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

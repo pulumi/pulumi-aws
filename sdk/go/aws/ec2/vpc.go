@@ -7,10 +7,62 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a VPC resource.
+//
+// ## Example Usage
+//
+// Basic usage:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.0.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// Basic usage with tags:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
+// 			CidrBlock:       pulumi.String("10.0.0.0/16"),
+// 			InstanceTenancy: pulumi.String("default"),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("main"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Vpc struct {
 	pulumi.CustomResourceState
 
@@ -31,7 +83,7 @@ type Vpc struct {
 	DhcpOptionsId          pulumi.StringOutput `pulumi:"dhcpOptionsId"`
 	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-	// See the [ClassicLink documentation][1] for more information. Defaults false.
+	// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
 	EnableClassiclink pulumi.BoolOutput `pulumi:"enableClassiclink"`
 	// A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
 	// Only valid in regions and accounts that support EC2 Classic.
@@ -40,7 +92,8 @@ type Vpc struct {
 	EnableDnsHostnames pulumi.BoolOutput `pulumi:"enableDnsHostnames"`
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport pulumi.BoolPtrOutput `pulumi:"enableDnsSupport"`
-	// A tenancy option for instances launched into the VPC
+	// A tenancy option for instances launched into the VPC. Default is `default`, which
+	// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
 	InstanceTenancy pulumi.StringPtrOutput `pulumi:"instanceTenancy"`
 	// The association ID for the IPv6 CIDR block.
 	Ipv6AssociationId pulumi.StringOutput `pulumi:"ipv6AssociationId"`
@@ -48,12 +101,12 @@ type Vpc struct {
 	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
-	// [`ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html).
+	// `ec2.MainRouteTableAssociation`.
 	MainRouteTableId pulumi.StringOutput `pulumi:"mainRouteTableId"`
 	// The ID of the AWS account that owns the VPC.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewVpc registers a new resource with the given unique name, arguments, and options.
@@ -104,7 +157,7 @@ type vpcState struct {
 	DhcpOptionsId          *string `pulumi:"dhcpOptionsId"`
 	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-	// See the [ClassicLink documentation][1] for more information. Defaults false.
+	// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
 	EnableClassiclink *bool `pulumi:"enableClassiclink"`
 	// A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
 	// Only valid in regions and accounts that support EC2 Classic.
@@ -113,7 +166,8 @@ type vpcState struct {
 	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport *bool `pulumi:"enableDnsSupport"`
-	// A tenancy option for instances launched into the VPC
+	// A tenancy option for instances launched into the VPC. Default is `default`, which
+	// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
 	InstanceTenancy *string `pulumi:"instanceTenancy"`
 	// The association ID for the IPv6 CIDR block.
 	Ipv6AssociationId *string `pulumi:"ipv6AssociationId"`
@@ -121,12 +175,12 @@ type vpcState struct {
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
-	// [`ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html).
+	// `ec2.MainRouteTableAssociation`.
 	MainRouteTableId *string `pulumi:"mainRouteTableId"`
 	// The ID of the AWS account that owns the VPC.
 	OwnerId *string `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type VpcState struct {
@@ -147,7 +201,7 @@ type VpcState struct {
 	DhcpOptionsId          pulumi.StringPtrInput
 	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-	// See the [ClassicLink documentation][1] for more information. Defaults false.
+	// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
 	EnableClassiclink pulumi.BoolPtrInput
 	// A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
 	// Only valid in regions and accounts that support EC2 Classic.
@@ -156,7 +210,8 @@ type VpcState struct {
 	EnableDnsHostnames pulumi.BoolPtrInput
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport pulumi.BoolPtrInput
-	// A tenancy option for instances launched into the VPC
+	// A tenancy option for instances launched into the VPC. Default is `default`, which
+	// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
 	InstanceTenancy pulumi.StringPtrInput
 	// The association ID for the IPv6 CIDR block.
 	Ipv6AssociationId pulumi.StringPtrInput
@@ -164,12 +219,12 @@ type VpcState struct {
 	Ipv6CidrBlock pulumi.StringPtrInput
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
-	// [`ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html).
+	// `ec2.MainRouteTableAssociation`.
 	MainRouteTableId pulumi.StringPtrInput
 	// The ID of the AWS account that owns the VPC.
 	OwnerId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (VpcState) ElementType() reflect.Type {
@@ -185,7 +240,7 @@ type vpcArgs struct {
 	CidrBlock string `pulumi:"cidrBlock"`
 	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-	// See the [ClassicLink documentation][1] for more information. Defaults false.
+	// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
 	EnableClassiclink *bool `pulumi:"enableClassiclink"`
 	// A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
 	// Only valid in regions and accounts that support EC2 Classic.
@@ -194,10 +249,11 @@ type vpcArgs struct {
 	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport *bool `pulumi:"enableDnsSupport"`
-	// A tenancy option for instances launched into the VPC
+	// A tenancy option for instances launched into the VPC. Default is `default`, which
+	// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
 	InstanceTenancy *string `pulumi:"instanceTenancy"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Vpc resource.
@@ -210,7 +266,7 @@ type VpcArgs struct {
 	CidrBlock pulumi.StringInput
 	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-	// See the [ClassicLink documentation][1] for more information. Defaults false.
+	// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
 	EnableClassiclink pulumi.BoolPtrInput
 	// A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
 	// Only valid in regions and accounts that support EC2 Classic.
@@ -219,10 +275,11 @@ type VpcArgs struct {
 	EnableDnsHostnames pulumi.BoolPtrInput
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport pulumi.BoolPtrInput
-	// A tenancy option for instances launched into the VPC
+	// A tenancy option for instances launched into the VPC. Default is `default`, which
+	// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
 	InstanceTenancy pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (VpcArgs) ElementType() reflect.Type {

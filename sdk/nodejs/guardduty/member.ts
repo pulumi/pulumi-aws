@@ -5,10 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage a GuardDuty member. To accept invitations in member accounts, see the [`aws.guardduty.InviteAccepter` resource](https://www.terraform.io/docs/providers/aws/r/guardduty_invite_accepter.html).
- * 
+ * Provides a resource to manage a GuardDuty member. To accept invitations in member accounts, see the `aws.guardduty.InviteAccepter` resource.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/guardduty_member.html.markdown.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const primary = new aws.guardduty.Detector("primary", {enable: true});
+ * const memberDetector = new aws.guardduty.Detector("memberDetector", {enable: true}, {
+ *     provider: aws.dev,
+ * });
+ * const memberMember = new aws.guardduty.Member("memberMember", {
+ *     accountId: memberDetector.accountId,
+ *     detectorId: primary.id,
+ *     email: "required@example.com",
+ *     invite: true,
+ *     invitationMessage: "please accept guardduty invitation",
+ * });
+ * ```
  */
 export class Member extends pulumi.CustomResource {
     /**
@@ -18,6 +34,7 @@ export class Member extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MemberState, opts?: pulumi.CustomResourceOptions): Member {
         return new Member(name, <any>state, { ...opts, id: id });
@@ -62,7 +79,7 @@ export class Member extends pulumi.CustomResource {
      */
     public readonly invite!: pulumi.Output<boolean | undefined>;
     /**
-     * The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+     * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      */
     public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
 
@@ -144,7 +161,7 @@ export interface MemberState {
      */
     readonly invite?: pulumi.Input<boolean>;
     /**
-     * The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+     * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      */
     readonly relationshipStatus?: pulumi.Input<string>;
 }

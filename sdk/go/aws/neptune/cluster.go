@@ -6,7 +6,7 @@ package neptune
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an Neptune Cluster Resource. A Cluster Resource defines attributes that are
@@ -18,6 +18,38 @@ import (
 // phase because a modification has not yet taken place. You can use the
 // `applyImmediately` flag to instruct the service to apply the change immediately
 // (see documentation below).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/neptune"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := neptune.NewCluster(ctx, "_default", &neptune.ClusterArgs{
+// 			ApplyImmediately:                 pulumi.Bool(true),
+// 			BackupRetentionPeriod:            pulumi.Int(5),
+// 			ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),
+// 			Engine:                           pulumi.String("neptune"),
+// 			IamDatabaseAuthenticationEnabled: pulumi.Bool(true),
+// 			PreferredBackupWindow:            pulumi.String("07:00-09:00"),
+// 			SkipFinalSnapshot:                pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// > **Note:** AWS Neptune does not support user name/password–based access control.
+// See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -36,7 +68,8 @@ type Cluster struct {
 	// List of Neptune Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayOutput `pulumi:"clusterMembers"`
 	// The Neptune Cluster Resource ID
-	ClusterResourceId  pulumi.StringOutput  `pulumi:"clusterResourceId"`
+	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
+	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
 	EnableCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enableCloudwatchLogsExports"`
@@ -76,8 +109,8 @@ type Cluster struct {
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the Neptune cluster.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the Neptune cluster.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
@@ -125,8 +158,9 @@ type clusterState struct {
 	// List of Neptune Instances that are a part of this cluster
 	ClusterMembers []string `pulumi:"clusterMembers"`
 	// The Neptune Cluster Resource ID
-	ClusterResourceId  *string `pulumi:"clusterResourceId"`
-	DeletionProtection *bool   `pulumi:"deletionProtection"`
+	ClusterResourceId *string `pulumi:"clusterResourceId"`
+	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// The DNS address of the Neptune instance
@@ -165,8 +199,8 @@ type clusterState struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the Neptune cluster.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the Neptune cluster.
+	Tags map[string]string `pulumi:"tags"`
 	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -187,7 +221,8 @@ type ClusterState struct {
 	// List of Neptune Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayInput
 	// The Neptune Cluster Resource ID
-	ClusterResourceId  pulumi.StringPtrInput
+	ClusterResourceId pulumi.StringPtrInput
+	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrInput
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
@@ -227,8 +262,8 @@ type ClusterState struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the Neptune cluster.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the Neptune cluster.
+	Tags pulumi.StringMapInput
 	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
@@ -248,7 +283,8 @@ type clusterArgs struct {
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
-	DeletionProtection      *bool   `pulumi:"deletionProtection"`
+	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
@@ -281,8 +317,8 @@ type clusterArgs struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the Neptune cluster.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the Neptune cluster.
+	Tags map[string]string `pulumi:"tags"`
 	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -299,7 +335,8 @@ type ClusterArgs struct {
 	ClusterIdentifier pulumi.StringPtrInput
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringPtrInput
-	DeletionProtection      pulumi.BoolPtrInput
+	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection pulumi.BoolPtrInput
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
 	// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
@@ -332,8 +369,8 @@ type ClusterArgs struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the Neptune cluster.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the Neptune cluster.
+	Tags pulumi.StringMapInput
 	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }

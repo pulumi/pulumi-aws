@@ -4,38 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * > **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
- * 
+ *
  * Provides information about a Load Balancer Target Group.
- * 
+ *
  * This data source can prove useful when a module accepts an LB Target Group as an
  * input variable and needs to know its attributes. It can also be used to get the ARN of
  * an LB Target Group for use in other resources, given LB Target Group name.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const lbTgArn = config.get("lbTgArn") || "";
  * const lbTgName = config.get("lbTgName") || "";
- * 
  * const test = aws.lb.getTargetGroup({
  *     arn: lbTgArn,
  *     name: lbTgName,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group.html.markdown.
  */
-export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> & GetTargetGroupResult {
+/** @deprecated aws.applicationloadbalancing.getTargetGroup has been deprecated in favor of aws.alb.getTargetGroup */
+export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
+    pulumi.log.warn("getTargetGroup is deprecated: aws.applicationloadbalancing.getTargetGroup has been deprecated in favor of aws.alb.getTargetGroup")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -44,13 +42,11 @@ export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetTargetGroupResult> = pulumi.runtime.invoke("aws:applicationloadbalancing/getTargetGroup:getTargetGroup", {
+    return pulumi.runtime.invoke("aws:applicationloadbalancing/getTargetGroup:getTargetGroup", {
         "arn": args.arn,
         "name": args.name,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -65,7 +61,7 @@ export interface GetTargetGroupArgs {
      * The unique name of the target group.
      */
     readonly name?: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -76,18 +72,19 @@ export interface GetTargetGroupResult {
     readonly arnSuffix: string;
     readonly deregistrationDelay: number;
     readonly healthCheck: outputs.applicationloadbalancing.GetTargetGroupHealthCheck;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly lambdaMultiValueHeadersEnabled: boolean;
+    readonly loadBalancingAlgorithmType: string;
     readonly name: string;
     readonly port: number;
     readonly protocol: string;
     readonly proxyProtocolV2: boolean;
     readonly slowStart: number;
     readonly stickiness: outputs.applicationloadbalancing.GetTargetGroupStickiness;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly targetType: string;
     readonly vpcId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

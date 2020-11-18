@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a resource to create a VPC routing table.
@@ -30,6 +30,42 @@ import (
 // this resource will delete any propagating gateways not explicitly listed in
 // `propagatingVgws`. Omit this argument when defining route propagation using
 // the separate resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewRouteTable(ctx, "routeTable", &ec2.RouteTableArgs{
+// 			VpcId: pulumi.Any(aws_vpc.Default.Id),
+// 			Routes: ec2.RouteTableRouteArray{
+// 				&ec2.RouteTableRouteArgs{
+// 					CidrBlock: pulumi.String("10.0.1.0/24"),
+// 					GatewayId: pulumi.Any(aws_internet_gateway.Main.Id),
+// 				},
+// 				&ec2.RouteTableRouteArgs{
+// 					Ipv6CidrBlock:       pulumi.String("::/0"),
+// 					EgressOnlyGatewayId: pulumi.Any(aws_egress_only_internet_gateway.Foo.Id),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("main"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type RouteTable struct {
 	pulumi.CustomResourceState
 
@@ -40,7 +76,7 @@ type RouteTable struct {
 	// A list of route objects. Their keys are documented below.
 	Routes RouteTableRouteArrayOutput `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The VPC ID.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -83,7 +119,7 @@ type routeTableState struct {
 	// A list of route objects. Their keys are documented below.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -96,7 +132,7 @@ type RouteTableState struct {
 	// A list of route objects. Their keys are documented below.
 	Routes RouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringPtrInput
 }
@@ -111,7 +147,7 @@ type routeTableArgs struct {
 	// A list of route objects. Their keys are documented below.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -123,7 +159,7 @@ type RouteTableArgs struct {
 	// A list of route objects. Their keys are documented below.
 	Routes RouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringInput
 }

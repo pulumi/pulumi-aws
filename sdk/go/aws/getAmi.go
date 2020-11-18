@@ -4,11 +4,63 @@
 package aws
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get the ID of a registered AMI for use in other
 // resources.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		opt1 := "^myami-\\d{3}"
+// 		_, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+// 			ExecutableUsers: []string{
+// 				"self",
+// 			},
+// 			Filters: []aws.GetAmiFilter{
+// 				aws.GetAmiFilter{
+// 					Name: "name",
+// 					Values: []string{
+// 						"myami-*",
+// 					},
+// 				},
+// 				aws.GetAmiFilter{
+// 					Name: "root-device-type",
+// 					Values: []string{
+// 						"ebs",
+// 					},
+// 				},
+// 				aws.GetAmiFilter{
+// 					Name: "virtualization-type",
+// 					Values: []string{
+// 						"hvm",
+// 					},
+// 				},
+// 			},
+// 			MostRecent: &opt0,
+// 			NameRegex:  &opt1,
+// 			Owners: []string{
+// 				"self",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetAmi(ctx *pulumi.Context, args *GetAmiArgs, opts ...pulumi.InvokeOption) (*GetAmiResult, error) {
 	var rv GetAmiResult
 	err := ctx.Invoke("aws:index/getAmi:getAmi", args, &rv, opts...)
@@ -41,28 +93,30 @@ type GetAmiArgs struct {
 	// Any tags assigned to the image.
 	// * `tags.#.key` - The key name of the tag.
 	// * `tags.#.value` - The value of the tag.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getAmi.
 type GetAmiResult struct {
 	// The OS architecture of the AMI (ie: `i386` or `x8664`).
 	Architecture string `pulumi:"architecture"`
+	// The ARN of the AMI.
+	Arn string `pulumi:"arn"`
 	// The block device mappings of the AMI.
 	// * `block_device_mappings.#.device_name` - The physical name of the device.
 	// * `block_device_mappings.#.ebs.delete_on_termination` - `true` if the EBS volume
-	// will be deleted on termination.
+	//   will be deleted on termination.
 	// * `block_device_mappings.#.ebs.encrypted` - `true` if the EBS volume
-	// is encrypted.
+	//   is encrypted.
 	// * `block_device_mappings.#.ebs.iops` - `0` if the EBS volume is
-	// not a provisioned IOPS image, otherwise the supported IOPS count.
+	//   not a provisioned IOPS image, otherwise the supported IOPS count.
 	// * `block_device_mappings.#.ebs.snapshot_id` - The ID of the snapshot.
 	// * `block_device_mappings.#.ebs.volume_size` - The size of the volume, in GiB.
 	// * `block_device_mappings.#.ebs.volume_type` - The volume type.
 	// * `block_device_mappings.#.no_device` - Suppresses the specified device
-	// included in the block device mapping of the AMI.
+	//   included in the block device mapping of the AMI.
 	// * `block_device_mappings.#.virtual_name` - The virtual device name (for
-	// instance stores).
+	//   instance stores).
 	BlockDeviceMappings []GetAmiBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// The date and time the image was created.
 	CreationDate string `pulumi:"creationDate"`
@@ -73,7 +127,7 @@ type GetAmiResult struct {
 	Filters         []GetAmiFilter `pulumi:"filters"`
 	// The hypervisor type of the image.
 	Hypervisor string `pulumi:"hypervisor"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the AMI. Should be the same as the resource `id`.
 	ImageId string `pulumi:"imageId"`
@@ -120,11 +174,11 @@ type GetAmiResult struct {
 	// Describes a state change. Fields are `UNSET` if not available.
 	// * `state_reason.code` - The reason code for the state change.
 	// * `state_reason.message` - The message for the state change.
-	StateReason map[string]interface{} `pulumi:"stateReason"`
+	StateReason map[string]string `pulumi:"stateReason"`
 	// Any tags assigned to the image.
 	// * `tags.#.key` - The key name of the tag.
 	// * `tags.#.value` - The value of the tag.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of virtualization of the AMI (ie: `hvm` or
 	// `paravirtual`).
 	VirtualizationType string `pulumi:"virtualizationType"`

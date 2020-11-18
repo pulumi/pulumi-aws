@@ -9,5 +9,9 @@ from .gateway import *
 from .get_local_disk import *
 from .nfs_file_share import *
 from .smb_file_share import *
+from .stored_iscsi_volume import *
+from .tape_pool import *
 from .upload_buffer import *
 from .working_storage import *
+from ._inputs import *
+from . import outputs

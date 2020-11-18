@@ -20,12 +20,33 @@ namespace Pulumi.Aws.Ec2
     /// * Base64 encoded DER format
     /// * SSH public key file format as specified in RFC4716
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/key_pair.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var deployer = new Aws.Ec2.KeyPair("deployer", new Aws.Ec2.KeyPairArgs
+    ///         {
+    ///             PublicKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 email@example.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class KeyPair : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The key pair ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
         /// </summary>
@@ -57,10 +78,10 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PublicKey { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -71,7 +92,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KeyPair(string name, KeyPairArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/keyPair:KeyPair", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/keyPair:KeyPair", name, args ?? new KeyPairArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -127,14 +148,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string> PublicKey { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -145,6 +166,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class KeyPairState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key pair ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
         /// </summary>
@@ -176,14 +203,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PublicKey { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

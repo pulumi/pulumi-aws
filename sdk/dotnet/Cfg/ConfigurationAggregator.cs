@@ -12,9 +12,85 @@ namespace Pulumi.Aws.Cfg
     /// <summary>
     /// Manages an AWS Config Configuration Aggregator
     /// 
+    /// ## Example Usage
+    /// ### Account Based Aggregation
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_aggregator.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var account = new Aws.Cfg.ConfigurationAggregator("account", new Aws.Cfg.ConfigurationAggregatorArgs
+    ///         {
+    ///             AccountAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorAccountAggregationSourceArgs
+    ///             {
+    ///                 AccountIds = 
+    ///                 {
+    ///                     "123456789012",
+    ///                 },
+    ///                 Regions = 
+    ///                 {
+    ///                     "us-west-2",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Organization Based Aggregation
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var organizationRole = new Aws.Iam.Role("organizationRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Sid"": """",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""config.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organizationRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             Role = organizationRole.Name,
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
+    ///         });
+    ///         var organizationConfigurationAggregator = new Aws.Cfg.ConfigurationAggregator("organizationConfigurationAggregator", new Aws.Cfg.ConfigurationAggregatorArgs
+    ///         {
+    ///             OrganizationAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs
+    ///             {
+    ///                 AllRegions = true,
+    ///                 RoleArn = organizationRole.Arn,
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 organizationRolePolicyAttachment,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ConfigurationAggregator : Pulumi.CustomResource
     {
@@ -43,10 +119,10 @@ namespace Pulumi.Aws.Cfg
         public Output<Outputs.ConfigurationAggregatorOrganizationAggregationSource?> OrganizationAggregationSource { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -57,7 +133,7 @@ namespace Pulumi.Aws.Cfg
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationAggregator(string name, ConfigurationAggregatorArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:cfg/configurationAggregator:ConfigurationAggregator", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cfg/configurationAggregator:ConfigurationAggregator", name, args ?? new ConfigurationAggregatorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -113,14 +189,14 @@ namespace Pulumi.Aws.Cfg
         public Input<Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs>? OrganizationAggregationSource { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -156,219 +232,19 @@ namespace Pulumi.Aws.Cfg
         public Input<Inputs.ConfigurationAggregatorOrganizationAggregationSourceGetArgs>? OrganizationAggregationSource { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public ConfigurationAggregatorState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ConfigurationAggregatorAccountAggregationSourceArgs : Pulumi.ResourceArgs
-    {
-        [Input("accountIds", required: true)]
-        private InputList<string>? _accountIds;
-
-        /// <summary>
-        /// List of 12-digit account IDs of the account(s) being aggregated.
-        /// </summary>
-        public InputList<string> AccountIds
-        {
-            get => _accountIds ?? (_accountIds = new InputList<string>());
-            set => _accountIds = value;
-        }
-
-        /// <summary>
-        /// If true, aggregate existing AWS Config regions and future regions.
-        /// </summary>
-        [Input("allRegions")]
-        public Input<bool>? AllRegions { get; set; }
-
-        [Input("regions")]
-        private InputList<string>? _regions;
-
-        /// <summary>
-        /// List of source regions being aggregated.
-        /// </summary>
-        public InputList<string> Regions
-        {
-            get => _regions ?? (_regions = new InputList<string>());
-            set => _regions = value;
-        }
-
-        public ConfigurationAggregatorAccountAggregationSourceArgs()
-        {
-        }
-    }
-
-    public sealed class ConfigurationAggregatorAccountAggregationSourceGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("accountIds", required: true)]
-        private InputList<string>? _accountIds;
-
-        /// <summary>
-        /// List of 12-digit account IDs of the account(s) being aggregated.
-        /// </summary>
-        public InputList<string> AccountIds
-        {
-            get => _accountIds ?? (_accountIds = new InputList<string>());
-            set => _accountIds = value;
-        }
-
-        /// <summary>
-        /// If true, aggregate existing AWS Config regions and future regions.
-        /// </summary>
-        [Input("allRegions")]
-        public Input<bool>? AllRegions { get; set; }
-
-        [Input("regions")]
-        private InputList<string>? _regions;
-
-        /// <summary>
-        /// List of source regions being aggregated.
-        /// </summary>
-        public InputList<string> Regions
-        {
-            get => _regions ?? (_regions = new InputList<string>());
-            set => _regions = value;
-        }
-
-        public ConfigurationAggregatorAccountAggregationSourceGetArgs()
-        {
-        }
-    }
-
-    public sealed class ConfigurationAggregatorOrganizationAggregationSourceArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// If true, aggregate existing AWS Config regions and future regions.
-        /// </summary>
-        [Input("allRegions")]
-        public Input<bool>? AllRegions { get; set; }
-
-        [Input("regions")]
-        private InputList<string>? _regions;
-
-        /// <summary>
-        /// List of source regions being aggregated.
-        /// </summary>
-        public InputList<string> Regions
-        {
-            get => _regions ?? (_regions = new InputList<string>());
-            set => _regions = value;
-        }
-
-        /// <summary>
-        /// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public ConfigurationAggregatorOrganizationAggregationSourceArgs()
-        {
-        }
-    }
-
-    public sealed class ConfigurationAggregatorOrganizationAggregationSourceGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// If true, aggregate existing AWS Config regions and future regions.
-        /// </summary>
-        [Input("allRegions")]
-        public Input<bool>? AllRegions { get; set; }
-
-        [Input("regions")]
-        private InputList<string>? _regions;
-
-        /// <summary>
-        /// List of source regions being aggregated.
-        /// </summary>
-        public InputList<string> Regions
-        {
-            get => _regions ?? (_regions = new InputList<string>());
-            set => _regions = value;
-        }
-
-        /// <summary>
-        /// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public ConfigurationAggregatorOrganizationAggregationSourceGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ConfigurationAggregatorAccountAggregationSource
-    {
-        /// <summary>
-        /// List of 12-digit account IDs of the account(s) being aggregated.
-        /// </summary>
-        public readonly ImmutableArray<string> AccountIds;
-        /// <summary>
-        /// If true, aggregate existing AWS Config regions and future regions.
-        /// </summary>
-        public readonly bool? AllRegions;
-        /// <summary>
-        /// List of source regions being aggregated.
-        /// </summary>
-        public readonly ImmutableArray<string> Regions;
-
-        [OutputConstructor]
-        private ConfigurationAggregatorAccountAggregationSource(
-            ImmutableArray<string> accountIds,
-            bool? allRegions,
-            ImmutableArray<string> regions)
-        {
-            AccountIds = accountIds;
-            AllRegions = allRegions;
-            Regions = regions;
-        }
-    }
-
-    [OutputType]
-    public sealed class ConfigurationAggregatorOrganizationAggregationSource
-    {
-        /// <summary>
-        /// If true, aggregate existing AWS Config regions and future regions.
-        /// </summary>
-        public readonly bool? AllRegions;
-        /// <summary>
-        /// List of source regions being aggregated.
-        /// </summary>
-        public readonly ImmutableArray<string> Regions;
-        /// <summary>
-        /// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
-        /// </summary>
-        public readonly string RoleArn;
-
-        [OutputConstructor]
-        private ConfigurationAggregatorOrganizationAggregationSource(
-            bool? allRegions,
-            ImmutableArray<string> regions,
-            string roleArn)
-        {
-            AllRegions = allRegions;
-            Regions = regions;
-            RoleArn = roleArn;
-        }
-    }
     }
 }

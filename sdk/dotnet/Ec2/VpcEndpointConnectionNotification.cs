@@ -13,9 +13,53 @@ namespace Pulumi.Aws.Ec2
     /// Provides a VPC Endpoint connection notification resource.
     /// Connection notifications notify subscribers of VPC Endpoint events.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_connection_notification.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var topic = new Aws.Sns.Topic("topic", new Aws.Sns.TopicArgs
+    ///         {
+    ///             Policy = @"{
+    ///     ""Version"":""2012-10-17"",
+    ///     ""Statement"":[{
+    ///         ""Effect"": ""Allow"",
+    ///         ""Principal"": {
+    ///             ""Service"": ""vpce.amazonaws.com""
+    ///         },
+    ///         ""Action"": ""SNS:Publish"",
+    ///         ""Resource"": ""arn:aws:sns:*:*:vpce-notification-topic""
+    ///     }]
+    /// }
+    /// ",
+    ///         });
+    ///         var fooVpcEndpointService = new Aws.Ec2.VpcEndpointService("fooVpcEndpointService", new Aws.Ec2.VpcEndpointServiceArgs
+    ///         {
+    ///             AcceptanceRequired = false,
+    ///             NetworkLoadBalancerArns = 
+    ///             {
+    ///                 aws_lb.Test.Arn,
+    ///             },
+    ///         });
+    ///         var fooVpcEndpointConnectionNotification = new Aws.Ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", new Aws.Ec2.VpcEndpointConnectionNotificationArgs
+    ///         {
+    ///             VpcEndpointServiceId = fooVpcEndpointService.Id,
+    ///             ConnectionNotificationArn = topic.Arn,
+    ///             ConnectionEvents = 
+    ///             {
+    ///                 "Accept",
+    ///                 "Reject",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VpcEndpointConnectionNotification : Pulumi.CustomResource
     {
@@ -64,7 +108,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcEndpointConnectionNotification(string name, VpcEndpointConnectionNotificationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification", name, args ?? new VpcEndpointConnectionNotificationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

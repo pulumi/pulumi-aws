@@ -4,53 +4,50 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
  * in a given region for the purpose of allowing Redshift to store audit data in S3.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const main = aws.redshift.getServiceAccount();
+ *
+ * const main = pulumi.output(aws.redshift.getServiceAccount({ async: true }));
  * const bucket = new aws.s3.Bucket("bucket", {
  *     forceDestroy: true,
- *     policy: `{
+ *     policy: pulumi.interpolate`{
  * 	"Version": "2008-10-17",
  * 	"Statement": [
  * 		{
- *         			"Sid": "Put bucket policy needed for audit logging",
- *         			"Effect": "Allow",
- *         			"Principal": {
- * 						"AWS": "${main.arn}"
- *         			},
- *         			"Action": "s3:PutObject",
- *         			"Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket/*"
- *         		},
- *         		{
- *         			"Sid": "Get bucket policy needed for audit logging ",
- *         			"Effect": "Allow",
- *         			"Principal": {
- * 						"AWS": "${main.arn}"
- *         			},
- *         			"Action": "s3:GetBucketAcl",
- *         			"Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket"
- *         		}
+ *             "Sid": "Put bucket policy needed for audit logging",
+ *             "Effect": "Allow",
+ *             "Principal": {
+ * 		        "AWS": "${main.arn}"
+ *             },
+ *             "Action": "s3:PutObject",
+ *             "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket/*"
+ *         },
+ *         {
+ *             "Sid": "Get bucket policy needed for audit logging ",
+ *             "Effect": "Allow",
+ *             "Principal": {
+ * 		        "AWS": "${main.arn}"
+ *             },
+ *             "Action": "s3:GetBucketAcl",
+ *             "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket"
+ *         }
  * 	]
  * }
  * `,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_service_account.html.markdown.
  */
-export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> & GetServiceAccountResult {
+export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -59,11 +56,9 @@ export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.In
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetServiceAccountResult> = pulumi.runtime.invoke("aws:redshift/getServiceAccount:getServiceAccount", {
+    return pulumi.runtime.invoke("aws:redshift/getServiceAccount:getServiceAccount", {
         "region": args.region,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -85,9 +80,9 @@ export interface GetServiceAccountResult {
      * The ARN of the AWS Redshift service account in the selected region.
      */
     readonly arn: string;
-    readonly region?: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region?: string;
 }

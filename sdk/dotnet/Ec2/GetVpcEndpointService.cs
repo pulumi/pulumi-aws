@@ -9,45 +9,114 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The VPC Endpoint Service data source details about a specific service that
-        /// can be specified when creating a VPC endpoint within the region configured in the provider.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetVpcEndpointService.InvokeAsync() instead")]
-        public static Task<GetVpcEndpointServiceResult> GetVpcEndpointService(GetVpcEndpointServiceArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointServiceResult>("aws:ec2/getVpcEndpointService:getVpcEndpointService", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetVpcEndpointService
     {
         /// <summary>
         /// The VPC Endpoint Service data source details about a specific service that
         /// can be specified when creating a VPC endpoint within the region configured in the provider.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### AWS Service
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var s3 = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
+        ///         {
+        ///             Service = "s3",
+        ///             ServiceType = "Gateway",
+        ///         }));
+        ///         // Create a VPC
+        ///         var foo = new Aws.Ec2.Vpc("foo", new Aws.Ec2.VpcArgs
+        ///         {
+        ///             CidrBlock = "10.0.0.0/16",
+        ///         });
+        ///         // Create a VPC endpoint
+        ///         var ep = new Aws.Ec2.VpcEndpoint("ep", new Aws.Ec2.VpcEndpointArgs
+        ///         {
+        ///             VpcId = foo.Id,
+        ///             ServiceName = s3.Apply(s3 =&gt; s3.ServiceName),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Non-AWS Service
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var custome = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
+        ///         {
+        ///             ServiceName = "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Filter
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetVpcEndpointServiceFilterArgs
+        ///                 {
+        ///                     Name = "service-name",
+        ///                     Values = 
+        ///                     {
+        ///                         "some-service",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcEndpointServiceResult> InvokeAsync(GetVpcEndpointServiceArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointServiceResult>("aws:ec2/getVpcEndpointService:getVpcEndpointService", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointServiceResult>("aws:ec2/getVpcEndpointService:getVpcEndpointService", args ?? new GetVpcEndpointServiceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetVpcEndpointServiceArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetVpcEndpointServiceFiltersArgs>? _filters;
+        private List<Inputs.GetVpcEndpointServiceFilterArgs>? _filters;
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
         /// </summary>
-        public List<Inputs.GetVpcEndpointServiceFiltersArgs> Filters
+        public List<Inputs.GetVpcEndpointServiceFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetVpcEndpointServiceFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetVpcEndpointServiceFilterArgs>());
             set => _filters = value;
         }
 
@@ -63,15 +132,21 @@ namespace Pulumi.Aws.Ec2
         [Input("serviceName")]
         public string? ServiceName { get; set; }
 
+        /// <summary>
+        /// The service type, `Gateway` or `Interface`.
+        /// </summary>
+        [Input("serviceType")]
+        public string? ServiceType { get; set; }
+
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+        /// A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -79,6 +154,7 @@ namespace Pulumi.Aws.Ec2
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetVpcEndpointServiceResult
@@ -88,6 +164,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool AcceptanceRequired;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint service.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// The Availability Zones in which the service is available.
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
@@ -95,7 +175,11 @@ namespace Pulumi.Aws.Ec2
         /// The DNS names for the service.
         /// </summary>
         public readonly ImmutableArray<string> BaseEndpointDnsNames;
-        public readonly ImmutableArray<Outputs.GetVpcEndpointServiceFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetVpcEndpointServiceFilterResult> Filters;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Whether or not the service manages its VPC endpoints - `true` or `false`.
         /// </summary>
@@ -114,44 +198,54 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string ServiceId;
         public readonly string ServiceName;
-        /// <summary>
-        /// The service type, `Gateway` or `Interface`.
-        /// </summary>
         public readonly string ServiceType;
         /// <summary>
-        /// A mapping of tags assigned to the resource.
+        /// A map of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Whether or not the service supports endpoint policies - `true` or `false`.
         /// </summary>
         public readonly bool VpcEndpointPolicySupported;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetVpcEndpointServiceResult(
             bool acceptanceRequired,
+
+            string arn,
+
             ImmutableArray<string> availabilityZones,
+
             ImmutableArray<string> baseEndpointDnsNames,
-            ImmutableArray<Outputs.GetVpcEndpointServiceFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetVpcEndpointServiceFilterResult> filters,
+
+            string id,
+
             bool managesVpcEndpoints,
+
             string owner,
+
             string privateDnsName,
+
             string? service,
+
             string serviceId,
+
             string serviceName,
+
             string serviceType,
-            ImmutableDictionary<string, object> tags,
-            bool vpcEndpointPolicySupported,
-            string id)
+
+            ImmutableDictionary<string, string> tags,
+
+            bool vpcEndpointPolicySupported)
         {
             AcceptanceRequired = acceptanceRequired;
+            Arn = arn;
             AvailabilityZones = availabilityZones;
             BaseEndpointDnsNames = baseEndpointDnsNames;
             Filters = filters;
+            Id = id;
             ManagesVpcEndpoints = managesVpcEndpoints;
             Owner = owner;
             PrivateDnsName = privateDnsName;
@@ -161,62 +255,6 @@ namespace Pulumi.Aws.Ec2
             ServiceType = serviceType;
             Tags = tags;
             VpcEndpointPolicySupported = vpcEndpointPolicySupported;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetVpcEndpointServiceFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetVpcEndpointServiceFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetVpcEndpointServiceFiltersResult
-    {
-        /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetVpcEndpointServiceFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

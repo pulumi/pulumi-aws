@@ -12,9 +12,49 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_activation.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testRole = new Aws.Iam.Role("testRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"  {
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": {
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {""Service"": ""ssm.amazonaws.com""},
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   }
+    /// ",
+    ///         });
+    ///         var testAttach = new Aws.Iam.RolePolicyAttachment("testAttach", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             Role = testRole.Name,
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+    ///         });
+    ///         var foo = new Aws.Ssm.Activation("foo", new Aws.Ssm.ActivationArgs
+    ///         {
+    ///             Description = "Test",
+    ///             IamRole = testRole.Id,
+    ///             RegistrationLimit = 5,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 testAttach,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Activation : Pulumi.CustomResource
     {
@@ -40,7 +80,7 @@ namespace Pulumi.Aws.Ssm
         /// If the current activation has expired.
         /// </summary>
         [Output("expired")]
-        public Output<string> Expired { get; private set; } = null!;
+        public Output<bool> Expired { get; private set; } = null!;
 
         /// <summary>
         /// The IAM Role to attach to the managed instance.
@@ -67,10 +107,10 @@ namespace Pulumi.Aws.Ssm
         public Output<int?> RegistrationLimit { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -81,7 +121,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Activation(string name, ActivationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ssm/activation:Activation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ssm/activation:Activation", name, args ?? new ActivationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -149,14 +189,14 @@ namespace Pulumi.Aws.Ssm
         public Input<int>? RegistrationLimit { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -189,7 +229,7 @@ namespace Pulumi.Aws.Ssm
         /// If the current activation has expired.
         /// </summary>
         [Input("expired")]
-        public Input<string>? Expired { get; set; }
+        public Input<bool>? Expired { get; set; }
 
         /// <summary>
         /// The IAM Role to attach to the managed instance.
@@ -216,14 +256,14 @@ namespace Pulumi.Aws.Ssm
         public Input<int>? RegistrationLimit { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

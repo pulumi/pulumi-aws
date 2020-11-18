@@ -6,43 +6,39 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an DocDB Cluster Resource Instance. A Cluster Instance Resource defines
- * attributes that are specific to a single instance in a [DocDB Cluster][1].
- * 
+ * attributes that are specific to a single instance in a [DocDB Cluster](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html).
+ *
  * You do not designate a primary and subsequent replicas. Instead, you simply add DocDB
- * Instances and DocDB manages the replication. You can use the [count][3]
+ * Instances and DocDB manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/resources.html#count)
  * meta-parameter to make multiple instances and join them all to the same DocDB
  * Cluster, or you may specify different Cluster Instance resources with various
  * `instanceClass` sizes.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const defaultCluster = new aws.docdb.Cluster("default", {
+ *
+ * const _default = new aws.docdb.Cluster("default", {
+ *     clusterIdentifier: "docdb-cluster-demo",
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     clusterIdentifier: "docdb-cluster-demo",
- *     masterPassword: "barbut8chars",
  *     masterUsername: "foo",
+ *     masterPassword: "barbut8chars",
  * });
- * const clusterInstances: aws.docdb.ClusterInstance[] = [];
- * for (let i = 0; i < 2; i++) {
- *     clusterInstances.push(new aws.docdb.ClusterInstance(`cluster_instances-${i}`, {
- *         clusterIdentifier: defaultCluster.id,
- *         identifier: `docdb-cluster-demo-${i}`,
+ * const clusterInstances: aws.docdb.ClusterInstance[];
+ * for (const range = {value: 0}; range.value < 2; range.value++) {
+ *     clusterInstances.push(new aws.docdb.ClusterInstance(`clusterInstances-${range.value}`, {
+ *         identifier: `docdb-cluster-demo-${range.value}`,
+ *         clusterIdentifier: _default.id,
  *         instanceClass: "db.r5.large",
  *     }));
  * }
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_instance.html.markdown.
  */
 export class ClusterInstance extends pulumi.CustomResource {
     /**
@@ -52,6 +48,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterInstanceState, opts?: pulumi.CustomResourceOptions): ClusterInstance {
         return new ClusterInstance(name, <any>state, { ...opts, id: id });
@@ -93,7 +90,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly caCertIdentifier!: pulumi.Output<string>;
     /**
-     * The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+     * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
@@ -117,16 +114,16 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly engineVersion!: pulumi.Output<string>;
     /**
-     * The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     * The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
      */
     public readonly identifier!: pulumi.Output<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     public readonly identifierPrefix!: pulumi.Output<string>;
     /**
-     * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
-     * supports the below instance classes. Please see [AWS Documentation][4] for complete details.
+     * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
+     * supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      * - db.r4.large
      * - db.r4.xlarge
      * - db.r4.2xlarge
@@ -162,9 +159,9 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
-     * A mapping of tags to assign to the instance.
+     * A map of tags to assign to the instance.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
@@ -274,7 +271,7 @@ export interface ClusterInstanceState {
      */
     readonly caCertIdentifier?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+     * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
@@ -298,16 +295,16 @@ export interface ClusterInstanceState {
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
-     * The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     * The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
      */
     readonly identifier?: pulumi.Input<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     readonly identifierPrefix?: pulumi.Input<string>;
     /**
-     * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
-     * supports the below instance classes. Please see [AWS Documentation][4] for complete details.
+     * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
+     * supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      * - db.r4.large
      * - db.r4.xlarge
      * - db.r4.2xlarge
@@ -343,9 +340,9 @@ export interface ClusterInstanceState {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the instance.
+     * A map of tags to assign to the instance.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
@@ -374,7 +371,7 @@ export interface ClusterInstanceArgs {
      */
     readonly caCertIdentifier?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+     * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
      */
     readonly clusterIdentifier: pulumi.Input<string>;
     /**
@@ -382,16 +379,16 @@ export interface ClusterInstanceArgs {
      */
     readonly engine?: pulumi.Input<string>;
     /**
-     * The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     * The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
      */
     readonly identifier?: pulumi.Input<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     readonly identifierPrefix?: pulumi.Input<string>;
     /**
-     * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
-     * supports the below instance classes. Please see [AWS Documentation][4] for complete details.
+     * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
+     * supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      * - db.r4.large
      * - db.r4.xlarge
      * - db.r4.2xlarge
@@ -410,7 +407,7 @@ export interface ClusterInstanceArgs {
      */
     readonly promotionTier?: pulumi.Input<number>;
     /**
-     * A mapping of tags to assign to the instance.
+     * A map of tags to assign to the instance.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

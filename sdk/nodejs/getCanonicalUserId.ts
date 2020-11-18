@@ -4,28 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
  * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
- * for the effective account in which this provider is working.  
- * 
+ * for the effective account in which this provider is working.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const current = aws.getCanonicalUserId();
- * 
- * export const canonicalUserId = current.id;
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/canonical_user_id.html.markdown.
+ * const current = aws.getCanonicalUserId({});
+ * export const canonicalUserId = current.then(current => current.id);
+ * ```
  */
-export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCanonicalUserIdResult> & GetCanonicalUserIdResult {
+export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCanonicalUserIdResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,10 +29,8 @@ export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCano
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetCanonicalUserIdResult> = pulumi.runtime.invoke("aws:index/getCanonicalUserId:getCanonicalUserId", {
+    return pulumi.runtime.invoke("aws:index/getCanonicalUserId:getCanonicalUserId", {
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -48,7 +42,7 @@ export interface GetCanonicalUserIdResult {
      */
     readonly displayName: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

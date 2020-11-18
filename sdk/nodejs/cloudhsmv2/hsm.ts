@@ -2,31 +2,27 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Creates an HSM module in Amazon CloudHSM v2 cluster.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * The following example below creates an HSM module in CloudHSM cluster.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const cluster = aws.cloudhsmv2.getCluster({
- *     clusterId: var_cloudhsm_cluster_id,
+ *     clusterId: _var.cloudhsm_cluster_id,
  * });
  * const cloudhsmV2Hsm = new aws.cloudhsmv2.Hsm("cloudhsmV2Hsm", {
- *     clusterId: cluster.clusterId,
- *     subnetId: cluster.subnetIds[0],
+ *     subnetId: cluster.then(cluster => cluster.subnetIds[0]),
+ *     clusterId: cluster.then(cluster => cluster.clusterId),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_hsm.html.markdown.
  */
 export class Hsm extends pulumi.CustomResource {
     /**
@@ -36,6 +32,7 @@ export class Hsm extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: HsmState, opts?: pulumi.CustomResourceOptions): Hsm {
         return new Hsm(name, <any>state, { ...opts, id: id });

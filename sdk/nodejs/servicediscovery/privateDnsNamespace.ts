@@ -6,25 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Service Discovery Private DNS Namespace resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleVpc = new aws.ec2.Vpc("example", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("example", {
+ *
+ * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
+ * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", {
  *     description: "example",
  *     vpc: exampleVpc.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_private_dns_namespace.html.markdown.
  */
 export class PrivateDnsNamespace extends pulumi.CustomResource {
     /**
@@ -34,6 +28,7 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PrivateDnsNamespaceState, opts?: pulumi.CustomResourceOptions): PrivateDnsNamespace {
         return new PrivateDnsNamespace(name, <any>state, { ...opts, id: id });
@@ -70,6 +65,10 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A map of tags to assign to the namespace.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The ID of VPC that you want to associate the namespace with.
      */
     public readonly vpc!: pulumi.Output<string>;
@@ -90,6 +89,7 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["hostedZone"] = state ? state.hostedZone : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["vpc"] = state ? state.vpc : undefined;
         } else {
             const args = argsOrState as PrivateDnsNamespaceArgs | undefined;
@@ -98,6 +98,7 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["vpc"] = args ? args.vpc : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["hostedZone"] = undefined /*out*/;
@@ -134,6 +135,10 @@ export interface PrivateDnsNamespaceState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * A map of tags to assign to the namespace.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The ID of VPC that you want to associate the namespace with.
      */
     readonly vpc?: pulumi.Input<string>;
@@ -151,6 +156,10 @@ export interface PrivateDnsNamespaceArgs {
      * The name of the namespace.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the namespace.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of VPC that you want to associate the namespace with.
      */

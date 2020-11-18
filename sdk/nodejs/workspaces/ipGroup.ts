@@ -4,25 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an IP access control group in AWS WorkSpaces Service
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const contractors = new aws.workspaces.IpGroup("contractors", {
  *     description: "Contractors IP access control group",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/workspaces_ip_group.html.markdown.
  */
 export class IpGroup extends pulumi.CustomResource {
     /**
@@ -32,6 +29,7 @@ export class IpGroup extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IpGroupState, opts?: pulumi.CustomResourceOptions): IpGroup {
         return new IpGroup(name, <any>state, { ...opts, id: id });
@@ -63,7 +61,7 @@ export class IpGroup extends pulumi.CustomResource {
      * One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
      */
     public readonly rules!: pulumi.Output<outputs.workspaces.IpGroupRule[] | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a IpGroup resource with the given unique name, arguments, and options.
@@ -115,7 +113,7 @@ export interface IpGroupState {
      * One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.workspaces.IpGroupRule>[]>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -134,5 +132,5 @@ export interface IpGroupArgs {
      * One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.workspaces.IpGroupRule>[]>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

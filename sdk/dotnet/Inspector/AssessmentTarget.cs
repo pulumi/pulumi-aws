@@ -12,9 +12,32 @@ namespace Pulumi.Aws.Inspector
     /// <summary>
     /// Provides a Inspector assessment target
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_assessment_target.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bar = new Aws.Inspector.ResourceGroup("bar", new Aws.Inspector.ResourceGroupArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "foo" },
+    ///                 { "Env", "bar" },
+    ///             },
+    ///         });
+    ///         var foo = new Aws.Inspector.AssessmentTarget("foo", new Aws.Inspector.AssessmentTargetArgs
+    ///         {
+    ///             ResourceGroupArn = bar.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AssessmentTarget : Pulumi.CustomResource
     {
@@ -45,7 +68,7 @@ namespace Pulumi.Aws.Inspector
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AssessmentTarget(string name, AssessmentTargetArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:inspector/assessmentTarget:AssessmentTarget", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:inspector/assessmentTarget:AssessmentTarget", name, args ?? new AssessmentTargetArgs(), MakeResourceOptions(options, ""))
         {
         }
 

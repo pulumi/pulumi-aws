@@ -2,45 +2,35 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a static route between a VPN connection and a customer gateway.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const vpc = new aws.ec2.Vpc("vpc", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const vpnGateway = new aws.ec2.VpnGateway("vpnGateway", {
- *     vpcId: vpc.id,
- * });
+ *
+ * const vpc = new aws.ec2.Vpc("vpc", {cidrBlock: "10.0.0.0/16"});
+ * const vpnGateway = new aws.ec2.VpnGateway("vpnGateway", {vpcId: vpc.id});
  * const customerGateway = new aws.ec2.CustomerGateway("customerGateway", {
  *     bgpAsn: 65000,
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });
  * const main = new aws.ec2.VpnConnection("main", {
- *     customerGatewayId: customerGateway.id,
- *     staticRoutesOnly: true,
- *     type: "ipsec.1",
  *     vpnGatewayId: vpnGateway.id,
+ *     customerGatewayId: customerGateway.id,
+ *     type: "ipsec.1",
+ *     staticRoutesOnly: true,
  * });
  * const office = new aws.ec2.VpnConnectionRoute("office", {
  *     destinationCidrBlock: "192.168.10.0/24",
  *     vpnConnectionId: main.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection_route.html.markdown.
  */
 export class VpnConnectionRoute extends pulumi.CustomResource {
     /**
@@ -50,6 +40,7 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpnConnectionRouteState, opts?: pulumi.CustomResourceOptions): VpnConnectionRoute {
         return new VpnConnectionRoute(name, <any>state, { ...opts, id: id });

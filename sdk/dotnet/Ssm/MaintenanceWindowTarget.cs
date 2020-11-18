@@ -12,9 +12,81 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Provides an SSM Maintenance Window Target resource
     /// 
+    /// ## Instance Target Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_target.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var window = new Aws.Ssm.MaintenanceWindow("window", new Aws.Ssm.MaintenanceWindowArgs
+    ///         {
+    ///             Schedule = "cron(0 16 ? * TUE *)",
+    ///             Duration = 3,
+    ///             Cutoff = 1,
+    ///         });
+    ///         var target1 = new Aws.Ssm.MaintenanceWindowTarget("target1", new Aws.Ssm.MaintenanceWindowTargetArgs
+    ///         {
+    ///             WindowId = window.Id,
+    ///             Description = "This is a maintenance window target",
+    ///             ResourceType = "INSTANCE",
+    ///             Targets = 
+    ///             {
+    ///                 new Aws.Ssm.Inputs.MaintenanceWindowTargetTargetArgs
+    ///                 {
+    ///                     Key = "tag:Name",
+    ///                     Values = 
+    ///                     {
+    ///                         "acceptance_test",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Resource Group Target Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var window = new Aws.Ssm.MaintenanceWindow("window", new Aws.Ssm.MaintenanceWindowArgs
+    ///         {
+    ///             Schedule = "cron(0 16 ? * TUE *)",
+    ///             Duration = 3,
+    ///             Cutoff = 1,
+    ///         });
+    ///         var target1 = new Aws.Ssm.MaintenanceWindowTarget("target1", new Aws.Ssm.MaintenanceWindowTargetArgs
+    ///         {
+    ///             WindowId = window.Id,
+    ///             Description = "This is a maintenance window target",
+    ///             ResourceType = "RESOURCE_GROUP",
+    ///             Targets = 
+    ///             {
+    ///                 new Aws.Ssm.Inputs.MaintenanceWindowTargetTargetArgs
+    ///                 {
+    ///                     Key = "resource-groups:ResourceTypeFilters",
+    ///                     Values = 
+    ///                     {
+    ///                         "AWS::EC2::Instance",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class MaintenanceWindowTarget : Pulumi.CustomResource
     {
@@ -37,16 +109,17 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> OwnerInformation { get; private set; } = null!;
 
         /// <summary>
-        /// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
+        /// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
         /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
+        /// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+        /// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
         /// </summary>
         [Output("targets")]
-        public Output<ImmutableArray<Outputs.MaintenanceWindowTargetTargets>> Targets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MaintenanceWindowTargetTarget>> Targets { get; private set; } = null!;
 
         /// <summary>
         /// The Id of the maintenance window to register the target with.
@@ -63,7 +136,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MaintenanceWindowTarget(string name, MaintenanceWindowTargetArgs args, CustomResourceOptions? options = null)
-            : base("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget", name, args ?? new MaintenanceWindowTargetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -119,20 +192,21 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? OwnerInformation { get; set; }
 
         /// <summary>
-        /// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
+        /// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 
         [Input("targets", required: true)]
-        private InputList<Inputs.MaintenanceWindowTargetTargetsArgs>? _targets;
+        private InputList<Inputs.MaintenanceWindowTargetTargetArgs>? _targets;
 
         /// <summary>
-        /// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
+        /// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+        /// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
         /// </summary>
-        public InputList<Inputs.MaintenanceWindowTargetTargetsArgs> Targets
+        public InputList<Inputs.MaintenanceWindowTargetTargetArgs> Targets
         {
-            get => _targets ?? (_targets = new InputList<Inputs.MaintenanceWindowTargetTargetsArgs>());
+            get => _targets ?? (_targets = new InputList<Inputs.MaintenanceWindowTargetTargetArgs>());
             set => _targets = value;
         }
 
@@ -168,20 +242,21 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? OwnerInformation { get; set; }
 
         /// <summary>
-        /// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
+        /// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
         [Input("targets")]
-        private InputList<Inputs.MaintenanceWindowTargetTargetsGetArgs>? _targets;
+        private InputList<Inputs.MaintenanceWindowTargetTargetGetArgs>? _targets;
 
         /// <summary>
-        /// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
+        /// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+        /// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
         /// </summary>
-        public InputList<Inputs.MaintenanceWindowTargetTargetsGetArgs> Targets
+        public InputList<Inputs.MaintenanceWindowTargetTargetGetArgs> Targets
         {
-            get => _targets ?? (_targets = new InputList<Inputs.MaintenanceWindowTargetTargetsGetArgs>());
+            get => _targets ?? (_targets = new InputList<Inputs.MaintenanceWindowTargetTargetGetArgs>());
             set => _targets = value;
         }
 
@@ -194,65 +269,5 @@ namespace Pulumi.Aws.Ssm
         public MaintenanceWindowTargetState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class MaintenanceWindowTargetTargetsArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MaintenanceWindowTargetTargetsArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTargetTargetsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MaintenanceWindowTargetTargetsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class MaintenanceWindowTargetTargets
-    {
-        public readonly string Key;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private MaintenanceWindowTargetTargets(
-            string key,
-            ImmutableArray<string> values)
-        {
-            Key = key;
-            Values = values;
-        }
-    }
     }
 }

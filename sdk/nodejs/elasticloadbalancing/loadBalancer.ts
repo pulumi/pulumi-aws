@@ -4,52 +4,39 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic Load Balancer resource, also known as a "Classic
  * Load Balancer" after the release of
- * [Application/Network Load Balancers](https://www.terraform.io/docs/providers/aws/r/lb.html).
- * 
+ * `Application/Network Load Balancers`.
+ *
  * > **NOTE on ELB Instances and ELB Attachments:** This provider currently
  * provides both a standalone ELB Attachment resource
  * (describing an instance attached to an ELB), and an ELB resource with
  * `instances` defined in-line. At this time you cannot use an ELB with in-line
  * instances in conjunction with a ELB Attachment resources. Doing so will cause a
  * conflict and will overwrite attachments.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new load balancer
  * const bar = new aws.elb.LoadBalancer("bar", {
- *     accessLogs: {
- *         bucket: "foo",
- *         bucketPrefix: "bar",
- *         interval: 60,
- *     },
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     connectionDraining: true,
- *     connectionDrainingTimeout: 400,
- *     crossZoneLoadBalancing: true,
- *     healthCheck: {
- *         healthyThreshold: 2,
- *         interval: 30,
- *         target: "HTTP:8000/",
- *         timeout: 3,
- *         unhealthyThreshold: 2,
+ *     accessLogs: {
+ *         bucket: "foo",
+ *         bucketPrefix: "bar",
+ *         interval: 60,
  *     },
- *     idleTimeout: 400,
- *     instances: [aws_instance_foo.id],
  *     listeners: [
  *         {
  *             instancePort: 8000,
@@ -65,21 +52,32 @@ import * as utilities from "../utilities";
  *             sslCertificateId: "arn:aws:iam::123456789012:server-certificate/certName",
  *         },
  *     ],
+ *     healthCheck: {
+ *         healthyThreshold: 2,
+ *         unhealthyThreshold: 2,
+ *         timeout: 3,
+ *         target: "HTTP:8000/",
+ *         interval: 30,
+ *     },
+ *     instances: [aws_instance.foo.id],
+ *     crossZoneLoadBalancing: true,
+ *     idleTimeout: 400,
+ *     connectionDraining: true,
+ *     connectionDrainingTimeout: 400,
  *     tags: {
  *         Name: "foobar-elb",
  *     },
  * });
  * ```
- * 
  * ## Note on ECDSA Key Algorithm
- * 
+ *
  * If the ARN of the `sslCertificateId` that is pointed to references a
  * certificate that was signed by an ECDSA key, note that ELB only supports the
  * P256 and P384 curves.  Using a certificate signed by a key using a different
  * curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
  * browser.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb.html.markdown.
+ * @deprecated aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
@@ -89,8 +87,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LoadBalancerState, opts?: pulumi.CustomResourceOptions): LoadBalancer {
+        pulumi.log.warn("LoadBalancer is deprecated: aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer")
         return new LoadBalancer(name, <any>state, { ...opts, id: id });
     }
 
@@ -187,9 +187,9 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly subnets!: pulumi.Output<string[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
      */
@@ -202,8 +202,11 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer */
     constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer */
     constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("LoadBalancer is deprecated: aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;
@@ -347,9 +350,9 @@ export interface LoadBalancerState {
      */
     readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
      */
@@ -425,7 +428,7 @@ export interface LoadBalancerArgs {
      */
     readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

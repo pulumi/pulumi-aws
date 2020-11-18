@@ -7,14 +7,39 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Direct Connect BGP peer resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/directconnect"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := directconnect.NewBgpPeer(ctx, "peer", &directconnect.BgpPeerArgs{
+// 			VirtualInterfaceId: pulumi.Any(aws_dx_private_virtual_interface.Foo.Id),
+// 			AddressFamily:      pulumi.String("ipv6"),
+// 			BgpAsn:             pulumi.Int(65351),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type BgpPeer struct {
 	pulumi.CustomResourceState
 
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon.
 	// Required for IPv4 BGP peers on public virtual interfaces.
@@ -73,7 +98,7 @@ func GetBgpPeer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BgpPeer resources.
 type bgpPeerState struct {
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily *string `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon.
 	// Required for IPv4 BGP peers on public virtual interfaces.
@@ -96,7 +121,7 @@ type bgpPeerState struct {
 }
 
 type BgpPeerState struct {
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily pulumi.StringPtrInput
 	// The IPv4 CIDR address to use to send traffic to Amazon.
 	// Required for IPv4 BGP peers on public virtual interfaces.
@@ -123,7 +148,7 @@ func (BgpPeerState) ElementType() reflect.Type {
 }
 
 type bgpPeerArgs struct {
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily string `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon.
 	// Required for IPv4 BGP peers on public virtual interfaces.
@@ -141,7 +166,7 @@ type bgpPeerArgs struct {
 
 // The set of arguments for constructing a BgpPeer resource.
 type BgpPeerArgs struct {
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily pulumi.StringInput
 	// The IPv4 CIDR address to use to send traffic to Amazon.
 	// Required for IPv4 BGP peers on public virtual interfaces.

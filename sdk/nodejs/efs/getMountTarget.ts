@@ -4,30 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides information about an Elastic File System Mount Target (EFS).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const mountTargetId = config.get("mountTargetId") || "";
- * 
  * const byId = aws.efs.getMountTarget({
  *     mountTargetId: mountTargetId,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
  */
-export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> & GetMountTargetResult {
+export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> {
     if (!opts) {
         opts = {}
     }
@@ -35,11 +31,9 @@ export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetMountTargetResult> = pulumi.runtime.invoke("aws:efs/getMountTarget:getMountTarget", {
+    return pulumi.runtime.invoke("aws:efs/getMountTarget:getMountTarget", {
         "mountTargetId": args.mountTargetId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -57,7 +51,15 @@ export interface GetMountTargetArgs {
  */
 export interface GetMountTargetResult {
     /**
-     * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     * The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+     */
+    readonly availabilityZoneId: string;
+    /**
+     * The name of the Availability Zone (AZ) that the mount target resides in.
+     */
+    readonly availabilityZoneName: string;
+    /**
+     * The DNS name for the EFS file system.
      */
     readonly dnsName: string;
     /**
@@ -69,14 +71,26 @@ export interface GetMountTargetResult {
      */
     readonly fileSystemId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Address at which the file system may be mounted via the mount target.
      */
     readonly ipAddress: string;
+    /**
+     * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     */
+    readonly mountTargetDnsName: string;
     readonly mountTargetId: string;
     /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      */
     readonly networkInterfaceId: string;
+    /**
+     * AWS account ID that owns the resource.
+     */
+    readonly ownerId: string;
     /**
      * List of VPC security group IDs attached to the mount target.
      */
@@ -85,8 +99,4 @@ export interface GetMountTargetResult {
      * ID of the mount target's subnet.
      */
     readonly subnetId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

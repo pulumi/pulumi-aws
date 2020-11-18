@@ -12,9 +12,29 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM OpenID Connect provider.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_openid_connect_provider.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Iam.OpenIdConnectProvider("default", new Aws.Iam.OpenIdConnectProviderArgs
+    ///         {
+    ///             ClientIdLists = 
+    ///             {
+    ///                 "266362248691-342342xasdasdasda-apps.googleusercontent.com",
+    ///             },
+    ///             ThumbprintLists = {},
+    ///             Url = "https://accounts.google.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class OpenIdConnectProvider : Pulumi.CustomResource
     {
@@ -31,7 +51,7 @@ namespace Pulumi.Aws.Iam
         public Output<ImmutableArray<string>> ClientIdLists { get; private set; } = null!;
 
         /// <summary>
-        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
         /// </summary>
         [Output("thumbprintLists")]
         public Output<ImmutableArray<string>> ThumbprintLists { get; private set; } = null!;
@@ -51,7 +71,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OpenIdConnectProvider(string name, OpenIdConnectProviderArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, args ?? new OpenIdConnectProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -104,7 +124,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _thumbprintLists;
 
         /// <summary>
-        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
         /// </summary>
         public InputList<string> ThumbprintLists
         {
@@ -147,7 +167,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _thumbprintLists;
 
         /// <summary>
-        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
         /// </summary>
         public InputList<string> ThumbprintLists
         {

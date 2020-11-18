@@ -4,35 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
+import {ARN} from "..";
 
 /**
  * Manages an AWS DataSync EFS Location.
- * 
+ *
  * > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.datasync.EfsLocation("example", {
+ *     efsFileSystemArn: aws_efs_mount_target.example.file_system_arn,
  *     ec2Config: {
- *         securityGroupArns: [aws_security_group_example.arn],
- *         subnetArn: aws_subnet_example.arn,
+ *         securityGroupArns: [aws_security_group.example.arn],
+ *         subnetArn: aws_subnet.example.arn,
  *     },
- *     // The below example uses aws.efs.MountTarget as a reference to ensure a mount target already exists when resource creation occurs.
- *     // You can accomplish the same behavior with dependsOn or an aws.efs.MountTarget data source reference.
- *     efsFileSystemArn: aws_efs_mount_target_example.fileSystemArn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_efs.html.markdown.
  */
 export class EfsLocation extends pulumi.CustomResource {
     /**
@@ -42,6 +37,7 @@ export class EfsLocation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EfsLocationState, opts?: pulumi.CustomResourceOptions): EfsLocation {
         return new EfsLocation(name, <any>state, { ...opts, id: id });
@@ -80,7 +76,7 @@ export class EfsLocation extends pulumi.CustomResource {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly uri!: pulumi.Output<string>;
 
     /**
@@ -150,7 +146,7 @@ export interface EfsLocationState {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly uri?: pulumi.Input<string>;
 }
 
@@ -173,5 +169,5 @@ export interface EfsLocationArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

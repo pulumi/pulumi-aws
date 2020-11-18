@@ -4,41 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides information about a Launch Template.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const defaultLaunchTemplate = aws.ec2.getLaunchTemplate({
+ *
+ * const defaultLaunchTemplate = pulumi.output(aws.ec2.getLaunchTemplate({
  *     name: "my-launch-template",
- * });
+ * }, { async: true }));
  * ```
- * 
  * ### Filter
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const test = aws.ec2.getLaunchTemplate({
+ *
+ * const test = pulumi.output(aws.ec2.getLaunchTemplate({
  *     filters: [{
  *         name: "launch-template-name",
  *         values: ["some-template"],
  *     }],
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
  */
-export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> & GetLaunchTemplateResult {
+export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -47,13 +43,11 @@ export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.In
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetLaunchTemplateResult> = pulumi.runtime.invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", {
+    return pulumi.runtime.invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", {
         "filters": args.filters,
         "name": args.name,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -69,9 +63,9 @@ export interface GetLaunchTemplateArgs {
      */
     readonly name?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
+     * A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -123,6 +117,10 @@ export interface GetLaunchTemplateResult {
      * below for more details.
      */
     readonly iamInstanceProfiles: outputs.ec2.GetLaunchTemplateIamInstanceProfile[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     /**
      * The AMI from which to launch the instance.
      */
@@ -185,9 +183,9 @@ export interface GetLaunchTemplateResult {
      */
     readonly tagSpecifications: outputs.ec2.GetLaunchTemplateTagSpecification[];
     /**
-     * (Optional) A mapping of tags to assign to the launch template.
+     * (Optional) A map of tags to assign to the launch template.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The Base64-encoded user data to provide when launching the instance.
      */
@@ -196,8 +194,4 @@ export interface GetLaunchTemplateResult {
      * A list of security group IDs to associate with.
      */
     readonly vpcSecurityGroupIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

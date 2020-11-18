@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type GrantConstraint struct {
@@ -17,6 +17,10 @@ type GrantConstraint struct {
 	EncryptionContextSubset map[string]string `pulumi:"encryptionContextSubset"`
 }
 
+// GrantConstraintInput is an input type that accepts GrantConstraintArgs and GrantConstraintOutput values.
+// You can construct a concrete instance of `GrantConstraintInput` via:
+//
+//          GrantConstraintArgs{...}
 type GrantConstraintInput interface {
 	pulumi.Input
 
@@ -43,6 +47,10 @@ func (i GrantConstraintArgs) ToGrantConstraintOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GrantConstraintOutput)
 }
 
+// GrantConstraintArrayInput is an input type that accepts GrantConstraintArray and GrantConstraintArrayOutput values.
+// You can construct a concrete instance of `GrantConstraintArrayInput` via:
+//
+//          GrantConstraintArray{ GrantConstraintArgs{...} }
 type GrantConstraintArrayInput interface {
 	pulumi.Input
 
@@ -115,6 +123,10 @@ type GetSecretSecret struct {
 	Payload     string            `pulumi:"payload"`
 }
 
+// GetSecretSecretInput is an input type that accepts GetSecretSecretArgs and GetSecretSecretOutput values.
+// You can construct a concrete instance of `GetSecretSecretInput` via:
+//
+//          GetSecretSecretArgs{...}
 type GetSecretSecretInput interface {
 	pulumi.Input
 
@@ -141,6 +153,10 @@ func (i GetSecretSecretArgs) ToGetSecretSecretOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretSecretOutput)
 }
 
+// GetSecretSecretArrayInput is an input type that accepts GetSecretSecretArray and GetSecretSecretArrayOutput values.
+// You can construct a concrete instance of `GetSecretSecretArrayInput` via:
+//
+//          GetSecretSecretArray{ GetSecretSecretArgs{...} }
 type GetSecretSecretArrayInput interface {
 	pulumi.Input
 
@@ -223,6 +239,10 @@ type GetSecretsSecret struct {
 	Payload string `pulumi:"payload"`
 }
 
+// GetSecretsSecretInput is an input type that accepts GetSecretsSecretArgs and GetSecretsSecretOutput values.
+// You can construct a concrete instance of `GetSecretsSecretInput` via:
+//
+//          GetSecretsSecretArgs{...}
 type GetSecretsSecretInput interface {
 	pulumi.Input
 
@@ -253,6 +273,10 @@ func (i GetSecretsSecretArgs) ToGetSecretsSecretOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretsSecretOutput)
 }
 
+// GetSecretsSecretArrayInput is an input type that accepts GetSecretsSecretArray and GetSecretsSecretArrayOutput values.
+// You can construct a concrete instance of `GetSecretsSecretArrayInput` via:
+//
+//          GetSecretsSecretArray{ GetSecretsSecretArgs{...} }
 type GetSecretsSecretArrayInput interface {
 	pulumi.Input
 

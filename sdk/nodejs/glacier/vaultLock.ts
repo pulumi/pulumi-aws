@@ -2,59 +2,53 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Manages a Glacier Vault Lock. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html) for a full explanation of the Glacier Vault Lock functionality.
- * 
+ *
  * > **NOTE:** This resource allows you to test Glacier Vault Lock policies by setting the `completeLock` argument to `false`. When testing policies in this manner, the Glacier Vault Lock automatically expires after 24 hours and this provider will show this resource as needing recreation after that time. To permanently apply the policy, set the `completeLock` argument to `true`. When changing `completeLock` to `true`, it is expected the resource will show as recreating.
- * 
+ *
  * !> **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from this provider will return an error. Set the `ignoreDeletionError` argument to `true` and apply this configuration before attempting to delete this resource via this provider or remove this resource from this provider's management.
- * 
+ *
  * ## Example Usage
- * 
  * ### Testing Glacier Vault Lock Policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleVault = new aws.glacier.Vault("example", {});
+ *
+ * const exampleVault = new aws.glacier.Vault("exampleVault", {});
  * const examplePolicyDocument = exampleVault.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["glacier:DeleteArchive"],
- *         conditions: [{
- *             test: "NumericLessThanEquals",
- *             values: ["365"],
- *             variable: "glacier:ArchiveAgeinDays",
- *         }],
  *         effect: "Deny",
  *         resources: [arn],
+ *         conditions: [{
+ *             test: "NumericLessThanEquals",
+ *             variable: "glacier:ArchiveAgeinDays",
+ *             values: ["365"],
+ *         }],
  *     }],
  * }));
- * const exampleVaultLock = new aws.glacier.VaultLock("example", {
+ * const exampleVaultLock = new aws.glacier.VaultLock("exampleVaultLock", {
  *     completeLock: false,
  *     policy: examplePolicyDocument.json,
  *     vaultName: exampleVault.name,
  * });
  * ```
- * 
  * ### Permanently Applying Glacier Vault Lock Policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glacier.VaultLock("example", {
  *     completeLock: true,
- *     policy: aws_iam_policy_document_example.json,
- *     vaultName: aws_glacier_vault_example.name,
+ *     policy: data.aws_iam_policy_document.example.json,
+ *     vaultName: aws_glacier_vault.example.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glacier_vault_lock.html.markdown.
  */
 export class VaultLock extends pulumi.CustomResource {
     /**
@@ -64,6 +58,7 @@ export class VaultLock extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VaultLockState, opts?: pulumi.CustomResourceOptions): VaultLock {
         return new VaultLock(name, <any>state, { ...opts, id: id });

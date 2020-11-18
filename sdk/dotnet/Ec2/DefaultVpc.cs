@@ -21,9 +21,29 @@ namespace Pulumi.Aws.Ec2
     /// this provider does not _create_ this resource, but instead "adopts" it
     /// into management.
     /// 
+    /// ## Example Usage
     /// 
+    /// Basic usage with tags:
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Ec2.DefaultVpc("default", new Aws.Ec2.DefaultVpcArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "Default VPC" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DefaultVpc : Pulumi.CustomResource
     {
@@ -70,7 +90,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A boolean flag to enable/disable ClassicLink
         /// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        /// See the [ClassicLink documentation][1] for more information. Defaults false.
+        /// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
         /// </summary>
         [Output("enableClassiclink")]
         public Output<bool> EnableClassiclink { get; private set; } = null!;
@@ -111,7 +131,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The ID of the main route table associated with
         /// this VPC. Note that you can change a VPC's main route table by using an
-        /// [`aws.ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html)
+        /// `aws.ec2.MainRouteTableAssociation`
         /// </summary>
         [Output("mainRouteTableId")]
         public Output<string> MainRouteTableId { get; private set; } = null!;
@@ -123,10 +143,10 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -137,7 +157,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DefaultVpc(string name, DefaultVpcArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ec2/defaultVpc:DefaultVpc", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/defaultVpc:DefaultVpc", name, args ?? new DefaultVpcArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -177,7 +197,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A boolean flag to enable/disable ClassicLink
         /// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        /// See the [ClassicLink documentation][1] for more information. Defaults false.
+        /// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
         /// </summary>
         [Input("enableClassiclink")]
         public Input<bool>? EnableClassiclink { get; set; }
@@ -198,14 +218,14 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnableDnsSupport { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -259,7 +279,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A boolean flag to enable/disable ClassicLink
         /// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        /// See the [ClassicLink documentation][1] for more information. Defaults false.
+        /// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
         /// </summary>
         [Input("enableClassiclink")]
         public Input<bool>? EnableClassiclink { get; set; }
@@ -300,7 +320,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The ID of the main route table associated with
         /// this VPC. Note that you can change a VPC's main route table by using an
-        /// [`aws.ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html)
+        /// `aws.ec2.MainRouteTableAssociation`
         /// </summary>
         [Input("mainRouteTableId")]
         public Input<string>? MainRouteTableId { get; set; }
@@ -312,14 +332,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

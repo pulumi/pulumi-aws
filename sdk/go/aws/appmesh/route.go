@@ -7,10 +7,185 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an AWS App Mesh route resource.
+//
+// ## Example Usage
+// ### HTTP Routing
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+// 			MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
+// 			VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+// 			Spec: &appmesh.RouteSpecArgs{
+// 				HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
+// 					Match: &appmesh.RouteSpecHttpRouteMatchArgs{
+// 						Prefix: pulumi.String("/"),
+// 					},
+// 					Action: &appmesh.RouteSpecHttpRouteActionArgs{
+// 						WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
+// 							&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
+// 								VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb1.Name),
+// 								Weight:      pulumi.Int(90),
+// 							},
+// 							&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
+// 								VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb2.Name),
+// 								Weight:      pulumi.Int(10),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### HTTP Header Routing
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+// 			MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
+// 			VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+// 			Spec: &appmesh.RouteSpecArgs{
+// 				HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
+// 					Match: &appmesh.RouteSpecHttpRouteMatchArgs{
+// 						Method: pulumi.String("POST"),
+// 						Prefix: pulumi.String("/"),
+// 						Scheme: pulumi.String("https"),
+// 						Headers: appmesh.RouteSpecHttpRouteMatchHeaderArray{
+// 							&appmesh.RouteSpecHttpRouteMatchHeaderArgs{
+// 								Name: pulumi.String("clientRequestId"),
+// 								Match: &appmesh.RouteSpecHttpRouteMatchHeaderMatchArgs{
+// 									Prefix: pulumi.String("123"),
+// 								},
+// 							},
+// 						},
+// 					},
+// 					Action: &appmesh.RouteSpecHttpRouteActionArgs{
+// 						WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
+// 							&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
+// 								VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb.Name),
+// 								Weight:      pulumi.Int(100),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Retry Policy
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+// 			MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
+// 			VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+// 			Spec: &appmesh.RouteSpecArgs{
+// 				HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
+// 					Match: &appmesh.RouteSpecHttpRouteMatchArgs{
+// 						Prefix: pulumi.String("/"),
+// 					},
+// 					RetryPolicy: &appmesh.RouteSpecHttpRouteRetryPolicyArgs{
+// 						HttpRetryEvents: pulumi.StringArray{
+// 							pulumi.String("server-error"),
+// 						},
+// 						MaxRetries: pulumi.Int(1),
+// 						PerRetryTimeout: &appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs{
+// 							Unit:  pulumi.String("s"),
+// 							Value: pulumi.Int(15),
+// 						},
+// 					},
+// 					Action: &appmesh.RouteSpecHttpRouteActionArgs{
+// 						WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
+// 							&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
+// 								VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb.Name),
+// 								Weight:      pulumi.Int(100),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### TCP Routing
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+// 			MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
+// 			VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+// 			Spec: &appmesh.RouteSpecArgs{
+// 				TcpRoute: &appmesh.RouteSpecTcpRouteArgs{
+// 					Action: &appmesh.RouteSpecTcpRouteActionArgs{
+// 						WeightedTargets: appmesh.RouteSpecTcpRouteActionWeightedTargetArray{
+// 							&appmesh.RouteSpecTcpRouteActionWeightedTargetArgs{
+// 								VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb1.Name),
+// 								Weight:      pulumi.Int(100),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Route struct {
 	pulumi.CustomResourceState
 
@@ -22,12 +197,16 @@ type Route struct {
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
 	// The name of the service mesh in which to create the route.
 	MeshName pulumi.StringOutput `pulumi:"meshName"`
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
 	// The name to use for the route.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The resource owner's AWS account ID.
+	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
 	// The route specification to apply.
 	Spec RouteSpecOutput `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The name of the virtual router in which to create the route.
 	VirtualRouterName pulumi.StringOutput `pulumi:"virtualRouterName"`
 }
@@ -77,12 +256,16 @@ type routeState struct {
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
 	// The name of the service mesh in which to create the route.
 	MeshName *string `pulumi:"meshName"`
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner *string `pulumi:"meshOwner"`
 	// The name to use for the route.
 	Name *string `pulumi:"name"`
+	// The resource owner's AWS account ID.
+	ResourceOwner *string `pulumi:"resourceOwner"`
 	// The route specification to apply.
 	Spec *RouteSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The name of the virtual router in which to create the route.
 	VirtualRouterName *string `pulumi:"virtualRouterName"`
 }
@@ -96,12 +279,16 @@ type RouteState struct {
 	LastUpdatedDate pulumi.StringPtrInput
 	// The name of the service mesh in which to create the route.
 	MeshName pulumi.StringPtrInput
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner pulumi.StringPtrInput
 	// The name to use for the route.
 	Name pulumi.StringPtrInput
+	// The resource owner's AWS account ID.
+	ResourceOwner pulumi.StringPtrInput
 	// The route specification to apply.
 	Spec RouteSpecPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The name of the virtual router in which to create the route.
 	VirtualRouterName pulumi.StringPtrInput
 }
@@ -113,12 +300,14 @@ func (RouteState) ElementType() reflect.Type {
 type routeArgs struct {
 	// The name of the service mesh in which to create the route.
 	MeshName string `pulumi:"meshName"`
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner *string `pulumi:"meshOwner"`
 	// The name to use for the route.
 	Name *string `pulumi:"name"`
 	// The route specification to apply.
 	Spec RouteSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The name of the virtual router in which to create the route.
 	VirtualRouterName string `pulumi:"virtualRouterName"`
 }
@@ -127,12 +316,14 @@ type routeArgs struct {
 type RouteArgs struct {
 	// The name of the service mesh in which to create the route.
 	MeshName pulumi.StringInput
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner pulumi.StringPtrInput
 	// The name to use for the route.
 	Name pulumi.StringPtrInput
 	// The route specification to apply.
 	Spec RouteSpecInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The name of the virtual router in which to create the route.
 	VirtualRouterName pulumi.StringInput
 }

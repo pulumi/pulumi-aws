@@ -4,11 +4,103 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The VPC Endpoint Service data source details about a specific service that
 // can be specified when creating a VPC endpoint within the region configured in the provider.
+//
+// ## Example Usage
+// ### AWS Service
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "s3"
+// 		opt1 := "Gateway"
+// 		s3, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
+// 			Service:     &opt0,
+// 			ServiceType: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		foo, err := ec2.NewVpc(ctx, "foo", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.0.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewVpcEndpoint(ctx, "ep", &ec2.VpcEndpointArgs{
+// 			VpcId:       foo.ID(),
+// 			ServiceName: pulumi.String(s3.ServiceName),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Non-AWS Service
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8"
+// 		_, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
+// 			ServiceName: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Filter
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
+// 			Filters: []ec2.GetVpcEndpointServiceFilter{
+// 				ec2.GetVpcEndpointServiceFilter{
+// 					Name: "service-name",
+// 					Values: []string{
+// 						"some-service",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupVpcEndpointService(ctx *pulumi.Context, args *LookupVpcEndpointServiceArgs, opts ...pulumi.InvokeOption) (*LookupVpcEndpointServiceResult, error) {
 	var rv LookupVpcEndpointServiceResult
 	err := ctx.Invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", args, &rv, opts...)
@@ -26,20 +118,24 @@ type LookupVpcEndpointServiceArgs struct {
 	Service *string `pulumi:"service"`
 	// The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName *string `pulumi:"serviceName"`
-	// A mapping of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// The service type, `Gateway` or `Interface`.
+	ServiceType *string `pulumi:"serviceType"`
+	// A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcEndpointService.
 type LookupVpcEndpointServiceResult struct {
 	// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
 	AcceptanceRequired bool `pulumi:"acceptanceRequired"`
+	// The Amazon Resource Name (ARN) of the VPC endpoint service.
+	Arn string `pulumi:"arn"`
 	// The Availability Zones in which the service is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The DNS names for the service.
 	BaseEndpointDnsNames []string                      `pulumi:"baseEndpointDnsNames"`
 	Filters              []GetVpcEndpointServiceFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Whether or not the service manages its VPC endpoints - `true` or `false`.
 	ManagesVpcEndpoints bool `pulumi:"managesVpcEndpoints"`
@@ -51,10 +147,9 @@ type LookupVpcEndpointServiceResult struct {
 	// The ID of the endpoint service.
 	ServiceId   string `pulumi:"serviceId"`
 	ServiceName string `pulumi:"serviceName"`
-	// The service type, `Gateway` or `Interface`.
 	ServiceType string `pulumi:"serviceType"`
-	// A mapping of tags assigned to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Whether or not the service supports endpoint policies - `true` or `false`.
 	VpcEndpointPolicySupported bool `pulumi:"vpcEndpointPolicySupported"`
 }

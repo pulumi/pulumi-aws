@@ -7,22 +7,72 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an AutoScaling Lifecycle Hook resource.
 //
 // > **NOTE:** This provider has two types of ways you can add lifecycle hooks - via
 // the `initialLifecycleHook` attribute from the
-// [`autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html)
+// `autoscaling.Group`
 // resource, or via this one. Hooks added via this resource will not be added
 // until the autoscaling group has been created, and depending on your
-// [capacity](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html#waiting-for-capacity)
+// `capacity`
 // settings, after the initial instances have been launched, creating unintended
 // behavior. If you need hooks to run on all instances, add them with
 // `initialLifecycleHook` in
-// [`autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
+// `autoscaling.Group`,
 // but take care to not duplicate those hooks with this resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		foobarGroup, err := autoscaling.NewGroup(ctx, "foobarGroup", &autoscaling.GroupArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-west-2a"),
+// 			},
+// 			HealthCheckType: pulumi.String("EC2"),
+// 			TerminationPolicies: pulumi.StringArray{
+// 				pulumi.String("OldestInstance"),
+// 			},
+// 			Tags: autoscaling.GroupTagArray{
+// 				&autoscaling.GroupTagArgs{
+// 					Key:               pulumi.String("Foo"),
+// 					Value:             pulumi.String("foo-bar"),
+// 					PropagateAtLaunch: pulumi.Bool(true),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewLifecycleHook(ctx, "foobarLifecycleHook", &autoscaling.LifecycleHookArgs{
+// 			AutoscalingGroupName:  foobarGroup.Name,
+// 			DefaultResult:         pulumi.String("CONTINUE"),
+// 			HeartbeatTimeout:      pulumi.Int(2000),
+// 			LifecycleTransition:   pulumi.String("autoscaling:EC2_INSTANCE_LAUNCHING"),
+// 			NotificationMetadata:  pulumi.String(fmt.Sprintf("%v%v%v", "{\n", "  \"foo\": \"bar\"\n", "}\n")),
+// 			NotificationTargetArn: pulumi.String("arn:aws:sqs:us-east-1:444455556666:queue1*"),
+// 			RoleArn:               pulumi.String("arn:aws:iam::123456789012:role/S3Access"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LifecycleHook struct {
 	pulumi.CustomResourceState
 

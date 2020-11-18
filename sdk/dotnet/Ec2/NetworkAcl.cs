@@ -19,12 +19,61 @@ namespace Pulumi.Aws.Ec2
     /// in conjunction with any Network ACL Rule resources. Doing so will cause
     /// a conflict of rule settings and will overwrite rules.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Ec2.NetworkAcl("main", new Aws.Ec2.NetworkAclArgs
+    ///         {
+    ///             VpcId = aws_vpc.Main.Id,
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.NetworkAclEgressArgs
+    ///                 {
+    ///                     Protocol = "tcp",
+    ///                     RuleNo = 200,
+    ///                     Action = "allow",
+    ///                     CidrBlock = "10.3.0.0/18",
+    ///                     FromPort = 443,
+    ///                     ToPort = 443,
+    ///                 },
+    ///             },
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.NetworkAclIngressArgs
+    ///                 {
+    ///                     Protocol = "tcp",
+    ///                     RuleNo = 100,
+    ///                     Action = "allow",
+    ///                     CidrBlock = "10.3.0.0/18",
+    ///                     FromPort = 80,
+    ///                     ToPort = 80,
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "main" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class NetworkAcl : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the network ACL
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// Specifies an egress rule. Parameters defined below.
         /// </summary>
@@ -53,7 +102,7 @@ namespace Pulumi.Aws.Ec2
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the associated VPC.
@@ -70,7 +119,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkAcl(string name, NetworkAclArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/networkAcl:NetworkAcl", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/networkAcl:NetworkAcl", name, args ?? new NetworkAclArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -144,14 +193,14 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -168,6 +217,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class NetworkAclState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the network ACL
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("egress")]
         private InputList<Inputs.NetworkAclEgressGetArgs>? _egress;
 
@@ -211,14 +266,14 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -231,397 +286,5 @@ namespace Pulumi.Aws.Ec2
         public NetworkAclState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class NetworkAclEgressArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The action to take.
-        /// </summary>
-        [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
-
-        /// <summary>
-        /// The CIDR block to match. This must be a
-        /// valid network mask.
-        /// </summary>
-        [Input("cidrBlock")]
-        public Input<string>? CidrBlock { get; set; }
-
-        /// <summary>
-        /// The from port to match.
-        /// </summary>
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        /// <summary>
-        /// The ICMP type code to be used. Default 0.
-        /// </summary>
-        [Input("icmpCode")]
-        public Input<int>? IcmpCode { get; set; }
-
-        /// <summary>
-        /// The ICMP type to be used. Default 0.
-        /// </summary>
-        [Input("icmpType")]
-        public Input<int>? IcmpType { get; set; }
-
-        /// <summary>
-        /// The IPv6 CIDR block.
-        /// </summary>
-        [Input("ipv6CidrBlock")]
-        public Input<string>? Ipv6CidrBlock { get; set; }
-
-        /// <summary>
-        /// The protocol to match. If using the -1 'all'
-        /// protocol, you must specify a from and to port of 0.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// The rule number. Used for ordering.
-        /// </summary>
-        [Input("ruleNo", required: true)]
-        public Input<int> RuleNo { get; set; } = null!;
-
-        /// <summary>
-        /// The to port to match.
-        /// </summary>
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public NetworkAclEgressArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkAclEgressGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The action to take.
-        /// </summary>
-        [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
-
-        /// <summary>
-        /// The CIDR block to match. This must be a
-        /// valid network mask.
-        /// </summary>
-        [Input("cidrBlock")]
-        public Input<string>? CidrBlock { get; set; }
-
-        /// <summary>
-        /// The from port to match.
-        /// </summary>
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        /// <summary>
-        /// The ICMP type code to be used. Default 0.
-        /// </summary>
-        [Input("icmpCode")]
-        public Input<int>? IcmpCode { get; set; }
-
-        /// <summary>
-        /// The ICMP type to be used. Default 0.
-        /// </summary>
-        [Input("icmpType")]
-        public Input<int>? IcmpType { get; set; }
-
-        /// <summary>
-        /// The IPv6 CIDR block.
-        /// </summary>
-        [Input("ipv6CidrBlock")]
-        public Input<string>? Ipv6CidrBlock { get; set; }
-
-        /// <summary>
-        /// The protocol to match. If using the -1 'all'
-        /// protocol, you must specify a from and to port of 0.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// The rule number. Used for ordering.
-        /// </summary>
-        [Input("ruleNo", required: true)]
-        public Input<int> RuleNo { get; set; } = null!;
-
-        /// <summary>
-        /// The to port to match.
-        /// </summary>
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public NetworkAclEgressGetArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkAclIngressArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The action to take.
-        /// </summary>
-        [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
-
-        /// <summary>
-        /// The CIDR block to match. This must be a
-        /// valid network mask.
-        /// </summary>
-        [Input("cidrBlock")]
-        public Input<string>? CidrBlock { get; set; }
-
-        /// <summary>
-        /// The from port to match.
-        /// </summary>
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        /// <summary>
-        /// The ICMP type code to be used. Default 0.
-        /// </summary>
-        [Input("icmpCode")]
-        public Input<int>? IcmpCode { get; set; }
-
-        /// <summary>
-        /// The ICMP type to be used. Default 0.
-        /// </summary>
-        [Input("icmpType")]
-        public Input<int>? IcmpType { get; set; }
-
-        /// <summary>
-        /// The IPv6 CIDR block.
-        /// </summary>
-        [Input("ipv6CidrBlock")]
-        public Input<string>? Ipv6CidrBlock { get; set; }
-
-        /// <summary>
-        /// The protocol to match. If using the -1 'all'
-        /// protocol, you must specify a from and to port of 0.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// The rule number. Used for ordering.
-        /// </summary>
-        [Input("ruleNo", required: true)]
-        public Input<int> RuleNo { get; set; } = null!;
-
-        /// <summary>
-        /// The to port to match.
-        /// </summary>
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public NetworkAclIngressArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkAclIngressGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The action to take.
-        /// </summary>
-        [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
-
-        /// <summary>
-        /// The CIDR block to match. This must be a
-        /// valid network mask.
-        /// </summary>
-        [Input("cidrBlock")]
-        public Input<string>? CidrBlock { get; set; }
-
-        /// <summary>
-        /// The from port to match.
-        /// </summary>
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        /// <summary>
-        /// The ICMP type code to be used. Default 0.
-        /// </summary>
-        [Input("icmpCode")]
-        public Input<int>? IcmpCode { get; set; }
-
-        /// <summary>
-        /// The ICMP type to be used. Default 0.
-        /// </summary>
-        [Input("icmpType")]
-        public Input<int>? IcmpType { get; set; }
-
-        /// <summary>
-        /// The IPv6 CIDR block.
-        /// </summary>
-        [Input("ipv6CidrBlock")]
-        public Input<string>? Ipv6CidrBlock { get; set; }
-
-        /// <summary>
-        /// The protocol to match. If using the -1 'all'
-        /// protocol, you must specify a from and to port of 0.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// The rule number. Used for ordering.
-        /// </summary>
-        [Input("ruleNo", required: true)]
-        public Input<int> RuleNo { get; set; } = null!;
-
-        /// <summary>
-        /// The to port to match.
-        /// </summary>
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public NetworkAclIngressGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class NetworkAclEgress
-    {
-        /// <summary>
-        /// The action to take.
-        /// </summary>
-        public readonly string Action;
-        /// <summary>
-        /// The CIDR block to match. This must be a
-        /// valid network mask.
-        /// </summary>
-        public readonly string? CidrBlock;
-        /// <summary>
-        /// The from port to match.
-        /// </summary>
-        public readonly int FromPort;
-        /// <summary>
-        /// The ICMP type code to be used. Default 0.
-        /// </summary>
-        public readonly int? IcmpCode;
-        /// <summary>
-        /// The ICMP type to be used. Default 0.
-        /// </summary>
-        public readonly int? IcmpType;
-        /// <summary>
-        /// The IPv6 CIDR block.
-        /// </summary>
-        public readonly string? Ipv6CidrBlock;
-        /// <summary>
-        /// The protocol to match. If using the -1 'all'
-        /// protocol, you must specify a from and to port of 0.
-        /// </summary>
-        public readonly string Protocol;
-        /// <summary>
-        /// The rule number. Used for ordering.
-        /// </summary>
-        public readonly int RuleNo;
-        /// <summary>
-        /// The to port to match.
-        /// </summary>
-        public readonly int ToPort;
-
-        [OutputConstructor]
-        private NetworkAclEgress(
-            string action,
-            string? cidrBlock,
-            int fromPort,
-            int? icmpCode,
-            int? icmpType,
-            string? ipv6CidrBlock,
-            string protocol,
-            int ruleNo,
-            int toPort)
-        {
-            Action = action;
-            CidrBlock = cidrBlock;
-            FromPort = fromPort;
-            IcmpCode = icmpCode;
-            IcmpType = icmpType;
-            Ipv6CidrBlock = ipv6CidrBlock;
-            Protocol = protocol;
-            RuleNo = ruleNo;
-            ToPort = toPort;
-        }
-    }
-
-    [OutputType]
-    public sealed class NetworkAclIngress
-    {
-        /// <summary>
-        /// The action to take.
-        /// </summary>
-        public readonly string Action;
-        /// <summary>
-        /// The CIDR block to match. This must be a
-        /// valid network mask.
-        /// </summary>
-        public readonly string? CidrBlock;
-        /// <summary>
-        /// The from port to match.
-        /// </summary>
-        public readonly int FromPort;
-        /// <summary>
-        /// The ICMP type code to be used. Default 0.
-        /// </summary>
-        public readonly int? IcmpCode;
-        /// <summary>
-        /// The ICMP type to be used. Default 0.
-        /// </summary>
-        public readonly int? IcmpType;
-        /// <summary>
-        /// The IPv6 CIDR block.
-        /// </summary>
-        public readonly string? Ipv6CidrBlock;
-        /// <summary>
-        /// The protocol to match. If using the -1 'all'
-        /// protocol, you must specify a from and to port of 0.
-        /// </summary>
-        public readonly string Protocol;
-        /// <summary>
-        /// The rule number. Used for ordering.
-        /// </summary>
-        public readonly int RuleNo;
-        /// <summary>
-        /// The to port to match.
-        /// </summary>
-        public readonly int ToPort;
-
-        [OutputConstructor]
-        private NetworkAclIngress(
-            string action,
-            string? cidrBlock,
-            int fromPort,
-            int? icmpCode,
-            int? icmpType,
-            string? ipv6CidrBlock,
-            string protocol,
-            int ruleNo,
-            int toPort)
-        {
-            Action = action;
-            CidrBlock = cidrBlock;
-            FromPort = fromPort;
-            IcmpCode = icmpCode;
-            IcmpType = icmpType;
-            Ipv6CidrBlock = ipv6CidrBlock;
-            Protocol = protocol;
-            RuleNo = ruleNo;
-            ToPort = toPort;
-        }
-    }
     }
 }

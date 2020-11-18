@@ -12,12 +12,36 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_capacity_reservation.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Ec2.CapacityReservation("default", new Aws.Ec2.CapacityReservationArgs
+    ///         {
+    ///             AvailabilityZone = "eu-west-1a",
+    ///             InstanceCount = 1,
+    ///             InstancePlatform = "Linux/UNIX",
+    ///             InstanceType = "t2.micro",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class CapacityReservation : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the Capacity Reservation.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// The Availability Zone in which to create the Capacity Reservation.
         /// </summary>
@@ -73,10 +97,10 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InstanceType { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
@@ -93,7 +117,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CapacityReservation(string name, CapacityReservationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/capacityReservation:CapacityReservation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/capacityReservation:CapacityReservation", name, args ?? new CapacityReservationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -185,14 +209,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string> InstanceType { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -209,6 +233,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class CapacityReservationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Capacity Reservation.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The Availability Zone in which to create the Capacity Reservation.
         /// </summary>
@@ -264,14 +294,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceType { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

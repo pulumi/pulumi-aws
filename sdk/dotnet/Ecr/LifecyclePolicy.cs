@@ -16,9 +16,85 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// &gt; **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
     /// 
+    /// ## Example Usage
+    /// ### Policy on untagged image
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_lifecycle_policy.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ecr.Repository("foo", new Aws.Ecr.RepositoryArgs
+    ///         {
+    ///         });
+    ///         var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new Aws.Ecr.LifecyclePolicyArgs
+    ///         {
+    ///             Repository = foo.Name,
+    ///             Policy = @"{
+    ///     ""rules"": [
+    ///         {
+    ///             ""rulePriority"": 1,
+    ///             ""description"": ""Expire images older than 14 days"",
+    ///             ""selection"": {
+    ///                 ""tagStatus"": ""untagged"",
+    ///                 ""countType"": ""sinceImagePushed"",
+    ///                 ""countUnit"": ""days"",
+    ///                 ""countNumber"": 14
+    ///             },
+    ///             ""action"": {
+    ///                 ""type"": ""expire""
+    ///             }
+    ///         }
+    ///     ]
+    /// }
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Policy on tagged image
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ecr.Repository("foo", new Aws.Ecr.RepositoryArgs
+    ///         {
+    ///         });
+    ///         var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new Aws.Ecr.LifecyclePolicyArgs
+    ///         {
+    ///             Repository = foo.Name,
+    ///             Policy = @"{
+    ///     ""rules"": [
+    ///         {
+    ///             ""rulePriority"": 1,
+    ///             ""description"": ""Keep last 30 images"",
+    ///             ""selection"": {
+    ///                 ""tagStatus"": ""tagged"",
+    ///                 ""tagPrefixList"": [""v""],
+    ///                 ""countType"": ""imageCountMoreThan"",
+    ///                 ""countNumber"": 30
+    ///             },
+    ///             ""action"": {
+    ///                 ""type"": ""expire""
+    ///             }
+    ///         }
+    ///     ]
+    /// }
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LifecyclePolicy : Pulumi.CustomResource
     {
@@ -49,7 +125,7 @@ namespace Pulumi.Aws.Ecr
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LifecyclePolicy(string name, LifecyclePolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:ecr/lifecyclePolicy:LifecyclePolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ecr/lifecyclePolicy:LifecyclePolicy", name, args ?? new LifecyclePolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

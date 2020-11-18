@@ -2,30 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleBucket = new aws.s3.Bucket("example", {});
- * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("example", {
+ *
+ * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
+ * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", {
+ *     bucket: exampleBucket.id,
  *     blockPublicAcls: true,
  *     blockPublicPolicy: true,
- *     bucket: exampleBucket.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_public_access_block.html.markdown.
  */
 export class BucketPublicAccessBlock extends pulumi.CustomResource {
     /**
@@ -35,6 +29,7 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BucketPublicAccessBlockState, opts?: pulumi.CustomResourceOptions): BucketPublicAccessBlock {
         return new BucketPublicAccessBlock(name, <any>state, { ...opts, id: id });

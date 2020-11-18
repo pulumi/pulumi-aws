@@ -12,12 +12,55 @@ namespace Pulumi.Aws.Ebs
     /// <summary>
     /// Creates a Snapshot of a snapshot.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot_copy.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ebs.Volume("example", new Aws.Ebs.VolumeArgs
+    ///         {
+    ///             AvailabilityZone = "us-west-2a",
+    ///             Size = 40,
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "HelloWorld" },
+    ///             },
+    ///         });
+    ///         var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new Aws.Ebs.SnapshotArgs
+    ///         {
+    ///             VolumeId = example.Id,
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "HelloWorld_snap" },
+    ///             },
+    ///         });
+    ///         var exampleCopy = new Aws.Ebs.SnapshotCopy("exampleCopy", new Aws.Ebs.SnapshotCopyArgs
+    ///         {
+    ///             SourceSnapshotId = exampleSnapshot.Id,
+    ///             SourceRegion = "us-west-2",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "HelloWorld_copy_snap" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SnapshotCopy : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the EBS Snapshot.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// * `source_snapshot_id` The ARN of the copied snapshot.
@@ -40,8 +83,6 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The ARN for the KMS encryption key.
-        /// * `source_snapshot_id` The ARN for the snapshot to be copied.
-        /// * `source_region` The region of the source snapshot.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
@@ -58,17 +99,23 @@ namespace Pulumi.Aws.Ebs
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
+        /// <summary>
+        /// The region of the source snapshot.
+        /// </summary>
         [Output("sourceRegion")]
         public Output<string> SourceRegion { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN for the snapshot to be copied.
+        /// </summary>
         [Output("sourceSnapshotId")]
         public Output<string> SourceSnapshotId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags for the snapshot.
+        /// A map of tags for the snapshot.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("volumeId")]
         public Output<string> VolumeId { get; private set; } = null!;
@@ -88,7 +135,7 @@ namespace Pulumi.Aws.Ebs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SnapshotCopy(string name, SnapshotCopyArgs args, CustomResourceOptions? options = null)
-            : base("aws:ebs/snapshotCopy:SnapshotCopy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ebs/snapshotCopy:SnapshotCopy", name, args ?? new SnapshotCopyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -139,27 +186,31 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The ARN for the KMS encryption key.
-        /// * `source_snapshot_id` The ARN for the snapshot to be copied.
-        /// * `source_region` The region of the source snapshot.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// The region of the source snapshot.
+        /// </summary>
         [Input("sourceRegion", required: true)]
         public Input<string> SourceRegion { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN for the snapshot to be copied.
+        /// </summary>
         [Input("sourceSnapshotId", required: true)]
         public Input<string> SourceSnapshotId { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags for the snapshot.
+        /// A map of tags for the snapshot.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -170,6 +221,12 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class SnapshotCopyState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the EBS Snapshot.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// * `source_snapshot_id` The ARN of the copied snapshot.
@@ -192,8 +249,6 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The ARN for the KMS encryption key.
-        /// * `source_snapshot_id` The ARN for the snapshot to be copied.
-        /// * `source_region` The region of the source snapshot.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -210,21 +265,27 @@ namespace Pulumi.Aws.Ebs
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
+        /// <summary>
+        /// The region of the source snapshot.
+        /// </summary>
         [Input("sourceRegion")]
         public Input<string>? SourceRegion { get; set; }
 
+        /// <summary>
+        /// The ARN for the snapshot to be copied.
+        /// </summary>
         [Input("sourceSnapshotId")]
         public Input<string>? SourceSnapshotId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags for the snapshot.
+        /// A map of tags for the snapshot.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

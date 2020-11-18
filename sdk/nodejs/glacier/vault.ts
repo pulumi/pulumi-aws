@@ -4,23 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Glacier Vault Resource. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-vaults.html) for a full explanation of the Glacier Vault functionality
- * 
+ *
  * > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const awsSnsTopic = new aws.sns.Topic("aws.sns.Topic", {});
+ *
+ * const awsSnsTopic = new aws.sns.Topic("awsSnsTopic", {});
  * const myArchive = new aws.glacier.Vault("myArchive", {
+ *     notifications: [{
+ *         snsTopic: awsSnsTopic.arn,
+ *         events: [
+ *             "ArchiveRetrievalCompleted",
+ *             "InventoryRetrievalCompleted",
+ *         ],
+ *     }],
  *     accessPolicy: `{
  *     "Version":"2012-10-17",
  *     "Statement":[
@@ -37,20 +43,11 @@ import * as utilities from "../utilities";
  *     ]
  * }
  * `,
- *     notifications: [{
- *         events: [
- *             "ArchiveRetrievalCompleted",
- *             "InventoryRetrievalCompleted",
- *         ],
- *         snsTopic: awsSnsTopic.arn,
- *     }],
  *     tags: {
  *         Test: "MyArchive",
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glacier_vault.html.markdown.
  */
 export class Vault extends pulumi.CustomResource {
     /**
@@ -60,6 +57,7 @@ export class Vault extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VaultState, opts?: pulumi.CustomResourceOptions): Vault {
         return new Vault(name, <any>state, { ...opts, id: id });
@@ -101,9 +99,9 @@ export class Vault extends pulumi.CustomResource {
      */
     public readonly notifications!: pulumi.Output<outputs.glacier.VaultNotification[] | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Vault resource with the given unique name, arguments, and options.
@@ -169,9 +167,9 @@ export interface VaultState {
      */
     readonly notifications?: pulumi.Input<pulumi.Input<inputs.glacier.VaultNotification>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -192,7 +190,7 @@ export interface VaultArgs {
      */
     readonly notifications?: pulumi.Input<pulumi.Input<inputs.glacier.VaultNotification>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

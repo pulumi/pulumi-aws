@@ -2,28 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an SES receipt filter resource
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const filter = new aws.ses.ReceiptFilter("filter", {
  *     cidr: "10.10.10.10",
  *     policy: "Block",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_receipt_filter.html.markdown.
  */
 export class ReceiptFilter extends pulumi.CustomResource {
     /**
@@ -33,6 +27,7 @@ export class ReceiptFilter extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ReceiptFilterState, opts?: pulumi.CustomResourceOptions): ReceiptFilter {
         return new ReceiptFilter(name, <any>state, { ...opts, id: id });
@@ -52,6 +47,10 @@ export class ReceiptFilter extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReceiptFilter.__pulumiType;
     }
 
+    /**
+     * The SES receipt filter ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The IP address or address range to filter, in CIDR notation
      */
@@ -77,6 +76,7 @@ export class ReceiptFilter extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ReceiptFilterState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["cidr"] = state ? state.cidr : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["policy"] = state ? state.policy : undefined;
@@ -91,6 +91,7 @@ export class ReceiptFilter extends pulumi.CustomResource {
             inputs["cidr"] = args ? args.cidr : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["policy"] = args ? args.policy : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -107,6 +108,10 @@ export class ReceiptFilter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReceiptFilter resources.
  */
 export interface ReceiptFilterState {
+    /**
+     * The SES receipt filter ARN.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The IP address or address range to filter, in CIDR notation
      */

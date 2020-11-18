@@ -25,11 +25,45 @@ namespace Pulumi.Aws.Mq
     /// brief downtime as the broker reboots.
     /// 
     /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_broker.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Mq.Broker("example", new Aws.Mq.BrokerArgs
+    ///         {
+    ///             BrokerName = "example",
+    ///             Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
+    ///             {
+    ///                 Id = aws_mq_configuration.Test.Id,
+    ///                 Revision = aws_mq_configuration.Test.Latest_revision,
+    ///             },
+    ///             EngineType = "ActiveMQ",
+    ///             EngineVersion = "5.15.0",
+    ///             HostInstanceType = "mq.t2.micro",
+    ///             SecurityGroups = 
+    ///             {
+    ///                 aws_security_group.Test.Id,
+    ///             },
+    ///             Users = 
+    ///             {
+    ///                 new Aws.Mq.Inputs.BrokerUserArgs
+    ///                 {
+    ///                     Username = "ExampleUser",
+    ///                     Password = "MindTheGap",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Broker : Pulumi.CustomResource
     {
@@ -106,7 +140,7 @@ namespace Pulumi.Aws.Mq
         /// * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
         /// </summary>
         [Output("instances")]
-        public Output<ImmutableArray<Outputs.BrokerInstances>> Instances { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BrokerInstance>> Instances { get; private set; } = null!;
 
         /// <summary>
         /// Logging configuration of the broker. See below.
@@ -139,16 +173,16 @@ namespace Pulumi.Aws.Mq
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The list of all ActiveMQ usernames for the specified broker. See below.
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.BrokerUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BrokerUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -159,7 +193,7 @@ namespace Pulumi.Aws.Mq
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Broker(string name, BrokerArgs args, CustomResourceOptions? options = null)
-            : base("aws:mq/broker:Broker", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:mq/broker:Broker", name, args ?? new BrokerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -294,26 +328,26 @@ namespace Pulumi.Aws.Mq
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         [Input("users", required: true)]
-        private InputList<Inputs.BrokerUsersArgs>? _users;
+        private InputList<Inputs.BrokerUserArgs>? _users;
 
         /// <summary>
         /// The list of all ActiveMQ usernames for the specified broker. See below.
         /// </summary>
-        public InputList<Inputs.BrokerUsersArgs> Users
+        public InputList<Inputs.BrokerUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.BrokerUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.BrokerUserArgs>());
             set => _users = value;
         }
 
@@ -386,7 +420,7 @@ namespace Pulumi.Aws.Mq
         public Input<string>? HostInstanceType { get; set; }
 
         [Input("instances")]
-        private InputList<Inputs.BrokerInstancesGetArgs>? _instances;
+        private InputList<Inputs.BrokerInstanceGetArgs>? _instances;
 
         /// <summary>
         /// A list of information about allocated brokers (both active &amp; standby).
@@ -399,9 +433,9 @@ namespace Pulumi.Aws.Mq
         /// * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
         /// * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
         /// </summary>
-        public InputList<Inputs.BrokerInstancesGetArgs> Instances
+        public InputList<Inputs.BrokerInstanceGetArgs> Instances
         {
-            get => _instances ?? (_instances = new InputList<Inputs.BrokerInstancesGetArgs>());
+            get => _instances ?? (_instances = new InputList<Inputs.BrokerInstanceGetArgs>());
             set => _instances = value;
         }
 
@@ -448,445 +482,31 @@ namespace Pulumi.Aws.Mq
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         [Input("users")]
-        private InputList<Inputs.BrokerUsersGetArgs>? _users;
+        private InputList<Inputs.BrokerUserGetArgs>? _users;
 
         /// <summary>
         /// The list of all ActiveMQ usernames for the specified broker. See below.
         /// </summary>
-        public InputList<Inputs.BrokerUsersGetArgs> Users
+        public InputList<Inputs.BrokerUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.BrokerUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.BrokerUserGetArgs>());
             set => _users = value;
         }
 
         public BrokerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class BrokerConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Configuration ID.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Revision of the Configuration.
-        /// </summary>
-        [Input("revision")]
-        public Input<int>? Revision { get; set; }
-
-        public BrokerConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class BrokerConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Configuration ID.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Revision of the Configuration.
-        /// </summary>
-        [Input("revision")]
-        public Input<int>? Revision { get; set; }
-
-        public BrokerConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class BrokerEncryptionOptionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
-        /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        /// <summary>
-        /// Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
-        /// </summary>
-        [Input("useAwsOwnedKey")]
-        public Input<bool>? UseAwsOwnedKey { get; set; }
-
-        public BrokerEncryptionOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class BrokerEncryptionOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
-        /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        /// <summary>
-        /// Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
-        /// </summary>
-        [Input("useAwsOwnedKey")]
-        public Input<bool>? UseAwsOwnedKey { get; set; }
-
-        public BrokerEncryptionOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class BrokerInstancesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("consoleUrl")]
-        public Input<string>? ConsoleUrl { get; set; }
-
-        [Input("endpoints")]
-        private InputList<string>? _endpoints;
-        public InputList<string> Endpoints
-        {
-            get => _endpoints ?? (_endpoints = new InputList<string>());
-            set => _endpoints = value;
-        }
-
-        [Input("ipAddress")]
-        public Input<string>? IpAddress { get; set; }
-
-        public BrokerInstancesGetArgs()
-        {
-        }
-    }
-
-    public sealed class BrokerLogsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
-        /// </summary>
-        [Input("audit")]
-        public Input<bool>? Audit { get; set; }
-
-        /// <summary>
-        /// Enables general logging via CloudWatch. Defaults to `false`.
-        /// </summary>
-        [Input("general")]
-        public Input<bool>? General { get; set; }
-
-        public BrokerLogsArgs()
-        {
-        }
-    }
-
-    public sealed class BrokerLogsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
-        /// </summary>
-        [Input("audit")]
-        public Input<bool>? Audit { get; set; }
-
-        /// <summary>
-        /// Enables general logging via CloudWatch. Defaults to `false`.
-        /// </summary>
-        [Input("general")]
-        public Input<bool>? General { get; set; }
-
-        public BrokerLogsGetArgs()
-        {
-        }
-    }
-
-    public sealed class BrokerMaintenanceWindowStartTimeArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
-        /// </summary>
-        [Input("dayOfWeek", required: true)]
-        public Input<string> DayOfWeek { get; set; } = null!;
-
-        /// <summary>
-        /// The time, in 24-hour format. e.g. `02:00`
-        /// </summary>
-        [Input("timeOfDay", required: true)]
-        public Input<string> TimeOfDay { get; set; } = null!;
-
-        /// <summary>
-        /// The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
-        /// </summary>
-        [Input("timeZone", required: true)]
-        public Input<string> TimeZone { get; set; } = null!;
-
-        public BrokerMaintenanceWindowStartTimeArgs()
-        {
-        }
-    }
-
-    public sealed class BrokerMaintenanceWindowStartTimeGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
-        /// </summary>
-        [Input("dayOfWeek", required: true)]
-        public Input<string> DayOfWeek { get; set; } = null!;
-
-        /// <summary>
-        /// The time, in 24-hour format. e.g. `02:00`
-        /// </summary>
-        [Input("timeOfDay", required: true)]
-        public Input<string> TimeOfDay { get; set; } = null!;
-
-        /// <summary>
-        /// The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
-        /// </summary>
-        [Input("timeZone", required: true)]
-        public Input<string> TimeZone { get; set; } = null!;
-
-        public BrokerMaintenanceWindowStartTimeGetArgs()
-        {
-        }
-    }
-
-    public sealed class BrokerUsersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
-        /// </summary>
-        [Input("consoleAccess")]
-        public Input<bool>? ConsoleAccess { get; set; }
-
-        [Input("groups")]
-        private InputList<string>? _groups;
-
-        /// <summary>
-        /// The list of groups (20 maximum) to which the ActiveMQ user belongs.
-        /// </summary>
-        public InputList<string> Groups
-        {
-            get => _groups ?? (_groups = new InputList<string>());
-            set => _groups = value;
-        }
-
-        /// <summary>
-        /// The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
-        /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
-
-        /// <summary>
-        /// The username of the user.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
-
-        public BrokerUsersArgs()
-        {
-        }
-    }
-
-    public sealed class BrokerUsersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
-        /// </summary>
-        [Input("consoleAccess")]
-        public Input<bool>? ConsoleAccess { get; set; }
-
-        [Input("groups")]
-        private InputList<string>? _groups;
-
-        /// <summary>
-        /// The list of groups (20 maximum) to which the ActiveMQ user belongs.
-        /// </summary>
-        public InputList<string> Groups
-        {
-            get => _groups ?? (_groups = new InputList<string>());
-            set => _groups = value;
-        }
-
-        /// <summary>
-        /// The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
-        /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
-
-        /// <summary>
-        /// The username of the user.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
-
-        public BrokerUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class BrokerConfiguration
-    {
-        /// <summary>
-        /// The Configuration ID.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Revision of the Configuration.
-        /// </summary>
-        public readonly int Revision;
-
-        [OutputConstructor]
-        private BrokerConfiguration(
-            string id,
-            int revision)
-        {
-            Id = id;
-            Revision = revision;
-        }
-    }
-
-    [OutputType]
-    public sealed class BrokerEncryptionOptions
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
-        /// </summary>
-        public readonly string KmsKeyId;
-        /// <summary>
-        /// Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
-        /// </summary>
-        public readonly bool? UseAwsOwnedKey;
-
-        [OutputConstructor]
-        private BrokerEncryptionOptions(
-            string kmsKeyId,
-            bool? useAwsOwnedKey)
-        {
-            KmsKeyId = kmsKeyId;
-            UseAwsOwnedKey = useAwsOwnedKey;
-        }
-    }
-
-    [OutputType]
-    public sealed class BrokerInstances
-    {
-        public readonly string ConsoleUrl;
-        public readonly ImmutableArray<string> Endpoints;
-        public readonly string IpAddress;
-
-        [OutputConstructor]
-        private BrokerInstances(
-            string consoleUrl,
-            ImmutableArray<string> endpoints,
-            string ipAddress)
-        {
-            ConsoleUrl = consoleUrl;
-            Endpoints = endpoints;
-            IpAddress = ipAddress;
-        }
-    }
-
-    [OutputType]
-    public sealed class BrokerLogs
-    {
-        /// <summary>
-        /// Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
-        /// </summary>
-        public readonly bool? Audit;
-        /// <summary>
-        /// Enables general logging via CloudWatch. Defaults to `false`.
-        /// </summary>
-        public readonly bool? General;
-
-        [OutputConstructor]
-        private BrokerLogs(
-            bool? audit,
-            bool? general)
-        {
-            Audit = audit;
-            General = general;
-        }
-    }
-
-    [OutputType]
-    public sealed class BrokerMaintenanceWindowStartTime
-    {
-        /// <summary>
-        /// The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
-        /// </summary>
-        public readonly string DayOfWeek;
-        /// <summary>
-        /// The time, in 24-hour format. e.g. `02:00`
-        /// </summary>
-        public readonly string TimeOfDay;
-        /// <summary>
-        /// The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
-        /// </summary>
-        public readonly string TimeZone;
-
-        [OutputConstructor]
-        private BrokerMaintenanceWindowStartTime(
-            string dayOfWeek,
-            string timeOfDay,
-            string timeZone)
-        {
-            DayOfWeek = dayOfWeek;
-            TimeOfDay = timeOfDay;
-            TimeZone = timeZone;
-        }
-    }
-
-    [OutputType]
-    public sealed class BrokerUsers
-    {
-        /// <summary>
-        /// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
-        /// </summary>
-        public readonly bool? ConsoleAccess;
-        /// <summary>
-        /// The list of groups (20 maximum) to which the ActiveMQ user belongs.
-        /// </summary>
-        public readonly ImmutableArray<string> Groups;
-        /// <summary>
-        /// The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
-        /// </summary>
-        public readonly string Password;
-        /// <summary>
-        /// The username of the user.
-        /// </summary>
-        public readonly string Username;
-
-        [OutputConstructor]
-        private BrokerUsers(
-            bool? consoleAccess,
-            ImmutableArray<string> groups,
-            string password,
-            string username)
-        {
-            ConsoleAccess = consoleAccess;
-            Groups = groups;
-            Password = password;
-            Username = username;
-        }
-    }
     }
 }

@@ -4,23 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
- * 
+ *
  * > **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const cloudwatchRole = new aws.iam.Role("cloudwatch", {
- *     assumeRolePolicy: `{
+ *
+ * const cloudwatchRole = new aws.iam.Role("cloudwatchRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -33,12 +31,10 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const demo = new aws.apigateway.Account("demo", {
- *     cloudwatchRoleArn: cloudwatchRole.arn,
- * });
- * const cloudwatchRolePolicy = new aws.iam.RolePolicy("cloudwatch", {
+ * `});
+ * const demo = new aws.apigateway.Account("demo", {cloudwatchRoleArn: cloudwatchRole.arn});
+ * const cloudwatchRolePolicy = new aws.iam.RolePolicy("cloudwatchRolePolicy", {
+ *     role: cloudwatchRole.id,
  *     policy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
@@ -58,11 +54,8 @@ import * as utilities from "../utilities";
  *     ]
  * }
  * `,
- *     role: cloudwatchRole.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_account.html.markdown.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -72,6 +65,7 @@ export class Account extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AccountState, opts?: pulumi.CustomResourceOptions): Account {
         return new Account(name, <any>state, { ...opts, id: id });

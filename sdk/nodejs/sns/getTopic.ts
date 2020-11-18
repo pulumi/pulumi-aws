@@ -2,29 +2,28 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the ARN of a topic in AWS Simple Notification
  * Service (SNS). By using this data source, you can reference SNS topics
  * without having to hard code the ARNs as input.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.sns.getTopic({
- *     name: "anExampleTopic",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sns_topic.html.markdown.
+ * const example = pulumi.output(aws.sns.getTopic({
+ *     name: "an_example_topic",
+ * }, { async: true }));
+ * ```
  */
-export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> & GetTopicResult {
+export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,11 +31,9 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetTopicResult> = pulumi.runtime.invoke("aws:sns/getTopic:getTopic", {
+    return pulumi.runtime.invoke("aws:sns/getTopic:getTopic", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -54,12 +51,12 @@ export interface GetTopicArgs {
  */
 export interface GetTopicResult {
     /**
-     * Set to the ARN of the found topic, suitable for referencing in other resources that support SNS topics.
+     * Amazon Resource Name (ARN) of the found topic, suitable for referencing in other resources that support SNS topics.
      */
     readonly arn: string;
-    readonly name: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

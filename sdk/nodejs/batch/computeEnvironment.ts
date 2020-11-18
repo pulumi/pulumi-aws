@@ -4,27 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
- * 
- * For information about AWS Batch, see [What is AWS Batch?][1] .
- * For information about compute environment, see [Compute Environments][2] .
- * 
+ *
+ * For information about AWS Batch, see [What is AWS Batch?](http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html) .
+ * For information about compute environment, see [Compute Environments](http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) .
+ *
  * > **Note:** To prevent a race condition during environment deletion, make sure to set `dependsOn` to the related `aws.iam.RolePolicyAttachment`;
- * otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
- * 
+ * otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const ecsInstanceRoleRole = new aws.iam.Role("ecsInstanceRole", {
- *     assumeRolePolicy: `{
+ *
+ * const ecsInstanceRoleRole = new aws.iam.Role("ecsInstanceRoleRole", {assumeRolePolicy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
  * 	{
@@ -36,17 +34,13 @@ import * as utilities from "../utilities";
  * 	}
  *     ]
  * }
- * `,
- * });
- * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecsInstanceRole", {
+ * `});
+ * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", {
+ *     role: ecsInstanceRoleRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
- *     role: ecsInstanceRoleRole.name,
  * });
- * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecsInstanceRole", {
- *     role: ecsInstanceRoleRole.name,
- * });
- * const awsBatchServiceRoleRole = new aws.iam.Role("awsBatchServiceRole", {
- *     assumeRolePolicy: `{
+ * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", {role: ecsInstanceRoleRole.name});
+ * const awsBatchServiceRoleRole = new aws.iam.Role("awsBatchServiceRoleRole", {assumeRolePolicy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
  * 	{
@@ -58,28 +52,26 @@ import * as utilities from "../utilities";
  * 	}
  *     ]
  * }
- * `,
- * });
- * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("awsBatchServiceRole", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
+ * `});
+ * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", {
  *     role: awsBatchServiceRoleRole.name,
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
  * });
- * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sample", {
+ * const sampleVpc = new aws.ec2.Vpc("sampleVpc", {cidrBlock: "10.1.0.0/16"});
+ * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sampleSecurityGroup", {
+ *     vpcId: sampleVpc.id,
  *     egress: [{
- *         cidrBlocks: ["0.0.0.0/0"],
  *         fromPort: 0,
- *         protocol: "-1",
  *         toPort: 0,
+ *         protocol: "-1",
+ *         cidrBlocks: ["0.0.0.0/0"],
  *     }],
  * });
- * const sampleVpc = new aws.ec2.Vpc("sample", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const sampleSubnet = new aws.ec2.Subnet("sample", {
- *     cidrBlock: "10.1.1.0/24",
+ * const sampleSubnet = new aws.ec2.Subnet("sampleSubnet", {
  *     vpcId: sampleVpc.id,
+ *     cidrBlock: "10.1.1.0/24",
  * });
- * const sampleComputeEnvironment = new aws.batch.ComputeEnvironment("sample", {
+ * const sampleComputeEnvironment = new aws.batch.ComputeEnvironment("sampleComputeEnvironment", {
  *     computeEnvironmentName: "sample",
  *     computeResources: {
  *         instanceRole: ecsInstanceRoleInstanceProfile.arn,
@@ -92,10 +84,10 @@ import * as utilities from "../utilities";
  *     },
  *     serviceRole: awsBatchServiceRoleRole.arn,
  *     type: "MANAGED",
- * }, {dependsOn: [awsBatchServiceRoleRolePolicyAttachment]});
+ * }, {
+ *     dependsOn: [awsBatchServiceRoleRolePolicyAttachment],
+ * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_compute_environment.html.markdown.
  */
 export class ComputeEnvironment extends pulumi.CustomResource {
     /**
@@ -105,6 +97,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ComputeEnvironmentState, opts?: pulumi.CustomResourceOptions): ComputeEnvironment {
         return new ComputeEnvironment(name, <any>state, { ...opts, id: id });
@@ -161,6 +154,10 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
+     * Key-value pair tags to be applied to resources that are launched in the compute environment.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The type of compute environment. Valid items are `EC2` or `SPOT`.
      */
     public readonly type!: pulumi.Output<string>;
@@ -186,6 +183,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["state"] = state ? state.state : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["statusReason"] = state ? state.statusReason : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ComputeEnvironmentArgs | undefined;
@@ -200,6 +198,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["computeResources"] = args ? args.computeResources : undefined;
             inputs["serviceRole"] = args ? args.serviceRole : undefined;
             inputs["state"] = args ? args.state : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ecsClusterArn"] = undefined /*out*/;
@@ -258,6 +257,10 @@ export interface ComputeEnvironmentState {
      */
     readonly statusReason?: pulumi.Input<string>;
     /**
+     * Key-value pair tags to be applied to resources that are launched in the compute environment.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The type of compute environment. Valid items are `EC2` or `SPOT`.
      */
     readonly type?: pulumi.Input<string>;
@@ -287,6 +290,10 @@ export interface ComputeEnvironmentArgs {
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
     readonly state?: pulumi.Input<string>;
+    /**
+     * Key-value pair tags to be applied to resources that are launched in the compute environment.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of compute environment. Valid items are `EC2` or `SPOT`.
      */

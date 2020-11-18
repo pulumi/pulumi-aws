@@ -6,10 +6,31 @@ package mediastore
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a MediaStore Container.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/mediastore"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := mediastore.NewContainer(ctx, "example", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Container struct {
 	pulumi.CustomResourceState
 
@@ -19,8 +40,8 @@ type Container struct {
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewContainer registers a new resource with the given unique name, arguments, and options.
@@ -57,8 +78,8 @@ type containerState struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ContainerState struct {
@@ -68,8 +89,8 @@ type ContainerState struct {
 	Endpoint pulumi.StringPtrInput
 	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ContainerState) ElementType() reflect.Type {
@@ -79,16 +100,16 @@ func (ContainerState) ElementType() reflect.Type {
 type containerArgs struct {
 	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Container resource.
 type ContainerArgs struct {
 	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ContainerArgs) ElementType() reflect.Type {

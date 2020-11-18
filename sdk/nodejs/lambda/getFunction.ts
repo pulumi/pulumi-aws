@@ -4,30 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides information about a Lambda Function.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const functionName = config.require("functionName");
- * 
  * const existing = aws.lambda.getFunction({
  *     functionName: functionName,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
  */
-export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> & GetFunctionResult {
+export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
     if (!opts) {
         opts = {}
     }
@@ -35,13 +31,11 @@ export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetFunctionResult> = pulumi.runtime.invoke("aws:lambda/getFunction:getFunction", {
+    return pulumi.runtime.invoke("aws:lambda/getFunction:getFunction", {
         "functionName": args.functionName,
         "qualifier": args.qualifier,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -56,7 +50,7 @@ export interface GetFunctionArgs {
      * Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
      */
     readonly qualifier?: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -79,11 +73,19 @@ export interface GetFunctionResult {
      * The Lambda environment's configuration settings.
      */
     readonly environment: outputs.lambda.GetFunctionEnvironment;
+    /**
+     * The connection settings for an Amazon EFS file system.
+     */
+    readonly fileSystemConfigs: outputs.lambda.GetFunctionFileSystemConfig[];
     readonly functionName: string;
     /**
      * The function entrypoint in your code.
      */
     readonly handler: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     /**
      * The ARN to be used for invoking Lambda Function from API Gateway.
      */
@@ -129,7 +131,7 @@ export interface GetFunctionResult {
      * The size in bytes of the function .zip file.
      */
     readonly sourceCodeSize: number;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The function execution time at which Lambda should terminate the function.
      */
@@ -146,8 +148,4 @@ export interface GetFunctionResult {
      * VPC configuration associated with your Lambda function.
      */
     readonly vpcConfig: outputs.lambda.GetFunctionVpcConfig;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -4,15 +4,39 @@
 package aws
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// `.getRegion` provides details about a specific AWS region.
+// `getRegion` provides details about a specific AWS region.
 //
 // As well as validating a given region name this resource can be used to
 // discover the name of the region configured within the provider. The latter
 // can be useful in a child module which is inheriting an AWS provider
 // configuration from its parent module.
+//
+// ## Example Usage
+//
+// The following example shows how the resource might be used to obtain
+// the name of the AWS region configured on the provider.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := aws.GetRegion(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetRegion(ctx *pulumi.Context, args *GetRegionArgs, opts ...pulumi.InvokeOption) (*GetRegionResult, error) {
 	var rv GetRegionResult
 	err := ctx.Invoke("aws:index/getRegion:getRegion", args, &rv, opts...)
@@ -36,7 +60,7 @@ type GetRegionResult struct {
 	Description string `pulumi:"description"`
 	// The EC2 endpoint for the selected region.
 	Endpoint string `pulumi:"endpoint"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the selected region.
 	Name string `pulumi:"name"`

@@ -4,9 +4,57 @@
 package rds
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Example Usage
+//
+// List the event categories of all the RDS resources.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleEventCategories, err := rds.GetEventCategories(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("example", exampleEventCategories.EventCategories)
+// 		return nil
+// 	})
+// }
+// ```
+//
+// List the event categories specific to the RDS resource `db-snapshot`.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "db-snapshot"
+// 		exampleEventCategories, err := rds.GetEventCategories(ctx, &rds.GetEventCategoriesArgs{
+// 			SourceType: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("example", exampleEventCategories.EventCategories)
+// 		return nil
+// 	})
+// }
+// ```
 func GetEventCategories(ctx *pulumi.Context, args *GetEventCategoriesArgs, opts ...pulumi.InvokeOption) (*GetEventCategoriesResult, error) {
 	var rv GetEventCategoriesResult
 	err := ctx.Invoke("aws:rds/getEventCategories:getEventCategories", args, &rv, opts...)
@@ -26,7 +74,7 @@ type GetEventCategoriesArgs struct {
 type GetEventCategoriesResult struct {
 	// A list of the event categories.
 	EventCategories []string `pulumi:"eventCategories"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id         string  `pulumi:"id"`
 	SourceType *string `pulumi:"sourceType"`
 }

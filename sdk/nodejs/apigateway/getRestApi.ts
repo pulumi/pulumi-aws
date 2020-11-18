@@ -4,30 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the id and rootResourceId of a REST API in
- * API Gateway. To fetch the REST API you must provide a name to match against. 
- * As there is no unique name constraint on REST APIs this data source will 
+ * API Gateway. To fetch the REST API you must provide a name to match against.
+ * As there is no unique name constraint on REST APIs this data source will
  * error if there is more than one match.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const myRestApi = aws.apigateway.getRestApi({
- *     name: "my-rest-api",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
+ * const myRestApi = pulumi.output(aws.apigateway.getRestApi({
+ *     name: "my-rest-api",
+ * }, { async: true }));
+ * ```
  */
-export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> & GetRestApiResult {
+export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> {
     if (!opts) {
         opts = {}
     }
@@ -35,12 +32,10 @@ export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRestApiResult> = pulumi.runtime.invoke("aws:apigateway/getRestApi:getRestApi", {
+    return pulumi.runtime.invoke("aws:apigateway/getRestApi:getRestApi", {
         "name": args.name,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -52,9 +47,9 @@ export interface GetRestApiArgs {
      */
     readonly name: string;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -82,9 +77,13 @@ export interface GetRestApiResult {
      */
     readonly endpointConfigurations: outputs.apigateway.GetRestApiEndpointConfiguration[];
     /**
-     * The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+     * The execution ARN part to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      */
     readonly executionArn: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     /**
      * Minimum response size to compress for the REST API.
      */
@@ -99,11 +98,7 @@ export interface GetRestApiResult {
      */
     readonly rootResourceId: string;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
+    readonly tags: {[key: string]: string};
 }

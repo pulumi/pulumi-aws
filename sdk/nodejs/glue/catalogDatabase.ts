@@ -6,21 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("aws.glue.CatalogDatabase", {
+ *
+ * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("aws_glue_catalog_database", {
  *     name: "MyCatalogDatabase",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_database.html.markdown.
  */
 export class CatalogDatabase extends pulumi.CustomResource {
     /**
@@ -30,6 +26,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CatalogDatabaseState, opts?: pulumi.CustomResourceOptions): CatalogDatabase {
         return new CatalogDatabase(name, <any>state, { ...opts, id: id });
@@ -49,6 +46,10 @@ export class CatalogDatabase extends pulumi.CustomResource {
         return obj['__pulumiType'] === CatalogDatabase.__pulumiType;
     }
 
+    /**
+     * The ARN of the Glue Catalog Database.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      */
@@ -82,6 +83,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as CatalogDatabaseState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["locationUri"] = state ? state.locationUri : undefined;
@@ -94,6 +96,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
             inputs["locationUri"] = args ? args.locationUri : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -110,6 +113,10 @@ export class CatalogDatabase extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CatalogDatabase resources.
  */
 export interface CatalogDatabaseState {
+    /**
+     * The ARN of the Glue Catalog Database.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      */

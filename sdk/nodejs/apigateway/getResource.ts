@@ -4,32 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get the id of a Resource in API Gateway. 
- * To fetch the Resource, you must provide the REST API id as well as the full path.  
- * 
+ * Use this data source to get the id of a Resource in API Gateway.
+ * To fetch the Resource, you must provide the REST API id as well as the full path.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myRestApi = aws.apigateway.getRestApi({
  *     name: "my-rest-api",
  * });
- * const myResource = aws.apigateway.getResource({
- *     path: "/endpoint/path",
+ * const myResource = myRestApi.then(myRestApi => aws.apigateway.getResource({
  *     restApiId: myRestApi.id,
- * });
+ *     path: "/endpoint/path",
+ * }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.
  */
-export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> & GetResourceResult {
+export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
     if (!opts) {
         opts = {}
     }
@@ -37,12 +34,10 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetResourceResult> = pulumi.runtime.invoke("aws:apigateway/getResource:getResource", {
+    return pulumi.runtime.invoke("aws:apigateway/getResource:getResource", {
         "path": args.path,
         "restApiId": args.restApiId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -64,6 +59,10 @@ export interface GetResourceArgs {
  */
 export interface GetResourceResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Set to the ID of the parent Resource.
      */
     readonly parentId: string;
@@ -73,8 +72,4 @@ export interface GetResourceResult {
      */
     readonly pathPart: string;
     readonly restApiId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

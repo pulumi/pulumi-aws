@@ -4,47 +4,45 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {InstanceType} from "./instanceType";
-import {StorageType} from "./storageType";
+import {InstanceType, StorageType} from "./index";
 
 /**
  * Provides an RDS instance resource.  A DB instance is an isolated database
  * environment in the cloud.  A DB instance can contain multiple user-created
  * databases.
- * 
+ *
  * Changes to a DB instance can occur when you manually change a parameter, such as
  * `allocatedStorage`, and are reflected in the next maintenance window. Because
  * of this, this provider may report a difference in its planning phase because a
  * modification has not yet taken place. You can use the `applyImmediately` flag
  * to instruct the service to apply the change immediately (see documentation
  * below).
- * 
+ *
  * When upgrading the major version of an engine, `allowMajorVersionUpgrade`
  * must be set to `true`.
- * 
+ *
  * > **Note:** using `applyImmediately` can result in a brief downtime as the
  * server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
- * 
+ *
  * > **Note:** All arguments including the username and password will be stored in
- * the raw state as plain-text. [Read more about sensitive data in
- * state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ * the raw state as plain-text.
+ *
  * ## RDS Instance Class Types
- * 
+ *
  * Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
  * and Burstable Performance. For more information please read the AWS RDS documentation
  * about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
- * 
+ *
  * ## Example Usage
- * 
  * ### Basic Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultInstance = new aws.rds.Instance("default", {
  *     allocatedStorage: 20,
  *     engine: "mysql",
@@ -57,20 +55,19 @@ import {StorageType} from "./storageType";
  *     username: "foo",
  * });
  * ```
- * 
  * ### Storage Autoscaling
- * 
+ *
+ * To enable Storage Autoscaling with instances that support the feature, define the `maxAllocatedStorage` argument higher than the `allocatedStorage` argument. This provider will automatically hide differences with the `allocatedStorage` argument value if autoscaling occurs.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.rds.Instance("example", {
  *     allocatedStorage: 50,
  *     maxAllocatedStorage: 100,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -80,6 +77,7 @@ export class Instance extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: InstanceState, opts?: pulumi.CustomResourceOptions): Instance {
         return new Instance(name, <any>state, { ...opts, id: id });
@@ -151,10 +149,9 @@ export class Instance extends pulumi.CustomResource {
     public readonly caCertIdentifier!: pulumi.Output<string>;
     /**
      * The character set name to use for DB
-     * encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-     * Supported in Amazon
-     * RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-     * for more information.
+     * encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+     * or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
      */
     public readonly characterSetName!: pulumi.Output<string>;
     /**
@@ -162,7 +159,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
     /**
-     * Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
+     * Name of `DB subnet group`. DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
      * be created in the `default` VPC, or in EC2 Classic, if available. When working
      * with read replicas, it should be specified only if the source database
@@ -188,7 +185,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly domainIamRoleName!: pulumi.Output<string | undefined>;
     /**
-     * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
      */
     public readonly enabledCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
@@ -198,7 +195,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
+     * Note that for Amazon Aurora instances the engine must match the `DB cluster`'s engine'.
      * For information on the difference between the available Aurora MySQL engines
      * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
      * in the Amazon RDS User Guide.
@@ -209,7 +206,7 @@ export class Instance extends pulumi.CustomResource {
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
      * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+     * Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -253,6 +250,10 @@ export class Instance extends pulumi.CustomResource {
      * encrypted replica, set this to the destination KMS ARN.
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
+    /**
+     * The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
+     */
+    public /*out*/ readonly latestRestorableTime!: pulumi.Output<string>;
     /**
      * (Optional, but required for some DB engines, i.e. Oracle
      * SE1) License model information for this DB instance.
@@ -333,7 +334,9 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Specifies that this resource is a Replicate
      * database, and to use this value as the source database. This correlates to the
-     * `identifier` of another Amazon RDS Database to replicate. Note that if you are
+     * `identifier` of another Amazon RDS Database to replicate (if replicating within
+     * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+     * cross-region). Note that if you are
      * creating a cross-region replica of an encrypted database you will also need to
      * specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
      * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
@@ -344,6 +347,10 @@ export class Instance extends pulumi.CustomResource {
      * The RDS Resource ID of this instance.
      */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    /**
+     * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+     */
+    public readonly restoreToPointInTime!: pulumi.Output<outputs.rds.InstanceRestoreToPointInTime | undefined>;
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
@@ -386,9 +393,9 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly storageType!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Time zone of the DB instance. `timezone` is currently
      * only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -449,6 +456,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["instanceClass"] = state ? state.instanceClass : undefined;
             inputs["iops"] = state ? state.iops : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            inputs["latestRestorableTime"] = state ? state.latestRestorableTime : undefined;
             inputs["licenseModel"] = state ? state.licenseModel : undefined;
             inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             inputs["maxAllocatedStorage"] = state ? state.maxAllocatedStorage : undefined;
@@ -467,6 +475,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["replicas"] = state ? state.replicas : undefined;
             inputs["replicateSourceDb"] = state ? state.replicateSourceDb : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
+            inputs["restoreToPointInTime"] = state ? state.restoreToPointInTime : undefined;
             inputs["s3Import"] = state ? state.s3Import : undefined;
             inputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
             inputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
@@ -524,6 +533,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["port"] = args ? args.port : undefined;
             inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             inputs["replicateSourceDb"] = args ? args.replicateSourceDb : undefined;
+            inputs["restoreToPointInTime"] = args ? args.restoreToPointInTime : undefined;
             inputs["s3Import"] = args ? args.s3Import : undefined;
             inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
             inputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
@@ -538,6 +548,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["hostedZoneId"] = undefined /*out*/;
+            inputs["latestRestorableTime"] = undefined /*out*/;
             inputs["replicas"] = undefined /*out*/;
             inputs["resourceId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
@@ -609,10 +620,9 @@ export interface InstanceState {
     readonly caCertIdentifier?: pulumi.Input<string>;
     /**
      * The character set name to use for DB
-     * encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-     * Supported in Amazon
-     * RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-     * for more information.
+     * encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+     * or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
      */
     readonly characterSetName?: pulumi.Input<string>;
     /**
@@ -620,7 +630,7 @@ export interface InstanceState {
      */
     readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
-     * Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
+     * Name of `DB subnet group`. DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
      * be created in the `default` VPC, or in EC2 Classic, if available. When working
      * with read replicas, it should be specified only if the source database
@@ -646,7 +656,7 @@ export interface InstanceState {
      */
     readonly domainIamRoleName?: pulumi.Input<string>;
     /**
-     * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -656,7 +666,7 @@ export interface InstanceState {
     /**
      * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
+     * Note that for Amazon Aurora instances the engine must match the `DB cluster`'s engine'.
      * For information on the difference between the available Aurora MySQL engines
      * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
      * in the Amazon RDS User Guide.
@@ -667,7 +677,7 @@ export interface InstanceState {
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
      * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+     * Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
@@ -711,6 +721,10 @@ export interface InstanceState {
      * encrypted replica, set this to the destination KMS ARN.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
+     */
+    readonly latestRestorableTime?: pulumi.Input<string>;
     /**
      * (Optional, but required for some DB engines, i.e. Oracle
      * SE1) License model information for this DB instance.
@@ -791,7 +805,9 @@ export interface InstanceState {
     /**
      * Specifies that this resource is a Replicate
      * database, and to use this value as the source database. This correlates to the
-     * `identifier` of another Amazon RDS Database to replicate. Note that if you are
+     * `identifier` of another Amazon RDS Database to replicate (if replicating within
+     * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+     * cross-region). Note that if you are
      * creating a cross-region replica of an encrypted database you will also need to
      * specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
      * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
@@ -802,6 +818,10 @@ export interface InstanceState {
      * The RDS Resource ID of this instance.
      */
     readonly resourceId?: pulumi.Input<string>;
+    /**
+     * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+     */
+    readonly restoreToPointInTime?: pulumi.Input<inputs.rds.InstanceRestoreToPointInTime>;
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
@@ -844,9 +864,9 @@ export interface InstanceState {
      */
     readonly storageType?: pulumi.Input<string | StorageType>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Time zone of the DB instance. `timezone` is currently
      * only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -915,10 +935,9 @@ export interface InstanceArgs {
     readonly caCertIdentifier?: pulumi.Input<string>;
     /**
      * The character set name to use for DB
-     * encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-     * Supported in Amazon
-     * RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-     * for more information.
+     * encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+     * or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
      */
     readonly characterSetName?: pulumi.Input<string>;
     /**
@@ -926,7 +945,7 @@ export interface InstanceArgs {
      */
     readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
-     * Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
+     * Name of `DB subnet group`. DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
      * be created in the `default` VPC, or in EC2 Classic, if available. When working
      * with read replicas, it should be specified only if the source database
@@ -952,13 +971,13 @@ export interface InstanceArgs {
      */
     readonly domainIamRoleName?: pulumi.Input<string>;
     /**
-     * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
+     * Note that for Amazon Aurora instances the engine must match the `DB cluster`'s engine'.
      * For information on the difference between the available Aurora MySQL engines
      * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
      * in the Amazon RDS User Guide.
@@ -969,7 +988,7 @@ export interface InstanceArgs {
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
      * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+     * Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
@@ -1087,13 +1106,19 @@ export interface InstanceArgs {
     /**
      * Specifies that this resource is a Replicate
      * database, and to use this value as the source database. This correlates to the
-     * `identifier` of another Amazon RDS Database to replicate. Note that if you are
+     * `identifier` of another Amazon RDS Database to replicate (if replicating within
+     * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+     * cross-region). Note that if you are
      * creating a cross-region replica of an encrypted database you will also need to
      * specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
      * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
      * for more information on using Replication.
      */
     readonly replicateSourceDb?: pulumi.Input<string>;
+    /**
+     * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+     */
+    readonly restoreToPointInTime?: pulumi.Input<inputs.rds.InstanceRestoreToPointInTime>;
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
@@ -1132,9 +1157,9 @@ export interface InstanceArgs {
      */
     readonly storageType?: pulumi.Input<string | StorageType>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Time zone of the DB instance. `timezone` is currently
      * only supported by Microsoft SQL Server. The `timezone` can only be set on

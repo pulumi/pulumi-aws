@@ -7,14 +7,142 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Associates a Direct Connect Gateway with a VGW or transit gateway.
 //
-// To create a cross-account association, create an [`directconnect.GatewayAssociationProposal` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal.html)
+// To create a cross-account association, create an `directconnect.GatewayAssociationProposal` resource
 // in the AWS account that owns the VGW or transit gateway and then accept the proposal in the AWS account that owns the Direct Connect Gateway
 // by creating an `directconnect.GatewayAssociation` resource with the `proposalId` and `associatedGatewayOwnerAccountId` attributes set.
+//
+// ## Example Usage
+// ### VPN Gateway Association
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/directconnect"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
+// 			AmazonSideAsn: pulumi.String("64512"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.255.255.0/28"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVpnGateway, err := ec2.NewVpnGateway(ctx, "exampleVpnGateway", &ec2.VpnGatewayArgs{
+// 			VpcId: exampleVpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
+// 			DxGatewayId:         exampleGateway.ID(),
+// 			AssociatedGatewayId: exampleVpnGateway.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Transit Gateway Association
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/directconnect"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2transitgateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
+// 			AmazonSideAsn: pulumi.String("64512"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
+// 			DxGatewayId:         exampleGateway.ID(),
+// 			AssociatedGatewayId: exampleTransitGateway.ID(),
+// 			AllowedPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.255.255.0/30"),
+// 				pulumi.String("10.255.255.8/30"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Allowed Prefixes
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/directconnect"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
+// 			AmazonSideAsn: pulumi.String("64512"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.255.255.0/28"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVpnGateway, err := ec2.NewVpnGateway(ctx, "exampleVpnGateway", &ec2.VpnGatewayArgs{
+// 			VpcId: exampleVpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
+// 			DxGatewayId:         exampleGateway.ID(),
+// 			AssociatedGatewayId: exampleVpnGateway.ID(),
+// 			AllowedPrefixes: pulumi.StringArray{
+// 				pulumi.String("210.52.109.0/24"),
+// 				pulumi.String("175.45.176.0/22"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type GatewayAssociation struct {
 	pulumi.CustomResourceState
 
@@ -37,9 +165,6 @@ type GatewayAssociation struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrOutput `pulumi:"proposalId"`
-	// *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
-	// Used for single account Direct Connect gateway associations.
-	VpnGatewayId pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
 }
 
 // NewGatewayAssociation registers a new resource with the given unique name, arguments, and options.
@@ -92,9 +217,6 @@ type gatewayAssociationState struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId *string `pulumi:"proposalId"`
-	// *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
-	// Used for single account Direct Connect gateway associations.
-	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 type GatewayAssociationState struct {
@@ -117,9 +239,6 @@ type GatewayAssociationState struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrInput
-	// *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
-	// Used for single account Direct Connect gateway associations.
-	VpnGatewayId pulumi.StringPtrInput
 }
 
 func (GatewayAssociationState) ElementType() reflect.Type {
@@ -140,9 +259,6 @@ type gatewayAssociationArgs struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId *string `pulumi:"proposalId"`
-	// *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
-	// Used for single account Direct Connect gateway associations.
-	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 // The set of arguments for constructing a GatewayAssociation resource.
@@ -160,9 +276,6 @@ type GatewayAssociationArgs struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrInput
-	// *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
-	// Used for single account Direct Connect gateway associations.
-	VpnGatewayId pulumi.StringPtrInput
 }
 
 func (GatewayAssociationArgs) ElementType() reflect.Type {

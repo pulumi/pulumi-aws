@@ -4,40 +4,34 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The VPC Peering Connection data source provides details about
  * a specific VPC peering connection.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * // Declare the data source
- * const pc = aws_vpc_foo.id.apply(id => aws.ec2.getVpcPeeringConnection({
+ *
+ * const pc = aws.ec2.getVpcPeeringConnection({
+ *     vpcId: aws_vpc.foo.id,
  *     peerCidrBlock: "10.0.1.0/22",
- *     vpcId: id,
- * }));
- * // Create a route table
- * const rt = new aws.ec2.RouteTable("rt", {
- *     vpcId: aws_vpc_foo.id,
  * });
+ * // Create a route table
+ * const rt = new aws.ec2.RouteTable("rt", {vpcId: aws_vpc.foo.id});
  * // Create a route
- * const route = new aws.ec2.Route("r", {
- *     destinationCidrBlock: pc.peerCidrBlock!,
+ * const route = new aws.ec2.Route("route", {
  *     routeTableId: rt.id,
- *     vpcPeeringConnectionId: pc.id!,
+ *     destinationCidrBlock: pc.then(pc => pc.peerCidrBlock),
+ *     vpcPeeringConnectionId: pc.then(pc => pc.id),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
  */
-export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionResult> & GetVpcPeeringConnectionResult {
+export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -46,7 +40,7 @@ export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetVpcPeeringConnectionResult> = pulumi.runtime.invoke("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", {
+    return pulumi.runtime.invoke("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", {
         "cidrBlock": args.cidrBlock,
         "filters": args.filters,
         "id": args.id,
@@ -60,8 +54,6 @@ export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -109,10 +101,10 @@ export interface GetVpcPeeringConnectionArgs {
      */
     readonly status?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The ID of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
@@ -125,7 +117,7 @@ export interface GetVpcPeeringConnectionArgs {
 export interface GetVpcPeeringConnectionResult {
     /**
      * A configuration block that describes [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
     readonly accepter: {[key: string]: boolean};
     readonly cidrBlock: string;
@@ -139,10 +131,10 @@ export interface GetVpcPeeringConnectionResult {
     readonly region: string;
     /**
      * A configuration block that describes [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
     readonly requester: {[key: string]: boolean};
     readonly status: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }

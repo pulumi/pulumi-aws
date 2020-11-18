@@ -4,10 +4,111 @@
 package aws
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `ec2.Eip` provides details about a specific Elastic IP.
+//
+// ## Example Usage
+// ### Search By Allocation ID (VPC only)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "eipalloc-12345678"
+// 		_, err := aws.GetElasticIp(ctx, &aws.GetElasticIpArgs{
+// 			Id: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Search By Filters (EC2-Classic or VPC)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := aws.GetElasticIp(ctx, &aws.GetElasticIpArgs{
+// 			Filters: []aws.GetElasticIpFilter{
+// 				aws.GetElasticIpFilter{
+// 					Name: "tag:Name",
+// 					Values: []string{
+// 						"exampleNameTagValue",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Search By Public IP (EC2-Classic or VPC)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "1.2.3.4"
+// 		_, err := aws.GetElasticIp(ctx, &aws.GetElasticIpArgs{
+// 			PublicIp: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Search By Tags (EC2-Classic or VPC)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := aws.GetElasticIp(ctx, &aws.GetElasticIpArgs{
+// 			Tags: map[string]interface{}{
+// 				"Name": "exampleNameTagValue",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs, opts ...pulumi.InvokeOption) (*GetElasticIpResult, error) {
 	var rv GetElasticIpResult
 	err := ctx.Invoke("aws:index/getElasticIp:getElasticIp", args, &rv, opts...)
@@ -25,14 +126,18 @@ type GetElasticIpArgs struct {
 	Id *string `pulumi:"id"`
 	// The public IP of the specific EIP to retrieve.
 	PublicIp *string `pulumi:"publicIp"`
-	// A mapping of tags, each pair of which must exactly match a pair on the desired Elastic IP
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getElasticIp.
 type GetElasticIpResult struct {
 	// The ID representing the association of the address with an instance in a VPC.
 	AssociationId string `pulumi:"associationId"`
+	// Customer Owned IP.
+	CustomerOwnedIp string `pulumi:"customerOwnedIp"`
+	// The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+	CustomerOwnedIpv4Pool string `pulumi:"customerOwnedIpv4Pool"`
 	// Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
 	Domain  string               `pulumi:"domain"`
 	Filters []GetElasticIpFilter `pulumi:"filters"`
@@ -55,5 +160,5 @@ type GetElasticIpResult struct {
 	// The ID of an address pool.
 	PublicIpv4Pool string `pulumi:"publicIpv4Pool"`
 	// Key-value map of tags associated with Elastic IP.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

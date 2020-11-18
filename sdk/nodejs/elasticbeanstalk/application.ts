@@ -4,35 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic Beanstalk Application Resource. Elastic Beanstalk allows
  * you to deploy and manage applications in the AWS cloud without worrying about
  * the infrastructure that runs those applications.
- * 
+ *
  * This resource creates an application that has one configuration template named
  * `default`, and no application versions
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const tftest = new aws.elasticbeanstalk.Application("tftest", {
- *     appversionLifecycle: {
- *         deleteSourceFromS3: true,
- *         maxCount: 128,
- *         serviceRole: aws_iam_role_beanstalk_service.arn,
- *     },
  *     description: "tf-test-desc",
+ *     appversionLifecycle: {
+ *         serviceRole: aws_iam_role.beanstalk_service.arn,
+ *         maxCount: 128,
+ *         deleteSourceFromS3: true,
+ *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application.html.markdown.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -42,6 +39,7 @@ export class Application extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ApplicationState, opts?: pulumi.CustomResourceOptions): Application {
         return new Application(name, <any>state, { ...opts, id: id });
@@ -75,9 +73,9 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Key-value mapping of tags for the Elastic Beanstalk Application.
+     * Key-value map of tags for the Elastic Beanstalk Application.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -133,9 +131,9 @@ export interface ApplicationState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value mapping of tags for the Elastic Beanstalk Application.
+     * Key-value map of tags for the Elastic Beanstalk Application.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -152,7 +150,7 @@ export interface ApplicationArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value mapping of tags for the Elastic Beanstalk Application.
+     * Key-value map of tags for the Elastic Beanstalk Application.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

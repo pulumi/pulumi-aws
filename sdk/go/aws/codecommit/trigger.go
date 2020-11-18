@@ -7,14 +7,48 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a CodeCommit Trigger Resource.
 //
-// > **NOTE on CodeCommit**: The CodeCommit is not yet rolled out
-// in all regions - available regions are listed
-// [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/codecommit"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testRepository, err := codecommit.NewRepository(ctx, "testRepository", &codecommit.RepositoryArgs{
+// 			RepositoryName: pulumi.String("test"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = codecommit.NewTrigger(ctx, "testTrigger", &codecommit.TriggerArgs{
+// 			RepositoryName: testRepository.RepositoryName,
+// 			Triggers: codecommit.TriggerTriggerArray{
+// 				&codecommit.TriggerTriggerArgs{
+// 					Name: pulumi.String("all"),
+// 					Events: pulumi.StringArray{
+// 						pulumi.String("all"),
+// 					},
+// 					DestinationArn: pulumi.Any(aws_sns_topic.Test.Arn),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Trigger struct {
 	pulumi.CustomResourceState
 

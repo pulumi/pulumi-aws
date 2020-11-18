@@ -6,9 +6,31 @@ package servicediscovery
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/servicediscovery"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicediscovery.NewHttpNamespace(ctx, "example", &servicediscovery.HttpNamespaceArgs{
+// 			Description: pulumi.String("example"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type HttpNamespace struct {
 	pulumi.CustomResourceState
 
@@ -18,6 +40,8 @@ type HttpNamespace struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the http namespace.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A map of tags to assign to the namespace.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewHttpNamespace registers a new resource with the given unique name, arguments, and options.
@@ -54,6 +78,8 @@ type httpNamespaceState struct {
 	Description *string `pulumi:"description"`
 	// The name of the http namespace.
 	Name *string `pulumi:"name"`
+	// A map of tags to assign to the namespace.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type HttpNamespaceState struct {
@@ -63,6 +89,8 @@ type HttpNamespaceState struct {
 	Description pulumi.StringPtrInput
 	// The name of the http namespace.
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the namespace.
+	Tags pulumi.StringMapInput
 }
 
 func (HttpNamespaceState) ElementType() reflect.Type {
@@ -74,6 +102,8 @@ type httpNamespaceArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the http namespace.
 	Name *string `pulumi:"name"`
+	// A map of tags to assign to the namespace.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HttpNamespace resource.
@@ -82,6 +112,8 @@ type HttpNamespaceArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the http namespace.
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the namespace.
+	Tags pulumi.StringMapInput
 }
 
 func (HttpNamespaceArgs) ElementType() reflect.Type {

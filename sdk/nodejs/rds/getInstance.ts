@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an RDS instance
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const database = aws.rds.getInstance({
- *     dbInstanceIdentifier: "my-test-database",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_instance.html.markdown.
+ * const database = pulumi.output(aws.rds.getInstance({
+ *     dbInstanceIdentifier: "my-test-database",
+ * }, { async: true }));
+ * ```
  */
-export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> & GetInstanceResult {
+export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,12 +29,10 @@ export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetInstanceResult> = pulumi.runtime.invoke("aws:rds/getInstance:getInstance", {
+    return pulumi.runtime.invoke("aws:rds/getInstance:getInstance", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -48,7 +43,7 @@ export interface GetInstanceArgs {
      * The name of the RDS instance
      */
     readonly dbInstanceIdentifier: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -133,6 +128,10 @@ export interface GetInstanceResult {
      */
     readonly hostedZoneId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Specifies the Provisioned IOPS (I/O operations per second) value.
      */
     readonly iops: number;
@@ -196,7 +195,7 @@ export interface GetInstanceResult {
      * Specifies the storage type associated with DB instance.
      */
     readonly storageType: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The time zone of the DB instance.
      */
@@ -205,8 +204,4 @@ export interface GetInstanceResult {
      * Provides a list of VPC security group elements that the DB instance belongs to.
      */
     readonly vpcSecurityGroups: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

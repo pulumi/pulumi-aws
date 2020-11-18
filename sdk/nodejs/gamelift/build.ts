@@ -4,13 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an Gamelift Build resource.
- * 
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_build.html.markdown.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.gamelift.Build("test", {
+ *     operatingSystem: "WINDOWS_2012",
+ *     storageLocation: {
+ *         bucket: aws_s3_bucket.test.bucket,
+ *         key: aws_s3_bucket_object.test.key,
+ *         roleArn: aws_iam_role.test.arn,
+ *     },
+ * }, {
+ *     dependsOn: [aws_iam_role_policy.test],
+ * });
+ * ```
  */
 export class Build extends pulumi.CustomResource {
     /**
@@ -20,6 +36,7 @@ export class Build extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BuildState, opts?: pulumi.CustomResourceOptions): Build {
         return new Build(name, <any>state, { ...opts, id: id });
@@ -56,9 +73,9 @@ export class Build extends pulumi.CustomResource {
      */
     public readonly storageLocation!: pulumi.Output<outputs.gamelift.BuildStorageLocation>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Version that is associated with this build.
      */
@@ -129,9 +146,9 @@ export interface BuildState {
      */
     readonly storageLocation?: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version that is associated with this build.
      */
@@ -155,9 +172,9 @@ export interface BuildArgs {
      */
     readonly storageLocation: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version that is associated with this build.
      */

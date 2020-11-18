@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an Elasticache Cluster
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const myCluster = aws.elasticache.getCluster({
- *     clusterId: "my-cluster-id",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_cluster.html.markdown.
+ * const myCluster = pulumi.output(aws.elasticache.getCluster({
+ *     clusterId: "my-cluster-id",
+ * }, { async: true }));
+ * ```
  */
-export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,12 +29,10 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetClusterResult> = pulumi.runtime.invoke("aws:elasticache/getCluster:getCluster", {
+    return pulumi.runtime.invoke("aws:elasticache/getCluster:getCluster", {
         "clusterId": args.clusterId,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -51,7 +46,7 @@ export interface GetClusterArgs {
     /**
      * The tags assigned to the resource
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -85,6 +80,10 @@ export interface GetClusterResult {
      * Version number of the cache engine.
      */
     readonly engineVersion: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed.
@@ -141,9 +140,5 @@ export interface GetClusterResult {
     /**
      * The tags assigned to the resource
      */
-    readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
+    readonly tags: {[key: string]: string};
 }

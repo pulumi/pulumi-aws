@@ -2,27 +2,23 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * The following example below creates a CloudFront public key.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
+ * import * from "fs";
+ *
  * const example = new aws.cloudfront.PublicKey("example", {
  *     comment: "test public key",
- *     encodedKey: fs.readFileSync("public_key.pem", "utf-8"),
+ *     encodedKey: fs.readFileSync("public_key.pem"),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_public_key.html.markdown.
  */
 export class PublicKey extends pulumi.CustomResource {
     /**
@@ -32,6 +28,7 @@ export class PublicKey extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PublicKeyState, opts?: pulumi.CustomResourceOptions): PublicKey {
         return new PublicKey(name, <any>state, { ...opts, id: id });

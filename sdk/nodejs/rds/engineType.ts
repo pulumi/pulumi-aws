@@ -12,11 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export let AuroraEngine:           EngineType = "aurora";
-export let AuroraMysqlEngine:      EngineType = "aurora-mysql";
-export let AuroraPostgresqlEngine: EngineType = "aurora-postgresql";
+// This file contains individual constants for each RDS Engine type.
+//
+// These constants will not be updated with new values.
+// It is recommended to use EngineType.[Value] instead.
 
-export type EngineType =
-    "aurora"            |
-    "aurora-mysql"      |
-    "aurora-postgresql" ;
+import {EngineType} from ".";
+
+/** Use EngineType.Aurora instead. */
+export let AuroraEngine:           EngineType = "aurora";
+/** Use EngineType.AuroraMysql instead. */
+export let AuroraMysqlEngine:      EngineType = "aurora-mysql";
+/** Use EngineType.AuroraPostgresql instead. */
+export let AuroraPostgresqlEngine: EngineType = "aurora-postgresql";

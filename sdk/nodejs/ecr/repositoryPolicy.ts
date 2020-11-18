@@ -2,27 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "../iam/documents";
+import {PolicyDocument} from "../iam";
 
 /**
  * Provides an Elastic Container Registry Repository Policy.
- * 
+ *
  * Note that currently only one policy may be applied to a repository.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ecr.Repository("foo", {});
  * const foopolicy = new aws.ecr.RepositoryPolicy("foopolicy", {
+ *     repository: foo.name,
  *     policy: `{
  *     "Version": "2008-10-17",
  *     "Statement": [
@@ -50,11 +47,8 @@ import {PolicyDocument} from "../iam/documents";
  *     ]
  * }
  * `,
- *     repository: foo.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository_policy.html.markdown.
  */
 export class RepositoryPolicy extends pulumi.CustomResource {
     /**
@@ -64,6 +58,7 @@ export class RepositoryPolicy extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RepositoryPolicyState, opts?: pulumi.CustomResourceOptions): RepositoryPolicy {
         return new RepositoryPolicy(name, <any>state, { ...opts, id: id });

@@ -7,17 +7,61 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an DocDB Cluster Resource Instance. A Cluster Instance Resource defines
-// attributes that are specific to a single instance in a [DocDB Cluster][1].
+// attributes that are specific to a single instance in a [DocDB Cluster](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html).
 //
 // You do not designate a primary and subsequent replicas. Instead, you simply add DocDB
-// Instances and DocDB manages the replication. You can use the [count][3]
+// Instances and DocDB manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/resources.html#count)
 // meta-parameter to make multiple instances and join them all to the same DocDB
 // Cluster, or you may specify different Cluster Instance resources with various
 // `instanceClass` sizes.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/docdb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := docdb.NewCluster(ctx, "_default", &docdb.ClusterArgs{
+// 			ClusterIdentifier: pulumi.String("docdb-cluster-demo"),
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-west-2a"),
+// 				pulumi.String("us-west-2b"),
+// 				pulumi.String("us-west-2c"),
+// 			},
+// 			MasterUsername: pulumi.String("foo"),
+// 			MasterPassword: pulumi.String("barbut8chars"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		var clusterInstances []*docdb.ClusterInstance
+// 		for key0, val0 := range 2 {
+// 			__res, err := docdb.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &docdb.ClusterInstanceArgs{
+// 				Identifier:        pulumi.String(fmt.Sprintf("%v%v", "docdb-cluster-demo-", val0)),
+// 				ClusterIdentifier: _default.ID(),
+// 				InstanceClass:     pulumi.String("db.r5.large"),
+// 			})
+// 			if err != nil {
+// 				return err
+// 			}
+// 			clusterInstances = append(clusterInstances, __res)
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ClusterInstance struct {
 	pulumi.CustomResourceState
 
@@ -32,7 +76,7 @@ type ClusterInstance struct {
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// (Optional) The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringOutput `pulumi:"caCertIdentifier"`
-	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// The DB subnet group to associate with this DB instance.
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
@@ -44,12 +88,12 @@ type ClusterInstance struct {
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The database engine version
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
-	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
-	// supports the below instance classes. Please see [AWS Documentation][4] for complete details.
+	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
+	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
 	// - db.r4.large
 	// - db.r4.xlarge
 	// - db.r4.2xlarge
@@ -71,8 +115,8 @@ type ClusterInstance struct {
 	PubliclyAccessible pulumi.BoolOutput   `pulumi:"publiclyAccessible"`
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the instance.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the instance.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolOutput `pulumi:"writer"`
 }
@@ -122,7 +166,7 @@ type clusterInstanceState struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// (Optional) The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
-	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// The DB subnet group to associate with this DB instance.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
@@ -134,12 +178,12 @@ type clusterInstanceState struct {
 	Engine *string `pulumi:"engine"`
 	// The database engine version
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
-	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
-	// supports the below instance classes. Please see [AWS Documentation][4] for complete details.
+	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
+	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
 	// - db.r4.large
 	// - db.r4.xlarge
 	// - db.r4.2xlarge
@@ -161,8 +205,8 @@ type clusterInstanceState struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the instance.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the instance.
+	Tags map[string]string `pulumi:"tags"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer *bool `pulumi:"writer"`
 }
@@ -179,7 +223,7 @@ type ClusterInstanceState struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// (Optional) The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
-	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringPtrInput
 	// The DB subnet group to associate with this DB instance.
 	DbSubnetGroupName pulumi.StringPtrInput
@@ -191,12 +235,12 @@ type ClusterInstanceState struct {
 	Engine pulumi.StringPtrInput
 	// The database engine version
 	EngineVersion pulumi.StringPtrInput
-	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
-	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
-	// supports the below instance classes. Please see [AWS Documentation][4] for complete details.
+	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
+	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
 	// - db.r4.large
 	// - db.r4.xlarge
 	// - db.r4.2xlarge
@@ -218,8 +262,8 @@ type ClusterInstanceState struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the instance.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the instance.
+	Tags pulumi.StringMapInput
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolPtrInput
 }
@@ -238,16 +282,16 @@ type clusterInstanceArgs struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// (Optional) The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
-	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine *string `pulumi:"engine"`
-	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
-	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
-	// supports the below instance classes. Please see [AWS Documentation][4] for complete details.
+	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
+	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
 	// - db.r4.large
 	// - db.r4.xlarge
 	// - db.r4.2xlarge
@@ -260,8 +304,8 @@ type clusterInstanceArgs struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
 	PromotionTier *int `pulumi:"promotionTier"`
-	// A mapping of tags to assign to the instance.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the instance.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterInstance resource.
@@ -275,16 +319,16 @@ type ClusterInstanceArgs struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// (Optional) The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
-	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringInput
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine pulumi.StringPtrInput
-	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
-	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
-	// supports the below instance classes. Please see [AWS Documentation][4] for complete details.
+	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
+	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
 	// - db.r4.large
 	// - db.r4.xlarge
 	// - db.r4.2xlarge
@@ -297,8 +341,8 @@ type ClusterInstanceArgs struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
 	PromotionTier pulumi.IntPtrInput
-	// A mapping of tags to assign to the instance.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the instance.
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterInstanceArgs) ElementType() reflect.Type {

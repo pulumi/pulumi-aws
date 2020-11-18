@@ -7,10 +7,13 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type DirectoryConnectSettings struct {
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// The IP addresses of the AD Connector servers.
+	ConnectIps []string `pulumi:"connectIps"`
 	// The DNS IP addresses of the domain to connect to.
 	CustomerDnsIps []string `pulumi:"customerDnsIps"`
 	// The username corresponding to the password provided.
@@ -21,6 +24,10 @@ type DirectoryConnectSettings struct {
 	VpcId string `pulumi:"vpcId"`
 }
 
+// DirectoryConnectSettingsInput is an input type that accepts DirectoryConnectSettingsArgs and DirectoryConnectSettingsOutput values.
+// You can construct a concrete instance of `DirectoryConnectSettingsInput` via:
+//
+//          DirectoryConnectSettingsArgs{...}
 type DirectoryConnectSettingsInput interface {
 	pulumi.Input
 
@@ -29,6 +36,9 @@ type DirectoryConnectSettingsInput interface {
 }
 
 type DirectoryConnectSettingsArgs struct {
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	// The IP addresses of the AD Connector servers.
+	ConnectIps pulumi.StringArrayInput `pulumi:"connectIps"`
 	// The DNS IP addresses of the domain to connect to.
 	CustomerDnsIps pulumi.StringArrayInput `pulumi:"customerDnsIps"`
 	// The username corresponding to the password provided.
@@ -59,6 +69,14 @@ func (i DirectoryConnectSettingsArgs) ToDirectoryConnectSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConnectSettingsOutput).ToDirectoryConnectSettingsPtrOutputWithContext(ctx)
 }
 
+// DirectoryConnectSettingsPtrInput is an input type that accepts DirectoryConnectSettingsArgs, DirectoryConnectSettingsPtr and DirectoryConnectSettingsPtrOutput values.
+// You can construct a concrete instance of `DirectoryConnectSettingsPtrInput` via:
+//
+//          DirectoryConnectSettingsArgs{...}
+//
+//  or:
+//
+//          nil
 type DirectoryConnectSettingsPtrInput interface {
 	pulumi.Input
 
@@ -107,6 +125,14 @@ func (o DirectoryConnectSettingsOutput) ToDirectoryConnectSettingsPtrOutputWithC
 		return &v
 	}).(DirectoryConnectSettingsPtrOutput)
 }
+func (o DirectoryConnectSettingsOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// The IP addresses of the AD Connector servers.
+func (o DirectoryConnectSettingsOutput) ConnectIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.ConnectIps }).(pulumi.StringArrayOutput)
+}
 
 // The DNS IP addresses of the domain to connect to.
 func (o DirectoryConnectSettingsOutput) CustomerDnsIps() pulumi.StringArrayOutput {
@@ -146,33 +172,77 @@ func (o DirectoryConnectSettingsPtrOutput) Elem() DirectoryConnectSettingsOutput
 	return o.ApplyT(func(v *DirectoryConnectSettings) DirectoryConnectSettings { return *v }).(DirectoryConnectSettingsOutput)
 }
 
+func (o DirectoryConnectSettingsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DirectoryConnectSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZones
+	}).(pulumi.StringArrayOutput)
+}
+
+// The IP addresses of the AD Connector servers.
+func (o DirectoryConnectSettingsPtrOutput) ConnectIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DirectoryConnectSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectIps
+	}).(pulumi.StringArrayOutput)
+}
+
 // The DNS IP addresses of the domain to connect to.
 func (o DirectoryConnectSettingsPtrOutput) CustomerDnsIps() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.CustomerDnsIps }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DirectoryConnectSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerDnsIps
+	}).(pulumi.StringArrayOutput)
 }
 
 // The username corresponding to the password provided.
-func (o DirectoryConnectSettingsPtrOutput) CustomerUsername() pulumi.StringOutput {
-	return o.ApplyT(func(v DirectoryConnectSettings) string { return v.CustomerUsername }).(pulumi.StringOutput)
+func (o DirectoryConnectSettingsPtrOutput) CustomerUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryConnectSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomerUsername
+	}).(pulumi.StringPtrOutput)
 }
 
 // The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 func (o DirectoryConnectSettingsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DirectoryConnectSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The identifier of the VPC that the directory is in.
-func (o DirectoryConnectSettingsPtrOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v DirectoryConnectSettings) string { return v.VpcId }).(pulumi.StringOutput)
+func (o DirectoryConnectSettingsPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryConnectSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 type DirectoryVpcSettings struct {
+	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The identifier of the VPC that the directory is in.
 	VpcId string `pulumi:"vpcId"`
 }
 
+// DirectoryVpcSettingsInput is an input type that accepts DirectoryVpcSettingsArgs and DirectoryVpcSettingsOutput values.
+// You can construct a concrete instance of `DirectoryVpcSettingsInput` via:
+//
+//          DirectoryVpcSettingsArgs{...}
 type DirectoryVpcSettingsInput interface {
 	pulumi.Input
 
@@ -181,6 +251,7 @@ type DirectoryVpcSettingsInput interface {
 }
 
 type DirectoryVpcSettingsArgs struct {
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// The identifier of the VPC that the directory is in.
@@ -207,6 +278,14 @@ func (i DirectoryVpcSettingsArgs) ToDirectoryVpcSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryVpcSettingsOutput).ToDirectoryVpcSettingsPtrOutputWithContext(ctx)
 }
 
+// DirectoryVpcSettingsPtrInput is an input type that accepts DirectoryVpcSettingsArgs, DirectoryVpcSettingsPtr and DirectoryVpcSettingsPtrOutput values.
+// You can construct a concrete instance of `DirectoryVpcSettingsPtrInput` via:
+//
+//          DirectoryVpcSettingsArgs{...}
+//
+//  or:
+//
+//          nil
 type DirectoryVpcSettingsPtrInput interface {
 	pulumi.Input
 
@@ -255,6 +334,9 @@ func (o DirectoryVpcSettingsOutput) ToDirectoryVpcSettingsPtrOutputWithContext(c
 		return &v
 	}).(DirectoryVpcSettingsPtrOutput)
 }
+func (o DirectoryVpcSettingsOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DirectoryVpcSettings) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
 
 // The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 func (o DirectoryVpcSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
@@ -284,17 +366,39 @@ func (o DirectoryVpcSettingsPtrOutput) Elem() DirectoryVpcSettingsOutput {
 	return o.ApplyT(func(v *DirectoryVpcSettings) DirectoryVpcSettings { return *v }).(DirectoryVpcSettingsOutput)
 }
 
+func (o DirectoryVpcSettingsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DirectoryVpcSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZones
+	}).(pulumi.StringArrayOutput)
+}
+
 // The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 func (o DirectoryVpcSettingsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DirectoryVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DirectoryVpcSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The identifier of the VPC that the directory is in.
-func (o DirectoryVpcSettingsPtrOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v DirectoryVpcSettings) string { return v.VpcId }).(pulumi.StringOutput)
+func (o DirectoryVpcSettingsPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryVpcSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetDirectoryConnectSetting struct {
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// The IP addresses of the AD Connector servers.
+	ConnectIps []string `pulumi:"connectIps"`
 	// The DNS IP addresses of the domain to connect to.
 	CustomerDnsIps []string `pulumi:"customerDnsIps"`
 	// The username corresponding to the password provided.
@@ -305,6 +409,10 @@ type GetDirectoryConnectSetting struct {
 	VpcId string `pulumi:"vpcId"`
 }
 
+// GetDirectoryConnectSettingInput is an input type that accepts GetDirectoryConnectSettingArgs and GetDirectoryConnectSettingOutput values.
+// You can construct a concrete instance of `GetDirectoryConnectSettingInput` via:
+//
+//          GetDirectoryConnectSettingArgs{...}
 type GetDirectoryConnectSettingInput interface {
 	pulumi.Input
 
@@ -313,6 +421,9 @@ type GetDirectoryConnectSettingInput interface {
 }
 
 type GetDirectoryConnectSettingArgs struct {
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	// The IP addresses of the AD Connector servers.
+	ConnectIps pulumi.StringArrayInput `pulumi:"connectIps"`
 	// The DNS IP addresses of the domain to connect to.
 	CustomerDnsIps pulumi.StringArrayInput `pulumi:"customerDnsIps"`
 	// The username corresponding to the password provided.
@@ -335,6 +446,10 @@ func (i GetDirectoryConnectSettingArgs) ToGetDirectoryConnectSettingOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryConnectSettingOutput)
 }
 
+// GetDirectoryConnectSettingArrayInput is an input type that accepts GetDirectoryConnectSettingArray and GetDirectoryConnectSettingArrayOutput values.
+// You can construct a concrete instance of `GetDirectoryConnectSettingArrayInput` via:
+//
+//          GetDirectoryConnectSettingArray{ GetDirectoryConnectSettingArgs{...} }
 type GetDirectoryConnectSettingArrayInput interface {
 	pulumi.Input
 
@@ -368,6 +483,15 @@ func (o GetDirectoryConnectSettingOutput) ToGetDirectoryConnectSettingOutput() G
 
 func (o GetDirectoryConnectSettingOutput) ToGetDirectoryConnectSettingOutputWithContext(ctx context.Context) GetDirectoryConnectSettingOutput {
 	return o
+}
+
+func (o GetDirectoryConnectSettingOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDirectoryConnectSetting) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// The IP addresses of the AD Connector servers.
+func (o GetDirectoryConnectSettingOutput) ConnectIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDirectoryConnectSetting) []string { return v.ConnectIps }).(pulumi.StringArrayOutput)
 }
 
 // The DNS IP addresses of the domain to connect to.
@@ -411,12 +535,17 @@ func (o GetDirectoryConnectSettingArrayOutput) Index(i pulumi.IntInput) GetDirec
 }
 
 type GetDirectoryVpcSetting struct {
+	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The ID of the VPC that the connector is in.
 	VpcId string `pulumi:"vpcId"`
 }
 
+// GetDirectoryVpcSettingInput is an input type that accepts GetDirectoryVpcSettingArgs and GetDirectoryVpcSettingOutput values.
+// You can construct a concrete instance of `GetDirectoryVpcSettingInput` via:
+//
+//          GetDirectoryVpcSettingArgs{...}
 type GetDirectoryVpcSettingInput interface {
 	pulumi.Input
 
@@ -425,6 +554,7 @@ type GetDirectoryVpcSettingInput interface {
 }
 
 type GetDirectoryVpcSettingArgs struct {
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// The ID of the VPC that the connector is in.
@@ -443,6 +573,10 @@ func (i GetDirectoryVpcSettingArgs) ToGetDirectoryVpcSettingOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryVpcSettingOutput)
 }
 
+// GetDirectoryVpcSettingArrayInput is an input type that accepts GetDirectoryVpcSettingArray and GetDirectoryVpcSettingArrayOutput values.
+// You can construct a concrete instance of `GetDirectoryVpcSettingArrayInput` via:
+//
+//          GetDirectoryVpcSettingArray{ GetDirectoryVpcSettingArgs{...} }
 type GetDirectoryVpcSettingArrayInput interface {
 	pulumi.Input
 
@@ -476,6 +610,10 @@ func (o GetDirectoryVpcSettingOutput) ToGetDirectoryVpcSettingOutput() GetDirect
 
 func (o GetDirectoryVpcSettingOutput) ToGetDirectoryVpcSettingOutputWithContext(ctx context.Context) GetDirectoryVpcSettingOutput {
 	return o
+}
+
+func (o GetDirectoryVpcSettingOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDirectoryVpcSetting) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
 // The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).

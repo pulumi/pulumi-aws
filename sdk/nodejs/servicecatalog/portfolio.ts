@@ -6,22 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a Service Catalog Portfolio.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const portfolio = new aws.servicecatalog.Portfolio("portfolio", {
  *     description: "List of my organizations apps",
  *     providerName: "Brett",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/servicecatalog_portfolio.html.markdown.
  */
 export class Portfolio extends pulumi.CustomResource {
     /**
@@ -31,6 +27,7 @@ export class Portfolio extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PortfolioState, opts?: pulumi.CustomResourceOptions): Portfolio {
         return new Portfolio(name, <any>state, { ...opts, id: id });
@@ -67,7 +64,7 @@ export class Portfolio extends pulumi.CustomResource {
     /**
      * Tags to apply to the connection.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Portfolio resource with the given unique name, arguments, and options.
@@ -128,7 +125,7 @@ export interface PortfolioState {
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -150,5 +147,5 @@ export interface PortfolioArgs {
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

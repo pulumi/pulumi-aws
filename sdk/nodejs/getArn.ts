@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
  * Parses an Amazon Resource Name (ARN) into its constituent parts.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const dbInstance = aws.getArn({
- *     arn: "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
+ * const dbInstance = pulumi.output(aws.getArn({
+ *     arn: "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
+ * }, { async: true }));
+ * ```
  */
-export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<GetArnResult> & GetArnResult {
+export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<GetArnResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,11 +29,9 @@ export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetArnResult> = pulumi.runtime.invoke("aws:index/getArn:getArn", {
+    return pulumi.runtime.invoke("aws:index/getArn:getArn", {
         "arn": args.arn,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -59,6 +54,10 @@ export interface GetArnResult {
     readonly account: string;
     readonly arn: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The partition that the resource is in.
      */
     readonly partition: string;
@@ -76,8 +75,4 @@ export interface GetArnResult {
      * The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
      */
     readonly service: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

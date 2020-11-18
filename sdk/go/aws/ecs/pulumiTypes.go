@@ -7,15 +7,22 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type CapacityProviderAutoScalingGroupProvider struct {
-	AutoScalingGroupArn          string                                                  `pulumi:"autoScalingGroupArn"`
-	ManagedScaling               *CapacityProviderAutoScalingGroupProviderManagedScaling `pulumi:"managedScaling"`
-	ManagedTerminationProtection *string                                                 `pulumi:"managedTerminationProtection"`
+	// - The Amazon Resource Name (ARN) of the associated auto scaling group.
+	AutoScalingGroupArn string `pulumi:"autoScalingGroupArn"`
+	// - Nested argument defining the parameters of the auto scaling. Defined below.
+	ManagedScaling *CapacityProviderAutoScalingGroupProviderManagedScaling `pulumi:"managedScaling"`
+	// - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+	ManagedTerminationProtection *string `pulumi:"managedTerminationProtection"`
 }
 
+// CapacityProviderAutoScalingGroupProviderInput is an input type that accepts CapacityProviderAutoScalingGroupProviderArgs and CapacityProviderAutoScalingGroupProviderOutput values.
+// You can construct a concrete instance of `CapacityProviderAutoScalingGroupProviderInput` via:
+//
+//          CapacityProviderAutoScalingGroupProviderArgs{...}
 type CapacityProviderAutoScalingGroupProviderInput interface {
 	pulumi.Input
 
@@ -24,9 +31,12 @@ type CapacityProviderAutoScalingGroupProviderInput interface {
 }
 
 type CapacityProviderAutoScalingGroupProviderArgs struct {
-	AutoScalingGroupArn          pulumi.StringInput                                             `pulumi:"autoScalingGroupArn"`
-	ManagedScaling               CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput `pulumi:"managedScaling"`
-	ManagedTerminationProtection pulumi.StringPtrInput                                          `pulumi:"managedTerminationProtection"`
+	// - The Amazon Resource Name (ARN) of the associated auto scaling group.
+	AutoScalingGroupArn pulumi.StringInput `pulumi:"autoScalingGroupArn"`
+	// - Nested argument defining the parameters of the auto scaling. Defined below.
+	ManagedScaling CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput `pulumi:"managedScaling"`
+	// - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+	ManagedTerminationProtection pulumi.StringPtrInput `pulumi:"managedTerminationProtection"`
 }
 
 func (CapacityProviderAutoScalingGroupProviderArgs) ElementType() reflect.Type {
@@ -49,6 +59,14 @@ func (i CapacityProviderAutoScalingGroupProviderArgs) ToCapacityProviderAutoScal
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAutoScalingGroupProviderOutput).ToCapacityProviderAutoScalingGroupProviderPtrOutputWithContext(ctx)
 }
 
+// CapacityProviderAutoScalingGroupProviderPtrInput is an input type that accepts CapacityProviderAutoScalingGroupProviderArgs, CapacityProviderAutoScalingGroupProviderPtr and CapacityProviderAutoScalingGroupProviderPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderAutoScalingGroupProviderPtrInput` via:
+//
+//          CapacityProviderAutoScalingGroupProviderArgs{...}
+//
+//  or:
+//
+//          nil
 type CapacityProviderAutoScalingGroupProviderPtrInput interface {
 	pulumi.Input
 
@@ -97,16 +115,20 @@ func (o CapacityProviderAutoScalingGroupProviderOutput) ToCapacityProviderAutoSc
 		return &v
 	}).(CapacityProviderAutoScalingGroupProviderPtrOutput)
 }
+
+// - The Amazon Resource Name (ARN) of the associated auto scaling group.
 func (o CapacityProviderAutoScalingGroupProviderOutput) AutoScalingGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) string { return v.AutoScalingGroupArn }).(pulumi.StringOutput)
 }
 
+// - Nested argument defining the parameters of the auto scaling. Defined below.
 func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedScaling() CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedScaling {
 		return v.ManagedScaling
 	}).(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput)
 }
 
+// - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
 func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedTerminationProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *string { return v.ManagedTerminationProtection }).(pulumi.StringPtrOutput)
 }
@@ -129,27 +151,51 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) Elem() CapacityProvid
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) CapacityProviderAutoScalingGroupProvider { return *v }).(CapacityProviderAutoScalingGroupProviderOutput)
 }
 
-func (o CapacityProviderAutoScalingGroupProviderPtrOutput) AutoScalingGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) string { return v.AutoScalingGroupArn }).(pulumi.StringOutput)
+// - The Amazon Resource Name (ARN) of the associated auto scaling group.
+func (o CapacityProviderAutoScalingGroupProviderPtrOutput) AutoScalingGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoScalingGroupArn
+	}).(pulumi.StringPtrOutput)
 }
 
+// - Nested argument defining the parameters of the auto scaling. Defined below.
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedScaling() CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput {
-	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedScaling {
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedScaling {
+		if v == nil {
+			return nil
+		}
 		return v.ManagedScaling
 	}).(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput)
 }
 
+// - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationProtection() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *string { return v.ManagedTerminationProtection }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedTerminationProtection
+	}).(pulumi.StringPtrOutput)
 }
 
 type CapacityProviderAutoScalingGroupProviderManagedScaling struct {
-	MaximumScalingStepSize *int    `pulumi:"maximumScalingStepSize"`
-	MinimumScalingStepSize *int    `pulumi:"minimumScalingStepSize"`
-	Status                 *string `pulumi:"status"`
-	TargetCapacity         *int    `pulumi:"targetCapacity"`
+	// The maximum step adjustment size. A number between 1 and 10,000.
+	MaximumScalingStepSize *int `pulumi:"maximumScalingStepSize"`
+	// The minimum step adjustment size. A number between 1 and 10,000.
+	MinimumScalingStepSize *int `pulumi:"minimumScalingStepSize"`
+	// Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
+	// The target utilization for the capacity provider. A number between 1 and 100.
+	TargetCapacity *int `pulumi:"targetCapacity"`
 }
 
+// CapacityProviderAutoScalingGroupProviderManagedScalingInput is an input type that accepts CapacityProviderAutoScalingGroupProviderManagedScalingArgs and CapacityProviderAutoScalingGroupProviderManagedScalingOutput values.
+// You can construct a concrete instance of `CapacityProviderAutoScalingGroupProviderManagedScalingInput` via:
+//
+//          CapacityProviderAutoScalingGroupProviderManagedScalingArgs{...}
 type CapacityProviderAutoScalingGroupProviderManagedScalingInput interface {
 	pulumi.Input
 
@@ -158,10 +204,14 @@ type CapacityProviderAutoScalingGroupProviderManagedScalingInput interface {
 }
 
 type CapacityProviderAutoScalingGroupProviderManagedScalingArgs struct {
-	MaximumScalingStepSize pulumi.IntPtrInput    `pulumi:"maximumScalingStepSize"`
-	MinimumScalingStepSize pulumi.IntPtrInput    `pulumi:"minimumScalingStepSize"`
-	Status                 pulumi.StringPtrInput `pulumi:"status"`
-	TargetCapacity         pulumi.IntPtrInput    `pulumi:"targetCapacity"`
+	// The maximum step adjustment size. A number between 1 and 10,000.
+	MaximumScalingStepSize pulumi.IntPtrInput `pulumi:"maximumScalingStepSize"`
+	// The minimum step adjustment size. A number between 1 and 10,000.
+	MinimumScalingStepSize pulumi.IntPtrInput `pulumi:"minimumScalingStepSize"`
+	// Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The target utilization for the capacity provider. A number between 1 and 100.
+	TargetCapacity pulumi.IntPtrInput `pulumi:"targetCapacity"`
 }
 
 func (CapacityProviderAutoScalingGroupProviderManagedScalingArgs) ElementType() reflect.Type {
@@ -184,6 +234,14 @@ func (i CapacityProviderAutoScalingGroupProviderManagedScalingArgs) ToCapacityPr
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAutoScalingGroupProviderManagedScalingOutput).ToCapacityProviderAutoScalingGroupProviderManagedScalingPtrOutputWithContext(ctx)
 }
 
+// CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput is an input type that accepts CapacityProviderAutoScalingGroupProviderManagedScalingArgs, CapacityProviderAutoScalingGroupProviderManagedScalingPtr and CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput` via:
+//
+//          CapacityProviderAutoScalingGroupProviderManagedScalingArgs{...}
+//
+//  or:
+//
+//          nil
 type CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput interface {
 	pulumi.Input
 
@@ -232,18 +290,23 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) ToCapacity
 		return &v
 	}).(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput)
 }
+
+// The maximum step adjustment size. A number between 1 and 10,000.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) MaximumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *int { return v.MaximumScalingStepSize }).(pulumi.IntPtrOutput)
 }
 
+// The minimum step adjustment size. A number between 1 and 10,000.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) MinimumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *int { return v.MinimumScalingStepSize }).(pulumi.IntPtrOutput)
 }
 
+// Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// The target utilization for the capacity provider. A number between 1 and 100.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) TargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *int { return v.TargetCapacity }).(pulumi.IntPtrOutput)
 }
@@ -268,28 +331,59 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) Elem() 
 	}).(CapacityProviderAutoScalingGroupProviderManagedScalingOutput)
 }
 
+// The maximum step adjustment size. A number between 1 and 10,000.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) MaximumScalingStepSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *int { return v.MaximumScalingStepSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedScaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumScalingStepSize
+	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum step adjustment size. A number between 1 and 10,000.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) MinimumScalingStepSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *int { return v.MinimumScalingStepSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedScaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumScalingStepSize
+	}).(pulumi.IntPtrOutput)
 }
 
+// Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *string { return v.Status }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedScaling) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
+// The target utilization for the capacity provider. A number between 1 and 100.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) TargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *int { return v.TargetCapacity }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedScaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
 type ClusterDefaultCapacityProviderStrategy struct {
-	Base             *int   `pulumi:"base"`
+	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+	Base *int `pulumi:"base"`
+	// The short name of the capacity provider.
 	CapacityProvider string `pulumi:"capacityProvider"`
-	Weight           *int   `pulumi:"weight"`
+	// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+	Weight *int `pulumi:"weight"`
 }
 
+// ClusterDefaultCapacityProviderStrategyInput is an input type that accepts ClusterDefaultCapacityProviderStrategyArgs and ClusterDefaultCapacityProviderStrategyOutput values.
+// You can construct a concrete instance of `ClusterDefaultCapacityProviderStrategyInput` via:
+//
+//          ClusterDefaultCapacityProviderStrategyArgs{...}
 type ClusterDefaultCapacityProviderStrategyInput interface {
 	pulumi.Input
 
@@ -298,9 +392,12 @@ type ClusterDefaultCapacityProviderStrategyInput interface {
 }
 
 type ClusterDefaultCapacityProviderStrategyArgs struct {
-	Base             pulumi.IntPtrInput `pulumi:"base"`
+	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+	Base pulumi.IntPtrInput `pulumi:"base"`
+	// The short name of the capacity provider.
 	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
-	Weight           pulumi.IntPtrInput `pulumi:"weight"`
+	// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
 func (ClusterDefaultCapacityProviderStrategyArgs) ElementType() reflect.Type {
@@ -315,6 +412,10 @@ func (i ClusterDefaultCapacityProviderStrategyArgs) ToClusterDefaultCapacityProv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterDefaultCapacityProviderStrategyOutput)
 }
 
+// ClusterDefaultCapacityProviderStrategyArrayInput is an input type that accepts ClusterDefaultCapacityProviderStrategyArray and ClusterDefaultCapacityProviderStrategyArrayOutput values.
+// You can construct a concrete instance of `ClusterDefaultCapacityProviderStrategyArrayInput` via:
+//
+//          ClusterDefaultCapacityProviderStrategyArray{ ClusterDefaultCapacityProviderStrategyArgs{...} }
 type ClusterDefaultCapacityProviderStrategyArrayInput interface {
 	pulumi.Input
 
@@ -350,14 +451,17 @@ func (o ClusterDefaultCapacityProviderStrategyOutput) ToClusterDefaultCapacityPr
 	return o
 }
 
+// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 func (o ClusterDefaultCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterDefaultCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
+// The short name of the capacity provider.
 func (o ClusterDefaultCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterDefaultCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
 }
 
+// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
 func (o ClusterDefaultCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterDefaultCapacityProviderStrategy) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -383,11 +487,16 @@ func (o ClusterDefaultCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInp
 }
 
 type ClusterSetting struct {
-	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-	Name  string `pulumi:"name"`
+	// Name of the setting to manage. Valid values: `containerInsights`.
+	Name string `pulumi:"name"`
+	// The value to assign to the setting. Value values are `enabled` and `disabled`.
 	Value string `pulumi:"value"`
 }
 
+// ClusterSettingInput is an input type that accepts ClusterSettingArgs and ClusterSettingOutput values.
+// You can construct a concrete instance of `ClusterSettingInput` via:
+//
+//          ClusterSettingArgs{...}
 type ClusterSettingInput interface {
 	pulumi.Input
 
@@ -396,8 +505,9 @@ type ClusterSettingInput interface {
 }
 
 type ClusterSettingArgs struct {
-	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-	Name  pulumi.StringInput `pulumi:"name"`
+	// Name of the setting to manage. Valid values: `containerInsights`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value to assign to the setting. Value values are `enabled` and `disabled`.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -413,6 +523,10 @@ func (i ClusterSettingArgs) ToClusterSettingOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSettingOutput)
 }
 
+// ClusterSettingArrayInput is an input type that accepts ClusterSettingArray and ClusterSettingArrayOutput values.
+// You can construct a concrete instance of `ClusterSettingArrayInput` via:
+//
+//          ClusterSettingArray{ ClusterSettingArgs{...} }
 type ClusterSettingArrayInput interface {
 	pulumi.Input
 
@@ -448,11 +562,12 @@ func (o ClusterSettingOutput) ToClusterSettingOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+// Name of the setting to manage. Valid values: `containerInsights`.
 func (o ClusterSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSetting) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value to assign to the setting. Value values are `enabled` and `disabled`.
 func (o ClusterSettingOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSetting) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -478,11 +593,18 @@ func (o ClusterSettingArrayOutput) Index(i pulumi.IntInput) ClusterSettingOutput
 }
 
 type ServiceCapacityProviderStrategy struct {
-	Base             *int   `pulumi:"base"`
+	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+	Base *int `pulumi:"base"`
+	// The short name of the capacity provider.
 	CapacityProvider string `pulumi:"capacityProvider"`
-	Weight           *int   `pulumi:"weight"`
+	// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+	Weight *int `pulumi:"weight"`
 }
 
+// ServiceCapacityProviderStrategyInput is an input type that accepts ServiceCapacityProviderStrategyArgs and ServiceCapacityProviderStrategyOutput values.
+// You can construct a concrete instance of `ServiceCapacityProviderStrategyInput` via:
+//
+//          ServiceCapacityProviderStrategyArgs{...}
 type ServiceCapacityProviderStrategyInput interface {
 	pulumi.Input
 
@@ -491,9 +613,12 @@ type ServiceCapacityProviderStrategyInput interface {
 }
 
 type ServiceCapacityProviderStrategyArgs struct {
-	Base             pulumi.IntPtrInput `pulumi:"base"`
+	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+	Base pulumi.IntPtrInput `pulumi:"base"`
+	// The short name of the capacity provider.
 	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
-	Weight           pulumi.IntPtrInput `pulumi:"weight"`
+	// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
 func (ServiceCapacityProviderStrategyArgs) ElementType() reflect.Type {
@@ -508,6 +633,10 @@ func (i ServiceCapacityProviderStrategyArgs) ToServiceCapacityProviderStrategyOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCapacityProviderStrategyOutput)
 }
 
+// ServiceCapacityProviderStrategyArrayInput is an input type that accepts ServiceCapacityProviderStrategyArray and ServiceCapacityProviderStrategyArrayOutput values.
+// You can construct a concrete instance of `ServiceCapacityProviderStrategyArrayInput` via:
+//
+//          ServiceCapacityProviderStrategyArray{ ServiceCapacityProviderStrategyArgs{...} }
 type ServiceCapacityProviderStrategyArrayInput interface {
 	pulumi.Input
 
@@ -543,14 +672,17 @@ func (o ServiceCapacityProviderStrategyOutput) ToServiceCapacityProviderStrategy
 	return o
 }
 
+// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 func (o ServiceCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
+// The short name of the capacity provider.
 func (o ServiceCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
 }
 
+// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
 func (o ServiceCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategy) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -576,9 +708,14 @@ func (o ServiceCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInput) Ser
 }
 
 type ServiceDeploymentController struct {
+	// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
 	Type *string `pulumi:"type"`
 }
 
+// ServiceDeploymentControllerInput is an input type that accepts ServiceDeploymentControllerArgs and ServiceDeploymentControllerOutput values.
+// You can construct a concrete instance of `ServiceDeploymentControllerInput` via:
+//
+//          ServiceDeploymentControllerArgs{...}
 type ServiceDeploymentControllerInput interface {
 	pulumi.Input
 
@@ -587,6 +724,7 @@ type ServiceDeploymentControllerInput interface {
 }
 
 type ServiceDeploymentControllerArgs struct {
+	// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -610,6 +748,14 @@ func (i ServiceDeploymentControllerArgs) ToServiceDeploymentControllerPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentControllerOutput).ToServiceDeploymentControllerPtrOutputWithContext(ctx)
 }
 
+// ServiceDeploymentControllerPtrInput is an input type that accepts ServiceDeploymentControllerArgs, ServiceDeploymentControllerPtr and ServiceDeploymentControllerPtrOutput values.
+// You can construct a concrete instance of `ServiceDeploymentControllerPtrInput` via:
+//
+//          ServiceDeploymentControllerArgs{...}
+//
+//  or:
+//
+//          nil
 type ServiceDeploymentControllerPtrInput interface {
 	pulumi.Input
 
@@ -658,6 +804,8 @@ func (o ServiceDeploymentControllerOutput) ToServiceDeploymentControllerPtrOutpu
 		return &v
 	}).(ServiceDeploymentControllerPtrOutput)
 }
+
+// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
 func (o ServiceDeploymentControllerOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentController) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -680,17 +828,31 @@ func (o ServiceDeploymentControllerPtrOutput) Elem() ServiceDeploymentController
 	return o.ApplyT(func(v *ServiceDeploymentController) ServiceDeploymentController { return *v }).(ServiceDeploymentControllerOutput)
 }
 
+// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
 func (o ServiceDeploymentControllerPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceDeploymentController) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceDeploymentController) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceLoadBalancer struct {
-	ContainerName  string  `pulumi:"containerName"`
-	ContainerPort  int     `pulumi:"containerPort"`
-	ElbName        *string `pulumi:"elbName"`
+	// The name of the container to associate with the load balancer (as it appears in a container definition).
+	ContainerName string `pulumi:"containerName"`
+	// The port on the container to associate with the load balancer.
+	ContainerPort int `pulumi:"containerPort"`
+	// The name of the ELB (Classic) to associate with the service.
+	ElbName *string `pulumi:"elbName"`
+	// The ARN of the Load Balancer target group to associate with the service.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 }
 
+// ServiceLoadBalancerInput is an input type that accepts ServiceLoadBalancerArgs and ServiceLoadBalancerOutput values.
+// You can construct a concrete instance of `ServiceLoadBalancerInput` via:
+//
+//          ServiceLoadBalancerArgs{...}
 type ServiceLoadBalancerInput interface {
 	pulumi.Input
 
@@ -699,9 +861,13 @@ type ServiceLoadBalancerInput interface {
 }
 
 type ServiceLoadBalancerArgs struct {
-	ContainerName  pulumi.StringInput    `pulumi:"containerName"`
-	ContainerPort  pulumi.IntInput       `pulumi:"containerPort"`
-	ElbName        pulumi.StringPtrInput `pulumi:"elbName"`
+	// The name of the container to associate with the load balancer (as it appears in a container definition).
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The port on the container to associate with the load balancer.
+	ContainerPort pulumi.IntInput `pulumi:"containerPort"`
+	// The name of the ELB (Classic) to associate with the service.
+	ElbName pulumi.StringPtrInput `pulumi:"elbName"`
+	// The ARN of the Load Balancer target group to associate with the service.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 }
 
@@ -717,6 +883,10 @@ func (i ServiceLoadBalancerArgs) ToServiceLoadBalancerOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadBalancerOutput)
 }
 
+// ServiceLoadBalancerArrayInput is an input type that accepts ServiceLoadBalancerArray and ServiceLoadBalancerArrayOutput values.
+// You can construct a concrete instance of `ServiceLoadBalancerArrayInput` via:
+//
+//          ServiceLoadBalancerArray{ ServiceLoadBalancerArgs{...} }
 type ServiceLoadBalancerArrayInput interface {
 	pulumi.Input
 
@@ -752,18 +922,22 @@ func (o ServiceLoadBalancerOutput) ToServiceLoadBalancerOutputWithContext(ctx co
 	return o
 }
 
+// The name of the container to associate with the load balancer (as it appears in a container definition).
 func (o ServiceLoadBalancerOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
+// The port on the container to associate with the load balancer.
 func (o ServiceLoadBalancerOutput) ContainerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) int { return v.ContainerPort }).(pulumi.IntOutput)
 }
 
+// The name of the ELB (Classic) to associate with the service.
 func (o ServiceLoadBalancerOutput) ElbName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *string { return v.ElbName }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Load Balancer target group to associate with the service.
 func (o ServiceLoadBalancerOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -789,11 +963,18 @@ func (o ServiceLoadBalancerArrayOutput) Index(i pulumi.IntInput) ServiceLoadBala
 }
 
 type ServiceNetworkConfiguration struct {
-	AssignPublicIp *bool    `pulumi:"assignPublicIp"`
+	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+	AssignPublicIp *bool `pulumi:"assignPublicIp"`
+	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	Subnets        []string `pulumi:"subnets"`
+	// The subnets associated with the task or service.
+	Subnets []string `pulumi:"subnets"`
 }
 
+// ServiceNetworkConfigurationInput is an input type that accepts ServiceNetworkConfigurationArgs and ServiceNetworkConfigurationOutput values.
+// You can construct a concrete instance of `ServiceNetworkConfigurationInput` via:
+//
+//          ServiceNetworkConfigurationArgs{...}
 type ServiceNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -802,9 +983,12 @@ type ServiceNetworkConfigurationInput interface {
 }
 
 type ServiceNetworkConfigurationArgs struct {
-	AssignPublicIp pulumi.BoolPtrInput     `pulumi:"assignPublicIp"`
+	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
+	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
+	// The subnets associated with the task or service.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (ServiceNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -827,6 +1011,14 @@ func (i ServiceNetworkConfigurationArgs) ToServiceNetworkConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkConfigurationOutput).ToServiceNetworkConfigurationPtrOutputWithContext(ctx)
 }
 
+// ServiceNetworkConfigurationPtrInput is an input type that accepts ServiceNetworkConfigurationArgs, ServiceNetworkConfigurationPtr and ServiceNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceNetworkConfigurationPtrInput` via:
+//
+//          ServiceNetworkConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type ServiceNetworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -875,14 +1067,18 @@ func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationPtrOutpu
 		return &v
 	}).(ServiceNetworkConfigurationPtrOutput)
 }
+
+// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
 func (o ServiceNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
 }
 
+// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 func (o ServiceNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// The subnets associated with the task or service.
 func (o ServiceNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -905,23 +1101,50 @@ func (o ServiceNetworkConfigurationPtrOutput) Elem() ServiceNetworkConfiguration
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) ServiceNetworkConfiguration { return *v }).(ServiceNetworkConfigurationOutput)
 }
 
+// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
 func (o ServiceNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServiceNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ServiceNetworkConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AssignPublicIp
+	}).(pulumi.BoolPtrOutput)
 }
 
+// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 func (o ServiceNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ServiceNetworkConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ServiceNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
 }
 
+// The subnets associated with the task or service.
 func (o ServiceNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ServiceNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ServiceNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
 }
 
 type ServiceOrderedPlacementStrategy struct {
+	// For the `spread` placement strategy, valid values are `instanceId` (or `host`,
+	// which has the same effect), or any platform or custom attribute that is applied to a container instance.
+	// For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
+	// needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
 	Field *string `pulumi:"field"`
-	Type  string  `pulumi:"type"`
+	// The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+	Type string `pulumi:"type"`
 }
 
+// ServiceOrderedPlacementStrategyInput is an input type that accepts ServiceOrderedPlacementStrategyArgs and ServiceOrderedPlacementStrategyOutput values.
+// You can construct a concrete instance of `ServiceOrderedPlacementStrategyInput` via:
+//
+//          ServiceOrderedPlacementStrategyArgs{...}
 type ServiceOrderedPlacementStrategyInput interface {
 	pulumi.Input
 
@@ -930,8 +1153,13 @@ type ServiceOrderedPlacementStrategyInput interface {
 }
 
 type ServiceOrderedPlacementStrategyArgs struct {
+	// For the `spread` placement strategy, valid values are `instanceId` (or `host`,
+	// which has the same effect), or any platform or custom attribute that is applied to a container instance.
+	// For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
+	// needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
 	Field pulumi.StringPtrInput `pulumi:"field"`
-	Type  pulumi.StringInput    `pulumi:"type"`
+	// The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ServiceOrderedPlacementStrategyArgs) ElementType() reflect.Type {
@@ -946,6 +1174,10 @@ func (i ServiceOrderedPlacementStrategyArgs) ToServiceOrderedPlacementStrategyOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOrderedPlacementStrategyOutput)
 }
 
+// ServiceOrderedPlacementStrategyArrayInput is an input type that accepts ServiceOrderedPlacementStrategyArray and ServiceOrderedPlacementStrategyArrayOutput values.
+// You can construct a concrete instance of `ServiceOrderedPlacementStrategyArrayInput` via:
+//
+//          ServiceOrderedPlacementStrategyArray{ ServiceOrderedPlacementStrategyArgs{...} }
 type ServiceOrderedPlacementStrategyArrayInput interface {
 	pulumi.Input
 
@@ -981,10 +1213,15 @@ func (o ServiceOrderedPlacementStrategyOutput) ToServiceOrderedPlacementStrategy
 	return o
 }
 
+// For the `spread` placement strategy, valid values are `instanceId` (or `host`,
+// which has the same effect), or any platform or custom attribute that is applied to a container instance.
+// For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
+// needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
 func (o ServiceOrderedPlacementStrategyOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceOrderedPlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
+// The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
 func (o ServiceOrderedPlacementStrategyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceOrderedPlacementStrategy) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1010,10 +1247,20 @@ func (o ServiceOrderedPlacementStrategyArrayOutput) Index(i pulumi.IntInput) Ser
 }
 
 type ServicePlacementConstraint struct {
+	// Cluster Query Language expression to apply to the constraint. Does not need to be specified
+	// for the `distinctInstance` type.
+	// For more information, see [Cluster Query Language in the Amazon EC2 Container
+	// Service Developer
+	// Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 	Expression *string `pulumi:"expression"`
-	Type       string  `pulumi:"type"`
+	// The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+	Type string `pulumi:"type"`
 }
 
+// ServicePlacementConstraintInput is an input type that accepts ServicePlacementConstraintArgs and ServicePlacementConstraintOutput values.
+// You can construct a concrete instance of `ServicePlacementConstraintInput` via:
+//
+//          ServicePlacementConstraintArgs{...}
 type ServicePlacementConstraintInput interface {
 	pulumi.Input
 
@@ -1022,8 +1269,14 @@ type ServicePlacementConstraintInput interface {
 }
 
 type ServicePlacementConstraintArgs struct {
+	// Cluster Query Language expression to apply to the constraint. Does not need to be specified
+	// for the `distinctInstance` type.
+	// For more information, see [Cluster Query Language in the Amazon EC2 Container
+	// Service Developer
+	// Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	Type       pulumi.StringInput    `pulumi:"type"`
+	// The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ServicePlacementConstraintArgs) ElementType() reflect.Type {
@@ -1038,6 +1291,10 @@ func (i ServicePlacementConstraintArgs) ToServicePlacementConstraintOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementConstraintOutput)
 }
 
+// ServicePlacementConstraintArrayInput is an input type that accepts ServicePlacementConstraintArray and ServicePlacementConstraintArrayOutput values.
+// You can construct a concrete instance of `ServicePlacementConstraintArrayInput` via:
+//
+//          ServicePlacementConstraintArray{ ServicePlacementConstraintArgs{...} }
 type ServicePlacementConstraintArrayInput interface {
 	pulumi.Input
 
@@ -1073,10 +1330,16 @@ func (o ServicePlacementConstraintOutput) ToServicePlacementConstraintOutputWith
 	return o
 }
 
+// Cluster Query Language expression to apply to the constraint. Does not need to be specified
+// for the `distinctInstance` type.
+// For more information, see [Cluster Query Language in the Amazon EC2 Container
+// Service Developer
+// Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 func (o ServicePlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
+// The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
 func (o ServicePlacementConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServicePlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1102,12 +1365,20 @@ func (o ServicePlacementConstraintArrayOutput) Index(i pulumi.IntInput) ServiceP
 }
 
 type ServiceServiceRegistries struct {
+	// The container name value, already specified in the task definition, to be used for your service discovery service.
 	ContainerName *string `pulumi:"containerName"`
-	ContainerPort *int    `pulumi:"containerPort"`
-	Port          *int    `pulumi:"port"`
-	RegistryArn   string  `pulumi:"registryArn"`
+	// The port value, already specified in the task definition, to be used for your service discovery service.
+	ContainerPort *int `pulumi:"containerPort"`
+	// The port value used if your Service Discovery service specified an SRV record.
+	Port *int `pulumi:"port"`
+	// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+	RegistryArn string `pulumi:"registryArn"`
 }
 
+// ServiceServiceRegistriesInput is an input type that accepts ServiceServiceRegistriesArgs and ServiceServiceRegistriesOutput values.
+// You can construct a concrete instance of `ServiceServiceRegistriesInput` via:
+//
+//          ServiceServiceRegistriesArgs{...}
 type ServiceServiceRegistriesInput interface {
 	pulumi.Input
 
@@ -1116,10 +1387,14 @@ type ServiceServiceRegistriesInput interface {
 }
 
 type ServiceServiceRegistriesArgs struct {
+	// The container name value, already specified in the task definition, to be used for your service discovery service.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	ContainerPort pulumi.IntPtrInput    `pulumi:"containerPort"`
-	Port          pulumi.IntPtrInput    `pulumi:"port"`
-	RegistryArn   pulumi.StringInput    `pulumi:"registryArn"`
+	// The port value, already specified in the task definition, to be used for your service discovery service.
+	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
+	// The port value used if your Service Discovery service specified an SRV record.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+	RegistryArn pulumi.StringInput `pulumi:"registryArn"`
 }
 
 func (ServiceServiceRegistriesArgs) ElementType() reflect.Type {
@@ -1142,6 +1417,14 @@ func (i ServiceServiceRegistriesArgs) ToServiceServiceRegistriesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceRegistriesOutput).ToServiceServiceRegistriesPtrOutputWithContext(ctx)
 }
 
+// ServiceServiceRegistriesPtrInput is an input type that accepts ServiceServiceRegistriesArgs, ServiceServiceRegistriesPtr and ServiceServiceRegistriesPtrOutput values.
+// You can construct a concrete instance of `ServiceServiceRegistriesPtrInput` via:
+//
+//          ServiceServiceRegistriesArgs{...}
+//
+//  or:
+//
+//          nil
 type ServiceServiceRegistriesPtrInput interface {
 	pulumi.Input
 
@@ -1190,18 +1473,23 @@ func (o ServiceServiceRegistriesOutput) ToServiceServiceRegistriesPtrOutputWithC
 		return &v
 	}).(ServiceServiceRegistriesPtrOutput)
 }
+
+// The container name value, already specified in the task definition, to be used for your service discovery service.
 func (o ServiceServiceRegistriesOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceServiceRegistries) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
+// The port value, already specified in the task definition, to be used for your service discovery service.
 func (o ServiceServiceRegistriesOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceServiceRegistries) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
+// The port value used if your Service Discovery service specified an SRV record.
 func (o ServiceServiceRegistriesOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceServiceRegistries) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
 func (o ServiceServiceRegistriesOutput) RegistryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceServiceRegistries) string { return v.RegistryArn }).(pulumi.StringOutput)
 }
@@ -1224,20 +1512,44 @@ func (o ServiceServiceRegistriesPtrOutput) Elem() ServiceServiceRegistriesOutput
 	return o.ApplyT(func(v *ServiceServiceRegistries) ServiceServiceRegistries { return *v }).(ServiceServiceRegistriesOutput)
 }
 
+// The container name value, already specified in the task definition, to be used for your service discovery service.
 func (o ServiceServiceRegistriesPtrOutput) ContainerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceServiceRegistries) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceServiceRegistries) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerName
+	}).(pulumi.StringPtrOutput)
 }
 
+// The port value, already specified in the task definition, to be used for your service discovery service.
 func (o ServiceServiceRegistriesPtrOutput) ContainerPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceServiceRegistries) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ServiceServiceRegistries) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerPort
+	}).(pulumi.IntPtrOutput)
 }
 
+// The port value used if your Service Discovery service specified an SRV record.
 func (o ServiceServiceRegistriesPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceServiceRegistries) *int { return v.Port }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ServiceServiceRegistries) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceServiceRegistriesPtrOutput) RegistryArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceServiceRegistries) string { return v.RegistryArn }).(pulumi.StringOutput)
+// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+func (o ServiceServiceRegistriesPtrOutput) RegistryArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceServiceRegistries) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RegistryArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type TaskDefinitionInferenceAccelerator struct {
@@ -1247,6 +1559,10 @@ type TaskDefinitionInferenceAccelerator struct {
 	DeviceType string `pulumi:"deviceType"`
 }
 
+// TaskDefinitionInferenceAcceleratorInput is an input type that accepts TaskDefinitionInferenceAcceleratorArgs and TaskDefinitionInferenceAcceleratorOutput values.
+// You can construct a concrete instance of `TaskDefinitionInferenceAcceleratorInput` via:
+//
+//          TaskDefinitionInferenceAcceleratorArgs{...}
 type TaskDefinitionInferenceAcceleratorInput interface {
 	pulumi.Input
 
@@ -1273,6 +1589,10 @@ func (i TaskDefinitionInferenceAcceleratorArgs) ToTaskDefinitionInferenceAcceler
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionInferenceAcceleratorOutput)
 }
 
+// TaskDefinitionInferenceAcceleratorArrayInput is an input type that accepts TaskDefinitionInferenceAcceleratorArray and TaskDefinitionInferenceAcceleratorArrayOutput values.
+// You can construct a concrete instance of `TaskDefinitionInferenceAcceleratorArrayInput` via:
+//
+//          TaskDefinitionInferenceAcceleratorArray{ TaskDefinitionInferenceAcceleratorArgs{...} }
 type TaskDefinitionInferenceAcceleratorArrayInput interface {
 	pulumi.Input
 
@@ -1348,6 +1668,10 @@ type TaskDefinitionPlacementConstraint struct {
 	Type string `pulumi:"type"`
 }
 
+// TaskDefinitionPlacementConstraintInput is an input type that accepts TaskDefinitionPlacementConstraintArgs and TaskDefinitionPlacementConstraintOutput values.
+// You can construct a concrete instance of `TaskDefinitionPlacementConstraintInput` via:
+//
+//          TaskDefinitionPlacementConstraintArgs{...}
 type TaskDefinitionPlacementConstraintInput interface {
 	pulumi.Input
 
@@ -1377,6 +1701,10 @@ func (i TaskDefinitionPlacementConstraintArgs) ToTaskDefinitionPlacementConstrai
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionPlacementConstraintOutput)
 }
 
+// TaskDefinitionPlacementConstraintArrayInput is an input type that accepts TaskDefinitionPlacementConstraintArray and TaskDefinitionPlacementConstraintArrayOutput values.
+// You can construct a concrete instance of `TaskDefinitionPlacementConstraintArrayInput` via:
+//
+//          TaskDefinitionPlacementConstraintArray{ TaskDefinitionPlacementConstraintArgs{...} }
 type TaskDefinitionPlacementConstraintArrayInput interface {
 	pulumi.Input
 
@@ -1454,6 +1782,10 @@ type TaskDefinitionProxyConfiguration struct {
 	Type *string `pulumi:"type"`
 }
 
+// TaskDefinitionProxyConfigurationInput is an input type that accepts TaskDefinitionProxyConfigurationArgs and TaskDefinitionProxyConfigurationOutput values.
+// You can construct a concrete instance of `TaskDefinitionProxyConfigurationInput` via:
+//
+//          TaskDefinitionProxyConfigurationArgs{...}
 type TaskDefinitionProxyConfigurationInput interface {
 	pulumi.Input
 
@@ -1490,6 +1822,14 @@ func (i TaskDefinitionProxyConfigurationArgs) ToTaskDefinitionProxyConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionProxyConfigurationOutput).ToTaskDefinitionProxyConfigurationPtrOutputWithContext(ctx)
 }
 
+// TaskDefinitionProxyConfigurationPtrInput is an input type that accepts TaskDefinitionProxyConfigurationArgs, TaskDefinitionProxyConfigurationPtr and TaskDefinitionProxyConfigurationPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionProxyConfigurationPtrInput` via:
+//
+//          TaskDefinitionProxyConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type TaskDefinitionProxyConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1573,24 +1913,39 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) Elem() TaskDefinitionProxyCon
 }
 
 // The name of the container that will serve as the App Mesh proxy.
-func (o TaskDefinitionProxyConfigurationPtrOutput) ContainerName() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskDefinitionProxyConfiguration) string { return v.ContainerName }).(pulumi.StringOutput)
+func (o TaskDefinitionProxyConfigurationPtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionProxyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
 func (o TaskDefinitionProxyConfigurationPtrOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TaskDefinitionProxyConfiguration) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v *TaskDefinitionProxyConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
 }
 
 // The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
 func (o TaskDefinitionProxyConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionProxyConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TaskDefinitionProxyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type TaskDefinitionVolume struct {
 	// Used to configure a docker volume
 	DockerVolumeConfiguration *TaskDefinitionVolumeDockerVolumeConfiguration `pulumi:"dockerVolumeConfiguration"`
-	// Used to configure a EFS volume. Can be used only with an EC2 type task.
+	// Used to configure a EFS volume.
 	EfsVolumeConfiguration *TaskDefinitionVolumeEfsVolumeConfiguration `pulumi:"efsVolumeConfiguration"`
 	// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
 	HostPath *string `pulumi:"hostPath"`
@@ -1599,6 +1954,10 @@ type TaskDefinitionVolume struct {
 	Name string `pulumi:"name"`
 }
 
+// TaskDefinitionVolumeInput is an input type that accepts TaskDefinitionVolumeArgs and TaskDefinitionVolumeOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeInput` via:
+//
+//          TaskDefinitionVolumeArgs{...}
 type TaskDefinitionVolumeInput interface {
 	pulumi.Input
 
@@ -1609,7 +1968,7 @@ type TaskDefinitionVolumeInput interface {
 type TaskDefinitionVolumeArgs struct {
 	// Used to configure a docker volume
 	DockerVolumeConfiguration TaskDefinitionVolumeDockerVolumeConfigurationPtrInput `pulumi:"dockerVolumeConfiguration"`
-	// Used to configure a EFS volume. Can be used only with an EC2 type task.
+	// Used to configure a EFS volume.
 	EfsVolumeConfiguration TaskDefinitionVolumeEfsVolumeConfigurationPtrInput `pulumi:"efsVolumeConfiguration"`
 	// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
 	HostPath pulumi.StringPtrInput `pulumi:"hostPath"`
@@ -1630,6 +1989,10 @@ func (i TaskDefinitionVolumeArgs) ToTaskDefinitionVolumeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeOutput)
 }
 
+// TaskDefinitionVolumeArrayInput is an input type that accepts TaskDefinitionVolumeArray and TaskDefinitionVolumeArrayOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeArrayInput` via:
+//
+//          TaskDefinitionVolumeArray{ TaskDefinitionVolumeArgs{...} }
 type TaskDefinitionVolumeArrayInput interface {
 	pulumi.Input
 
@@ -1672,7 +2035,7 @@ func (o TaskDefinitionVolumeOutput) DockerVolumeConfiguration() TaskDefinitionVo
 	}).(TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput)
 }
 
-// Used to configure a EFS volume. Can be used only with an EC2 type task.
+// Used to configure a EFS volume.
 func (o TaskDefinitionVolumeOutput) EfsVolumeConfiguration() TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionVolumeEfsVolumeConfiguration {
 		return v.EfsVolumeConfiguration
@@ -1723,6 +2086,10 @@ type TaskDefinitionVolumeDockerVolumeConfiguration struct {
 	Scope *string `pulumi:"scope"`
 }
 
+// TaskDefinitionVolumeDockerVolumeConfigurationInput is an input type that accepts TaskDefinitionVolumeDockerVolumeConfigurationArgs and TaskDefinitionVolumeDockerVolumeConfigurationOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeDockerVolumeConfigurationInput` via:
+//
+//          TaskDefinitionVolumeDockerVolumeConfigurationArgs{...}
 type TaskDefinitionVolumeDockerVolumeConfigurationInput interface {
 	pulumi.Input
 
@@ -1763,6 +2130,14 @@ func (i TaskDefinitionVolumeDockerVolumeConfigurationArgs) ToTaskDefinitionVolum
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeDockerVolumeConfigurationOutput).ToTaskDefinitionVolumeDockerVolumeConfigurationPtrOutputWithContext(ctx)
 }
 
+// TaskDefinitionVolumeDockerVolumeConfigurationPtrInput is an input type that accepts TaskDefinitionVolumeDockerVolumeConfigurationArgs, TaskDefinitionVolumeDockerVolumeConfigurationPtr and TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeDockerVolumeConfigurationPtrInput` via:
+//
+//          TaskDefinitionVolumeDockerVolumeConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type TaskDefinitionVolumeDockerVolumeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1859,36 +2234,71 @@ func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Elem() TaskDefin
 
 // If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Autoprovision() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionVolumeDockerVolumeConfiguration) *bool { return v.Autoprovision }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *TaskDefinitionVolumeDockerVolumeConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Autoprovision
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Driver() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionVolumeDockerVolumeConfiguration) *string { return v.Driver }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TaskDefinitionVolumeDockerVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Driver
+	}).(pulumi.StringPtrOutput)
 }
 
 // A map of Docker driver specific options.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) DriverOpts() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TaskDefinitionVolumeDockerVolumeConfiguration) map[string]string { return v.DriverOpts }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v *TaskDefinitionVolumeDockerVolumeConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.DriverOpts
+	}).(pulumi.StringMapOutput)
 }
 
 // A map of custom metadata to add to your Docker volume.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Labels() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TaskDefinitionVolumeDockerVolumeConfiguration) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v *TaskDefinitionVolumeDockerVolumeConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringMapOutput)
 }
 
 // The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionVolumeDockerVolumeConfiguration) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TaskDefinitionVolumeDockerVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
 }
 
 type TaskDefinitionVolumeEfsVolumeConfiguration struct {
+	// The authorization configuration details for the Amazon EFS file system.
+	AuthorizationConfig *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfig"`
 	// The ID of the EFS File System.
 	FileSystemId string `pulumi:"fileSystemId"`
-	// The path to mount on the host
+	// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
 	RootDirectory *string `pulumi:"rootDirectory"`
+	// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+	TransitEncryption *string `pulumi:"transitEncryption"`
+	// The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+	TransitEncryptionPort *int `pulumi:"transitEncryptionPort"`
 }
 
+// TaskDefinitionVolumeEfsVolumeConfigurationInput is an input type that accepts TaskDefinitionVolumeEfsVolumeConfigurationArgs and TaskDefinitionVolumeEfsVolumeConfigurationOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeEfsVolumeConfigurationInput` via:
+//
+//          TaskDefinitionVolumeEfsVolumeConfigurationArgs{...}
 type TaskDefinitionVolumeEfsVolumeConfigurationInput interface {
 	pulumi.Input
 
@@ -1897,10 +2307,16 @@ type TaskDefinitionVolumeEfsVolumeConfigurationInput interface {
 }
 
 type TaskDefinitionVolumeEfsVolumeConfigurationArgs struct {
+	// The authorization configuration details for the Amazon EFS file system.
+	AuthorizationConfig TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
 	// The ID of the EFS File System.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// The path to mount on the host
+	// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
 	RootDirectory pulumi.StringPtrInput `pulumi:"rootDirectory"`
+	// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+	TransitEncryption pulumi.StringPtrInput `pulumi:"transitEncryption"`
+	// The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+	TransitEncryptionPort pulumi.IntPtrInput `pulumi:"transitEncryptionPort"`
 }
 
 func (TaskDefinitionVolumeEfsVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -1923,6 +2339,14 @@ func (i TaskDefinitionVolumeEfsVolumeConfigurationArgs) ToTaskDefinitionVolumeEf
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeEfsVolumeConfigurationOutput).ToTaskDefinitionVolumeEfsVolumeConfigurationPtrOutputWithContext(ctx)
 }
 
+// TaskDefinitionVolumeEfsVolumeConfigurationPtrInput is an input type that accepts TaskDefinitionVolumeEfsVolumeConfigurationArgs, TaskDefinitionVolumeEfsVolumeConfigurationPtr and TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeEfsVolumeConfigurationPtrInput` via:
+//
+//          TaskDefinitionVolumeEfsVolumeConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type TaskDefinitionVolumeEfsVolumeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1972,14 +2396,31 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) ToTaskDefinitionVolume
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput)
 }
 
+// The authorization configuration details for the Amazon EFS file system.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) AuthorizationConfig() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+		return v.AuthorizationConfig
+	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
+}
+
 // The ID of the EFS File System.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// The path to mount on the host
+// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) RootDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *string { return v.RootDirectory }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) TransitEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *string { return v.TransitEncryption }).(pulumi.StringPtrOutput)
+}
+
+// The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *int { return v.TransitEncryptionPort }).(pulumi.IntPtrOutput)
 }
 
 type TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2002,14 +2443,206 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) Elem() TaskDefiniti
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationOutput)
 }
 
-// The ID of the EFS File System.
-func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) FileSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
+// The authorization configuration details for the Amazon EFS file system.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) AuthorizationConfig() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationConfig
+	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
 }
 
-// The path to mount on the host
+// The ID of the EFS File System.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *string { return v.RootDirectory }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RootDirectory
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) TransitEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransitEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TransitEncryptionPort
+	}).(pulumi.IntPtrOutput)
+}
+
+type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig struct {
+	// The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+	AccessPointId *string `pulumi:"accessPointId"`
+	// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+	Iam *string `pulumi:"iam"`
+}
+
+// TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput is an input type that accepts TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs and TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput` via:
+//
+//          TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs{...}
+type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput
+	ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput
+}
+
+type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs struct {
+	// The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+	AccessPointId pulumi.StringPtrInput `pulumi:"accessPointId"`
+	// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+	Iam pulumi.StringPtrInput `pulumi:"iam"`
+}
+
+func (TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (i TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return i.ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput)
+}
+
+func (i TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return i.ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput).ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrInput is an input type that accepts TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs, TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtr and TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrInput` via:
+//
+//          TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput
+	ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput
+}
+
+type taskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrType TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs
+
+func TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtr(v *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrInput {
+	return (*taskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrType)(v)
+}
+
+func (*taskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *taskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrType) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return i.ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrType) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
+}
+
+type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o.ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+		return &v
+	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
+}
+
+// The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) AccessPointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *string { return v.AccessPointId }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) Iam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *string { return v.Iam }).(pulumi.StringPtrOutput)
+}
+
+type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) Elem() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+		return *v
+	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput)
+}
+
+// The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) AccessPointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessPointId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) Iam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Iam
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetClusterSetting struct {
@@ -2017,6 +2650,10 @@ type GetClusterSetting struct {
 	Value string `pulumi:"value"`
 }
 
+// GetClusterSettingInput is an input type that accepts GetClusterSettingArgs and GetClusterSettingOutput values.
+// You can construct a concrete instance of `GetClusterSettingInput` via:
+//
+//          GetClusterSettingArgs{...}
 type GetClusterSettingInput interface {
 	pulumi.Input
 
@@ -2041,6 +2678,10 @@ func (i GetClusterSettingArgs) ToGetClusterSettingOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterSettingOutput)
 }
 
+// GetClusterSettingArrayInput is an input type that accepts GetClusterSettingArray and GetClusterSettingArrayOutput values.
+// You can construct a concrete instance of `GetClusterSettingArrayInput` via:
+//
+//          GetClusterSettingArray{ GetClusterSettingArgs{...} }
 type GetClusterSettingArrayInput interface {
 	pulumi.Input
 
@@ -2139,6 +2780,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionVolumeEfsVolumeConfigurationOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingArrayOutput{})
 }

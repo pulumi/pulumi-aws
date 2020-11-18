@@ -4,11 +4,34 @@
 package apigateway
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get the name and value of a pre-existing API Key, for
 // example to supply credentials for a dependency microservice.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apigateway.GetKey(ctx, &apigateway.GetKeyArgs{
+// 			Id: "ru3mpjgse6",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetKey(ctx *pulumi.Context, args *GetKeyArgs, opts ...pulumi.InvokeOption) (*GetKeyResult, error) {
 	var rv GetKeyResult
 	err := ctx.Invoke("aws:apigateway/getKey:getKey", args, &rv, opts...)
@@ -22,8 +45,8 @@ func GetKey(ctx *pulumi.Context, args *GetKeyArgs, opts ...pulumi.InvokeOption) 
 type GetKeyArgs struct {
 	// The ID of the API Key to look up.
 	Id string `pulumi:"id"`
-	// A mapping of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getKey.
@@ -40,8 +63,8 @@ type GetKeyResult struct {
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	// Set to the name of the API Key.
 	Name string `pulumi:"name"`
-	// A mapping of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Set to the value of the API Key.
 	Value string `pulumi:"value"`
 }

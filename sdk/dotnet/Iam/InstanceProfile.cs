@@ -12,9 +12,42 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM instance profile.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_instance_profile.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
+    ///         {
+    ///             Path = "/",
+    ///             AssumeRolePolicy = @"{
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": [
+    ///         {
+    ///             ""Action"": ""sts:AssumeRole"",
+    ///             ""Principal"": {
+    ///                ""Service"": ""ec2.amazonaws.com""
+    ///             },
+    ///             ""Effect"": ""Allow"",
+    ///             ""Sid"": """"
+    ///         }
+    ///     ]
+    /// }
+    /// ",
+    ///         });
+    ///         var testProfile = new Aws.Iam.InstanceProfile("testProfile", new Aws.Iam.InstanceProfileArgs
+    ///         {
+    ///             Role = role.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class InstanceProfile : Pulumi.CustomResource
     {
@@ -52,14 +85,7 @@ namespace Pulumi.Aws.Iam
         /// The role name to include in the profile.
         /// </summary>
         [Output("role")]
-        public Output<string> Role { get; private set; } = null!;
-
-        /// <summary>
-        /// 
-        /// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-        /// </summary>
-        [Output("roles")]
-        public Output<ImmutableArray<string>> Roles { get; private set; } = null!;
+        public Output<string?> Role { get; private set; } = null!;
 
         /// <summary>
         /// The [unique ID][1] assigned by AWS.
@@ -76,7 +102,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InstanceProfile(string name, InstanceProfileArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:iam/instanceProfile:InstanceProfile", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/instanceProfile:InstanceProfile", name, args ?? new InstanceProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -137,20 +163,6 @@ namespace Pulumi.Aws.Iam
         [Input("role")]
         public Input<string>? Role { get; set; }
 
-        [Input("roles")]
-        private InputList<string>? _roles;
-
-        /// <summary>
-        /// 
-        /// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-        /// </summary>
-        [Obsolete(@"Use `role` instead. Only a single role can be passed to an IAM Instance Profile")]
-        public InputList<string> Roles
-        {
-            get => _roles ?? (_roles = new InputList<string>());
-            set => _roles = value;
-        }
-
         public InstanceProfileArgs()
         {
         }
@@ -193,20 +205,6 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
-
-        [Input("roles")]
-        private InputList<string>? _roles;
-
-        /// <summary>
-        /// 
-        /// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-        /// </summary>
-        [Obsolete(@"Use `role` instead. Only a single role can be passed to an IAM Instance Profile")]
-        public InputList<string> Roles
-        {
-            get => _roles ?? (_roles = new InputList<string>());
-            set => _roles = value;
-        }
 
         /// <summary>
         /// The [unique ID][1] assigned by AWS.

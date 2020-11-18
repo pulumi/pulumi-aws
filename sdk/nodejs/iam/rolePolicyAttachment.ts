@@ -4,24 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
-import {Role} from "./role";
+import {ARN} from "..";
+import {Role} from "./index";
 
 /**
  * Attaches a Managed IAM Policy to an IAM role
- * 
+ *
  * > **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const role = new aws.iam.Role("role", {
- *     assumeRolePolicy: `    {
+ *
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `    {
  *       "Version": "2012-10-17",
  *       "Statement": [
  *         {
@@ -34,8 +31,7 @@ import {Role} from "./role";
  *         }
  *       ]
  *     }
- * `,
- * });
+ * `});
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
  *     policy: `{
@@ -52,13 +48,11 @@ import {Role} from "./role";
  * }
  * `,
  * });
- * const testAttach = new aws.iam.RolePolicyAttachment("test-attach", {
- *     policyArn: policy.arn,
+ * const test_attach = new aws.iam.RolePolicyAttachment("test-attach", {
  *     role: role.name,
+ *     policyArn: policy.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy_attachment.markdown.
  */
 export class RolePolicyAttachment extends pulumi.CustomResource {
     /**
@@ -68,6 +62,7 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RolePolicyAttachmentState, opts?: pulumi.CustomResourceOptions): RolePolicyAttachment {
         return new RolePolicyAttachment(name, <any>state, { ...opts, id: id });

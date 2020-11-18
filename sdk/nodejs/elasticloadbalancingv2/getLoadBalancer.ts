@@ -4,38 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * > **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
- * 
+ *
  * Provides information about a Load Balancer.
- * 
+ *
  * This data source can prove useful when a module accepts an LB as an input
  * variable and needs to, for example, determine the security groups associated
  * with it, etc.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const lbArn = config.get("lbArn") || "";
  * const lbName = config.get("lbName") || "";
- * 
  * const test = aws.lb.getLoadBalancer({
  *     arn: lbArn,
  *     name: lbName,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb.html.markdown.
  */
-export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> & GetLoadBalancerResult {
+/** @deprecated aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer */
+export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
+    pulumi.log.warn("getLoadBalancer is deprecated: aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -44,13 +42,11 @@ export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.Invoke
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetLoadBalancerResult> = pulumi.runtime.invoke("aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer", {
+    return pulumi.runtime.invoke("aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer", {
         "arn": args.arn,
         "name": args.name,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -65,7 +61,7 @@ export interface GetLoadBalancerArgs {
      * The unique name of the load balancer.
      */
     readonly name?: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -75,21 +71,24 @@ export interface GetLoadBalancerResult {
     readonly accessLogs: outputs.elasticloadbalancingv2.GetLoadBalancerAccessLogs;
     readonly arn: string;
     readonly arnSuffix: string;
+    readonly customerOwnedIpv4Pool: string;
     readonly dnsName: string;
     readonly dropInvalidHeaderFields: boolean;
     readonly enableDeletionProtection: boolean;
+    readonly enableHttp2: boolean;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly idleTimeout: number;
     readonly internal: boolean;
+    readonly ipAddressType: string;
     readonly loadBalancerType: string;
     readonly name: string;
     readonly securityGroups: string[];
     readonly subnetMappings: outputs.elasticloadbalancingv2.GetLoadBalancerSubnetMapping[];
     readonly subnets: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vpcId: string;
     readonly zoneId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

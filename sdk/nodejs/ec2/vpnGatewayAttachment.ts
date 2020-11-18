@@ -2,41 +2,35 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Virtual Private Gateway attachment resource, allowing for an existing
  * hardware VPN gateway to be attached and/or detached from a VPC.
- * 
+ *
  * > **Note:** The `aws.ec2.VpnGateway`
  * resource can also automatically attach the Virtual Private Gateway it creates
  * to an existing VPC by setting the `vpcId` attribute accordingly.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const network = new aws.ec2.Vpc("network", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const vpn = new aws.ec2.VpnGateway("vpn", {
- *     tags: {
- *         Name: "example-vpn-gateway",
- *     },
- * });
+ *
+ * const network = new aws.ec2.Vpc("network", {cidrBlock: "10.0.0.0/16"});
+ * const vpn = new aws.ec2.VpnGateway("vpn", {tags: {
+ *     Name: "example-vpn-gateway",
+ * }});
  * const vpnAttachment = new aws.ec2.VpnGatewayAttachment("vpnAttachment", {
  *     vpcId: network.id,
  *     vpnGatewayId: vpn.id,
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_attachment.html.markdown.
+ * See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
+ * and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
+ * guides for more information.
  */
 export class VpnGatewayAttachment extends pulumi.CustomResource {
     /**
@@ -46,6 +40,7 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpnGatewayAttachmentState, opts?: pulumi.CustomResourceOptions): VpnGatewayAttachment {
         return new VpnGatewayAttachment(name, <any>state, { ...opts, id: id });

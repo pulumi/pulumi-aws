@@ -10,9 +10,12 @@ from .bucket import *
 from .bucket_metric import *
 from .bucket_notification import *
 from .bucket_object import *
+from .bucket_ownership_controls import *
 from .bucket_policy import *
 from .bucket_public_access_block import *
 from .get_bucket import *
 from .get_bucket_object import *
 from .get_bucket_objects import *
 from .inventory import *
+from ._inputs import *
+from . import outputs

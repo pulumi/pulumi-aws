@@ -12,15 +12,36 @@ namespace Pulumi.Aws.Dax
     /// <summary>
     /// Provides a DAX Parameter Group resource.
     /// 
+    /// ## Example Usage
     /// 
-    /// ## parameters
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// `parameters` supports the following:
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Dax.ParameterGroup("example", new Aws.Dax.ParameterGroupArgs
+    ///         {
+    ///             Parameters = 
+    ///             {
+    ///                 new Aws.Dax.Inputs.ParameterGroupParameterArgs
+    ///                 {
+    ///                     Name = "query-ttl-millis",
+    ///                     Value = "100000",
+    ///                 },
+    ///                 new Aws.Dax.Inputs.ParameterGroupParameterArgs
+    ///                 {
+    ///                     Name = "record-ttl-millis",
+    ///                     Value = "100000",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
     /// 
-    /// * `name` - (Required) The name of the parameter.
-    /// * `value` - (Required) The value for the parameter.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_parameter_group.html.markdown.
+    /// }
+    /// ```
     /// </summary>
     public partial class ParameterGroup : Pulumi.CustomResource
     {
@@ -40,7 +61,7 @@ namespace Pulumi.Aws.Dax
         /// The parameters of the parameter group.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableArray<Outputs.ParameterGroupParameters>> Parameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ParameterGroupParameter>> Parameters { get; private set; } = null!;
 
 
         /// <summary>
@@ -51,7 +72,7 @@ namespace Pulumi.Aws.Dax
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ParameterGroup(string name, ParameterGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:dax/parameterGroup:ParameterGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:dax/parameterGroup:ParameterGroup", name, args ?? new ParameterGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -101,14 +122,14 @@ namespace Pulumi.Aws.Dax
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
-        private InputList<Inputs.ParameterGroupParametersArgs>? _parameters;
+        private InputList<Inputs.ParameterGroupParameterArgs>? _parameters;
 
         /// <summary>
         /// The parameters of the parameter group.
         /// </summary>
-        public InputList<Inputs.ParameterGroupParametersArgs> Parameters
+        public InputList<Inputs.ParameterGroupParameterArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParametersArgs>());
+            get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParameterArgs>());
             set => _parameters = value;
         }
 
@@ -132,78 +153,19 @@ namespace Pulumi.Aws.Dax
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
-        private InputList<Inputs.ParameterGroupParametersGetArgs>? _parameters;
+        private InputList<Inputs.ParameterGroupParameterGetArgs>? _parameters;
 
         /// <summary>
         /// The parameters of the parameter group.
         /// </summary>
-        public InputList<Inputs.ParameterGroupParametersGetArgs> Parameters
+        public InputList<Inputs.ParameterGroupParameterGetArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParametersGetArgs>());
+            get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParameterGetArgs>());
             set => _parameters = value;
         }
 
         public ParameterGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ParameterGroupParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the parameter group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ParameterGroupParametersArgs()
-        {
-        }
-    }
-
-    public sealed class ParameterGroupParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the parameter group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ParameterGroupParametersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ParameterGroupParameters
-    {
-        /// <summary>
-        /// The name of the parameter group.
-        /// </summary>
-        public readonly string Name;
-        public readonly string Value;
-
-        [OutputConstructor]
-        private ParameterGroupParameters(
-            string name,
-            string value)
-        {
-            Name = name;
-            Value = value;
-        }
-    }
     }
 }

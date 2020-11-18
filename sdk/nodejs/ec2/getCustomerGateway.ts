@@ -4,19 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Get an existing AWS Customer Gateway.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = aws.ec2.getCustomerGateway({
  *     filters: [{
  *         name: "tag:Name",
@@ -24,20 +23,18 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const main = new aws.ec2.VpnGateway("main", {
- *     amazonSideAsn: "7224",
- *     vpcId: aws_vpc_main.id,
+ *     vpcId: aws_vpc.main.id,
+ *     amazonSideAsn: 7224,
  * });
  * const transit = new aws.ec2.VpnConnection("transit", {
- *     customerGatewayId: foo.id!,
- *     staticRoutesOnly: false,
- *     type: foo.type,
  *     vpnGatewayId: main.id,
+ *     customerGatewayId: foo.then(foo => foo.id),
+ *     type: foo.then(foo => foo.type),
+ *     staticRoutesOnly: false,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
  */
-export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerGatewayResult> & GetCustomerGatewayResult {
+export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerGatewayResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -46,13 +43,11 @@ export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetCustomerGatewayResult> = pulumi.runtime.invoke("aws:ec2/getCustomerGateway:getCustomerGateway", {
+    return pulumi.runtime.invoke("aws:ec2/getCustomerGateway:getCustomerGateway", {
         "filters": args.filters,
         "id": args.id,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -70,13 +65,17 @@ export interface GetCustomerGatewayArgs {
     /**
      * Map of key-value pairs assigned to the gateway.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
  * A collection of values returned by getCustomerGateway.
  */
 export interface GetCustomerGatewayResult {
+    /**
+     * The ARN of the customer gateway.
+     */
+    readonly arn: string;
     /**
      * (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
@@ -90,7 +89,7 @@ export interface GetCustomerGatewayResult {
     /**
      * Map of key-value pairs assigned to the gateway.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * (Optional) The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
      */

@@ -12,12 +12,46 @@ namespace Pulumi.Aws.Ebs
     /// <summary>
     /// Creates a Snapshot of an EBS Volume.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ebs.Volume("example", new Aws.Ebs.VolumeArgs
+    ///         {
+    ///             AvailabilityZone = "us-west-2a",
+    ///             Size = 40,
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "HelloWorld" },
+    ///             },
+    ///         });
+    ///         var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new Aws.Ebs.SnapshotArgs
+    ///         {
+    ///             VolumeId = example.Id,
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "HelloWorld_snap" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Snapshot : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the EBS Snapshot.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// </summary>
@@ -55,10 +89,10 @@ namespace Pulumi.Aws.Ebs
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the snapshot
+        /// A map of tags to assign to the snapshot
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Volume ID of which to make a snapshot.
@@ -81,7 +115,7 @@ namespace Pulumi.Aws.Ebs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Snapshot(string name, SnapshotArgs args, CustomResourceOptions? options = null)
-            : base("aws:ebs/snapshot:Snapshot", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ebs/snapshot:Snapshot", name, args ?? new SnapshotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -125,14 +159,14 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? Description { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the snapshot
+        /// A map of tags to assign to the snapshot
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -149,6 +183,12 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class SnapshotState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the EBS Snapshot.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// </summary>
@@ -186,14 +226,14 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the snapshot
+        /// A map of tags to assign to the snapshot
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

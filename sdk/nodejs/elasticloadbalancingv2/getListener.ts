@@ -4,43 +4,41 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * > **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
- * 
+ *
  * Provides information about a Load Balancer Listener.
- * 
+ *
  * This data source can prove useful when a module accepts an LB Listener as an
  * input variable and needs to know the LB it is attached to, or other
  * information specific to the listener in question.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const listenerArn = config.require("listenerArn");
- * 
  * const listener = aws.lb.getListener({
  *     arn: listenerArn,
  * });
  * const selected = aws.lb.getLoadBalancer({
  *     name: "default-public",
  * });
- * const selected443 = aws.lb.getListener({
- *     loadBalancerArn: selected.arn!,
+ * const selected443 = selected.then(selected => aws.lb.getListener({
+ *     loadBalancerArn: selected.arn,
  *     port: 443,
- * });
+ * }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener.html.markdown.
  */
-export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> & GetListenerResult {
+/** @deprecated aws.elasticloadbalancingv2.getListener has been deprecated in favor of aws.lb.getListener */
+export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
+    pulumi.log.warn("getListener is deprecated: aws.elasticloadbalancingv2.getListener has been deprecated in favor of aws.lb.getListener")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -49,13 +47,11 @@ export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions)
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetListenerResult> = pulumi.runtime.invoke("aws:elasticloadbalancingv2/getListener:getListener", {
+    return pulumi.runtime.invoke("aws:elasticloadbalancingv2/getListener:getListener", {
         "arn": args.arn,
         "loadBalancerArn": args.loadBalancerArn,
         "port": args.port,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -83,12 +79,12 @@ export interface GetListenerResult {
     readonly arn: string;
     readonly certificateArn: string;
     readonly defaultActions: outputs.elasticloadbalancingv2.GetListenerDefaultAction[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly loadBalancerArn: string;
     readonly port: number;
     readonly protocol: string;
     readonly sslPolicy: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

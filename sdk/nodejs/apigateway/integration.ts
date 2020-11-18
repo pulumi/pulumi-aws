@@ -2,179 +2,102 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {RestApi} from "./restApi";
+import {RestApi} from "./index";
 
 /**
  * Provides an HTTP Method Integration for an API Gateway Integration.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
- *     description: "This is my API for demonstration purposes",
- * });
- * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
+ *
+ * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
+ * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
+ *     restApi: myDemoAPI.id,
  *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
- *     restApi: myDemoAPI.id,
  * });
- * const myDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
- *     authorization: "NONE",
- *     httpMethod: "GET",
+ * const myDemoMethod = new aws.apigateway.Method("myDemoMethod", {
+ *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
- *     restApi: myDemoAPI.id,
+ *     httpMethod: "GET",
+ *     authorization: "NONE",
  * });
- * const myDemoIntegration = new aws.apigateway.Integration("MyDemoIntegration", {
+ * const myDemoIntegration = new aws.apigateway.Integration("myDemoIntegration", {
+ *     restApi: myDemoAPI.id,
+ *     resourceId: myDemoResource.id,
+ *     httpMethod: myDemoMethod.httpMethod,
+ *     type: "MOCK",
  *     cacheKeyParameters: ["method.request.path.param"],
  *     cacheNamespace: "foobar",
- *     httpMethod: myDemoMethod.httpMethod,
+ *     timeoutMilliseconds: 29000,
  *     requestParameters: {
  *         "integration.request.header.X-Authorization": "'static'",
  *     },
- *     // Transforms the incoming XML request to JSON
  *     requestTemplates: {
  *         "application/xml": `{
  *    "body" : $input.json('$')
  * }
  * `,
  *     },
- *     resourceId: myDemoResource.id,
- *     restApi: myDemoAPI.id,
- *     timeoutMilliseconds: 29000,
- *     type: "MOCK",
  * });
  * ```
- * 
- * ## Lambda integration
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * // Variables
- * const myregion = config.require("myregion");
- * const accountId = config.require("accountId");
- * 
- * // API Gateway
- * const api = new aws.apigateway.RestApi("api", {});
- * const resource = new aws.apigateway.Resource("resource", {
- *     parentId: api.rootResourceId,
- *     pathPart: "resource",
- *     restApi: api.id,
- * });
- * const method = new aws.apigateway.Method("method", {
- *     authorization: "NONE",
- *     httpMethod: "GET",
- *     resourceId: resource.id,
- *     restApi: api.id,
- * });
- * // IAM
- * const role = new aws.iam.Role("role", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- * });
- * const lambda = new aws.lambda.Function("lambda", {
- *     code: new pulumi.asset.FileArchive("lambda.zip"),
- *     handler: "lambda.lambda_handler",
- *     role: role.arn,
- *     runtime: "python2.7",
- * });
- * const integration = new aws.apigateway.Integration("integration", {
- *     httpMethod: method.httpMethod,
- *     integrationHttpMethod: "POST",
- *     resourceId: resource.id,
- *     restApi: api.id,
- *     type: "AWS_PROXY",
- *     uri: lambda.invokeArn,
- * });
- * // Lambda
- * const apigwLambda = new aws.lambda.Permission("apigwLambda", {
- *     action: "lambda:InvokeFunction",
- *     function: lambda.functionName,
- *     principal: "apigateway.amazonaws.com",
- *     sourceArn: pulumi.interpolate`arn:aws:execute-api:${myregion}:${accountId}:${api.id}/*&#47;${method.httpMethod}${resource.path}`,
- * });
- * ```
- * 
  * ## VPC Link
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
- * const name = config.require("name");
- * const subnetId = config.require("subnetId");
- * 
- * const testLoadBalancer = new aws.lb.LoadBalancer("test", {
+ * const name = config.requireObject("name");
+ * const subnetId = config.requireObject("subnetId");
+ * const testLoadBalancer = new aws.lb.LoadBalancer("testLoadBalancer", {
  *     internal: true,
  *     loadBalancerType: "network",
  *     subnets: [subnetId],
  * });
- * const testVpcLink = new aws.apigateway.VpcLink("test", {
- *     targetArn: testLoadBalancer.arn,
- * });
- * const testRestApi = new aws.apigateway.RestApi("test", {});
- * const testResource = new aws.apigateway.Resource("test", {
+ * const testVpcLink = new aws.apigateway.VpcLink("testVpcLink", {targetArn: [testLoadBalancer.arn]});
+ * const testRestApi = new aws.apigateway.RestApi("testRestApi", {});
+ * const testResource = new aws.apigateway.Resource("testResource", {
+ *     restApi: testRestApi.id,
  *     parentId: testRestApi.rootResourceId,
  *     pathPart: "test",
- *     restApi: testRestApi.id,
  * });
- * const testMethod = new aws.apigateway.Method("test", {
- *     authorization: "NONE",
+ * const testMethod = new aws.apigateway.Method("testMethod", {
+ *     restApi: testRestApi.id,
+ *     resourceId: testResource.id,
  *     httpMethod: "GET",
+ *     authorization: "NONE",
  *     requestModels: {
  *         "application/json": "Error",
  *     },
- *     resourceId: testResource.id,
- *     restApi: testRestApi.id,
  * });
- * const testIntegration = new aws.apigateway.Integration("test", {
- *     connectionId: testVpcLink.id,
- *     connectionType: "VPC_LINK",
- *     contentHandling: "CONVERT_TO_TEXT",
+ * const testIntegration = new aws.apigateway.Integration("testIntegration", {
+ *     restApi: testRestApi.id,
+ *     resourceId: testResource.id,
  *     httpMethod: testMethod.httpMethod,
- *     integrationHttpMethod: "GET",
- *     passthroughBehavior: "WHEN_NO_MATCH",
- *     requestParameters: {
- *         "integration.request.header.X-Authorization": "'static'",
- *         "integration.request.header.X-Foo": "'Bar'",
- *     },
  *     requestTemplates: {
  *         "application/json": "",
  *         "application/xml": `#set($inputRoot = $input.path('$'))
  * { }`,
  *     },
- *     resourceId: testResource.id,
- *     restApi: testRestApi.id,
+ *     requestParameters: {
+ *         "integration.request.header.X-Authorization": "'static'",
+ *         "integration.request.header.X-Foo": "'Bar'",
+ *     },
  *     type: "HTTP",
  *     uri: "https://www.google.de",
+ *     integrationHttpMethod: "GET",
+ *     passthroughBehavior: "WHEN_NO_MATCH",
+ *     contentHandling: "CONVERT_TO_TEXT",
+ *     connectionType: "VPC_LINK",
+ *     connectionId: testVpcLink.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration.html.markdown.
  */
 export class Integration extends pulumi.CustomResource {
     /**
@@ -184,6 +107,7 @@ export class Integration extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IntegrationState, opts?: pulumi.CustomResourceOptions): Integration {
         return new Integration(name, <any>state, { ...opts, id: id });
@@ -272,7 +196,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
      * For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
-     * e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
+     * e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
      */
     public readonly uri!: pulumi.Output<string | undefined>;
 
@@ -419,7 +343,7 @@ export interface IntegrationState {
     /**
      * The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
      * For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
-     * e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
+     * e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
      */
     readonly uri?: pulumi.Input<string>;
 }
@@ -497,7 +421,7 @@ export interface IntegrationArgs {
     /**
      * The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
      * For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
-     * e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
+     * e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
      */
     readonly uri?: pulumi.Input<string>;
 }

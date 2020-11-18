@@ -7,15 +7,13 @@ import * as utilities from "../utilities";
 /**
  * Provides a Direct Connect hosted private virtual interface resource. This resource represents the allocator's side of the hosted virtual interface.
  * A hosted virtual interface is a virtual interface that is owned by another AWS account.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.directconnect.HostedPrivateVirtualInterface("foo", {
  *     addressFamily: "ipv4",
  *     bgpAsn: 65352,
@@ -23,8 +21,6 @@ import * as utilities from "../utilities";
  *     vlan: 4094,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_private_virtual_interface.html.markdown.
  */
 export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
     /**
@@ -34,6 +30,7 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: HostedPrivateVirtualInterfaceState, opts?: pulumi.CustomResourceOptions): HostedPrivateVirtualInterface {
         return new HostedPrivateVirtualInterface(name, <any>state, { ...opts, id: id });

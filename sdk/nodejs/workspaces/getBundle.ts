@@ -4,27 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get information about a WorkSpaces Bundle.
- * 
+ * Retrieve information about an AWS WorkSpaces bundle.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ * ### By ID
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.workspaces.getBundle({
- *     bundleId: "wsb-b0s22j3d7",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
+ * const example = pulumi.output(aws.workspaces.getBundle({
+ *     bundleId: "wsb-b0s22j3d7",
+ * }, { async: true }));
+ * ```
+ * ### By Owner & Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = pulumi.output(aws.workspaces.getBundle({
+ *     name: "Value with Windows 10 and Office 2016",
+ *     owner: "AMAZON",
+ * }, { async: true }));
+ * ```
  */
-export function getBundle(args: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> & GetBundleResult {
+export function getBundle(args?: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -32,11 +42,11 @@ export function getBundle(args: GetBundleArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetBundleResult> = pulumi.runtime.invoke("aws:workspaces/getBundle:getBundle", {
+    return pulumi.runtime.invoke("aws:workspaces/getBundle:getBundle", {
         "bundleId": args.bundleId,
+        "name": args.name,
+        "owner": args.owner,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -46,14 +56,25 @@ export interface GetBundleArgs {
     /**
      * The ID of the bundle.
      */
-    readonly bundleId: string;
+    readonly bundleId?: string;
+    /**
+     * The name of the bundle. You cannot combine this parameter with `bundleId`.
+     */
+    readonly name?: string;
+    /**
+     * The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
+     */
+    readonly owner?: string;
 }
 
 /**
  * A collection of values returned by getBundle.
  */
 export interface GetBundleResult {
-    readonly bundleId: string;
+    /**
+     * The ID of the bundle.
+     */
+    readonly bundleId?: string;
     /**
      * The compute type. See supported fields below.
      */
@@ -63,13 +84,17 @@ export interface GetBundleResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the compute type.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * The owner of the bundle.
      */
-    readonly owner: string;
+    readonly owner?: string;
     /**
      * The root volume. See supported fields below.
      */
@@ -78,8 +103,4 @@ export interface GetBundleResult {
      * The user storage. See supported fields below.
      */
     readonly userStorages: outputs.workspaces.GetBundleUserStorage[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -4,70 +4,72 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
- * 
+ *
  * ## Example Usage
- * 
  * ### DynamoDB Target
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database_example.name,
+ *     databaseName: aws_glue_catalog_database.example.name,
+ *     role: aws_iam_role.example.arn,
  *     dynamodbTargets: [{
  *         path: "table-name",
  *     }],
- *     role: aws_iam_role_example.arn,
  * });
  * ```
- * 
  * ### JDBC Target
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database_example.name,
+ *     databaseName: aws_glue_catalog_database.example.name,
+ *     role: aws_iam_role.example.arn,
  *     jdbcTargets: [{
- *         connectionName: aws_glue_connection_example.name,
- *         path: "database-name/%",
+ *         connectionName: aws_glue_connection.example.name,
+ *         path: `database-name/%`,
  *     }],
- *     role: aws_iam_role_example.arn,
  * });
  * ```
- * 
  * ### S3 Target
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database_example.name,
- *     role: aws_iam_role_example.arn,
+ *     databaseName: aws_glue_catalog_database.example.name,
+ *     role: aws_iam_role.example.arn,
  *     s3Targets: [{
- *         path: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}`,
+ *         path: `s3://${aws_s3_bucket.example.bucket}`,
  *     }],
  * });
  * ```
- * 
  * ### Catalog Target
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Crawler("example", {
+ *     databaseName: aws_glue_catalog_database.example.name,
+ *     role: aws_iam_role.example.arn,
  *     catalogTargets: [{
- *         databaseName: aws_glue_catalog_database_example.name,
- *         tables: [aws_glue_catalog_table_example.name],
+ *         databaseName: aws_glue_catalog_database.example.name,
+ *         tables: [aws_glue_catalog_table.example.name],
  *     }],
+ *     schemaChangePolicy: {
+ *         deleteBehavior: "LOG",
+ *     },
  *     configuration: `{
  *   "Version":1.0,
  *   "Grouping": {
@@ -75,15 +77,23 @@ import * as utilities from "../utilities";
  *   }
  * }
  * `,
- *     databaseName: aws_glue_catalog_database_example.name,
- *     role: aws_iam_role_example.arn,
- *     schemaChangePolicy: {
- *         deleteBehavior: "LOG",
- *     },
  * });
  * ```
+ * ### MongoDB Target
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.glue.Crawler("example", {
+ *     databaseName: aws_glue_catalog_database.example.name,
+ *     role: aws_iam_role.example.arn,
+ *     mongodbTargets: [{
+ *         connectionName: aws_glue_connection.example.name,
+ *         path: `database-name/%`,
+ *     }],
+ * });
+ * ```
  */
 export class Crawler extends pulumi.CustomResource {
     /**
@@ -93,6 +103,7 @@ export class Crawler extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CrawlerState, opts?: pulumi.CustomResourceOptions): Crawler {
         return new Crawler(name, <any>state, { ...opts, id: id });
@@ -113,7 +124,7 @@ export class Crawler extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the crawler 
+     * The ARN of the crawler
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly catalogTargets!: pulumi.Output<outputs.glue.CrawlerCatalogTarget[] | undefined>;
@@ -141,6 +152,10 @@ export class Crawler extends pulumi.CustomResource {
      * List of nested JBDC target arguments. See below.
      */
     public readonly jdbcTargets!: pulumi.Output<outputs.glue.CrawlerJdbcTarget[] | undefined>;
+    /**
+     * List nested MongoDB target arguments. See below.
+     */
+    public readonly mongodbTargets!: pulumi.Output<outputs.glue.CrawlerMongodbTarget[] | undefined>;
     /**
      * Name of the crawler.
      */
@@ -170,9 +185,9 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly tablePrefix!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Crawler resource with the given unique name, arguments, and options.
@@ -194,6 +209,7 @@ export class Crawler extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["dynamodbTargets"] = state ? state.dynamodbTargets : undefined;
             inputs["jdbcTargets"] = state ? state.jdbcTargets : undefined;
+            inputs["mongodbTargets"] = state ? state.mongodbTargets : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["role"] = state ? state.role : undefined;
             inputs["s3Targets"] = state ? state.s3Targets : undefined;
@@ -217,6 +233,7 @@ export class Crawler extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["dynamodbTargets"] = args ? args.dynamodbTargets : undefined;
             inputs["jdbcTargets"] = args ? args.jdbcTargets : undefined;
+            inputs["mongodbTargets"] = args ? args.mongodbTargets : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["role"] = args ? args.role : undefined;
             inputs["s3Targets"] = args ? args.s3Targets : undefined;
@@ -243,7 +260,7 @@ export class Crawler extends pulumi.CustomResource {
  */
 export interface CrawlerState {
     /**
-     * The ARN of the crawler 
+     * The ARN of the crawler
      */
     readonly arn?: pulumi.Input<string>;
     readonly catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTarget>[]>;
@@ -271,6 +288,10 @@ export interface CrawlerState {
      * List of nested JBDC target arguments. See below.
      */
     readonly jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
+    /**
+     * List nested MongoDB target arguments. See below.
+     */
+    readonly mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
     /**
      * Name of the crawler.
      */
@@ -300,9 +321,9 @@ export interface CrawlerState {
      */
     readonly tablePrefix?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -335,6 +356,10 @@ export interface CrawlerArgs {
      */
     readonly jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
     /**
+     * List nested MongoDB target arguments. See below.
+     */
+    readonly mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
+    /**
      * Name of the crawler.
      */
     readonly name?: pulumi.Input<string>;
@@ -363,7 +388,7 @@ export interface CrawlerArgs {
      */
     readonly tablePrefix?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

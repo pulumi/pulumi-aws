@@ -7,14 +7,59 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides an Traffic mirror session.
+// Provides an Traffic mirror session.\
 // Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
+//
+// ## Example Usage
+//
+// To create a basic traffic mirror session
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		filter, err := ec2.NewTrafficMirrorFilter(ctx, "filter", &ec2.TrafficMirrorFilterArgs{
+// 			Description: pulumi.String("traffic mirror filter - example"),
+// 			NetworkServices: pulumi.StringArray{
+// 				pulumi.String("amazon-dns"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		target, err := ec2.NewTrafficMirrorTarget(ctx, "target", &ec2.TrafficMirrorTargetArgs{
+// 			NetworkLoadBalancerArn: pulumi.Any(aws_lb.Lb.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewTrafficMirrorSession(ctx, "session", &ec2.TrafficMirrorSessionArgs{
+// 			Description:           pulumi.String("traffic mirror session - example"),
+// 			NetworkInterfaceId:    pulumi.Any(aws_instance.Test.Primary_network_interface_id),
+// 			TrafficMirrorFilterId: filter.ID(),
+// 			TrafficMirrorTargetId: target.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type TrafficMirrorSession struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the traffic mirror session.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the traffic mirror session.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
@@ -23,8 +68,8 @@ type TrafficMirrorSession struct {
 	PacketLength pulumi.IntPtrOutput `pulumi:"packetLength"`
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber pulumi.IntOutput `pulumi:"sessionNumber"`
-	// Key-value mapping of resource tags.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId pulumi.StringOutput `pulumi:"trafficMirrorFilterId"`
 	// ID of the traffic mirror target to be used
@@ -73,6 +118,8 @@ func GetTrafficMirrorSession(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficMirrorSession resources.
 type trafficMirrorSessionState struct {
+	// The ARN of the traffic mirror session.
+	Arn *string `pulumi:"arn"`
 	// A description of the traffic mirror session.
 	Description *string `pulumi:"description"`
 	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
@@ -81,8 +128,8 @@ type trafficMirrorSessionState struct {
 	PacketLength *int `pulumi:"packetLength"`
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber *int `pulumi:"sessionNumber"`
-	// Key-value mapping of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId *string `pulumi:"trafficMirrorFilterId"`
 	// ID of the traffic mirror target to be used
@@ -92,6 +139,8 @@ type trafficMirrorSessionState struct {
 }
 
 type TrafficMirrorSessionState struct {
+	// The ARN of the traffic mirror session.
+	Arn pulumi.StringPtrInput
 	// A description of the traffic mirror session.
 	Description pulumi.StringPtrInput
 	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
@@ -100,8 +149,8 @@ type TrafficMirrorSessionState struct {
 	PacketLength pulumi.IntPtrInput
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber pulumi.IntPtrInput
-	// Key-value mapping of resource tags.
-	Tags pulumi.MapInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId pulumi.StringPtrInput
 	// ID of the traffic mirror target to be used
@@ -123,8 +172,8 @@ type trafficMirrorSessionArgs struct {
 	PacketLength *int `pulumi:"packetLength"`
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber int `pulumi:"sessionNumber"`
-	// Key-value mapping of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId string `pulumi:"trafficMirrorFilterId"`
 	// ID of the traffic mirror target to be used
@@ -143,8 +192,8 @@ type TrafficMirrorSessionArgs struct {
 	PacketLength pulumi.IntPtrInput
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber pulumi.IntInput
-	// Key-value mapping of resource tags.
-	Tags pulumi.MapInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId pulumi.StringInput
 	// ID of the traffic mirror target to be used

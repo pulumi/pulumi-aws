@@ -4,20 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mytopic = new aws.sns.Topic("mytopic", {});
- * const role = new aws.iam.Role("role", {
- *     assumeRolePolicy: `{
+ * const myerrortopic = new aws.sns.Topic("myerrortopic", {});
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -29,20 +28,27 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
+ * `});
  * const rule = new aws.iot.TopicRule("rule", {
  *     description: "Example rule",
  *     enabled: true,
+ *     sql: "SELECT * FROM 'topic/test'",
+ *     sqlVersion: "2016-03-23",
  *     sns: {
  *         messageFormat: "RAW",
  *         roleArn: role.arn,
  *         targetArn: mytopic.arn,
  *     },
- *     sql: "SELECT * FROM 'topic/test'",
- *     sqlVersion: "2015-10-08",
+ *     errorAction: {
+ *         sns: {
+ *             messageFormat: "RAW",
+ *             roleArn: role.arn,
+ *             targetArn: myerrortopic.arn,
+ *         },
+ *     },
  * });
  * const iamPolicyForLambda = new aws.iam.RolePolicy("iamPolicyForLambda", {
+ *     role: role.id,
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -56,11 +62,8 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     role: role.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_topic_rule.html.markdown.
  */
 export class TopicRule extends pulumi.CustomResource {
     /**
@@ -70,6 +73,7 @@ export class TopicRule extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TopicRuleState, opts?: pulumi.CustomResourceOptions): TopicRule {
         return new TopicRule(name, <any>state, { ...opts, id: id });
@@ -100,12 +104,19 @@ export class TopicRule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly dynamodb!: pulumi.Output<outputs.iot.TopicRuleDynamodb | undefined>;
+    public readonly dynamodbv2s!: pulumi.Output<outputs.iot.TopicRuleDynamodbv2[] | undefined>;
     public readonly elasticsearch!: pulumi.Output<outputs.iot.TopicRuleElasticsearch | undefined>;
     /**
      * Specifies whether the rule is enabled.
      */
     public readonly enabled!: pulumi.Output<boolean>;
+    /**
+     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+     */
+    public readonly errorAction!: pulumi.Output<outputs.iot.TopicRuleErrorAction | undefined>;
     public readonly firehose!: pulumi.Output<outputs.iot.TopicRuleFirehose | undefined>;
+    public readonly iotAnalytics!: pulumi.Output<outputs.iot.TopicRuleIotAnalytic[] | undefined>;
+    public readonly iotEvents!: pulumi.Output<outputs.iot.TopicRuleIotEvent[] | undefined>;
     public readonly kinesis!: pulumi.Output<outputs.iot.TopicRuleKinesis | undefined>;
     public readonly lambda!: pulumi.Output<outputs.iot.TopicRuleLambda | undefined>;
     /**
@@ -124,6 +135,11 @@ export class TopicRule extends pulumi.CustomResource {
      */
     public readonly sqlVersion!: pulumi.Output<string>;
     public readonly sqs!: pulumi.Output<outputs.iot.TopicRuleSqs | undefined>;
+    public readonly stepFunctions!: pulumi.Output<outputs.iot.TopicRuleStepFunction[] | undefined>;
+    /**
+     * Key-value map of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a TopicRule resource with the given unique name, arguments, and options.
@@ -142,9 +158,13 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["cloudwatchMetric"] = state ? state.cloudwatchMetric : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["dynamodb"] = state ? state.dynamodb : undefined;
+            inputs["dynamodbv2s"] = state ? state.dynamodbv2s : undefined;
             inputs["elasticsearch"] = state ? state.elasticsearch : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
+            inputs["errorAction"] = state ? state.errorAction : undefined;
             inputs["firehose"] = state ? state.firehose : undefined;
+            inputs["iotAnalytics"] = state ? state.iotAnalytics : undefined;
+            inputs["iotEvents"] = state ? state.iotEvents : undefined;
             inputs["kinesis"] = state ? state.kinesis : undefined;
             inputs["lambda"] = state ? state.lambda : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -154,6 +174,8 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["sql"] = state ? state.sql : undefined;
             inputs["sqlVersion"] = state ? state.sqlVersion : undefined;
             inputs["sqs"] = state ? state.sqs : undefined;
+            inputs["stepFunctions"] = state ? state.stepFunctions : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TopicRuleArgs | undefined;
             if (!args || args.enabled === undefined) {
@@ -169,9 +191,13 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["cloudwatchMetric"] = args ? args.cloudwatchMetric : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["dynamodb"] = args ? args.dynamodb : undefined;
+            inputs["dynamodbv2s"] = args ? args.dynamodbv2s : undefined;
             inputs["elasticsearch"] = args ? args.elasticsearch : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["errorAction"] = args ? args.errorAction : undefined;
             inputs["firehose"] = args ? args.firehose : undefined;
+            inputs["iotAnalytics"] = args ? args.iotAnalytics : undefined;
+            inputs["iotEvents"] = args ? args.iotEvents : undefined;
             inputs["kinesis"] = args ? args.kinesis : undefined;
             inputs["lambda"] = args ? args.lambda : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -181,6 +207,8 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["sql"] = args ? args.sql : undefined;
             inputs["sqlVersion"] = args ? args.sqlVersion : undefined;
             inputs["sqs"] = args ? args.sqs : undefined;
+            inputs["stepFunctions"] = args ? args.stepFunctions : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -209,12 +237,19 @@ export interface TopicRuleState {
      */
     readonly description?: pulumi.Input<string>;
     readonly dynamodb?: pulumi.Input<inputs.iot.TopicRuleDynamodb>;
+    readonly dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[]>;
     readonly elasticsearch?: pulumi.Input<inputs.iot.TopicRuleElasticsearch>;
     /**
      * Specifies whether the rule is enabled.
      */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+     */
+    readonly errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
     readonly firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
+    readonly iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
+    readonly iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
     readonly kinesis?: pulumi.Input<inputs.iot.TopicRuleKinesis>;
     readonly lambda?: pulumi.Input<inputs.iot.TopicRuleLambda>;
     /**
@@ -233,6 +268,11 @@ export interface TopicRuleState {
      */
     readonly sqlVersion?: pulumi.Input<string>;
     readonly sqs?: pulumi.Input<inputs.iot.TopicRuleSqs>;
+    readonly stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -246,12 +286,19 @@ export interface TopicRuleArgs {
      */
     readonly description?: pulumi.Input<string>;
     readonly dynamodb?: pulumi.Input<inputs.iot.TopicRuleDynamodb>;
+    readonly dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[]>;
     readonly elasticsearch?: pulumi.Input<inputs.iot.TopicRuleElasticsearch>;
     /**
      * Specifies whether the rule is enabled.
      */
     readonly enabled: pulumi.Input<boolean>;
+    /**
+     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+     */
+    readonly errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
     readonly firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
+    readonly iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
+    readonly iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
     readonly kinesis?: pulumi.Input<inputs.iot.TopicRuleKinesis>;
     readonly lambda?: pulumi.Input<inputs.iot.TopicRuleLambda>;
     /**
@@ -270,4 +317,9 @@ export interface TopicRuleArgs {
      */
     readonly sqlVersion: pulumi.Input<string>;
     readonly sqs?: pulumi.Input<inputs.iot.TopicRuleSqs>;
+    readonly stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

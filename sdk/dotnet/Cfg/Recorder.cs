@@ -12,11 +12,43 @@ namespace Pulumi.Aws.Cfg
     /// <summary>
     /// Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
     /// 
-    /// &gt; **Note:** _Starting_ the Configuration Recorder requires a [delivery channel](https://www.terraform.io/docs/providers/aws/r/config_delivery_channel.html) (while delivery channel creation requires Configuration Recorder). This is why [`aws.cfg.RecorderStatus`](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder_status.html) is a separate resource.
+    /// &gt; **Note:** _Starting_ the Configuration Recorder requires a `delivery channel` (while delivery channel creation requires Configuration Recorder). This is why `aws.cfg.RecorderStatus` is a separate resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_recorder.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""config.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var foo = new Aws.Cfg.Recorder("foo", new Aws.Cfg.RecorderArgs
+    ///         {
+    ///             RoleArn = role.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Recorder : Pulumi.CustomResource
     {
@@ -49,7 +81,7 @@ namespace Pulumi.Aws.Cfg
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Recorder(string name, RecorderArgs args, CustomResourceOptions? options = null)
-            : base("aws:cfg/recorder:Recorder", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cfg/recorder:Recorder", name, args ?? new RecorderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -136,118 +168,5 @@ namespace Pulumi.Aws.Cfg
         public RecorderState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class RecorderRecordingGroupArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies whether AWS Config records configuration changes
-        /// for every supported type of regional resource (which includes any new type that will become supported in the future).
-        /// Conflicts with `resource_types`. Defaults to `true`.
-        /// </summary>
-        [Input("allSupported")]
-        public Input<bool>? AllSupported { get; set; }
-
-        /// <summary>
-        /// Specifies whether AWS Config includes all supported types of *global resources*
-        /// with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
-        /// </summary>
-        [Input("includeGlobalResourceTypes")]
-        public Input<bool>? IncludeGlobalResourceTypes { get; set; }
-
-        [Input("resourceTypes")]
-        private InputList<string>? _resourceTypes;
-
-        /// <summary>
-        /// A list that specifies the types of AWS resources for which
-        /// AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
-        /// See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
-        /// </summary>
-        public InputList<string> ResourceTypes
-        {
-            get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
-            set => _resourceTypes = value;
-        }
-
-        public RecorderRecordingGroupArgs()
-        {
-        }
-    }
-
-    public sealed class RecorderRecordingGroupGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies whether AWS Config records configuration changes
-        /// for every supported type of regional resource (which includes any new type that will become supported in the future).
-        /// Conflicts with `resource_types`. Defaults to `true`.
-        /// </summary>
-        [Input("allSupported")]
-        public Input<bool>? AllSupported { get; set; }
-
-        /// <summary>
-        /// Specifies whether AWS Config includes all supported types of *global resources*
-        /// with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
-        /// </summary>
-        [Input("includeGlobalResourceTypes")]
-        public Input<bool>? IncludeGlobalResourceTypes { get; set; }
-
-        [Input("resourceTypes")]
-        private InputList<string>? _resourceTypes;
-
-        /// <summary>
-        /// A list that specifies the types of AWS resources for which
-        /// AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
-        /// See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
-        /// </summary>
-        public InputList<string> ResourceTypes
-        {
-            get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
-            set => _resourceTypes = value;
-        }
-
-        public RecorderRecordingGroupGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class RecorderRecordingGroup
-    {
-        /// <summary>
-        /// Specifies whether AWS Config records configuration changes
-        /// for every supported type of regional resource (which includes any new type that will become supported in the future).
-        /// Conflicts with `resource_types`. Defaults to `true`.
-        /// </summary>
-        public readonly bool? AllSupported;
-        /// <summary>
-        /// Specifies whether AWS Config includes all supported types of *global resources*
-        /// with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
-        /// </summary>
-        public readonly bool? IncludeGlobalResourceTypes;
-        /// <summary>
-        /// A list that specifies the types of AWS resources for which
-        /// AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
-        /// See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
-        /// </summary>
-        public readonly ImmutableArray<string> ResourceTypes;
-
-        [OutputConstructor]
-        private RecorderRecordingGroup(
-            bool? allSupported,
-            bool? includeGlobalResourceTypes,
-            ImmutableArray<string> resourceTypes)
-        {
-            AllSupported = allSupported;
-            IncludeGlobalResourceTypes = includeGlobalResourceTypes;
-            ResourceTypes = resourceTypes;
-        }
-    }
     }
 }

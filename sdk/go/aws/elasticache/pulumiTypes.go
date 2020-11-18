@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type ClusterCacheNode struct {
@@ -19,6 +19,10 @@ type ClusterCacheNode struct {
 	Port *int `pulumi:"port"`
 }
 
+// ClusterCacheNodeInput is an input type that accepts ClusterCacheNodeArgs and ClusterCacheNodeOutput values.
+// You can construct a concrete instance of `ClusterCacheNodeInput` via:
+//
+//          ClusterCacheNodeArgs{...}
 type ClusterCacheNodeInput interface {
 	pulumi.Input
 
@@ -47,6 +51,10 @@ func (i ClusterCacheNodeArgs) ToClusterCacheNodeOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCacheNodeOutput)
 }
 
+// ClusterCacheNodeArrayInput is an input type that accepts ClusterCacheNodeArray and ClusterCacheNodeArrayOutput values.
+// You can construct a concrete instance of `ClusterCacheNodeArrayInput` via:
+//
+//          ClusterCacheNodeArray{ ClusterCacheNodeArgs{...} }
 type ClusterCacheNodeArrayInput interface {
 	pulumi.Input
 
@@ -127,6 +135,10 @@ type ParameterGroupParameter struct {
 	Value string `pulumi:"value"`
 }
 
+// ParameterGroupParameterInput is an input type that accepts ParameterGroupParameterArgs and ParameterGroupParameterOutput values.
+// You can construct a concrete instance of `ParameterGroupParameterInput` via:
+//
+//          ParameterGroupParameterArgs{...}
 type ParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -153,6 +165,10 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterOutput)
 }
 
+// ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
+// You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
+//
+//          ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
 type ParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -225,6 +241,10 @@ type ReplicationGroupClusterMode struct {
 	ReplicasPerNodeGroup int `pulumi:"replicasPerNodeGroup"`
 }
 
+// ReplicationGroupClusterModeInput is an input type that accepts ReplicationGroupClusterModeArgs and ReplicationGroupClusterModeOutput values.
+// You can construct a concrete instance of `ReplicationGroupClusterModeInput` via:
+//
+//          ReplicationGroupClusterModeArgs{...}
 type ReplicationGroupClusterModeInput interface {
 	pulumi.Input
 
@@ -259,6 +279,14 @@ func (i ReplicationGroupClusterModeArgs) ToReplicationGroupClusterModePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupClusterModeOutput).ToReplicationGroupClusterModePtrOutputWithContext(ctx)
 }
 
+// ReplicationGroupClusterModePtrInput is an input type that accepts ReplicationGroupClusterModeArgs, ReplicationGroupClusterModePtr and ReplicationGroupClusterModePtrOutput values.
+// You can construct a concrete instance of `ReplicationGroupClusterModePtrInput` via:
+//
+//          ReplicationGroupClusterModeArgs{...}
+//
+//  or:
+//
+//          nil
 type ReplicationGroupClusterModePtrInput interface {
 	pulumi.Input
 
@@ -337,13 +365,23 @@ func (o ReplicationGroupClusterModePtrOutput) Elem() ReplicationGroupClusterMode
 }
 
 // Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
-func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntOutput {
-	return o.ApplyT(func(v ReplicationGroupClusterMode) int { return v.NumNodeGroups }).(pulumi.IntOutput)
+func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.NumNodeGroups
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
-func (o ReplicationGroupClusterModePtrOutput) ReplicasPerNodeGroup() pulumi.IntOutput {
-	return o.ApplyT(func(v ReplicationGroupClusterMode) int { return v.ReplicasPerNodeGroup }).(pulumi.IntOutput)
+func (o ReplicationGroupClusterModePtrOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ReplicasPerNodeGroup
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetClusterCacheNode struct {
@@ -356,6 +394,10 @@ type GetClusterCacheNode struct {
 	Port int `pulumi:"port"`
 }
 
+// GetClusterCacheNodeInput is an input type that accepts GetClusterCacheNodeArgs and GetClusterCacheNodeOutput values.
+// You can construct a concrete instance of `GetClusterCacheNodeInput` via:
+//
+//          GetClusterCacheNodeArgs{...}
 type GetClusterCacheNodeInput interface {
 	pulumi.Input
 
@@ -385,6 +427,10 @@ func (i GetClusterCacheNodeArgs) ToGetClusterCacheNodeOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterCacheNodeOutput)
 }
 
+// GetClusterCacheNodeArrayInput is an input type that accepts GetClusterCacheNodeArray and GetClusterCacheNodeArrayOutput values.
+// You can construct a concrete instance of `GetClusterCacheNodeArrayInput` via:
+//
+//          GetClusterCacheNodeArray{ GetClusterCacheNodeArgs{...} }
 type GetClusterCacheNodeArrayInput interface {
 	pulumi.Input
 

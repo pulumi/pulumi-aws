@@ -7,13 +7,39 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an SES receipt filter resource
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ses"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ses.NewReceiptFilter(ctx, "filter", &ses.ReceiptFilterArgs{
+// 			Cidr:   pulumi.String("10.10.10.10"),
+// 			Policy: pulumi.String("Block"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ReceiptFilter struct {
 	pulumi.CustomResourceState
 
+	// The SES receipt filter ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The IP address or address range to filter, in CIDR notation
 	Cidr pulumi.StringOutput `pulumi:"cidr"`
 	// The name of the filter
@@ -56,6 +82,8 @@ func GetReceiptFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReceiptFilter resources.
 type receiptFilterState struct {
+	// The SES receipt filter ARN.
+	Arn *string `pulumi:"arn"`
 	// The IP address or address range to filter, in CIDR notation
 	Cidr *string `pulumi:"cidr"`
 	// The name of the filter
@@ -65,6 +93,8 @@ type receiptFilterState struct {
 }
 
 type ReceiptFilterState struct {
+	// The SES receipt filter ARN.
+	Arn pulumi.StringPtrInput
 	// The IP address or address range to filter, in CIDR notation
 	Cidr pulumi.StringPtrInput
 	// The name of the filter

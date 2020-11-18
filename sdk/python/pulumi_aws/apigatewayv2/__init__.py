@@ -4,3 +4,16 @@
 
 # Export this package's modules as members:
 from .api import *
+from .api_mapping import *
+from .authorizer import *
+from .deployment import *
+from .domain_name import *
+from .integration import *
+from .integration_response import *
+from .model import *
+from .route import *
+from .route_response import *
+from .stage import *
+from .vpc_link import *
+from ._inputs import *
+from . import outputs

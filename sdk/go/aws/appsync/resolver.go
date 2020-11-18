@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an AppSync Resolver.
@@ -18,13 +18,15 @@ type Resolver struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// The ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The CachingConfig.
+	CachingConfig ResolverCachingConfigPtrOutput `pulumi:"cachingConfig"`
 	// The DataSource name.
 	DataSource pulumi.StringPtrOutput `pulumi:"dataSource"`
 	// The field name from the schema defined in the GraphQL API.
 	Field pulumi.StringOutput `pulumi:"field"`
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The PipelineConfig. A `pipelineConfig` block is documented below.
+	// The PipelineConfig.
 	PipelineConfig ResolverPipelineConfigPtrOutput `pulumi:"pipelineConfig"`
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
 	RequestTemplate pulumi.StringOutput `pulumi:"requestTemplate"`
@@ -81,13 +83,15 @@ type resolverState struct {
 	ApiId *string `pulumi:"apiId"`
 	// The ARN
 	Arn *string `pulumi:"arn"`
+	// The CachingConfig.
+	CachingConfig *ResolverCachingConfig `pulumi:"cachingConfig"`
 	// The DataSource name.
 	DataSource *string `pulumi:"dataSource"`
 	// The field name from the schema defined in the GraphQL API.
 	Field *string `pulumi:"field"`
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind *string `pulumi:"kind"`
-	// The PipelineConfig. A `pipelineConfig` block is documented below.
+	// The PipelineConfig.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
 	RequestTemplate *string `pulumi:"requestTemplate"`
@@ -102,13 +106,15 @@ type ResolverState struct {
 	ApiId pulumi.StringPtrInput
 	// The ARN
 	Arn pulumi.StringPtrInput
+	// The CachingConfig.
+	CachingConfig ResolverCachingConfigPtrInput
 	// The DataSource name.
 	DataSource pulumi.StringPtrInput
 	// The field name from the schema defined in the GraphQL API.
 	Field pulumi.StringPtrInput
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind pulumi.StringPtrInput
-	// The PipelineConfig. A `pipelineConfig` block is documented below.
+	// The PipelineConfig.
 	PipelineConfig ResolverPipelineConfigPtrInput
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
 	RequestTemplate pulumi.StringPtrInput
@@ -125,13 +131,15 @@ func (ResolverState) ElementType() reflect.Type {
 type resolverArgs struct {
 	// The API ID for the GraphQL API.
 	ApiId string `pulumi:"apiId"`
+	// The CachingConfig.
+	CachingConfig *ResolverCachingConfig `pulumi:"cachingConfig"`
 	// The DataSource name.
 	DataSource *string `pulumi:"dataSource"`
 	// The field name from the schema defined in the GraphQL API.
 	Field string `pulumi:"field"`
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind *string `pulumi:"kind"`
-	// The PipelineConfig. A `pipelineConfig` block is documented below.
+	// The PipelineConfig.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
 	RequestTemplate string `pulumi:"requestTemplate"`
@@ -145,13 +153,15 @@ type resolverArgs struct {
 type ResolverArgs struct {
 	// The API ID for the GraphQL API.
 	ApiId pulumi.StringInput
+	// The CachingConfig.
+	CachingConfig ResolverCachingConfigPtrInput
 	// The DataSource name.
 	DataSource pulumi.StringPtrInput
 	// The field name from the schema defined in the GraphQL API.
 	Field pulumi.StringInput
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind pulumi.StringPtrInput
-	// The PipelineConfig. A `pipelineConfig` block is documented below.
+	// The PipelineConfig.
 	PipelineConfig ResolverPipelineConfigPtrInput
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
 	RequestTemplate pulumi.StringInput

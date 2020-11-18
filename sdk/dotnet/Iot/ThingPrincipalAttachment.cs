@@ -12,9 +12,34 @@ namespace Pulumi.Aws.Iot
     /// <summary>
     /// Attaches Principal to AWS IoT Thing.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing_principal_attachment.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Iot.Thing("example", new Aws.Iot.ThingArgs
+    ///         {
+    ///         });
+    ///         var cert = new Aws.Iot.Certificate("cert", new Aws.Iot.CertificateArgs
+    ///         {
+    ///             Csr = File.ReadAllText("csr.pem"),
+    ///             Active = true,
+    ///         });
+    ///         var att = new Aws.Iot.ThingPrincipalAttachment("att", new Aws.Iot.ThingPrincipalAttachmentArgs
+    ///         {
+    ///             Principal = cert.Arn,
+    ///             Thing = example.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ThingPrincipalAttachment : Pulumi.CustomResource
     {
@@ -39,7 +64,7 @@ namespace Pulumi.Aws.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ThingPrincipalAttachment(string name, ThingPrincipalAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment", name, args ?? new ThingPrincipalAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

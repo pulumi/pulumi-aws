@@ -9,22 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The S3 object data source allows access to the metadata and
-        /// _optionally_ (see below) content of an object stored inside S3 bucket.
-        /// 
-        /// &gt; **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_object.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetBucketObject.InvokeAsync() instead")]
-        public static Task<GetBucketObjectResult> GetBucketObject(GetBucketObjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectResult>("aws:s3/getBucketObject:getBucketObject", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetBucketObject
     {
         /// <summary>
@@ -33,13 +17,75 @@ namespace Pulumi.Aws.S3
         /// 
         /// &gt; **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// The following example retrieves a text object (which must have a `Content-Type`
+        /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_object.html.markdown.
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var bootstrapScript = Output.Create(Aws.S3.GetBucketObject.InvokeAsync(new Aws.S3.GetBucketObjectArgs
+        ///         {
+        ///             Bucket = "ourcorp-deploy-config",
+        ///             Key = "ec2-bootstrap-script.sh",
+        ///         }));
+        ///         var example = new Aws.Ec2.Instance("example", new Aws.Ec2.InstanceArgs
+        ///         {
+        ///             InstanceType = "t2.micro",
+        ///             Ami = "ami-2757f631",
+        ///             UserData = bootstrapScript.Apply(bootstrapScript =&gt; bootstrapScript.Body),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// The following, more-complex example retrieves only the metadata for a zip
+        /// file stored in S3, which is then used to pass the most recent `version_id`
+        /// to AWS Lambda for use as a function implementation. More information about
+        /// Lambda functions is available in the documentation for
+        /// `aws.lambda.Function`.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var lambda = Output.Create(Aws.S3.GetBucketObject.InvokeAsync(new Aws.S3.GetBucketObjectArgs
+        ///         {
+        ///             Bucket = "ourcorp-lambda-functions",
+        ///             Key = "hello-world.zip",
+        ///         }));
+        ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
+        ///         {
+        ///             S3Bucket = lambda.Apply(lambda =&gt; lambda.Bucket),
+        ///             S3Key = lambda.Apply(lambda =&gt; lambda.Key),
+        ///             S3ObjectVersion = lambda.Apply(lambda =&gt; lambda.VersionId),
+        ///             Role = aws_iam_role.Iam_for_lambda.Arn,
+        ///             Handler = "exports.test",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetBucketObjectResult> InvokeAsync(GetBucketObjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectResult>("aws:s3/getBucketObject:getBucketObject", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectResult>("aws:s3/getBucketObject:getBucketObject", args ?? new GetBucketObjectArgs(), options.WithVersion());
     }
+
 
     public sealed class GetBucketObjectArgs : Pulumi.InvokeArgs
     {
@@ -59,14 +105,14 @@ namespace Pulumi.Aws.S3
         public string? Range { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags assigned to the object.
+        /// A map of tags assigned to the object.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -80,6 +126,7 @@ namespace Pulumi.Aws.S3
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetBucketObjectResult
@@ -125,6 +172,10 @@ namespace Pulumi.Aws.S3
         /// The date and time at which the object is no longer cacheable.
         /// </summary>
         public readonly string Expires;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Key;
         /// <summary>
         /// Last modified date of the object in RFC1123 format (e.g. `Mon, 02 Jan 2006 15:04:05 MST`)
@@ -133,7 +184,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// A map of metadata stored with the object in S3
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Metadata;
+        public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>
         /// Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
         /// </summary>
@@ -160,9 +211,9 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string StorageClass;
         /// <summary>
-        /// A mapping of tags assigned to the object.
+        /// A map of tags assigned to the object.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The latest version ID of the object returned.
         /// </summary>
@@ -171,38 +222,58 @@ namespace Pulumi.Aws.S3
         /// If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
         /// </summary>
         public readonly string WebsiteRedirectLocation;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetBucketObjectResult(
             string body,
+
             string bucket,
+
             string cacheControl,
+
             string contentDisposition,
+
             string contentEncoding,
+
             string contentLanguage,
+
             int contentLength,
+
             string contentType,
+
             string etag,
+
             string expiration,
+
             string expires,
+
+            string id,
+
             string key,
+
             string lastModified,
-            ImmutableDictionary<string, object> metadata,
+
+            ImmutableDictionary<string, string> metadata,
+
             string objectLockLegalHoldStatus,
+
             string objectLockMode,
+
             string objectLockRetainUntilDate,
+
             string? range,
+
             string serverSideEncryption,
+
             string sseKmsKeyId,
+
             string storageClass,
-            ImmutableDictionary<string, object> tags,
+
+            ImmutableDictionary<string, string> tags,
+
             string versionId,
-            string websiteRedirectLocation,
-            string id)
+
+            string websiteRedirectLocation)
         {
             Body = body;
             Bucket = bucket;
@@ -215,6 +286,7 @@ namespace Pulumi.Aws.S3
             Etag = etag;
             Expiration = expiration;
             Expires = expires;
+            Id = id;
             Key = key;
             LastModified = lastModified;
             Metadata = metadata;
@@ -228,7 +300,6 @@ namespace Pulumi.Aws.S3
             Tags = tags;
             VersionId = versionId;
             WebsiteRedirectLocation = websiteRedirectLocation;
-            Id = id;
         }
     }
 }

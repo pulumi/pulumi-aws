@@ -6,22 +6,87 @@ package ec2
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a VPC DHCP Options resource.
 //
+// ## Example Usage
 //
+// Basic usage:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewVpcDhcpOptions(ctx, "dnsResolver", &ec2.VpcDhcpOptionsArgs{
+// 			DomainNameServers: pulumi.StringArray{
+// 				pulumi.String("8.8.8.8"),
+// 				pulumi.String("8.8.4.4"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// Full usage:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewVpcDhcpOptions(ctx, "foo", &ec2.VpcDhcpOptionsArgs{
+// 			DomainName: pulumi.String("service.consul"),
+// 			DomainNameServers: pulumi.StringArray{
+// 				pulumi.String("127.0.0.1"),
+// 				pulumi.String("10.0.0.2"),
+// 			},
+// 			NetbiosNameServers: pulumi.StringArray{
+// 				pulumi.String("127.0.0.1"),
+// 			},
+// 			NetbiosNodeType: pulumi.String("2"),
+// 			NtpServers: pulumi.StringArray{
+// 				pulumi.String("127.0.0.1"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("foo-name"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Remarks
 //
 // * Notice that all arguments are optional but you have to specify at least one argument.
 // * `domainNameServers`, `netbiosNameServers`, `ntpServers` are limited by AWS to maximum four servers only.
-// * To actually use the DHCP Options Set you need to associate it to a VPC using [`ec2.VpcDhcpOptionsAssociation`](https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association.html).
+// * To actually use the DHCP Options Set you need to associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`.
 // * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
 // * In most cases unless you're configuring your own DNS you'll want to set `domainNameServers` to `AmazonProvidedDNS`.
 type VpcDhcpOptions struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the DHCP Options Set.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
@@ -34,8 +99,8 @@ type VpcDhcpOptions struct {
 	NtpServers pulumi.StringArrayOutput `pulumi:"ntpServers"`
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewVpcDhcpOptions registers a new resource with the given unique name, arguments, and options.
@@ -66,6 +131,8 @@ func GetVpcDhcpOptions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcDhcpOptions resources.
 type vpcDhcpOptionsState struct {
+	// The ARN of the DHCP Options Set.
+	Arn *string `pulumi:"arn"`
 	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
 	DomainName *string `pulumi:"domainName"`
 	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
@@ -78,11 +145,13 @@ type vpcDhcpOptionsState struct {
 	NtpServers []string `pulumi:"ntpServers"`
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId *string `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type VpcDhcpOptionsState struct {
+	// The ARN of the DHCP Options Set.
+	Arn pulumi.StringPtrInput
 	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
 	DomainName pulumi.StringPtrInput
 	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
@@ -95,8 +164,8 @@ type VpcDhcpOptionsState struct {
 	NtpServers pulumi.StringArrayInput
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (VpcDhcpOptionsState) ElementType() reflect.Type {
@@ -114,8 +183,8 @@ type vpcDhcpOptionsArgs struct {
 	NetbiosNodeType *string `pulumi:"netbiosNodeType"`
 	// List of NTP servers to configure.
 	NtpServers []string `pulumi:"ntpServers"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcDhcpOptions resource.
@@ -130,8 +199,8 @@ type VpcDhcpOptionsArgs struct {
 	NetbiosNodeType pulumi.StringPtrInput
 	// List of NTP servers to configure.
 	NtpServers pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (VpcDhcpOptionsArgs) ElementType() reflect.Type {

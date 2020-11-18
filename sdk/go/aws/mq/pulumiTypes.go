@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type BrokerConfiguration struct {
@@ -17,6 +17,10 @@ type BrokerConfiguration struct {
 	Revision *int `pulumi:"revision"`
 }
 
+// BrokerConfigurationInput is an input type that accepts BrokerConfigurationArgs and BrokerConfigurationOutput values.
+// You can construct a concrete instance of `BrokerConfigurationInput` via:
+//
+//          BrokerConfigurationArgs{...}
 type BrokerConfigurationInput interface {
 	pulumi.Input
 
@@ -51,6 +55,14 @@ func (i BrokerConfigurationArgs) ToBrokerConfigurationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerConfigurationOutput).ToBrokerConfigurationPtrOutputWithContext(ctx)
 }
 
+// BrokerConfigurationPtrInput is an input type that accepts BrokerConfigurationArgs, BrokerConfigurationPtr and BrokerConfigurationPtrOutput values.
+// You can construct a concrete instance of `BrokerConfigurationPtrInput` via:
+//
+//          BrokerConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type BrokerConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -130,12 +142,22 @@ func (o BrokerConfigurationPtrOutput) Elem() BrokerConfigurationOutput {
 
 // The Configuration ID.
 func (o BrokerConfigurationPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BrokerConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *BrokerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Revision of the Configuration.
 func (o BrokerConfigurationPtrOutput) Revision() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BrokerConfiguration) *int { return v.Revision }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *BrokerConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Revision
+	}).(pulumi.IntPtrOutput)
 }
 
 type BrokerEncryptionOptions struct {
@@ -145,6 +167,10 @@ type BrokerEncryptionOptions struct {
 	UseAwsOwnedKey *bool `pulumi:"useAwsOwnedKey"`
 }
 
+// BrokerEncryptionOptionsInput is an input type that accepts BrokerEncryptionOptionsArgs and BrokerEncryptionOptionsOutput values.
+// You can construct a concrete instance of `BrokerEncryptionOptionsInput` via:
+//
+//          BrokerEncryptionOptionsArgs{...}
 type BrokerEncryptionOptionsInput interface {
 	pulumi.Input
 
@@ -179,6 +205,14 @@ func (i BrokerEncryptionOptionsArgs) ToBrokerEncryptionOptionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerEncryptionOptionsOutput).ToBrokerEncryptionOptionsPtrOutputWithContext(ctx)
 }
 
+// BrokerEncryptionOptionsPtrInput is an input type that accepts BrokerEncryptionOptionsArgs, BrokerEncryptionOptionsPtr and BrokerEncryptionOptionsPtrOutput values.
+// You can construct a concrete instance of `BrokerEncryptionOptionsPtrInput` via:
+//
+//          BrokerEncryptionOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type BrokerEncryptionOptionsPtrInput interface {
 	pulumi.Input
 
@@ -258,12 +292,22 @@ func (o BrokerEncryptionOptionsPtrOutput) Elem() BrokerEncryptionOptionsOutput {
 
 // Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
 func (o BrokerEncryptionOptionsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BrokerEncryptionOptions) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *BrokerEncryptionOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
 func (o BrokerEncryptionOptionsPtrOutput) UseAwsOwnedKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BrokerEncryptionOptions) *bool { return v.UseAwsOwnedKey }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BrokerEncryptionOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseAwsOwnedKey
+	}).(pulumi.BoolPtrOutput)
 }
 
 type BrokerInstance struct {
@@ -272,6 +316,10 @@ type BrokerInstance struct {
 	IpAddress  *string  `pulumi:"ipAddress"`
 }
 
+// BrokerInstanceInput is an input type that accepts BrokerInstanceArgs and BrokerInstanceOutput values.
+// You can construct a concrete instance of `BrokerInstanceInput` via:
+//
+//          BrokerInstanceArgs{...}
 type BrokerInstanceInput interface {
 	pulumi.Input
 
@@ -297,6 +345,10 @@ func (i BrokerInstanceArgs) ToBrokerInstanceOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerInstanceOutput)
 }
 
+// BrokerInstanceArrayInput is an input type that accepts BrokerInstanceArray and BrokerInstanceArrayOutput values.
+// You can construct a concrete instance of `BrokerInstanceArrayInput` via:
+//
+//          BrokerInstanceArray{ BrokerInstanceArgs{...} }
 type BrokerInstanceArrayInput interface {
 	pulumi.Input
 
@@ -371,6 +423,10 @@ type BrokerLogs struct {
 	General *bool `pulumi:"general"`
 }
 
+// BrokerLogsInput is an input type that accepts BrokerLogsArgs and BrokerLogsOutput values.
+// You can construct a concrete instance of `BrokerLogsInput` via:
+//
+//          BrokerLogsArgs{...}
 type BrokerLogsInput interface {
 	pulumi.Input
 
@@ -405,6 +461,14 @@ func (i BrokerLogsArgs) ToBrokerLogsPtrOutputWithContext(ctx context.Context) Br
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerLogsOutput).ToBrokerLogsPtrOutputWithContext(ctx)
 }
 
+// BrokerLogsPtrInput is an input type that accepts BrokerLogsArgs, BrokerLogsPtr and BrokerLogsPtrOutput values.
+// You can construct a concrete instance of `BrokerLogsPtrInput` via:
+//
+//          BrokerLogsArgs{...}
+//
+//  or:
+//
+//          nil
 type BrokerLogsPtrInput interface {
 	pulumi.Input
 
@@ -484,12 +548,22 @@ func (o BrokerLogsPtrOutput) Elem() BrokerLogsOutput {
 
 // Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
 func (o BrokerLogsPtrOutput) Audit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BrokerLogs) *bool { return v.Audit }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BrokerLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Audit
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Enables general logging via CloudWatch. Defaults to `false`.
 func (o BrokerLogsPtrOutput) General() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BrokerLogs) *bool { return v.General }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BrokerLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.General
+	}).(pulumi.BoolPtrOutput)
 }
 
 type BrokerMaintenanceWindowStartTime struct {
@@ -501,6 +575,10 @@ type BrokerMaintenanceWindowStartTime struct {
 	TimeZone string `pulumi:"timeZone"`
 }
 
+// BrokerMaintenanceWindowStartTimeInput is an input type that accepts BrokerMaintenanceWindowStartTimeArgs and BrokerMaintenanceWindowStartTimeOutput values.
+// You can construct a concrete instance of `BrokerMaintenanceWindowStartTimeInput` via:
+//
+//          BrokerMaintenanceWindowStartTimeArgs{...}
 type BrokerMaintenanceWindowStartTimeInput interface {
 	pulumi.Input
 
@@ -537,6 +615,14 @@ func (i BrokerMaintenanceWindowStartTimeArgs) ToBrokerMaintenanceWindowStartTime
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerMaintenanceWindowStartTimeOutput).ToBrokerMaintenanceWindowStartTimePtrOutputWithContext(ctx)
 }
 
+// BrokerMaintenanceWindowStartTimePtrInput is an input type that accepts BrokerMaintenanceWindowStartTimeArgs, BrokerMaintenanceWindowStartTimePtr and BrokerMaintenanceWindowStartTimePtrOutput values.
+// You can construct a concrete instance of `BrokerMaintenanceWindowStartTimePtrInput` via:
+//
+//          BrokerMaintenanceWindowStartTimeArgs{...}
+//
+//  or:
+//
+//          nil
 type BrokerMaintenanceWindowStartTimePtrInput interface {
 	pulumi.Input
 
@@ -620,18 +706,33 @@ func (o BrokerMaintenanceWindowStartTimePtrOutput) Elem() BrokerMaintenanceWindo
 }
 
 // The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
-func (o BrokerMaintenanceWindowStartTimePtrOutput) DayOfWeek() pulumi.StringOutput {
-	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.DayOfWeek }).(pulumi.StringOutput)
+func (o BrokerMaintenanceWindowStartTimePtrOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DayOfWeek
+	}).(pulumi.StringPtrOutput)
 }
 
 // The time, in 24-hour format. e.g. `02:00`
-func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeOfDay() pulumi.StringOutput {
-	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.TimeOfDay }).(pulumi.StringOutput)
+func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeOfDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeOfDay
+	}).(pulumi.StringPtrOutput)
 }
 
 // The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
-func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeZone() pulumi.StringOutput {
-	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.TimeZone }).(pulumi.StringOutput)
+func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeZone
+	}).(pulumi.StringPtrOutput)
 }
 
 type BrokerUser struct {
@@ -645,6 +746,10 @@ type BrokerUser struct {
 	Username string `pulumi:"username"`
 }
 
+// BrokerUserInput is an input type that accepts BrokerUserArgs and BrokerUserOutput values.
+// You can construct a concrete instance of `BrokerUserInput` via:
+//
+//          BrokerUserArgs{...}
 type BrokerUserInput interface {
 	pulumi.Input
 
@@ -675,6 +780,10 @@ func (i BrokerUserArgs) ToBrokerUserOutputWithContext(ctx context.Context) Broke
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerUserOutput)
 }
 
+// BrokerUserArrayInput is an input type that accepts BrokerUserArray and BrokerUserArrayOutput values.
+// You can construct a concrete instance of `BrokerUserArrayInput` via:
+//
+//          BrokerUserArray{ BrokerUserArgs{...} }
 type BrokerUserArrayInput interface {
 	pulumi.Input
 
@@ -755,6 +864,10 @@ type GetBrokerConfiguration struct {
 	Revision int    `pulumi:"revision"`
 }
 
+// GetBrokerConfigurationInput is an input type that accepts GetBrokerConfigurationArgs and GetBrokerConfigurationOutput values.
+// You can construct a concrete instance of `GetBrokerConfigurationInput` via:
+//
+//          GetBrokerConfigurationArgs{...}
 type GetBrokerConfigurationInput interface {
 	pulumi.Input
 
@@ -806,6 +919,10 @@ type GetBrokerEncryptionOption struct {
 	UseAwsOwnedKey bool   `pulumi:"useAwsOwnedKey"`
 }
 
+// GetBrokerEncryptionOptionInput is an input type that accepts GetBrokerEncryptionOptionArgs and GetBrokerEncryptionOptionOutput values.
+// You can construct a concrete instance of `GetBrokerEncryptionOptionInput` via:
+//
+//          GetBrokerEncryptionOptionArgs{...}
 type GetBrokerEncryptionOptionInput interface {
 	pulumi.Input
 
@@ -830,6 +947,10 @@ func (i GetBrokerEncryptionOptionArgs) ToGetBrokerEncryptionOptionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerEncryptionOptionOutput)
 }
 
+// GetBrokerEncryptionOptionArrayInput is an input type that accepts GetBrokerEncryptionOptionArray and GetBrokerEncryptionOptionArrayOutput values.
+// You can construct a concrete instance of `GetBrokerEncryptionOptionArrayInput` via:
+//
+//          GetBrokerEncryptionOptionArray{ GetBrokerEncryptionOptionArgs{...} }
 type GetBrokerEncryptionOptionArrayInput interface {
 	pulumi.Input
 
@@ -899,6 +1020,10 @@ type GetBrokerInstance struct {
 	IpAddress  string   `pulumi:"ipAddress"`
 }
 
+// GetBrokerInstanceInput is an input type that accepts GetBrokerInstanceArgs and GetBrokerInstanceOutput values.
+// You can construct a concrete instance of `GetBrokerInstanceInput` via:
+//
+//          GetBrokerInstanceArgs{...}
 type GetBrokerInstanceInput interface {
 	pulumi.Input
 
@@ -924,6 +1049,10 @@ func (i GetBrokerInstanceArgs) ToGetBrokerInstanceOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerInstanceOutput)
 }
 
+// GetBrokerInstanceArrayInput is an input type that accepts GetBrokerInstanceArray and GetBrokerInstanceArrayOutput values.
+// You can construct a concrete instance of `GetBrokerInstanceArrayInput` via:
+//
+//          GetBrokerInstanceArray{ GetBrokerInstanceArgs{...} }
 type GetBrokerInstanceArrayInput interface {
 	pulumi.Input
 
@@ -996,6 +1125,10 @@ type GetBrokerLogs struct {
 	General bool `pulumi:"general"`
 }
 
+// GetBrokerLogsInput is an input type that accepts GetBrokerLogsArgs and GetBrokerLogsOutput values.
+// You can construct a concrete instance of `GetBrokerLogsInput` via:
+//
+//          GetBrokerLogsArgs{...}
 type GetBrokerLogsInput interface {
 	pulumi.Input
 
@@ -1048,6 +1181,10 @@ type GetBrokerMaintenanceWindowStartTime struct {
 	TimeZone  string `pulumi:"timeZone"`
 }
 
+// GetBrokerMaintenanceWindowStartTimeInput is an input type that accepts GetBrokerMaintenanceWindowStartTimeArgs and GetBrokerMaintenanceWindowStartTimeOutput values.
+// You can construct a concrete instance of `GetBrokerMaintenanceWindowStartTimeInput` via:
+//
+//          GetBrokerMaintenanceWindowStartTimeArgs{...}
 type GetBrokerMaintenanceWindowStartTimeInput interface {
 	pulumi.Input
 
@@ -1105,6 +1242,10 @@ type GetBrokerUser struct {
 	Username      string   `pulumi:"username"`
 }
 
+// GetBrokerUserInput is an input type that accepts GetBrokerUserArgs and GetBrokerUserOutput values.
+// You can construct a concrete instance of `GetBrokerUserInput` via:
+//
+//          GetBrokerUserArgs{...}
 type GetBrokerUserInput interface {
 	pulumi.Input
 
@@ -1130,6 +1271,10 @@ func (i GetBrokerUserArgs) ToGetBrokerUserOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerUserOutput)
 }
 
+// GetBrokerUserArrayInput is an input type that accepts GetBrokerUserArray and GetBrokerUserArrayOutput values.
+// You can construct a concrete instance of `GetBrokerUserArrayInput` via:
+//
+//          GetBrokerUserArray{ GetBrokerUserArgs{...} }
 type GetBrokerUserArrayInput interface {
 	pulumi.Input
 

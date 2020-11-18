@@ -4,10 +4,56 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Get an existing AWS Customer Gateway.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		foo, err := ec2.LookupCustomerGateway(ctx, &ec2.LookupCustomerGatewayArgs{
+// 			Filters: []ec2.GetCustomerGatewayFilter{
+// 				ec2.GetCustomerGatewayFilter{
+// 					Name: "tag:Name",
+// 					Values: []string{
+// 						"foo-prod",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		main, err := ec2.NewVpnGateway(ctx, "main", &ec2.VpnGatewayArgs{
+// 			VpcId:         pulumi.Any(aws_vpc.Main.Id),
+// 			AmazonSideAsn: pulumi.String("7224"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewVpnConnection(ctx, "transit", &ec2.VpnConnectionArgs{
+// 			VpnGatewayId:      main.ID(),
+// 			CustomerGatewayId: pulumi.String(foo.Id),
+// 			Type:              pulumi.String(foo.Type),
+// 			StaticRoutesOnly:  pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupCustomerGateway(ctx *pulumi.Context, args *LookupCustomerGatewayArgs, opts ...pulumi.InvokeOption) (*LookupCustomerGatewayResult, error) {
 	var rv LookupCustomerGatewayResult
 	err := ctx.Invoke("aws:ec2/getCustomerGateway:getCustomerGateway", args, &rv, opts...)
@@ -24,11 +70,13 @@ type LookupCustomerGatewayArgs struct {
 	// The ID of the gateway.
 	Id *string `pulumi:"id"`
 	// Map of key-value pairs assigned to the gateway.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCustomerGateway.
 type LookupCustomerGatewayResult struct {
+	// The ARN of the customer gateway.
+	Arn string `pulumi:"arn"`
 	// (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 	BgpAsn  int                        `pulumi:"bgpAsn"`
 	Filters []GetCustomerGatewayFilter `pulumi:"filters"`
@@ -36,7 +84,7 @@ type LookupCustomerGatewayResult struct {
 	// (Optional) The IP address of the gateway's Internet-routable external interface.
 	IpAddress string `pulumi:"ipAddress"`
 	// Map of key-value pairs assigned to the gateway.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// (Optional) The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
 	Type string `pulumi:"type"`
 }

@@ -5,24 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage AWS Device Farm Projects. 
+ * Provides a resource to manage AWS Device Farm Projects.
  * Please keep in mind that this feature is only supported on the "us-west-2" region.
  * This resource will error if you try to create a project in another region.
- * 
+ *
  * For more information about Device Farm Projects, see the AWS Documentation on
  * [Device Farm Projects][aws-get-project].
- * 
+ *
  * ## Basic Example Usage
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const awesomeDevices = new aws.devicefarm.Project("awesomeDevices", {});
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/devicefarm_project.html.markdown.
+ * const awesomeDevices = new aws.devicefarm.Project("awesome_devices", {});
+ * ```
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -32,6 +29,7 @@ export class Project extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProjectState, opts?: pulumi.CustomResourceOptions): Project {
         return new Project(name, <any>state, { ...opts, id: id });

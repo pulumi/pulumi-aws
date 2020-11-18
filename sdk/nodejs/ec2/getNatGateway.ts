@@ -4,30 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific Nat Gateway.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
- * const subnetId = config.require("subnetId");
- * 
- * const defaultNatGateway = aws_subnet_public.id.apply(id => aws.ec2.getNatGateway({
- *     subnetId: id,
- * }));
+ * const subnetId = config.requireObject("subnetId");
+ * const default = aws.ec2.getNatGateway({
+ *     subnetId: aws_subnet["public"].id,
+ * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/nat_gateway.html.markdown.
+ * Usage with tags:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const default = aws.ec2.getNatGateway({
+ *     subnetId: aws_subnet["public"].id,
+ *     tags: {
+ *         Name: "gw NAT",
+ *     },
+ * });
+ * ```
  */
-export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> & GetNatGatewayResult {
+export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -36,7 +46,7 @@ export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOpti
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetNatGatewayResult> = pulumi.runtime.invoke("aws:ec2/getNatGateway:getNatGateway", {
+    return pulumi.runtime.invoke("aws:ec2/getNatGateway:getNatGateway", {
         "filters": args.filters,
         "id": args.id,
         "state": args.state,
@@ -44,8 +54,6 @@ export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOpti
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -69,10 +77,10 @@ export interface GetNatGatewayArgs {
      */
     readonly subnetId?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired Nat Gateway.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The id of the VPC that the Nat Gateway resides in.
      */
@@ -103,6 +111,6 @@ export interface GetNatGatewayResult {
     readonly publicIp: string;
     readonly state: string;
     readonly subnetId: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }

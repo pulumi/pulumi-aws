@@ -7,3 +7,5 @@ from .get_table import *
 from .global_table import *
 from .table import *
 from .table_item import *
+from ._inputs import *
+from . import outputs

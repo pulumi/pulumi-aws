@@ -2,40 +2,34 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a RDS database instance snapshot. For managing RDS database cluster snapshots, see the [`aws.rds.ClusterSnapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
- * 
+ * Manages an RDS database instance snapshot. For managing RDS database cluster snapshots, see the `aws.rds.ClusterSnapshot` resource.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.rds.Instance("bar", {
  *     allocatedStorage: 10,
- *     backupRetentionPeriod: 0,
  *     engine: "MySQL",
  *     engineVersion: "5.6.21",
  *     instanceClass: "db.t2.micro",
- *     maintenanceWindow: "Fri:09:00-Fri:09:30",
  *     name: "baz",
- *     parameterGroupName: "default.mysql5.6",
  *     password: "barbarbarbar",
  *     username: "foo",
+ *     maintenanceWindow: "Fri:09:00-Fri:09:30",
+ *     backupRetentionPeriod: 0,
+ *     parameterGroupName: "default.mysql5.6",
  * });
  * const test = new aws.rds.Snapshot("test", {
  *     dbInstanceIdentifier: bar.id,
  *     dbSnapshotIdentifier: "testsnapshot1234",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_snapshot.html.markdown.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**
@@ -45,6 +39,7 @@ export class Snapshot extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SnapshotState, opts?: pulumi.CustomResourceOptions): Snapshot {
         return new Snapshot(name, <any>state, { ...opts, id: id });
@@ -131,9 +126,9 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageType!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the storage type associated with DB snapshot.
      */
@@ -282,9 +277,9 @@ export interface SnapshotState {
      */
     readonly storageType?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the storage type associated with DB snapshot.
      */
@@ -304,7 +299,7 @@ export interface SnapshotArgs {
      */
     readonly dbSnapshotIdentifier: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

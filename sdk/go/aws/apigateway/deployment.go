@@ -7,13 +7,76 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an API Gateway REST Deployment.
 //
-// > **Note:** Depends on having `apigateway.Integration` inside your rest api (which in turn depends on `apigateway.Method`). To avoid race conditions
-// you might need to add an explicit `dependsOn = ["${aws_api_gateway_integration.name}"]`.
+// > **Note:** This resource depends on having at least one `apigateway.Integration` created in the REST API, which
+// itself has other dependencies. To avoid race conditions when all resources are being created together, you need to add
+// implicit resource references via the `triggers` argument or explicit resource references using the
+// [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+// 			Description: pulumi.String("This is my API for demonstration purposes"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		myDemoResource, err := apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
+// 			RestApi:  myDemoAPI.ID(),
+// 			ParentId: myDemoAPI.RootResourceId,
+// 			PathPart: pulumi.String("test"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		myDemoMethod, err := apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
+// 			RestApi:       myDemoAPI.ID(),
+// 			ResourceId:    myDemoResource.ID(),
+// 			HttpMethod:    pulumi.String("GET"),
+// 			Authorization: pulumi.String("NONE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		myDemoIntegration, err := apigateway.NewIntegration(ctx, "myDemoIntegration", &apigateway.IntegrationArgs{
+// 			RestApi:    myDemoAPI.ID(),
+// 			ResourceId: myDemoResource.ID(),
+// 			HttpMethod: myDemoMethod.HttpMethod,
+// 			Type:       pulumi.String("MOCK"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apigateway.NewDeployment(ctx, "myDemoDeployment", &apigateway.DeploymentArgs{
+// 			RestApi:   myDemoAPI.ID(),
+// 			StageName: pulumi.String("test"),
+// 			Variables: pulumi.StringMap{
+// 				"answer": pulumi.String("42"),
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			myDemoIntegration,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Deployment struct {
 	pulumi.CustomResourceState
 
@@ -21,7 +84,7 @@ type Deployment struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The description of the deployment
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+	// The execution ARN to be used in `lambdaPermission` resource's `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
@@ -34,6 +97,8 @@ type Deployment struct {
 	StageDescription pulumi.StringPtrOutput `pulumi:"stageDescription"`
 	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
 	StageName pulumi.StringPtrOutput `pulumi:"stageName"`
+	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
 	// A map that defines variables for the stage
 	Variables pulumi.StringMapOutput `pulumi:"variables"`
 }
@@ -73,7 +138,7 @@ type deploymentState struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// The description of the deployment
 	Description *string `pulumi:"description"`
-	// The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+	// The execution ARN to be used in `lambdaPermission` resource's `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn *string `pulumi:"executionArn"`
@@ -86,6 +151,8 @@ type deploymentState struct {
 	StageDescription *string `pulumi:"stageDescription"`
 	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
 	StageName *string `pulumi:"stageName"`
+	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers map[string]string `pulumi:"triggers"`
 	// A map that defines variables for the stage
 	Variables map[string]string `pulumi:"variables"`
 }
@@ -95,7 +162,7 @@ type DeploymentState struct {
 	CreatedDate pulumi.StringPtrInput
 	// The description of the deployment
 	Description pulumi.StringPtrInput
-	// The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+	// The execution ARN to be used in `lambdaPermission` resource's `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn pulumi.StringPtrInput
@@ -108,6 +175,8 @@ type DeploymentState struct {
 	StageDescription pulumi.StringPtrInput
 	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
 	StageName pulumi.StringPtrInput
+	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers pulumi.StringMapInput
 	// A map that defines variables for the stage
 	Variables pulumi.StringMapInput
 }
@@ -125,6 +194,8 @@ type deploymentArgs struct {
 	StageDescription *string `pulumi:"stageDescription"`
 	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
 	StageName *string `pulumi:"stageName"`
+	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers map[string]string `pulumi:"triggers"`
 	// A map that defines variables for the stage
 	Variables map[string]string `pulumi:"variables"`
 }
@@ -139,6 +210,8 @@ type DeploymentArgs struct {
 	StageDescription pulumi.StringPtrInput
 	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
 	StageName pulumi.StringPtrInput
+	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers pulumi.StringMapInput
 	// A map that defines variables for the stage
 	Variables pulumi.StringMapInput
 }

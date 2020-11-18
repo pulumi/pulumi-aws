@@ -4,41 +4,38 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The "AMI from instance" resource allows the creation of an Amazon Machine
  * Image (AMI) modelled after an existing EBS-backed EC2 instance.
- * 
+ *
  * The created AMI will refer to implicitly-created snapshots of the instance's
  * EBS volumes and mimick its assigned block device configuration at the time
  * the resource is created.
- * 
+ *
  * This resource is best applied to an instance that is stopped when this instance
  * is created, so that the contents of the created image are predictable. When
  * applied to an instance that is running, *the instance will be stopped before taking
  * the snapshots and then started back up again*, resulting in a period of
  * downtime.
- * 
+ *
  * Note that the source instance is inspected only at the initial creation of this
  * resource. Ongoing updates to the referenced instance will not be propagated into
  * the generated AMI. Users may taint or otherwise recreate the resource in order
  * to produce a fresh snapshot.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2.AmiFromInstance("example", {
  *     sourceInstanceId: "i-xxxxxxxx",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_from_instance.html.markdown.
  */
 export class AmiFromInstance extends pulumi.CustomResource {
     /**
@@ -48,6 +45,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AmiFromInstanceState, opts?: pulumi.CustomResourceOptions): AmiFromInstance {
         return new AmiFromInstance(name, <any>state, { ...opts, id: id });
@@ -71,6 +69,10 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * Machine architecture for created instances. Defaults to "x8664".
      */
     public /*out*/ readonly architecture!: pulumi.Output<string>;
+    /**
+     * The ARN of the AMI.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A longer, human-readable description for the AMI.
      */
@@ -131,9 +133,9 @@ export class AmiFromInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly sriovNetSupport!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -154,6 +156,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AmiFromInstanceState | undefined;
             inputs["architecture"] = state ? state.architecture : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             inputs["enaSupport"] = state ? state.enaSupport : undefined;
@@ -183,6 +186,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             inputs["sourceInstanceId"] = args ? args.sourceInstanceId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["architecture"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
             inputs["enaSupport"] = undefined /*out*/;
             inputs["imageLocation"] = undefined /*out*/;
             inputs["kernelId"] = undefined /*out*/;
@@ -212,6 +216,10 @@ export interface AmiFromInstanceState {
      * Machine architecture for created instances. Defaults to "x8664".
      */
     readonly architecture?: pulumi.Input<string>;
+    /**
+     * The ARN of the AMI.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * A longer, human-readable description for the AMI.
      */
@@ -272,9 +280,9 @@ export interface AmiFromInstanceState {
      */
     readonly sriovNetSupport?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -317,7 +325,7 @@ export interface AmiFromInstanceArgs {
      */
     readonly sourceInstanceId: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

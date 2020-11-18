@@ -30,3 +30,5 @@ from .stage import *
 from .usage_plan import *
 from .usage_plan_key import *
 from .vpc_link import *
+from ._inputs import *
+from . import outputs

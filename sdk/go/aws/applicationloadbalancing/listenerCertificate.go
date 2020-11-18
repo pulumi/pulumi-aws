@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Load Balancer Listener Certificate resource.
@@ -15,6 +15,45 @@ import (
 // This resource is for additional certificates and does not replace the default certificate on the listener.
 //
 // > **Note:** `alb.ListenerCertificate` is known as `lb.ListenerCertificate`. The functionality is identical.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/acm"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/lb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		frontEndListener, err := lb.NewListener(ctx, "frontEndListener", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lb.NewListenerCertificate(ctx, "exampleListenerCertificate", &lb.ListenerCertificateArgs{
+// 			ListenerArn:    frontEndListener.Arn,
+// 			CertificateArn: exampleCertificate.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// Deprecated: aws.applicationloadbalancing.ListenerCertificate has been deprecated in favor of aws.alb.ListenerCertificate
 type ListenerCertificate struct {
 	pulumi.CustomResourceState
 

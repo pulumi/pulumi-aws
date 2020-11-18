@@ -4,20 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Get information on an EC2 Transit Gateway Route Table.
- * 
+ *
  * ## Example Usage
- * 
  * ### By Filter
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ec2transitgateway.getRouteTable({
+ *
+ * const example = pulumi.output(aws.ec2transitgateway.getRouteTable({
  *     filters: [
  *         {
  *             name: "default-association-route-table",
@@ -28,23 +28,20 @@ import * as utilities from "../utilities";
  *             values: ["tgw-12345678"],
  *         },
  *     ],
- * });
+ * }, { async: true }));
  * ```
- * 
  * ### By Identifier
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ec2transitgateway.getRouteTable({
- *     id: "tgw-rtb-12345678",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_route_table.html.markdown.
+ * const example = pulumi.output(aws.ec2transitgateway.getRouteTable({
+ *     id: "tgw-rtb-12345678",
+ * }, { async: true }));
+ * ```
  */
-export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> & GetRouteTableResult {
+export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -53,13 +50,11 @@ export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOpti
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRouteTableResult> = pulumi.runtime.invoke("aws:ec2transitgateway/getRouteTable:getRouteTable", {
+    return pulumi.runtime.invoke("aws:ec2transitgateway/getRouteTable:getRouteTable", {
         "filters": args.filters,
         "id": args.id,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -77,13 +72,17 @@ export interface GetRouteTableArgs {
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
  * A collection of values returned by getRouteTable.
  */
 export interface GetRouteTableResult {
+    /**
+     * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     */
+    readonly arn: string;
     /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway
      */
@@ -100,7 +99,7 @@ export interface GetRouteTableResult {
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * EC2 Transit Gateway identifier
      */

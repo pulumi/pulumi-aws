@@ -6,44 +6,39 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES domain MAIL FROM resource.
- * 
- * > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the [aws.ses.DomainIdentity resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html). To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
- * 
+ *
+ * > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the `aws.ses.DomainIdentity` resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Example SES Domain Identity
- * const exampleDomainIdentity = new aws.ses.DomainIdentity("example", {
- *     domain: "example.com",
- * });
- * const exampleMailFrom = new aws.ses.MailFrom("example", {
+ * const exampleDomainIdentity = new aws.ses.DomainIdentity("exampleDomainIdentity", {domain: "example.com"});
+ * const exampleMailFrom = new aws.ses.MailFrom("exampleMailFrom", {
  *     domain: exampleDomainIdentity.domain,
  *     mailFromDomain: pulumi.interpolate`bounce.${exampleDomainIdentity.domain}`,
  * });
  * // Example Route53 MX record
  * const exampleSesDomainMailFromMx = new aws.route53.Record("exampleSesDomainMailFromMx", {
+ *     zoneId: aws_route53_zone.example.id,
  *     name: exampleMailFrom.mailFromDomain,
- *     records: ["10 feedback-smtp.us-east-1.amazonses.com"], // Change to the region in which `aws_ses_domain_identity.example` is created
- *     ttl: 600,
  *     type: "MX",
- *     zoneId: aws_route53_zone_example.id,
+ *     ttl: "600",
+ *     records: ["10 feedback-smtp.us-east-1.amazonses.com"],
  * });
+ * // Change to the region in which `aws_ses_domain_identity.example` is created
  * // Example Route53 TXT record for SPF
  * const exampleSesDomainMailFromTxt = new aws.route53.Record("exampleSesDomainMailFromTxt", {
+ *     zoneId: aws_route53_zone.example.id,
  *     name: exampleMailFrom.mailFromDomain,
- *     records: ["v=spf1 include:amazonses.com -all"],
- *     ttl: 600,
  *     type: "TXT",
- *     zoneId: aws_route53_zone_example.id,
+ *     ttl: "600",
+ *     records: ["v=spf1 include:amazonses.com -all"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_mail_from.html.markdown.
  */
 export class MailFrom extends pulumi.CustomResource {
     /**
@@ -53,6 +48,7 @@ export class MailFrom extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MailFromState, opts?: pulumi.CustomResourceOptions): MailFrom {
         return new MailFrom(name, <any>state, { ...opts, id: id });

@@ -12,9 +12,64 @@ namespace Pulumi.Aws.Organizations
     /// <summary>
     /// Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
     /// 
+    /// ## Example Usage
+    /// ### Organization Account
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_policy_attachment.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var account = new Aws.Organizations.PolicyAttachment("account", new Aws.Organizations.PolicyAttachmentArgs
+    ///         {
+    ///             PolicyId = aws_organizations_policy.Example.Id,
+    ///             TargetId = "123456789012",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Organization Root
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var root = new Aws.Organizations.PolicyAttachment("root", new Aws.Organizations.PolicyAttachmentArgs
+    ///         {
+    ///             PolicyId = aws_organizations_policy.Example.Id,
+    ///             TargetId = aws_organizations_organization.Example.Roots[0].Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Organization Unit
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var unit = new Aws.Organizations.PolicyAttachment("unit", new Aws.Organizations.PolicyAttachmentArgs
+    ///         {
+    ///             PolicyId = aws_organizations_policy.Example.Id,
+    ///             TargetId = aws_organizations_organizational_unit.Example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PolicyAttachment : Pulumi.CustomResource
     {
@@ -39,7 +94,7 @@ namespace Pulumi.Aws.Organizations
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicyAttachment(string name, PolicyAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:organizations/policyAttachment:PolicyAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:organizations/policyAttachment:PolicyAttachment", name, args ?? new PolicyAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

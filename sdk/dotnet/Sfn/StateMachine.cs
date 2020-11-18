@@ -12,12 +12,46 @@ namespace Pulumi.Aws.Sfn
     /// <summary>
     /// Provides a Step Function State Machine resource
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sfn_state_machine.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ...
+    ///         var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new Aws.Sfn.StateMachineArgs
+    ///         {
+    ///             RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///             Definition = @$"{{
+    ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
+    ///   ""StartAt"": ""HelloWorld"",
+    ///   ""States"": {{
+    ///     ""HelloWorld"": {{
+    ///       ""Type"": ""Task"",
+    ///       ""Resource"": ""{aws_lambda_function.Lambda.Arn}"",
+    ///       ""End"": true
+    ///     }}
+    ///   }}
+    /// }}
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class StateMachine : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the state machine.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// The date the state machine was created.
         /// </summary>
@@ -49,10 +83,10 @@ namespace Pulumi.Aws.Sfn
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -63,7 +97,7 @@ namespace Pulumi.Aws.Sfn
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StateMachine(string name, StateMachineArgs args, CustomResourceOptions? options = null)
-            : base("aws:sfn/stateMachine:StateMachine", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:sfn/stateMachine:StateMachine", name, args ?? new StateMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -119,14 +153,14 @@ namespace Pulumi.Aws.Sfn
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -137,6 +171,12 @@ namespace Pulumi.Aws.Sfn
 
     public sealed class StateMachineState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the state machine.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The date the state machine was created.
         /// </summary>
@@ -168,14 +208,14 @@ namespace Pulumi.Aws.Sfn
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

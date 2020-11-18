@@ -6,27 +6,24 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IAM user.
- * 
- * > *NOTE:* If policies are attached to the user via the [`aws.iam.PolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the user `name` or `path`, the `forceDestroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`aws.iam.UserPolicyAttachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_user_policy_attachment.html) does not have this requirement.
- * 
+ *
+ * > *NOTE:* If policies are attached to the user via the `aws.iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `forceDestroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const lbUser = new aws.iam.User("lb", {
+ *
+ * const lbUser = new aws.iam.User("lbUser", {
  *     path: "/system/",
  *     tags: {
  *         "tag-key": "tag-value",
  *     },
  * });
- * const lbAccessKey = new aws.iam.AccessKey("lb", {
- *     user: lbUser.name,
- * });
+ * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {user: lbUser.name});
  * const lbRo = new aws.iam.UserPolicy("lbRo", {
+ *     user: lbUser.name,
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -40,11 +37,8 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     user: lbUser.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user.html.markdown.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -54,6 +48,7 @@ export class User extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserState, opts?: pulumi.CustomResourceOptions): User {
         return new User(name, <any>state, { ...opts, id: id });
@@ -79,8 +74,8 @@ export class User extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * When destroying this user, destroy even if it
-     * has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-     * a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
+     * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
@@ -98,7 +93,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Key-value mapping of tags for the IAM user
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
@@ -154,8 +149,8 @@ export interface UserState {
     readonly arn?: pulumi.Input<string>;
     /**
      * When destroying this user, destroy even if it
-     * has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-     * a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
+     * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
     /**
@@ -173,7 +168,7 @@ export interface UserState {
     /**
      * Key-value mapping of tags for the IAM user
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
@@ -186,8 +181,8 @@ export interface UserState {
 export interface UserArgs {
     /**
      * When destroying this user, destroy even if it
-     * has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-     * a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
+     * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
     /**
@@ -205,5 +200,5 @@ export interface UserArgs {
     /**
      * Key-value mapping of tags for the IAM user
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

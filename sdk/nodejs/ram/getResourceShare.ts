@@ -4,44 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ram.getResourceShare({
+ *
+ * const example = pulumi.output(aws.ram.getResourceShare({
  *     name: "example",
  *     resourceOwner: "SELF",
- * });
+ * }, { async: true }));
  * ```
- * 
  * ## Search by filters
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const tagFilter = aws.ram.getResourceShare({
+ *
+ * const tagFilter = pulumi.output(aws.ram.getResourceShare({
  *     filters: [{
  *         name: "NameOfTag",
  *         values: ["exampleNameTagValue"],
  *     }],
  *     name: "MyResourceName",
  *     resourceOwner: "SELF",
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
  */
-export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceShareResult> & GetResourceShareResult {
+export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceShareResult> {
     if (!opts) {
         opts = {}
     }
@@ -49,14 +45,12 @@ export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetResourceShareResult> = pulumi.runtime.invoke("aws:ram/getResourceShare:getResourceShare", {
+    return pulumi.runtime.invoke("aws:ram/getResourceShare:getResourceShare", {
         "filters": args.filters,
         "name": args.name,
         "resourceOwner": args.resourceOwner,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -78,7 +72,7 @@ export interface GetResourceShareArgs {
     /**
      * The Tags attached to the RAM share
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -91,10 +85,14 @@ export interface GetResourceShareResult {
     readonly arn: string;
     readonly filters?: outputs.ram.GetResourceShareFilter[];
     /**
-     * The Amazon Resource Name (ARN) of the resource share.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * The ID of the AWS account that owns the resource share.
+     */
+    readonly owningAccountId: string;
     readonly resourceOwner: string;
     /**
      * The Status of the RAM share.
@@ -103,5 +101,5 @@ export interface GetResourceShareResult {
     /**
      * The Tags attached to the RAM share
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

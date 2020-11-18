@@ -6,10 +6,58 @@ package appmesh
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an AWS App Mesh service mesh resource.
+//
+// ## Example Usage
+// ### Basic
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := appmesh.NewMesh(ctx, "simple", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Egress Filter
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := appmesh.NewMesh(ctx, "simple", &appmesh.MeshArgs{
+// 			Spec: &appmesh.MeshSpecArgs{
+// 				EgressFilter: &appmesh.MeshSpecEgressFilterArgs{
+// 					Type: pulumi.String("ALLOW_ALL"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Mesh struct {
 	pulumi.CustomResourceState
 
@@ -19,12 +67,16 @@ type Mesh struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The last update date of the service mesh.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+	// The AWS account ID of the service mesh's owner.
+	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
 	// The name to use for the service mesh.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The resource owner's AWS account ID.
+	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
 	// The service mesh specification to apply.
 	Spec MeshSpecPtrOutput `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewMesh registers a new resource with the given unique name, arguments, and options.
@@ -61,12 +113,16 @@ type meshState struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// The last update date of the service mesh.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
+	// The AWS account ID of the service mesh's owner.
+	MeshOwner *string `pulumi:"meshOwner"`
 	// The name to use for the service mesh.
 	Name *string `pulumi:"name"`
+	// The resource owner's AWS account ID.
+	ResourceOwner *string `pulumi:"resourceOwner"`
 	// The service mesh specification to apply.
 	Spec *MeshSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type MeshState struct {
@@ -76,12 +132,16 @@ type MeshState struct {
 	CreatedDate pulumi.StringPtrInput
 	// The last update date of the service mesh.
 	LastUpdatedDate pulumi.StringPtrInput
+	// The AWS account ID of the service mesh's owner.
+	MeshOwner pulumi.StringPtrInput
 	// The name to use for the service mesh.
 	Name pulumi.StringPtrInput
+	// The resource owner's AWS account ID.
+	ResourceOwner pulumi.StringPtrInput
 	// The service mesh specification to apply.
 	Spec MeshSpecPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (MeshState) ElementType() reflect.Type {
@@ -93,8 +153,8 @@ type meshArgs struct {
 	Name *string `pulumi:"name"`
 	// The service mesh specification to apply.
 	Spec *MeshSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Mesh resource.
@@ -103,8 +163,8 @@ type MeshArgs struct {
 	Name pulumi.StringPtrInput
 	// The service mesh specification to apply.
 	Spec MeshSpecPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (MeshArgs) ElementType() reflect.Type {

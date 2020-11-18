@@ -4,22 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a DynamoDB table resource
- * 
- * > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `readCapacity` and/or `writeCapacity` if there's [autoscaling policy](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html) attached to the table.
- * 
+ *
+ * > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `readCapacity` and/or `writeCapacity` if there's `autoscaling policy` attached to the table.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * The following dynamodb table description models the table and GSI shown
+ * in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const basicDynamodbTable = new aws.dynamodb.Table("basic-dynamodb-table", {
+ *
+ * const basic_dynamodb_table = new aws.dynamodb.Table("basic-dynamodb-table", {
  *     attributes: [
  *         {
  *             name: "UserId",
@@ -58,8 +60,33 @@ import * as utilities from "../utilities";
  *     writeCapacity: 20,
  * });
  * ```
+ * ### Global Tables
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_table.html.markdown.
+ * This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `aws.dynamodb.GlobalTable` resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.dynamodb.Table("example", {
+ *     attributes: [{
+ *         name: "TestTableHashKey",
+ *         type: "S",
+ *     }],
+ *     billingMode: "PAY_PER_REQUEST",
+ *     hashKey: "TestTableHashKey",
+ *     replicas: [
+ *         {
+ *             regionName: "us-east-2",
+ *         },
+ *         {
+ *             regionName: "us-west-2",
+ *         },
+ *     ],
+ *     streamEnabled: true,
+ *     streamViewType: "NEW_AND_OLD_IMAGES",
+ * });
+ * ```
  */
 export class Table extends pulumi.CustomResource {
     /**
@@ -69,6 +96,7 @@ export class Table extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TableState, opts?: pulumi.CustomResourceOptions): Table {
         return new Table(name, <any>state, { ...opts, id: id });
@@ -134,6 +162,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly readCapacity!: pulumi.Output<number | undefined>;
     /**
+     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+     */
+    public readonly replicas!: pulumi.Output<outputs.dynamodb.TableReplica[] | undefined>;
+    /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
     public readonly serverSideEncryption!: pulumi.Output<outputs.dynamodb.TableServerSideEncryption>;
@@ -159,7 +191,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * A map of tags to populate on the created table.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
@@ -191,6 +223,7 @@ export class Table extends pulumi.CustomResource {
             inputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
             inputs["rangeKey"] = state ? state.rangeKey : undefined;
             inputs["readCapacity"] = state ? state.readCapacity : undefined;
+            inputs["replicas"] = state ? state.replicas : undefined;
             inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             inputs["streamArn"] = state ? state.streamArn : undefined;
             inputs["streamEnabled"] = state ? state.streamEnabled : undefined;
@@ -216,6 +249,7 @@ export class Table extends pulumi.CustomResource {
             inputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
             inputs["rangeKey"] = args ? args.rangeKey : undefined;
             inputs["readCapacity"] = args ? args.readCapacity : undefined;
+            inputs["replicas"] = args ? args.replicas : undefined;
             inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             inputs["streamEnabled"] = args ? args.streamEnabled : undefined;
             inputs["streamViewType"] = args ? args.streamViewType : undefined;
@@ -287,6 +321,10 @@ export interface TableState {
      */
     readonly readCapacity?: pulumi.Input<number>;
     /**
+     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+     */
+    readonly replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableReplica>[]>;
+    /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
     readonly serverSideEncryption?: pulumi.Input<inputs.dynamodb.TableServerSideEncryption>;
@@ -312,7 +350,7 @@ export interface TableState {
     /**
      * A map of tags to populate on the created table.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
@@ -369,6 +407,10 @@ export interface TableArgs {
      */
     readonly readCapacity?: pulumi.Input<number>;
     /**
+     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+     */
+    readonly replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableReplica>[]>;
+    /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
     readonly serverSideEncryption?: pulumi.Input<inputs.dynamodb.TableServerSideEncryption>;
@@ -383,7 +425,7 @@ export interface TableArgs {
     /**
      * A map of tags to populate on the created table.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */

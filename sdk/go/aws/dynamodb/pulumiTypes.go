@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type GlobalTableReplica struct {
@@ -15,6 +15,10 @@ type GlobalTableReplica struct {
 	RegionName string `pulumi:"regionName"`
 }
 
+// GlobalTableReplicaInput is an input type that accepts GlobalTableReplicaArgs and GlobalTableReplicaOutput values.
+// You can construct a concrete instance of `GlobalTableReplicaInput` via:
+//
+//          GlobalTableReplicaArgs{...}
 type GlobalTableReplicaInput interface {
 	pulumi.Input
 
@@ -39,6 +43,10 @@ func (i GlobalTableReplicaArgs) ToGlobalTableReplicaOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaOutput)
 }
 
+// GlobalTableReplicaArrayInput is an input type that accepts GlobalTableReplicaArray and GlobalTableReplicaArrayOutput values.
+// You can construct a concrete instance of `GlobalTableReplicaArrayInput` via:
+//
+//          GlobalTableReplicaArray{ GlobalTableReplicaArgs{...} }
 type GlobalTableReplicaArrayInput interface {
 	pulumi.Input
 
@@ -106,6 +114,10 @@ type TableAttribute struct {
 	Type string `pulumi:"type"`
 }
 
+// TableAttributeInput is an input type that accepts TableAttributeArgs and TableAttributeOutput values.
+// You can construct a concrete instance of `TableAttributeInput` via:
+//
+//          TableAttributeArgs{...}
 type TableAttributeInput interface {
 	pulumi.Input
 
@@ -132,6 +144,10 @@ func (i TableAttributeArgs) ToTableAttributeOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TableAttributeOutput)
 }
 
+// TableAttributeArrayInput is an input type that accepts TableAttributeArray and TableAttributeArrayOutput values.
+// You can construct a concrete instance of `TableAttributeArrayInput` via:
+//
+//          TableAttributeArray{ TableAttributeArgs{...} }
 type TableAttributeArrayInput interface {
 	pulumi.Input
 
@@ -221,6 +237,10 @@ type TableGlobalSecondaryIndex struct {
 	WriteCapacity *int `pulumi:"writeCapacity"`
 }
 
+// TableGlobalSecondaryIndexInput is an input type that accepts TableGlobalSecondaryIndexArgs and TableGlobalSecondaryIndexOutput values.
+// You can construct a concrete instance of `TableGlobalSecondaryIndexInput` via:
+//
+//          TableGlobalSecondaryIndexArgs{...}
 type TableGlobalSecondaryIndexInput interface {
 	pulumi.Input
 
@@ -264,6 +284,10 @@ func (i TableGlobalSecondaryIndexArgs) ToTableGlobalSecondaryIndexOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexOutput)
 }
 
+// TableGlobalSecondaryIndexArrayInput is an input type that accepts TableGlobalSecondaryIndexArray and TableGlobalSecondaryIndexArrayOutput values.
+// You can construct a concrete instance of `TableGlobalSecondaryIndexArrayInput` via:
+//
+//          TableGlobalSecondaryIndexArray{ TableGlobalSecondaryIndexArgs{...} }
 type TableGlobalSecondaryIndexArrayInput interface {
 	pulumi.Input
 
@@ -378,6 +402,10 @@ type TableLocalSecondaryIndex struct {
 	RangeKey string `pulumi:"rangeKey"`
 }
 
+// TableLocalSecondaryIndexInput is an input type that accepts TableLocalSecondaryIndexArgs and TableLocalSecondaryIndexOutput values.
+// You can construct a concrete instance of `TableLocalSecondaryIndexInput` via:
+//
+//          TableLocalSecondaryIndexArgs{...}
 type TableLocalSecondaryIndexInput interface {
 	pulumi.Input
 
@@ -414,6 +442,10 @@ func (i TableLocalSecondaryIndexArgs) ToTableLocalSecondaryIndexOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TableLocalSecondaryIndexOutput)
 }
 
+// TableLocalSecondaryIndexArrayInput is an input type that accepts TableLocalSecondaryIndexArray and TableLocalSecondaryIndexArrayOutput values.
+// You can construct a concrete instance of `TableLocalSecondaryIndexArrayInput` via:
+//
+//          TableLocalSecondaryIndexArray{ TableLocalSecondaryIndexArgs{...} }
 type TableLocalSecondaryIndexArrayInput interface {
 	pulumi.Input
 
@@ -496,10 +528,14 @@ func (o TableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableLocal
 }
 
 type TablePointInTimeRecovery struct {
-	// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+	// Indicates whether ttl is enabled (true) or disabled (false).
 	Enabled bool `pulumi:"enabled"`
 }
 
+// TablePointInTimeRecoveryInput is an input type that accepts TablePointInTimeRecoveryArgs and TablePointInTimeRecoveryOutput values.
+// You can construct a concrete instance of `TablePointInTimeRecoveryInput` via:
+//
+//          TablePointInTimeRecoveryArgs{...}
 type TablePointInTimeRecoveryInput interface {
 	pulumi.Input
 
@@ -508,7 +544,7 @@ type TablePointInTimeRecoveryInput interface {
 }
 
 type TablePointInTimeRecoveryArgs struct {
-	// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+	// Indicates whether ttl is enabled (true) or disabled (false).
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -532,6 +568,14 @@ func (i TablePointInTimeRecoveryArgs) ToTablePointInTimeRecoveryPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(TablePointInTimeRecoveryOutput).ToTablePointInTimeRecoveryPtrOutputWithContext(ctx)
 }
 
+// TablePointInTimeRecoveryPtrInput is an input type that accepts TablePointInTimeRecoveryArgs, TablePointInTimeRecoveryPtr and TablePointInTimeRecoveryPtrOutput values.
+// You can construct a concrete instance of `TablePointInTimeRecoveryPtrInput` via:
+//
+//          TablePointInTimeRecoveryArgs{...}
+//
+//  or:
+//
+//          nil
 type TablePointInTimeRecoveryPtrInput interface {
 	pulumi.Input
 
@@ -581,7 +625,7 @@ func (o TablePointInTimeRecoveryOutput) ToTablePointInTimeRecoveryPtrOutputWithC
 	}).(TablePointInTimeRecoveryPtrOutput)
 }
 
-// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+// Indicates whether ttl is enabled (true) or disabled (false).
 func (o TablePointInTimeRecoveryOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TablePointInTimeRecovery) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -604,19 +648,125 @@ func (o TablePointInTimeRecoveryPtrOutput) Elem() TablePointInTimeRecoveryOutput
 	return o.ApplyT(func(v *TablePointInTimeRecovery) TablePointInTimeRecovery { return *v }).(TablePointInTimeRecoveryOutput)
 }
 
-// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
-func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v TablePointInTimeRecovery) bool { return v.Enabled }).(pulumi.BoolOutput)
+// Indicates whether ttl is enabled (true) or disabled (false).
+func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TablePointInTimeRecovery) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type TableReplica struct {
+	// Region name of the replica.
+	RegionName string `pulumi:"regionName"`
+}
+
+// TableReplicaInput is an input type that accepts TableReplicaArgs and TableReplicaOutput values.
+// You can construct a concrete instance of `TableReplicaInput` via:
+//
+//          TableReplicaArgs{...}
+type TableReplicaInput interface {
+	pulumi.Input
+
+	ToTableReplicaOutput() TableReplicaOutput
+	ToTableReplicaOutputWithContext(context.Context) TableReplicaOutput
+}
+
+type TableReplicaArgs struct {
+	// Region name of the replica.
+	RegionName pulumi.StringInput `pulumi:"regionName"`
+}
+
+func (TableReplicaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableReplica)(nil)).Elem()
+}
+
+func (i TableReplicaArgs) ToTableReplicaOutput() TableReplicaOutput {
+	return i.ToTableReplicaOutputWithContext(context.Background())
+}
+
+func (i TableReplicaArgs) ToTableReplicaOutputWithContext(ctx context.Context) TableReplicaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableReplicaOutput)
+}
+
+// TableReplicaArrayInput is an input type that accepts TableReplicaArray and TableReplicaArrayOutput values.
+// You can construct a concrete instance of `TableReplicaArrayInput` via:
+//
+//          TableReplicaArray{ TableReplicaArgs{...} }
+type TableReplicaArrayInput interface {
+	pulumi.Input
+
+	ToTableReplicaArrayOutput() TableReplicaArrayOutput
+	ToTableReplicaArrayOutputWithContext(context.Context) TableReplicaArrayOutput
+}
+
+type TableReplicaArray []TableReplicaInput
+
+func (TableReplicaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableReplica)(nil)).Elem()
+}
+
+func (i TableReplicaArray) ToTableReplicaArrayOutput() TableReplicaArrayOutput {
+	return i.ToTableReplicaArrayOutputWithContext(context.Background())
+}
+
+func (i TableReplicaArray) ToTableReplicaArrayOutputWithContext(ctx context.Context) TableReplicaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableReplicaArrayOutput)
+}
+
+type TableReplicaOutput struct{ *pulumi.OutputState }
+
+func (TableReplicaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableReplica)(nil)).Elem()
+}
+
+func (o TableReplicaOutput) ToTableReplicaOutput() TableReplicaOutput {
+	return o
+}
+
+func (o TableReplicaOutput) ToTableReplicaOutputWithContext(ctx context.Context) TableReplicaOutput {
+	return o
+}
+
+// Region name of the replica.
+func (o TableReplicaOutput) RegionName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableReplica) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
+type TableReplicaArrayOutput struct{ *pulumi.OutputState }
+
+func (TableReplicaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableReplica)(nil)).Elem()
+}
+
+func (o TableReplicaArrayOutput) ToTableReplicaArrayOutput() TableReplicaArrayOutput {
+	return o
+}
+
+func (o TableReplicaArrayOutput) ToTableReplicaArrayOutputWithContext(ctx context.Context) TableReplicaArrayOutput {
+	return o
+}
+
+func (o TableReplicaArrayOutput) Index(i pulumi.IntInput) TableReplicaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableReplica {
+		return vs[0].([]TableReplica)[vs[1].(int)]
+	}).(TableReplicaOutput)
 }
 
 type TableServerSideEncryption struct {
-	// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+	// Indicates whether ttl is enabled (true) or disabled (false).
 	Enabled bool `pulumi:"enabled"`
 	// The ARN of the CMK that should be used for the AWS KMS encryption.
 	// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
+// TableServerSideEncryptionInput is an input type that accepts TableServerSideEncryptionArgs and TableServerSideEncryptionOutput values.
+// You can construct a concrete instance of `TableServerSideEncryptionInput` via:
+//
+//          TableServerSideEncryptionArgs{...}
 type TableServerSideEncryptionInput interface {
 	pulumi.Input
 
@@ -625,7 +775,7 @@ type TableServerSideEncryptionInput interface {
 }
 
 type TableServerSideEncryptionArgs struct {
-	// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+	// Indicates whether ttl is enabled (true) or disabled (false).
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The ARN of the CMK that should be used for the AWS KMS encryption.
 	// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
@@ -652,6 +802,14 @@ func (i TableServerSideEncryptionArgs) ToTableServerSideEncryptionPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TableServerSideEncryptionOutput).ToTableServerSideEncryptionPtrOutputWithContext(ctx)
 }
 
+// TableServerSideEncryptionPtrInput is an input type that accepts TableServerSideEncryptionArgs, TableServerSideEncryptionPtr and TableServerSideEncryptionPtrOutput values.
+// You can construct a concrete instance of `TableServerSideEncryptionPtrInput` via:
+//
+//          TableServerSideEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
 type TableServerSideEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -701,7 +859,7 @@ func (o TableServerSideEncryptionOutput) ToTableServerSideEncryptionPtrOutputWit
 	}).(TableServerSideEncryptionPtrOutput)
 }
 
-// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+// Indicates whether ttl is enabled (true) or disabled (false).
 func (o TableServerSideEncryptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TableServerSideEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -730,24 +888,38 @@ func (o TableServerSideEncryptionPtrOutput) Elem() TableServerSideEncryptionOutp
 	return o.ApplyT(func(v *TableServerSideEncryption) TableServerSideEncryption { return *v }).(TableServerSideEncryptionOutput)
 }
 
-// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
-func (o TableServerSideEncryptionPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v TableServerSideEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
+// Indicates whether ttl is enabled (true) or disabled (false).
+func (o TableServerSideEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableServerSideEncryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The ARN of the CMK that should be used for the AWS KMS encryption.
 // This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
 func (o TableServerSideEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableServerSideEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TableServerSideEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type TableTtl struct {
 	// The name of the table attribute to store the TTL timestamp in.
 	AttributeName string `pulumi:"attributeName"`
-	// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+	// Indicates whether ttl is enabled (true) or disabled (false).
 	Enabled *bool `pulumi:"enabled"`
 }
 
+// TableTtlInput is an input type that accepts TableTtlArgs and TableTtlOutput values.
+// You can construct a concrete instance of `TableTtlInput` via:
+//
+//          TableTtlArgs{...}
 type TableTtlInput interface {
 	pulumi.Input
 
@@ -758,7 +930,7 @@ type TableTtlInput interface {
 type TableTtlArgs struct {
 	// The name of the table attribute to store the TTL timestamp in.
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
-	// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+	// Indicates whether ttl is enabled (true) or disabled (false).
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -782,6 +954,14 @@ func (i TableTtlArgs) ToTableTtlPtrOutputWithContext(ctx context.Context) TableT
 	return pulumi.ToOutputWithContext(ctx, i).(TableTtlOutput).ToTableTtlPtrOutputWithContext(ctx)
 }
 
+// TableTtlPtrInput is an input type that accepts TableTtlArgs, TableTtlPtr and TableTtlPtrOutput values.
+// You can construct a concrete instance of `TableTtlPtrInput` via:
+//
+//          TableTtlArgs{...}
+//
+//  or:
+//
+//          nil
 type TableTtlPtrInput interface {
 	pulumi.Input
 
@@ -836,7 +1016,7 @@ func (o TableTtlOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v TableTtl) string { return v.AttributeName }).(pulumi.StringOutput)
 }
 
-// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+// Indicates whether ttl is enabled (true) or disabled (false).
 func (o TableTtlOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableTtl) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -860,13 +1040,23 @@ func (o TableTtlPtrOutput) Elem() TableTtlOutput {
 }
 
 // The name of the table attribute to store the TTL timestamp in.
-func (o TableTtlPtrOutput) AttributeName() pulumi.StringOutput {
-	return o.ApplyT(func(v TableTtl) string { return v.AttributeName }).(pulumi.StringOutput)
+func (o TableTtlPtrOutput) AttributeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTtl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributeName
+	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+// Indicates whether ttl is enabled (true) or disabled (false).
 func (o TableTtlPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TableTtl) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *TableTtl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GetTableAttribute struct {
@@ -875,6 +1065,10 @@ type GetTableAttribute struct {
 	Type string `pulumi:"type"`
 }
 
+// GetTableAttributeInput is an input type that accepts GetTableAttributeArgs and GetTableAttributeOutput values.
+// You can construct a concrete instance of `GetTableAttributeInput` via:
+//
+//          GetTableAttributeArgs{...}
 type GetTableAttributeInput interface {
 	pulumi.Input
 
@@ -900,6 +1094,10 @@ func (i GetTableAttributeArgs) ToGetTableAttributeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableAttributeOutput)
 }
 
+// GetTableAttributeArrayInput is an input type that accepts GetTableAttributeArray and GetTableAttributeArrayOutput values.
+// You can construct a concrete instance of `GetTableAttributeArrayInput` via:
+//
+//          GetTableAttributeArray{ GetTableAttributeArgs{...} }
 type GetTableAttributeArrayInput interface {
 	pulumi.Input
 
@@ -975,6 +1173,10 @@ type GetTableGlobalSecondaryIndex struct {
 	WriteCapacity    int      `pulumi:"writeCapacity"`
 }
 
+// GetTableGlobalSecondaryIndexInput is an input type that accepts GetTableGlobalSecondaryIndexArgs and GetTableGlobalSecondaryIndexOutput values.
+// You can construct a concrete instance of `GetTableGlobalSecondaryIndexInput` via:
+//
+//          GetTableGlobalSecondaryIndexArgs{...}
 type GetTableGlobalSecondaryIndexInput interface {
 	pulumi.Input
 
@@ -1005,6 +1207,10 @@ func (i GetTableGlobalSecondaryIndexArgs) ToGetTableGlobalSecondaryIndexOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableGlobalSecondaryIndexOutput)
 }
 
+// GetTableGlobalSecondaryIndexArrayInput is an input type that accepts GetTableGlobalSecondaryIndexArray and GetTableGlobalSecondaryIndexArrayOutput values.
+// You can construct a concrete instance of `GetTableGlobalSecondaryIndexArrayInput` via:
+//
+//          GetTableGlobalSecondaryIndexArray{ GetTableGlobalSecondaryIndexArgs{...} }
 type GetTableGlobalSecondaryIndexArrayInput interface {
 	pulumi.Input
 
@@ -1097,6 +1303,10 @@ type GetTableLocalSecondaryIndex struct {
 	RangeKey         string   `pulumi:"rangeKey"`
 }
 
+// GetTableLocalSecondaryIndexInput is an input type that accepts GetTableLocalSecondaryIndexArgs and GetTableLocalSecondaryIndexOutput values.
+// You can construct a concrete instance of `GetTableLocalSecondaryIndexInput` via:
+//
+//          GetTableLocalSecondaryIndexArgs{...}
 type GetTableLocalSecondaryIndexInput interface {
 	pulumi.Input
 
@@ -1124,6 +1334,10 @@ func (i GetTableLocalSecondaryIndexArgs) ToGetTableLocalSecondaryIndexOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableLocalSecondaryIndexOutput)
 }
 
+// GetTableLocalSecondaryIndexArrayInput is an input type that accepts GetTableLocalSecondaryIndexArray and GetTableLocalSecondaryIndexArrayOutput values.
+// You can construct a concrete instance of `GetTableLocalSecondaryIndexArrayInput` via:
+//
+//          GetTableLocalSecondaryIndexArray{ GetTableLocalSecondaryIndexArgs{...} }
 type GetTableLocalSecondaryIndexArrayInput interface {
 	pulumi.Input
 
@@ -1200,6 +1414,10 @@ type GetTablePointInTimeRecovery struct {
 	Enabled bool `pulumi:"enabled"`
 }
 
+// GetTablePointInTimeRecoveryInput is an input type that accepts GetTablePointInTimeRecoveryArgs and GetTablePointInTimeRecoveryOutput values.
+// You can construct a concrete instance of `GetTablePointInTimeRecoveryInput` via:
+//
+//          GetTablePointInTimeRecoveryArgs{...}
 type GetTablePointInTimeRecoveryInput interface {
 	pulumi.Input
 
@@ -1241,11 +1459,109 @@ func (o GetTablePointInTimeRecoveryOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTablePointInTimeRecovery) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+type GetTableReplica struct {
+	RegionName string `pulumi:"regionName"`
+}
+
+// GetTableReplicaInput is an input type that accepts GetTableReplicaArgs and GetTableReplicaOutput values.
+// You can construct a concrete instance of `GetTableReplicaInput` via:
+//
+//          GetTableReplicaArgs{...}
+type GetTableReplicaInput interface {
+	pulumi.Input
+
+	ToGetTableReplicaOutput() GetTableReplicaOutput
+	ToGetTableReplicaOutputWithContext(context.Context) GetTableReplicaOutput
+}
+
+type GetTableReplicaArgs struct {
+	RegionName pulumi.StringInput `pulumi:"regionName"`
+}
+
+func (GetTableReplicaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableReplica)(nil)).Elem()
+}
+
+func (i GetTableReplicaArgs) ToGetTableReplicaOutput() GetTableReplicaOutput {
+	return i.ToGetTableReplicaOutputWithContext(context.Background())
+}
+
+func (i GetTableReplicaArgs) ToGetTableReplicaOutputWithContext(ctx context.Context) GetTableReplicaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableReplicaOutput)
+}
+
+// GetTableReplicaArrayInput is an input type that accepts GetTableReplicaArray and GetTableReplicaArrayOutput values.
+// You can construct a concrete instance of `GetTableReplicaArrayInput` via:
+//
+//          GetTableReplicaArray{ GetTableReplicaArgs{...} }
+type GetTableReplicaArrayInput interface {
+	pulumi.Input
+
+	ToGetTableReplicaArrayOutput() GetTableReplicaArrayOutput
+	ToGetTableReplicaArrayOutputWithContext(context.Context) GetTableReplicaArrayOutput
+}
+
+type GetTableReplicaArray []GetTableReplicaInput
+
+func (GetTableReplicaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableReplica)(nil)).Elem()
+}
+
+func (i GetTableReplicaArray) ToGetTableReplicaArrayOutput() GetTableReplicaArrayOutput {
+	return i.ToGetTableReplicaArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableReplicaArray) ToGetTableReplicaArrayOutputWithContext(ctx context.Context) GetTableReplicaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableReplicaArrayOutput)
+}
+
+type GetTableReplicaOutput struct{ *pulumi.OutputState }
+
+func (GetTableReplicaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableReplica)(nil)).Elem()
+}
+
+func (o GetTableReplicaOutput) ToGetTableReplicaOutput() GetTableReplicaOutput {
+	return o
+}
+
+func (o GetTableReplicaOutput) ToGetTableReplicaOutputWithContext(ctx context.Context) GetTableReplicaOutput {
+	return o
+}
+
+func (o GetTableReplicaOutput) RegionName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableReplica) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
+type GetTableReplicaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableReplicaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableReplica)(nil)).Elem()
+}
+
+func (o GetTableReplicaArrayOutput) ToGetTableReplicaArrayOutput() GetTableReplicaArrayOutput {
+	return o
+}
+
+func (o GetTableReplicaArrayOutput) ToGetTableReplicaArrayOutputWithContext(ctx context.Context) GetTableReplicaArrayOutput {
+	return o
+}
+
+func (o GetTableReplicaArrayOutput) Index(i pulumi.IntInput) GetTableReplicaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableReplica {
+		return vs[0].([]GetTableReplica)[vs[1].(int)]
+	}).(GetTableReplicaOutput)
+}
+
 type GetTableServerSideEncryption struct {
 	Enabled   bool   `pulumi:"enabled"`
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 }
 
+// GetTableServerSideEncryptionInput is an input type that accepts GetTableServerSideEncryptionArgs and GetTableServerSideEncryptionOutput values.
+// You can construct a concrete instance of `GetTableServerSideEncryptionInput` via:
+//
+//          GetTableServerSideEncryptionArgs{...}
 type GetTableServerSideEncryptionInput interface {
 	pulumi.Input
 
@@ -1297,6 +1613,10 @@ type GetTableTtl struct {
 	Enabled       bool   `pulumi:"enabled"`
 }
 
+// GetTableTtlInput is an input type that accepts GetTableTtlArgs and GetTableTtlOutput values.
+// You can construct a concrete instance of `GetTableTtlInput` via:
+//
+//          GetTableTtlArgs{...}
 type GetTableTtlInput interface {
 	pulumi.Input
 
@@ -1354,6 +1674,8 @@ func init() {
 	pulumi.RegisterOutputType(TableLocalSecondaryIndexArrayOutput{})
 	pulumi.RegisterOutputType(TablePointInTimeRecoveryOutput{})
 	pulumi.RegisterOutputType(TablePointInTimeRecoveryPtrOutput{})
+	pulumi.RegisterOutputType(TableReplicaOutput{})
+	pulumi.RegisterOutputType(TableReplicaArrayOutput{})
 	pulumi.RegisterOutputType(TableServerSideEncryptionOutput{})
 	pulumi.RegisterOutputType(TableServerSideEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(TableTtlOutput{})
@@ -1365,6 +1687,8 @@ func init() {
 	pulumi.RegisterOutputType(GetTableLocalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(GetTableLocalSecondaryIndexArrayOutput{})
 	pulumi.RegisterOutputType(GetTablePointInTimeRecoveryOutput{})
+	pulumi.RegisterOutputType(GetTableReplicaOutput{})
+	pulumi.RegisterOutputType(GetTableReplicaArrayOutput{})
 	pulumi.RegisterOutputType(GetTableServerSideEncryptionOutput{})
 	pulumi.RegisterOutputType(GetTableTtlOutput{})
 }

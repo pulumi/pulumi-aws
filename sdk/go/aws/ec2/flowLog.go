@@ -7,14 +7,94 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
 // interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
+//
+// ## Example Usage
+// ### CloudWatch Logging
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"vpc-flow-logs.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewFlowLog(ctx, "exampleFlowLog", &ec2.FlowLogArgs{
+// 			IamRoleArn:     exampleRole.Arn,
+// 			LogDestination: exampleLogGroup.Arn,
+// 			TrafficType:    pulumi.String("ALL"),
+// 			VpcId:          pulumi.Any(aws_vpc.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+// 			Role:   exampleRole.ID(),
+// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"logs:CreateLogGroup\",\n", "        \"logs:CreateLogStream\",\n", "        \"logs:PutLogEvents\",\n", "        \"logs:DescribeLogGroups\",\n", "        \"logs:DescribeLogStreams\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### S3 Logging
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewFlowLog(ctx, "exampleFlowLog", &ec2.FlowLogArgs{
+// 			LogDestination:     exampleBucket.Arn,
+// 			LogDestinationType: pulumi.String("s3"),
+// 			TrafficType:        pulumi.String("ALL"),
+// 			VpcId:              pulumi.Any(aws_vpc.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type FlowLog struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Flow Log.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Elastic Network Interface ID to attach to
 	EniId pulumi.StringPtrOutput `pulumi:"eniId"`
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
@@ -26,6 +106,8 @@ type FlowLog struct {
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringOutput `pulumi:"logFormat"`
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	//
+	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -34,8 +116,8 @@ type FlowLog struct {
 	MaxAggregationInterval pulumi.IntPtrOutput `pulumi:"maxAggregationInterval"`
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringOutput `pulumi:"trafficType"`
 	// VPC ID to attach to
@@ -73,6 +155,8 @@ func GetFlowLog(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FlowLog resources.
 type flowLogState struct {
+	// The ARN of the Flow Log.
+	Arn *string `pulumi:"arn"`
 	// Elastic Network Interface ID to attach to
 	EniId *string `pulumi:"eniId"`
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
@@ -84,6 +168,8 @@ type flowLogState struct {
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat *string `pulumi:"logFormat"`
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	//
+	// Deprecated: use 'log_destination' argument instead
 	LogGroupName *string `pulumi:"logGroupName"`
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -92,8 +178,8 @@ type flowLogState struct {
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType *string `pulumi:"trafficType"`
 	// VPC ID to attach to
@@ -101,6 +187,8 @@ type flowLogState struct {
 }
 
 type FlowLogState struct {
+	// The ARN of the Flow Log.
+	Arn pulumi.StringPtrInput
 	// Elastic Network Interface ID to attach to
 	EniId pulumi.StringPtrInput
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
@@ -112,6 +200,8 @@ type FlowLogState struct {
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrInput
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	//
+	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringPtrInput
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -120,8 +210,8 @@ type FlowLogState struct {
 	MaxAggregationInterval pulumi.IntPtrInput
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringPtrInput
 	// VPC ID to attach to
@@ -144,6 +234,8 @@ type flowLogArgs struct {
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat *string `pulumi:"logFormat"`
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	//
+	// Deprecated: use 'log_destination' argument instead
 	LogGroupName *string `pulumi:"logGroupName"`
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -152,8 +244,8 @@ type flowLogArgs struct {
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType string `pulumi:"trafficType"`
 	// VPC ID to attach to
@@ -173,6 +265,8 @@ type FlowLogArgs struct {
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrInput
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	//
+	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringPtrInput
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -181,8 +275,8 @@ type FlowLogArgs struct {
 	MaxAggregationInterval pulumi.IntPtrInput
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringInput
 	// VPC ID to attach to

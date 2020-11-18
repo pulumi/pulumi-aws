@@ -4,43 +4,39 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
- * 
- * > **NOTE:** This data source does not apply to snapshots created on DB Instances. 
- * See the [`aws.rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
- * 
+ *
+ * > **NOTE:** This data source does not apply to snapshots created on DB Instances.
+ * See the `aws.rds.Snapshot` data source for DB Instance snapshots.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const developmentFinalSnapshot = aws.rds.getClusterSnapshot({
- *     dbClusterIdentifier: "developmentCluster",
+ *     dbClusterIdentifier: "development_cluster",
  *     mostRecent: true,
  * });
  * // Use the last snapshot of the dev database before it was destroyed to create
  * // a new dev database.
- * const auroraCluster = new aws.rds.Cluster("aurora", {
- *     clusterIdentifier: "developmentCluster",
- *     dbSubnetGroupName: "myDbSubnetGroup",
- *     snapshotIdentifier: developmentFinalSnapshot.id,
- * }, {ignoreChanges: ["snapshotIdentifier"]});
- * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
+ * const auroraCluster = new aws.rds.Cluster("auroraCluster", {
+ *     snapshotIdentifier: developmentFinalSnapshot.then(developmentFinalSnapshot => developmentFinalSnapshot.id),
+ *     dbSubnetGroupName: "my_db_subnet_group",
+ * });
+ * const auroraClusterInstance = new aws.rds.ClusterInstance("auroraClusterInstance", {
  *     clusterIdentifier: auroraCluster.id,
- *     dbSubnetGroupName: "myDbSubnetGroup",
  *     instanceClass: "db.t2.small",
+ *     dbSubnetGroupName: "my_db_subnet_group",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
  */
-export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSnapshotResult> & GetClusterSnapshotResult {
+export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSnapshotResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -49,7 +45,7 @@ export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetClusterSnapshotResult> = pulumi.runtime.invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", {
+    return pulumi.runtime.invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", {
         "dbClusterIdentifier": args.dbClusterIdentifier,
         "dbClusterSnapshotIdentifier": args.dbClusterSnapshotIdentifier,
         "includePublic": args.includePublic,
@@ -58,8 +54,6 @@ export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.
         "snapshotType": args.snapshotType,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -96,9 +90,9 @@ export interface GetClusterSnapshotArgs {
      */
     readonly snapshotType?: string;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -130,6 +124,10 @@ export interface GetClusterSnapshotResult {
      * Version of the database engine for this DB cluster snapshot.
      */
     readonly engineVersion: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly includePublic?: boolean;
     readonly includeShared?: boolean;
     /**
@@ -160,15 +158,11 @@ export interface GetClusterSnapshotResult {
      */
     readonly storageEncrypted: boolean;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The VPC ID associated with the DB cluster snapshot.
      */
     readonly vpcId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

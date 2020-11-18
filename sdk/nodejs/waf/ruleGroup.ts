@@ -4,23 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Rule Group Resource
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleRule = new aws.waf.Rule("example", {
+ *
+ * const exampleRule = new aws.waf.Rule("exampleRule", {metricName: "example"});
+ * const exampleRuleGroup = new aws.waf.RuleGroup("exampleRuleGroup", {
  *     metricName: "example",
- * });
- * const exampleRuleGroup = new aws.waf.RuleGroup("example", {
  *     activatedRules: [{
  *         action: {
  *             type: "COUNT",
@@ -28,11 +26,8 @@ import * as utilities from "../utilities";
  *         priority: 50,
  *         ruleId: exampleRule.id,
  *     }],
- *     metricName: "example",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rule_group.html.markdown.
  */
 export class RuleGroup extends pulumi.CustomResource {
     /**
@@ -42,6 +37,7 @@ export class RuleGroup extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RuleGroupState, opts?: pulumi.CustomResourceOptions): RuleGroup {
         return new RuleGroup(name, <any>state, { ...opts, id: id });
@@ -78,9 +74,9 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -142,9 +138,9 @@ export interface RuleGroupState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -164,7 +160,7 @@ export interface RuleGroupArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

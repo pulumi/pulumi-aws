@@ -4,34 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
-import {User} from "./user";
+import {ARN} from "..";
+import {User} from "./index";
 
 /**
  * Attaches a Managed IAM Policy to an IAM user
- * 
+ *
  * > **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const user = new aws.iam.User("user", {});
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
- *     policy: "", // insert policy here
+ *     policy: "{ ... policy JSON ... }",
  * });
- * const testAttach = new aws.iam.UserPolicyAttachment("test-attach", {
- *     policyArn: policy.arn,
+ * const test_attach = new aws.iam.UserPolicyAttachment("test-attach", {
  *     user: user.name,
+ *     policyArn: policy.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_policy_attachment.markdown.
  */
 export class UserPolicyAttachment extends pulumi.CustomResource {
     /**
@@ -41,6 +37,7 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserPolicyAttachmentState, opts?: pulumi.CustomResourceOptions): UserPolicyAttachment {
         return new UserPolicyAttachment(name, <any>state, { ...opts, id: id });

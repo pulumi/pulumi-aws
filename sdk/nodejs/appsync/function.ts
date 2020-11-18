@@ -2,53 +2,50 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AppSync Function.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testGraphQLApi = new aws.appsync.GraphQLApi("test", {
+ *
+ * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {
  *     authenticationType: "API_KEY",
  *     schema: `type Mutation {
- *     putPost(id: ID!, title: String!): Post
+ *   putPost(id: ID!, title: String!): Post
  * }
- * 
+ *
  * type Post {
- *     id: ID!
- *     title: String!
+ *   id: ID!
+ *   title: String!
  * }
- * 
+ *
  * type Query {
- *     singlePost(id: ID!): Post
+ *   singlePost(id: ID!): Post
  * }
- * 
+ *
  * schema {
- *     query: Query
- *     mutation: Mutation
+ *   query: Query
+ *   mutation: Mutation
  * }
  * `,
  * });
- * const testDataSource = new aws.appsync.DataSource("test", {
- *     apiId: testGraphQLApi.id,
+ * const exampleDataSource = new aws.appsync.DataSource("exampleDataSource", {
+ *     apiId: exampleGraphQLApi.id,
+ *     name: "example",
+ *     type: "HTTP",
  *     httpConfig: {
  *         endpoint: "http://example.com",
  *     },
- *     type: "HTTP",
  * });
- * const testFunction = new aws.appsync.Function("test", {
- *     apiId: testGraphQLApi.id,
- *     dataSource: testDataSource.name,
- *     name: "tfExample",
+ * const exampleFunction = new aws.appsync.Function("exampleFunction", {
+ *     apiId: exampleGraphQLApi.id,
+ *     dataSource: exampleDataSource.name,
+ *     name: "example",
  *     requestMappingTemplate: `{
  *     "version": "2018-05-29",
  *     "method": "GET",
@@ -66,8 +63,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_function.html.markdown.
  */
 export class Function extends pulumi.CustomResource {
     /**
@@ -77,6 +72,7 @@ export class Function extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FunctionState, opts?: pulumi.CustomResourceOptions): Function {
         return new Function(name, <any>state, { ...opts, id: id });

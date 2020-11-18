@@ -9,31 +9,38 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sfn
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Provides a Step Functions Activity data source
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_activity.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetActivity.InvokeAsync() instead")]
-        public static Task<GetActivityResult> GetActivity(GetActivityArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityResult>("aws:sfn/getActivity:getActivity", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetActivity
     {
         /// <summary>
         /// Provides a Step Functions Activity data source
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_activity.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var sfnActivity = Output.Create(Aws.Sfn.GetActivity.InvokeAsync(new Aws.Sfn.GetActivityArgs
+        ///         {
+        ///             Name = "my-activity",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetActivityResult> InvokeAsync(GetActivityArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityResult>("aws:sfn/getActivity:getActivity", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityResult>("aws:sfn/getActivity:getActivity", args ?? new GetActivityArgs(), options.WithVersion());
     }
+
 
     public sealed class GetActivityArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +61,7 @@ namespace Pulumi.Aws.Sfn
         }
     }
 
+
     [OutputType]
     public sealed class GetActivityResult
     {
@@ -62,23 +70,26 @@ namespace Pulumi.Aws.Sfn
         /// The date the activity was created.
         /// </summary>
         public readonly string CreationDate;
-        public readonly string Name;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetActivityResult(
             string arn,
+
             string creationDate,
-            string name,
-            string id)
+
+            string id,
+
+            string name)
         {
             Arn = arn;
             CreationDate = creationDate;
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

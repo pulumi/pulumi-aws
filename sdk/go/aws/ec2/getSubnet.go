@@ -4,7 +4,7 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `ec2.Subnet` provides details about a specific VPC subnet.
@@ -12,6 +12,53 @@ import (
 // This resource can prove useful when a module accepts a subnet id as
 // an input variable and needs to, for example, determine the id of the
 // VPC that the subnet belongs to.
+//
+// ## Example Usage
+//
+// The following example shows how one might accept a subnet id as a variable
+// and use this data source to obtain the data necessary to create a security
+// group that allows connections from hosts in that subnet.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		subnetId := cfg.RequireObject("subnetId")
+// 		opt0 := subnetId
+// 		selected, err := ec2.LookupSubnet(ctx, &ec2.LookupSubnetArgs{
+// 			Id: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewSecurityGroup(ctx, "subnet", &ec2.SecurityGroupArgs{
+// 			VpcId: pulumi.String(selected.VpcId),
+// 			Ingress: ec2.SecurityGroupIngressArray{
+// 				&ec2.SecurityGroupIngressArgs{
+// 					CidrBlocks: pulumi.StringArray{
+// 						pulumi.String(selected.CidrBlock),
+// 					},
+// 					FromPort: pulumi.Int(80),
+// 					ToPort:   pulumi.Int(80),
+// 					Protocol: pulumi.String("tcp"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	var rv LookupSubnetResult
 	err := ctx.Invoke("aws:ec2/getSubnet:getSubnet", args, &rv, opts...)
@@ -41,9 +88,9 @@ type LookupSubnetArgs struct {
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
 	// The state that the desired subnet must have.
 	State *string `pulumi:"state"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired subnet.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The id of the VPC that the desired subnet belongs to.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -62,9 +109,11 @@ type LookupSubnetResult struct {
 	Ipv6CidrBlock               string            `pulumi:"ipv6CidrBlock"`
 	Ipv6CidrBlockAssociationId  string            `pulumi:"ipv6CidrBlockAssociationId"`
 	MapPublicIpOnLaunch         bool              `pulumi:"mapPublicIpOnLaunch"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
-	OwnerId string                 `pulumi:"ownerId"`
-	State   string                 `pulumi:"state"`
-	Tags    map[string]interface{} `pulumi:"tags"`
-	VpcId   string                 `pulumi:"vpcId"`
+	OwnerId string            `pulumi:"ownerId"`
+	State   string            `pulumi:"state"`
+	Tags    map[string]string `pulumi:"tags"`
+	VpcId   string            `pulumi:"vpcId"`
 }

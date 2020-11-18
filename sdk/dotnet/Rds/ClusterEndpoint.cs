@@ -10,13 +10,86 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
-    /// Manages a RDS Aurora Cluster Endpoint.
-    /// You can refer to the [User Guide][1].
+    /// Manages an RDS Aurora Cluster Endpoint.
+    /// You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Rds.Cluster("default", new Aws.Rds.ClusterArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-west-2a",
+    ///                 "us-west-2b",
+    ///                 "us-west-2c",
+    ///             },
+    ///             DatabaseName = "mydb",
+    ///             MasterUsername = "foo",
+    ///             MasterPassword = "bar",
+    ///             BackupRetentionPeriod = 5,
+    ///             PreferredBackupWindow = "07:00-09:00",
+    ///         });
+    ///         var test1 = new Aws.Rds.ClusterInstance("test1", new Aws.Rds.ClusterInstanceArgs
+    ///         {
+    ///             ApplyImmediately = true,
+    ///             ClusterIdentifier = @default.Id,
+    ///             Identifier = "test1",
+    ///             InstanceClass = "db.t2.small",
+    ///             Engine = @default.Engine,
+    ///             EngineVersion = @default.EngineVersion,
+    ///         });
+    ///         var test2 = new Aws.Rds.ClusterInstance("test2", new Aws.Rds.ClusterInstanceArgs
+    ///         {
+    ///             ApplyImmediately = true,
+    ///             ClusterIdentifier = @default.Id,
+    ///             Identifier = "test2",
+    ///             InstanceClass = "db.t2.small",
+    ///             Engine = @default.Engine,
+    ///             EngineVersion = @default.EngineVersion,
+    ///         });
+    ///         var test3 = new Aws.Rds.ClusterInstance("test3", new Aws.Rds.ClusterInstanceArgs
+    ///         {
+    ///             ApplyImmediately = true,
+    ///             ClusterIdentifier = @default.Id,
+    ///             Identifier = "test3",
+    ///             InstanceClass = "db.t2.small",
+    ///             Engine = @default.Engine,
+    ///             EngineVersion = @default.EngineVersion,
+    ///         });
+    ///         var eligible = new Aws.Rds.ClusterEndpoint("eligible", new Aws.Rds.ClusterEndpointArgs
+    ///         {
+    ///             ClusterIdentifier = @default.Id,
+    ///             ClusterEndpointIdentifier = "reader",
+    ///             CustomEndpointType = "READER",
+    ///             ExcludedMembers = 
+    ///             {
+    ///                 test1.Id,
+    ///                 test2.Id,
+    ///             },
+    ///         });
+    ///         var @static = new Aws.Rds.ClusterEndpoint("static", new Aws.Rds.ClusterEndpointArgs
+    ///         {
+    ///             ClusterIdentifier = @default.Id,
+    ///             ClusterEndpointIdentifier = "static",
+    ///             CustomEndpointType = "READER",
+    ///             StaticMembers = 
+    ///             {
+    ///                 test1.Id,
+    ///                 test3.Id,
+    ///             },
+    ///         });
+    ///     }
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_endpoint.html.markdown.
+    /// }
+    /// ```
     /// </summary>
     public partial class ClusterEndpoint : Pulumi.CustomResource
     {
@@ -63,10 +136,10 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableArray<string>> StaticMembers { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -77,7 +150,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClusterEndpoint(string name, ClusterEndpointArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/clusterEndpoint:ClusterEndpoint", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:rds/clusterEndpoint:ClusterEndpoint", name, args ?? new ClusterEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -157,14 +230,14 @@ namespace Pulumi.Aws.Rds
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -230,14 +303,14 @@ namespace Pulumi.Aws.Rds
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

@@ -17,9 +17,30 @@ namespace Pulumi.Aws.Ec2
     /// this provider does not _create_ this resource, but instead "adopts" it
     /// into management.
     /// 
+    /// ## Example Usage
     /// 
+    /// Basic usage with tags:
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_subnet.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var defaultAz1 = new Aws.Ec2.DefaultSubnet("defaultAz1", new Aws.Ec2.DefaultSubnetArgs
+    ///         {
+    ///             AvailabilityZone = "us-west-2a",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "Default subnet for us-west-2a" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DefaultSubnet : Pulumi.CustomResource
     {
@@ -58,6 +79,9 @@ namespace Pulumi.Aws.Ec2
         [Output("mapPublicIpOnLaunch")]
         public Output<bool> MapPublicIpOnLaunch { get; private set; } = null!;
 
+        [Output("outpostArn")]
+        public Output<string?> OutpostArn { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the AWS account that owns the subnet.
         /// </summary>
@@ -65,10 +89,10 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The VPC ID.
@@ -85,7 +109,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DefaultSubnet(string name, DefaultSubnetArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/defaultSubnet:DefaultSubnet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/defaultSubnet:DefaultSubnet", name, args ?? new DefaultSubnetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -133,15 +157,18 @@ namespace Pulumi.Aws.Ec2
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
 
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
+
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -187,6 +214,9 @@ namespace Pulumi.Aws.Ec2
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
 
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
+
         /// <summary>
         /// The ID of the AWS account that owns the subnet.
         /// </summary>
@@ -194,14 +224,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

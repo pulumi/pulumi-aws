@@ -7,15 +7,81 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		lbUser, err := iam.NewUser(ctx, "lbUser", &iam.UserArgs{
+// 			Path: pulumi.String("/system/"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		lbAccessKey, err := iam.NewAccessKey(ctx, "lbAccessKey", &iam.AccessKeyArgs{
+// 			User:   lbUser.Name,
+// 			PgpKey: pulumi.String("keybase:some_person_that_exists"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewUserPolicy(ctx, "lbRo", &iam.UserPolicyArgs{
+// 			User:   lbUser.Name,
+// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"ec2:Describe*\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("secret", lbAccessKey.EncryptedSecret)
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testUser, err := iam.NewUser(ctx, "testUser", &iam.UserArgs{
+// 			Path: pulumi.String("/test/"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testAccessKey, err := iam.NewAccessKey(ctx, "testAccessKey", &iam.AccessKeyArgs{
+// 			User: testUser.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("awsIamSmtpPasswordV4", testAccessKey.SesSmtpPasswordV4)
+// 		return nil
+// 	})
+// }
+// ```
 type AccessKey struct {
 	pulumi.CustomResourceState
 
-	// The encrypted secret, base64 encoded, if `pgpKey` was specified.
-	// > **NOTE:** The encrypted secret may be decrypted using the command line,
 	EncryptedSecret pulumi.StringOutput `pulumi:"encryptedSecret"`
 	// The fingerprint of the PGP key used to encrypt
 	// the secret
@@ -30,9 +96,6 @@ type AccessKey struct {
 	// prevent the secret from being stored in plaintext, at the cost of preventing
 	// the use of the secret key in automation.
 	Secret pulumi.StringOutput `pulumi:"secret"`
-	// **DEPRECATED** The secret access key converted into an SES SMTP
-	// password by applying [AWS's documented conversion
-	SesSmtpPassword pulumi.StringOutput `pulumi:"sesSmtpPassword"`
 	// The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented Sigv4 conversion
 	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
@@ -76,8 +139,6 @@ func GetAccessKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessKey resources.
 type accessKeyState struct {
-	// The encrypted secret, base64 encoded, if `pgpKey` was specified.
-	// > **NOTE:** The encrypted secret may be decrypted using the command line,
 	EncryptedSecret *string `pulumi:"encryptedSecret"`
 	// The fingerprint of the PGP key used to encrypt
 	// the secret
@@ -92,9 +153,6 @@ type accessKeyState struct {
 	// prevent the secret from being stored in plaintext, at the cost of preventing
 	// the use of the secret key in automation.
 	Secret *string `pulumi:"secret"`
-	// **DEPRECATED** The secret access key converted into an SES SMTP
-	// password by applying [AWS's documented conversion
-	SesSmtpPassword *string `pulumi:"sesSmtpPassword"`
 	// The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented Sigv4 conversion
 	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
@@ -108,8 +166,6 @@ type accessKeyState struct {
 }
 
 type AccessKeyState struct {
-	// The encrypted secret, base64 encoded, if `pgpKey` was specified.
-	// > **NOTE:** The encrypted secret may be decrypted using the command line,
 	EncryptedSecret pulumi.StringPtrInput
 	// The fingerprint of the PGP key used to encrypt
 	// the secret
@@ -124,9 +180,6 @@ type AccessKeyState struct {
 	// prevent the secret from being stored in plaintext, at the cost of preventing
 	// the use of the secret key in automation.
 	Secret pulumi.StringPtrInput
-	// **DEPRECATED** The secret access key converted into an SES SMTP
-	// password by applying [AWS's documented conversion
-	SesSmtpPassword pulumi.StringPtrInput
 	// The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented Sigv4 conversion
 	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).

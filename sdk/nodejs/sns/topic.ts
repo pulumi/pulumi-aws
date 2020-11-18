@@ -4,29 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
+import {ARN} from "..";
 
 /**
  * Provides an SNS topic resource
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const userUpdates = new aws.sns.Topic("userUpdates", {});
+ *
+ * const userUpdates = new aws.sns.Topic("user_updates", {});
  * ```
- * 
  * ## Example with Delivery Policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const userUpdates = new aws.sns.Topic("userUpdates", {
+ *
+ * const userUpdates = new aws.sns.Topic("user_updates", {
  *     deliveryPolicy: `{
  *   "http": {
  *     "defaultHealthyRetryPolicy": {
@@ -47,23 +44,21 @@ import {ARN} from "../index";
  * `,
  * });
  * ```
- * 
+ *
  * ## Example with Server-side encryption (SSE)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const userUpdates = new aws.sns.Topic("userUpdates", {
+ *
+ * const userUpdates = new aws.sns.Topic("user_updates", {
  *     kmsMasterKeyId: "alias/aws/sns",
  * });
  * ```
- * 
- * ## Message Delivery Status Arguments
- * 
- * The `<endpoint>_success_feedback_role_arn` and `<endpoint>_failure_feedback_role_arn` arguments are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `<endpoint>_success_feedback_sample_rate` argument is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the  `<endpoint>_failure_feedback_role_arn` argument, then all failed message deliveries generate CloudWatch Logs.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic.html.markdown.
+ * ## Message Delivery Status Arguments
+ *
+ * The `<endpoint>_success_feedback_role_arn` and `<endpoint>_failure_feedback_role_arn` arguments are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `<endpoint>_success_feedback_sample_rate` argument is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the  `<endpoint>_failure_feedback_role_arn` argument, then all failed message deliveries generate CloudWatch Logs.
  */
 export class Topic extends pulumi.CustomResource {
     /**
@@ -73,6 +68,7 @@ export class Topic extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TopicState, opts?: pulumi.CustomResourceOptions): Topic {
         return new Topic(name, <any>state, { ...opts, id: id });
@@ -169,9 +165,9 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly sqsSuccessFeedbackSampleRate!: pulumi.Output<number | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Topic resource with the given unique name, arguments, and options.
@@ -320,9 +316,9 @@ export interface TopicState {
      */
     readonly sqsSuccessFeedbackSampleRate?: pulumi.Input<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -402,7 +398,7 @@ export interface TopicArgs {
      */
     readonly sqsSuccessFeedbackSampleRate?: pulumi.Input<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

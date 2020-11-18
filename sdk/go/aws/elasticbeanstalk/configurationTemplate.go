@@ -7,14 +7,42 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an Elastic Beanstalk Configuration Template, which are associated with
 // a specific application and are used to deploy different versions of the
 // application with the same configuration settings.
 //
+// ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticbeanstalk"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+// 			Description: pulumi.String("tf-test-desc"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = elasticbeanstalk.NewConfigurationTemplate(ctx, "tfTemplate", &elasticbeanstalk.ConfigurationTemplateArgs{
+// 			Application:       tftest.Name,
+// 			SolutionStackName: pulumi.String("64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Option Settings
 //
 // The `setting` field supports the following format:
@@ -39,7 +67,7 @@ type ConfigurationTemplate struct {
 	// below in Option Settings
 	Settings ConfigurationTemplateSettingArrayOutput `pulumi:"settings"`
 	// A solution stack to base your Template
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName pulumi.StringPtrOutput `pulumi:"solutionStackName"`
 }
 
@@ -87,7 +115,7 @@ type configurationTemplateState struct {
 	// below in Option Settings
 	Settings []ConfigurationTemplateSetting `pulumi:"settings"`
 	// A solution stack to base your Template
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName *string `pulumi:"solutionStackName"`
 }
 
@@ -105,7 +133,7 @@ type ConfigurationTemplateState struct {
 	// below in Option Settings
 	Settings ConfigurationTemplateSettingArrayInput
 	// A solution stack to base your Template
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName pulumi.StringPtrInput
 }
 
@@ -127,7 +155,7 @@ type configurationTemplateArgs struct {
 	// below in Option Settings
 	Settings []ConfigurationTemplateSetting `pulumi:"settings"`
 	// A solution stack to base your Template
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName *string `pulumi:"solutionStackName"`
 }
 
@@ -146,7 +174,7 @@ type ConfigurationTemplateArgs struct {
 	// below in Option Settings
 	Settings ConfigurationTemplateSettingArrayInput
 	// A solution stack to base your Template
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName pulumi.StringPtrInput
 }
 

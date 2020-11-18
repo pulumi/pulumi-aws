@@ -7,12 +7,12 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an Elastic Load Balancer resource, also known as a "Classic
 // Load Balancer" after the release of
-// [Application/Network Load Balancers](https://www.terraform.io/docs/providers/aws/r/lb.html).
+// `Application/Network Load Balancers`.
 //
 // > **NOTE on ELB Instances and ELB Attachments:** This provider currently
 // provides both a standalone ELB Attachment resource
@@ -21,7 +21,6 @@ import (
 // instances in conjunction with a ELB Attachment resources. Doing so will cause a
 // conflict and will overwrite attachments.
 //
-//
 // ## Note on ECDSA Key Algorithm
 //
 // If the ARN of the `sslCertificateId` that is pointed to references a
@@ -29,6 +28,8 @@ import (
 // P256 and P384 curves.  Using a certificate signed by a key using a different
 // curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
 // browser.
+//
+// Deprecated: aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 
@@ -74,8 +75,8 @@ type LoadBalancer struct {
 	SourceSecurityGroupId pulumi.StringOutput `pulumi:"sourceSecurityGroupId"`
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
@@ -153,8 +154,8 @@ type loadBalancerState struct {
 	SourceSecurityGroupId *string `pulumi:"sourceSecurityGroupId"`
 	// A list of subnet IDs to attach to the ELB.
 	Subnets []string `pulumi:"subnets"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId *string `pulumi:"zoneId"`
 }
@@ -202,8 +203,8 @@ type LoadBalancerState struct {
 	SourceSecurityGroupId pulumi.StringPtrInput
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId pulumi.StringPtrInput
 }
@@ -247,8 +248,8 @@ type loadBalancerArgs struct {
 	SourceSecurityGroup *string `pulumi:"sourceSecurityGroup"`
 	// A list of subnet IDs to attach to the ELB.
 	Subnets []string `pulumi:"subnets"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
@@ -287,8 +288,8 @@ type LoadBalancerArgs struct {
 	SourceSecurityGroup pulumi.StringPtrInput
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (LoadBalancerArgs) ElementType() reflect.Type {

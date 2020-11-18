@@ -4,31 +4,39 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the ARN of a certificate in AWS Certificate
  * Manager (ACM), you can reference
  * it by domain without having to hard code the ARNs as input.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
+ * // Find a certificate that is issued
+ * const issued = pulumi.output(aws.acm.getCertificate({
+ *     domain: "tf.example.com",
+ *     statuses: ["ISSUED"],
+ * }, { async: true }));
+ * // Find a certificate issued by (not imported into) ACM
+ * const amazonIssued = pulumi.output(aws.acm.getCertificate({
+ *     domain: "tf.example.com",
+ *     mostRecent: true,
+ *     types: ["AMAZON_ISSUED"],
+ * }, { async: true }));
  * // Find a RSA 4096 bit certificate
- * const example = aws.acm.getCertificate({
+ * const rsa4096 = pulumi.output(aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     keyTypes: ["RSA_4096"],
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acm_certificate.html.markdown.
  */
-export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> & GetCertificateResult {
+export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {
         opts = {}
     }
@@ -36,15 +44,14 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetCertificateResult> = pulumi.runtime.invoke("aws:acm/getCertificate:getCertificate", {
+    return pulumi.runtime.invoke("aws:acm/getCertificate:getCertificate", {
         "domain": args.domain,
         "keyTypes": args.keyTypes,
         "mostRecent": args.mostRecent,
         "statuses": args.statuses,
+        "tags": args.tags,
         "types": args.types,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -70,6 +77,10 @@ export interface GetCertificateArgs {
      */
     readonly statuses?: string[];
     /**
+     * A mapping of tags for the resource.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
      * A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
      */
     readonly types?: string[];
@@ -80,16 +91,20 @@ export interface GetCertificateArgs {
  */
 export interface GetCertificateResult {
     /**
-     * Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
+     * Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
      */
     readonly arn: string;
     readonly domain: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly keyTypes?: string[];
     readonly mostRecent?: boolean;
     readonly statuses?: string[];
-    readonly types?: string[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * A mapping of tags for the resource.
      */
-    readonly id: string;
+    readonly tags: {[key: string]: string};
+    readonly types?: string[];
 }

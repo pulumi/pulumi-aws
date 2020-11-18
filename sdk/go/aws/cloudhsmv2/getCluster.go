@@ -4,10 +4,33 @@
 package cloudhsmv2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get information about a CloudHSM v2 cluster
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudhsmv2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cloudhsmv2.LookupCluster(ctx, &cloudhsmv2.LookupClusterArgs{
+// 			ClusterId: "cluster-testclusterid",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws:cloudhsmv2/getCluster:getCluster", args, &rv, opts...)
@@ -33,11 +56,11 @@ type LookupClusterResult struct {
 	// * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
 	// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
 	// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
-	// The number of available cluster certificates may vary depending on state of the cluster.
+	//   The number of available cluster certificates may vary depending on state of the cluster.
 	ClusterCertificates GetClusterClusterCertificates `pulumi:"clusterCertificates"`
 	ClusterId           string                        `pulumi:"clusterId"`
 	ClusterState        string                        `pulumi:"clusterState"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId string `pulumi:"securityGroupId"`

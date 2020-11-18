@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Get information on an Amazon MSK Cluster.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.msk.getCluster({
- *     clusterName: "example",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_cluster.html.markdown.
+ * const example = pulumi.output(aws.msk.getCluster({
+ *     clusterName: "example",
+ * }, { async: true }));
+ * ```
  */
-export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,12 +29,10 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetClusterResult> = pulumi.runtime.invoke("aws:msk/getCluster:getCluster", {
+    return pulumi.runtime.invoke("aws:msk/getCluster:getCluster", {
         "clusterName": args.clusterName,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -51,7 +46,7 @@ export interface GetClusterArgs {
     /**
      * Map of key-value pairs assigned to the cluster.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -72,6 +67,10 @@ export interface GetClusterResult {
     readonly bootstrapBrokersTls: string;
     readonly clusterName: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Apache Kafka version.
      */
     readonly kafkaVersion: string;
@@ -82,13 +81,9 @@ export interface GetClusterResult {
     /**
      * Map of key-value pairs assigned to the cluster.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
      */
     readonly zookeeperConnectString: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

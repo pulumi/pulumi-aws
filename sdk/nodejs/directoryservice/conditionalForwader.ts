@@ -6,26 +6,22 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.directoryservice.ConditionalForwader("example", {
- *     directoryId: aws_directory_service_directory_ad.id,
+ *     directoryId: aws_directory_service_directory.ad.id,
+ *     remoteDomainName: "example.com",
  *     dnsIps: [
  *         "8.8.8.8",
  *         "8.8.4.4",
  *     ],
- *     remoteDomainName: "example.com",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_conditional_forwarder.html.markdown.
  */
 export class ConditionalForwader extends pulumi.CustomResource {
     /**
@@ -35,6 +31,7 @@ export class ConditionalForwader extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ConditionalForwaderState, opts?: pulumi.CustomResourceOptions): ConditionalForwader {
         return new ConditionalForwader(name, <any>state, { ...opts, id: id });

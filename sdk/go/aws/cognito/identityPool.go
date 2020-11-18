@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an AWS Cognito Identity Pool.
@@ -25,14 +25,14 @@ type IdentityPool struct {
 	DeveloperProviderName pulumi.StringPtrOutput `pulumi:"developerProviderName"`
 	// The Cognito Identity Pool name.
 	IdentityPoolName pulumi.StringOutput `pulumi:"identityPoolName"`
-	// A list of OpendID Connect provider ARNs.
+	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns pulumi.StringArrayOutput `pulumi:"openidConnectProviderArns"`
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns pulumi.StringArrayOutput `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapOutput `pulumi:"supportedLoginProviders"`
-	// A mapping of tags to assign to the Identity Pool.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the Identity Pool.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewIdentityPool registers a new resource with the given unique name, arguments, and options.
@@ -77,14 +77,14 @@ type identityPoolState struct {
 	DeveloperProviderName *string `pulumi:"developerProviderName"`
 	// The Cognito Identity Pool name.
 	IdentityPoolName *string `pulumi:"identityPoolName"`
-	// A list of OpendID Connect provider ARNs.
+	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns []string `pulumi:"openidConnectProviderArns"`
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders map[string]string `pulumi:"supportedLoginProviders"`
-	// A mapping of tags to assign to the Identity Pool.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the Identity Pool.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type IdentityPoolState struct {
@@ -99,14 +99,14 @@ type IdentityPoolState struct {
 	DeveloperProviderName pulumi.StringPtrInput
 	// The Cognito Identity Pool name.
 	IdentityPoolName pulumi.StringPtrInput
-	// A list of OpendID Connect provider ARNs.
+	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns pulumi.StringArrayInput
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns pulumi.StringArrayInput
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapInput
-	// A mapping of tags to assign to the Identity Pool.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the Identity Pool.
+	Tags pulumi.StringMapInput
 }
 
 func (IdentityPoolState) ElementType() reflect.Type {
@@ -123,14 +123,14 @@ type identityPoolArgs struct {
 	DeveloperProviderName *string `pulumi:"developerProviderName"`
 	// The Cognito Identity Pool name.
 	IdentityPoolName string `pulumi:"identityPoolName"`
-	// A list of OpendID Connect provider ARNs.
+	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns []string `pulumi:"openidConnectProviderArns"`
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders map[string]string `pulumi:"supportedLoginProviders"`
-	// A mapping of tags to assign to the Identity Pool.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the Identity Pool.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IdentityPool resource.
@@ -144,14 +144,14 @@ type IdentityPoolArgs struct {
 	DeveloperProviderName pulumi.StringPtrInput
 	// The Cognito Identity Pool name.
 	IdentityPoolName pulumi.StringInput
-	// A list of OpendID Connect provider ARNs.
+	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns pulumi.StringArrayInput
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns pulumi.StringArrayInput
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapInput
-	// A mapping of tags to assign to the Identity Pool.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the Identity Pool.
+	Tags pulumi.StringMapInput
 }
 
 func (IdentityPoolArgs) ElementType() reflect.Type {

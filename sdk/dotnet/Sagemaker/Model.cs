@@ -12,9 +12,58 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a SageMaker model resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// Basic usage:
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_model.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var assumeRole = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         {
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         {
+    ///                             Type = "Service",
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 "sagemaker.amazonaws.com",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = assumeRole.Apply(assumeRole =&gt; assumeRole.Json),
+    ///         });
+    ///         var exampleModel = new Aws.Sagemaker.Model("exampleModel", new Aws.Sagemaker.ModelArgs
+    ///         {
+    ///             ExecutionRoleArn = exampleRole.Arn,
+    ///             PrimaryContainer = new Aws.Sagemaker.Inputs.ModelPrimaryContainerArgs
+    ///             {
+    ///                 Image = "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Model : Pulumi.CustomResource
     {
@@ -28,7 +77,7 @@ namespace Pulumi.Aws.Sagemaker
         /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         /// </summary>
         [Output("containers")]
-        public Output<ImmutableArray<Outputs.ModelContainers>> Containers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ModelContainer>> Containers { get; private set; } = null!;
 
         /// <summary>
         /// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
@@ -55,10 +104,10 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.ModelPrimaryContainer?> PrimaryContainer { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
@@ -75,7 +124,7 @@ namespace Pulumi.Aws.Sagemaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Model(string name, ModelArgs args, CustomResourceOptions? options = null)
-            : base("aws:sagemaker/model:Model", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:sagemaker/model:Model", name, args ?? new ModelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -113,14 +162,14 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class ModelArgs : Pulumi.ResourceArgs
     {
         [Input("containers")]
-        private InputList<Inputs.ModelContainersArgs>? _containers;
+        private InputList<Inputs.ModelContainerArgs>? _containers;
 
         /// <summary>
         /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         /// </summary>
-        public InputList<Inputs.ModelContainersArgs> Containers
+        public InputList<Inputs.ModelContainerArgs> Containers
         {
-            get => _containers ?? (_containers = new InputList<Inputs.ModelContainersArgs>());
+            get => _containers ?? (_containers = new InputList<Inputs.ModelContainerArgs>());
             set => _containers = value;
         }
 
@@ -149,14 +198,14 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.ModelPrimaryContainerArgs>? PrimaryContainer { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -180,14 +229,14 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Arn { get; set; }
 
         [Input("containers")]
-        private InputList<Inputs.ModelContainersGetArgs>? _containers;
+        private InputList<Inputs.ModelContainerGetArgs>? _containers;
 
         /// <summary>
         /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         /// </summary>
-        public InputList<Inputs.ModelContainersGetArgs> Containers
+        public InputList<Inputs.ModelContainerGetArgs> Containers
         {
-            get => _containers ?? (_containers = new InputList<Inputs.ModelContainersGetArgs>());
+            get => _containers ?? (_containers = new InputList<Inputs.ModelContainerGetArgs>());
             set => _containers = value;
         }
 
@@ -216,14 +265,14 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.ModelPrimaryContainerGetArgs>? PrimaryContainer { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -236,297 +285,5 @@ namespace Pulumi.Aws.Sagemaker
         public ModelState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ModelContainersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The DNS host name for the container.
-        /// </summary>
-        [Input("containerHostname")]
-        public Input<string>? ContainerHostname { get; set; }
-
-        [Input("environment")]
-        private InputMap<object>? _environment;
-
-        /// <summary>
-        /// Environment variables for the Docker container.
-        /// A list of key value pairs.
-        /// </summary>
-        public InputMap<object> Environment
-        {
-            get => _environment ?? (_environment = new InputMap<object>());
-            set => _environment = value;
-        }
-
-        /// <summary>
-        /// The registry path where the inference code image is stored in Amazon ECR.
-        /// </summary>
-        [Input("image", required: true)]
-        public Input<string> Image { get; set; } = null!;
-
-        /// <summary>
-        /// The URL for the S3 location where model artifacts are stored.
-        /// </summary>
-        [Input("modelDataUrl")]
-        public Input<string>? ModelDataUrl { get; set; }
-
-        public ModelContainersArgs()
-        {
-        }
-    }
-
-    public sealed class ModelContainersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The DNS host name for the container.
-        /// </summary>
-        [Input("containerHostname")]
-        public Input<string>? ContainerHostname { get; set; }
-
-        [Input("environment")]
-        private InputMap<object>? _environment;
-
-        /// <summary>
-        /// Environment variables for the Docker container.
-        /// A list of key value pairs.
-        /// </summary>
-        public InputMap<object> Environment
-        {
-            get => _environment ?? (_environment = new InputMap<object>());
-            set => _environment = value;
-        }
-
-        /// <summary>
-        /// The registry path where the inference code image is stored in Amazon ECR.
-        /// </summary>
-        [Input("image", required: true)]
-        public Input<string> Image { get; set; } = null!;
-
-        /// <summary>
-        /// The URL for the S3 location where model artifacts are stored.
-        /// </summary>
-        [Input("modelDataUrl")]
-        public Input<string>? ModelDataUrl { get; set; }
-
-        public ModelContainersGetArgs()
-        {
-        }
-    }
-
-    public sealed class ModelPrimaryContainerArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The DNS host name for the container.
-        /// </summary>
-        [Input("containerHostname")]
-        public Input<string>? ContainerHostname { get; set; }
-
-        [Input("environment")]
-        private InputMap<object>? _environment;
-
-        /// <summary>
-        /// Environment variables for the Docker container.
-        /// A list of key value pairs.
-        /// </summary>
-        public InputMap<object> Environment
-        {
-            get => _environment ?? (_environment = new InputMap<object>());
-            set => _environment = value;
-        }
-
-        /// <summary>
-        /// The registry path where the inference code image is stored in Amazon ECR.
-        /// </summary>
-        [Input("image", required: true)]
-        public Input<string> Image { get; set; } = null!;
-
-        /// <summary>
-        /// The URL for the S3 location where model artifacts are stored.
-        /// </summary>
-        [Input("modelDataUrl")]
-        public Input<string>? ModelDataUrl { get; set; }
-
-        public ModelPrimaryContainerArgs()
-        {
-        }
-    }
-
-    public sealed class ModelPrimaryContainerGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The DNS host name for the container.
-        /// </summary>
-        [Input("containerHostname")]
-        public Input<string>? ContainerHostname { get; set; }
-
-        [Input("environment")]
-        private InputMap<object>? _environment;
-
-        /// <summary>
-        /// Environment variables for the Docker container.
-        /// A list of key value pairs.
-        /// </summary>
-        public InputMap<object> Environment
-        {
-            get => _environment ?? (_environment = new InputMap<object>());
-            set => _environment = value;
-        }
-
-        /// <summary>
-        /// The registry path where the inference code image is stored in Amazon ECR.
-        /// </summary>
-        [Input("image", required: true)]
-        public Input<string> Image { get; set; } = null!;
-
-        /// <summary>
-        /// The URL for the S3 location where model artifacts are stored.
-        /// </summary>
-        [Input("modelDataUrl")]
-        public Input<string>? ModelDataUrl { get; set; }
-
-        public ModelPrimaryContainerGetArgs()
-        {
-        }
-    }
-
-    public sealed class ModelVpcConfigArgs : Pulumi.ResourceArgs
-    {
-        [Input("securityGroupIds", required: true)]
-        private InputList<string>? _securityGroupIds;
-        public InputList<string> SecurityGroupIds
-        {
-            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
-            set => _securityGroupIds = value;
-        }
-
-        [Input("subnets", required: true)]
-        private InputList<string>? _subnets;
-        public InputList<string> Subnets
-        {
-            get => _subnets ?? (_subnets = new InputList<string>());
-            set => _subnets = value;
-        }
-
-        public ModelVpcConfigArgs()
-        {
-        }
-    }
-
-    public sealed class ModelVpcConfigGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("securityGroupIds", required: true)]
-        private InputList<string>? _securityGroupIds;
-        public InputList<string> SecurityGroupIds
-        {
-            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
-            set => _securityGroupIds = value;
-        }
-
-        [Input("subnets", required: true)]
-        private InputList<string>? _subnets;
-        public InputList<string> Subnets
-        {
-            get => _subnets ?? (_subnets = new InputList<string>());
-            set => _subnets = value;
-        }
-
-        public ModelVpcConfigGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ModelContainers
-    {
-        /// <summary>
-        /// The DNS host name for the container.
-        /// </summary>
-        public readonly string? ContainerHostname;
-        /// <summary>
-        /// Environment variables for the Docker container.
-        /// A list of key value pairs.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Environment;
-        /// <summary>
-        /// The registry path where the inference code image is stored in Amazon ECR.
-        /// </summary>
-        public readonly string Image;
-        /// <summary>
-        /// The URL for the S3 location where model artifacts are stored.
-        /// </summary>
-        public readonly string? ModelDataUrl;
-
-        [OutputConstructor]
-        private ModelContainers(
-            string? containerHostname,
-            ImmutableDictionary<string, object>? environment,
-            string image,
-            string? modelDataUrl)
-        {
-            ContainerHostname = containerHostname;
-            Environment = environment;
-            Image = image;
-            ModelDataUrl = modelDataUrl;
-        }
-    }
-
-    [OutputType]
-    public sealed class ModelPrimaryContainer
-    {
-        /// <summary>
-        /// The DNS host name for the container.
-        /// </summary>
-        public readonly string? ContainerHostname;
-        /// <summary>
-        /// Environment variables for the Docker container.
-        /// A list of key value pairs.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Environment;
-        /// <summary>
-        /// The registry path where the inference code image is stored in Amazon ECR.
-        /// </summary>
-        public readonly string Image;
-        /// <summary>
-        /// The URL for the S3 location where model artifacts are stored.
-        /// </summary>
-        public readonly string? ModelDataUrl;
-
-        [OutputConstructor]
-        private ModelPrimaryContainer(
-            string? containerHostname,
-            ImmutableDictionary<string, object>? environment,
-            string image,
-            string? modelDataUrl)
-        {
-            ContainerHostname = containerHostname;
-            Environment = environment;
-            Image = image;
-            ModelDataUrl = modelDataUrl;
-        }
-    }
-
-    [OutputType]
-    public sealed class ModelVpcConfig
-    {
-        public readonly ImmutableArray<string> SecurityGroupIds;
-        public readonly ImmutableArray<string> Subnets;
-
-        [OutputConstructor]
-        private ModelVpcConfig(
-            ImmutableArray<string> securityGroupIds,
-            ImmutableArray<string> subnets)
-        {
-            SecurityGroupIds = securityGroupIds;
-            Subnets = subnets;
-        }
-    }
     }
 }

@@ -4,13 +4,81 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
- * 
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function_event_invoke_config.html.markdown.
+ * ## Example Usage
+ * ### Destination Configuration
+ *
+ * > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
+ *     functionName: aws_lambda_alias.example.function_name,
+ *     destinationConfig: {
+ *         onFailure: {
+ *             destination: aws_sqs_queue.example.arn,
+ *         },
+ *         onSuccess: {
+ *             destination: aws_sns_topic.example.arn,
+ *         },
+ *     },
+ * });
+ * ```
+ * ### Error Handling Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
+ *     functionName: aws_lambda_alias.example.function_name,
+ *     maximumEventAgeInSeconds: 60,
+ *     maximumRetryAttempts: 0,
+ * });
+ * ```
+ * ### Configuration for Alias Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
+ *     functionName: aws_lambda_alias.example.function_name,
+ *     qualifier: aws_lambda_alias.example.name,
+ * });
+ * // ... other configuration ...
+ * ```
+ * ### Configuration for Function Latest Unpublished Version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
+ *     functionName: aws_lambda_function.example.function_name,
+ *     qualifier: `$LATEST`,
+ * });
+ * // ... other configuration ...
+ * ```
+ * ### Configuration for Function Published Version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
+ *     functionName: aws_lambda_function.example.function_name,
+ *     qualifier: aws_lambda_function.example.version,
+ * });
+ * // ... other configuration ...
+ * ```
  */
 export class FunctionEventInvokeConfig extends pulumi.CustomResource {
     /**
@@ -20,6 +88,7 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FunctionEventInvokeConfigState, opts?: pulumi.CustomResourceOptions): FunctionEventInvokeConfig {
         return new FunctionEventInvokeConfig(name, <any>state, { ...opts, id: id });

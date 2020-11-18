@@ -4,21 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
- * 
+ *
  * > **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificateSigningRequest` attribute and import the signed certificate using the AWS SDK, CLI or Console. This provider can support another resource to manage that workflow automatically in the future.
- * 
+ *
  * ## Example Usage
- * 
  * ### Basic
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.acmpca.CertificateAuthority("example", {
  *     certificateAuthorityConfiguration: {
  *         keyAlgorithm: "RSA_4096",
@@ -30,14 +30,13 @@ import * as utilities from "../utilities";
  *     permanentDeletionTimeInDays: 7,
  * });
  * ```
- * 
  * ### Enable Certificate Revocation List
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleBucket = new aws.s3.Bucket("example", {});
+ *
+ * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
  * const acmpcaBucketAccess = pulumi.all([exampleBucket.arn, exampleBucket.arn]).apply(([exampleBucketArn, exampleBucketArn1]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
@@ -46,21 +45,21 @@ import * as utilities from "../utilities";
  *             "s3:PutObject",
  *             "s3:PutObjectAcl",
  *         ],
- *         principals: [{
- *             identifiers: ["acm-pca.amazonaws.com"],
- *             type: "Service",
- *         }],
  *         resources: [
  *             exampleBucketArn,
  *             `${exampleBucketArn1}/*`,
  *         ],
+ *         principals: [{
+ *             identifiers: ["acm-pca.amazonaws.com"],
+ *             type: "Service",
+ *         }],
  *     }],
  * }));
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
+ * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
  *     bucket: exampleBucket.id,
  *     policy: acmpcaBucketAccess.json,
  * });
- * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {
+ * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("exampleCertificateAuthority", {
  *     certificateAuthorityConfiguration: {
  *         keyAlgorithm: "RSA_4096",
  *         signingAlgorithm: "SHA512WITHRSA",
@@ -76,10 +75,10 @@ import * as utilities from "../utilities";
  *             s3BucketName: exampleBucket.id,
  *         },
  *     },
- * }, {dependsOn: [exampleBucketPolicy]});
+ * }, {
+ *     dependsOn: [exampleBucketPolicy],
+ * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acmpca_certificate_authority.html.markdown.
  */
 export class CertificateAuthority extends pulumi.CustomResource {
     /**
@@ -89,6 +88,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CertificateAuthorityState, opts?: pulumi.CustomResourceOptions): CertificateAuthority {
         return new CertificateAuthority(name, <any>state, { ...opts, id: id });
@@ -159,7 +159,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
@@ -277,7 +277,7 @@ export interface CertificateAuthorityState {
     /**
      * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
@@ -307,7 +307,7 @@ export interface CertificateAuthorityArgs {
     /**
      * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */

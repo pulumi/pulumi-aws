@@ -4,49 +4,46 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
  * e.g. to allow easier migration from another management solution
  * or to make it easier for an operator to connect through bastion host(s).
- * 
+ *
  * > **Note:** It's strongly discouraged to use this data source for querying ephemeral
  * instances (e.g. managed via autoscaling group), as the output may change at any time
  * and you'd need to re-run `apply` every time an instance comes up or dies.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testInstances = aws.ec2.getInstances({
- *     filters: [{
- *         name: "instance.group-id",
- *         values: ["sg-12345678"],
- *     }],
- *     instanceStateNames: [
- *         "running",
- *         "stopped",
- *     ],
- *     instanceTags: {
- *         Role: "HardWorker",
- *     },
- * });
- * const testEip: aws.ec2.Eip[] = [];
- * for (let i = 0; i < testInstances.ids.length; i++) {
- *     testEip.push(new aws.ec2.Eip(`test-${i}`, {
- *         instance: testInstances.ids[i],
- *     }));
+ *
+ * export = async () => {
+ *     const testInstances = await aws.ec2.getInstances({
+ *         instanceTags: {
+ *             Role: "HardWorker",
+ *         },
+ *         filters: [{
+ *             name: "instance.group-id",
+ *             values: ["sg-12345678"],
+ *         }],
+ *         instanceStateNames: [
+ *             "running",
+ *             "stopped",
+ *         ],
+ *     });
+ *     const testEip: aws.ec2.Eip[];
+ *     for (const range = {value: 0}; range.value < testInstances.ids.length; range.value++) {
+ *         testEip.push(new aws.ec2.Eip(`testEip-${range.value}`, {instance: testInstances.ids[range.value]}));
+ *     }
  * }
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
  */
-export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> & GetInstancesResult {
+export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -55,13 +52,11 @@ export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOption
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetInstancesResult> = pulumi.runtime.invoke("aws:ec2/getInstances:getInstances", {
+    return pulumi.runtime.invoke("aws:ec2/getInstances:getInstances", {
         "filters": args.filters,
         "instanceStateNames": args.instanceStateNames,
         "instanceTags": args.instanceTags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -79,10 +74,10 @@ export interface GetInstancesArgs {
      */
     readonly instanceStateNames?: string[];
     /**
-     * A mapping of tags, each pair of which must
+     * A map of tags, each pair of which must
      * exactly match a pair on desired instances.
      */
-    readonly instanceTags?: {[key: string]: any};
+    readonly instanceTags?: {[key: string]: string};
 }
 
 /**
@@ -91,11 +86,15 @@ export interface GetInstancesArgs {
 export interface GetInstancesResult {
     readonly filters?: outputs.ec2.GetInstancesFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * IDs of instances found through the filter
      */
     readonly ids: string[];
     readonly instanceStateNames?: string[];
-    readonly instanceTags: {[key: string]: any};
+    readonly instanceTags: {[key: string]: string};
     /**
      * Private IP addresses of instances found through the filter
      */
@@ -104,8 +103,4 @@ export interface GetInstancesResult {
      * Public IP addresses of instances found through the filter
      */
     readonly publicIps: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

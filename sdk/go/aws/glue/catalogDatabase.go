@@ -6,13 +6,38 @@ package glue
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := glue.NewCatalogDatabase(ctx, "awsGlueCatalogDatabase", &glue.CatalogDatabaseArgs{
+// 			Name: pulumi.String("MyCatalogDatabase"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type CatalogDatabase struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Glue Catalog Database.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Description of the database.
@@ -53,6 +78,8 @@ func GetCatalogDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CatalogDatabase resources.
 type catalogDatabaseState struct {
+	// The ARN of the Glue Catalog Database.
+	Arn *string `pulumi:"arn"`
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId *string `pulumi:"catalogId"`
 	// Description of the database.
@@ -66,6 +93,8 @@ type catalogDatabaseState struct {
 }
 
 type CatalogDatabaseState struct {
+	// The ARN of the Glue Catalog Database.
+	Arn pulumi.StringPtrInput
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrInput
 	// Description of the database.

@@ -10,18 +10,83 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Alb
 {
     /// <summary>
-    /// Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the [`aws.elb.Attachment` resource](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html).
+    /// Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the `aws.elb.Attachment` resource.
     /// 
     /// &gt; **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group_attachment.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///         });
+    ///         // ... other configuration ...
+    ///         var testInstance = new Aws.Ec2.Instance("testInstance", new Aws.Ec2.InstanceArgs
+    ///         {
+    ///         });
+    ///         // ... other configuration ...
+    ///         var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new Aws.LB.TargetGroupAttachmentArgs
+    ///         {
+    ///             TargetGroupArn = testTargetGroup.Arn,
+    ///             TargetId = testInstance.Id,
+    ///             Port = 80,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ## Usage with lambda
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///             TargetType = "lambda",
+    ///         });
+    ///         var testFunction = new Aws.Lambda.Function("testFunction", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///         });
+    ///         // ... other configuration ...
+    ///         var withLb = new Aws.Lambda.Permission("withLb", new Aws.Lambda.PermissionArgs
+    ///         {
+    ///             Action = "lambda:InvokeFunction",
+    ///             Function = testFunction.Arn,
+    ///             Principal = "elasticloadbalancing.amazonaws.com",
+    ///             SourceArn = testTargetGroup.Arn,
+    ///         });
+    ///         var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new Aws.LB.TargetGroupAttachmentArgs
+    ///         {
+    ///             TargetGroupArn = testTargetGroup.Arn,
+    ///             TargetId = testFunction.Arn,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 withLb,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TargetGroupAttachment : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered.
+        /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
@@ -53,7 +118,7 @@ namespace Pulumi.Aws.Alb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TargetGroupAttachment(string name, TargetGroupAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:alb/targetGroupAttachment:TargetGroupAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:alb/targetGroupAttachment:TargetGroupAttachment", name, args ?? new TargetGroupAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -66,7 +131,11 @@ namespace Pulumi.Aws.Alb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment" } },
+                Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -91,7 +160,7 @@ namespace Pulumi.Aws.Alb
     public sealed class TargetGroupAttachmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered.
+        /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -122,7 +191,7 @@ namespace Pulumi.Aws.Alb
     public sealed class TargetGroupAttachmentState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered.
+        /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }

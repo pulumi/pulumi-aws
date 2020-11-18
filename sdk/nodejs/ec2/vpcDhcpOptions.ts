@@ -2,38 +2,54 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a VPC DHCP Options resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * Basic usage:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const dnsResolver = new aws.ec2.VpcDhcpOptions("dnsResolver", {
+ *
+ * const dnsResolver = new aws.ec2.VpcDhcpOptions("dns_resolver", {
  *     domainNameServers: [
  *         "8.8.8.8",
  *         "8.8.4.4",
  *     ],
  * });
  * ```
- * 
+ *
+ * Full usage:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = new aws.ec2.VpcDhcpOptions("foo", {
+ *     domainName: "service.consul",
+ *     domainNameServers: [
+ *         "127.0.0.1",
+ *         "10.0.0.2",
+ *     ],
+ *     netbiosNameServers: ["127.0.0.1"],
+ *     netbiosNodeType: "2",
+ *     ntpServers: ["127.0.0.1"],
+ *     tags: {
+ *         Name: "foo-name",
+ *     },
+ * });
+ * ```
  * ## Remarks
- * 
+ *
  * * Notice that all arguments are optional but you have to specify at least one argument.
  * * `domainNameServers`, `netbiosNameServers`, `ntpServers` are limited by AWS to maximum four servers only.
- * * To actually use the DHCP Options Set you need to associate it to a VPC using [`aws.ec2.VpcDhcpOptionsAssociation`](https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association.html).
+ * * To actually use the DHCP Options Set you need to associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`.
  * * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
  * * In most cases unless you're configuring your own DNS you'll want to set `domainNameServers` to `AmazonProvidedDNS`.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_dhcp_options.html.markdown.
  */
 export class VpcDhcpOptions extends pulumi.CustomResource {
     /**
@@ -43,6 +59,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcDhcpOptionsState, opts?: pulumi.CustomResourceOptions): VpcDhcpOptions {
         return new VpcDhcpOptions(name, <any>state, { ...opts, id: id });
@@ -62,6 +79,10 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcDhcpOptions.__pulumiType;
     }
 
+    /**
+     * The ARN of the DHCP Options Set.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      */
@@ -87,9 +108,9 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a VpcDhcpOptions resource with the given unique name, arguments, and options.
@@ -103,6 +124,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as VpcDhcpOptionsState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["domainNameServers"] = state ? state.domainNameServers : undefined;
             inputs["netbiosNameServers"] = state ? state.netbiosNameServers : undefined;
@@ -118,6 +140,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
             inputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
             inputs["ntpServers"] = args ? args.ntpServers : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
         if (!opts) {
@@ -135,6 +158,10 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcDhcpOptions resources.
  */
 export interface VpcDhcpOptionsState {
+    /**
+     * The ARN of the DHCP Options Set.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      */
@@ -160,9 +187,9 @@ export interface VpcDhcpOptionsState {
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -190,7 +217,7 @@ export interface VpcDhcpOptionsArgs {
      */
     readonly ntpServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

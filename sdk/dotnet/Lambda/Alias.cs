@@ -12,12 +12,36 @@ namespace Pulumi.Aws.Lambda
     /// <summary>
     /// Creates a Lambda function alias. Creates an alias that points to the specified Lambda function version.
     /// 
-    /// For information about Lambda and how to use it, see [What is AWS Lambda?][1]
-    /// For information about function aliases, see [CreateAlias][2] and [AliasRoutingConfiguration][3] in the API docs.
+    /// For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+    /// For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_alias.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testLambdaAlias = new Aws.Lambda.Alias("testLambdaAlias", new Aws.Lambda.AliasArgs
+    ///         {
+    ///             Description = "a sample description",
+    ///             FunctionName = aws_lambda_function.Lambda_function_test.Arn,
+    ///             FunctionVersion = "1",
+    ///             RoutingConfig = new Aws.Lambda.Inputs.AliasRoutingConfigArgs
+    ///             {
+    ///                 AdditionalVersionWeights = 
+    ///                 {
+    ///                     { "2", 0.5 },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Alias : Pulumi.CustomResource
     {
@@ -34,7 +58,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The function ARN of the Lambda function for which you want to create an alias.
+        /// Lambda Function name or ARN.
         /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
@@ -46,7 +70,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> FunctionVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+        /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
         /// </summary>
         [Output("invokeArn")]
         public Output<string> InvokeArn { get; private set; } = null!;
@@ -72,7 +96,7 @@ namespace Pulumi.Aws.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Alias(string name, AliasArgs args, CustomResourceOptions? options = null)
-            : base("aws:lambda/alias:Alias", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:lambda/alias:Alias", name, args ?? new AliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -116,7 +140,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The function ARN of the Lambda function for which you want to create an alias.
+        /// Lambda Function name or ARN.
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
@@ -159,7 +183,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The function ARN of the Lambda function for which you want to create an alias.
+        /// Lambda Function name or ARN.
         /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }
@@ -171,7 +195,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? FunctionVersion { get; set; }
 
         /// <summary>
-        /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+        /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
         /// </summary>
         [Input("invokeArn")]
         public Input<string>? InvokeArn { get; set; }
@@ -191,66 +215,5 @@ namespace Pulumi.Aws.Lambda
         public AliasState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AliasRoutingConfigArgs : Pulumi.ResourceArgs
-    {
-        [Input("additionalVersionWeights")]
-        private InputMap<double>? _additionalVersionWeights;
-
-        /// <summary>
-        /// A map that defines the proportion of events that should be sent to different versions of a lambda function.
-        /// </summary>
-        public InputMap<double> AdditionalVersionWeights
-        {
-            get => _additionalVersionWeights ?? (_additionalVersionWeights = new InputMap<double>());
-            set => _additionalVersionWeights = value;
-        }
-
-        public AliasRoutingConfigArgs()
-        {
-        }
-    }
-
-    public sealed class AliasRoutingConfigGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("additionalVersionWeights")]
-        private InputMap<double>? _additionalVersionWeights;
-
-        /// <summary>
-        /// A map that defines the proportion of events that should be sent to different versions of a lambda function.
-        /// </summary>
-        public InputMap<double> AdditionalVersionWeights
-        {
-            get => _additionalVersionWeights ?? (_additionalVersionWeights = new InputMap<double>());
-            set => _additionalVersionWeights = value;
-        }
-
-        public AliasRoutingConfigGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AliasRoutingConfig
-    {
-        /// <summary>
-        /// A map that defines the proportion of events that should be sent to different versions of a lambda function.
-        /// </summary>
-        public readonly ImmutableDictionary<string, double>? AdditionalVersionWeights;
-
-        [OutputConstructor]
-        private AliasRoutingConfig(ImmutableDictionary<string, double>? additionalVersionWeights)
-        {
-            AdditionalVersionWeights = additionalVersionWeights;
-        }
-    }
     }
 }

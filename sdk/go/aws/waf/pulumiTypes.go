@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type ByteMatchSetByteMatchTuple struct {
@@ -31,6 +31,10 @@ type ByteMatchSetByteMatchTuple struct {
 	TextTransformation string `pulumi:"textTransformation"`
 }
 
+// ByteMatchSetByteMatchTupleInput is an input type that accepts ByteMatchSetByteMatchTupleArgs and ByteMatchSetByteMatchTupleOutput values.
+// You can construct a concrete instance of `ByteMatchSetByteMatchTupleInput` via:
+//
+//          ByteMatchSetByteMatchTupleArgs{...}
 type ByteMatchSetByteMatchTupleInput interface {
 	pulumi.Input
 
@@ -71,6 +75,10 @@ func (i ByteMatchSetByteMatchTupleArgs) ToByteMatchSetByteMatchTupleOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetByteMatchTupleOutput)
 }
 
+// ByteMatchSetByteMatchTupleArrayInput is an input type that accepts ByteMatchSetByteMatchTupleArray and ByteMatchSetByteMatchTupleArrayOutput values.
+// You can construct a concrete instance of `ByteMatchSetByteMatchTupleArrayInput` via:
+//
+//          ByteMatchSetByteMatchTupleArray{ ByteMatchSetByteMatchTupleArgs{...} }
 type ByteMatchSetByteMatchTupleArrayInput interface {
 	pulumi.Input
 
@@ -167,6 +175,10 @@ type ByteMatchSetByteMatchTupleFieldToMatch struct {
 	Type string `pulumi:"type"`
 }
 
+// ByteMatchSetByteMatchTupleFieldToMatchInput is an input type that accepts ByteMatchSetByteMatchTupleFieldToMatchArgs and ByteMatchSetByteMatchTupleFieldToMatchOutput values.
+// You can construct a concrete instance of `ByteMatchSetByteMatchTupleFieldToMatchInput` via:
+//
+//          ByteMatchSetByteMatchTupleFieldToMatchArgs{...}
 type ByteMatchSetByteMatchTupleFieldToMatchInput interface {
 	pulumi.Input
 
@@ -234,6 +246,10 @@ type GeoMatchSetGeoMatchConstraint struct {
 	Value string `pulumi:"value"`
 }
 
+// GeoMatchSetGeoMatchConstraintInput is an input type that accepts GeoMatchSetGeoMatchConstraintArgs and GeoMatchSetGeoMatchConstraintOutput values.
+// You can construct a concrete instance of `GeoMatchSetGeoMatchConstraintInput` via:
+//
+//          GeoMatchSetGeoMatchConstraintArgs{...}
 type GeoMatchSetGeoMatchConstraintInput interface {
 	pulumi.Input
 
@@ -262,6 +278,10 @@ func (i GeoMatchSetGeoMatchConstraintArgs) ToGeoMatchSetGeoMatchConstraintOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GeoMatchSetGeoMatchConstraintOutput)
 }
 
+// GeoMatchSetGeoMatchConstraintArrayInput is an input type that accepts GeoMatchSetGeoMatchConstraintArray and GeoMatchSetGeoMatchConstraintArrayOutput values.
+// You can construct a concrete instance of `GeoMatchSetGeoMatchConstraintArrayInput` via:
+//
+//          GeoMatchSetGeoMatchConstraintArray{ GeoMatchSetGeoMatchConstraintArgs{...} }
 type GeoMatchSetGeoMatchConstraintArrayInput interface {
 	pulumi.Input
 
@@ -337,6 +357,10 @@ type IpSetIpSetDescriptor struct {
 	Value string `pulumi:"value"`
 }
 
+// IpSetIpSetDescriptorInput is an input type that accepts IpSetIpSetDescriptorArgs and IpSetIpSetDescriptorOutput values.
+// You can construct a concrete instance of `IpSetIpSetDescriptorInput` via:
+//
+//          IpSetIpSetDescriptorArgs{...}
 type IpSetIpSetDescriptorInput interface {
 	pulumi.Input
 
@@ -364,6 +388,10 @@ func (i IpSetIpSetDescriptorArgs) ToIpSetIpSetDescriptorOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IpSetIpSetDescriptorOutput)
 }
 
+// IpSetIpSetDescriptorArrayInput is an input type that accepts IpSetIpSetDescriptorArray and IpSetIpSetDescriptorArrayOutput values.
+// You can construct a concrete instance of `IpSetIpSetDescriptorArrayInput` via:
+//
+//          IpSetIpSetDescriptorArray{ IpSetIpSetDescriptorArgs{...} }
 type IpSetIpSetDescriptorArrayInput interface {
 	pulumi.Input
 
@@ -442,6 +470,10 @@ type RateBasedRulePredicate struct {
 	Type string `pulumi:"type"`
 }
 
+// RateBasedRulePredicateInput is an input type that accepts RateBasedRulePredicateArgs and RateBasedRulePredicateOutput values.
+// You can construct a concrete instance of `RateBasedRulePredicateInput` via:
+//
+//          RateBasedRulePredicateArgs{...}
 type RateBasedRulePredicateInput interface {
 	pulumi.Input
 
@@ -473,6 +505,10 @@ func (i RateBasedRulePredicateArgs) ToRateBasedRulePredicateOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRulePredicateOutput)
 }
 
+// RateBasedRulePredicateArrayInput is an input type that accepts RateBasedRulePredicateArray and RateBasedRulePredicateArrayOutput values.
+// You can construct a concrete instance of `RateBasedRulePredicateArrayInput` via:
+//
+//          RateBasedRulePredicateArray{ RateBasedRulePredicateArgs{...} }
 type RateBasedRulePredicateArrayInput interface {
 	pulumi.Input
 
@@ -549,7 +585,7 @@ func (o RateBasedRulePredicateArrayOutput) Index(i pulumi.IntInput) RateBasedRul
 type RegexMatchSetRegexMatchTuple struct {
 	// The part of a web request that you want to search, such as a specified header or a query string.
 	FieldToMatch RegexMatchSetRegexMatchTupleFieldToMatch `pulumi:"fieldToMatch"`
-	// The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
+	// The ID of a `WAF Regex Pattern Set`.
 	RegexPatternSetId string `pulumi:"regexPatternSetId"`
 	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
 	// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
@@ -558,6 +594,10 @@ type RegexMatchSetRegexMatchTuple struct {
 	TextTransformation string `pulumi:"textTransformation"`
 }
 
+// RegexMatchSetRegexMatchTupleInput is an input type that accepts RegexMatchSetRegexMatchTupleArgs and RegexMatchSetRegexMatchTupleOutput values.
+// You can construct a concrete instance of `RegexMatchSetRegexMatchTupleInput` via:
+//
+//          RegexMatchSetRegexMatchTupleArgs{...}
 type RegexMatchSetRegexMatchTupleInput interface {
 	pulumi.Input
 
@@ -568,7 +608,7 @@ type RegexMatchSetRegexMatchTupleInput interface {
 type RegexMatchSetRegexMatchTupleArgs struct {
 	// The part of a web request that you want to search, such as a specified header or a query string.
 	FieldToMatch RegexMatchSetRegexMatchTupleFieldToMatchInput `pulumi:"fieldToMatch"`
-	// The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
+	// The ID of a `WAF Regex Pattern Set`.
 	RegexPatternSetId pulumi.StringInput `pulumi:"regexPatternSetId"`
 	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
 	// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
@@ -589,6 +629,10 @@ func (i RegexMatchSetRegexMatchTupleArgs) ToRegexMatchSetRegexMatchTupleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetRegexMatchTupleOutput)
 }
 
+// RegexMatchSetRegexMatchTupleArrayInput is an input type that accepts RegexMatchSetRegexMatchTupleArray and RegexMatchSetRegexMatchTupleArrayOutput values.
+// You can construct a concrete instance of `RegexMatchSetRegexMatchTupleArrayInput` via:
+//
+//          RegexMatchSetRegexMatchTupleArray{ RegexMatchSetRegexMatchTupleArgs{...} }
 type RegexMatchSetRegexMatchTupleArrayInput interface {
 	pulumi.Input
 
@@ -629,7 +673,7 @@ func (o RegexMatchSetRegexMatchTupleOutput) FieldToMatch() RegexMatchSetRegexMat
 	return o.ApplyT(func(v RegexMatchSetRegexMatchTuple) RegexMatchSetRegexMatchTupleFieldToMatch { return v.FieldToMatch }).(RegexMatchSetRegexMatchTupleFieldToMatchOutput)
 }
 
-// The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
+// The ID of a `WAF Regex Pattern Set`.
 func (o RegexMatchSetRegexMatchTupleOutput) RegexPatternSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegexMatchSetRegexMatchTuple) string { return v.RegexPatternSetId }).(pulumi.StringOutput)
 }
@@ -673,6 +717,10 @@ type RegexMatchSetRegexMatchTupleFieldToMatch struct {
 	Type string `pulumi:"type"`
 }
 
+// RegexMatchSetRegexMatchTupleFieldToMatchInput is an input type that accepts RegexMatchSetRegexMatchTupleFieldToMatchArgs and RegexMatchSetRegexMatchTupleFieldToMatchOutput values.
+// You can construct a concrete instance of `RegexMatchSetRegexMatchTupleFieldToMatchInput` via:
+//
+//          RegexMatchSetRegexMatchTupleFieldToMatchArgs{...}
 type RegexMatchSetRegexMatchTupleFieldToMatchInput interface {
 	pulumi.Input
 
@@ -736,12 +784,16 @@ type RuleGroupActivatedRule struct {
 	Action RuleGroupActivatedRuleAction `pulumi:"action"`
 	// Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
 	Priority int `pulumi:"priority"`
-	// The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
+	// The ID of a `wafRule`
 	RuleId string `pulumi:"ruleId"`
-	// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type *string `pulumi:"type"`
 }
 
+// RuleGroupActivatedRuleInput is an input type that accepts RuleGroupActivatedRuleArgs and RuleGroupActivatedRuleOutput values.
+// You can construct a concrete instance of `RuleGroupActivatedRuleInput` via:
+//
+//          RuleGroupActivatedRuleArgs{...}
 type RuleGroupActivatedRuleInput interface {
 	pulumi.Input
 
@@ -754,9 +806,9 @@ type RuleGroupActivatedRuleArgs struct {
 	Action RuleGroupActivatedRuleActionInput `pulumi:"action"`
 	// Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
+	// The ID of a `wafRule`
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
-	// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -772,6 +824,10 @@ func (i RuleGroupActivatedRuleArgs) ToRuleGroupActivatedRuleOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupActivatedRuleOutput)
 }
 
+// RuleGroupActivatedRuleArrayInput is an input type that accepts RuleGroupActivatedRuleArray and RuleGroupActivatedRuleArrayOutput values.
+// You can construct a concrete instance of `RuleGroupActivatedRuleArrayInput` via:
+//
+//          RuleGroupActivatedRuleArray{ RuleGroupActivatedRuleArgs{...} }
 type RuleGroupActivatedRuleArrayInput interface {
 	pulumi.Input
 
@@ -817,12 +873,12 @@ func (o RuleGroupActivatedRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
+// The ID of a `wafRule`
 func (o RuleGroupActivatedRuleOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRule) string { return v.RuleId }).(pulumi.StringOutput)
 }
 
-// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 func (o RuleGroupActivatedRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -848,10 +904,14 @@ func (o RuleGroupActivatedRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupAct
 }
 
 type RuleGroupActivatedRuleAction struct {
-	// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type string `pulumi:"type"`
 }
 
+// RuleGroupActivatedRuleActionInput is an input type that accepts RuleGroupActivatedRuleActionArgs and RuleGroupActivatedRuleActionOutput values.
+// You can construct a concrete instance of `RuleGroupActivatedRuleActionInput` via:
+//
+//          RuleGroupActivatedRuleActionArgs{...}
 type RuleGroupActivatedRuleActionInput interface {
 	pulumi.Input
 
@@ -860,7 +920,7 @@ type RuleGroupActivatedRuleActionInput interface {
 }
 
 type RuleGroupActivatedRuleActionArgs struct {
-	// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -890,7 +950,7 @@ func (o RuleGroupActivatedRuleActionOutput) ToRuleGroupActivatedRuleActionOutput
 	return o
 }
 
-// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 func (o RuleGroupActivatedRuleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRuleAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -899,14 +959,18 @@ type RulePredicate struct {
 	// A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
 	DataId string `pulumi:"dataId"`
 	// Set this to `false` if you want to allow, block, or count requests
-	// based on the settings in the specified [wafByteMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set.html), [wafIpset](https://www.terraform.io/docs/providers/aws/r/waf_ipset.html), [waf.SizeConstraintSet](https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set.html), [waf.SqlInjectionMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_sql_injection_match_set.html) or [waf.XssMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_xss_match_set.html).
+	// based on the settings in the specified `wafByteMatchSet`, `wafIpset`, `waf.SizeConstraintSet`, `waf.SqlInjectionMatchSet` or `waf.XssMatchSet`.
 	// For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-	// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+	// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
 	Negated bool `pulumi:"negated"`
 	// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
 	Type string `pulumi:"type"`
 }
 
+// RulePredicateInput is an input type that accepts RulePredicateArgs and RulePredicateOutput values.
+// You can construct a concrete instance of `RulePredicateInput` via:
+//
+//          RulePredicateArgs{...}
 type RulePredicateInput interface {
 	pulumi.Input
 
@@ -918,9 +982,9 @@ type RulePredicateArgs struct {
 	// A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
 	DataId pulumi.StringInput `pulumi:"dataId"`
 	// Set this to `false` if you want to allow, block, or count requests
-	// based on the settings in the specified [wafByteMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set.html), [wafIpset](https://www.terraform.io/docs/providers/aws/r/waf_ipset.html), [waf.SizeConstraintSet](https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set.html), [waf.SqlInjectionMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_sql_injection_match_set.html) or [waf.XssMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_xss_match_set.html).
+	// based on the settings in the specified `wafByteMatchSet`, `wafIpset`, `waf.SizeConstraintSet`, `waf.SqlInjectionMatchSet` or `waf.XssMatchSet`.
 	// For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-	// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+	// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
 	Negated pulumi.BoolInput `pulumi:"negated"`
 	// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -938,6 +1002,10 @@ func (i RulePredicateArgs) ToRulePredicateOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RulePredicateOutput)
 }
 
+// RulePredicateArrayInput is an input type that accepts RulePredicateArray and RulePredicateArrayOutput values.
+// You can construct a concrete instance of `RulePredicateArrayInput` via:
+//
+//          RulePredicateArray{ RulePredicateArgs{...} }
 type RulePredicateArrayInput interface {
 	pulumi.Input
 
@@ -979,9 +1047,9 @@ func (o RulePredicateOutput) DataId() pulumi.StringOutput {
 }
 
 // Set this to `false` if you want to allow, block, or count requests
-// based on the settings in the specified [wafByteMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set.html), [wafIpset](https://www.terraform.io/docs/providers/aws/r/waf_ipset.html), [waf.SizeConstraintSet](https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set.html), [waf.SqlInjectionMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_sql_injection_match_set.html) or [waf.XssMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_xss_match_set.html).
+// based on the settings in the specified `wafByteMatchSet`, `wafIpset`, `waf.SizeConstraintSet`, `waf.SqlInjectionMatchSet` or `waf.XssMatchSet`.
 // For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
 func (o RulePredicateOutput) Negated() pulumi.BoolOutput {
 	return o.ApplyT(func(v RulePredicate) bool { return v.Negated }).(pulumi.BoolOutput)
 }
@@ -1014,7 +1082,7 @@ func (o RulePredicateArrayOutput) Index(i pulumi.IntInput) RulePredicateOutput {
 type SizeConstraintSetSizeConstraint struct {
 	// The type of comparison you want to perform.
 	// e.g. `EQ`, `NE`, `LT`, `GT`.
-	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
+	// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
 	ComparisonOperator string `pulumi:"comparisonOperator"`
 	// Specifies where in a web request to look for the size constraint.
 	FieldToMatch SizeConstraintSetSizeConstraintFieldToMatch `pulumi:"fieldToMatch"`
@@ -1030,6 +1098,10 @@ type SizeConstraintSetSizeConstraint struct {
 	TextTransformation string `pulumi:"textTransformation"`
 }
 
+// SizeConstraintSetSizeConstraintInput is an input type that accepts SizeConstraintSetSizeConstraintArgs and SizeConstraintSetSizeConstraintOutput values.
+// You can construct a concrete instance of `SizeConstraintSetSizeConstraintInput` via:
+//
+//          SizeConstraintSetSizeConstraintArgs{...}
 type SizeConstraintSetSizeConstraintInput interface {
 	pulumi.Input
 
@@ -1040,7 +1112,7 @@ type SizeConstraintSetSizeConstraintInput interface {
 type SizeConstraintSetSizeConstraintArgs struct {
 	// The type of comparison you want to perform.
 	// e.g. `EQ`, `NE`, `LT`, `GT`.
-	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
+	// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
 	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
 	// Specifies where in a web request to look for the size constraint.
 	FieldToMatch SizeConstraintSetSizeConstraintFieldToMatchInput `pulumi:"fieldToMatch"`
@@ -1068,6 +1140,10 @@ func (i SizeConstraintSetSizeConstraintArgs) ToSizeConstraintSetSizeConstraintOu
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetSizeConstraintOutput)
 }
 
+// SizeConstraintSetSizeConstraintArrayInput is an input type that accepts SizeConstraintSetSizeConstraintArray and SizeConstraintSetSizeConstraintArrayOutput values.
+// You can construct a concrete instance of `SizeConstraintSetSizeConstraintArrayInput` via:
+//
+//          SizeConstraintSetSizeConstraintArray{ SizeConstraintSetSizeConstraintArgs{...} }
 type SizeConstraintSetSizeConstraintArrayInput interface {
 	pulumi.Input
 
@@ -1105,7 +1181,7 @@ func (o SizeConstraintSetSizeConstraintOutput) ToSizeConstraintSetSizeConstraint
 
 // The type of comparison you want to perform.
 // e.g. `EQ`, `NE`, `LT`, `GT`.
-// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
+// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
 func (o SizeConstraintSetSizeConstraintOutput) ComparisonOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v SizeConstraintSetSizeConstraint) string { return v.ComparisonOperator }).(pulumi.StringOutput)
 }
@@ -1164,6 +1240,10 @@ type SizeConstraintSetSizeConstraintFieldToMatch struct {
 	Type string `pulumi:"type"`
 }
 
+// SizeConstraintSetSizeConstraintFieldToMatchInput is an input type that accepts SizeConstraintSetSizeConstraintFieldToMatchArgs and SizeConstraintSetSizeConstraintFieldToMatchOutput values.
+// You can construct a concrete instance of `SizeConstraintSetSizeConstraintFieldToMatchInput` via:
+//
+//          SizeConstraintSetSizeConstraintFieldToMatchArgs{...}
 type SizeConstraintSetSizeConstraintFieldToMatchInput interface {
 	pulumi.Input
 
@@ -1233,6 +1313,10 @@ type SqlInjectionMatchSetSqlInjectionMatchTuple struct {
 	TextTransformation string `pulumi:"textTransformation"`
 }
 
+// SqlInjectionMatchSetSqlInjectionMatchTupleInput is an input type that accepts SqlInjectionMatchSetSqlInjectionMatchTupleArgs and SqlInjectionMatchSetSqlInjectionMatchTupleOutput values.
+// You can construct a concrete instance of `SqlInjectionMatchSetSqlInjectionMatchTupleInput` via:
+//
+//          SqlInjectionMatchSetSqlInjectionMatchTupleArgs{...}
 type SqlInjectionMatchSetSqlInjectionMatchTupleInput interface {
 	pulumi.Input
 
@@ -1263,6 +1347,10 @@ func (i SqlInjectionMatchSetSqlInjectionMatchTupleArgs) ToSqlInjectionMatchSetSq
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetSqlInjectionMatchTupleOutput)
 }
 
+// SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput is an input type that accepts SqlInjectionMatchSetSqlInjectionMatchTupleArray and SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput values.
+// You can construct a concrete instance of `SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput` via:
+//
+//          SqlInjectionMatchSetSqlInjectionMatchTupleArray{ SqlInjectionMatchSetSqlInjectionMatchTupleArgs{...} }
 type SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput interface {
 	pulumi.Input
 
@@ -1345,6 +1433,10 @@ type SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch struct {
 	Type string `pulumi:"type"`
 }
 
+// SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchInput is an input type that accepts SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs and SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutput values.
+// You can construct a concrete instance of `SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchInput` via:
+//
+//          SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs{...}
 type SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchInput interface {
 	pulumi.Input
 
@@ -1408,6 +1500,10 @@ type WebAclDefaultAction struct {
 	Type string `pulumi:"type"`
 }
 
+// WebAclDefaultActionInput is an input type that accepts WebAclDefaultActionArgs and WebAclDefaultActionOutput values.
+// You can construct a concrete instance of `WebAclDefaultActionInput` via:
+//
+//          WebAclDefaultActionArgs{...}
 type WebAclDefaultActionInput interface {
 	pulumi.Input
 
@@ -1440,6 +1536,14 @@ func (i WebAclDefaultActionArgs) ToWebAclDefaultActionPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclDefaultActionOutput).ToWebAclDefaultActionPtrOutputWithContext(ctx)
 }
 
+// WebAclDefaultActionPtrInput is an input type that accepts WebAclDefaultActionArgs, WebAclDefaultActionPtr and WebAclDefaultActionPtrOutput values.
+// You can construct a concrete instance of `WebAclDefaultActionPtrInput` via:
+//
+//          WebAclDefaultActionArgs{...}
+//
+//  or:
+//
+//          nil
 type WebAclDefaultActionPtrInput interface {
 	pulumi.Input
 
@@ -1513,8 +1617,13 @@ func (o WebAclDefaultActionPtrOutput) Elem() WebAclDefaultActionOutput {
 }
 
 // The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-func (o WebAclDefaultActionPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclDefaultAction) string { return v.Type }).(pulumi.StringOutput)
+func (o WebAclDefaultActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclDefaultAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type WebAclLoggingConfiguration struct {
@@ -1524,6 +1633,10 @@ type WebAclLoggingConfiguration struct {
 	RedactedFields *WebAclLoggingConfigurationRedactedFields `pulumi:"redactedFields"`
 }
 
+// WebAclLoggingConfigurationInput is an input type that accepts WebAclLoggingConfigurationArgs and WebAclLoggingConfigurationOutput values.
+// You can construct a concrete instance of `WebAclLoggingConfigurationInput` via:
+//
+//          WebAclLoggingConfigurationArgs{...}
 type WebAclLoggingConfigurationInput interface {
 	pulumi.Input
 
@@ -1558,6 +1671,14 @@ func (i WebAclLoggingConfigurationArgs) ToWebAclLoggingConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationOutput).ToWebAclLoggingConfigurationPtrOutputWithContext(ctx)
 }
 
+// WebAclLoggingConfigurationPtrInput is an input type that accepts WebAclLoggingConfigurationArgs, WebAclLoggingConfigurationPtr and WebAclLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebAclLoggingConfigurationPtrInput` via:
+//
+//          WebAclLoggingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type WebAclLoggingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1636,13 +1757,23 @@ func (o WebAclLoggingConfigurationPtrOutput) Elem() WebAclLoggingConfigurationOu
 }
 
 // Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-func (o WebAclLoggingConfigurationPtrOutput) LogDestination() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclLoggingConfiguration) string { return v.LogDestination }).(pulumi.StringOutput)
+func (o WebAclLoggingConfigurationPtrOutput) LogDestination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogDestination
+	}).(pulumi.StringPtrOutput)
 }
 
 // Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
 func (o WebAclLoggingConfigurationPtrOutput) RedactedFields() WebAclLoggingConfigurationRedactedFieldsPtrOutput {
-	return o.ApplyT(func(v WebAclLoggingConfiguration) *WebAclLoggingConfigurationRedactedFields { return v.RedactedFields }).(WebAclLoggingConfigurationRedactedFieldsPtrOutput)
+	return o.ApplyT(func(v *WebAclLoggingConfiguration) *WebAclLoggingConfigurationRedactedFields {
+		if v == nil {
+			return nil
+		}
+		return v.RedactedFields
+	}).(WebAclLoggingConfigurationRedactedFieldsPtrOutput)
 }
 
 type WebAclLoggingConfigurationRedactedFields struct {
@@ -1650,6 +1781,10 @@ type WebAclLoggingConfigurationRedactedFields struct {
 	FieldToMatches []WebAclLoggingConfigurationRedactedFieldsFieldToMatch `pulumi:"fieldToMatches"`
 }
 
+// WebAclLoggingConfigurationRedactedFieldsInput is an input type that accepts WebAclLoggingConfigurationRedactedFieldsArgs and WebAclLoggingConfigurationRedactedFieldsOutput values.
+// You can construct a concrete instance of `WebAclLoggingConfigurationRedactedFieldsInput` via:
+//
+//          WebAclLoggingConfigurationRedactedFieldsArgs{...}
 type WebAclLoggingConfigurationRedactedFieldsInput interface {
 	pulumi.Input
 
@@ -1682,6 +1817,14 @@ func (i WebAclLoggingConfigurationRedactedFieldsArgs) ToWebAclLoggingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationRedactedFieldsOutput).ToWebAclLoggingConfigurationRedactedFieldsPtrOutputWithContext(ctx)
 }
 
+// WebAclLoggingConfigurationRedactedFieldsPtrInput is an input type that accepts WebAclLoggingConfigurationRedactedFieldsArgs, WebAclLoggingConfigurationRedactedFieldsPtr and WebAclLoggingConfigurationRedactedFieldsPtrOutput values.
+// You can construct a concrete instance of `WebAclLoggingConfigurationRedactedFieldsPtrInput` via:
+//
+//          WebAclLoggingConfigurationRedactedFieldsArgs{...}
+//
+//  or:
+//
+//          nil
 type WebAclLoggingConfigurationRedactedFieldsPtrInput interface {
 	pulumi.Input
 
@@ -1758,7 +1901,10 @@ func (o WebAclLoggingConfigurationRedactedFieldsPtrOutput) Elem() WebAclLoggingC
 
 // Set of configuration blocks for fields to redact. Detailed below.
 func (o WebAclLoggingConfigurationRedactedFieldsPtrOutput) FieldToMatches() WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput {
-	return o.ApplyT(func(v WebAclLoggingConfigurationRedactedFields) []WebAclLoggingConfigurationRedactedFieldsFieldToMatch {
+	return o.ApplyT(func(v *WebAclLoggingConfigurationRedactedFields) []WebAclLoggingConfigurationRedactedFieldsFieldToMatch {
+		if v == nil {
+			return nil
+		}
 		return v.FieldToMatches
 	}).(WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput)
 }
@@ -1770,6 +1916,10 @@ type WebAclLoggingConfigurationRedactedFieldsFieldToMatch struct {
 	Type string `pulumi:"type"`
 }
 
+// WebAclLoggingConfigurationRedactedFieldsFieldToMatchInput is an input type that accepts WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs and WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput values.
+// You can construct a concrete instance of `WebAclLoggingConfigurationRedactedFieldsFieldToMatchInput` via:
+//
+//          WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{...}
 type WebAclLoggingConfigurationRedactedFieldsFieldToMatchInput interface {
 	pulumi.Input
 
@@ -1796,6 +1946,10 @@ func (i WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs) ToWebAclLoggin
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput)
 }
 
+// WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayInput is an input type that accepts WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray and WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput values.
+// You can construct a concrete instance of `WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayInput` via:
+//
+//          WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{ WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{...} }
 type WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayInput interface {
 	pulumi.Input
 
@@ -1869,12 +2023,16 @@ type WebAclRule struct {
 	// Specifies the order in which the rules in a WebACL are evaluated.
 	// Rules with a lower value are evaluated before rules with a higher value.
 	Priority int `pulumi:"priority"`
-	// ID of the associated WAF (Global) rule (e.g. [`waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
+	// ID of the associated WAF (Global) rule (e.g. `waf.Rule`). WAF (Regional) rules cannot be used.
 	RuleId string `pulumi:"ruleId"`
 	// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
 	Type *string `pulumi:"type"`
 }
 
+// WebAclRuleInput is an input type that accepts WebAclRuleArgs and WebAclRuleOutput values.
+// You can construct a concrete instance of `WebAclRuleInput` via:
+//
+//          WebAclRuleArgs{...}
 type WebAclRuleInput interface {
 	pulumi.Input
 
@@ -1890,7 +2048,7 @@ type WebAclRuleArgs struct {
 	// Specifies the order in which the rules in a WebACL are evaluated.
 	// Rules with a lower value are evaluated before rules with a higher value.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// ID of the associated WAF (Global) rule (e.g. [`waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
+	// ID of the associated WAF (Global) rule (e.g. `waf.Rule`). WAF (Regional) rules cannot be used.
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
 	// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -1908,6 +2066,10 @@ func (i WebAclRuleArgs) ToWebAclRuleOutputWithContext(ctx context.Context) WebAc
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleOutput)
 }
 
+// WebAclRuleArrayInput is an input type that accepts WebAclRuleArray and WebAclRuleArrayOutput values.
+// You can construct a concrete instance of `WebAclRuleArrayInput` via:
+//
+//          WebAclRuleArray{ WebAclRuleArgs{...} }
 type WebAclRuleArrayInput interface {
 	pulumi.Input
 
@@ -1959,7 +2121,7 @@ func (o WebAclRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v WebAclRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// ID of the associated WAF (Global) rule (e.g. [`waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
+// ID of the associated WAF (Global) rule (e.g. `waf.Rule`). WAF (Regional) rules cannot be used.
 func (o WebAclRuleOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRule) string { return v.RuleId }).(pulumi.StringOutput)
 }
@@ -1994,6 +2156,10 @@ type WebAclRuleAction struct {
 	Type string `pulumi:"type"`
 }
 
+// WebAclRuleActionInput is an input type that accepts WebAclRuleActionArgs and WebAclRuleActionOutput values.
+// You can construct a concrete instance of `WebAclRuleActionInput` via:
+//
+//          WebAclRuleActionArgs{...}
 type WebAclRuleActionInput interface {
 	pulumi.Input
 
@@ -2026,6 +2192,14 @@ func (i WebAclRuleActionArgs) ToWebAclRuleActionPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleActionOutput).ToWebAclRuleActionPtrOutputWithContext(ctx)
 }
 
+// WebAclRuleActionPtrInput is an input type that accepts WebAclRuleActionArgs, WebAclRuleActionPtr and WebAclRuleActionPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleActionPtrInput` via:
+//
+//          WebAclRuleActionArgs{...}
+//
+//  or:
+//
+//          nil
 type WebAclRuleActionPtrInput interface {
 	pulumi.Input
 
@@ -2099,8 +2273,13 @@ func (o WebAclRuleActionPtrOutput) Elem() WebAclRuleActionOutput {
 }
 
 // The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-func (o WebAclRuleActionPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleAction) string { return v.Type }).(pulumi.StringOutput)
+func (o WebAclRuleActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type WebAclRuleOverrideAction struct {
@@ -2108,6 +2287,10 @@ type WebAclRuleOverrideAction struct {
 	Type string `pulumi:"type"`
 }
 
+// WebAclRuleOverrideActionInput is an input type that accepts WebAclRuleOverrideActionArgs and WebAclRuleOverrideActionOutput values.
+// You can construct a concrete instance of `WebAclRuleOverrideActionInput` via:
+//
+//          WebAclRuleOverrideActionArgs{...}
 type WebAclRuleOverrideActionInput interface {
 	pulumi.Input
 
@@ -2140,6 +2323,14 @@ func (i WebAclRuleOverrideActionArgs) ToWebAclRuleOverrideActionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleOverrideActionOutput).ToWebAclRuleOverrideActionPtrOutputWithContext(ctx)
 }
 
+// WebAclRuleOverrideActionPtrInput is an input type that accepts WebAclRuleOverrideActionArgs, WebAclRuleOverrideActionPtr and WebAclRuleOverrideActionPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleOverrideActionPtrInput` via:
+//
+//          WebAclRuleOverrideActionArgs{...}
+//
+//  or:
+//
+//          nil
 type WebAclRuleOverrideActionPtrInput interface {
 	pulumi.Input
 
@@ -2213,8 +2404,13 @@ func (o WebAclRuleOverrideActionPtrOutput) Elem() WebAclRuleOverrideActionOutput
 }
 
 // The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-func (o WebAclRuleOverrideActionPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleOverrideAction) string { return v.Type }).(pulumi.StringOutput)
+func (o WebAclRuleOverrideActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleOverrideAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type XssMatchSetXssMatchTuple struct {
@@ -2228,6 +2424,10 @@ type XssMatchSetXssMatchTuple struct {
 	TextTransformation string `pulumi:"textTransformation"`
 }
 
+// XssMatchSetXssMatchTupleInput is an input type that accepts XssMatchSetXssMatchTupleArgs and XssMatchSetXssMatchTupleOutput values.
+// You can construct a concrete instance of `XssMatchSetXssMatchTupleInput` via:
+//
+//          XssMatchSetXssMatchTupleArgs{...}
 type XssMatchSetXssMatchTupleInput interface {
 	pulumi.Input
 
@@ -2258,6 +2458,10 @@ func (i XssMatchSetXssMatchTupleArgs) ToXssMatchSetXssMatchTupleOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetXssMatchTupleOutput)
 }
 
+// XssMatchSetXssMatchTupleArrayInput is an input type that accepts XssMatchSetXssMatchTupleArray and XssMatchSetXssMatchTupleArrayOutput values.
+// You can construct a concrete instance of `XssMatchSetXssMatchTupleArrayInput` via:
+//
+//          XssMatchSetXssMatchTupleArray{ XssMatchSetXssMatchTupleArgs{...} }
 type XssMatchSetXssMatchTupleArrayInput interface {
 	pulumi.Input
 
@@ -2338,6 +2542,10 @@ type XssMatchSetXssMatchTupleFieldToMatch struct {
 	Type string `pulumi:"type"`
 }
 
+// XssMatchSetXssMatchTupleFieldToMatchInput is an input type that accepts XssMatchSetXssMatchTupleFieldToMatchArgs and XssMatchSetXssMatchTupleFieldToMatchOutput values.
+// You can construct a concrete instance of `XssMatchSetXssMatchTupleFieldToMatchInput` via:
+//
+//          XssMatchSetXssMatchTupleFieldToMatchArgs{...}
 type XssMatchSetXssMatchTupleFieldToMatchInput interface {
 	pulumi.Input
 

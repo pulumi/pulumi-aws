@@ -7,12 +7,73 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an VPC subnet resource.
 //
 // > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), subnets associated with Lambda Functions can take up to 45 minutes to successfully delete.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewSubnet(ctx, "main", &ec2.SubnetArgs{
+// 			VpcId:     pulumi.Any(aws_vpc.Main.Id),
+// 			CidrBlock: pulumi.String("10.0.1.0/24"),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("Main"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Subnets In Secondary VPC CIDR Blocks
+//
+// When managing subnets in one of a VPC's secondary CIDR blocks created using a `ec2.VpcIpv4CidrBlockAssociation`
+// resource, it is recommended to reference that resource's `vpcId` attribute to ensure correct dependency ordering.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		secondaryCidr, err := ec2.NewVpcIpv4CidrBlockAssociation(ctx, "secondaryCidr", &ec2.VpcIpv4CidrBlockAssociationArgs{
+// 			VpcId:     pulumi.Any(aws_vpc.Main.Id),
+// 			CidrBlock: pulumi.String("172.2.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewSubnet(ctx, "inSecondaryCidr", &ec2.SubnetArgs{
+// 			VpcId:     secondaryCidr.VpcId,
+// 			CidrBlock: pulumi.String("172.2.0.0/24"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Subnet struct {
 	pulumi.CustomResourceState
 
@@ -30,17 +91,19 @@ type Subnet struct {
 	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
 	// The IPv6 network range for the subnet,
 	// in CIDR notation. The subnet size must use a /64 prefix length.
-	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
 	// The association ID for the IPv6 CIDR block.
 	Ipv6CidrBlockAssociationId pulumi.StringOutput `pulumi:"ipv6CidrBlockAssociationId"`
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
 	MapPublicIpOnLaunch pulumi.BoolPtrOutput `pulumi:"mapPublicIpOnLaunch"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The VPC ID.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -100,10 +163,12 @@ type subnetState struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
 	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn *string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
 	OwnerId *string `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -130,10 +195,12 @@ type SubnetState struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringPtrInput
 }
@@ -160,8 +227,10 @@ type subnetArgs struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
 	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn *string `pulumi:"outpostArn"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -185,8 +254,10 @@ type SubnetArgs struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn pulumi.StringPtrInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringInput
 }

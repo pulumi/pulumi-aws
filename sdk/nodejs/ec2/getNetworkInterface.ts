@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a Network Interface.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const bar = aws.ec2.getNetworkInterface({
- *     id: "eni-01234567",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interface.html.markdown.
+ * const bar = pulumi.output(aws.ec2.getNetworkInterface({
+ *     id: "eni-01234567",
+ * }, { async: true }));
+ * ```
  */
-export function getNetworkInterface(args?: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> & GetNetworkInterfaceResult {
+export function getNetworkInterface(args?: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -33,13 +30,11 @@ export function getNetworkInterface(args?: GetNetworkInterfaceArgs, opts?: pulum
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetNetworkInterfaceResult> = pulumi.runtime.invoke("aws:ec2/getNetworkInterface:getNetworkInterface", {
+    return pulumi.runtime.invoke("aws:ec2/getNetworkInterface:getNetworkInterface", {
         "filters": args.filters,
         "id": args.id,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -57,7 +52,7 @@ export interface GetNetworkInterfaceArgs {
     /**
      * Any tags assigned to the network interface.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -92,6 +87,10 @@ export interface GetNetworkInterfaceResult {
      */
     readonly macAddress: string;
     /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
+    readonly outpostArn: string;
+    /**
      * The AWS account ID of the owner of the network interface.
      */
     readonly ownerId: string;
@@ -122,7 +121,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * Any tags assigned to the network interface.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The ID of the VPC.
      */

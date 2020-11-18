@@ -6,17 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testRole = new aws.iam.Role("testRole", {
- *     assumeRolePolicy: `  {
+ *
+ * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: `  {
  *     "Version": "2012-10-17",
  *     "Statement": {
  *       "Effect": "Allow",
@@ -24,20 +21,19 @@ import * as utilities from "../utilities";
  *       "Action": "sts:AssumeRole"
  *     }
  *   }
- * `,
- * });
+ * `});
  * const testAttach = new aws.iam.RolePolicyAttachment("testAttach", {
- *     policyArn: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
  *     role: testRole.name,
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
  * });
  * const foo = new aws.ssm.Activation("foo", {
  *     description: "Test",
  *     iamRole: testRole.id,
- *     registrationLimit: 5,
- * }, {dependsOn: [testAttach]});
+ *     registrationLimit: "5",
+ * }, {
+ *     dependsOn: [testAttach],
+ * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_activation.html.markdown.
  */
 export class Activation extends pulumi.CustomResource {
     /**
@@ -47,6 +43,7 @@ export class Activation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ActivationState, opts?: pulumi.CustomResourceOptions): Activation {
         return new Activation(name, <any>state, { ...opts, id: id });
@@ -81,7 +78,7 @@ export class Activation extends pulumi.CustomResource {
     /**
      * If the current activation has expired.
      */
-    public /*out*/ readonly expired!: pulumi.Output<string>;
+    public /*out*/ readonly expired!: pulumi.Output<boolean>;
     /**
      * The IAM Role to attach to the managed instance.
      */
@@ -99,9 +96,9 @@ export class Activation extends pulumi.CustomResource {
      */
     public readonly registrationLimit!: pulumi.Output<number | undefined>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Activation resource with the given unique name, arguments, and options.
@@ -169,7 +166,7 @@ export interface ActivationState {
     /**
      * If the current activation has expired.
      */
-    readonly expired?: pulumi.Input<string>;
+    readonly expired?: pulumi.Input<boolean>;
     /**
      * The IAM Role to attach to the managed instance.
      */
@@ -187,9 +184,9 @@ export interface ActivationState {
      */
     readonly registrationLimit?: pulumi.Input<number>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -217,7 +214,7 @@ export interface ActivationArgs {
      */
     readonly registrationLimit?: pulumi.Input<number>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

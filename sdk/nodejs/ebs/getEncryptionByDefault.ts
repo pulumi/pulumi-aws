@@ -2,25 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const current = aws.ebs.getEncryptionByDefault();
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_encryption_by_default.html.markdown.
+ * const current = pulumi.output(aws.ebs.getEncryptionByDefault({ async: true }));
+ * ```
  */
-export function getEncryptionByDefault(opts?: pulumi.InvokeOptions): Promise<GetEncryptionByDefaultResult> & GetEncryptionByDefaultResult {
+export function getEncryptionByDefault(opts?: pulumi.InvokeOptions): Promise<GetEncryptionByDefaultResult> {
     if (!opts) {
         opts = {}
     }
@@ -28,10 +27,8 @@ export function getEncryptionByDefault(opts?: pulumi.InvokeOptions): Promise<Get
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetEncryptionByDefaultResult> = pulumi.runtime.invoke("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", {
+    return pulumi.runtime.invoke("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", {
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -43,7 +40,7 @@ export interface GetEncryptionByDefaultResult {
      */
     readonly enabled: boolean;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

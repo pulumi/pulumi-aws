@@ -9,47 +9,75 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ebs
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get a list of EBS Snapshot IDs matching the specified
-        /// criteria.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSnapshotIds.InvokeAsync() instead")]
-        public static Task<GetSnapshotIdsResult> GetSnapshotIds(GetSnapshotIdsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSnapshotIds
     {
         /// <summary>
         /// Use this data source to get a list of EBS Snapshot IDs matching the specified
         /// criteria.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var ebsVolumes = Output.Create(Aws.Ebs.GetSnapshotIds.InvokeAsync(new Aws.Ebs.GetSnapshotIdsArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ebs.Inputs.GetSnapshotIdsFilterArgs
+        ///                 {
+        ///                     Name = "volume-size",
+        ///                     Values = 
+        ///                     {
+        ///                         "40",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ebs.Inputs.GetSnapshotIdsFilterArgs
+        ///                 {
+        ///                     Name = "tag:Name",
+        ///                     Values = 
+        ///                     {
+        ///                         "Example",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             Owners = 
+        ///             {
+        ///                 "self",
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSnapshotIdsResult> InvokeAsync(GetSnapshotIdsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? new GetSnapshotIdsArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSnapshotIdsArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetSnapshotIdsFiltersArgs>? _filters;
+        private List<Inputs.GetSnapshotIdsFilterArgs>? _filters;
 
         /// <summary>
         /// One or more name/value pairs to filter off of. There are
         /// several valid keys, for a full reference, check out
         /// [describe-volumes in the AWS CLI reference][1].
         /// </summary>
-        public List<Inputs.GetSnapshotIdsFiltersArgs> Filters
+        public List<Inputs.GetSnapshotIdsFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetSnapshotIdsFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetSnapshotIdsFilterArgs>());
             set => _filters = value;
         }
 
@@ -82,73 +110,39 @@ namespace Pulumi.Aws.Ebs
         }
     }
 
+
     [OutputType]
     public sealed class GetSnapshotIdsResult
     {
-        public readonly ImmutableArray<Outputs.GetSnapshotIdsFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetSnapshotIdsFilterResult> Filters;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
+        /// Set of EBS snapshot IDs, sorted by creation time in descending order.
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableArray<string> Owners;
         public readonly ImmutableArray<string> RestorableByUserIds;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSnapshotIdsResult(
-            ImmutableArray<Outputs.GetSnapshotIdsFiltersResult> filters,
+            ImmutableArray<Outputs.GetSnapshotIdsFilterResult> filters,
+
+            string id,
+
             ImmutableArray<string> ids,
+
             ImmutableArray<string> owners,
-            ImmutableArray<string> restorableByUserIds,
-            string id)
+
+            ImmutableArray<string> restorableByUserIds)
         {
             Filters = filters;
+            Id = id;
             Ids = ids;
             Owners = owners;
             RestorableByUserIds = restorableByUserIds;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetSnapshotIdsFiltersArgs : Pulumi.InvokeArgs
-    {
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetSnapshotIdsFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSnapshotIdsFiltersResult
-    {
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetSnapshotIdsFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

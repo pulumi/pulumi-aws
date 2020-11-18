@@ -7,16 +7,66 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages an EC2 Transit Gateway Route.
+//
+// ## Example Usage
+// ### Standard usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2transitgateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2transitgateway.NewRoute(ctx, "example", &ec2transitgateway.RouteArgs{
+// 			DestinationCidrBlock:       pulumi.String("0.0.0.0/0"),
+// 			TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
+// 			TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway.Example.Association_default_route_table_id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Blackhole route
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2transitgateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2transitgateway.NewRoute(ctx, "example", &ec2transitgateway.RouteArgs{
+// 			DestinationCidrBlock:       pulumi.String("0.0.0.0/0"),
+// 			Blackhole:                  pulumi.Bool(true),
+// 			TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway.Example.Association_default_route_table_id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Route struct {
 	pulumi.CustomResourceState
 
 	// Indicates whether to drop traffic that matches this route (default to `false`).
 	Blackhole pulumi.BoolPtrOutput `pulumi:"blackhole"`
-	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+	// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
 	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
 	// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
 	TransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transitGatewayAttachmentId"`
@@ -60,7 +110,7 @@ func GetRoute(ctx *pulumi.Context,
 type routeState struct {
 	// Indicates whether to drop traffic that matches this route (default to `false`).
 	Blackhole *bool `pulumi:"blackhole"`
-	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+	// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
 	// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
@@ -71,7 +121,7 @@ type routeState struct {
 type RouteState struct {
 	// Indicates whether to drop traffic that matches this route (default to `false`).
 	Blackhole pulumi.BoolPtrInput
-	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+	// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
 	DestinationCidrBlock pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
 	TransitGatewayAttachmentId pulumi.StringPtrInput
@@ -86,7 +136,7 @@ func (RouteState) ElementType() reflect.Type {
 type routeArgs struct {
 	// Indicates whether to drop traffic that matches this route (default to `false`).
 	Blackhole *bool `pulumi:"blackhole"`
-	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+	// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
 	// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
@@ -98,7 +148,7 @@ type routeArgs struct {
 type RouteArgs struct {
 	// Indicates whether to drop traffic that matches this route (default to `false`).
 	Blackhole pulumi.BoolPtrInput
-	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+	// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
 	DestinationCidrBlock pulumi.StringInput
 	// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
 	TransitGatewayAttachmentId pulumi.StringPtrInput

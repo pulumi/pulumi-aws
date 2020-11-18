@@ -4,25 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * List the event categories of all the RDS resources.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleEventCategories = aws.rds.getEventCategories();
- * 
- * export const example = exampleEventCategories.eventCategories;
+ *
+ * const exampleEventCategories = aws.rds.getEventCategories({});
+ * export const example = exampleEventCategories.then(exampleEventCategories => exampleEventCategories.eventCategories);
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_event_categories.html.markdown.
+ * List the event categories specific to the RDS resource `db-snapshot`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleEventCategories = aws.rds.getEventCategories({
+ *     sourceType: "db-snapshot",
+ * });
+ * export const example = exampleEventCategories.then(exampleEventCategories => exampleEventCategories.eventCategories);
+ * ```
  */
-export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventCategoriesResult> & GetEventCategoriesResult {
+export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventCategoriesResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -31,11 +41,9 @@ export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetEventCategoriesResult> = pulumi.runtime.invoke("aws:rds/getEventCategories:getEventCategories", {
+    return pulumi.runtime.invoke("aws:rds/getEventCategories:getEventCategories", {
         "sourceType": args.sourceType,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -56,9 +64,9 @@ export interface GetEventCategoriesResult {
      * A list of the event categories.
      */
     readonly eventCategories: string[];
-    readonly sourceType?: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly sourceType?: string;
 }

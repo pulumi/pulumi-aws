@@ -6,23 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EC2 Transit Gateway VPC Attachment. For examples of custom route table association and propagation, see the EC2 Transit Gateway Networking Examples Guide.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2transitgateway.VpcAttachment("example", {
- *     subnetIds: [aws_subnet_example.id],
- *     transitGatewayId: aws_ec2_transit_gateway_example.id,
- *     vpcId: aws_vpc_example.id,
+ *     subnetIds: [aws_subnet.example.id],
+ *     transitGatewayId: aws_ec2_transit_gateway.example.id,
+ *     vpcId: aws_vpc.example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_vpc_attachment.html.markdown.
  */
 export class VpcAttachment extends pulumi.CustomResource {
     /**
@@ -32,6 +28,7 @@ export class VpcAttachment extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcAttachmentState, opts?: pulumi.CustomResourceOptions): VpcAttachment {
         return new VpcAttachment(name, <any>state, { ...opts, id: id });
@@ -52,6 +49,10 @@ export class VpcAttachment extends pulumi.CustomResource {
     }
 
     /**
+     * Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
+    public readonly applianceModeSupport!: pulumi.Output<string | undefined>;
+    /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     public readonly dnsSupport!: pulumi.Output<string | undefined>;
@@ -66,7 +67,7 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
@@ -100,6 +101,7 @@ export class VpcAttachment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as VpcAttachmentState | undefined;
+            inputs["applianceModeSupport"] = state ? state.applianceModeSupport : undefined;
             inputs["dnsSupport"] = state ? state.dnsSupport : undefined;
             inputs["ipv6Support"] = state ? state.ipv6Support : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -120,6 +122,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             if (!args || args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
+            inputs["applianceModeSupport"] = args ? args.applianceModeSupport : undefined;
             inputs["dnsSupport"] = args ? args.dnsSupport : undefined;
             inputs["ipv6Support"] = args ? args.ipv6Support : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -146,6 +149,10 @@ export class VpcAttachment extends pulumi.CustomResource {
  */
 export interface VpcAttachmentState {
     /**
+     * Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
+    readonly applianceModeSupport?: pulumi.Input<string>;
+    /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     readonly dnsSupport?: pulumi.Input<string>;
@@ -160,7 +167,7 @@ export interface VpcAttachmentState {
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
@@ -188,6 +195,10 @@ export interface VpcAttachmentState {
  */
 export interface VpcAttachmentArgs {
     /**
+     * Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
+    readonly applianceModeSupport?: pulumi.Input<string>;
+    /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     readonly dnsSupport?: pulumi.Input<string>;
@@ -202,7 +213,7 @@ export interface VpcAttachmentArgs {
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */

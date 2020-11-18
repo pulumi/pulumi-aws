@@ -4,28 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Associates an SSM Document to an instance or EC2 tag.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ssm.Association("example", {
- *     targets: [{
- *         key: "InstanceIds",
- *         values: [aws_instance_example.id],
- *     }],
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_association.html.markdown.
+ * const example = new aws.ssm.Association("example", {targets: [{
+ *     key: "InstanceIds",
+ *     values: [aws_instance.example.id],
+ * }]});
+ * ```
  */
 export class Association extends pulumi.CustomResource {
     /**
@@ -35,6 +30,7 @@ export class Association extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AssociationState, opts?: pulumi.CustomResourceOptions): Association {
         return new Association(name, <any>state, { ...opts, id: id });
@@ -97,7 +93,7 @@ export class Association extends pulumi.CustomResource {
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: any}>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string}>;
     /**
      * A cron expression when the association will be applied to the target(s).
      */
@@ -206,7 +202,7 @@ export interface AssociationState {
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A cron expression when the association will be applied to the target(s).
      */
@@ -260,7 +256,7 @@ export interface AssociationArgs {
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A cron expression when the association will be applied to the target(s).
      */

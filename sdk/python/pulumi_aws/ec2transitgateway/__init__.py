@@ -4,10 +4,12 @@
 
 # Export this package's modules as members:
 from .get_direct_connect_gateway_attachment import *
+from .get_peering_attachment import *
 from .get_route_table import *
 from .get_transit_gateway import *
 from .get_vpc_attachment import *
 from .get_vpn_attachment import *
+from .peering_attachment import *
 from .route import *
 from .route_table import *
 from .route_table_association import *
@@ -15,3 +17,5 @@ from .route_table_propagation import *
 from .transit_gateway import *
 from .vpc_attachment import *
 from .vpc_attachment_accepter import *
+from ._inputs import *
+from . import outputs

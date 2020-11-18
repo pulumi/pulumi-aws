@@ -4,19 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Config Configuration Aggregator
- * 
+ *
  * ## Example Usage
- * 
  * ### Account Based Aggregation
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const account = new aws.cfg.ConfigurationAggregator("account", {
  *     accountAggregationSource: {
  *         accountIds: ["123456789012"],
@@ -24,15 +24,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
  * ### Organization Based Aggregation
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const organizationRole = new aws.iam.Role("organization", {
- *     assumeRolePolicy: `{
+ *
+ * const organizationRole = new aws.iam.Role("organizationRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -45,21 +43,18 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const organizationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("organization", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
+ * `});
+ * const organizationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("organizationRolePolicyAttachment", {
  *     role: organizationRole.name,
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
  * });
- * const organizationConfigurationAggregator = new aws.cfg.ConfigurationAggregator("organization", {
- *     organizationAggregationSource: {
- *         allRegions: true,
- *         roleArn: organizationRole.arn,
- *     },
- * }, {dependsOn: [organizationRolePolicyAttachment]});
+ * const organizationConfigurationAggregator = new aws.cfg.ConfigurationAggregator("organizationConfigurationAggregator", {organizationAggregationSource: {
+ *     allRegions: true,
+ *     roleArn: organizationRole.arn,
+ * }}, {
+ *     dependsOn: [organizationRolePolicyAttachment],
+ * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_aggregator.html.markdown.
  */
 export class ConfigurationAggregator extends pulumi.CustomResource {
     /**
@@ -69,6 +64,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ConfigurationAggregatorState, opts?: pulumi.CustomResourceOptions): ConfigurationAggregator {
         return new ConfigurationAggregator(name, <any>state, { ...opts, id: id });
@@ -105,9 +101,9 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
      */
     public readonly organizationAggregationSource!: pulumi.Output<outputs.cfg.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ConfigurationAggregator resource with the given unique name, arguments, and options.
@@ -166,9 +162,9 @@ export interface ConfigurationAggregatorState {
      */
     readonly organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -188,7 +184,7 @@ export interface ConfigurationAggregatorArgs {
      */
     readonly organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

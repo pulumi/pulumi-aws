@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type AliasRoutingConfig struct {
@@ -15,6 +15,10 @@ type AliasRoutingConfig struct {
 	AdditionalVersionWeights map[string]float64 `pulumi:"additionalVersionWeights"`
 }
 
+// AliasRoutingConfigInput is an input type that accepts AliasRoutingConfigArgs and AliasRoutingConfigOutput values.
+// You can construct a concrete instance of `AliasRoutingConfigInput` via:
+//
+//          AliasRoutingConfigArgs{...}
 type AliasRoutingConfigInput interface {
 	pulumi.Input
 
@@ -47,6 +51,14 @@ func (i AliasRoutingConfigArgs) ToAliasRoutingConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingConfigOutput).ToAliasRoutingConfigPtrOutputWithContext(ctx)
 }
 
+// AliasRoutingConfigPtrInput is an input type that accepts AliasRoutingConfigArgs, AliasRoutingConfigPtr and AliasRoutingConfigPtrOutput values.
+// You can construct a concrete instance of `AliasRoutingConfigPtrInput` via:
+//
+//          AliasRoutingConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type AliasRoutingConfigPtrInput interface {
 	pulumi.Input
 
@@ -121,7 +133,12 @@ func (o AliasRoutingConfigPtrOutput) Elem() AliasRoutingConfigOutput {
 
 // A map that defines the proportion of events that should be sent to different versions of a lambda function.
 func (o AliasRoutingConfigPtrOutput) AdditionalVersionWeights() pulumi.Float64MapOutput {
-	return o.ApplyT(func(v AliasRoutingConfig) map[string]float64 { return v.AdditionalVersionWeights }).(pulumi.Float64MapOutput)
+	return o.ApplyT(func(v *AliasRoutingConfig) map[string]float64 {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalVersionWeights
+	}).(pulumi.Float64MapOutput)
 }
 
 type EventSourceMappingDestinationConfig struct {
@@ -129,6 +146,10 @@ type EventSourceMappingDestinationConfig struct {
 	OnFailure *EventSourceMappingDestinationConfigOnFailure `pulumi:"onFailure"`
 }
 
+// EventSourceMappingDestinationConfigInput is an input type that accepts EventSourceMappingDestinationConfigArgs and EventSourceMappingDestinationConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingDestinationConfigInput` via:
+//
+//          EventSourceMappingDestinationConfigArgs{...}
 type EventSourceMappingDestinationConfigInput interface {
 	pulumi.Input
 
@@ -161,6 +182,14 @@ func (i EventSourceMappingDestinationConfigArgs) ToEventSourceMappingDestination
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDestinationConfigOutput).ToEventSourceMappingDestinationConfigPtrOutputWithContext(ctx)
 }
 
+// EventSourceMappingDestinationConfigPtrInput is an input type that accepts EventSourceMappingDestinationConfigArgs, EventSourceMappingDestinationConfigPtr and EventSourceMappingDestinationConfigPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingDestinationConfigPtrInput` via:
+//
+//          EventSourceMappingDestinationConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type EventSourceMappingDestinationConfigPtrInput interface {
 	pulumi.Input
 
@@ -237,7 +266,10 @@ func (o EventSourceMappingDestinationConfigPtrOutput) Elem() EventSourceMappingD
 
 // The destination configuration for failed invocations. Detailed below.
 func (o EventSourceMappingDestinationConfigPtrOutput) OnFailure() EventSourceMappingDestinationConfigOnFailurePtrOutput {
-	return o.ApplyT(func(v EventSourceMappingDestinationConfig) *EventSourceMappingDestinationConfigOnFailure {
+	return o.ApplyT(func(v *EventSourceMappingDestinationConfig) *EventSourceMappingDestinationConfigOnFailure {
+		if v == nil {
+			return nil
+		}
 		return v.OnFailure
 	}).(EventSourceMappingDestinationConfigOnFailurePtrOutput)
 }
@@ -247,6 +279,10 @@ type EventSourceMappingDestinationConfigOnFailure struct {
 	DestinationArn string `pulumi:"destinationArn"`
 }
 
+// EventSourceMappingDestinationConfigOnFailureInput is an input type that accepts EventSourceMappingDestinationConfigOnFailureArgs and EventSourceMappingDestinationConfigOnFailureOutput values.
+// You can construct a concrete instance of `EventSourceMappingDestinationConfigOnFailureInput` via:
+//
+//          EventSourceMappingDestinationConfigOnFailureArgs{...}
 type EventSourceMappingDestinationConfigOnFailureInput interface {
 	pulumi.Input
 
@@ -279,6 +315,14 @@ func (i EventSourceMappingDestinationConfigOnFailureArgs) ToEventSourceMappingDe
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDestinationConfigOnFailureOutput).ToEventSourceMappingDestinationConfigOnFailurePtrOutputWithContext(ctx)
 }
 
+// EventSourceMappingDestinationConfigOnFailurePtrInput is an input type that accepts EventSourceMappingDestinationConfigOnFailureArgs, EventSourceMappingDestinationConfigOnFailurePtr and EventSourceMappingDestinationConfigOnFailurePtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingDestinationConfigOnFailurePtrInput` via:
+//
+//          EventSourceMappingDestinationConfigOnFailureArgs{...}
+//
+//  or:
+//
+//          nil
 type EventSourceMappingDestinationConfigOnFailurePtrInput interface {
 	pulumi.Input
 
@@ -354,8 +398,13 @@ func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) Elem() EventSourc
 }
 
 // The Amazon Resource Name (ARN) of the destination resource.
-func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) DestinationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSourceMappingDestinationConfigOnFailure) string { return v.DestinationArn }).(pulumi.StringOutput)
+func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingDestinationConfigOnFailure) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type FunctionDeadLetterConfig struct {
@@ -366,6 +415,10 @@ type FunctionDeadLetterConfig struct {
 	TargetArn string `pulumi:"targetArn"`
 }
 
+// FunctionDeadLetterConfigInput is an input type that accepts FunctionDeadLetterConfigArgs and FunctionDeadLetterConfigOutput values.
+// You can construct a concrete instance of `FunctionDeadLetterConfigInput` via:
+//
+//          FunctionDeadLetterConfigArgs{...}
 type FunctionDeadLetterConfigInput interface {
 	pulumi.Input
 
@@ -401,6 +454,14 @@ func (i FunctionDeadLetterConfigArgs) ToFunctionDeadLetterConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDeadLetterConfigOutput).ToFunctionDeadLetterConfigPtrOutputWithContext(ctx)
 }
 
+// FunctionDeadLetterConfigPtrInput is an input type that accepts FunctionDeadLetterConfigArgs, FunctionDeadLetterConfigPtr and FunctionDeadLetterConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionDeadLetterConfigPtrInput` via:
+//
+//          FunctionDeadLetterConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type FunctionDeadLetterConfigPtrInput interface {
 	pulumi.Input
 
@@ -480,8 +541,13 @@ func (o FunctionDeadLetterConfigPtrOutput) Elem() FunctionDeadLetterConfigOutput
 // option is used, the function's IAM role must be granted suitable access to write to the target object,
 // which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
 // which service is targeted.
-func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionDeadLetterConfig) string { return v.TargetArn }).(pulumi.StringOutput)
+func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionDeadLetterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type FunctionEnvironment struct {
@@ -489,6 +555,10 @@ type FunctionEnvironment struct {
 	Variables map[string]string `pulumi:"variables"`
 }
 
+// FunctionEnvironmentInput is an input type that accepts FunctionEnvironmentArgs and FunctionEnvironmentOutput values.
+// You can construct a concrete instance of `FunctionEnvironmentInput` via:
+//
+//          FunctionEnvironmentArgs{...}
 type FunctionEnvironmentInput interface {
 	pulumi.Input
 
@@ -521,6 +591,14 @@ func (i FunctionEnvironmentArgs) ToFunctionEnvironmentPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEnvironmentOutput).ToFunctionEnvironmentPtrOutputWithContext(ctx)
 }
 
+// FunctionEnvironmentPtrInput is an input type that accepts FunctionEnvironmentArgs, FunctionEnvironmentPtr and FunctionEnvironmentPtrOutput values.
+// You can construct a concrete instance of `FunctionEnvironmentPtrInput` via:
+//
+//          FunctionEnvironmentArgs{...}
+//
+//  or:
+//
+//          nil
 type FunctionEnvironmentPtrInput interface {
 	pulumi.Input
 
@@ -595,7 +673,12 @@ func (o FunctionEnvironmentPtrOutput) Elem() FunctionEnvironmentOutput {
 
 // A map that defines environment variables for the Lambda function.
 func (o FunctionEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
-	return o.ApplyT(func(v FunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v *FunctionEnvironment) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Variables
+	}).(pulumi.StringMapOutput)
 }
 
 type FunctionEventInvokeConfigDestinationConfig struct {
@@ -605,6 +688,10 @@ type FunctionEventInvokeConfigDestinationConfig struct {
 	OnSuccess *FunctionEventInvokeConfigDestinationConfigOnSuccess `pulumi:"onSuccess"`
 }
 
+// FunctionEventInvokeConfigDestinationConfigInput is an input type that accepts FunctionEventInvokeConfigDestinationConfigArgs and FunctionEventInvokeConfigDestinationConfigOutput values.
+// You can construct a concrete instance of `FunctionEventInvokeConfigDestinationConfigInput` via:
+//
+//          FunctionEventInvokeConfigDestinationConfigArgs{...}
 type FunctionEventInvokeConfigDestinationConfigInput interface {
 	pulumi.Input
 
@@ -639,6 +726,14 @@ func (i FunctionEventInvokeConfigDestinationConfigArgs) ToFunctionEventInvokeCon
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigDestinationConfigOutput).ToFunctionEventInvokeConfigDestinationConfigPtrOutputWithContext(ctx)
 }
 
+// FunctionEventInvokeConfigDestinationConfigPtrInput is an input type that accepts FunctionEventInvokeConfigDestinationConfigArgs, FunctionEventInvokeConfigDestinationConfigPtr and FunctionEventInvokeConfigDestinationConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionEventInvokeConfigDestinationConfigPtrInput` via:
+//
+//          FunctionEventInvokeConfigDestinationConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type FunctionEventInvokeConfigDestinationConfigPtrInput interface {
 	pulumi.Input
 
@@ -724,14 +819,20 @@ func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) Elem() FunctionEven
 
 // Configuration block with destination configuration for failed asynchronous invocations. See below for details.
 func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) OnFailure() FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput {
-	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfigOnFailure {
+	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfigOnFailure {
+		if v == nil {
+			return nil
+		}
 		return v.OnFailure
 	}).(FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput)
 }
 
 // Configuration block with destination configuration for successful asynchronous invocations. See below for details.
 func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) OnSuccess() FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput {
-	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfigOnSuccess {
+	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfigOnSuccess {
+		if v == nil {
+			return nil
+		}
 		return v.OnSuccess
 	}).(FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput)
 }
@@ -741,6 +842,10 @@ type FunctionEventInvokeConfigDestinationConfigOnFailure struct {
 	Destination string `pulumi:"destination"`
 }
 
+// FunctionEventInvokeConfigDestinationConfigOnFailureInput is an input type that accepts FunctionEventInvokeConfigDestinationConfigOnFailureArgs and FunctionEventInvokeConfigDestinationConfigOnFailureOutput values.
+// You can construct a concrete instance of `FunctionEventInvokeConfigDestinationConfigOnFailureInput` via:
+//
+//          FunctionEventInvokeConfigDestinationConfigOnFailureArgs{...}
 type FunctionEventInvokeConfigDestinationConfigOnFailureInput interface {
 	pulumi.Input
 
@@ -773,6 +878,14 @@ func (i FunctionEventInvokeConfigDestinationConfigOnFailureArgs) ToFunctionEvent
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigDestinationConfigOnFailureOutput).ToFunctionEventInvokeConfigDestinationConfigOnFailurePtrOutputWithContext(ctx)
 }
 
+// FunctionEventInvokeConfigDestinationConfigOnFailurePtrInput is an input type that accepts FunctionEventInvokeConfigDestinationConfigOnFailureArgs, FunctionEventInvokeConfigDestinationConfigOnFailurePtr and FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput values.
+// You can construct a concrete instance of `FunctionEventInvokeConfigDestinationConfigOnFailurePtrInput` via:
+//
+//          FunctionEventInvokeConfigDestinationConfigOnFailureArgs{...}
+//
+//  or:
+//
+//          nil
 type FunctionEventInvokeConfigDestinationConfigOnFailurePtrInput interface {
 	pulumi.Input
 
@@ -848,8 +961,13 @@ func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Elem() Fun
 }
 
 // Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfigOnFailure) string { return v.Destination }).(pulumi.StringOutput)
+func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfigOnFailure) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
 }
 
 type FunctionEventInvokeConfigDestinationConfigOnSuccess struct {
@@ -857,6 +975,10 @@ type FunctionEventInvokeConfigDestinationConfigOnSuccess struct {
 	Destination string `pulumi:"destination"`
 }
 
+// FunctionEventInvokeConfigDestinationConfigOnSuccessInput is an input type that accepts FunctionEventInvokeConfigDestinationConfigOnSuccessArgs and FunctionEventInvokeConfigDestinationConfigOnSuccessOutput values.
+// You can construct a concrete instance of `FunctionEventInvokeConfigDestinationConfigOnSuccessInput` via:
+//
+//          FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{...}
 type FunctionEventInvokeConfigDestinationConfigOnSuccessInput interface {
 	pulumi.Input
 
@@ -889,6 +1011,14 @@ func (i FunctionEventInvokeConfigDestinationConfigOnSuccessArgs) ToFunctionEvent
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigDestinationConfigOnSuccessOutput).ToFunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutputWithContext(ctx)
 }
 
+// FunctionEventInvokeConfigDestinationConfigOnSuccessPtrInput is an input type that accepts FunctionEventInvokeConfigDestinationConfigOnSuccessArgs, FunctionEventInvokeConfigDestinationConfigOnSuccessPtr and FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput values.
+// You can construct a concrete instance of `FunctionEventInvokeConfigDestinationConfigOnSuccessPtrInput` via:
+//
+//          FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{...}
+//
+//  or:
+//
+//          nil
 type FunctionEventInvokeConfigDestinationConfigOnSuccessPtrInput interface {
 	pulumi.Input
 
@@ -964,8 +1094,163 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Elem() Fun
 }
 
 // Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfigOnSuccess) string { return v.Destination }).(pulumi.StringOutput)
+func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfigOnSuccess) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionFileSystemConfig struct {
+	// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+	Arn string `pulumi:"arn"`
+	// The path where the function can access the file system, starting with /mnt/.
+	LocalMountPath string `pulumi:"localMountPath"`
+}
+
+// FunctionFileSystemConfigInput is an input type that accepts FunctionFileSystemConfigArgs and FunctionFileSystemConfigOutput values.
+// You can construct a concrete instance of `FunctionFileSystemConfigInput` via:
+//
+//          FunctionFileSystemConfigArgs{...}
+type FunctionFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToFunctionFileSystemConfigOutput() FunctionFileSystemConfigOutput
+	ToFunctionFileSystemConfigOutputWithContext(context.Context) FunctionFileSystemConfigOutput
+}
+
+type FunctionFileSystemConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The path where the function can access the file system, starting with /mnt/.
+	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
+}
+
+func (FunctionFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (i FunctionFileSystemConfigArgs) ToFunctionFileSystemConfigOutput() FunctionFileSystemConfigOutput {
+	return i.ToFunctionFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionFileSystemConfigArgs) ToFunctionFileSystemConfigOutputWithContext(ctx context.Context) FunctionFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigOutput)
+}
+
+func (i FunctionFileSystemConfigArgs) ToFunctionFileSystemConfigPtrOutput() FunctionFileSystemConfigPtrOutput {
+	return i.ToFunctionFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionFileSystemConfigArgs) ToFunctionFileSystemConfigPtrOutputWithContext(ctx context.Context) FunctionFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigOutput).ToFunctionFileSystemConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionFileSystemConfigPtrInput is an input type that accepts FunctionFileSystemConfigArgs, FunctionFileSystemConfigPtr and FunctionFileSystemConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionFileSystemConfigPtrInput` via:
+//
+//          FunctionFileSystemConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionFileSystemConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionFileSystemConfigPtrOutput() FunctionFileSystemConfigPtrOutput
+	ToFunctionFileSystemConfigPtrOutputWithContext(context.Context) FunctionFileSystemConfigPtrOutput
+}
+
+type functionFileSystemConfigPtrType FunctionFileSystemConfigArgs
+
+func FunctionFileSystemConfigPtr(v *FunctionFileSystemConfigArgs) FunctionFileSystemConfigPtrInput {
+	return (*functionFileSystemConfigPtrType)(v)
+}
+
+func (*functionFileSystemConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (i *functionFileSystemConfigPtrType) ToFunctionFileSystemConfigPtrOutput() FunctionFileSystemConfigPtrOutput {
+	return i.ToFunctionFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionFileSystemConfigPtrType) ToFunctionFileSystemConfigPtrOutputWithContext(ctx context.Context) FunctionFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigPtrOutput)
+}
+
+type FunctionFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigOutput() FunctionFileSystemConfigOutput {
+	return o
+}
+
+func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigOutputWithContext(ctx context.Context) FunctionFileSystemConfigOutput {
+	return o
+}
+
+func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigPtrOutput() FunctionFileSystemConfigPtrOutput {
+	return o.ToFunctionFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigPtrOutputWithContext(ctx context.Context) FunctionFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v FunctionFileSystemConfig) *FunctionFileSystemConfig {
+		return &v
+	}).(FunctionFileSystemConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+func (o FunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The path where the function can access the file system, starting with /mnt/.
+func (o FunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.LocalMountPath }).(pulumi.StringOutput)
+}
+
+type FunctionFileSystemConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionFileSystemConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (o FunctionFileSystemConfigPtrOutput) ToFunctionFileSystemConfigPtrOutput() FunctionFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o FunctionFileSystemConfigPtrOutput) ToFunctionFileSystemConfigPtrOutputWithContext(ctx context.Context) FunctionFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o FunctionFileSystemConfigPtrOutput) Elem() FunctionFileSystemConfigOutput {
+	return o.ApplyT(func(v *FunctionFileSystemConfig) FunctionFileSystemConfig { return *v }).(FunctionFileSystemConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+func (o FunctionFileSystemConfigPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path where the function can access the file system, starting with /mnt/.
+func (o FunctionFileSystemConfigPtrOutput) LocalMountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalMountPath
+	}).(pulumi.StringPtrOutput)
 }
 
 type FunctionTracingConfig struct {
@@ -977,6 +1262,10 @@ type FunctionTracingConfig struct {
 	Mode string `pulumi:"mode"`
 }
 
+// FunctionTracingConfigInput is an input type that accepts FunctionTracingConfigArgs and FunctionTracingConfigOutput values.
+// You can construct a concrete instance of `FunctionTracingConfigInput` via:
+//
+//          FunctionTracingConfigArgs{...}
 type FunctionTracingConfigInput interface {
 	pulumi.Input
 
@@ -1013,6 +1302,14 @@ func (i FunctionTracingConfigArgs) ToFunctionTracingConfigPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionTracingConfigOutput).ToFunctionTracingConfigPtrOutputWithContext(ctx)
 }
 
+// FunctionTracingConfigPtrInput is an input type that accepts FunctionTracingConfigArgs, FunctionTracingConfigPtr and FunctionTracingConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionTracingConfigPtrInput` via:
+//
+//          FunctionTracingConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type FunctionTracingConfigPtrInput interface {
 	pulumi.Input
 
@@ -1094,8 +1391,13 @@ func (o FunctionTracingConfigPtrOutput) Elem() FunctionTracingConfigOutput {
 // "sampled=1". If Active, Lambda will respect any tracing header it receives
 // from an upstream service. If no tracing header is received, Lambda will call
 // X-Ray for a tracing decision.
-func (o FunctionTracingConfigPtrOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionTracingConfig) string { return v.Mode }).(pulumi.StringOutput)
+func (o FunctionTracingConfigPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionTracingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
 }
 
 type FunctionVpcConfig struct {
@@ -1106,6 +1408,10 @@ type FunctionVpcConfig struct {
 	VpcId     *string  `pulumi:"vpcId"`
 }
 
+// FunctionVpcConfigInput is an input type that accepts FunctionVpcConfigArgs and FunctionVpcConfigOutput values.
+// You can construct a concrete instance of `FunctionVpcConfigInput` via:
+//
+//          FunctionVpcConfigArgs{...}
 type FunctionVpcConfigInput interface {
 	pulumi.Input
 
@@ -1141,6 +1447,14 @@ func (i FunctionVpcConfigArgs) ToFunctionVpcConfigPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionVpcConfigOutput).ToFunctionVpcConfigPtrOutputWithContext(ctx)
 }
 
+// FunctionVpcConfigPtrInput is an input type that accepts FunctionVpcConfigArgs, FunctionVpcConfigPtr and FunctionVpcConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionVpcConfigPtrInput` via:
+//
+//          FunctionVpcConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type FunctionVpcConfigPtrInput interface {
 	pulumi.Input
 
@@ -1224,22 +1538,41 @@ func (o FunctionVpcConfigPtrOutput) Elem() FunctionVpcConfigOutput {
 
 // A list of security group IDs associated with the Lambda function.
 func (o FunctionVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FunctionVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *FunctionVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // A list of subnet IDs associated with the Lambda function.
 func (o FunctionVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FunctionVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *FunctionVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o FunctionVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FunctionVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetFunctionDeadLetterConfig struct {
 	TargetArn string `pulumi:"targetArn"`
 }
 
+// GetFunctionDeadLetterConfigInput is an input type that accepts GetFunctionDeadLetterConfigArgs and GetFunctionDeadLetterConfigOutput values.
+// You can construct a concrete instance of `GetFunctionDeadLetterConfigInput` via:
+//
+//          GetFunctionDeadLetterConfigArgs{...}
 type GetFunctionDeadLetterConfigInput interface {
 	pulumi.Input
 
@@ -1285,6 +1618,10 @@ type GetFunctionEnvironment struct {
 	Variables map[string]string `pulumi:"variables"`
 }
 
+// GetFunctionEnvironmentInput is an input type that accepts GetFunctionEnvironmentArgs and GetFunctionEnvironmentOutput values.
+// You can construct a concrete instance of `GetFunctionEnvironmentInput` via:
+//
+//          GetFunctionEnvironmentArgs{...}
 type GetFunctionEnvironmentInput interface {
 	pulumi.Input
 
@@ -1326,10 +1663,117 @@ func (o GetFunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
 
+type GetFunctionFileSystemConfig struct {
+	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
+	Arn            string `pulumi:"arn"`
+	LocalMountPath string `pulumi:"localMountPath"`
+}
+
+// GetFunctionFileSystemConfigInput is an input type that accepts GetFunctionFileSystemConfigArgs and GetFunctionFileSystemConfigOutput values.
+// You can construct a concrete instance of `GetFunctionFileSystemConfigInput` via:
+//
+//          GetFunctionFileSystemConfigArgs{...}
+type GetFunctionFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToGetFunctionFileSystemConfigOutput() GetFunctionFileSystemConfigOutput
+	ToGetFunctionFileSystemConfigOutputWithContext(context.Context) GetFunctionFileSystemConfigOutput
+}
+
+type GetFunctionFileSystemConfigArgs struct {
+	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
+	Arn            pulumi.StringInput `pulumi:"arn"`
+	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
+}
+
+func (GetFunctionFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (i GetFunctionFileSystemConfigArgs) ToGetFunctionFileSystemConfigOutput() GetFunctionFileSystemConfigOutput {
+	return i.ToGetFunctionFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i GetFunctionFileSystemConfigArgs) ToGetFunctionFileSystemConfigOutputWithContext(ctx context.Context) GetFunctionFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionFileSystemConfigOutput)
+}
+
+// GetFunctionFileSystemConfigArrayInput is an input type that accepts GetFunctionFileSystemConfigArray and GetFunctionFileSystemConfigArrayOutput values.
+// You can construct a concrete instance of `GetFunctionFileSystemConfigArrayInput` via:
+//
+//          GetFunctionFileSystemConfigArray{ GetFunctionFileSystemConfigArgs{...} }
+type GetFunctionFileSystemConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionFileSystemConfigArrayOutput() GetFunctionFileSystemConfigArrayOutput
+	ToGetFunctionFileSystemConfigArrayOutputWithContext(context.Context) GetFunctionFileSystemConfigArrayOutput
+}
+
+type GetFunctionFileSystemConfigArray []GetFunctionFileSystemConfigInput
+
+func (GetFunctionFileSystemConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (i GetFunctionFileSystemConfigArray) ToGetFunctionFileSystemConfigArrayOutput() GetFunctionFileSystemConfigArrayOutput {
+	return i.ToGetFunctionFileSystemConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionFileSystemConfigArray) ToGetFunctionFileSystemConfigArrayOutputWithContext(ctx context.Context) GetFunctionFileSystemConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionFileSystemConfigArrayOutput)
+}
+
+type GetFunctionFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (o GetFunctionFileSystemConfigOutput) ToGetFunctionFileSystemConfigOutput() GetFunctionFileSystemConfigOutput {
+	return o
+}
+
+func (o GetFunctionFileSystemConfigOutput) ToGetFunctionFileSystemConfigOutputWithContext(ctx context.Context) GetFunctionFileSystemConfigOutput {
+	return o
+}
+
+// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
+func (o GetFunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GetFunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionFileSystemConfig) string { return v.LocalMountPath }).(pulumi.StringOutput)
+}
+
+type GetFunctionFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionFileSystemConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (o GetFunctionFileSystemConfigArrayOutput) ToGetFunctionFileSystemConfigArrayOutput() GetFunctionFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionFileSystemConfigArrayOutput) ToGetFunctionFileSystemConfigArrayOutputWithContext(ctx context.Context) GetFunctionFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionFileSystemConfigArrayOutput) Index(i pulumi.IntInput) GetFunctionFileSystemConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionFileSystemConfig {
+		return vs[0].([]GetFunctionFileSystemConfig)[vs[1].(int)]
+	}).(GetFunctionFileSystemConfigOutput)
+}
+
 type GetFunctionTracingConfig struct {
 	Mode string `pulumi:"mode"`
 }
 
+// GetFunctionTracingConfigInput is an input type that accepts GetFunctionTracingConfigArgs and GetFunctionTracingConfigOutput values.
+// You can construct a concrete instance of `GetFunctionTracingConfigInput` via:
+//
+//          GetFunctionTracingConfigArgs{...}
 type GetFunctionTracingConfigInput interface {
 	pulumi.Input
 
@@ -1377,6 +1821,10 @@ type GetFunctionVpcConfig struct {
 	VpcId            string   `pulumi:"vpcId"`
 }
 
+// GetFunctionVpcConfigInput is an input type that accepts GetFunctionVpcConfigArgs and GetFunctionVpcConfigOutput values.
+// You can construct a concrete instance of `GetFunctionVpcConfigInput` via:
+//
+//          GetFunctionVpcConfigArgs{...}
 type GetFunctionVpcConfigInput interface {
 	pulumi.Input
 
@@ -1445,12 +1893,16 @@ func init() {
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigDestinationConfigOnSuccessOutput{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput{})
+	pulumi.RegisterOutputType(FunctionFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(FunctionFileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetFunctionDeadLetterConfigOutput{})
 	pulumi.RegisterOutputType(GetFunctionEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetFunctionFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(GetFunctionFileSystemConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionTracingConfigOutput{})
 	pulumi.RegisterOutputType(GetFunctionVpcConfigOutput{})
 }

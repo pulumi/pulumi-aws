@@ -24,9 +24,69 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
     /// 
+    /// ## Example Usage
     /// 
+    /// Basic usage
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group_rule.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.SecurityGroupRule("example", new Aws.Ec2.SecurityGroupRuleArgs
+    ///         {
+    ///             Type = "ingress",
+    ///             FromPort = 0,
+    ///             ToPort = 65535,
+    ///             Protocol = "tcp",
+    ///             CidrBlocks = 
+    ///             {
+    ///                 aws_vpc.Example.Cidr_block,
+    ///             },
+    ///             SecurityGroupId = "sg-123456",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ## Usage with prefix list IDs
+    /// 
+    /// Prefix list IDs are managed by AWS internally. Prefix list IDs
+    /// are associated with a prefix list name, or service name, that is linked to a specific region.
+    /// Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ...
+    ///         var myEndpoint = new Aws.Ec2.VpcEndpoint("myEndpoint", new Aws.Ec2.VpcEndpointArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var allowAll = new Aws.Ec2.SecurityGroupRule("allowAll", new Aws.Ec2.SecurityGroupRuleArgs
+    ///         {
+    ///             Type = "egress",
+    ///             ToPort = 0,
+    ///             Protocol = "-1",
+    ///             PrefixListIds = 
+    ///             {
+    ///                 myEndpoint.PrefixListId,
+    ///             },
+    ///             FromPort = 0,
+    ///             SecurityGroupId = "sg-123456",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SecurityGroupRule : Pulumi.CustomResource
     {
@@ -109,7 +169,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityGroupRule(string name, SecurityGroupRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/securityGroupRule:SecurityGroupRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/securityGroupRule:SecurityGroupRule", name, args ?? new SecurityGroupRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

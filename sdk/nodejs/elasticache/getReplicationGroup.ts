@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an Elasticache Replication Group.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const bar = aws.elasticache.getReplicationGroup({
- *     replicationGroupId: "example",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_replication_group.html.markdown.
+ * const bar = pulumi.output(aws.elasticache.getReplicationGroup({
+ *     replicationGroupId: "example",
+ * }, { async: true }));
+ * ```
  */
-export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> & GetReplicationGroupResult {
+export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,11 +29,9 @@ export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetReplicationGroupResult> = pulumi.runtime.invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", {
+    return pulumi.runtime.invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", {
         "replicationGroupId": args.replicationGroupId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -65,6 +60,10 @@ export interface GetReplicationGroupResult {
      * The configuration endpoint address to allow host discovery.
      */
     readonly configurationEndpointAddress: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     /**
      * The identifiers of all the nodes that are part of this replication group.
      */
@@ -101,8 +100,4 @@ export interface GetReplicationGroupResult {
      * The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
      */
     readonly snapshotWindow: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

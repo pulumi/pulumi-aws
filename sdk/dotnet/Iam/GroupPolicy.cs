@@ -12,9 +12,41 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM policy attached to a group.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var myDevelopers = new Aws.Iam.Group("myDevelopers", new Aws.Iam.GroupArgs
+    ///         {
+    ///             Path = "/users/",
+    ///         });
+    ///         var myDeveloperPolicy = new Aws.Iam.GroupPolicy("myDeveloperPolicy", new Aws.Iam.GroupPolicyArgs
+    ///         {
+    ///             Group = myDevelopers.Name,
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": [
+    ///         ""ec2:Describe*""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": ""*""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GroupPolicy : Pulumi.CustomResource
     {
@@ -53,7 +85,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GroupPolicy(string name, GroupPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/groupPolicy:GroupPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/groupPolicy:GroupPolicy", name, args ?? new GroupPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

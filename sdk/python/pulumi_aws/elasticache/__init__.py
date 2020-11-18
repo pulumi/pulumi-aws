@@ -10,3 +10,5 @@ from .parameter_group import *
 from .replication_group import *
 from .security_group import *
 from .subnet_group import *
+from ._inputs import *
+from . import outputs

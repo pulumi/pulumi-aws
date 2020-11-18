@@ -9,31 +9,38 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Parses an Amazon Resource Name (ARN) into its constituent parts.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetArn.InvokeAsync() instead")]
-        public static Task<GetArnResult> GetArn(GetArnArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArnResult>("aws:index/getArn:getArn", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetArn
     {
         /// <summary>
         /// Parses an Amazon Resource Name (ARN) into its constituent parts.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var dbInstance = Output.Create(Aws.GetArn.InvokeAsync(new Aws.GetArnArgs
+        ///         {
+        ///             Arn = "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetArnResult> InvokeAsync(GetArnArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArnResult>("aws:index/getArn:getArn", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetArnResult>("aws:index/getArn:getArn", args ?? new GetArnArgs(), options.WithVersion());
     }
+
 
     public sealed class GetArnArgs : Pulumi.InvokeArgs
     {
@@ -48,6 +55,7 @@ namespace Pulumi.Aws
         }
     }
 
+
     [OutputType]
     public sealed class GetArnResult
     {
@@ -56,6 +64,10 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Account;
         public readonly string Arn;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The partition that the resource is in.
         /// </summary>
@@ -74,28 +86,30 @@ namespace Pulumi.Aws
         /// The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
         /// </summary>
         public readonly string Service;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetArnResult(
             string account,
+
             string arn,
+
+            string id,
+
             string partition,
+
             string region,
+
             string resource,
-            string service,
-            string id)
+
+            string service)
         {
             Account = account;
             Arn = arn;
+            Id = id;
             Partition = partition;
             Region = region;
             Resource = resource;
             Service = service;
-            Id = id;
         }
     }
 }

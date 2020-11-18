@@ -12,19 +12,83 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a VPC DHCP Options resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// Basic usage:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dnsResolver = new Aws.Ec2.VpcDhcpOptions("dnsResolver", new Aws.Ec2.VpcDhcpOptionsArgs
+    ///         {
+    ///             DomainNameServers = 
+    ///             {
+    ///                 "8.8.8.8",
+    ///                 "8.8.4.4",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Full usage:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ec2.VpcDhcpOptions("foo", new Aws.Ec2.VpcDhcpOptionsArgs
+    ///         {
+    ///             DomainName = "service.consul",
+    ///             DomainNameServers = 
+    ///             {
+    ///                 "127.0.0.1",
+    ///                 "10.0.0.2",
+    ///             },
+    ///             NetbiosNameServers = 
+    ///             {
+    ///                 "127.0.0.1",
+    ///             },
+    ///             NetbiosNodeType = "2",
+    ///             NtpServers = 
+    ///             {
+    ///                 "127.0.0.1",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "foo-name" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Remarks
     /// 
     /// * Notice that all arguments are optional but you have to specify at least one argument.
     /// * `domain_name_servers`, `netbios_name_servers`, `ntp_servers` are limited by AWS to maximum four servers only.
-    /// * To actually use the DHCP Options Set you need to associate it to a VPC using [`aws.ec2.VpcDhcpOptionsAssociation`](https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association.html).
+    /// * To actually use the DHCP Options Set you need to associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`.
     /// * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
     /// * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_dhcp_options.html.markdown.
     /// </summary>
     public partial class VpcDhcpOptions : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the DHCP Options Set.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         /// </summary>
@@ -62,10 +126,10 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -76,7 +140,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcDhcpOptions(string name, VpcDhcpOptionsArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, args ?? new VpcDhcpOptionsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -162,14 +226,14 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -180,6 +244,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcDhcpOptionsState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the DHCP Options Set.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         /// </summary>
@@ -235,14 +305,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

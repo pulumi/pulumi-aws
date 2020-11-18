@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type GroupResourceQuery struct {
@@ -17,6 +17,10 @@ type GroupResourceQuery struct {
 	Type *string `pulumi:"type"`
 }
 
+// GroupResourceQueryInput is an input type that accepts GroupResourceQueryArgs and GroupResourceQueryOutput values.
+// You can construct a concrete instance of `GroupResourceQueryInput` via:
+//
+//          GroupResourceQueryArgs{...}
 type GroupResourceQueryInput interface {
 	pulumi.Input
 
@@ -51,6 +55,14 @@ func (i GroupResourceQueryArgs) ToGroupResourceQueryPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(GroupResourceQueryOutput).ToGroupResourceQueryPtrOutputWithContext(ctx)
 }
 
+// GroupResourceQueryPtrInput is an input type that accepts GroupResourceQueryArgs, GroupResourceQueryPtr and GroupResourceQueryPtrOutput values.
+// You can construct a concrete instance of `GroupResourceQueryPtrInput` via:
+//
+//          GroupResourceQueryArgs{...}
+//
+//  or:
+//
+//          nil
 type GroupResourceQueryPtrInput interface {
 	pulumi.Input
 
@@ -129,13 +141,23 @@ func (o GroupResourceQueryPtrOutput) Elem() GroupResourceQueryOutput {
 }
 
 // The resource query as a JSON string.
-func (o GroupResourceQueryPtrOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
+func (o GroupResourceQueryPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupResourceQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
 func (o GroupResourceQueryPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *GroupResourceQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

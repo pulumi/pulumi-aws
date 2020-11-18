@@ -4,10 +4,34 @@
 package lambda
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides information about a Lambda Alias.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lambda.LookupAlias(ctx, &lambda.LookupAliasArgs{
+// 			FunctionName: "my-lambda-func",
+// 			Name:         "production",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.InvokeOption) (*LookupAliasResult, error) {
 	var rv LookupAliasResult
 	err := ctx.Invoke("aws:lambda/getAlias:getAlias", args, &rv, opts...)
@@ -34,7 +58,7 @@ type LookupAliasResult struct {
 	FunctionName string `pulumi:"functionName"`
 	// Lambda function version which the alias uses.
 	FunctionVersion string `pulumi:"functionVersion"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
 	InvokeArn string `pulumi:"invokeArn"`

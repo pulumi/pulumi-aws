@@ -6,28 +6,29 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DB event subscription resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const defaultInstance = new aws.rds.Instance("default", {
+ *
+ * const defaultInstance = new aws.rds.Instance("defaultInstance", {
  *     allocatedStorage: 10,
- *     dbSubnetGroupName: "myDatabaseSubnetGroup",
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
  *     instanceClass: "db.t2.micro",
  *     name: "mydb",
- *     parameterGroupName: "default.mysql5.6",
- *     password: "bar",
  *     username: "foo",
+ *     password: "bar",
+ *     dbSubnetGroupName: "my_database_subnet_group",
+ *     parameterGroupName: "default.mysql5.6",
  * });
- * const defaultTopic = new aws.sns.Topic("default", {});
- * const defaultEventSubscription = new aws.rds.EventSubscription("default", {
+ * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
+ * const defaultEventSubscription = new aws.rds.EventSubscription("defaultEventSubscription", {
+ *     snsTopic: defaultTopic.arn,
+ *     sourceType: "db-instance",
+ *     sourceIds: [defaultInstance.id],
  *     eventCategories: [
  *         "availability",
  *         "deletion",
@@ -40,21 +41,15 @@ import * as utilities from "../utilities";
  *         "recovery",
  *         "restoration",
  *     ],
- *     snsTopic: defaultTopic.arn,
- *     sourceIds: [defaultInstance.id],
- *     sourceType: "db-instance",
  * });
  * ```
- * 
  * ## Attributes
- * 
+ *
  * The following additional atttributes are provided:
- * 
+ *
  * * `id` - The name of the RDS event notification subscription
  * * `arn` - The Amazon Resource Name of the RDS event notification subscription
  * * `customerAwsId` - The AWS customer account associated with the RDS event notification subscription
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_event_subscription.html.markdown.
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**
@@ -64,6 +59,7 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventSubscriptionState, opts?: pulumi.CustomResourceOptions): EventSubscription {
         return new EventSubscription(name, <any>state, { ...opts, id: id });
@@ -114,9 +110,9 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly sourceType!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a EventSubscription resource with the given unique name, arguments, and options.
@@ -202,9 +198,9 @@ export interface EventSubscriptionState {
      */
     readonly sourceType?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -240,7 +236,7 @@ export interface EventSubscriptionArgs {
      */
     readonly sourceType?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

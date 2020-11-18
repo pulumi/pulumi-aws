@@ -9,31 +9,60 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rules.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetResolverRules.InvokeAsync() instead")]
-        public static Task<GetResolverRulesResult> GetResolverRules(GetResolverRulesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRulesResult>("aws:route53/getResolverRules:getResolverRules", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetResolverRules
     {
         /// <summary>
         /// `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// Retrieving the default resolver rule.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rules.html.markdown.
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Route53.GetResolverRules.InvokeAsync(new Aws.Route53.GetResolverRulesArgs
+        ///         {
+        ///             OwnerId = "Route 53 Resolver",
+        ///             RuleType = "RECURSIVE",
+        ///             ShareStatus = "NOT_SHARED",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Route53.GetResolverRules.InvokeAsync(new Aws.Route53.GetResolverRulesArgs
+        ///         {
+        ///             RuleType = "FORWARD",
+        ///             ShareStatus = "SHARED_WITH_ME",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetResolverRulesResult> InvokeAsync(GetResolverRulesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRulesResult>("aws:route53/getResolverRules:getResolverRules", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRulesResult>("aws:route53/getResolverRules:getResolverRules", args ?? new GetResolverRulesArgs(), options.WithVersion());
     }
+
 
     public sealed class GetResolverRulesArgs : Pulumi.InvokeArgs
     {
@@ -56,8 +85,7 @@ namespace Pulumi.Aws.Route53
         public string? RuleType { get; set; }
 
         /// <summary>
-        /// Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account.
-        /// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+        /// Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
         /// </summary>
         [Input("shareStatus")]
         public string? ShareStatus { get; set; }
@@ -67,9 +95,14 @@ namespace Pulumi.Aws.Route53
         }
     }
 
+
     [OutputType]
     public sealed class GetResolverRulesResult
     {
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string? OwnerId;
         public readonly string? ResolverEndpointId;
         /// <summary>
@@ -78,26 +111,27 @@ namespace Pulumi.Aws.Route53
         public readonly ImmutableArray<string> ResolverRuleIds;
         public readonly string? RuleType;
         public readonly string? ShareStatus;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetResolverRulesResult(
+            string id,
+
             string? ownerId,
+
             string? resolverEndpointId,
+
             ImmutableArray<string> resolverRuleIds,
+
             string? ruleType,
-            string? shareStatus,
-            string id)
+
+            string? shareStatus)
         {
+            Id = id;
             OwnerId = ownerId;
             ResolverEndpointId = resolverEndpointId;
             ResolverRuleIds = resolverRuleIds;
             RuleType = ruleType;
             ShareStatus = shareStatus;
-            Id = id;
         }
     }
 }

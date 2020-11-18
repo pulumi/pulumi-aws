@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an [EC2 key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) resource. A key pair is used to control login access to EC2 instances.
@@ -19,9 +19,34 @@ import (
 // * OpenSSH public key format (the format in ~/.ssh/authorized_keys)
 // * Base64 encoded DER format
 // * SSH public key file format as specified in RFC4716
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewKeyPair(ctx, "deployer", &ec2.KeyPairArgs{
+// 			PublicKey: pulumi.String("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 email@example.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type KeyPair struct {
 	pulumi.CustomResourceState
 
+	// The key pair ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
 	// The name for the key pair.
@@ -32,8 +57,8 @@ type KeyPair struct {
 	KeyPairId pulumi.StringOutput `pulumi:"keyPairId"`
 	// The public key material.
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewKeyPair registers a new resource with the given unique name, arguments, and options.
@@ -67,6 +92,8 @@ func GetKeyPair(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyPair resources.
 type keyPairState struct {
+	// The key pair ARN.
+	Arn *string `pulumi:"arn"`
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint *string `pulumi:"fingerprint"`
 	// The name for the key pair.
@@ -77,11 +104,13 @@ type keyPairState struct {
 	KeyPairId *string `pulumi:"keyPairId"`
 	// The public key material.
 	PublicKey *string `pulumi:"publicKey"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type KeyPairState struct {
+	// The key pair ARN.
+	Arn pulumi.StringPtrInput
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint pulumi.StringPtrInput
 	// The name for the key pair.
@@ -92,8 +121,8 @@ type KeyPairState struct {
 	KeyPairId pulumi.StringPtrInput
 	// The public key material.
 	PublicKey pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (KeyPairState) ElementType() reflect.Type {
@@ -107,8 +136,8 @@ type keyPairArgs struct {
 	KeyNamePrefix *string `pulumi:"keyNamePrefix"`
 	// The public key material.
 	PublicKey string `pulumi:"publicKey"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KeyPair resource.
@@ -119,8 +148,8 @@ type KeyPairArgs struct {
 	KeyNamePrefix pulumi.StringPtrInput
 	// The public key material.
 	PublicKey pulumi.StringInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (KeyPairArgs) ElementType() reflect.Type {

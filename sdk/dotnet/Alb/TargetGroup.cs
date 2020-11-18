@@ -14,9 +14,74 @@ namespace Pulumi.Aws.Alb
     /// 
     /// &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
     /// 
+    /// ## Example Usage
+    /// ### Instance Target Group
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///         });
+    ///         var test = new Aws.LB.TargetGroup("test", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///             VpcId = main.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### IP Target Group
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///         });
+    ///         var ip_example = new Aws.LB.TargetGroup("ip-example", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///             TargetType = "ip",
+    ///             VpcId = main.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Lambda Target Group
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var lambda_example = new Aws.LB.TargetGroup("lambda-example", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///             TargetType = "lambda",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TargetGroup : Pulumi.CustomResource
     {
@@ -75,7 +140,7 @@ namespace Pulumi.Aws.Alb
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
@@ -93,16 +158,16 @@ namespace Pulumi.Aws.Alb
         public Output<int?> SlowStart { get; private set; } = null!;
 
         /// <summary>
-        /// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+        /// A Stickiness block. Stickiness blocks are documented below.
         /// </summary>
         [Output("stickiness")]
         public Output<Outputs.TargetGroupStickiness> Stickiness { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of target that you must specify when registering targets with this target group.
@@ -130,7 +195,7 @@ namespace Pulumi.Aws.Alb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TargetGroup(string name, TargetGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:alb/targetGroup:TargetGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:alb/targetGroup:TargetGroup", name, args ?? new TargetGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -143,7 +208,11 @@ namespace Pulumi.Aws.Alb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:applicationloadbalancing/targetGroup:TargetGroup" } },
+                Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "aws:applicationloadbalancing/targetGroup:TargetGroup"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -210,7 +279,7 @@ namespace Pulumi.Aws.Alb
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -228,20 +297,20 @@ namespace Pulumi.Aws.Alb
         public Input<int>? SlowStart { get; set; }
 
         /// <summary>
-        /// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+        /// A Stickiness block. Stickiness blocks are documented below.
         /// </summary>
         [Input("stickiness")]
         public Input<Inputs.TargetGroupStickinessArgs>? Stickiness { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -324,7 +393,7 @@ namespace Pulumi.Aws.Alb
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -342,20 +411,20 @@ namespace Pulumi.Aws.Alb
         public Input<int>? SlowStart { get; set; }
 
         /// <summary>
-        /// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+        /// A Stickiness block. Stickiness blocks are documented below.
         /// </summary>
         [Input("stickiness")]
         public Input<Inputs.TargetGroupStickinessGetArgs>? Stickiness { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -379,271 +448,5 @@ namespace Pulumi.Aws.Alb
         public TargetGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class TargetGroupHealthCheckArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Boolean to enable / disable `stickiness`. Default is `true`
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
-        /// </summary>
-        [Input("healthyThreshold")]
-        public Input<int>? HealthyThreshold { get; set; }
-
-        /// <summary>
-        /// The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
-        /// </summary>
-        [Input("interval")]
-        public Input<int>? Interval { get; set; }
-
-        [Input("matcher")]
-        public Input<string>? Matcher { get; set; }
-
-        /// <summary>
-        /// The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-        /// </summary>
-        [Input("path")]
-        public Input<string>? Path { get; set; }
-
-        /// <summary>
-        /// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-        /// </summary>
-        [Input("port")]
-        public Input<string>? Port { get; set; }
-
-        /// <summary>
-        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-        /// </summary>
-        [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
-
-        /// <summary>
-        /// The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
-        /// </summary>
-        [Input("timeout")]
-        public Input<int>? Timeout { get; set; }
-
-        /// <summary>
-        /// The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
-        /// * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-        /// </summary>
-        [Input("unhealthyThreshold")]
-        public Input<int>? UnhealthyThreshold { get; set; }
-
-        public TargetGroupHealthCheckArgs()
-        {
-        }
-    }
-
-    public sealed class TargetGroupHealthCheckGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Boolean to enable / disable `stickiness`. Default is `true`
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
-        /// </summary>
-        [Input("healthyThreshold")]
-        public Input<int>? HealthyThreshold { get; set; }
-
-        /// <summary>
-        /// The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
-        /// </summary>
-        [Input("interval")]
-        public Input<int>? Interval { get; set; }
-
-        [Input("matcher")]
-        public Input<string>? Matcher { get; set; }
-
-        /// <summary>
-        /// The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-        /// </summary>
-        [Input("path")]
-        public Input<string>? Path { get; set; }
-
-        /// <summary>
-        /// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-        /// </summary>
-        [Input("port")]
-        public Input<string>? Port { get; set; }
-
-        /// <summary>
-        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-        /// </summary>
-        [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
-
-        /// <summary>
-        /// The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
-        /// </summary>
-        [Input("timeout")]
-        public Input<int>? Timeout { get; set; }
-
-        /// <summary>
-        /// The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
-        /// * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-        /// </summary>
-        [Input("unhealthyThreshold")]
-        public Input<int>? UnhealthyThreshold { get; set; }
-
-        public TargetGroupHealthCheckGetArgs()
-        {
-        }
-    }
-
-    public sealed class TargetGroupStickinessArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
-        /// </summary>
-        [Input("cookieDuration")]
-        public Input<int>? CookieDuration { get; set; }
-
-        /// <summary>
-        /// Indicates whether  health checks are enabled. Defaults to true.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The type of sticky sessions. The only current possible value is `lb_cookie`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public TargetGroupStickinessArgs()
-        {
-        }
-    }
-
-    public sealed class TargetGroupStickinessGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
-        /// </summary>
-        [Input("cookieDuration")]
-        public Input<int>? CookieDuration { get; set; }
-
-        /// <summary>
-        /// Indicates whether  health checks are enabled. Defaults to true.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The type of sticky sessions. The only current possible value is `lb_cookie`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public TargetGroupStickinessGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class TargetGroupHealthCheck
-    {
-        /// <summary>
-        /// Boolean to enable / disable `stickiness`. Default is `true`
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
-        /// </summary>
-        public readonly int? HealthyThreshold;
-        /// <summary>
-        /// The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
-        /// </summary>
-        public readonly int? Interval;
-        public readonly string Matcher;
-        /// <summary>
-        /// The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-        /// </summary>
-        public readonly string Path;
-        /// <summary>
-        /// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-        /// </summary>
-        public readonly string? Port;
-        /// <summary>
-        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-        /// </summary>
-        public readonly string? Protocol;
-        /// <summary>
-        /// The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
-        /// </summary>
-        public readonly int Timeout;
-        /// <summary>
-        /// The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
-        /// * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-        /// </summary>
-        public readonly int? UnhealthyThreshold;
-
-        [OutputConstructor]
-        private TargetGroupHealthCheck(
-            bool? enabled,
-            int? healthyThreshold,
-            int? interval,
-            string matcher,
-            string path,
-            string? port,
-            string? protocol,
-            int timeout,
-            int? unhealthyThreshold)
-        {
-            Enabled = enabled;
-            HealthyThreshold = healthyThreshold;
-            Interval = interval;
-            Matcher = matcher;
-            Path = path;
-            Port = port;
-            Protocol = protocol;
-            Timeout = timeout;
-            UnhealthyThreshold = unhealthyThreshold;
-        }
-    }
-
-    [OutputType]
-    public sealed class TargetGroupStickiness
-    {
-        /// <summary>
-        /// The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
-        /// </summary>
-        public readonly int? CookieDuration;
-        /// <summary>
-        /// Indicates whether  health checks are enabled. Defaults to true.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// The type of sticky sessions. The only current possible value is `lb_cookie`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private TargetGroupStickiness(
-            int? cookieDuration,
-            bool? enabled,
-            string type)
-        {
-            CookieDuration = cookieDuration;
-            Enabled = enabled;
-            Type = type;
-        }
-    }
     }
 }

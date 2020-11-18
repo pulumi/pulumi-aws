@@ -12,9 +12,50 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a VPC resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// Basic usage:
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Basic usage with tags:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///             InstanceTenancy = "default",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "main" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Vpc : Pulumi.CustomResource
     {
@@ -62,7 +103,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A boolean flag to enable/disable ClassicLink
         /// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        /// See the [ClassicLink documentation][1] for more information. Defaults false.
+        /// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
         /// </summary>
         [Output("enableClassiclink")]
         public Output<bool> EnableClassiclink { get; private set; } = null!;
@@ -87,7 +128,8 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> EnableDnsSupport { get; private set; } = null!;
 
         /// <summary>
-        /// A tenancy option for instances launched into the VPC
+        /// A tenancy option for instances launched into the VPC. Default is `default`, which
+        /// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
         /// </summary>
         [Output("instanceTenancy")]
         public Output<string?> InstanceTenancy { get; private set; } = null!;
@@ -107,7 +149,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The ID of the main route table associated with
         /// this VPC. Note that you can change a VPC's main route table by using an
-        /// [`aws.ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html).
+        /// `aws.ec2.MainRouteTableAssociation`.
         /// </summary>
         [Output("mainRouteTableId")]
         public Output<string> MainRouteTableId { get; private set; } = null!;
@@ -119,10 +161,10 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -133,7 +175,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Vpc(string name, VpcArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpc:Vpc", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpc:Vpc", name, args ?? new VpcArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -187,7 +229,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A boolean flag to enable/disable ClassicLink
         /// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        /// See the [ClassicLink documentation][1] for more information. Defaults false.
+        /// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
         /// </summary>
         [Input("enableClassiclink")]
         public Input<bool>? EnableClassiclink { get; set; }
@@ -212,20 +254,21 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnableDnsSupport { get; set; }
 
         /// <summary>
-        /// A tenancy option for instances launched into the VPC
+        /// A tenancy option for instances launched into the VPC. Default is `default`, which
+        /// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
         /// </summary>
         [Input("instanceTenancy")]
         public Input<string>? InstanceTenancy { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -280,7 +323,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A boolean flag to enable/disable ClassicLink
         /// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        /// See the [ClassicLink documentation][1] for more information. Defaults false.
+        /// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
         /// </summary>
         [Input("enableClassiclink")]
         public Input<bool>? EnableClassiclink { get; set; }
@@ -305,7 +348,8 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnableDnsSupport { get; set; }
 
         /// <summary>
-        /// A tenancy option for instances launched into the VPC
+        /// A tenancy option for instances launched into the VPC. Default is `default`, which
+        /// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
         /// </summary>
         [Input("instanceTenancy")]
         public Input<string>? InstanceTenancy { get; set; }
@@ -325,7 +369,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The ID of the main route table associated with
         /// this VPC. Note that you can change a VPC's main route table by using an
-        /// [`aws.ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html).
+        /// `aws.ec2.MainRouteTableAssociation`.
         /// </summary>
         [Input("mainRouteTableId")]
         public Input<string>? MainRouteTableId { get; set; }
@@ -337,14 +381,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

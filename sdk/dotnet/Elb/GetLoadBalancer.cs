@@ -9,43 +9,46 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Elb
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Provides information about a "classic" Elastic Load Balancer (ELB).
-        /// See [LB Data Source](https://www.terraform.io/docs/providers/aws/d/lb.html) if you are looking for "v2"
-        /// Application Load Balancer (ALB) or Network Load Balancer (NLB).
-        /// 
-        /// This data source can prove useful when a module accepts an LB as an input
-        /// variable and needs to, for example, determine the security groups associated
-        /// with it, etc.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetLoadBalancer.InvokeAsync() instead")]
-        public static Task<GetLoadBalancerResult> GetLoadBalancer(GetLoadBalancerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:elb/getLoadBalancer:getLoadBalancer", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetLoadBalancer
     {
         /// <summary>
         /// Provides information about a "classic" Elastic Load Balancer (ELB).
-        /// See [LB Data Source](https://www.terraform.io/docs/providers/aws/d/lb.html) if you are looking for "v2"
+        /// See `LB` Data Source if you are looking for "v2"
         /// Application Load Balancer (ALB) or Network Load Balancer (NLB).
         /// 
         /// This data source can prove useful when a module accepts an LB as an input
         /// variable and needs to, for example, determine the security groups associated
         /// with it, etc.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var lbName = config.Get("lbName") ?? "";
+        ///         var test = Output.Create(Aws.Elb.GetLoadBalancer.InvokeAsync(new Aws.Elb.GetLoadBalancerArgs
+        ///         {
+        ///             Name = lbName,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:elb/getLoadBalancer:getLoadBalancer", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:elb/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithVersion());
     }
+
 
     public sealed class GetLoadBalancerArgs : Pulumi.InvokeArgs
     {
@@ -56,10 +59,10 @@ namespace Pulumi.Aws.Elb
         public string Name { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -67,6 +70,7 @@ namespace Pulumi.Aws.Elb
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetLoadBalancerResult
@@ -79,44 +83,63 @@ namespace Pulumi.Aws.Elb
         public readonly bool CrossZoneLoadBalancing;
         public readonly string DnsName;
         public readonly Outputs.GetLoadBalancerHealthCheckResult HealthCheck;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly int IdleTimeout;
         public readonly ImmutableArray<string> Instances;
         public readonly bool Internal;
-        public readonly ImmutableArray<Outputs.GetLoadBalancerListenersResult> Listeners;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerListenerResult> Listeners;
         public readonly string Name;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly string SourceSecurityGroup;
         public readonly string SourceSecurityGroupId;
         public readonly ImmutableArray<string> Subnets;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly string ZoneId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetLoadBalancerResult(
             Outputs.GetLoadBalancerAccessLogsResult accessLogs,
+
             string arn,
+
             ImmutableArray<string> availabilityZones,
+
             bool connectionDraining,
+
             int connectionDrainingTimeout,
+
             bool crossZoneLoadBalancing,
+
             string dnsName,
+
             Outputs.GetLoadBalancerHealthCheckResult healthCheck,
+
+            string id,
+
             int idleTimeout,
+
             ImmutableArray<string> instances,
+
             bool @internal,
-            ImmutableArray<Outputs.GetLoadBalancerListenersResult> listeners,
+
+            ImmutableArray<Outputs.GetLoadBalancerListenerResult> listeners,
+
             string name,
+
             ImmutableArray<string> securityGroups,
+
             string sourceSecurityGroup,
+
             string sourceSecurityGroupId,
+
             ImmutableArray<string> subnets,
-            ImmutableDictionary<string, object> tags,
-            string zoneId,
-            string id)
+
+            ImmutableDictionary<string, string> tags,
+
+            string zoneId)
         {
             AccessLogs = accessLogs;
             Arn = arn;
@@ -126,6 +149,7 @@ namespace Pulumi.Aws.Elb
             CrossZoneLoadBalancing = crossZoneLoadBalancing;
             DnsName = dnsName;
             HealthCheck = healthCheck;
+            Id = id;
             IdleTimeout = idleTimeout;
             Instances = instances;
             Internal = @internal;
@@ -137,83 +161,6 @@ namespace Pulumi.Aws.Elb
             Subnets = subnets;
             Tags = tags;
             ZoneId = zoneId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetLoadBalancerAccessLogsResult
-    {
-        public readonly string Bucket;
-        public readonly string BucketPrefix;
-        public readonly bool Enabled;
-        public readonly int Interval;
-
-        [OutputConstructor]
-        private GetLoadBalancerAccessLogsResult(
-            string bucket,
-            string bucketPrefix,
-            bool enabled,
-            int interval)
-        {
-            Bucket = bucket;
-            BucketPrefix = bucketPrefix;
-            Enabled = enabled;
-            Interval = interval;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLoadBalancerHealthCheckResult
-    {
-        public readonly int HealthyThreshold;
-        public readonly int Interval;
-        public readonly string Target;
-        public readonly int Timeout;
-        public readonly int UnhealthyThreshold;
-
-        [OutputConstructor]
-        private GetLoadBalancerHealthCheckResult(
-            int healthyThreshold,
-            int interval,
-            string target,
-            int timeout,
-            int unhealthyThreshold)
-        {
-            HealthyThreshold = healthyThreshold;
-            Interval = interval;
-            Target = target;
-            Timeout = timeout;
-            UnhealthyThreshold = unhealthyThreshold;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLoadBalancerListenersResult
-    {
-        public readonly int InstancePort;
-        public readonly string InstanceProtocol;
-        public readonly int LbPort;
-        public readonly string LbProtocol;
-        public readonly string SslCertificateId;
-
-        [OutputConstructor]
-        private GetLoadBalancerListenersResult(
-            int instancePort,
-            string instanceProtocol,
-            int lbPort,
-            string lbProtocol,
-            string sslCertificateId)
-        {
-            InstancePort = instancePort;
-            InstanceProtocol = instanceProtocol;
-            LbPort = lbPort;
-            LbProtocol = lbProtocol;
-            SslCertificateId = sslCertificateId;
-        }
-    }
     }
 }

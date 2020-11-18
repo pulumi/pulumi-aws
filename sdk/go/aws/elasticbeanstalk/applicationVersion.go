@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an Elastic Beanstalk Application Version Resource. Elastic Beanstalk allows
@@ -21,6 +21,51 @@ import (
 // Elastic Beanstalk Environments it is possible that an error may be returned
 // when attempting to delete an Application Version while it is still in use by a different environment.
 // To work around this you can either create each environment in a separate AWS account or create your `elasticbeanstalk.ApplicationVersion` resources with a unique names in your Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticbeanstalk"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		defaultBucket, err := s3.NewBucket(ctx, "defaultBucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		defaultBucketObject, err := s3.NewBucketObject(ctx, "defaultBucketObject", &s3.BucketObjectArgs{
+// 			Bucket: defaultBucket.ID(),
+// 			Key:    pulumi.String("beanstalk/go-v1.zip"),
+// 			Source: pulumi.NewFileAsset("go-v1.zip"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = elasticbeanstalk.NewApplication(ctx, "defaultApplication", &elasticbeanstalk.ApplicationArgs{
+// 			Description: pulumi.String("tf-test-desc"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = elasticbeanstalk.NewApplicationVersion(ctx, "defaultApplicationVersion", &elasticbeanstalk.ApplicationVersionArgs{
+// 			Application: pulumi.String("tf-test-name"),
+// 			Description: pulumi.String("application version"),
+// 			Bucket:      defaultBucket.ID(),
+// 			Key:         defaultBucketObject.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ApplicationVersion struct {
 	pulumi.CustomResourceState
 
@@ -39,8 +84,8 @@ type ApplicationVersion struct {
 	Key pulumi.StringOutput `pulumi:"key"`
 	// A unique name for the this Application Version.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of tags for the Elastic Beanstalk Application Version.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of tags for the Elastic Beanstalk Application Version.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewApplicationVersion registers a new resource with the given unique name, arguments, and options.
@@ -95,8 +140,8 @@ type applicationVersionState struct {
 	Key *string `pulumi:"key"`
 	// A unique name for the this Application Version.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of tags for the Elastic Beanstalk Application Version.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of tags for the Elastic Beanstalk Application Version.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ApplicationVersionState struct {
@@ -115,8 +160,8 @@ type ApplicationVersionState struct {
 	Key pulumi.StringPtrInput
 	// A unique name for the this Application Version.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of tags for the Elastic Beanstalk Application Version.
-	Tags pulumi.MapInput
+	// Key-value map of tags for the Elastic Beanstalk Application Version.
+	Tags pulumi.StringMapInput
 }
 
 func (ApplicationVersionState) ElementType() reflect.Type {
@@ -137,8 +182,8 @@ type applicationVersionArgs struct {
 	Key string `pulumi:"key"`
 	// A unique name for the this Application Version.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of tags for the Elastic Beanstalk Application Version.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of tags for the Elastic Beanstalk Application Version.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ApplicationVersion resource.
@@ -156,8 +201,8 @@ type ApplicationVersionArgs struct {
 	Key pulumi.StringInput
 	// A unique name for the this Application Version.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of tags for the Elastic Beanstalk Application Version.
-	Tags pulumi.MapInput
+	// Key-value map of tags for the Elastic Beanstalk Application Version.
+	Tags pulumi.StringMapInput
 }
 
 func (ApplicationVersionArgs) ElementType() reflect.Type {

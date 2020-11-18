@@ -4,20 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const ebsVolume = aws.ebs.getSnapshot({
+ *
+ * const ebsVolume = pulumi.output(aws.ebs.getSnapshot({
  *     filters: [
  *         {
  *             name: "volume-size",
@@ -30,12 +29,10 @@ import * as utilities from "../utilities";
  *     ],
  *     mostRecent: true,
  *     owners: ["self"],
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
  */
-export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> & GetSnapshotResult {
+export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -44,7 +41,7 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSnapshotResult> = pulumi.runtime.invoke("aws:ebs/getSnapshot:getSnapshot", {
+    return pulumi.runtime.invoke("aws:ebs/getSnapshot:getSnapshot", {
         "filters": args.filters,
         "mostRecent": args.mostRecent,
         "owners": args.owners,
@@ -52,8 +49,6 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
         "snapshotIds": args.snapshotIds,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -83,15 +78,19 @@ export interface GetSnapshotArgs {
      */
     readonly snapshotIds?: string[];
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
  * A collection of values returned by getSnapshot.
  */
 export interface GetSnapshotResult {
+    /**
+     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     */
+    readonly arn: string;
     /**
      * The data encryption key identifier for the snapshot.
      */
@@ -105,6 +104,10 @@ export interface GetSnapshotResult {
      */
     readonly encrypted: boolean;
     readonly filters?: outputs.ebs.GetSnapshotFilter[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     /**
      * The ARN for the KMS encryption key.
      */
@@ -130,9 +133,9 @@ export interface GetSnapshotResult {
      */
     readonly state: string;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The volume ID (e.g. vol-59fcb34e).
      */
@@ -141,8 +144,4 @@ export interface GetSnapshotResult {
      * The size of the drive in GiBs.
      */
     readonly volumeSize: number;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

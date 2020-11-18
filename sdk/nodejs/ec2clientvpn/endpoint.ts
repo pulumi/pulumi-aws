@@ -4,37 +4,34 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
  * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2clientvpn.Endpoint("example", {
- *     authenticationOptions: {
- *         rootCertificateChainArn: aws_acm_certificate_root_cert.arn,
- *         type: "certificate-authentication",
- *     },
- *     clientCidrBlock: "10.0.0.0/16",
- *     connectionLogOptions: {
- *         cloudwatchLogGroup: aws_cloudwatch_log_group_lg.name,
- *         cloudwatchLogStream: aws_cloudwatch_log_stream_ls.name,
- *         enabled: true,
- *     },
  *     description: "clientvpn-example",
- *     serverCertificateArn: aws_acm_certificate_cert.arn,
+ *     serverCertificateArn: aws_acm_certificate.cert.arn,
+ *     clientCidrBlock: "10.0.0.0/16",
+ *     authenticationOptions: [{
+ *         type: "certificate-authentication",
+ *         rootCertificateChainArn: aws_acm_certificate.root_cert.arn,
+ *     }],
+ *     connectionLogOptions: {
+ *         enabled: true,
+ *         cloudwatchLogGroup: aws_cloudwatch_log_group.lg.name,
+ *         cloudwatchLogStream: aws_cloudwatch_log_stream.ls.name,
+ *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_client_vpn_endpoint.html.markdown.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -44,6 +41,7 @@ export class Endpoint extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EndpointState, opts?: pulumi.CustomResourceOptions): Endpoint {
         return new Endpoint(name, <any>state, { ...opts, id: id });
@@ -64,9 +62,13 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the Client VPN endpoint.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    public readonly authenticationOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointAuthenticationOptions>;
+    public readonly authenticationOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointAuthenticationOption[]>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
@@ -102,7 +104,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
@@ -120,6 +122,7 @@ export class Endpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EndpointState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["authenticationOptions"] = state ? state.authenticationOptions : undefined;
             inputs["clientCidrBlock"] = state ? state.clientCidrBlock : undefined;
             inputs["connectionLogOptions"] = state ? state.connectionLogOptions : undefined;
@@ -154,6 +157,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["splitTunnel"] = args ? args.splitTunnel : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["transportProtocol"] = args ? args.transportProtocol : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
@@ -173,9 +177,13 @@ export class Endpoint extends pulumi.CustomResource {
  */
 export interface EndpointState {
     /**
+     * The ARN of the Client VPN endpoint.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    readonly authenticationOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOptions>;
+    readonly authenticationOptions?: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
@@ -211,7 +219,7 @@ export interface EndpointState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
@@ -225,7 +233,7 @@ export interface EndpointArgs {
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    readonly authenticationOptions: pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOptions>;
+    readonly authenticationOptions: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
@@ -253,7 +261,7 @@ export interface EndpointArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */

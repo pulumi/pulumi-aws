@@ -6,10 +6,101 @@ package servicediscovery
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Service Discovery Service resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/servicediscovery"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+// 			CidrBlock:          pulumi.String("10.0.0.0/16"),
+// 			EnableDnsSupport:   pulumi.Bool(true),
+// 			EnableDnsHostnames: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePrivateDnsNamespace, err := servicediscovery.NewPrivateDnsNamespace(ctx, "examplePrivateDnsNamespace", &servicediscovery.PrivateDnsNamespaceArgs{
+// 			Description: pulumi.String("example"),
+// 			Vpc:         exampleVpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
+// 			DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
+// 				NamespaceId: examplePrivateDnsNamespace.ID(),
+// 				DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
+// 					&servicediscovery.ServiceDnsConfigDnsRecordArgs{
+// 						Ttl:  pulumi.Int(10),
+// 						Type: pulumi.String("A"),
+// 					},
+// 				},
+// 				RoutingPolicy: pulumi.String("MULTIVALUE"),
+// 			},
+// 			HealthCheckCustomConfig: &servicediscovery.ServiceHealthCheckCustomConfigArgs{
+// 				FailureThreshold: pulumi.Int(1),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/servicediscovery"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		examplePublicDnsNamespace, err := servicediscovery.NewPublicDnsNamespace(ctx, "examplePublicDnsNamespace", &servicediscovery.PublicDnsNamespaceArgs{
+// 			Description: pulumi.String("example"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
+// 			DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
+// 				NamespaceId: examplePublicDnsNamespace.ID(),
+// 				DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
+// 					&servicediscovery.ServiceDnsConfigDnsRecordArgs{
+// 						Ttl:  pulumi.Int(10),
+// 						Type: pulumi.String("A"),
+// 					},
+// 				},
+// 			},
+// 			HealthCheckConfig: &servicediscovery.ServiceHealthCheckConfigArgs{
+// 				FailureThreshold: pulumi.Int(10),
+// 				ResourcePath:     pulumi.String("path"),
+// 				Type:             pulumi.String("HTTP"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -27,6 +118,8 @@ type Service struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
+	// A map of tags to assign to the service.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -71,6 +164,8 @@ type serviceState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId *string `pulumi:"namespaceId"`
+	// A map of tags to assign to the service.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ServiceState struct {
@@ -88,6 +183,8 @@ type ServiceState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId pulumi.StringPtrInput
+	// A map of tags to assign to the service.
+	Tags pulumi.StringMapInput
 }
 
 func (ServiceState) ElementType() reflect.Type {
@@ -107,6 +204,8 @@ type serviceArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId *string `pulumi:"namespaceId"`
+	// A map of tags to assign to the service.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
@@ -123,6 +222,8 @@ type ServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId pulumi.StringPtrInput
+	// A map of tags to assign to the service.
+	Tags pulumi.StringMapInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {

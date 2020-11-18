@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type RecordAlias struct {
@@ -15,10 +15,14 @@ type RecordAlias struct {
 	EvaluateTargetHealth bool `pulumi:"evaluateTargetHealth"`
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
 	Name string `pulumi:"name"`
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId string `pulumi:"zoneId"`
 }
 
+// RecordAliasInput is an input type that accepts RecordAliasArgs and RecordAliasOutput values.
+// You can construct a concrete instance of `RecordAliasInput` via:
+//
+//          RecordAliasArgs{...}
 type RecordAliasInput interface {
 	pulumi.Input
 
@@ -31,7 +35,7 @@ type RecordAliasArgs struct {
 	EvaluateTargetHealth pulumi.BoolInput `pulumi:"evaluateTargetHealth"`
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId pulumi.StringInput `pulumi:"zoneId"`
 }
 
@@ -47,6 +51,10 @@ func (i RecordAliasArgs) ToRecordAliasOutputWithContext(ctx context.Context) Rec
 	return pulumi.ToOutputWithContext(ctx, i).(RecordAliasOutput)
 }
 
+// RecordAliasArrayInput is an input type that accepts RecordAliasArray and RecordAliasArrayOutput values.
+// You can construct a concrete instance of `RecordAliasArrayInput` via:
+//
+//          RecordAliasArray{ RecordAliasArgs{...} }
 type RecordAliasArrayInput interface {
 	pulumi.Input
 
@@ -92,7 +100,7 @@ func (o RecordAliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordAlias) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 func (o RecordAliasOutput) ZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordAlias) string { return v.ZoneId }).(pulumi.StringOutput)
 }
@@ -122,6 +130,10 @@ type RecordFailoverRoutingPolicy struct {
 	Type string `pulumi:"type"`
 }
 
+// RecordFailoverRoutingPolicyInput is an input type that accepts RecordFailoverRoutingPolicyArgs and RecordFailoverRoutingPolicyOutput values.
+// You can construct a concrete instance of `RecordFailoverRoutingPolicyInput` via:
+//
+//          RecordFailoverRoutingPolicyArgs{...}
 type RecordFailoverRoutingPolicyInput interface {
 	pulumi.Input
 
@@ -146,6 +158,10 @@ func (i RecordFailoverRoutingPolicyArgs) ToRecordFailoverRoutingPolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RecordFailoverRoutingPolicyOutput)
 }
 
+// RecordFailoverRoutingPolicyArrayInput is an input type that accepts RecordFailoverRoutingPolicyArray and RecordFailoverRoutingPolicyArrayOutput values.
+// You can construct a concrete instance of `RecordFailoverRoutingPolicyArrayInput` via:
+//
+//          RecordFailoverRoutingPolicyArray{ RecordFailoverRoutingPolicyArgs{...} }
 type RecordFailoverRoutingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -215,6 +231,10 @@ type RecordGeolocationRoutingPolicy struct {
 	Subdivision *string `pulumi:"subdivision"`
 }
 
+// RecordGeolocationRoutingPolicyInput is an input type that accepts RecordGeolocationRoutingPolicyArgs and RecordGeolocationRoutingPolicyOutput values.
+// You can construct a concrete instance of `RecordGeolocationRoutingPolicyInput` via:
+//
+//          RecordGeolocationRoutingPolicyArgs{...}
 type RecordGeolocationRoutingPolicyInput interface {
 	pulumi.Input
 
@@ -243,6 +263,10 @@ func (i RecordGeolocationRoutingPolicyArgs) ToRecordGeolocationRoutingPolicyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RecordGeolocationRoutingPolicyOutput)
 }
 
+// RecordGeolocationRoutingPolicyArrayInput is an input type that accepts RecordGeolocationRoutingPolicyArray and RecordGeolocationRoutingPolicyArrayOutput values.
+// You can construct a concrete instance of `RecordGeolocationRoutingPolicyArrayInput` via:
+//
+//          RecordGeolocationRoutingPolicyArray{ RecordGeolocationRoutingPolicyArgs{...} }
 type RecordGeolocationRoutingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -318,6 +342,10 @@ type RecordLatencyRoutingPolicy struct {
 	Region string `pulumi:"region"`
 }
 
+// RecordLatencyRoutingPolicyInput is an input type that accepts RecordLatencyRoutingPolicyArgs and RecordLatencyRoutingPolicyOutput values.
+// You can construct a concrete instance of `RecordLatencyRoutingPolicyInput` via:
+//
+//          RecordLatencyRoutingPolicyArgs{...}
 type RecordLatencyRoutingPolicyInput interface {
 	pulumi.Input
 
@@ -342,6 +370,10 @@ func (i RecordLatencyRoutingPolicyArgs) ToRecordLatencyRoutingPolicyOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RecordLatencyRoutingPolicyOutput)
 }
 
+// RecordLatencyRoutingPolicyArrayInput is an input type that accepts RecordLatencyRoutingPolicyArray and RecordLatencyRoutingPolicyArrayOutput values.
+// You can construct a concrete instance of `RecordLatencyRoutingPolicyArrayInput` via:
+//
+//          RecordLatencyRoutingPolicyArray{ RecordLatencyRoutingPolicyArgs{...} }
 type RecordLatencyRoutingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -407,6 +439,10 @@ type RecordWeightedRoutingPolicy struct {
 	Weight int `pulumi:"weight"`
 }
 
+// RecordWeightedRoutingPolicyInput is an input type that accepts RecordWeightedRoutingPolicyArgs and RecordWeightedRoutingPolicyOutput values.
+// You can construct a concrete instance of `RecordWeightedRoutingPolicyInput` via:
+//
+//          RecordWeightedRoutingPolicyArgs{...}
 type RecordWeightedRoutingPolicyInput interface {
 	pulumi.Input
 
@@ -431,6 +467,10 @@ func (i RecordWeightedRoutingPolicyArgs) ToRecordWeightedRoutingPolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RecordWeightedRoutingPolicyOutput)
 }
 
+// RecordWeightedRoutingPolicyArrayInput is an input type that accepts RecordWeightedRoutingPolicyArray and RecordWeightedRoutingPolicyArrayOutput values.
+// You can construct a concrete instance of `RecordWeightedRoutingPolicyArrayInput` via:
+//
+//          RecordWeightedRoutingPolicyArray{ RecordWeightedRoutingPolicyArgs{...} }
 type RecordWeightedRoutingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -499,6 +539,10 @@ type ResolverEndpointIpAddress struct {
 	SubnetId string `pulumi:"subnetId"`
 }
 
+// ResolverEndpointIpAddressInput is an input type that accepts ResolverEndpointIpAddressArgs and ResolverEndpointIpAddressOutput values.
+// You can construct a concrete instance of `ResolverEndpointIpAddressInput` via:
+//
+//          ResolverEndpointIpAddressArgs{...}
 type ResolverEndpointIpAddressInput interface {
 	pulumi.Input
 
@@ -526,6 +570,10 @@ func (i ResolverEndpointIpAddressArgs) ToResolverEndpointIpAddressOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointIpAddressOutput)
 }
 
+// ResolverEndpointIpAddressArrayInput is an input type that accepts ResolverEndpointIpAddressArray and ResolverEndpointIpAddressArrayOutput values.
+// You can construct a concrete instance of `ResolverEndpointIpAddressArrayInput` via:
+//
+//          ResolverEndpointIpAddressArray{ ResolverEndpointIpAddressArgs{...} }
 type ResolverEndpointIpAddressArrayInput interface {
 	pulumi.Input
 
@@ -602,6 +650,10 @@ type ResolverRuleTargetIp struct {
 	Port *int `pulumi:"port"`
 }
 
+// ResolverRuleTargetIpInput is an input type that accepts ResolverRuleTargetIpArgs and ResolverRuleTargetIpOutput values.
+// You can construct a concrete instance of `ResolverRuleTargetIpInput` via:
+//
+//          ResolverRuleTargetIpArgs{...}
 type ResolverRuleTargetIpInput interface {
 	pulumi.Input
 
@@ -628,6 +680,10 @@ func (i ResolverRuleTargetIpArgs) ToResolverRuleTargetIpOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTargetIpOutput)
 }
 
+// ResolverRuleTargetIpArrayInput is an input type that accepts ResolverRuleTargetIpArray and ResolverRuleTargetIpArrayOutput values.
+// You can construct a concrete instance of `ResolverRuleTargetIpArrayInput` via:
+//
+//          ResolverRuleTargetIpArray{ ResolverRuleTargetIpArgs{...} }
 type ResolverRuleTargetIpArrayInput interface {
 	pulumi.Input
 
@@ -700,6 +756,10 @@ type ZoneVpc struct {
 	VpcRegion *string `pulumi:"vpcRegion"`
 }
 
+// ZoneVpcInput is an input type that accepts ZoneVpcArgs and ZoneVpcOutput values.
+// You can construct a concrete instance of `ZoneVpcInput` via:
+//
+//          ZoneVpcArgs{...}
 type ZoneVpcInput interface {
 	pulumi.Input
 
@@ -726,6 +786,10 @@ func (i ZoneVpcArgs) ToZoneVpcOutputWithContext(ctx context.Context) ZoneVpcOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneVpcOutput)
 }
 
+// ZoneVpcArrayInput is an input type that accepts ZoneVpcArray and ZoneVpcArrayOutput values.
+// You can construct a concrete instance of `ZoneVpcArrayInput` via:
+//
+//          ZoneVpcArray{ ZoneVpcArgs{...} }
 type ZoneVpcArrayInput interface {
 	pulumi.Input
 
@@ -791,6 +855,106 @@ func (o ZoneVpcArrayOutput) Index(i pulumi.IntInput) ZoneVpcOutput {
 	}).(ZoneVpcOutput)
 }
 
+type GetResolverEndpointFilter struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// GetResolverEndpointFilterInput is an input type that accepts GetResolverEndpointFilterArgs and GetResolverEndpointFilterOutput values.
+// You can construct a concrete instance of `GetResolverEndpointFilterInput` via:
+//
+//          GetResolverEndpointFilterArgs{...}
+type GetResolverEndpointFilterInput interface {
+	pulumi.Input
+
+	ToGetResolverEndpointFilterOutput() GetResolverEndpointFilterOutput
+	ToGetResolverEndpointFilterOutputWithContext(context.Context) GetResolverEndpointFilterOutput
+}
+
+type GetResolverEndpointFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetResolverEndpointFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverEndpointFilter)(nil)).Elem()
+}
+
+func (i GetResolverEndpointFilterArgs) ToGetResolverEndpointFilterOutput() GetResolverEndpointFilterOutput {
+	return i.ToGetResolverEndpointFilterOutputWithContext(context.Background())
+}
+
+func (i GetResolverEndpointFilterArgs) ToGetResolverEndpointFilterOutputWithContext(ctx context.Context) GetResolverEndpointFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResolverEndpointFilterOutput)
+}
+
+// GetResolverEndpointFilterArrayInput is an input type that accepts GetResolverEndpointFilterArray and GetResolverEndpointFilterArrayOutput values.
+// You can construct a concrete instance of `GetResolverEndpointFilterArrayInput` via:
+//
+//          GetResolverEndpointFilterArray{ GetResolverEndpointFilterArgs{...} }
+type GetResolverEndpointFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetResolverEndpointFilterArrayOutput() GetResolverEndpointFilterArrayOutput
+	ToGetResolverEndpointFilterArrayOutputWithContext(context.Context) GetResolverEndpointFilterArrayOutput
+}
+
+type GetResolverEndpointFilterArray []GetResolverEndpointFilterInput
+
+func (GetResolverEndpointFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResolverEndpointFilter)(nil)).Elem()
+}
+
+func (i GetResolverEndpointFilterArray) ToGetResolverEndpointFilterArrayOutput() GetResolverEndpointFilterArrayOutput {
+	return i.ToGetResolverEndpointFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetResolverEndpointFilterArray) ToGetResolverEndpointFilterArrayOutputWithContext(ctx context.Context) GetResolverEndpointFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResolverEndpointFilterArrayOutput)
+}
+
+type GetResolverEndpointFilterOutput struct{ *pulumi.OutputState }
+
+func (GetResolverEndpointFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverEndpointFilter)(nil)).Elem()
+}
+
+func (o GetResolverEndpointFilterOutput) ToGetResolverEndpointFilterOutput() GetResolverEndpointFilterOutput {
+	return o
+}
+
+func (o GetResolverEndpointFilterOutput) ToGetResolverEndpointFilterOutputWithContext(ctx context.Context) GetResolverEndpointFilterOutput {
+	return o
+}
+
+func (o GetResolverEndpointFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverEndpointFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetResolverEndpointFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetResolverEndpointFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetResolverEndpointFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetResolverEndpointFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResolverEndpointFilter)(nil)).Elem()
+}
+
+func (o GetResolverEndpointFilterArrayOutput) ToGetResolverEndpointFilterArrayOutput() GetResolverEndpointFilterArrayOutput {
+	return o
+}
+
+func (o GetResolverEndpointFilterArrayOutput) ToGetResolverEndpointFilterArrayOutputWithContext(ctx context.Context) GetResolverEndpointFilterArrayOutput {
+	return o
+}
+
+func (o GetResolverEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetResolverEndpointFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResolverEndpointFilter {
+		return vs[0].([]GetResolverEndpointFilter)[vs[1].(int)]
+	}).(GetResolverEndpointFilterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RecordAliasOutput{})
 	pulumi.RegisterOutputType(RecordAliasArrayOutput{})
@@ -808,4 +972,6 @@ func init() {
 	pulumi.RegisterOutputType(ResolverRuleTargetIpArrayOutput{})
 	pulumi.RegisterOutputType(ZoneVpcOutput{})
 	pulumi.RegisterOutputType(ZoneVpcArrayOutput{})
+	pulumi.RegisterOutputType(GetResolverEndpointFilterOutput{})
+	pulumi.RegisterOutputType(GetResolverEndpointFilterArrayOutput{})
 }

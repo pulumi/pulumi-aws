@@ -6,24 +6,22 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SageMaker Endpoint resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * Basic usage:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const endpoint = new aws.sagemaker.Endpoint("e", {
- *     endpointConfigName: aws_sagemaker_endpoint_configuration_ec.name,
+ *
+ * const endpoint = new aws.sagemaker.Endpoint("endpoint", {
+ *     endpointConfigName: aws_sagemaker_endpoint_configuration.ec.name,
  *     tags: {
  *         Name: "foo",
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint.html.markdown.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -33,6 +31,7 @@ export class Endpoint extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EndpointState, opts?: pulumi.CustomResourceOptions): Endpoint {
         return new Endpoint(name, <any>state, { ...opts, id: id });
@@ -67,7 +66,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -125,7 +124,7 @@ export interface EndpointState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -143,5 +142,5 @@ export interface EndpointArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

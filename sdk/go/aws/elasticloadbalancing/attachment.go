@@ -7,10 +7,10 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the [`lb.TargetGroupAttachment` resource](https://www.terraform.io/docs/providers/aws/r/lb_target_group_attachment.html).
+// Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the `lb.TargetGroupAttachment` resource.
 //
 // > **NOTE on ELB Instances and ELB Attachments:** This provider currently provides
 // both a standalone ELB Attachment resource (describing an instance attached to
@@ -18,6 +18,32 @@ import (
 // `instances` defined in-line. At this time you cannot use an ELB with in-line
 // instances in conjunction with an ELB Attachment resource. Doing so will cause a
 // conflict and will overwrite attachments.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := elb.NewAttachment(ctx, "baz", &elb.AttachmentArgs{
+// 			Elb:      pulumi.Any(aws_elb.Bar.Id),
+// 			Instance: pulumi.Any(aws_instance.Foo.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// Deprecated: aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment
 type Attachment struct {
 	pulumi.CustomResourceState
 

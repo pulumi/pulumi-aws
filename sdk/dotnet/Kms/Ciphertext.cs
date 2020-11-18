@@ -13,14 +13,38 @@ namespace Pulumi.Aws.Kms
     /// The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
     /// by using an AWS KMS customer master key. The value returned by this resource
     /// is stable across every apply. For a changing ciphertext value each apply, see
-    /// the [`aws.kms.Ciphertext` data source](https://www.terraform.io/docs/providers/aws/d/kms_ciphertext.html).
+    /// the `aws.kms.Ciphertext` data source.
     /// 
     /// &gt; **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_ciphertext.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var oauthConfig = new Aws.Kms.Key("oauthConfig", new Aws.Kms.KeyArgs
+    ///         {
+    ///             Description = "oauth config",
+    ///             IsEnabled = true,
+    ///         });
+    ///         var oauth = new Aws.Kms.Ciphertext("oauth", new Aws.Kms.CiphertextArgs
+    ///         {
+    ///             KeyId = oauthConfig.KeyId,
+    ///             Plaintext = @"{
+    ///   ""client_id"": ""e587dbae22222f55da22"",
+    ///   ""client_secret"": ""8289575d00000ace55e1815ec13673955721b8a5""
+    /// }
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Ciphertext : Pulumi.CustomResource
     {
@@ -57,7 +81,7 @@ namespace Pulumi.Aws.Kms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Ciphertext(string name, CiphertextArgs args, CustomResourceOptions? options = null)
-            : base("aws:kms/ciphertext:Ciphertext", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:kms/ciphertext:Ciphertext", name, args ?? new CiphertextArgs(), MakeResourceOptions(options, ""))
         {
         }
 

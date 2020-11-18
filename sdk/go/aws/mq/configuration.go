@@ -7,12 +7,40 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an MQ Configuration Resource.
 //
 // For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/mq"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := mq.NewConfiguration(ctx, "example", &mq.ConfigurationArgs{
+// 			Data:          pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v", "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n", "<broker xmlns=\"http://activemq.apache.org/schema/core\">\n", "  <plugins>\n", "    <forcePersistencyModeBrokerPlugin persistenceFlag=\"true\"/>\n", "    <statisticsBrokerPlugin/>\n", "    <timeStampingBrokerPlugin ttlCeiling=\"86400000\" zeroExpirationOverride=\"86400000\"/>\n", "  </plugins>\n", "</broker>\n", "\n")),
+// 			Description:   pulumi.String("Example Configuration"),
+// 			EngineType:    pulumi.String("ActiveMQ"),
+// 			EngineVersion: pulumi.String("5.15.0"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Configuration struct {
 	pulumi.CustomResourceState
 
@@ -32,8 +60,8 @@ type Configuration struct {
 	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
 	// The name of the configuration
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -89,8 +117,8 @@ type configurationState struct {
 	LatestRevision *int `pulumi:"latestRevision"`
 	// The name of the configuration
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ConfigurationState struct {
@@ -110,8 +138,8 @@ type ConfigurationState struct {
 	LatestRevision pulumi.IntPtrInput
 	// The name of the configuration
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ConfigurationState) ElementType() reflect.Type {
@@ -131,8 +159,8 @@ type configurationArgs struct {
 	EngineVersion string `pulumi:"engineVersion"`
 	// The name of the configuration
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Configuration resource.
@@ -149,8 +177,8 @@ type ConfigurationArgs struct {
 	EngineVersion pulumi.StringInput
 	// The name of the configuration
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ConfigurationArgs) ElementType() reflect.Type {

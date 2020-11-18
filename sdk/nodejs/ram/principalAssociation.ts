@@ -6,48 +6,41 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Resource Access Manager (RAM) principal association. Depending if [RAM Sharing with AWS Organizations is enabled](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs), the RAM behavior with different principal types changes.
- * 
+ *
  * When RAM Sharing with AWS Organizations is enabled:
- * 
+ *
  * - For AWS Account ID, Organization, and Organizational Unit principals within the same AWS Organization, no resource share invitation is sent and resources become available automatically after creating the association.
- * - For AWS Account ID principals outside the AWS Organization, a resource share invitation is sent and must be accepted before resources become available. See the [`aws.ram.ResourceShareAccepter` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_share_accepter.html) to accept these invitations.
- * 
+ * - For AWS Account ID principals outside the AWS Organization, a resource share invitation is sent and must be accepted before resources become available. See the `aws.ram.ResourceShareAccepter` resource to accept these invitations.
+ *
  * When RAM Sharing with AWS Organizations is not enabled:
- * 
+ *
  * - Organization and Organizational Unit principals cannot be used.
- * - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the [`aws.ram.ResourceShareAccepter` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_share_accepter.html) to accept these invitations.
- * 
+ * - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `aws.ram.ResourceShareAccepter` resource to accept these invitations.
+ *
  * ## Example Usage
- * 
  * ### AWS Account ID
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleResourceShare = new aws.ram.ResourceShare("example", {
- *     // ... other configuration ...
- *     allowExternalPrincipals: true,
- * });
- * const examplePrincipalAssociation = new aws.ram.PrincipalAssociation("example", {
+ *
+ * const exampleResourceShare = new aws.ram.ResourceShare("exampleResourceShare", {allowExternalPrincipals: true});
+ * const examplePrincipalAssociation = new aws.ram.PrincipalAssociation("examplePrincipalAssociation", {
  *     principal: "111111111111",
  *     resourceShareArn: exampleResourceShare.arn,
  * });
  * ```
- * 
  * ### AWS Organization
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ram.PrincipalAssociation("example", {
- *     principal: aws_organizations_organization_example.arn,
- *     resourceShareArn: aws_ram_resource_share_example.arn,
+ *     principal: aws_organizations_organization.example.arn,
+ *     resourceShareArn: aws_ram_resource_share.example.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_principal_association.markdown.
  */
 export class PrincipalAssociation extends pulumi.CustomResource {
     /**
@@ -57,6 +50,7 @@ export class PrincipalAssociation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PrincipalAssociationState, opts?: pulumi.CustomResourceOptions): PrincipalAssociation {
         return new PrincipalAssociation(name, <any>state, { ...opts, id: id });

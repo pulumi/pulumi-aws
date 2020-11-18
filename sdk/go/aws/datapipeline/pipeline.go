@@ -6,10 +6,31 @@ package datapipeline
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Data Pipeline resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/datapipeline"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datapipeline.NewPipeline(ctx, "_default", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Pipeline struct {
 	pulumi.CustomResourceState
 
@@ -17,8 +38,8 @@ type Pipeline struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of Pipeline.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -53,8 +74,8 @@ type pipelineState struct {
 	Description *string `pulumi:"description"`
 	// The name of Pipeline.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type PipelineState struct {
@@ -62,8 +83,8 @@ type PipelineState struct {
 	Description pulumi.StringPtrInput
 	// The name of Pipeline.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (PipelineState) ElementType() reflect.Type {
@@ -75,8 +96,8 @@ type pipelineArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of Pipeline.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
@@ -85,8 +106,8 @@ type PipelineArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of Pipeline.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {

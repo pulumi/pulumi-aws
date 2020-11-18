@@ -9,47 +9,72 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get the ID of an Amazon EC2 Instance for use in other
-        /// resources.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetInstance.InvokeAsync() instead")]
-        public static Task<GetInstanceResult> GetInstance(GetInstanceArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:ec2/getInstance:getInstance", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetInstance
     {
         /// <summary>
         /// Use this data source to get the ID of an Amazon EC2 Instance for use in other
         /// resources.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var foo = Output.Create(Aws.Ec2.GetInstance.InvokeAsync(new Aws.Ec2.GetInstanceArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
+        ///                 {
+        ///                     Name = "image-id",
+        ///                     Values = 
+        ///                     {
+        ///                         "ami-xxxxxxxx",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
+        ///                 {
+        ///                     Name = "tag:Name",
+        ///                     Values = 
+        ///                     {
+        ///                         "instance-name-tag",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             InstanceId = "i-instanceid",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:ec2/getInstance:getInstance", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:ec2/getInstance:getInstance", args ?? new GetInstanceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetInstanceArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetInstanceFiltersArgs>? _filters;
+        private List<Inputs.GetInstanceFilterArgs>? _filters;
 
         /// <summary>
         /// One or more name/value pairs to use as filters. There are
         /// several valid keys, for a full reference, check out
         /// [describe-instances in the AWS CLI reference][1].
         /// </summary>
-        public List<Inputs.GetInstanceFiltersArgs> Filters
+        public List<Inputs.GetInstanceFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetInstanceFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetInstanceFilterArgs>());
             set => _filters = value;
         }
 
@@ -72,27 +97,27 @@ namespace Pulumi.Aws.Ec2
         public string? InstanceId { get; set; }
 
         [Input("instanceTags")]
-        private Dictionary<string, object>? _instanceTags;
+        private Dictionary<string, string>? _instanceTags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must
+        /// A map of tags, each pair of which must
         /// exactly match a pair on the desired Instance.
         /// </summary>
-        public Dictionary<string, object> InstanceTags
+        public Dictionary<string, string> InstanceTags
         {
-            get => _instanceTags ?? (_instanceTags = new Dictionary<string, object>());
+            get => _instanceTags ?? (_instanceTags = new Dictionary<string, string>());
             set => _instanceTags = value;
         }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// A mapping of tags assigned to the Instance.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -100,6 +125,7 @@ namespace Pulumi.Aws.Ec2
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetInstanceResult
@@ -123,12 +149,12 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The credit specification of the Instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetInstanceCreditSpecificationsResult> CreditSpecifications;
+        public readonly ImmutableArray<Outputs.GetInstanceCreditSpecificationResult> CreditSpecifications;
         public readonly bool DisableApiTermination;
         /// <summary>
         /// The EBS block device mappings of the Instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetInstanceEbsBlockDevicesResult> EbsBlockDevices;
+        public readonly ImmutableArray<Outputs.GetInstanceEbsBlockDeviceResult> EbsBlockDevices;
         /// <summary>
         /// Whether the Instance is EBS optimized or not (Boolean).
         /// </summary>
@@ -136,8 +162,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The ephemeral block device mappings of the Instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetInstanceEphemeralBlockDevicesResult> EphemeralBlockDevices;
-        public readonly ImmutableArray<Outputs.GetInstanceFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetInstanceEphemeralBlockDeviceResult> EphemeralBlockDevices;
+        public readonly ImmutableArray<Outputs.GetInstanceFilterResult> Filters;
         public readonly bool? GetPasswordData;
         public readonly bool? GetUserData;
         /// <summary>
@@ -148,12 +174,16 @@ namespace Pulumi.Aws.Ec2
         /// The name of the instance profile associated with the Instance.
         /// </summary>
         public readonly string IamInstanceProfile;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string? InstanceId;
         /// <summary>
         /// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
         /// </summary>
         public readonly string InstanceState;
-        public readonly ImmutableDictionary<string, object> InstanceTags;
+        public readonly ImmutableDictionary<string, string> InstanceTags;
         /// <summary>
         /// The type of the Instance.
         /// </summary>
@@ -165,7 +195,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The metadata options of the Instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetInstanceMetadataOptionsResult> MetadataOptions;
+        public readonly ImmutableArray<Outputs.GetInstanceMetadataOptionResult> MetadataOptions;
         /// <summary>
         /// Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
         /// </summary>
@@ -174,6 +204,10 @@ namespace Pulumi.Aws.Ec2
         /// The ID of the network interface that was created with the Instance.
         /// </summary>
         public readonly string NetworkInterfaceId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        public readonly string OutpostArn;
         /// <summary>
         /// Base-64 encoded encrypted password data for the instance.
         /// Useful for getting the administrator password for instances running Microsoft Windows.
@@ -201,13 +235,17 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string PublicDns;
         /// <summary>
-        /// The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`aws.ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+        /// The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         /// </summary>
         public readonly string PublicIp;
         /// <summary>
         /// The root block device mappings of the Instance
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetInstanceRootBlockDevicesResult> RootBlockDevices;
+        public readonly ImmutableArray<Outputs.GetInstanceRootBlockDeviceResult> RootBlockDevices;
+        /// <summary>
+        /// The secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
+        /// </summary>
+        public readonly ImmutableArray<string> SecondaryPrivateIps;
         /// <summary>
         /// The associated security groups.
         /// </summary>
@@ -223,7 +261,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A mapping of tags assigned to the Instance.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The tenancy of the instance: `dedicated`, `default`, `host`.
         /// </summary>
@@ -240,51 +278,88 @@ namespace Pulumi.Aws.Ec2
         /// The associated security groups in a non-default VPC.
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetInstanceResult(
             string ami,
+
             string arn,
+
             bool associatePublicIpAddress,
+
             string availabilityZone,
-            ImmutableArray<Outputs.GetInstanceCreditSpecificationsResult> creditSpecifications,
+
+            ImmutableArray<Outputs.GetInstanceCreditSpecificationResult> creditSpecifications,
+
             bool disableApiTermination,
-            ImmutableArray<Outputs.GetInstanceEbsBlockDevicesResult> ebsBlockDevices,
+
+            ImmutableArray<Outputs.GetInstanceEbsBlockDeviceResult> ebsBlockDevices,
+
             bool ebsOptimized,
-            ImmutableArray<Outputs.GetInstanceEphemeralBlockDevicesResult> ephemeralBlockDevices,
-            ImmutableArray<Outputs.GetInstanceFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetInstanceEphemeralBlockDeviceResult> ephemeralBlockDevices,
+
+            ImmutableArray<Outputs.GetInstanceFilterResult> filters,
+
             bool? getPasswordData,
+
             bool? getUserData,
+
             string hostId,
+
             string iamInstanceProfile,
+
+            string id,
+
             string? instanceId,
+
             string instanceState,
-            ImmutableDictionary<string, object> instanceTags,
+
+            ImmutableDictionary<string, string> instanceTags,
+
             string instanceType,
+
             string keyName,
-            ImmutableArray<Outputs.GetInstanceMetadataOptionsResult> metadataOptions,
+
+            ImmutableArray<Outputs.GetInstanceMetadataOptionResult> metadataOptions,
+
             bool monitoring,
+
             string networkInterfaceId,
+
+            string outpostArn,
+
             string passwordData,
+
             string placementGroup,
+
             string privateDns,
+
             string privateIp,
+
             string publicDns,
+
             string publicIp,
-            ImmutableArray<Outputs.GetInstanceRootBlockDevicesResult> rootBlockDevices,
+
+            ImmutableArray<Outputs.GetInstanceRootBlockDeviceResult> rootBlockDevices,
+
+            ImmutableArray<string> secondaryPrivateIps,
+
             ImmutableArray<string> securityGroups,
+
             bool sourceDestCheck,
+
             string subnetId,
-            ImmutableDictionary<string, object> tags,
+
+            ImmutableDictionary<string, string> tags,
+
             string tenancy,
+
             string userData,
+
             string userDataBase64,
-            ImmutableArray<string> vpcSecurityGroupIds,
-            string id)
+
+            ImmutableArray<string> vpcSecurityGroupIds)
         {
             Ami = ami;
             Arn = arn;
@@ -300,6 +375,7 @@ namespace Pulumi.Aws.Ec2
             GetUserData = getUserData;
             HostId = hostId;
             IamInstanceProfile = iamInstanceProfile;
+            Id = id;
             InstanceId = instanceId;
             InstanceState = instanceState;
             InstanceTags = instanceTags;
@@ -308,6 +384,7 @@ namespace Pulumi.Aws.Ec2
             MetadataOptions = metadataOptions;
             Monitoring = monitoring;
             NetworkInterfaceId = networkInterfaceId;
+            OutpostArn = outpostArn;
             PasswordData = passwordData;
             PlacementGroup = placementGroup;
             PrivateDns = privateDns;
@@ -315,6 +392,7 @@ namespace Pulumi.Aws.Ec2
             PublicDns = publicDns;
             PublicIp = publicIp;
             RootBlockDevices = rootBlockDevices;
+            SecondaryPrivateIps = secondaryPrivateIps;
             SecurityGroups = securityGroups;
             SourceDestCheck = sourceDestCheck;
             SubnetId = subnetId;
@@ -323,221 +401,6 @@ namespace Pulumi.Aws.Ec2
             UserData = userData;
             UserDataBase64 = userDataBase64;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetInstanceFiltersArgs : Pulumi.InvokeArgs
-    {
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetInstanceFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetInstanceCreditSpecificationsResult
-    {
-        public readonly string CpuCredits;
-
-        [OutputConstructor]
-        private GetInstanceCreditSpecificationsResult(string cpuCredits)
-        {
-            CpuCredits = cpuCredits;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetInstanceEbsBlockDevicesResult
-    {
-        /// <summary>
-        /// If the root block device will be deleted on termination.
-        /// </summary>
-        public readonly bool DeleteOnTermination;
-        /// <summary>
-        /// The physical name of the device.
-        /// </summary>
-        public readonly string DeviceName;
-        /// <summary>
-        /// If the EBS volume is encrypted.
-        /// </summary>
-        public readonly bool Encrypted;
-        /// <summary>
-        /// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
-        /// </summary>
-        public readonly int Iops;
-        public readonly string KmsKeyId;
-        /// <summary>
-        /// The ID of the snapshot.
-        /// </summary>
-        public readonly string SnapshotId;
-        public readonly string VolumeId;
-        /// <summary>
-        /// The size of the volume, in GiB.
-        /// </summary>
-        public readonly int VolumeSize;
-        /// <summary>
-        /// The type of the volume.
-        /// </summary>
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private GetInstanceEbsBlockDevicesResult(
-            bool deleteOnTermination,
-            string deviceName,
-            bool encrypted,
-            int iops,
-            string kmsKeyId,
-            string snapshotId,
-            string volumeId,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            DeviceName = deviceName;
-            Encrypted = encrypted;
-            Iops = iops;
-            KmsKeyId = kmsKeyId;
-            SnapshotId = snapshotId;
-            VolumeId = volumeId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetInstanceEphemeralBlockDevicesResult
-    {
-        /// <summary>
-        /// The physical name of the device.
-        /// </summary>
-        public readonly string DeviceName;
-        /// <summary>
-        /// Whether the specified device included in the device mapping was suppressed or not (Boolean).
-        /// </summary>
-        public readonly bool? NoDevice;
-        /// <summary>
-        /// The virtual device name.
-        /// </summary>
-        public readonly string? VirtualName;
-
-        [OutputConstructor]
-        private GetInstanceEphemeralBlockDevicesResult(
-            string deviceName,
-            bool? noDevice,
-            string? virtualName)
-        {
-            DeviceName = deviceName;
-            NoDevice = noDevice;
-            VirtualName = virtualName;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetInstanceFiltersResult
-    {
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetInstanceFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetInstanceMetadataOptionsResult
-    {
-        /// <summary>
-        /// The state of the metadata service: `enabled`, `disabled`.
-        /// </summary>
-        public readonly string HttpEndpoint;
-        /// <summary>
-        /// The desired HTTP PUT response hop limit for instance metadata requests.
-        /// </summary>
-        public readonly int HttpPutResponseHopLimit;
-        /// <summary>
-        /// If session tokens are required: `optional`, `required`.
-        /// </summary>
-        public readonly string HttpTokens;
-
-        [OutputConstructor]
-        private GetInstanceMetadataOptionsResult(
-            string httpEndpoint,
-            int httpPutResponseHopLimit,
-            string httpTokens)
-        {
-            HttpEndpoint = httpEndpoint;
-            HttpPutResponseHopLimit = httpPutResponseHopLimit;
-            HttpTokens = httpTokens;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetInstanceRootBlockDevicesResult
-    {
-        /// <summary>
-        /// If the root block device will be deleted on termination.
-        /// </summary>
-        public readonly bool DeleteOnTermination;
-        /// <summary>
-        /// If the EBS volume is encrypted.
-        /// </summary>
-        public readonly bool Encrypted;
-        /// <summary>
-        /// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
-        /// </summary>
-        public readonly int Iops;
-        public readonly string KmsKeyId;
-        public readonly string VolumeId;
-        /// <summary>
-        /// The size of the volume, in GiB.
-        /// </summary>
-        public readonly int VolumeSize;
-        /// <summary>
-        /// The type of the volume.
-        /// </summary>
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private GetInstanceRootBlockDevicesResult(
-            bool deleteOnTermination,
-            bool encrypted,
-            int iops,
-            string kmsKeyId,
-            string volumeId,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            Encrypted = encrypted;
-            Iops = iops;
-            KmsKeyId = kmsKeyId;
-            VolumeId = volumeId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
     }
 }

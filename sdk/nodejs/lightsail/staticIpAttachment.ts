@@ -6,31 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a static IP address attachment - relationship between a Lightsail static IP & Lightsail instance.
- * 
+ *
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testStaticIp = new aws.lightsail.StaticIp("test", {});
- * const testInstance = new aws.lightsail.Instance("test", {
+ *
+ * const testStaticIp = new aws.lightsail.StaticIp("testStaticIp", {});
+ * const testInstance = new aws.lightsail.Instance("testInstance", {
  *     availabilityZone: "us-east-1b",
  *     blueprintId: "string",
  *     bundleId: "string",
- *     keyPairName: "someKeyName",
+ *     keyPairName: "some_key_name",
  * });
- * const testStaticIpAttachment = new aws.lightsail.StaticIpAttachment("test", {
- *     instanceName: testInstance.id,
+ * const testStaticIpAttachment = new aws.lightsail.StaticIpAttachment("testStaticIpAttachment", {
  *     staticIpName: testStaticIp.id,
+ *     instanceName: testInstance.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_static_ip_attachment.html.markdown.
  */
 export class StaticIpAttachment extends pulumi.CustomResource {
     /**
@@ -40,6 +36,7 @@ export class StaticIpAttachment extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: StaticIpAttachmentState, opts?: pulumi.CustomResourceOptions): StaticIpAttachment {
         return new StaticIpAttachment(name, <any>state, { ...opts, id: id });

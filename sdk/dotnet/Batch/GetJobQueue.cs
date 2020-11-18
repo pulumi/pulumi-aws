@@ -9,33 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Batch
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The Batch Job Queue data source allows access to details of a specific
-        /// job queue within AWS Batch.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_job_queue.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetJobQueue.InvokeAsync() instead")]
-        public static Task<GetJobQueueResult> GetJobQueue(GetJobQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetJobQueue
     {
         /// <summary>
         /// The Batch Job Queue data source allows access to details of a specific
         /// job queue within AWS Batch.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_job_queue.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test_queue = Output.Create(Aws.Batch.GetJobQueue.InvokeAsync(new Aws.Batch.GetJobQueueArgs
+        ///         {
+        ///             Name = "tf-test-batch-job-queue",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetJobQueueResult> InvokeAsync(GetJobQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? new GetJobQueueArgs(), options.WithVersion());
     }
+
 
     public sealed class GetJobQueueArgs : Pulumi.InvokeArgs
     {
@@ -45,10 +51,23 @@ namespace Pulumi.Aws.Batch
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetJobQueueArgs()
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetJobQueueResult
@@ -63,7 +82,11 @@ namespace Pulumi.Aws.Batch
         /// * `compute_environment_order.#.order` - The order of the compute environment.
         /// * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetJobQueueComputeEnvironmentOrdersResult> ComputeEnvironmentOrders;
+        public readonly ImmutableArray<Outputs.GetJobQueueComputeEnvironmentOrderResult> ComputeEnvironmentOrders;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The priority of the job queue. Job queues with a higher priority are evaluated first when
@@ -84,49 +107,39 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public readonly string StatusReason;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// Key-value map of resource tags
         /// </summary>
-        public readonly string Id;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetJobQueueResult(
             string arn,
-            ImmutableArray<Outputs.GetJobQueueComputeEnvironmentOrdersResult> computeEnvironmentOrders,
+
+            ImmutableArray<Outputs.GetJobQueueComputeEnvironmentOrderResult> computeEnvironmentOrders,
+
+            string id,
+
             string name,
+
             int priority,
+
             string state,
+
             string status,
+
             string statusReason,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             ComputeEnvironmentOrders = computeEnvironmentOrders;
+            Id = id;
             Name = name;
             Priority = priority;
             State = state;
             Status = status;
             StatusReason = statusReason;
-            Id = id;
+            Tags = tags;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetJobQueueComputeEnvironmentOrdersResult
-    {
-        public readonly string ComputeEnvironment;
-        public readonly int Order;
-
-        [OutputConstructor]
-        private GetJobQueueComputeEnvironmentOrdersResult(
-            string computeEnvironment,
-            int order)
-        {
-            ComputeEnvironment = computeEnvironment;
-            Order = order;
-        }
-    }
     }
 }

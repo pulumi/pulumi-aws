@@ -12,9 +12,88 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Manages a Route53 Hosted Zone.
     /// 
+    /// ## Example Usage
+    /// ### Public Zone
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var primary = new Aws.Route53.Zone("primary", new Aws.Route53.ZoneArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Public Subdomain Zone
+    /// 
+    /// For use in subdomains, note that you need to create a
+    /// `aws.route53.Record` of type `NS` as well as the subdomain
+    /// zone.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Route53.Zone("main", new Aws.Route53.ZoneArgs
+    ///         {
+    ///         });
+    ///         var dev = new Aws.Route53.Zone("dev", new Aws.Route53.ZoneArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "dev" },
+    ///             },
+    ///         });
+    ///         var dev_ns = new Aws.Route53.Record("dev-ns", new Aws.Route53.RecordArgs
+    ///         {
+    ///             ZoneId = main.ZoneId,
+    ///             Name = "dev.example.com",
+    ///             Type = "NS",
+    ///             Ttl = 30,
+    ///             Records = dev.NameServers,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Private Zone
+    /// 
+    /// &gt; **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate ` Zone VPC Association resource. At this time, you cannot use in-line VPC associations in conjunction with any  `aws.route53.ZoneAssociation`  resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [ `ignoreChanges` ](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the  `aws.route53.ZoneAssociation` resource.
+    /// 
+    /// &gt; **NOTE:** Private zones require at least one VPC association at all times.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @private = new Aws.Route53.Zone("private", new Aws.Route53.ZoneArgs
+    ///         {
+    ///             Vpcs = 
+    ///             {
+    ///                 new Aws.Route53.Inputs.ZoneVpcArgs
+    ///                 {
+    ///                     VpcId = aws_vpc.Example.Id,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Zone : Pulumi.CustomResource
     {
@@ -53,13 +132,13 @@ namespace Pulumi.Aws.Route53
         /// A mapping of tags to assign to the zone.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws.route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         /// </summary>
         [Output("vpcs")]
-        public Output<ImmutableArray<Outputs.ZoneVpcs>> Vpcs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ZoneVpc>> Vpcs { get; private set; } = null!;
 
         /// <summary>
         /// The Hosted Zone ID. This can be referenced by zone records.
@@ -76,7 +155,7 @@ namespace Pulumi.Aws.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Zone(string name, ZoneArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:route53/zone:Zone", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:route53/zone:Zone", name, args ?? new ZoneArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -138,26 +217,26 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the zone.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         [Input("vpcs")]
-        private InputList<Inputs.ZoneVpcsArgs>? _vpcs;
+        private InputList<Inputs.ZoneVpcArgs>? _vpcs;
 
         /// <summary>
-        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws.route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         /// </summary>
-        public InputList<Inputs.ZoneVpcsArgs> Vpcs
+        public InputList<Inputs.ZoneVpcArgs> Vpcs
         {
-            get => _vpcs ?? (_vpcs = new InputList<Inputs.ZoneVpcsArgs>());
+            get => _vpcs ?? (_vpcs = new InputList<Inputs.ZoneVpcArgs>());
             set => _vpcs = value;
         }
 
@@ -207,26 +286,26 @@ namespace Pulumi.Aws.Route53
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the zone.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         [Input("vpcs")]
-        private InputList<Inputs.ZoneVpcsGetArgs>? _vpcs;
+        private InputList<Inputs.ZoneVpcGetArgs>? _vpcs;
 
         /// <summary>
-        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws.route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         /// </summary>
-        public InputList<Inputs.ZoneVpcsGetArgs> Vpcs
+        public InputList<Inputs.ZoneVpcGetArgs> Vpcs
         {
-            get => _vpcs ?? (_vpcs = new InputList<Inputs.ZoneVpcsGetArgs>());
+            get => _vpcs ?? (_vpcs = new InputList<Inputs.ZoneVpcGetArgs>());
             set => _vpcs = value;
         }
 
@@ -240,73 +319,5 @@ namespace Pulumi.Aws.Route53
         {
             Comment = "Managed by Pulumi";
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ZoneVpcsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ID of the VPC to associate.
-        /// </summary>
-        [Input("vpcId", required: true)]
-        public Input<string> VpcId { get; set; } = null!;
-
-        /// <summary>
-        /// Region of the VPC to associate. Defaults to AWS provider region.
-        /// </summary>
-        [Input("vpcRegion")]
-        public Input<string>? VpcRegion { get; set; }
-
-        public ZoneVpcsArgs()
-        {
-        }
-    }
-
-    public sealed class ZoneVpcsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ID of the VPC to associate.
-        /// </summary>
-        [Input("vpcId", required: true)]
-        public Input<string> VpcId { get; set; } = null!;
-
-        /// <summary>
-        /// Region of the VPC to associate. Defaults to AWS provider region.
-        /// </summary>
-        [Input("vpcRegion")]
-        public Input<string>? VpcRegion { get; set; }
-
-        public ZoneVpcsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ZoneVpcs
-    {
-        /// <summary>
-        /// ID of the VPC to associate.
-        /// </summary>
-        public readonly string VpcId;
-        /// <summary>
-        /// Region of the VPC to associate. Defaults to AWS provider region.
-        /// </summary>
-        public readonly string VpcRegion;
-
-        [OutputConstructor]
-        private ZoneVpcs(
-            string vpcId,
-            string vpcRegion)
-        {
-            VpcId = vpcId;
-            VpcRegion = vpcRegion;
-        }
-    }
     }
 }

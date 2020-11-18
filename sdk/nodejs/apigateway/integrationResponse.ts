@@ -2,56 +2,51 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {RestApi} from "./restApi";
+import {RestApi} from "./index";
 
 /**
  * Provides an HTTP Method Integration Response for an API Gateway Resource.
- * 
+ *
  * > **Note:** Depends on having `aws.apigateway.Integration` inside your rest api. To ensure this
  * you might need to add an explicit `dependsOn` for clean runs.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
- *     description: "This is my API for demonstration purposes",
- * });
- * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
+ *
+ * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
+ * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
+ *     restApi: myDemoAPI.id,
  *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
- *     restApi: myDemoAPI.id,
  * });
- * const myDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
- *     authorization: "NONE",
+ * const myDemoMethod = new aws.apigateway.Method("myDemoMethod", {
+ *     restApi: myDemoAPI.id,
+ *     resourceId: myDemoResource.id,
  *     httpMethod: "GET",
- *     resourceId: myDemoResource.id,
- *     restApi: myDemoAPI.id,
+ *     authorization: "NONE",
  * });
- * const myDemoIntegration = new aws.apigateway.Integration("MyDemoIntegration", {
- *     httpMethod: myDemoMethod.httpMethod,
- *     resourceId: myDemoResource.id,
+ * const myDemoIntegration = new aws.apigateway.Integration("myDemoIntegration", {
  *     restApi: myDemoAPI.id,
+ *     resourceId: myDemoResource.id,
+ *     httpMethod: myDemoMethod.httpMethod,
  *     type: "MOCK",
  * });
  * const response200 = new aws.apigateway.MethodResponse("response200", {
- *     httpMethod: myDemoMethod.httpMethod,
- *     resourceId: myDemoResource.id,
  *     restApi: myDemoAPI.id,
+ *     resourceId: myDemoResource.id,
+ *     httpMethod: myDemoMethod.httpMethod,
  *     statusCode: "200",
  * });
- * const myDemoIntegrationResponse = new aws.apigateway.IntegrationResponse("MyDemoIntegrationResponse", {
- *     httpMethod: myDemoMethod.httpMethod,
+ * const myDemoIntegrationResponse = new aws.apigateway.IntegrationResponse("myDemoIntegrationResponse", {
+ *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
- *     // Transforms the backend JSON response to XML
+ *     httpMethod: myDemoMethod.httpMethod,
+ *     statusCode: response200.statusCode,
  *     responseTemplates: {
  *         "application/xml": `#set($inputRoot = $input.path('$'))
  * <?xml version="1.0" encoding="UTF-8"?>
@@ -60,12 +55,8 @@ import {RestApi} from "./restApi";
  * </message>
  * `,
  *     },
- *     restApi: myDemoAPI.id,
- *     statusCode: response200.statusCode,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration_response.html.markdown.
  */
 export class IntegrationResponse extends pulumi.CustomResource {
     /**
@@ -75,6 +66,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IntegrationResponseState, opts?: pulumi.CustomResourceOptions): IntegrationResponse {
         return new IntegrationResponse(name, <any>state, { ...opts, id: id });

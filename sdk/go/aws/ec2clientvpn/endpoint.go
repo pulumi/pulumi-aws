@@ -7,16 +7,54 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
 // [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2clientvpn"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2clientvpn.NewEndpoint(ctx, "example", &ec2clientvpn.EndpointArgs{
+// 			Description:          pulumi.String("clientvpn-example"),
+// 			ServerCertificateArn: pulumi.Any(aws_acm_certificate.Cert.Arn),
+// 			ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
+// 			AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
+// 				&ec2clientvpn.EndpointAuthenticationOptionArgs{
+// 					Type:                    pulumi.String("certificate-authentication"),
+// 					RootCertificateChainArn: pulumi.Any(aws_acm_certificate.Root_cert.Arn),
+// 				},
+// 			},
+// 			ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
+// 				Enabled:             pulumi.Bool(true),
+// 				CloudwatchLogGroup:  pulumi.Any(aws_cloudwatch_log_group.Lg.Name),
+// 				CloudwatchLogStream: pulumi.Any(aws_cloudwatch_log_stream.Ls.Name),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Endpoint struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Client VPN endpoint.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions EndpointAuthenticationOptionsOutput `pulumi:"authenticationOptions"`
+	AuthenticationOptions EndpointAuthenticationOptionArrayOutput `pulumi:"authenticationOptions"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
 	ClientCidrBlock pulumi.StringOutput `pulumi:"clientCidrBlock"`
 	// Information about the client connection logging options.
@@ -34,7 +72,7 @@ type Endpoint struct {
 	// The current state of the Client VPN endpoint.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrOutput `pulumi:"transportProtocol"`
 }
@@ -79,8 +117,10 @@ func GetEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
+	// The ARN of the Client VPN endpoint.
+	Arn *string `pulumi:"arn"`
 	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions *EndpointAuthenticationOptions `pulumi:"authenticationOptions"`
+	AuthenticationOptions []EndpointAuthenticationOption `pulumi:"authenticationOptions"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
 	ClientCidrBlock *string `pulumi:"clientCidrBlock"`
 	// Information about the client connection logging options.
@@ -98,14 +138,16 @@ type endpointState struct {
 	// The current state of the Client VPN endpoint.
 	Status *string `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol *string `pulumi:"transportProtocol"`
 }
 
 type EndpointState struct {
+	// The ARN of the Client VPN endpoint.
+	Arn pulumi.StringPtrInput
 	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions EndpointAuthenticationOptionsPtrInput
+	AuthenticationOptions EndpointAuthenticationOptionArrayInput
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
 	ClientCidrBlock pulumi.StringPtrInput
 	// Information about the client connection logging options.
@@ -123,7 +165,7 @@ type EndpointState struct {
 	// The current state of the Client VPN endpoint.
 	Status pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrInput
 }
@@ -134,7 +176,7 @@ func (EndpointState) ElementType() reflect.Type {
 
 type endpointArgs struct {
 	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions EndpointAuthenticationOptions `pulumi:"authenticationOptions"`
+	AuthenticationOptions []EndpointAuthenticationOption `pulumi:"authenticationOptions"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
 	ClientCidrBlock string `pulumi:"clientCidrBlock"`
 	// Information about the client connection logging options.
@@ -148,7 +190,7 @@ type endpointArgs struct {
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel *bool `pulumi:"splitTunnel"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol *string `pulumi:"transportProtocol"`
 }
@@ -156,7 +198,7 @@ type endpointArgs struct {
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
 	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions EndpointAuthenticationOptionsInput
+	AuthenticationOptions EndpointAuthenticationOptionArrayInput
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
 	ClientCidrBlock pulumi.StringInput
 	// Information about the client connection logging options.
@@ -170,7 +212,7 @@ type EndpointArgs struct {
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrInput
 }

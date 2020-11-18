@@ -13,9 +13,212 @@ namespace Pulumi.Aws.Ec2
     /// Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
     /// instances to be requested on the Spot market.
     /// 
+    /// ## Example Usage
+    /// ### Using launch specifications
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_fleet_request.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Request a Spot fleet
+    ///         var cheapCompute = new Aws.Ec2.SpotFleetRequest("cheapCompute", new Aws.Ec2.SpotFleetRequestArgs
+    ///         {
+    ///             IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///             SpotPrice = "0.03",
+    ///             AllocationStrategy = "diversified",
+    ///             TargetCapacity = 6,
+    ///             ValidUntil = "2019-11-04T20:44:20Z",
+    ///             LaunchSpecifications = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///                 {
+    ///                     InstanceType = "m4.10xlarge",
+    ///                     Ami = "ami-1234",
+    ///                     SpotPrice = "2.793",
+    ///                     PlacementTenancy = "dedicated",
+    ///                     IamInstanceProfileArn = aws_iam_instance_profile.Example.Arn,
+    ///                 },
+    ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///                 {
+    ///                     InstanceType = "m4.4xlarge",
+    ///                     Ami = "ami-5678",
+    ///                     KeyName = "my-key",
+    ///                     SpotPrice = "1.117",
+    ///                     IamInstanceProfileArn = aws_iam_instance_profile.Example.Arn,
+    ///                     AvailabilityZone = "us-west-1a",
+    ///                     SubnetId = "subnet-1234",
+    ///                     WeightedCapacity = "35",
+    ///                     RootBlockDevices = 
+    ///                     {
+    ///                         new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs
+    ///                         {
+    ///                             VolumeSize = 300,
+    ///                             VolumeType = "gp2",
+    ///                         },
+    ///                     },
+    ///                     Tags = 
+    ///                     {
+    ///                         { "Name", "spot-fleet-example" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Using launch templates
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooLaunchTemplate = new Aws.Ec2.LaunchTemplate("fooLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///         {
+    ///             ImageId = "ami-516b9131",
+    ///             InstanceType = "m1.small",
+    ///             KeyName = "some-key",
+    ///         });
+    ///         var fooSpotFleetRequest = new Aws.Ec2.SpotFleetRequest("fooSpotFleetRequest", new Aws.Ec2.SpotFleetRequestArgs
+    ///         {
+    ///             IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///             SpotPrice = "0.005",
+    ///             TargetCapacity = 2,
+    ///             ValidUntil = "2019-11-04T20:44:20Z",
+    ///             LaunchTemplateConfigs = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigArgs
+    ///                 {
+    ///                     LaunchTemplateSpecification = new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs
+    ///                     {
+    ///                         Id = fooLaunchTemplate.Id,
+    ///                         Version = fooLaunchTemplate.LatestVersion,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 aws_iam_policy_attachment.Test_attach,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// &gt; **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
+    /// launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used:
+    /// ### Using multiple launch specifications
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ec2.SpotFleetRequest("foo", new Aws.Ec2.SpotFleetRequestArgs
+    ///         {
+    ///             IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///             LaunchSpecifications = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///                 {
+    ///                     Ami = "ami-d06a90b0",
+    ///                     AvailabilityZone = "us-west-2a",
+    ///                     InstanceType = "m1.small",
+    ///                     KeyName = "my-key",
+    ///                 },
+    ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///                 {
+    ///                     Ami = "ami-d06a90b0",
+    ///                     AvailabilityZone = "us-west-2a",
+    ///                     InstanceType = "m5.large",
+    ///                     KeyName = "my-key",
+    ///                 },
+    ///             },
+    ///             SpotPrice = "0.005",
+    ///             TargetCapacity = 2,
+    ///             ValidUntil = "2019-11-04T20:44:20Z",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Using multiple launch configurations
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = Output.Create(Aws.Ec2.GetSubnetIds.InvokeAsync(new Aws.Ec2.GetSubnetIdsArgs
+    ///         {
+    ///             VpcId = @var.Vpc_id,
+    ///         }));
+    ///         var fooLaunchTemplate = new Aws.Ec2.LaunchTemplate("fooLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///         {
+    ///             ImageId = "ami-516b9131",
+    ///             InstanceType = "m1.small",
+    ///             KeyName = "some-key",
+    ///         });
+    ///         var fooSpotFleetRequest = new Aws.Ec2.SpotFleetRequest("fooSpotFleetRequest", new Aws.Ec2.SpotFleetRequestArgs
+    ///         {
+    ///             IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///             SpotPrice = "0.005",
+    ///             TargetCapacity = 2,
+    ///             ValidUntil = "2019-11-04T20:44:20Z",
+    ///             LaunchTemplateConfigs = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigArgs
+    ///                 {
+    ///                     LaunchTemplateSpecification = new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs
+    ///                     {
+    ///                         Id = fooLaunchTemplate.Id,
+    ///                         Version = fooLaunchTemplate.LatestVersion,
+    ///                     },
+    ///                     Overrides = 
+    ///                     {
+    ///                         new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
+    ///                         {
+    ///                             SubnetId = data.Aws_subnets.Example.Ids[0],
+    ///                         },
+    ///                         new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
+    ///                         {
+    ///                             SubnetId = data.Aws_subnets.Example.Ids[1],
+    ///                         },
+    ///                         new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
+    ///                         {
+    ///                             SubnetId = data.Aws_subnets.Example.Ids[2],
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 aws_iam_policy_attachment.Test_attach,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SpotFleetRequest : Pulumi.CustomResource
     {
@@ -63,7 +266,6 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> InstanceInterruptionBehaviour { get; private set; } = null!;
 
         /// <summary>
-        /// 
         /// The number of Spot pools across which to allocate your target Spot capacity.
         /// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
         /// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -75,10 +277,16 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
-        /// across different markets and instance types.
+        /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
         /// </summary>
         [Output("launchSpecifications")]
-        public Output<ImmutableArray<Outputs.SpotFleetRequestLaunchSpecifications>> LaunchSpecifications { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SpotFleetRequestLaunchSpecification>> LaunchSpecifications { get; private set; } = null!;
+
+        /// <summary>
+        /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// </summary>
+        [Output("launchTemplateConfigs")]
+        public Output<ImmutableArray<Outputs.SpotFleetRequestLaunchTemplateConfig>> LaunchTemplateConfigs { get; private set; } = null!;
 
         /// <summary>
         /// A list of elastic load balancer names to add to the Spot fleet.
@@ -93,7 +301,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> ReplaceUnhealthyInstances { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum bid price per unit hour.
+        /// The maximum spot bid for this override request.
         /// </summary>
         [Output("spotPrice")]
         public Output<string?> SpotPrice { get; private set; } = null!;
@@ -103,6 +311,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("spotRequestState")]
         public Output<string> SpotRequestState { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The number of units to request. You can choose to set the
@@ -132,7 +346,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> ValidFrom { get; private set; } = null!;
 
         /// <summary>
-        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
         /// </summary>
         [Output("validUntil")]
         public Output<string?> ValidUntil { get; private set; } = null!;
@@ -154,7 +368,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SpotFleetRequest(string name, SpotFleetRequestArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/spotFleetRequest:SpotFleetRequest", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/spotFleetRequest:SpotFleetRequest", name, args ?? new SpotFleetRequestArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -232,7 +446,6 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceInterruptionBehaviour { get; set; }
 
         /// <summary>
-        /// 
         /// The number of Spot pools across which to allocate your target Spot capacity.
         /// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
         /// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -241,18 +454,30 @@ namespace Pulumi.Aws.Ec2
         [Input("instancePoolsToUseCount")]
         public Input<int>? InstancePoolsToUseCount { get; set; }
 
-        [Input("launchSpecifications", required: true)]
-        private InputList<Inputs.SpotFleetRequestLaunchSpecificationsArgs>? _launchSpecifications;
+        [Input("launchSpecifications")]
+        private InputList<Inputs.SpotFleetRequestLaunchSpecificationArgs>? _launchSpecifications;
 
         /// <summary>
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
-        /// across different markets and instance types.
+        /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
         /// </summary>
-        public InputList<Inputs.SpotFleetRequestLaunchSpecificationsArgs> LaunchSpecifications
+        public InputList<Inputs.SpotFleetRequestLaunchSpecificationArgs> LaunchSpecifications
         {
-            get => _launchSpecifications ?? (_launchSpecifications = new InputList<Inputs.SpotFleetRequestLaunchSpecificationsArgs>());
+            get => _launchSpecifications ?? (_launchSpecifications = new InputList<Inputs.SpotFleetRequestLaunchSpecificationArgs>());
             set => _launchSpecifications = value;
+        }
+
+        [Input("launchTemplateConfigs")]
+        private InputList<Inputs.SpotFleetRequestLaunchTemplateConfigArgs>? _launchTemplateConfigs;
+
+        /// <summary>
+        /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// </summary>
+        public InputList<Inputs.SpotFleetRequestLaunchTemplateConfigArgs> LaunchTemplateConfigs
+        {
+            get => _launchTemplateConfigs ?? (_launchTemplateConfigs = new InputList<Inputs.SpotFleetRequestLaunchTemplateConfigArgs>());
+            set => _launchTemplateConfigs = value;
         }
 
         [Input("loadBalancers")]
@@ -274,10 +499,22 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
 
         /// <summary>
-        /// The maximum bid price per unit hour.
+        /// The maximum spot bid for this override request.
         /// </summary>
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The number of units to request. You can choose to set the
@@ -313,7 +550,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ValidFrom { get; set; }
 
         /// <summary>
-        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
         /// </summary>
         [Input("validUntil")]
         public Input<string>? ValidUntil { get; set; }
@@ -377,7 +614,6 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceInterruptionBehaviour { get; set; }
 
         /// <summary>
-        /// 
         /// The number of Spot pools across which to allocate your target Spot capacity.
         /// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
         /// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -387,17 +623,29 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? InstancePoolsToUseCount { get; set; }
 
         [Input("launchSpecifications")]
-        private InputList<Inputs.SpotFleetRequestLaunchSpecificationsGetArgs>? _launchSpecifications;
+        private InputList<Inputs.SpotFleetRequestLaunchSpecificationGetArgs>? _launchSpecifications;
 
         /// <summary>
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
-        /// across different markets and instance types.
+        /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
         /// </summary>
-        public InputList<Inputs.SpotFleetRequestLaunchSpecificationsGetArgs> LaunchSpecifications
+        public InputList<Inputs.SpotFleetRequestLaunchSpecificationGetArgs> LaunchSpecifications
         {
-            get => _launchSpecifications ?? (_launchSpecifications = new InputList<Inputs.SpotFleetRequestLaunchSpecificationsGetArgs>());
+            get => _launchSpecifications ?? (_launchSpecifications = new InputList<Inputs.SpotFleetRequestLaunchSpecificationGetArgs>());
             set => _launchSpecifications = value;
+        }
+
+        [Input("launchTemplateConfigs")]
+        private InputList<Inputs.SpotFleetRequestLaunchTemplateConfigGetArgs>? _launchTemplateConfigs;
+
+        /// <summary>
+        /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// </summary>
+        public InputList<Inputs.SpotFleetRequestLaunchTemplateConfigGetArgs> LaunchTemplateConfigs
+        {
+            get => _launchTemplateConfigs ?? (_launchTemplateConfigs = new InputList<Inputs.SpotFleetRequestLaunchTemplateConfigGetArgs>());
+            set => _launchTemplateConfigs = value;
         }
 
         [Input("loadBalancers")]
@@ -419,7 +667,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
 
         /// <summary>
-        /// The maximum bid price per unit hour.
+        /// The maximum spot bid for this override request.
         /// </summary>
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }
@@ -429,6 +677,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("spotRequestState")]
         public Input<string>? SpotRequestState { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The number of units to request. You can choose to set the
@@ -464,7 +724,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ValidFrom { get; set; }
 
         /// <summary>
-        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
         /// </summary>
         [Input("validUntil")]
         public Input<string>? ValidUntil { get; set; }
@@ -480,503 +740,5 @@ namespace Pulumi.Aws.Ec2
         public SpotFleetRequestState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SpotFleetRequestLaunchSpecificationsArgs : Pulumi.ResourceArgs
-    {
-        [Input("ami", required: true)]
-        public Input<string> Ami { get; set; } = null!;
-
-        [Input("associatePublicIpAddress")]
-        public Input<bool>? AssociatePublicIpAddress { get; set; }
-
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
-        [Input("ebsBlockDevices")]
-        private InputList<SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArgs>? _ebsBlockDevices;
-        public InputList<SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArgs> EbsBlockDevices
-        {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArgs>());
-            set => _ebsBlockDevices = value;
-        }
-
-        [Input("ebsOptimized")]
-        public Input<bool>? EbsOptimized { get; set; }
-
-        [Input("ephemeralBlockDevices")]
-        private InputList<SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArgs>? _ephemeralBlockDevices;
-        public InputList<SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArgs> EphemeralBlockDevices
-        {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArgs>());
-            set => _ephemeralBlockDevices = value;
-        }
-
-        [Input("iamInstanceProfile")]
-        public Input<string>? IamInstanceProfile { get; set; }
-
-        [Input("iamInstanceProfileArn")]
-        public Input<string>? IamInstanceProfileArn { get; set; }
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        [Input("keyName")]
-        public Input<string>? KeyName { get; set; }
-
-        [Input("monitoring")]
-        public Input<bool>? Monitoring { get; set; }
-
-        [Input("placementGroup")]
-        public Input<string>? PlacementGroup { get; set; }
-
-        [Input("placementTenancy")]
-        public Input<string>? PlacementTenancy { get; set; }
-
-        [Input("rootBlockDevices")]
-        private InputList<SpotFleetRequestLaunchSpecificationsRootBlockDevicesArgs>? _rootBlockDevices;
-        public InputList<SpotFleetRequestLaunchSpecificationsRootBlockDevicesArgs> RootBlockDevices
-        {
-            get => _rootBlockDevices ?? (_rootBlockDevices = new InputList<SpotFleetRequestLaunchSpecificationsRootBlockDevicesArgs>());
-            set => _rootBlockDevices = value;
-        }
-
-        /// <summary>
-        /// The maximum bid price per unit hour.
-        /// </summary>
-        [Input("spotPrice")]
-        public Input<string>? SpotPrice { get; set; }
-
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        [Input("tags")]
-        private InputMap<object>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        public InputMap<object> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<object>());
-            set => _tags = value;
-        }
-
-        [Input("userData")]
-        public Input<string>? UserData { get; set; }
-
-        [Input("vpcSecurityGroupIds")]
-        private InputList<string>? _vpcSecurityGroupIds;
-        public InputList<string> VpcSecurityGroupIds
-        {
-            get => _vpcSecurityGroupIds ?? (_vpcSecurityGroupIds = new InputList<string>());
-            set => _vpcSecurityGroupIds = value;
-        }
-
-        [Input("weightedCapacity")]
-        public Input<string>? WeightedCapacity { get; set; }
-
-        public SpotFleetRequestLaunchSpecificationsArgs()
-        {
-        }
-    }
-
-    public sealed class SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class SpotFleetRequestLaunchSpecificationsEbsBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public SpotFleetRequestLaunchSpecificationsEbsBlockDevicesGetArgs()
-        {
-        }
-    }
-
-    public sealed class SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("virtualName", required: true)]
-        public Input<string> VirtualName { get; set; } = null!;
-
-        public SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("virtualName", required: true)]
-        public Input<string> VirtualName { get; set; } = null!;
-
-        public SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesGetArgs()
-        {
-        }
-    }
-
-    public sealed class SpotFleetRequestLaunchSpecificationsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("ami", required: true)]
-        public Input<string> Ami { get; set; } = null!;
-
-        [Input("associatePublicIpAddress")]
-        public Input<bool>? AssociatePublicIpAddress { get; set; }
-
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
-        [Input("ebsBlockDevices")]
-        private InputList<SpotFleetRequestLaunchSpecificationsEbsBlockDevicesGetArgs>? _ebsBlockDevices;
-        public InputList<SpotFleetRequestLaunchSpecificationsEbsBlockDevicesGetArgs> EbsBlockDevices
-        {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<SpotFleetRequestLaunchSpecificationsEbsBlockDevicesGetArgs>());
-            set => _ebsBlockDevices = value;
-        }
-
-        [Input("ebsOptimized")]
-        public Input<bool>? EbsOptimized { get; set; }
-
-        [Input("ephemeralBlockDevices")]
-        private InputList<SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesGetArgs>? _ephemeralBlockDevices;
-        public InputList<SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesGetArgs> EphemeralBlockDevices
-        {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesGetArgs>());
-            set => _ephemeralBlockDevices = value;
-        }
-
-        [Input("iamInstanceProfile")]
-        public Input<string>? IamInstanceProfile { get; set; }
-
-        [Input("iamInstanceProfileArn")]
-        public Input<string>? IamInstanceProfileArn { get; set; }
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        [Input("keyName")]
-        public Input<string>? KeyName { get; set; }
-
-        [Input("monitoring")]
-        public Input<bool>? Monitoring { get; set; }
-
-        [Input("placementGroup")]
-        public Input<string>? PlacementGroup { get; set; }
-
-        [Input("placementTenancy")]
-        public Input<string>? PlacementTenancy { get; set; }
-
-        [Input("rootBlockDevices")]
-        private InputList<SpotFleetRequestLaunchSpecificationsRootBlockDevicesGetArgs>? _rootBlockDevices;
-        public InputList<SpotFleetRequestLaunchSpecificationsRootBlockDevicesGetArgs> RootBlockDevices
-        {
-            get => _rootBlockDevices ?? (_rootBlockDevices = new InputList<SpotFleetRequestLaunchSpecificationsRootBlockDevicesGetArgs>());
-            set => _rootBlockDevices = value;
-        }
-
-        /// <summary>
-        /// The maximum bid price per unit hour.
-        /// </summary>
-        [Input("spotPrice")]
-        public Input<string>? SpotPrice { get; set; }
-
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        [Input("tags")]
-        private InputMap<object>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        public InputMap<object> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<object>());
-            set => _tags = value;
-        }
-
-        [Input("userData")]
-        public Input<string>? UserData { get; set; }
-
-        [Input("vpcSecurityGroupIds")]
-        private InputList<string>? _vpcSecurityGroupIds;
-        public InputList<string> VpcSecurityGroupIds
-        {
-            get => _vpcSecurityGroupIds ?? (_vpcSecurityGroupIds = new InputList<string>());
-            set => _vpcSecurityGroupIds = value;
-        }
-
-        [Input("weightedCapacity")]
-        public Input<string>? WeightedCapacity { get; set; }
-
-        public SpotFleetRequestLaunchSpecificationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class SpotFleetRequestLaunchSpecificationsRootBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public SpotFleetRequestLaunchSpecificationsRootBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class SpotFleetRequestLaunchSpecificationsRootBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public SpotFleetRequestLaunchSpecificationsRootBlockDevicesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SpotFleetRequestLaunchSpecifications
-    {
-        public readonly string Ami;
-        public readonly bool? AssociatePublicIpAddress;
-        public readonly string AvailabilityZone;
-        public readonly ImmutableArray<SpotFleetRequestLaunchSpecificationsEbsBlockDevices> EbsBlockDevices;
-        public readonly bool? EbsOptimized;
-        public readonly ImmutableArray<SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices> EphemeralBlockDevices;
-        public readonly string? IamInstanceProfile;
-        public readonly string? IamInstanceProfileArn;
-        public readonly string InstanceType;
-        public readonly string KeyName;
-        public readonly bool? Monitoring;
-        public readonly string PlacementGroup;
-        public readonly string? PlacementTenancy;
-        public readonly ImmutableArray<SpotFleetRequestLaunchSpecificationsRootBlockDevices> RootBlockDevices;
-        /// <summary>
-        /// The maximum bid price per unit hour.
-        /// </summary>
-        public readonly string? SpotPrice;
-        public readonly string SubnetId;
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
-        public readonly string? UserData;
-        public readonly ImmutableArray<string> VpcSecurityGroupIds;
-        public readonly string? WeightedCapacity;
-
-        [OutputConstructor]
-        private SpotFleetRequestLaunchSpecifications(
-            string ami,
-            bool? associatePublicIpAddress,
-            string availabilityZone,
-            ImmutableArray<SpotFleetRequestLaunchSpecificationsEbsBlockDevices> ebsBlockDevices,
-            bool? ebsOptimized,
-            ImmutableArray<SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices> ephemeralBlockDevices,
-            string? iamInstanceProfile,
-            string? iamInstanceProfileArn,
-            string instanceType,
-            string keyName,
-            bool? monitoring,
-            string placementGroup,
-            string? placementTenancy,
-            ImmutableArray<SpotFleetRequestLaunchSpecificationsRootBlockDevices> rootBlockDevices,
-            string? spotPrice,
-            string subnetId,
-            ImmutableDictionary<string, object>? tags,
-            string? userData,
-            ImmutableArray<string> vpcSecurityGroupIds,
-            string? weightedCapacity)
-        {
-            Ami = ami;
-            AssociatePublicIpAddress = associatePublicIpAddress;
-            AvailabilityZone = availabilityZone;
-            EbsBlockDevices = ebsBlockDevices;
-            EbsOptimized = ebsOptimized;
-            EphemeralBlockDevices = ephemeralBlockDevices;
-            IamInstanceProfile = iamInstanceProfile;
-            IamInstanceProfileArn = iamInstanceProfileArn;
-            InstanceType = instanceType;
-            KeyName = keyName;
-            Monitoring = monitoring;
-            PlacementGroup = placementGroup;
-            PlacementTenancy = placementTenancy;
-            RootBlockDevices = rootBlockDevices;
-            SpotPrice = spotPrice;
-            SubnetId = subnetId;
-            Tags = tags;
-            UserData = userData;
-            VpcSecurityGroupIds = vpcSecurityGroupIds;
-            WeightedCapacity = weightedCapacity;
-        }
-    }
-
-    [OutputType]
-    public sealed class SpotFleetRequestLaunchSpecificationsEbsBlockDevices
-    {
-        public readonly bool? DeleteOnTermination;
-        public readonly string DeviceName;
-        public readonly bool Encrypted;
-        public readonly int Iops;
-        public readonly string KmsKeyId;
-        public readonly string SnapshotId;
-        public readonly int VolumeSize;
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private SpotFleetRequestLaunchSpecificationsEbsBlockDevices(
-            bool? deleteOnTermination,
-            string deviceName,
-            bool encrypted,
-            int iops,
-            string kmsKeyId,
-            string snapshotId,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            DeviceName = deviceName;
-            Encrypted = encrypted;
-            Iops = iops;
-            KmsKeyId = kmsKeyId;
-            SnapshotId = snapshotId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
-
-    [OutputType]
-    public sealed class SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices
-    {
-        public readonly string DeviceName;
-        public readonly string VirtualName;
-
-        [OutputConstructor]
-        private SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices(
-            string deviceName,
-            string virtualName)
-        {
-            DeviceName = deviceName;
-            VirtualName = virtualName;
-        }
-    }
-
-    [OutputType]
-    public sealed class SpotFleetRequestLaunchSpecificationsRootBlockDevices
-    {
-        public readonly bool? DeleteOnTermination;
-        public readonly bool Encrypted;
-        public readonly int Iops;
-        public readonly string KmsKeyId;
-        public readonly int VolumeSize;
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private SpotFleetRequestLaunchSpecificationsRootBlockDevices(
-            bool? deleteOnTermination,
-            bool encrypted,
-            int iops,
-            string kmsKeyId,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            Encrypted = encrypted;
-            Iops = iops;
-            KmsKeyId = kmsKeyId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
     }
 }

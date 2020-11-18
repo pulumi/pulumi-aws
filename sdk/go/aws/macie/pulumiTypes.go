@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type S3BucketAssociationClassificationType struct {
@@ -19,6 +19,10 @@ type S3BucketAssociationClassificationType struct {
 	OneTime *string `pulumi:"oneTime"`
 }
 
+// S3BucketAssociationClassificationTypeInput is an input type that accepts S3BucketAssociationClassificationTypeArgs and S3BucketAssociationClassificationTypeOutput values.
+// You can construct a concrete instance of `S3BucketAssociationClassificationTypeInput` via:
+//
+//          S3BucketAssociationClassificationTypeArgs{...}
 type S3BucketAssociationClassificationTypeInput interface {
 	pulumi.Input
 
@@ -55,6 +59,14 @@ func (i S3BucketAssociationClassificationTypeArgs) ToS3BucketAssociationClassifi
 	return pulumi.ToOutputWithContext(ctx, i).(S3BucketAssociationClassificationTypeOutput).ToS3BucketAssociationClassificationTypePtrOutputWithContext(ctx)
 }
 
+// S3BucketAssociationClassificationTypePtrInput is an input type that accepts S3BucketAssociationClassificationTypeArgs, S3BucketAssociationClassificationTypePtr and S3BucketAssociationClassificationTypePtrOutput values.
+// You can construct a concrete instance of `S3BucketAssociationClassificationTypePtrInput` via:
+//
+//          S3BucketAssociationClassificationTypeArgs{...}
+//
+//  or:
+//
+//          nil
 type S3BucketAssociationClassificationTypePtrInput interface {
 	pulumi.Input
 
@@ -137,13 +149,23 @@ func (o S3BucketAssociationClassificationTypePtrOutput) Elem() S3BucketAssociati
 // A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
 // The only valid value is the default value, `FULL`.
 func (o S3BucketAssociationClassificationTypePtrOutput) Continuous() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v S3BucketAssociationClassificationType) *string { return v.Continuous }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *S3BucketAssociationClassificationType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Continuous
+	}).(pulumi.StringPtrOutput)
 }
 
 // A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
 // Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
 func (o S3BucketAssociationClassificationTypePtrOutput) OneTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v S3BucketAssociationClassificationType) *string { return v.OneTime }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *S3BucketAssociationClassificationType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OneTime
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -12,9 +12,29 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_public_access_block.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var exampleBucketPublicAccessBlock = new Aws.S3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", new Aws.S3.BucketPublicAccessBlockArgs
+    ///         {
+    ///             Bucket = exampleBucket.Id,
+    ///             BlockPublicAcls = true,
+    ///             BlockPublicPolicy = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class BucketPublicAccessBlock : Pulumi.CustomResource
     {
@@ -62,7 +82,7 @@ namespace Pulumi.Aws.S3
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BucketPublicAccessBlock(string name, BucketPublicAccessBlockArgs args, CustomResourceOptions? options = null)
-            : base("aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock", name, args ?? new BucketPublicAccessBlockArgs(), MakeResourceOptions(options, ""))
         {
         }
 

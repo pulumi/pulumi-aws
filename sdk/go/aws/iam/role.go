@@ -7,12 +7,83 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an IAM role.
 //
-// > *NOTE:* If policies are attached to the role via the [`iam.PolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the role `name` or `path`, the `forceDetachPolicies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`iam.RolePolicyAttachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html) does not have this requirement.
+// > *NOTE:* If policies are attached to the role via the `iam.PolicyAttachment` resource and you are modifying the role `name` or `path`, the `forceDetachPolicies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `iam.RolePolicyAttachment` resource (recommended) does not have this requirement.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"ec2.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n", "\n")),
+// 			Tags: pulumi.StringMap{
+// 				"tag-key": pulumi.String("tag-value"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Example of Using Data Source for Assume Role Policy
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		instance_assume_role_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			Statements: []iam.GetPolicyDocumentStatement{
+// 				iam.GetPolicyDocumentStatement{
+// 					Actions: []string{
+// 						"sts:AssumeRole",
+// 					},
+// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// 						iam.GetPolicyDocumentStatementPrincipal{
+// 							Type: "Service",
+// 							Identifiers: []string{
+// 								"ec2.amazonaws.com",
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRole(ctx, "instance", &iam.RoleArgs{
+// 			Path:             pulumi.String("/system/"),
+// 			AssumeRolePolicy: pulumi.String(instance_assume_role_policy.Json),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Role struct {
 	pulumi.CustomResourceState
 
@@ -37,8 +108,8 @@ type Role struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrOutput `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM role
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of tags for the IAM role
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The stable and unique string identifying the role.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
@@ -95,8 +166,8 @@ type roleState struct {
 	Path *string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM role
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of tags for the IAM role
+	Tags map[string]string `pulumi:"tags"`
 	// The stable and unique string identifying the role.
 	UniqueId *string `pulumi:"uniqueId"`
 }
@@ -123,8 +194,8 @@ type RoleState struct {
 	Path pulumi.StringPtrInput
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrInput
-	// Key-value mapping of tags for the IAM role
-	Tags pulumi.MapInput
+	// Key-value map of tags for the IAM role
+	Tags pulumi.StringMapInput
 	// The stable and unique string identifying the role.
 	UniqueId pulumi.StringPtrInput
 }
@@ -151,8 +222,8 @@ type roleArgs struct {
 	Path *string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM role
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of tags for the IAM role
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Role resource.
@@ -174,8 +245,8 @@ type RoleArgs struct {
 	Path pulumi.StringPtrInput
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrInput
-	// Key-value mapping of tags for the IAM role
-	Tags pulumi.MapInput
+	// Key-value map of tags for the IAM role
+	Tags pulumi.StringMapInput
 }
 
 func (RoleArgs) ElementType() reflect.Type {

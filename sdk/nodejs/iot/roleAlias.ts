@@ -6,35 +6,29 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IoT role alias.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const role = new aws.iam.Role("role", {
- *     policy: `{
+ *
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
  *       "Effect": "Allow",
- *       "Principal": {"Service": "credentials.iot.amazonaws.com"},
+ *       "Principal": {"Service": "credentials.iot.amazonaws.com",
  *       "Action": "sts:AssumeRole"
  *     }
  *   ]
  * }
- * `,
- * });
+ * `});
  * const alias = new aws.iot.RoleAlias("alias", {
  *     alias: "Thermostat-dynamodb-access-role-alias",
  *     roleArn: role.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_role_alias.html.markdown.
  */
 export class RoleAlias extends pulumi.CustomResource {
     /**
@@ -44,6 +38,7 @@ export class RoleAlias extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RoleAliasState, opts?: pulumi.CustomResourceOptions): RoleAlias {
         return new RoleAlias(name, <any>state, { ...opts, id: id });

@@ -4,7 +4,7 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `ec2.Route` provides details about a specific Route.
@@ -12,6 +12,51 @@ import (
 // This resource can prove useful when finding the resource
 // associated with a CIDR. For example, finding the peering
 // connection associated with a CIDR value.
+//
+// ## Example Usage
+//
+// The following example shows how one might use a CIDR value to find a network interface id
+// and use this to create a data source of that network interface.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		subnetId := cfg.RequireObject("subnetId")
+// 		opt0 := subnetId
+// 		_, err := ec2.LookupRouteTable(ctx, &ec2.LookupRouteTableArgs{
+// 			SubnetId: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt1 := "10.0.1.0/24"
+// 		route, err := ec2.LookupRoute(ctx, &ec2.LookupRouteArgs{
+// 			RouteTableId:         aws_route_table.Selected.Id,
+// 			DestinationCidrBlock: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt2 := route.NetworkInterfaceId
+// 		_, err = ec2.LookupNetworkInterface(ctx, &ec2.LookupNetworkInterfaceArgs{
+// 			Id: &opt2,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
 	var rv LookupRouteResult
 	err := ctx.Invoke("aws:ec2/getRoute:getRoute", args, &rv, opts...)
@@ -33,6 +78,8 @@ type LookupRouteArgs struct {
 	GatewayId *string `pulumi:"gatewayId"`
 	// The Instance ID of the Route belonging to the Route Table.
 	InstanceId *string `pulumi:"instanceId"`
+	// The Local Gateway ID of the Route belonging to the Route Table.
+	LocalGatewayId *string `pulumi:"localGatewayId"`
 	// The NAT Gateway ID of the Route belonging to the Route Table.
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// The Network Interface ID of the Route belonging to the Route Table.
@@ -51,9 +98,10 @@ type LookupRouteResult struct {
 	DestinationIpv6CidrBlock string `pulumi:"destinationIpv6CidrBlock"`
 	EgressOnlyGatewayId      string `pulumi:"egressOnlyGatewayId"`
 	GatewayId                string `pulumi:"gatewayId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                     string `pulumi:"id"`
 	InstanceId             string `pulumi:"instanceId"`
+	LocalGatewayId         string `pulumi:"localGatewayId"`
 	NatGatewayId           string `pulumi:"natGatewayId"`
 	NetworkInterfaceId     string `pulumi:"networkInterfaceId"`
 	RouteTableId           string `pulumi:"routeTableId"`

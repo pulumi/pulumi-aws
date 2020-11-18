@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type ConfigurationAggregatorAccountAggregationSource struct {
@@ -19,6 +19,10 @@ type ConfigurationAggregatorAccountAggregationSource struct {
 	Regions []string `pulumi:"regions"`
 }
 
+// ConfigurationAggregatorAccountAggregationSourceInput is an input type that accepts ConfigurationAggregatorAccountAggregationSourceArgs and ConfigurationAggregatorAccountAggregationSourceOutput values.
+// You can construct a concrete instance of `ConfigurationAggregatorAccountAggregationSourceInput` via:
+//
+//          ConfigurationAggregatorAccountAggregationSourceArgs{...}
 type ConfigurationAggregatorAccountAggregationSourceInput interface {
 	pulumi.Input
 
@@ -55,6 +59,14 @@ func (i ConfigurationAggregatorAccountAggregationSourceArgs) ToConfigurationAggr
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorAccountAggregationSourceOutput).ToConfigurationAggregatorAccountAggregationSourcePtrOutputWithContext(ctx)
 }
 
+// ConfigurationAggregatorAccountAggregationSourcePtrInput is an input type that accepts ConfigurationAggregatorAccountAggregationSourceArgs, ConfigurationAggregatorAccountAggregationSourcePtr and ConfigurationAggregatorAccountAggregationSourcePtrOutput values.
+// You can construct a concrete instance of `ConfigurationAggregatorAccountAggregationSourcePtrInput` via:
+//
+//          ConfigurationAggregatorAccountAggregationSourceArgs{...}
+//
+//  or:
+//
+//          nil
 type ConfigurationAggregatorAccountAggregationSourcePtrInput interface {
 	pulumi.Input
 
@@ -141,17 +153,32 @@ func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) Elem() Configu
 
 // List of 12-digit account IDs of the account(s) being aggregated.
 func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) AccountIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ConfigurationAggregatorAccountAggregationSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // If true, aggregate existing AWS Config regions and future regions.
 func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) AllRegions() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ConfigurationAggregatorAccountAggregationSource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllRegions
+	}).(pulumi.BoolPtrOutput)
 }
 
 // List of source regions being aggregated.
 func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) Regions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) []string { return v.Regions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ConfigurationAggregatorAccountAggregationSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
 }
 
 type ConfigurationAggregatorOrganizationAggregationSource struct {
@@ -163,6 +190,10 @@ type ConfigurationAggregatorOrganizationAggregationSource struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
+// ConfigurationAggregatorOrganizationAggregationSourceInput is an input type that accepts ConfigurationAggregatorOrganizationAggregationSourceArgs and ConfigurationAggregatorOrganizationAggregationSourceOutput values.
+// You can construct a concrete instance of `ConfigurationAggregatorOrganizationAggregationSourceInput` via:
+//
+//          ConfigurationAggregatorOrganizationAggregationSourceArgs{...}
 type ConfigurationAggregatorOrganizationAggregationSourceInput interface {
 	pulumi.Input
 
@@ -199,6 +230,14 @@ func (i ConfigurationAggregatorOrganizationAggregationSourceArgs) ToConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorOrganizationAggregationSourceOutput).ToConfigurationAggregatorOrganizationAggregationSourcePtrOutputWithContext(ctx)
 }
 
+// ConfigurationAggregatorOrganizationAggregationSourcePtrInput is an input type that accepts ConfigurationAggregatorOrganizationAggregationSourceArgs, ConfigurationAggregatorOrganizationAggregationSourcePtr and ConfigurationAggregatorOrganizationAggregationSourcePtrOutput values.
+// You can construct a concrete instance of `ConfigurationAggregatorOrganizationAggregationSourcePtrInput` via:
+//
+//          ConfigurationAggregatorOrganizationAggregationSourceArgs{...}
+//
+//  or:
+//
+//          nil
 type ConfigurationAggregatorOrganizationAggregationSourcePtrInput interface {
 	pulumi.Input
 
@@ -285,26 +324,45 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) Elem() Co
 
 // If true, aggregate existing AWS Config regions and future regions.
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) AllRegions() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllRegions
+	}).(pulumi.BoolPtrOutput)
 }
 
 // List of source regions being aggregated.
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) Regions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) []string { return v.Regions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
 }
 
 // ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
-func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type DeliveryChannelSnapshotDeliveryProperties struct {
 	// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-	// e.g. `One_Hour` or `Three_Hours`.
-	// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+	//   e.g. `One_Hour` or `Three_Hours`.
+	//   Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 	DeliveryFrequency *string `pulumi:"deliveryFrequency"`
 }
 
+// DeliveryChannelSnapshotDeliveryPropertiesInput is an input type that accepts DeliveryChannelSnapshotDeliveryPropertiesArgs and DeliveryChannelSnapshotDeliveryPropertiesOutput values.
+// You can construct a concrete instance of `DeliveryChannelSnapshotDeliveryPropertiesInput` via:
+//
+//          DeliveryChannelSnapshotDeliveryPropertiesArgs{...}
 type DeliveryChannelSnapshotDeliveryPropertiesInput interface {
 	pulumi.Input
 
@@ -314,8 +372,8 @@ type DeliveryChannelSnapshotDeliveryPropertiesInput interface {
 
 type DeliveryChannelSnapshotDeliveryPropertiesArgs struct {
 	// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-	// e.g. `One_Hour` or `Three_Hours`.
-	// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+	//   e.g. `One_Hour` or `Three_Hours`.
+	//   Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 	DeliveryFrequency pulumi.StringPtrInput `pulumi:"deliveryFrequency"`
 }
 
@@ -339,6 +397,14 @@ func (i DeliveryChannelSnapshotDeliveryPropertiesArgs) ToDeliveryChannelSnapshot
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelSnapshotDeliveryPropertiesOutput).ToDeliveryChannelSnapshotDeliveryPropertiesPtrOutputWithContext(ctx)
 }
 
+// DeliveryChannelSnapshotDeliveryPropertiesPtrInput is an input type that accepts DeliveryChannelSnapshotDeliveryPropertiesArgs, DeliveryChannelSnapshotDeliveryPropertiesPtr and DeliveryChannelSnapshotDeliveryPropertiesPtrOutput values.
+// You can construct a concrete instance of `DeliveryChannelSnapshotDeliveryPropertiesPtrInput` via:
+//
+//          DeliveryChannelSnapshotDeliveryPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
 type DeliveryChannelSnapshotDeliveryPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -389,8 +455,8 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesOutput) ToDeliveryChannelSnapsh
 }
 
 // - The frequency with which AWS Config recurringly delivers configuration snapshots.
-// e.g. `One_Hour` or `Three_Hours`.
-// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+//   e.g. `One_Hour` or `Three_Hours`.
+//   Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 func (o DeliveryChannelSnapshotDeliveryPropertiesOutput) DeliveryFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryChannelSnapshotDeliveryProperties) *string { return v.DeliveryFrequency }).(pulumi.StringPtrOutput)
 }
@@ -416,10 +482,15 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) Elem() DeliveryChann
 }
 
 // - The frequency with which AWS Config recurringly delivers configuration snapshots.
-// e.g. `One_Hour` or `Three_Hours`.
-// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+//   e.g. `One_Hour` or `Three_Hours`.
+//   Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) DeliveryFrequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeliveryChannelSnapshotDeliveryProperties) *string { return v.DeliveryFrequency }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DeliveryChannelSnapshotDeliveryProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryFrequency
+	}).(pulumi.StringPtrOutput)
 }
 
 type RecorderRecordingGroup struct {
@@ -436,6 +507,10 @@ type RecorderRecordingGroup struct {
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
 
+// RecorderRecordingGroupInput is an input type that accepts RecorderRecordingGroupArgs and RecorderRecordingGroupOutput values.
+// You can construct a concrete instance of `RecorderRecordingGroupInput` via:
+//
+//          RecorderRecordingGroupArgs{...}
 type RecorderRecordingGroupInput interface {
 	pulumi.Input
 
@@ -477,6 +552,14 @@ func (i RecorderRecordingGroupArgs) ToRecorderRecordingGroupPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RecorderRecordingGroupOutput).ToRecorderRecordingGroupPtrOutputWithContext(ctx)
 }
 
+// RecorderRecordingGroupPtrInput is an input type that accepts RecorderRecordingGroupArgs, RecorderRecordingGroupPtr and RecorderRecordingGroupPtrOutput values.
+// You can construct a concrete instance of `RecorderRecordingGroupPtrInput` via:
+//
+//          RecorderRecordingGroupArgs{...}
+//
+//  or:
+//
+//          nil
 type RecorderRecordingGroupPtrInput interface {
 	pulumi.Input
 
@@ -568,20 +651,150 @@ func (o RecorderRecordingGroupPtrOutput) Elem() RecorderRecordingGroupOutput {
 // for every supported type of regional resource (which includes any new type that will become supported in the future).
 // Conflicts with `resourceTypes`. Defaults to `true`.
 func (o RecorderRecordingGroupPtrOutput) AllSupported() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.AllSupported }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *RecorderRecordingGroup) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllSupported
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether AWS Config includes all supported types of *global resources*
 // with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 func (o RecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.IncludeGlobalResourceTypes }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *RecorderRecordingGroup) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeGlobalResourceTypes
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A list that specifies the types of AWS resources for which
 // AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
 // See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 func (o RecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecorderRecordingGroup) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *RecorderRecordingGroup) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+type RemediationConfigurationParameter struct {
+	// The name of the attribute.
+	Name string `pulumi:"name"`
+	// The value is dynamic and changes at run-time.
+	ResourceValue *string `pulumi:"resourceValue"`
+	// The value is static and does not change at run-time.
+	StaticValue *string `pulumi:"staticValue"`
+}
+
+// RemediationConfigurationParameterInput is an input type that accepts RemediationConfigurationParameterArgs and RemediationConfigurationParameterOutput values.
+// You can construct a concrete instance of `RemediationConfigurationParameterInput` via:
+//
+//          RemediationConfigurationParameterArgs{...}
+type RemediationConfigurationParameterInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationParameterOutput() RemediationConfigurationParameterOutput
+	ToRemediationConfigurationParameterOutputWithContext(context.Context) RemediationConfigurationParameterOutput
+}
+
+type RemediationConfigurationParameterArgs struct {
+	// The name of the attribute.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value is dynamic and changes at run-time.
+	ResourceValue pulumi.StringPtrInput `pulumi:"resourceValue"`
+	// The value is static and does not change at run-time.
+	StaticValue pulumi.StringPtrInput `pulumi:"staticValue"`
+}
+
+func (RemediationConfigurationParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationParameter)(nil)).Elem()
+}
+
+func (i RemediationConfigurationParameterArgs) ToRemediationConfigurationParameterOutput() RemediationConfigurationParameterOutput {
+	return i.ToRemediationConfigurationParameterOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationParameterArgs) ToRemediationConfigurationParameterOutputWithContext(ctx context.Context) RemediationConfigurationParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationParameterOutput)
+}
+
+// RemediationConfigurationParameterArrayInput is an input type that accepts RemediationConfigurationParameterArray and RemediationConfigurationParameterArrayOutput values.
+// You can construct a concrete instance of `RemediationConfigurationParameterArrayInput` via:
+//
+//          RemediationConfigurationParameterArray{ RemediationConfigurationParameterArgs{...} }
+type RemediationConfigurationParameterArrayInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationParameterArrayOutput() RemediationConfigurationParameterArrayOutput
+	ToRemediationConfigurationParameterArrayOutputWithContext(context.Context) RemediationConfigurationParameterArrayOutput
+}
+
+type RemediationConfigurationParameterArray []RemediationConfigurationParameterInput
+
+func (RemediationConfigurationParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RemediationConfigurationParameter)(nil)).Elem()
+}
+
+func (i RemediationConfigurationParameterArray) ToRemediationConfigurationParameterArrayOutput() RemediationConfigurationParameterArrayOutput {
+	return i.ToRemediationConfigurationParameterArrayOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationParameterArray) ToRemediationConfigurationParameterArrayOutputWithContext(ctx context.Context) RemediationConfigurationParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationParameterArrayOutput)
+}
+
+type RemediationConfigurationParameterOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationParameter)(nil)).Elem()
+}
+
+func (o RemediationConfigurationParameterOutput) ToRemediationConfigurationParameterOutput() RemediationConfigurationParameterOutput {
+	return o
+}
+
+func (o RemediationConfigurationParameterOutput) ToRemediationConfigurationParameterOutputWithContext(ctx context.Context) RemediationConfigurationParameterOutput {
+	return o
+}
+
+// The name of the attribute.
+func (o RemediationConfigurationParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationConfigurationParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value is dynamic and changes at run-time.
+func (o RemediationConfigurationParameterOutput) ResourceValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemediationConfigurationParameter) *string { return v.ResourceValue }).(pulumi.StringPtrOutput)
+}
+
+// The value is static and does not change at run-time.
+func (o RemediationConfigurationParameterOutput) StaticValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemediationConfigurationParameter) *string { return v.StaticValue }).(pulumi.StringPtrOutput)
+}
+
+type RemediationConfigurationParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RemediationConfigurationParameter)(nil)).Elem()
+}
+
+func (o RemediationConfigurationParameterArrayOutput) ToRemediationConfigurationParameterArrayOutput() RemediationConfigurationParameterArrayOutput {
+	return o
+}
+
+func (o RemediationConfigurationParameterArrayOutput) ToRemediationConfigurationParameterArrayOutputWithContext(ctx context.Context) RemediationConfigurationParameterArrayOutput {
+	return o
+}
+
+func (o RemediationConfigurationParameterArrayOutput) Index(i pulumi.IntInput) RemediationConfigurationParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemediationConfigurationParameter {
+		return vs[0].([]RemediationConfigurationParameter)[vs[1].(int)]
+	}).(RemediationConfigurationParameterOutput)
 }
 
 type RuleScope struct {
@@ -599,6 +812,10 @@ type RuleScope struct {
 	TagValue *string `pulumi:"tagValue"`
 }
 
+// RuleScopeInput is an input type that accepts RuleScopeArgs and RuleScopeOutput values.
+// You can construct a concrete instance of `RuleScopeInput` via:
+//
+//          RuleScopeArgs{...}
 type RuleScopeInput interface {
 	pulumi.Input
 
@@ -641,6 +858,14 @@ func (i RuleScopeArgs) ToRuleScopePtrOutputWithContext(ctx context.Context) Rule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleScopeOutput).ToRuleScopePtrOutputWithContext(ctx)
 }
 
+// RuleScopePtrInput is an input type that accepts RuleScopeArgs, RuleScopePtr and RuleScopePtrOutput values.
+// You can construct a concrete instance of `RuleScopePtrInput` via:
+//
+//          RuleScopeArgs{...}
+//
+//  or:
+//
+//          nil
 type RuleScopePtrInput interface {
 	pulumi.Input
 
@@ -735,36 +960,60 @@ func (o RuleScopePtrOutput) Elem() RuleScopeOutput {
 // The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
 // If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
 func (o RuleScopePtrOutput) ComplianceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleScope) *string { return v.ComplianceResourceId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *RuleScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceResourceId
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of resource types of only those AWS resources that you want to trigger an
 // evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
 // a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 func (o RuleScopePtrOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RuleScope) []string { return v.ComplianceResourceTypes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *RuleScope) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceResourceTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // The tag key that is applied to only those AWS resources that you want you
 // want to trigger an evaluation for the rule.
 func (o RuleScopePtrOutput) TagKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleScope) *string { return v.TagKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *RuleScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
 func (o RuleScopePtrOutput) TagValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleScope) *string { return v.TagValue }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *RuleScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagValue
+	}).(pulumi.StringPtrOutput)
 }
 
 type RuleSource struct {
-	// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
+	// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.
 	Owner string `pulumi:"owner"`
 	// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
 	SourceDetails []RuleSourceSourceDetail `pulumi:"sourceDetails"`
-	// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
+	// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
 	SourceIdentifier string `pulumi:"sourceIdentifier"`
 }
 
+// RuleSourceInput is an input type that accepts RuleSourceArgs and RuleSourceOutput values.
+// You can construct a concrete instance of `RuleSourceInput` via:
+//
+//          RuleSourceArgs{...}
 type RuleSourceInput interface {
 	pulumi.Input
 
@@ -773,11 +1022,11 @@ type RuleSourceInput interface {
 }
 
 type RuleSourceArgs struct {
-	// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
+	// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.
 	Owner pulumi.StringInput `pulumi:"owner"`
 	// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
 	SourceDetails RuleSourceSourceDetailArrayInput `pulumi:"sourceDetails"`
-	// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
+	// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
 	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
 }
 
@@ -801,6 +1050,14 @@ func (i RuleSourceArgs) ToRuleSourcePtrOutputWithContext(ctx context.Context) Ru
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSourceOutput).ToRuleSourcePtrOutputWithContext(ctx)
 }
 
+// RuleSourcePtrInput is an input type that accepts RuleSourceArgs, RuleSourcePtr and RuleSourcePtrOutput values.
+// You can construct a concrete instance of `RuleSourcePtrInput` via:
+//
+//          RuleSourceArgs{...}
+//
+//  or:
+//
+//          nil
 type RuleSourcePtrInput interface {
 	pulumi.Input
 
@@ -850,7 +1107,7 @@ func (o RuleSourceOutput) ToRuleSourcePtrOutputWithContext(ctx context.Context) 
 	}).(RuleSourcePtrOutput)
 }
 
-// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
+// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.
 func (o RuleSourceOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSource) string { return v.Owner }).(pulumi.StringOutput)
 }
@@ -860,7 +1117,7 @@ func (o RuleSourceOutput) SourceDetails() RuleSourceSourceDetailArrayOutput {
 	return o.ApplyT(func(v RuleSource) []RuleSourceSourceDetail { return v.SourceDetails }).(RuleSourceSourceDetailArrayOutput)
 }
 
-// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
+// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
 func (o RuleSourceOutput) SourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
 }
@@ -883,19 +1140,34 @@ func (o RuleSourcePtrOutput) Elem() RuleSourceOutput {
 	return o.ApplyT(func(v *RuleSource) RuleSource { return *v }).(RuleSourceOutput)
 }
 
-// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
-func (o RuleSourcePtrOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleSource) string { return v.Owner }).(pulumi.StringOutput)
+// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.
+func (o RuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Owner
+	}).(pulumi.StringPtrOutput)
 }
 
 // Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
 func (o RuleSourcePtrOutput) SourceDetails() RuleSourceSourceDetailArrayOutput {
-	return o.ApplyT(func(v RuleSource) []RuleSourceSourceDetail { return v.SourceDetails }).(RuleSourceSourceDetailArrayOutput)
+	return o.ApplyT(func(v *RuleSource) []RuleSourceSourceDetail {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDetails
+	}).(RuleSourceSourceDetailArrayOutput)
 }
 
-// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
-func (o RuleSourcePtrOutput) SourceIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleSource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
+// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
+func (o RuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceIdentifier
+	}).(pulumi.StringPtrOutput)
 }
 
 type RuleSourceSourceDetail struct {
@@ -909,6 +1181,10 @@ type RuleSourceSourceDetail struct {
 	MessageType *string `pulumi:"messageType"`
 }
 
+// RuleSourceSourceDetailInput is an input type that accepts RuleSourceSourceDetailArgs and RuleSourceSourceDetailOutput values.
+// You can construct a concrete instance of `RuleSourceSourceDetailInput` via:
+//
+//          RuleSourceSourceDetailArgs{...}
 type RuleSourceSourceDetailInput interface {
 	pulumi.Input
 
@@ -939,6 +1215,10 @@ func (i RuleSourceSourceDetailArgs) ToRuleSourceSourceDetailOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSourceSourceDetailOutput)
 }
 
+// RuleSourceSourceDetailArrayInput is an input type that accepts RuleSourceSourceDetailArray and RuleSourceSourceDetailArrayOutput values.
+// You can construct a concrete instance of `RuleSourceSourceDetailArrayInput` via:
+//
+//          RuleSourceSourceDetailArray{ RuleSourceSourceDetailArgs{...} }
 type RuleSourceSourceDetailArrayInput interface {
 	pulumi.Input
 
@@ -1020,6 +1300,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryChannelSnapshotDeliveryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RecorderRecordingGroupOutput{})
 	pulumi.RegisterOutputType(RecorderRecordingGroupPtrOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationParameterOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationParameterArrayOutput{})
 	pulumi.RegisterOutputType(RuleScopeOutput{})
 	pulumi.RegisterOutputType(RuleScopePtrOutput{})
 	pulumi.RegisterOutputType(RuleSourceOutput{})

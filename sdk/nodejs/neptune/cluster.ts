@@ -7,22 +7,20 @@ import * as utilities from "../utilities";
 /**
  * Provides an Neptune Cluster Resource. A Cluster Resource defines attributes that are
  * applied to the entire cluster of Neptune Cluster Instances.
- * 
+ *
  * Changes to a Neptune Cluster can occur when you manually change a
  * parameter, such as `backupRetentionPeriod`, and are reflected in the next maintenance
  * window. Because of this, this provider may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
  * `applyImmediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCluster = new aws.neptune.Cluster("default", {
  *     applyImmediately: true,
  *     backupRetentionPeriod: 5,
@@ -34,7 +32,8 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster.html.markdown.
+ * > **Note:** AWS Neptune does not support user name/password–based access control.
+ * See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -44,6 +43,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterState, opts?: pulumi.CustomResourceOptions): Cluster {
         return new Cluster(name, <any>state, { ...opts, id: id });
@@ -95,6 +95,9 @@ export class Cluster extends pulumi.CustomResource {
      * The Neptune Cluster Resource ID
      */
     public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
+    /**
+     * A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
      * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
@@ -173,9 +176,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
-     * A mapping of tags to assign to the Neptune cluster.
+     * A map of tags to assign to the Neptune cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of VPC security groups to associate with the Cluster
      */
@@ -303,6 +306,9 @@ export interface ClusterState {
      * The Neptune Cluster Resource ID
      */
     readonly clusterResourceId?: pulumi.Input<string>;
+    /**
+     * A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     */
     readonly deletionProtection?: pulumi.Input<boolean>;
     /**
      * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
@@ -381,9 +387,9 @@ export interface ClusterState {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the Neptune cluster.
+     * A map of tags to assign to the Neptune cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of VPC security groups to associate with the Cluster
      */
@@ -414,6 +420,9 @@ export interface ClusterArgs {
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
     readonly clusterIdentifierPrefix?: pulumi.Input<string>;
+    /**
+     * A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     */
     readonly deletionProtection?: pulumi.Input<boolean>;
     /**
      * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
@@ -480,9 +489,9 @@ export interface ClusterArgs {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the Neptune cluster.
+     * A map of tags to assign to the Neptune cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of VPC security groups to associate with the Cluster
      */

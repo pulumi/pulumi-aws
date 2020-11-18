@@ -4,30 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Creates an Amazon CloudFront web distribution.
- * 
+ *
  * For information about CloudFront distributions, see the
- * [Amazon CloudFront Developer Guide][1]. For specific information about creating
- * CloudFront web distributions, see the [POST Distribution][2] page in the Amazon
+ * [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For specific information about creating
+ * CloudFront web distributions, see the [POST Distribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) page in the Amazon
  * CloudFront API Reference.
- * 
+ *
  * > **NOTE:** CloudFront distributions take about 15 minutes to a deployed state
  * after creation or modification. During this time, deletes to resources will be
  * blocked. If you need to delete a distribution that is enabled and you do not
  * want to wait, you need to use the `retainOnDelete` flag.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * The following example below creates a CloudFront distribution with an S3 origin.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const bucket = new aws.s3.Bucket("b", {
+ *
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
  *     tags: {
  *         Name: "My bucket",
@@ -35,11 +36,26 @@ import * as utilities from "../utilities";
  * });
  * const s3OriginId = "myS3Origin";
  * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
+ *     origins: [{
+ *         domainName: bucket.bucketRegionalDomainName,
+ *         originId: s3OriginId,
+ *         s3OriginConfig: {
+ *             originAccessIdentity: "origin-access-identity/cloudfront/ABCDEFG1234567",
+ *         },
+ *     }],
+ *     enabled: true,
+ *     isIpv6Enabled: true,
+ *     comment: "Some comment",
+ *     defaultRootObject: "index.html",
+ *     loggingConfig: {
+ *         includeCookies: false,
+ *         bucket: "mylogs.s3.amazonaws.com",
+ *         prefix: "myprefix",
+ *     },
  *     aliases: [
  *         "mysite.example.com",
  *         "yoursite.example.com",
  *     ],
- *     comment: "Some comment",
  *     defaultCacheBehavior: {
  *         allowedMethods: [
  *             "DELETE",
@@ -54,29 +70,21 @@ import * as utilities from "../utilities";
  *             "GET",
  *             "HEAD",
  *         ],
- *         defaultTtl: 3600,
+ *         targetOriginId: s3OriginId,
  *         forwardedValues: {
+ *             queryString: false,
  *             cookies: {
  *                 forward: "none",
  *             },
- *             queryString: false,
  *         },
- *         maxTtl: 86400,
- *         minTtl: 0,
- *         targetOriginId: s3OriginId,
  *         viewerProtocolPolicy: "allow-all",
- *     },
- *     defaultRootObject: "index.html",
- *     enabled: true,
- *     isIpv6Enabled: true,
- *     loggingConfig: {
- *         bucket: "mylogs.s3.amazonaws.com",
- *         includeCookies: false,
- *         prefix: "myprefix",
+ *         minTtl: 0,
+ *         defaultTtl: 3600,
+ *         maxTtl: 86400,
  *     },
  *     orderedCacheBehaviors: [
- *         // Cache behavior with precedence 0
  *         {
+ *             pathPattern: "/content/immutable/*",
  *             allowedMethods: [
  *                 "GET",
  *                 "HEAD",
@@ -87,23 +95,22 @@ import * as utilities from "../utilities";
  *                 "HEAD",
  *                 "OPTIONS",
  *             ],
- *             compress: true,
- *             defaultTtl: 86400,
+ *             targetOriginId: s3OriginId,
  *             forwardedValues: {
+ *                 queryString: false,
+ *                 headers: ["Origin"],
  *                 cookies: {
  *                     forward: "none",
  *                 },
- *                 headers: ["Origin"],
- *                 queryString: false,
  *             },
- *             maxTtl: 31536000,
  *             minTtl: 0,
- *             pathPattern: "/content/immutable/*",
- *             targetOriginId: s3OriginId,
+ *             defaultTtl: 86400,
+ *             maxTtl: 31536000,
+ *             compress: true,
  *             viewerProtocolPolicy: "redirect-to-https",
  *         },
- *         // Cache behavior with precedence 1
  *         {
+ *             pathPattern: "/content/*",
  *             allowedMethods: [
  *                 "GET",
  *                 "HEAD",
@@ -113,38 +120,30 @@ import * as utilities from "../utilities";
  *                 "GET",
  *                 "HEAD",
  *             ],
- *             compress: true,
- *             defaultTtl: 3600,
+ *             targetOriginId: s3OriginId,
  *             forwardedValues: {
+ *                 queryString: false,
  *                 cookies: {
  *                     forward: "none",
  *                 },
- *                 queryString: false,
  *             },
- *             maxTtl: 86400,
  *             minTtl: 0,
- *             pathPattern: "/content/*",
- *             targetOriginId: s3OriginId,
+ *             defaultTtl: 3600,
+ *             maxTtl: 86400,
+ *             compress: true,
  *             viewerProtocolPolicy: "redirect-to-https",
  *         },
  *     ],
- *     origins: [{
- *         domainName: bucket.bucketRegionalDomainName,
- *         originId: s3OriginId,
- *         s3OriginConfig: {
- *             originAccessIdentity: "origin-access-identity/cloudfront/ABCDEFG1234567",
- *         },
- *     }],
  *     priceClass: "PriceClass_200",
  *     restrictions: {
  *         geoRestriction: {
+ *             restrictionType: "whitelist",
  *             locations: [
  *                 "US",
  *                 "CA",
  *                 "GB",
  *                 "DE",
  *             ],
- *             restrictionType: "whitelist",
  *         },
  *     },
  *     tags: {
@@ -156,7 +155,54 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_distribution.html.markdown.
+ * The following example below creates a Cloudfront distribution with an origin group for failover routing:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
+ *     originGroups: [{
+ *         originId: "groupS3",
+ *         failoverCriteria: {
+ *             statusCodes: [
+ *                 403,
+ *                 404,
+ *                 500,
+ *                 502,
+ *             ],
+ *         },
+ *         members: [
+ *             {
+ *                 originId: "primaryS3",
+ *             },
+ *             {
+ *                 originId: "failoverS3",
+ *             },
+ *         ],
+ *     }],
+ *     origins: [
+ *         {
+ *             domainName: aws_s3_bucket.primary.bucket_regional_domain_name,
+ *             originId: "primaryS3",
+ *             s3OriginConfig: {
+ *                 originAccessIdentity: aws_cloudfront_origin_access_identity["default"].cloudfront_access_identity_path,
+ *             },
+ *         },
+ *         {
+ *             domainName: aws_s3_bucket.failover.bucket_regional_domain_name,
+ *             originId: "failoverS3",
+ *             s3OriginConfig: {
+ *                 originAccessIdentity: aws_cloudfront_origin_access_identity["default"].cloudfront_access_identity_path,
+ *             },
+ *         },
+ *     ],
+ *     defaultCacheBehavior: {
+ *         targetOriginId: "groupS3",
+ *     },
+ * });
+ * // ... other configuration ...
+ * ```
  */
 export class Distribution extends pulumi.CustomResource {
     /**
@@ -166,6 +212,7 @@ export class Distribution extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DistributionState, opts?: pulumi.CustomResourceOptions): Distribution {
         return new Distribution(name, <any>state, { ...opts, id: id });
@@ -186,18 +233,12 @@ export class Distribution extends pulumi.CustomResource {
     }
 
     /**
-     * The key pair IDs that CloudFront is aware of for
-     * each trusted signer, if the distribution is set up to serve private content
-     * with signed URLs.
-     */
-    public /*out*/ readonly activeTrustedSigners!: pulumi.Output<{[key: string]: any}>;
-    /**
      * Extra CNAMEs (alternate domain names), if any, for
      * this distribution.
      */
     public readonly aliases!: pulumi.Output<string[] | undefined>;
     /**
-     * The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+     * The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -241,7 +282,7 @@ export class Distribution extends pulumi.CustomResource {
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The CloudFront Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set][7] to. This attribute is simply an
+     * route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
      * alias for the zone ID `Z2FDTNDATAQYW2`.
      */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
@@ -277,15 +318,15 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly orderedCacheBehaviors!: pulumi.Output<outputs.cloudfront.DistributionOrderedCacheBehavior[] | undefined>;
     /**
-     * One or more origins for this
-     * distribution (multiples allowed).
-     */
-    public readonly origins!: pulumi.Output<outputs.cloudfront.DistributionOrigin[]>;
-    /**
      * One or more originGroup for this
      * distribution (multiples allowed).
      */
     public readonly originGroups!: pulumi.Output<outputs.cloudfront.DistributionOriginGroup[] | undefined>;
+    /**
+     * One or more origins for this
+     * distribution (multiples allowed).
+     */
+    public readonly origins!: pulumi.Output<outputs.cloudfront.DistributionOrigin[]>;
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
@@ -309,9 +350,14 @@ export class Distribution extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     */
+    public /*out*/ readonly trustedSigners!: pulumi.Output<outputs.cloudfront.DistributionTrustedSigner[]>;
     /**
      * The SSL
      * configuration for this distribution (maximum
@@ -325,11 +371,13 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly waitForDeployment!: pulumi.Output<boolean | undefined>;
     /**
-     * If you're using AWS WAF to filter CloudFront
-     * requests, the Id of the AWS WAF web ACL that is associated with the
-     * distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-     * region and the credentials configuring this argument must have
-     * `waf:GetWebACL` permissions assigned.
+     * A unique identifier that specifies the AWS WAF web ACL,
+     * if any, to associate with this distribution.
+     * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+     * for example `aws_wafv2_web_acl.example.arn`. To specify a web
+     * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+     * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+     * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
      */
     public readonly webAclId!: pulumi.Output<string | undefined>;
 
@@ -345,7 +393,6 @@ export class Distribution extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DistributionState | undefined;
-            inputs["activeTrustedSigners"] = state ? state.activeTrustedSigners : undefined;
             inputs["aliases"] = state ? state.aliases : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["callerReference"] = state ? state.callerReference : undefined;
@@ -363,13 +410,14 @@ export class Distribution extends pulumi.CustomResource {
             inputs["lastModifiedTime"] = state ? state.lastModifiedTime : undefined;
             inputs["loggingConfig"] = state ? state.loggingConfig : undefined;
             inputs["orderedCacheBehaviors"] = state ? state.orderedCacheBehaviors : undefined;
-            inputs["origins"] = state ? state.origins : undefined;
             inputs["originGroups"] = state ? state.originGroups : undefined;
+            inputs["origins"] = state ? state.origins : undefined;
             inputs["priceClass"] = state ? state.priceClass : undefined;
             inputs["restrictions"] = state ? state.restrictions : undefined;
             inputs["retainOnDelete"] = state ? state.retainOnDelete : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["trustedSigners"] = state ? state.trustedSigners : undefined;
             inputs["viewerCertificate"] = state ? state.viewerCertificate : undefined;
             inputs["waitForDeployment"] = state ? state.waitForDeployment : undefined;
             inputs["webAclId"] = state ? state.webAclId : undefined;
@@ -400,8 +448,8 @@ export class Distribution extends pulumi.CustomResource {
             inputs["isIpv6Enabled"] = args ? args.isIpv6Enabled : undefined;
             inputs["loggingConfig"] = args ? args.loggingConfig : undefined;
             inputs["orderedCacheBehaviors"] = args ? args.orderedCacheBehaviors : undefined;
-            inputs["origins"] = args ? args.origins : undefined;
             inputs["originGroups"] = args ? args.originGroups : undefined;
+            inputs["origins"] = args ? args.origins : undefined;
             inputs["priceClass"] = args ? args.priceClass : undefined;
             inputs["restrictions"] = args ? args.restrictions : undefined;
             inputs["retainOnDelete"] = args ? args.retainOnDelete : undefined;
@@ -409,7 +457,6 @@ export class Distribution extends pulumi.CustomResource {
             inputs["viewerCertificate"] = args ? args.viewerCertificate : undefined;
             inputs["waitForDeployment"] = args ? args.waitForDeployment : undefined;
             inputs["webAclId"] = args ? args.webAclId : undefined;
-            inputs["activeTrustedSigners"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["callerReference"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
@@ -418,6 +465,7 @@ export class Distribution extends pulumi.CustomResource {
             inputs["inProgressValidationBatches"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["trustedSigners"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -435,18 +483,12 @@ export class Distribution extends pulumi.CustomResource {
  */
 export interface DistributionState {
     /**
-     * The key pair IDs that CloudFront is aware of for
-     * each trusted signer, if the distribution is set up to serve private content
-     * with signed URLs.
-     */
-    readonly activeTrustedSigners?: pulumi.Input<{[key: string]: any}>;
-    /**
      * Extra CNAMEs (alternate domain names), if any, for
      * this distribution.
      */
     readonly aliases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+     * The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      */
     readonly arn?: pulumi.Input<string>;
     /**
@@ -490,7 +532,7 @@ export interface DistributionState {
     readonly etag?: pulumi.Input<string>;
     /**
      * The CloudFront Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set][7] to. This attribute is simply an
+     * route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
      * alias for the zone ID `Z2FDTNDATAQYW2`.
      */
     readonly hostedZoneId?: pulumi.Input<string>;
@@ -526,15 +568,15 @@ export interface DistributionState {
      */
     readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehavior>[]>;
     /**
-     * One or more origins for this
-     * distribution (multiples allowed).
-     */
-    readonly origins?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[]>;
-    /**
      * One or more originGroup for this
      * distribution (multiples allowed).
      */
     readonly originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroup>[]>;
+    /**
+     * One or more origins for this
+     * distribution (multiples allowed).
+     */
+    readonly origins?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[]>;
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
@@ -558,9 +600,14 @@ export interface DistributionState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     */
+    readonly trustedSigners?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTrustedSigner>[]>;
     /**
      * The SSL
      * configuration for this distribution (maximum
@@ -574,11 +621,13 @@ export interface DistributionState {
      */
     readonly waitForDeployment?: pulumi.Input<boolean>;
     /**
-     * If you're using AWS WAF to filter CloudFront
-     * requests, the Id of the AWS WAF web ACL that is associated with the
-     * distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-     * region and the credentials configuring this argument must have
-     * `waf:GetWebACL` permissions assigned.
+     * A unique identifier that specifies the AWS WAF web ACL,
+     * if any, to associate with this distribution.
+     * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+     * for example `aws_wafv2_web_acl.example.arn`. To specify a web
+     * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+     * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+     * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
      */
     readonly webAclId?: pulumi.Input<string>;
 }
@@ -639,15 +688,15 @@ export interface DistributionArgs {
      */
     readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehavior>[]>;
     /**
-     * One or more origins for this
-     * distribution (multiples allowed).
-     */
-    readonly origins: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[]>;
-    /**
      * One or more originGroup for this
      * distribution (multiples allowed).
      */
     readonly originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroup>[]>;
+    /**
+     * One or more origins for this
+     * distribution (multiples allowed).
+     */
+    readonly origins: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[]>;
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
@@ -665,9 +714,9 @@ export interface DistributionArgs {
      */
     readonly retainOnDelete?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The SSL
      * configuration for this distribution (maximum
@@ -681,11 +730,13 @@ export interface DistributionArgs {
      */
     readonly waitForDeployment?: pulumi.Input<boolean>;
     /**
-     * If you're using AWS WAF to filter CloudFront
-     * requests, the Id of the AWS WAF web ACL that is associated with the
-     * distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-     * region and the credentials configuring this argument must have
-     * `waf:GetWebACL` permissions assigned.
+     * A unique identifier that specifies the AWS WAF web ACL,
+     * if any, to associate with this distribution.
+     * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+     * for example `aws_wafv2_web_acl.example.arn`. To specify a web
+     * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+     * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+     * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
      */
     readonly webAclId?: pulumi.Input<string>;
 }

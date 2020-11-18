@@ -4,17 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to invoke custom lambda functions as data source.
  * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
  * invocation type.
- * 
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
  */
-export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvocationResult> & GetInvocationResult {
+export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvocationResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,13 +20,11 @@ export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetInvocationResult> = pulumi.runtime.invoke("aws:lambda/getInvocation:getInvocation", {
+    return pulumi.runtime.invoke("aws:lambda/getInvocation:getInvocation", {
         "functionName": args.functionName,
         "input": args.input,
         "qualifier": args.qualifier,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -55,18 +51,14 @@ export interface GetInvocationArgs {
  */
 export interface GetInvocationResult {
     readonly functionName: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly input: string;
     readonly qualifier?: string;
     /**
      * String result of the lambda function invocation.
      */
     readonly result: string;
-    /**
-     * This field is set only if result is a map of primitive types, where the map is string keys and string values.
-     */
-    readonly resultMap: {[key: string]: string};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -2,25 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a GuardDuty detector.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.guardduty.getDetector();
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/guardduty_detector.html.markdown.
+ * const example = pulumi.output(aws.guardduty.getDetector({ async: true }));
+ * ```
  */
-export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDetectorResult> & GetDetectorResult {
+export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDetectorResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -29,11 +28,9 @@ export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions)
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDetectorResult> = pulumi.runtime.invoke("aws:guardduty/getDetector:getDetector", {
+    return pulumi.runtime.invoke("aws:guardduty/getDetector:getDetector", {
         "id": args.id,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

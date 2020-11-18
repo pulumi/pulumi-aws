@@ -6,17 +6,42 @@ package iot
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates and manages an AWS IoT Thing.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iot"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := iot.NewThing(ctx, "example", &iot.ThingArgs{
+// 			Attributes: pulumi.StringMap{
+// 				"First": pulumi.String("examplevalue"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Thing struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the thing.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Map of attributes of the thing.
-	Attributes pulumi.MapOutput `pulumi:"attributes"`
+	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
 	// The default client ID.
 	DefaultClientId pulumi.StringOutput `pulumi:"defaultClientId"`
 	// The name of the thing.
@@ -58,7 +83,7 @@ type thingState struct {
 	// The ARN of the thing.
 	Arn *string `pulumi:"arn"`
 	// Map of attributes of the thing.
-	Attributes map[string]interface{} `pulumi:"attributes"`
+	Attributes map[string]string `pulumi:"attributes"`
 	// The default client ID.
 	DefaultClientId *string `pulumi:"defaultClientId"`
 	// The name of the thing.
@@ -73,7 +98,7 @@ type ThingState struct {
 	// The ARN of the thing.
 	Arn pulumi.StringPtrInput
 	// Map of attributes of the thing.
-	Attributes pulumi.MapInput
+	Attributes pulumi.StringMapInput
 	// The default client ID.
 	DefaultClientId pulumi.StringPtrInput
 	// The name of the thing.
@@ -90,7 +115,7 @@ func (ThingState) ElementType() reflect.Type {
 
 type thingArgs struct {
 	// Map of attributes of the thing.
-	Attributes map[string]interface{} `pulumi:"attributes"`
+	Attributes map[string]string `pulumi:"attributes"`
 	// The name of the thing.
 	Name *string `pulumi:"name"`
 	// The thing type name.
@@ -100,7 +125,7 @@ type thingArgs struct {
 // The set of arguments for constructing a Thing resource.
 type ThingArgs struct {
 	// Map of attributes of the thing.
-	Attributes pulumi.MapInput
+	Attributes pulumi.StringMapInput
 	// The name of the thing.
 	Name pulumi.StringPtrInput
 	// The thing type name.

@@ -4,28 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks MySQL layer resource.
- * 
+ *
  * > **Note:** All arguments including the root password will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const db = new aws.opsworks.MysqlLayer("db", {
- *     stackId: aws_opsworks_stack_main.id,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_mysql_layer.html.markdown.
+ * const db = new aws.opsworks.MysqlLayer("db", {stackId: aws_opsworks_stack.main.id});
+ * ```
  */
 export class MysqlLayer extends pulumi.CustomResource {
     /**
@@ -35,6 +29,7 @@ export class MysqlLayer extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MysqlLayerState, opts?: pulumi.CustomResourceOptions): MysqlLayer {
         return new MysqlLayer(name, <any>state, { ...opts, id: id });
@@ -128,9 +123,9 @@ export class MysqlLayer extends pulumi.CustomResource {
      */
     public readonly systemPackages!: pulumi.Output<string[] | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether to use EBS-optimized instances.
      */
@@ -291,9 +286,9 @@ export interface MysqlLayerState {
      */
     readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to use EBS-optimized instances.
      */
@@ -374,9 +369,9 @@ export interface MysqlLayerArgs {
      */
     readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to use EBS-optimized instances.
      */

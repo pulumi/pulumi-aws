@@ -9,31 +9,112 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Organizations
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Get information about the organization that the user's account belongs to
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organization.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetOrganization.InvokeAsync() instead")]
-        public static Task<GetOrganizationResult> GetOrganization(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetOrganization
     {
         /// <summary>
         /// Get information about the organization that the user's account belongs to
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### List all account IDs for the organization
         /// 
+        /// ```csharp
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organization.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
+        ///         this.AccountIds = example.Apply(example =&gt; example.Accounts.Select(__item =&gt; __item.Id).ToList());
+        ///     }
+        /// 
+        ///     [Output("accountIds")]
+        ///     public Output&lt;string&gt; AccountIds { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### SNS topic that can be interacted by the organization only
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
+        ///         var snsTopic = new Aws.Sns.Topic("snsTopic", new Aws.Sns.TopicArgs
+        ///         {
+        ///         });
+        ///         var snsTopicPolicyPolicyDocument = Output.Tuple(example, snsTopic.Arn).Apply(values =&gt;
+        ///         {
+        ///             var example = values.Item1;
+        ///             var arn = values.Item2;
+        ///             return Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///             {
+        ///                 Statements = 
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                     {
+        ///                         Effect = "Allow",
+        ///                         Actions = 
+        ///                         {
+        ///                             "SNS:Subscribe",
+        ///                             "SNS:Publish",
+        ///                         },
+        ///                         Conditions = 
+        ///                         {
+        ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
+        ///                             {
+        ///                                 Test = "StringEquals",
+        ///                                 Variable = "aws:PrincipalOrgID",
+        ///                                 Values = 
+        ///                                 {
+        ///                                     example.Id,
+        ///                                 },
+        ///                             },
+        ///                         },
+        ///                         Principals = 
+        ///                         {
+        ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+        ///                             {
+        ///                                 Type = "AWS",
+        ///                                 Identifiers = 
+        ///                                 {
+        ///                                     "*",
+        ///                                 },
+        ///                             },
+        ///                         },
+        ///                         Resources = 
+        ///                         {
+        ///                             arn,
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             });
+        ///         });
+        ///         var snsTopicPolicyTopicPolicy = new Aws.Sns.TopicPolicy("snsTopicPolicyTopicPolicy", new Aws.Sns.TopicPolicyArgs
+        ///         {
+        ///             Arn = snsTopic.Arn,
+        ///             Policy = snsTopicPolicyPolicyDocument.Apply(snsTopicPolicyPolicyDocument =&gt; snsTopicPolicyPolicyDocument.Json),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", InvokeArgs.Empty, options.WithVersion());
     }
+
 
     [OutputType]
     public sealed class GetOrganizationResult
@@ -41,7 +122,7 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetOrganizationAccountsResult> Accounts;
+        public readonly ImmutableArray<Outputs.GetOrganizationAccountResult> Accounts;
         /// <summary>
         /// ARN of the root
         /// </summary>
@@ -59,6 +140,10 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public readonly string FeatureSet;
         /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
         /// </summary>
         public readonly string MasterAccountArn;
@@ -73,178 +158,47 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetOrganizationNonMasterAccountsResult> NonMasterAccounts;
+        public readonly ImmutableArray<Outputs.GetOrganizationNonMasterAccountResult> NonMasterAccounts;
         /// <summary>
         /// List of organization roots. All elements have these attributes:
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetOrganizationRootsResult> Roots;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
+        public readonly ImmutableArray<Outputs.GetOrganizationRootResult> Roots;
 
         [OutputConstructor]
         private GetOrganizationResult(
-            ImmutableArray<Outputs.GetOrganizationAccountsResult> accounts,
+            ImmutableArray<Outputs.GetOrganizationAccountResult> accounts,
+
             string arn,
+
             ImmutableArray<string> awsServiceAccessPrincipals,
+
             ImmutableArray<string> enabledPolicyTypes,
+
             string featureSet,
+
+            string id,
+
             string masterAccountArn,
+
             string masterAccountEmail,
+
             string masterAccountId,
-            ImmutableArray<Outputs.GetOrganizationNonMasterAccountsResult> nonMasterAccounts,
-            ImmutableArray<Outputs.GetOrganizationRootsResult> roots,
-            string id)
+
+            ImmutableArray<Outputs.GetOrganizationNonMasterAccountResult> nonMasterAccounts,
+
+            ImmutableArray<Outputs.GetOrganizationRootResult> roots)
         {
             Accounts = accounts;
             Arn = arn;
             AwsServiceAccessPrincipals = awsServiceAccessPrincipals;
             EnabledPolicyTypes = enabledPolicyTypes;
             FeatureSet = featureSet;
+            Id = id;
             MasterAccountArn = masterAccountArn;
             MasterAccountEmail = masterAccountEmail;
             MasterAccountId = masterAccountId;
             NonMasterAccounts = nonMasterAccounts;
             Roots = roots;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetOrganizationAccountsResult
-    {
-        /// <summary>
-        /// ARN of the root
-        /// </summary>
-        public readonly string Arn;
-        /// <summary>
-        /// Email of the account
-        /// </summary>
-        public readonly string Email;
-        /// <summary>
-        /// Identifier of the root
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the policy type
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The status of the policy type as it relates to the associated root
-        /// </summary>
-        public readonly string Status;
-
-        [OutputConstructor]
-        private GetOrganizationAccountsResult(
-            string arn,
-            string email,
-            string id,
-            string name,
-            string status)
-        {
-            Arn = arn;
-            Email = email;
-            Id = id;
-            Name = name;
-            Status = status;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetOrganizationNonMasterAccountsResult
-    {
-        /// <summary>
-        /// ARN of the root
-        /// </summary>
-        public readonly string Arn;
-        /// <summary>
-        /// Email of the account
-        /// </summary>
-        public readonly string Email;
-        /// <summary>
-        /// Identifier of the root
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the policy type
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The status of the policy type as it relates to the associated root
-        /// </summary>
-        public readonly string Status;
-
-        [OutputConstructor]
-        private GetOrganizationNonMasterAccountsResult(
-            string arn,
-            string email,
-            string id,
-            string name,
-            string status)
-        {
-            Arn = arn;
-            Email = email;
-            Id = id;
-            Name = name;
-            Status = status;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetOrganizationRootsPolicyTypesResult
-    {
-        /// <summary>
-        /// The status of the policy type as it relates to the associated root
-        /// </summary>
-        public readonly string Status;
-        public readonly string Type;
-
-        [OutputConstructor]
-        private GetOrganizationRootsPolicyTypesResult(
-            string status,
-            string type)
-        {
-            Status = status;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetOrganizationRootsResult
-    {
-        /// <summary>
-        /// ARN of the root
-        /// </summary>
-        public readonly string Arn;
-        /// <summary>
-        /// Identifier of the root
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the policy type
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// List of policy types enabled for this root. All elements have these attributes:
-        /// </summary>
-        public readonly ImmutableArray<GetOrganizationRootsPolicyTypesResult> PolicyTypes;
-
-        [OutputConstructor]
-        private GetOrganizationRootsResult(
-            string arn,
-            string id,
-            string name,
-            ImmutableArray<GetOrganizationRootsPolicyTypesResult> policyTypes)
-        {
-            Arn = arn;
-            Id = id;
-            Name = name;
-            PolicyTypes = policyTypes;
-        }
-    }
     }
 }

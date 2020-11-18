@@ -12,9 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export const Ipv4:      IpAddressType = "ipv4";
-export const Dualstack: IpAddressType = "dualstack";
+// This file contains individual constants for each applicationloadbalancing IpAddress type.
+//
+// These constants will not be updated with new values.
+// It is recommended to use IpAddressType.[Value] instead.
 
-export type IpAddressType =
-    "ipv4"      |
-    "dualstack" ;
+import {IpAddressType} from ".";
+
+/** Use IpAddressType.Ipv4 instead. */
+export const Ipv4:      IpAddressType = "ipv4";
+/** Use IpAddressType.Dualstack instead. */
+export const Dualstack: IpAddressType = "dualstack";

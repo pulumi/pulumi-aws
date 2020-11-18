@@ -4,13 +4,43 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a CodeStar Notifications Rule.
- * 
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codestarnotifications_notification_rule.markdown.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const code = new aws.codecommit.Repository("code", {repositoryName: "example-code-repo"});
+ * const notif = new aws.sns.Topic("notif", {});
+ * const notifAccess = notif.arn.apply(arn => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sns:Publish"],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["codestar-notifications.amazonaws.com"],
+ *         }],
+ *         resources: [arn],
+ *     }],
+ * }));
+ * const _default = new aws.sns.TopicPolicy("default", {
+ *     arn: notif.arn,
+ *     policy: notifAccess.json,
+ * });
+ * const commits = new aws.codestarnotifications.NotificationRule("commits", {
+ *     detailType: "BASIC",
+ *     eventTypeIds: ["codecommit-repository-comments-on-commits"],
+ *     resource: code.arn,
+ *     targets: [{
+ *         address: notif.arn,
+ *     }],
+ * });
+ * ```
  */
 export class NotificationRule extends pulumi.CustomResource {
     /**
@@ -20,6 +50,7 @@ export class NotificationRule extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NotificationRuleState, opts?: pulumi.CustomResourceOptions): NotificationRule {
         return new NotificationRule(name, <any>state, { ...opts, id: id });
@@ -65,9 +96,9 @@ export class NotificationRule extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
      */
@@ -154,9 +185,9 @@ export interface NotificationRuleState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
      */
@@ -189,9 +220,9 @@ export interface NotificationRuleArgs {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
      */

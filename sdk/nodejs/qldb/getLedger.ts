@@ -2,27 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to fetch information about a Quantum Ledger Database.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.qldb.getLedger({
- *     name: "anExampleLedger",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/qldb_ledger.html.markdown.
+ * const example = pulumi.output(aws.qldb.getLedger({
+ *     name: "an_example_ledger",
+ * }, { async: true }));
+ * ```
  */
-export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> & GetLedgerResult {
+export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
     if (!opts) {
         opts = {}
     }
@@ -30,11 +29,9 @@ export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetLedgerResult> = pulumi.runtime.invoke("aws:qldb/getLedger:getLedger", {
+    return pulumi.runtime.invoke("aws:qldb/getLedger:getLedger", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -56,12 +53,12 @@ export interface GetLedgerResult {
      */
     readonly arn: string;
     /**
-     * Deletion protection on the QLDB Ledger instance. Set to `true` by default. 
+     * Deletion protection on the QLDB Ledger instance. Set to `true` by default.
      */
     readonly deletionProtection: boolean;
-    readonly name: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

@@ -14,9 +14,71 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// &gt; **NOTE:** Either the `active_directory_id` argument or `self_managed_active_directory` configuration block must be specified.
     /// 
+    /// ## Example Usage
+    /// ### Using AWS Directory Service
     /// 
+    /// Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/fsx_windows_file_system.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Fsx.WindowsFileSystem("example", new Aws.Fsx.WindowsFileSystemArgs
+    ///         {
+    ///             ActiveDirectoryId = aws_directory_service_directory.Example.Id,
+    ///             KmsKeyId = aws_kms_key.Example.Arn,
+    ///             StorageCapacity = 300,
+    ///             SubnetIds = 
+    ///             {
+    ///                 aws_subnet.Example.Id,
+    ///             },
+    ///             ThroughputCapacity = 1024,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Using a Self-Managed Microsoft Active Directory
+    /// 
+    /// Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Fsx.WindowsFileSystem("example", new Aws.Fsx.WindowsFileSystemArgs
+    ///         {
+    ///             KmsKeyId = aws_kms_key.Example.Arn,
+    ///             StorageCapacity = 300,
+    ///             SubnetIds = 
+    ///             {
+    ///                 aws_subnet.Example.Id,
+    ///             },
+    ///             ThroughputCapacity = 1024,
+    ///             SelfManagedActiveDirectory = new Aws.Fsx.Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs
+    ///             {
+    ///                 DnsIps = 
+    ///                 {
+    ///                     "10.0.0.111",
+    ///                     "10.0.0.222",
+    ///                 },
+    ///                 DomainName = "corp.example.com",
+    ///                 Password = "avoid-plaintext-passwords",
+    ///                 Username = "Admin",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class WindowsFileSystem : Pulumi.CustomResource
     {
@@ -33,7 +95,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days to retain automatic backups. Minimum of `0` and maximum of `35`. Defaults to `7`. Set to `0` to disable.
+        /// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         /// </summary>
         [Output("automaticBackupRetentionDays")]
         public Output<int?> AutomaticBackupRetentionDays { get; private set; } = null!;
@@ -49,6 +111,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Output("dailyAutomaticBackupStartTime")]
         public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+        /// </summary>
+        [Output("deploymentType")]
+        public Output<string?> DeploymentType { get; private set; } = null!;
 
         /// <summary>
         /// DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
@@ -75,6 +143,24 @@ namespace Pulumi.Aws.Fsx
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
+        /// The IP address of the primary, or preferred, file server.
+        /// </summary>
+        [Output("preferredFileServerIp")]
+        public Output<string> PreferredFileServerIp { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        /// </summary>
+        [Output("preferredSubnetId")]
+        public Output<string> PreferredSubnetId { get; private set; } = null!;
+
+        /// <summary>
+        /// For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
+        /// </summary>
+        [Output("remoteAdministrationEndpoint")]
+        public Output<string> RemoteAdministrationEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
         [Output("securityGroupIds")]
@@ -93,22 +179,28 @@ namespace Pulumi.Aws.Fsx
         public Output<bool?> SkipFinalBackup { get; private set; } = null!;
 
         /// <summary>
-        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
+        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
         /// </summary>
         [Output("storageCapacity")]
         public Output<int> StorageCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
+        /// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         /// </summary>
-        [Output("subnetIds")]
-        public Output<string> SubnetIds { get; private set; } = null!;
+        [Output("storageType")]
+        public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the file system.
+        /// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+        /// </summary>
+        [Output("subnetIds")]
+        public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags to assign to the file system.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
@@ -137,7 +229,7 @@ namespace Pulumi.Aws.Fsx
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WindowsFileSystem(string name, WindowsFileSystemArgs args, CustomResourceOptions? options = null)
-            : base("aws:fsx/windowsFileSystem:WindowsFileSystem", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:fsx/windowsFileSystem:WindowsFileSystem", name, args ?? new WindowsFileSystemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -181,7 +273,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? ActiveDirectoryId { get; set; }
 
         /// <summary>
-        /// The number of days to retain automatic backups. Minimum of `0` and maximum of `35`. Defaults to `7`. Set to `0` to disable.
+        /// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         /// </summary>
         [Input("automaticBackupRetentionDays")]
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
@@ -199,10 +291,22 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
+        /// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+        /// </summary>
+        [Input("deploymentType")]
+        public Input<string>? DeploymentType { get; set; }
+
+        /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        /// </summary>
+        [Input("preferredSubnetId")]
+        public Input<string>? PreferredSubnetId { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -229,26 +333,38 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
+        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
         /// </summary>
         [Input("storageCapacity", required: true)]
         public Input<int> StorageCapacity { get; set; } = null!;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
+        /// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         /// </summary>
-        [Input("subnetIds", required: true)]
-        public Input<string> SubnetIds { get; set; } = null!;
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
-        [Input("tags")]
-        private InputMap<object>? _tags;
+        [Input("subnetIds", required: true)]
+        private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A mapping of tags to assign to the file system.
+        /// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         /// </summary>
-        public InputMap<object> Tags
+        public InputList<string> SubnetIds
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _subnetIds ?? (_subnetIds = new InputList<string>());
+            set => _subnetIds = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the file system.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -284,7 +400,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The number of days to retain automatic backups. Minimum of `0` and maximum of `35`. Defaults to `7`. Set to `0` to disable.
+        /// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         /// </summary>
         [Input("automaticBackupRetentionDays")]
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
@@ -300,6 +416,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("dailyAutomaticBackupStartTime")]
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
+
+        /// <summary>
+        /// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+        /// </summary>
+        [Input("deploymentType")]
+        public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
         /// DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
@@ -331,6 +453,24 @@ namespace Pulumi.Aws.Fsx
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
+        /// <summary>
+        /// The IP address of the primary, or preferred, file server.
+        /// </summary>
+        [Input("preferredFileServerIp")]
+        public Input<string>? PreferredFileServerIp { get; set; }
+
+        /// <summary>
+        /// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        /// </summary>
+        [Input("preferredSubnetId")]
+        public Input<string>? PreferredSubnetId { get; set; }
+
+        /// <summary>
+        /// For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
+        /// </summary>
+        [Input("remoteAdministrationEndpoint")]
+        public Input<string>? RemoteAdministrationEndpoint { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -356,26 +496,38 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
+        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
         /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
+        /// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         /// </summary>
-        [Input("subnetIds")]
-        public Input<string>? SubnetIds { get; set; }
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
-        [Input("tags")]
-        private InputMap<object>? _tags;
+        [Input("subnetIds")]
+        private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A mapping of tags to assign to the file system.
+        /// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         /// </summary>
-        public InputMap<object> Tags
+        public InputList<string> SubnetIds
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _subnetIds ?? (_subnetIds = new InputList<string>());
+            set => _subnetIds = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the file system.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -400,157 +552,5 @@ namespace Pulumi.Aws.Fsx
         public WindowsFileSystemState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class WindowsFileSystemSelfManagedActiveDirectoryArgs : Pulumi.ResourceArgs
-    {
-        [Input("dnsIps", required: true)]
-        private InputList<string>? _dnsIps;
-
-        /// <summary>
-        /// A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
-        /// </summary>
-        public InputList<string> DnsIps
-        {
-            get => _dnsIps ?? (_dnsIps = new InputList<string>());
-            set => _dnsIps = value;
-        }
-
-        /// <summary>
-        /// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-        /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
-        /// </summary>
-        [Input("fileSystemAdministratorsGroup")]
-        public Input<string>? FileSystemAdministratorsGroup { get; set; }
-
-        /// <summary>
-        /// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
-        /// </summary>
-        [Input("organizationalUnitDistinguishedName")]
-        public Input<string>? OrganizationalUnitDistinguishedName { get; set; }
-
-        /// <summary>
-        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
-
-        /// <summary>
-        /// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
-
-        public WindowsFileSystemSelfManagedActiveDirectoryArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsFileSystemSelfManagedActiveDirectoryGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("dnsIps", required: true)]
-        private InputList<string>? _dnsIps;
-
-        /// <summary>
-        /// A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
-        /// </summary>
-        public InputList<string> DnsIps
-        {
-            get => _dnsIps ?? (_dnsIps = new InputList<string>());
-            set => _dnsIps = value;
-        }
-
-        /// <summary>
-        /// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-        /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
-        /// </summary>
-        [Input("fileSystemAdministratorsGroup")]
-        public Input<string>? FileSystemAdministratorsGroup { get; set; }
-
-        /// <summary>
-        /// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
-        /// </summary>
-        [Input("organizationalUnitDistinguishedName")]
-        public Input<string>? OrganizationalUnitDistinguishedName { get; set; }
-
-        /// <summary>
-        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
-
-        /// <summary>
-        /// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
-
-        public WindowsFileSystemSelfManagedActiveDirectoryGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class WindowsFileSystemSelfManagedActiveDirectory
-    {
-        /// <summary>
-        /// A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
-        /// </summary>
-        public readonly ImmutableArray<string> DnsIps;
-        /// <summary>
-        /// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-        /// </summary>
-        public readonly string DomainName;
-        /// <summary>
-        /// The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
-        /// </summary>
-        public readonly string? FileSystemAdministratorsGroup;
-        /// <summary>
-        /// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
-        /// </summary>
-        public readonly string? OrganizationalUnitDistinguishedName;
-        /// <summary>
-        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        /// </summary>
-        public readonly string Password;
-        /// <summary>
-        /// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        /// </summary>
-        public readonly string Username;
-
-        [OutputConstructor]
-        private WindowsFileSystemSelfManagedActiveDirectory(
-            ImmutableArray<string> dnsIps,
-            string domainName,
-            string? fileSystemAdministratorsGroup,
-            string? organizationalUnitDistinguishedName,
-            string password,
-            string username)
-        {
-            DnsIps = dnsIps;
-            DomainName = domainName;
-            FileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
-            OrganizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
-            Password = password;
-            Username = username;
-        }
-    }
     }
 }

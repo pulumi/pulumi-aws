@@ -4,36 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * > **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
- * 
+ *
  * The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * The following example retrieves a list of all object keys in an S3 bucket and creates corresponding object data sources:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myObjects = aws.s3.getBucketObjects({
  *     bucket: "ourcorp",
  * });
- * const objectInfo: aws.s3.GetBucketObjectResult[] = [];
- * for (let i = 0; i < myObjects.keys.length; i++) {
- *     objectInfo.push(aws.s3.getBucketObject({
- *         bucket: myObjects.bucket,
- *         key: myObjects.keys[i],
- *     }));
- * }
+ * const objectInfo = .map(__index => aws.s3.getBucketObject({
+ *     key: _arg0_,
+ *     bucket: _arg1_.bucket,
+ * }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_objects.html.markdown.
  */
-export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectsResult> & GetBucketObjectsResult {
+export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectsResult> {
     if (!opts) {
         opts = {}
     }
@@ -41,7 +37,7 @@ export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetBucketObjectsResult> = pulumi.runtime.invoke("aws:s3/getBucketObjects:getBucketObjects", {
+    return pulumi.runtime.invoke("aws:s3/getBucketObjects:getBucketObjects", {
         "bucket": args.bucket,
         "delimiter": args.delimiter,
         "encodingType": args.encodingType,
@@ -50,8 +46,6 @@ export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.Invok
         "prefix": args.prefix,
         "startAfter": args.startAfter,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -101,6 +95,10 @@ export interface GetBucketObjectsResult {
     readonly encodingType?: string;
     readonly fetchOwner?: boolean;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * List of strings representing object keys
      */
     readonly keys: string[];
@@ -111,8 +109,4 @@ export interface GetBucketObjectsResult {
     readonly owners: string[];
     readonly prefix?: string;
     readonly startAfter?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

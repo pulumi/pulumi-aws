@@ -14,9 +14,24 @@ namespace Pulumi.Aws.Iam
     /// 
     /// Manages the account alias for the AWS Account.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_alias.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @alias = new Aws.Iam.AccountAlias("alias", new Aws.Iam.AccountAliasArgs
+    ///         {
+    ///             AccountAlias = "my-account-alias",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AccountAlias : Pulumi.CustomResource
     {
@@ -35,7 +50,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccountAlias(string name, AccountAliasArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/accountAlias:AccountAlias", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/accountAlias:AccountAlias", name, args ?? new AccountAliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -4,10 +4,10 @@
 package aws
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// `.getAvailabilityZone` provides details about a specific availability zone (AZ)
+// `getAvailabilityZone` provides details about a specific availability zone (AZ)
 // in the current region.
 //
 // This can be used both to validate an availability zone given in a variable
@@ -16,7 +16,7 @@ import (
 // consistent subnet numbering scheme across several regions by mapping both
 // the region and the subnet letter to network numbers.
 //
-// This is different from the `.getAvailabilityZones` (plural) data source,
+// This is different from the `getAvailabilityZones` (plural) data source,
 // which provides a list of the available zones.
 func GetAvailabilityZone(ctx *pulumi.Context, args *GetAvailabilityZoneArgs, opts ...pulumi.InvokeOption) (*GetAvailabilityZoneResult, error) {
 	var rv GetAvailabilityZoneResult
@@ -47,7 +47,7 @@ type GetAvailabilityZoneResult struct {
 	Filters              []GetAvailabilityZoneFilter `pulumi:"filters"`
 	// For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
 	GroupName string `pulumi:"groupName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.

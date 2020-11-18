@@ -7,41 +7,40 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
  * This resource accepts ownership of a public virtual interface created by another AWS account.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const accepter = new aws.Provider("accepter", {});
- * const accepterCallerIdentity = aws.getCallerIdentity({provider: accepter});
+ * // Accepter's credentials.
+ * const accepterCallerIdentity = aws.getCallerIdentity({});
  * // Creator's side of the VIF
  * const creator = new aws.directconnect.HostedPublicVirtualInterface("creator", {
- *     addressFamily: "ipv4",
- *     amazonAddress: "175.45.176.2/30",
- *     bgpAsn: 65352,
  *     connectionId: "dxcon-zzzzzzzz",
+ *     ownerAccountId: accepterCallerIdentity.then(accepterCallerIdentity => accepterCallerIdentity.accountId),
+ *     vlan: 4094,
+ *     addressFamily: "ipv4",
+ *     bgpAsn: 65352,
  *     customerAddress: "175.45.176.1/30",
- *     ownerAccountId: accepterCallerIdentity.accountId,
+ *     amazonAddress: "175.45.176.2/30",
  *     routeFilterPrefixes: [
  *         "210.52.109.0/24",
  *         "175.45.176.0/22",
  *     ],
- *     vlan: 4094,
  * });
  * // Accepter's side of the VIF.
- * const accepterHostedPublicVirtualInterfaceAccepter = new aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepter", {
+ * const accepterHostedPublicVirtualInterfaceAccepter = new aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter", {
+ *     virtualInterfaceId: creator.id,
  *     tags: {
  *         Side: "Accepter",
  *     },
- *     virtualInterfaceId: creator.id,
- * }, {provider: accepter});
+ * }, {
+ *     provider: aws.accepter,
+ * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_public_virtual_interface_accepter.html.markdown.
  */
 export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource {
     /**
@@ -51,6 +50,7 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: HostedPublicVirtualInterfaceAccepterState, opts?: pulumi.CustomResourceOptions): HostedPublicVirtualInterfaceAccepter {
         return new HostedPublicVirtualInterfaceAccepter(name, <any>state, { ...opts, id: id });
@@ -75,9 +75,9 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
@@ -127,9 +127,9 @@ export interface HostedPublicVirtualInterfaceAccepterState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
@@ -141,9 +141,9 @@ export interface HostedPublicVirtualInterfaceAccepterState {
  */
 export interface HostedPublicVirtualInterfaceAccepterArgs {
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */

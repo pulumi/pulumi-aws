@@ -12,9 +12,53 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/proxy_protocol_policy.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var lb = new Aws.Elb.LoadBalancer("lb", new Aws.Elb.LoadBalancerArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-east-1a",
+    ///             },
+    ///             Listeners = 
+    ///             {
+    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///                 {
+    ///                     InstancePort = 25,
+    ///                     InstanceProtocol = "tcp",
+    ///                     LbPort = 25,
+    ///                     LbProtocol = "tcp",
+    ///                 },
+    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///                 {
+    ///                     InstancePort = 587,
+    ///                     InstanceProtocol = "tcp",
+    ///                     LbPort = 587,
+    ///                     LbProtocol = "tcp",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var smtp = new Aws.Ec2.ProxyProtocolPolicy("smtp", new Aws.Ec2.ProxyProtocolPolicyArgs
+    ///         {
+    ///             LoadBalancer = lb.Name,
+    ///             InstancePorts = 
+    ///             {
+    ///                 "25",
+    ///                 "587",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProxyProtocolPolicy : Pulumi.CustomResource
     {
@@ -41,7 +85,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProxyProtocolPolicy(string name, ProxyProtocolPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy", name, args ?? new ProxyProtocolPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

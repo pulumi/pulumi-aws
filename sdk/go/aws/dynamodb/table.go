@@ -7,12 +7,118 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a DynamoDB table resource
 //
-// > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `readCapacity` and/or `writeCapacity` if there's [autoscaling policy](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html) attached to the table.
+// > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `readCapacity` and/or `writeCapacity` if there's `autoscaling policy` attached to the table.
+//
+// ## Example Usage
+//
+// The following dynamodb table description models the table and GSI shown
+// in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/dynamodb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dynamodb.NewTable(ctx, "basic_dynamodb_table", &dynamodb.TableArgs{
+// 			Attributes: dynamodb.TableAttributeArray{
+// 				&dynamodb.TableAttributeArgs{
+// 					Name: pulumi.String("UserId"),
+// 					Type: pulumi.String("S"),
+// 				},
+// 				&dynamodb.TableAttributeArgs{
+// 					Name: pulumi.String("GameTitle"),
+// 					Type: pulumi.String("S"),
+// 				},
+// 				&dynamodb.TableAttributeArgs{
+// 					Name: pulumi.String("TopScore"),
+// 					Type: pulumi.String("N"),
+// 				},
+// 			},
+// 			BillingMode: pulumi.String("PROVISIONED"),
+// 			GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
+// 				&dynamodb.TableGlobalSecondaryIndexArgs{
+// 					HashKey: pulumi.String("GameTitle"),
+// 					Name:    pulumi.String("GameTitleIndex"),
+// 					NonKeyAttributes: pulumi.StringArray{
+// 						pulumi.String("UserId"),
+// 					},
+// 					ProjectionType: pulumi.String("INCLUDE"),
+// 					RangeKey:       pulumi.String("TopScore"),
+// 					ReadCapacity:   pulumi.Int(10),
+// 					WriteCapacity:  pulumi.Int(10),
+// 				},
+// 			},
+// 			HashKey:      pulumi.String("UserId"),
+// 			RangeKey:     pulumi.String("GameTitle"),
+// 			ReadCapacity: pulumi.Int(20),
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("production"),
+// 				"Name":        pulumi.String("dynamodb-table-1"),
+// 			},
+// 			Ttl: &dynamodb.TableTtlArgs{
+// 				AttributeName: pulumi.String("TimeToExist"),
+// 				Enabled:       pulumi.Bool(false),
+// 			},
+// 			WriteCapacity: pulumi.Int(20),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Global Tables
+//
+// This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `dynamodb.GlobalTable` resource.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/dynamodb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
+// 			Attributes: dynamodb.TableAttributeArray{
+// 				&dynamodb.TableAttributeArgs{
+// 					Name: pulumi.String("TestTableHashKey"),
+// 					Type: pulumi.String("S"),
+// 				},
+// 			},
+// 			BillingMode: pulumi.String("PAY_PER_REQUEST"),
+// 			HashKey:     pulumi.String("TestTableHashKey"),
+// 			Replicas: dynamodb.TableReplicaArray{
+// 				&dynamodb.TableReplicaArgs{
+// 					RegionName: pulumi.String("us-east-2"),
+// 				},
+// 				&dynamodb.TableReplicaArgs{
+// 					RegionName: pulumi.String("us-west-2"),
+// 				},
+// 			},
+// 			StreamEnabled:  pulumi.Bool(true),
+// 			StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Table struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +147,8 @@ type Table struct {
 	RangeKey pulumi.StringPtrOutput `pulumi:"rangeKey"`
 	// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity pulumi.IntPtrOutput `pulumi:"readCapacity"`
+	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+	Replicas TableReplicaArrayOutput `pulumi:"replicas"`
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption TableServerSideEncryptionOutput `pulumi:"serverSideEncryption"`
 	// The ARN of the Table Stream. Only available when `streamEnabled = true`
@@ -55,7 +163,7 @@ type Table struct {
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringOutput `pulumi:"streamViewType"`
 	// A map of tags to populate on the created table.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl TableTtlPtrOutput `pulumi:"ttl"`
 	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
@@ -121,6 +229,8 @@ type tableState struct {
 	RangeKey *string `pulumi:"rangeKey"`
 	// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity *int `pulumi:"readCapacity"`
+	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+	Replicas []TableReplica `pulumi:"replicas"`
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption *TableServerSideEncryption `pulumi:"serverSideEncryption"`
 	// The ARN of the Table Stream. Only available when `streamEnabled = true`
@@ -135,7 +245,7 @@ type tableState struct {
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType *string `pulumi:"streamViewType"`
 	// A map of tags to populate on the created table.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl *TableTtl `pulumi:"ttl"`
 	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
@@ -168,6 +278,8 @@ type TableState struct {
 	RangeKey pulumi.StringPtrInput
 	// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity pulumi.IntPtrInput
+	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+	Replicas TableReplicaArrayInput
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption TableServerSideEncryptionPtrInput
 	// The ARN of the Table Stream. Only available when `streamEnabled = true`
@@ -182,7 +294,7 @@ type TableState struct {
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringPtrInput
 	// A map of tags to populate on the created table.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl TableTtlPtrInput
 	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
@@ -217,6 +329,8 @@ type tableArgs struct {
 	RangeKey *string `pulumi:"rangeKey"`
 	// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity *int `pulumi:"readCapacity"`
+	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+	Replicas []TableReplica `pulumi:"replicas"`
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption *TableServerSideEncryption `pulumi:"serverSideEncryption"`
 	// Indicates whether Streams are to be enabled (true) or disabled (false).
@@ -224,7 +338,7 @@ type tableArgs struct {
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType *string `pulumi:"streamViewType"`
 	// A map of tags to populate on the created table.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl *TableTtl `pulumi:"ttl"`
 	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
@@ -256,6 +370,8 @@ type TableArgs struct {
 	RangeKey pulumi.StringPtrInput
 	// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity pulumi.IntPtrInput
+	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+	Replicas TableReplicaArrayInput
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption TableServerSideEncryptionPtrInput
 	// Indicates whether Streams are to be enabled (true) or disabled (false).
@@ -263,7 +379,7 @@ type TableArgs struct {
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringPtrInput
 	// A map of tags to populate on the created table.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl TableTtlPtrInput
 	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.

@@ -7,24 +7,40 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an SSM Document resource
 //
 // > **NOTE on updating SSM documents:** Only documents with a schema version of 2.0
-// or greater can update their content once created, see [SSM Schema Features][1]. To update a document with an older
+// or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older
 // schema version you must recreate the resource.
 //
+// ## Example Usage
 //
-// ## attachmentsSource
+// ```go
+// package main
 //
-// The `attachmentsSource` block supports the following:
+// import (
+// 	"fmt"
 //
-// * `key` - (Required) The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
-// * `values` - (Required) The value describing the location of an attachment to a document
-// * `name` - (Optional) The name of the document attachment file
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
 //
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ssm.NewDocument(ctx, "foo", &ssm.DocumentArgs{
+// 			Content:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "  {\n", "    \"schemaVersion\": \"1.2\",\n", "    \"description\": \"Check ip configuration of a Linux instance.\",\n", "    \"parameters\": {\n", "\n", "    },\n", "    \"runtimeConfig\": {\n", "      \"aws:runShellScript\": {\n", "        \"properties\": [\n", "          {\n", "            \"id\": \"0.aws:runShellScript\",\n", "            \"runCommand\": [\"ifconfig\"]\n", "          }\n", "        ]\n", "      }\n", "    }\n", "  }\n", "\n")),
+// 			DocumentType: pulumi.String("Command"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Permissions
 //
 // The permissions attribute specifies how you want to share the document. If you share a document privately,
@@ -53,6 +69,8 @@ type Document struct {
 	DocumentFormat pulumi.StringPtrOutput `pulumi:"documentFormat"`
 	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
 	DocumentType pulumi.StringOutput `pulumi:"documentType"`
+	// The document version.
+	DocumentVersion pulumi.StringOutput `pulumi:"documentVersion"`
 	// The sha1 or sha256 of the document content
 	Hash pulumi.StringOutput `pulumi:"hash"`
 	// "Sha1" "Sha256". The hashing algorithm used when hashing the content.
@@ -66,15 +84,15 @@ type Document struct {
 	// The parameters that are available to this document.
 	Parameters DocumentParameterArrayOutput `pulumi:"parameters"`
 	// Additional Permissions to attach to the document. See Permissions below for details.
-	Permissions DocumentPermissionsPtrOutput `pulumi:"permissions"`
+	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
 	PlatformTypes pulumi.StringArrayOutput `pulumi:"platformTypes"`
 	// The schema version of the document.
 	SchemaVersion pulumi.StringOutput `pulumi:"schemaVersion"`
 	// "Creating", "Active" or "Deleting". The current status of the document.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
 }
@@ -128,6 +146,8 @@ type documentState struct {
 	DocumentFormat *string `pulumi:"documentFormat"`
 	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
 	DocumentType *string `pulumi:"documentType"`
+	// The document version.
+	DocumentVersion *string `pulumi:"documentVersion"`
 	// The sha1 or sha256 of the document content
 	Hash *string `pulumi:"hash"`
 	// "Sha1" "Sha256". The hashing algorithm used when hashing the content.
@@ -141,15 +161,15 @@ type documentState struct {
 	// The parameters that are available to this document.
 	Parameters []DocumentParameter `pulumi:"parameters"`
 	// Additional Permissions to attach to the document. See Permissions below for details.
-	Permissions *DocumentPermissions `pulumi:"permissions"`
+	Permissions map[string]string `pulumi:"permissions"`
 	// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
 	PlatformTypes []string `pulumi:"platformTypes"`
 	// The schema version of the document.
 	SchemaVersion *string `pulumi:"schemaVersion"`
 	// "Creating", "Active" or "Deleting". The current status of the document.
 	Status *string `pulumi:"status"`
-	// A mapping of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags map[string]string `pulumi:"tags"`
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType *string `pulumi:"targetType"`
 }
@@ -170,6 +190,8 @@ type DocumentState struct {
 	DocumentFormat pulumi.StringPtrInput
 	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
 	DocumentType pulumi.StringPtrInput
+	// The document version.
+	DocumentVersion pulumi.StringPtrInput
 	// The sha1 or sha256 of the document content
 	Hash pulumi.StringPtrInput
 	// "Sha1" "Sha256". The hashing algorithm used when hashing the content.
@@ -183,15 +205,15 @@ type DocumentState struct {
 	// The parameters that are available to this document.
 	Parameters DocumentParameterArrayInput
 	// Additional Permissions to attach to the document. See Permissions below for details.
-	Permissions DocumentPermissionsPtrInput
+	Permissions pulumi.StringMapInput
 	// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
 	PlatformTypes pulumi.StringArrayInput
 	// The schema version of the document.
 	SchemaVersion pulumi.StringPtrInput
 	// "Creating", "Active" or "Deleting". The current status of the document.
 	Status pulumi.StringPtrInput
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapInput
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType pulumi.StringPtrInput
 }
@@ -212,9 +234,9 @@ type documentArgs struct {
 	// The name of the document.
 	Name *string `pulumi:"name"`
 	// Additional Permissions to attach to the document. See Permissions below for details.
-	Permissions *DocumentPermissions `pulumi:"permissions"`
-	// A mapping of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Permissions map[string]string `pulumi:"permissions"`
+	// A map of tags to assign to the object.
+	Tags map[string]string `pulumi:"tags"`
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType *string `pulumi:"targetType"`
 }
@@ -232,9 +254,9 @@ type DocumentArgs struct {
 	// The name of the document.
 	Name pulumi.StringPtrInput
 	// Additional Permissions to attach to the document. See Permissions below for details.
-	Permissions DocumentPermissionsPtrInput
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapInput
+	Permissions pulumi.StringMapInput
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapInput
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType pulumi.StringPtrInput
 }

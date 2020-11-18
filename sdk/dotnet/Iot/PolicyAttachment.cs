@@ -12,9 +12,47 @@ namespace Pulumi.Aws.Iot
     /// <summary>
     /// Provides an IoT policy attachment.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_policy_attachment.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pubsub = new Aws.Iot.Policy("pubsub", new Aws.Iot.PolicyArgs
+    ///         {
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": [
+    ///         ""iot:*""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": ""*""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var cert = new Aws.Iot.Certificate("cert", new Aws.Iot.CertificateArgs
+    ///         {
+    ///             Csr = File.ReadAllText("csr.pem"),
+    ///             Active = true,
+    ///         });
+    ///         var att = new Aws.Iot.PolicyAttachment("att", new Aws.Iot.PolicyAttachmentArgs
+    ///         {
+    ///             Policy = pubsub.Name,
+    ///             Target = cert.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PolicyAttachment : Pulumi.CustomResource
     {
@@ -39,7 +77,7 @@ namespace Pulumi.Aws.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicyAttachment(string name, PolicyAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:iot/policyAttachment:PolicyAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iot/policyAttachment:PolicyAttachment", name, args ?? new PolicyAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

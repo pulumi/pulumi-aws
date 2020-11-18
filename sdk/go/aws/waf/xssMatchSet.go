@@ -6,10 +6,46 @@ package waf
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a WAF XSS Match Set Resource
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/waf"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := waf.NewXssMatchSet(ctx, "xssMatchSet", &waf.XssMatchSetArgs{
+// 			XssMatchTuples: waf.XssMatchSetXssMatchTupleArray{
+// 				&waf.XssMatchSetXssMatchTupleArgs{
+// 					FieldToMatch: &waf.XssMatchSetXssMatchTupleFieldToMatchArgs{
+// 						Type: pulumi.String("URI"),
+// 					},
+// 					TextTransformation: pulumi.String("NONE"),
+// 				},
+// 				&waf.XssMatchSetXssMatchTupleArgs{
+// 					FieldToMatch: &waf.XssMatchSetXssMatchTupleFieldToMatchArgs{
+// 						Type: pulumi.String("QUERY_STRING"),
+// 					},
+// 					TextTransformation: pulumi.String("NONE"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type XssMatchSet struct {
 	pulumi.CustomResourceState
 

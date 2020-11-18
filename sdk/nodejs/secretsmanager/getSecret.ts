@@ -4,38 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`aws.secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
- * 
- * ## Example Usage
- * 
- * ### ARN
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const byArn = aws.secretsmanager.getSecret({
- *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
- * });
- * ```
- * 
- * ### Name
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const byName = aws.secretsmanager.getSecret({
- *     name: "example",
- * });
- * ```
+ * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion`.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret.html.markdown.
+ * ## Example Usage
+ * ### ARN
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const by_arn = pulumi.output(aws.secretsmanager.getSecret({
+ *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
+ * }, { async: true }));
+ * ```
+ * ### Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const by_name = pulumi.output(aws.secretsmanager.getSecret({
+ *     name: "example",
+ * }, { async: true }));
+ * ```
  */
-export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> & GetSecretResult {
+export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -44,12 +41,10 @@ export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Pr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSecretResult> = pulumi.runtime.invoke("aws:secretsmanager/getSecret:getSecret", {
+    return pulumi.runtime.invoke("aws:secretsmanager/getSecret:getSecret", {
         "arn": args.arn,
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -79,6 +74,10 @@ export interface GetSecretResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
      */
     readonly kmsKeyId: string;
@@ -89,22 +88,24 @@ export interface GetSecretResult {
     readonly policy: string;
     /**
      * Whether rotation is enabled or not.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation data source instead
      */
     readonly rotationEnabled: boolean;
     /**
      * Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation data source instead
      */
     readonly rotationLambdaArn: string;
     /**
      * Rotation rules if rotation is enabled.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation data source instead
      */
     readonly rotationRules: outputs.secretsmanager.GetSecretRotationRule[];
     /**
      * Tags of the secret.
      */
-    readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
+    readonly tags: {[key: string]: string};
 }

@@ -4,38 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Rate Based Rule Resource
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const ipset = new aws.waf.IpSet("ipset", {
- *     ipSetDescriptors: [{
- *         type: "IPV4",
- *         value: "192.0.7.0/24",
- *     }],
- * });
+ *
+ * const ipset = new aws.waf.IpSet("ipset", {ipSetDescriptors: [{
+ *     type: "IPV4",
+ *     value: "192.0.7.0/24",
+ * }]});
  * const wafrule = new aws.waf.RateBasedRule("wafrule", {
  *     metricName: "tfWAFRule",
+ *     rateKey: "IP",
+ *     rateLimit: 100,
  *     predicates: [{
  *         dataId: ipset.id,
  *         negated: false,
  *         type: "IPMatch",
  *     }],
- *     rateKey: "IP",
- *     rateLimit: 100,
- * }, {dependsOn: [ipset]});
+ * }, {
+ *     dependsOn: [ipset],
+ * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rate_based_rule.html.markdown.
  */
 export class RateBasedRule extends pulumi.CustomResource {
     /**
@@ -45,6 +42,7 @@ export class RateBasedRule extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RateBasedRuleState, opts?: pulumi.CustomResourceOptions): RateBasedRule {
         return new RateBasedRule(name, <any>state, { ...opts, id: id });
@@ -89,9 +87,9 @@ export class RateBasedRule extends pulumi.CustomResource {
      */
     public readonly rateLimit!: pulumi.Output<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RateBasedRule resource with the given unique name, arguments, and options.
@@ -171,9 +169,9 @@ export interface RateBasedRuleState {
      */
     readonly rateLimit?: pulumi.Input<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -201,7 +199,7 @@ export interface RateBasedRuleArgs {
      */
     readonly rateLimit: pulumi.Input<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -2,127 +2,69 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * This resource represents a successful validation of an ACM certificate in concert
  * with other resources.
- * 
+ *
  * Most commonly, this resource is used together with `aws.route53.Record` and
  * `aws.acm.Certificate` to request a DNS validated certificate,
  * deploy the required validation records and wait for validation to complete.
- * 
+ *
  * > **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
- * 
- * 
+ *
  * ## Example Usage
- * 
  * ### DNS Validation with Route 53
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const certCertificate = new aws.acm.Certificate("cert", {
+ *
+ * const exampleCertificate = new aws.acm.Certificate("exampleCertificate", {
  *     domainName: "example.com",
  *     validationMethod: "DNS",
  * });
- * const zone = aws.route53.getZone({
- *     name: "example.com.",
+ * const exampleZone = aws.route53.getZone({
+ *     name: "example.com",
  *     privateZone: false,
  * });
- * const certValidation = new aws.route53.Record("certValidation", {
- *     name: certCertificate.domainValidationOptions[0].resourceRecordName,
- *     records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
- *     ttl: 60,
- *     type: certCertificate.domainValidationOptions[0].resourceRecordType,
- *     zoneId: zone.id,
+ * const exampleRecord: aws.route53.Record[];
+ * for (const range of Object.entries(exampleCertificate.domainValidationOptions.apply(domainValidationOptions => domainValidationOptions.reduce((__obj, dvo) => { ...__obj, [dvo.domainName]: {
+ *     name: dvo.resourceRecordName,
+ *     record: dvo.resourceRecordValue,
+ *     type: dvo.resourceRecordType,
+ * } }))).map(([k, v]) => {key: k, value: v})) {
+ *     exampleRecord.push(new aws.route53.Record(`exampleRecord-${range.key}`, {
+ *         allowOverwrite: true,
+ *         name: range.value.name,
+ *         records: [range.value.record],
+ *         ttl: 60,
+ *         type: range.value.type,
+ *         zoneId: exampleZone.then(exampleZone => exampleZone.zoneId),
+ *     }));
+ * }
+ * const exampleCertificateValidation = new aws.acm.CertificateValidation("exampleCertificateValidation", {
+ *     certificateArn: exampleCertificate.arn,
+ *     validationRecordFqdns: exampleRecord.apply(exampleRecord => exampleRecord.map(record => record.fqdn)),
  * });
- * const certCertificateValidation = new aws.acm.CertificateValidation("cert", {
- *     certificateArn: certCertificate.arn,
- *     validationRecordFqdns: [certValidation.fqdn],
- * });
- * const frontEnd = new aws.lb.Listener("frontEnd", {
- *     // [...]
- *     certificateArn: certCertificateValidation.certificateArn,
- * });
+ * // ... other configuration ...
+ * const exampleListener = new aws.lb.Listener("exampleListener", {certificateArn: exampleCertificateValidation.certificateArn});
  * ```
- * 
- * ### Alternative Domains DNS Validation with Route 53
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const certCertificate = new aws.acm.Certificate("cert", {
- *     domainName: "example.com",
- *     subjectAlternativeNames: [
- *         "www.example.com",
- *         "example.org",
- *     ],
- *     validationMethod: "DNS",
- * });
- * const zone = aws.route53.getZone({
- *     name: "example.com.",
- *     privateZone: false,
- * });
- * const zoneAlt = aws.route53.getZone({
- *     name: "example.org.",
- *     privateZone: false,
- * });
- * const certValidation = new aws.route53.Record("certValidation", {
- *     name: certCertificate.domainValidationOptions[0].resourceRecordName,
- *     records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
- *     ttl: 60,
- *     type: certCertificate.domainValidationOptions[0].resourceRecordType,
- *     zoneId: zone.id,
- * });
- * const certValidationAlt1 = new aws.route53.Record("certValidationAlt1", {
- *     name: certCertificate.domainValidationOptions[1].resourceRecordName,
- *     records: [certCertificate.domainValidationOptions[1].resourceRecordValue],
- *     ttl: 60,
- *     type: certCertificate.domainValidationOptions[1].resourceRecordType,
- *     zoneId: zone.id,
- * });
- * const certValidationAlt2 = new aws.route53.Record("certValidationAlt2", {
- *     name: certCertificate.domainValidationOptions[2].resourceRecordName,
- *     records: [certCertificate.domainValidationOptions[2].resourceRecordValue],
- *     ttl: 60,
- *     type: certCertificate.domainValidationOptions[2].resourceRecordType,
- *     zoneId: zoneAlt.id,
- * });
- * const certCertificateValidation = new aws.acm.CertificateValidation("cert", {
- *     certificateArn: certCertificate.arn,
- *     validationRecordFqdns: [
- *         certValidation.fqdn,
- *         certValidationAlt1.fqdn,
- *         certValidationAlt2.fqdn,
- *     ],
- * });
- * const frontEnd = new aws.lb.Listener("frontEnd", {
- *     // [...]
- *     certificateArn: certCertificateValidation.certificateArn,
- * });
- * ```
- * 
  * ### Email Validation
- * 
+ *
+ * In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const certCertificate = new aws.acm.Certificate("cert", {
+ *
+ * const exampleCertificate = new aws.acm.Certificate("exampleCertificate", {
  *     domainName: "example.com",
  *     validationMethod: "EMAIL",
  * });
- * const certCertificateValidation = new aws.acm.CertificateValidation("cert", {
- *     certificateArn: certCertificate.arn,
- * });
+ * const exampleCertificateValidation = new aws.acm.CertificateValidation("exampleCertificateValidation", {certificateArn: exampleCertificate.arn});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate_validation.html.markdown.
  */
 export class CertificateValidation extends pulumi.CustomResource {
     /**
@@ -132,6 +74,7 @@ export class CertificateValidation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CertificateValidationState, opts?: pulumi.CustomResourceOptions): CertificateValidation {
         return new CertificateValidation(name, <any>state, { ...opts, id: id });

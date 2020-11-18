@@ -4,19 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Creates a Global Accelerator accelerator.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.globalaccelerator.Accelerator("example", {
  *     attributes: {
  *         flowLogsEnabled: true,
@@ -27,8 +26,6 @@ import * as utilities from "../utilities";
  *     ipAddressType: "IPV4",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_accelerator.markdown.
  */
 export class Accelerator extends pulumi.CustomResource {
     /**
@@ -38,6 +35,7 @@ export class Accelerator extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AcceleratorState, opts?: pulumi.CustomResourceOptions): Accelerator {
         return new Accelerator(name, <any>state, { ...opts, id: id });
@@ -64,7 +62,7 @@ export class Accelerator extends pulumi.CustomResource {
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      * * `hostedZoneId` --  The Global Accelerator Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set][1] to the Global Accelerator. This attribute
+     * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
      * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
@@ -86,9 +84,9 @@ export class Accelerator extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Accelerator resource with the given unique name, arguments, and options.
@@ -143,7 +141,7 @@ export interface AcceleratorState {
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      * * `hostedZoneId` --  The Global Accelerator Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set][1] to the Global Accelerator. This attribute
+     * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
      * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      */
     readonly dnsName?: pulumi.Input<string>;
@@ -165,9 +163,9 @@ export interface AcceleratorState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -191,7 +189,7 @@ export interface AcceleratorArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

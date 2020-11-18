@@ -18,9 +18,61 @@ namespace Pulumi.Aws.Ec2
     /// in conjunction with any Route resources. Doing so will cause
     /// a conflict of rule settings and will overwrite rules.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var route = new Aws.Ec2.Route("route", new Aws.Ec2.RouteArgs
+    ///         {
+    ///             RouteTableId = "rtb-4fbb3ac4",
+    ///             DestinationCidrBlock = "10.0.1.0/22",
+    ///             VpcPeeringConnectionId = "pcx-45ff3dc1",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 aws_route_table.Testing,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ## Example IPv6 Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var vpc = new Aws.Ec2.Vpc("vpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///             AssignGeneratedIpv6CidrBlock = true,
+    ///         });
+    ///         var egress = new Aws.Ec2.EgressOnlyInternetGateway("egress", new Aws.Ec2.EgressOnlyInternetGatewayArgs
+    ///         {
+    ///             VpcId = vpc.Id,
+    ///         });
+    ///         var route = new Aws.Ec2.Route("route", new Aws.Ec2.RouteArgs
+    ///         {
+    ///             RouteTableId = "rtb-4fbb3ac4",
+    ///             DestinationIpv6CidrBlock = "::/0",
+    ///             EgressOnlyGatewayId = egress.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Route : Pulumi.CustomResource
     {
@@ -61,6 +113,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InstanceOwnerId { get; private set; } = null!;
 
         /// <summary>
+        /// Identifier of a Outpost local gateway.
+        /// </summary>
+        [Output("localGatewayId")]
+        public Output<string> LocalGatewayId { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier of a VPC NAT gateway.
         /// </summary>
         [Output("natGatewayId")]
@@ -91,6 +149,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> TransitGatewayId { get; private set; } = null!;
 
         /// <summary>
+        /// Identifier of a VPC Endpoint.
+        /// </summary>
+        [Output("vpcEndpointId")]
+        public Output<string?> VpcEndpointId { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier of a VPC peering connection.
         /// </summary>
         [Output("vpcPeeringConnectionId")]
@@ -105,7 +169,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Route(string name, RouteArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/route:Route", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/route:Route", name, args ?? new RouteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -173,6 +237,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceId { get; set; }
 
         /// <summary>
+        /// Identifier of a Outpost local gateway.
+        /// </summary>
+        [Input("localGatewayId")]
+        public Input<string>? LocalGatewayId { get; set; }
+
+        /// <summary>
         /// Identifier of a VPC NAT gateway.
         /// </summary>
         [Input("natGatewayId")]
@@ -195,6 +265,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
+
+        /// <summary>
+        /// Identifier of a VPC Endpoint.
+        /// </summary>
+        [Input("vpcEndpointId")]
+        public Input<string>? VpcEndpointId { get; set; }
 
         /// <summary>
         /// Identifier of a VPC peering connection.
@@ -246,6 +322,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceOwnerId { get; set; }
 
         /// <summary>
+        /// Identifier of a Outpost local gateway.
+        /// </summary>
+        [Input("localGatewayId")]
+        public Input<string>? LocalGatewayId { get; set; }
+
+        /// <summary>
         /// Identifier of a VPC NAT gateway.
         /// </summary>
         [Input("natGatewayId")]
@@ -274,6 +356,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
+
+        /// <summary>
+        /// Identifier of a VPC Endpoint.
+        /// </summary>
+        [Input("vpcEndpointId")]
+        public Input<string>? VpcEndpointId { get; set; }
 
         /// <summary>
         /// Identifier of a VPC peering connection.

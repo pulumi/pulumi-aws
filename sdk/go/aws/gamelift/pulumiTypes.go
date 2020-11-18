@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type AliasRoutingStrategy struct {
@@ -19,6 +19,10 @@ type AliasRoutingStrategy struct {
 	Type string `pulumi:"type"`
 }
 
+// AliasRoutingStrategyInput is an input type that accepts AliasRoutingStrategyArgs and AliasRoutingStrategyOutput values.
+// You can construct a concrete instance of `AliasRoutingStrategyInput` via:
+//
+//          AliasRoutingStrategyArgs{...}
 type AliasRoutingStrategyInput interface {
 	pulumi.Input
 
@@ -55,6 +59,14 @@ func (i AliasRoutingStrategyArgs) ToAliasRoutingStrategyPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingStrategyOutput).ToAliasRoutingStrategyPtrOutputWithContext(ctx)
 }
 
+// AliasRoutingStrategyPtrInput is an input type that accepts AliasRoutingStrategyArgs, AliasRoutingStrategyPtr and AliasRoutingStrategyPtrOutput values.
+// You can construct a concrete instance of `AliasRoutingStrategyPtrInput` via:
+//
+//          AliasRoutingStrategyArgs{...}
+//
+//  or:
+//
+//          nil
 type AliasRoutingStrategyPtrInput interface {
 	pulumi.Input
 
@@ -139,17 +151,32 @@ func (o AliasRoutingStrategyPtrOutput) Elem() AliasRoutingStrategyOutput {
 
 // ID of the Gamelift Fleet to point the alias to.
 func (o AliasRoutingStrategyPtrOutput) FleetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AliasRoutingStrategy) *string { return v.FleetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FleetId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Message text to be used with the `TERMINAL` routing strategy.
 func (o AliasRoutingStrategyPtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AliasRoutingStrategy) *string { return v.Message }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
 }
 
 // Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
-func (o AliasRoutingStrategyPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AliasRoutingStrategy) string { return v.Type }).(pulumi.StringOutput)
+func (o AliasRoutingStrategyPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type BuildStorageLocation struct {
@@ -161,6 +188,10 @@ type BuildStorageLocation struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
+// BuildStorageLocationInput is an input type that accepts BuildStorageLocationArgs and BuildStorageLocationOutput values.
+// You can construct a concrete instance of `BuildStorageLocationInput` via:
+//
+//          BuildStorageLocationArgs{...}
 type BuildStorageLocationInput interface {
 	pulumi.Input
 
@@ -197,6 +228,14 @@ func (i BuildStorageLocationArgs) ToBuildStorageLocationPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BuildStorageLocationOutput).ToBuildStorageLocationPtrOutputWithContext(ctx)
 }
 
+// BuildStorageLocationPtrInput is an input type that accepts BuildStorageLocationArgs, BuildStorageLocationPtr and BuildStorageLocationPtrOutput values.
+// You can construct a concrete instance of `BuildStorageLocationPtrInput` via:
+//
+//          BuildStorageLocationArgs{...}
+//
+//  or:
+//
+//          nil
 type BuildStorageLocationPtrInput interface {
 	pulumi.Input
 
@@ -280,18 +319,33 @@ func (o BuildStorageLocationPtrOutput) Elem() BuildStorageLocationOutput {
 }
 
 // Name of your S3 bucket.
-func (o BuildStorageLocationPtrOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v BuildStorageLocation) string { return v.Bucket }).(pulumi.StringOutput)
+func (o BuildStorageLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of the zip file containing your build files.
-func (o BuildStorageLocationPtrOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v BuildStorageLocation) string { return v.Key }).(pulumi.StringOutput)
+func (o BuildStorageLocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
 }
 
 // ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-func (o BuildStorageLocationPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v BuildStorageLocation) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o BuildStorageLocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type FleetEc2InboundPermission struct {
@@ -305,6 +359,10 @@ type FleetEc2InboundPermission struct {
 	ToPort int `pulumi:"toPort"`
 }
 
+// FleetEc2InboundPermissionInput is an input type that accepts FleetEc2InboundPermissionArgs and FleetEc2InboundPermissionOutput values.
+// You can construct a concrete instance of `FleetEc2InboundPermissionInput` via:
+//
+//          FleetEc2InboundPermissionArgs{...}
 type FleetEc2InboundPermissionInput interface {
 	pulumi.Input
 
@@ -335,6 +393,10 @@ func (i FleetEc2InboundPermissionArgs) ToFleetEc2InboundPermissionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FleetEc2InboundPermissionOutput)
 }
 
+// FleetEc2InboundPermissionArrayInput is an input type that accepts FleetEc2InboundPermissionArray and FleetEc2InboundPermissionArrayOutput values.
+// You can construct a concrete instance of `FleetEc2InboundPermissionArrayInput` via:
+//
+//          FleetEc2InboundPermissionArray{ FleetEc2InboundPermissionArgs{...} }
 type FleetEc2InboundPermissionArrayInput interface {
 	pulumi.Input
 
@@ -417,6 +479,10 @@ type FleetResourceCreationLimitPolicy struct {
 	PolicyPeriodInMinutes *int `pulumi:"policyPeriodInMinutes"`
 }
 
+// FleetResourceCreationLimitPolicyInput is an input type that accepts FleetResourceCreationLimitPolicyArgs and FleetResourceCreationLimitPolicyOutput values.
+// You can construct a concrete instance of `FleetResourceCreationLimitPolicyInput` via:
+//
+//          FleetResourceCreationLimitPolicyArgs{...}
 type FleetResourceCreationLimitPolicyInput interface {
 	pulumi.Input
 
@@ -451,6 +517,14 @@ func (i FleetResourceCreationLimitPolicyArgs) ToFleetResourceCreationLimitPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(FleetResourceCreationLimitPolicyOutput).ToFleetResourceCreationLimitPolicyPtrOutputWithContext(ctx)
 }
 
+// FleetResourceCreationLimitPolicyPtrInput is an input type that accepts FleetResourceCreationLimitPolicyArgs, FleetResourceCreationLimitPolicyPtr and FleetResourceCreationLimitPolicyPtrOutput values.
+// You can construct a concrete instance of `FleetResourceCreationLimitPolicyPtrInput` via:
+//
+//          FleetResourceCreationLimitPolicyArgs{...}
+//
+//  or:
+//
+//          nil
 type FleetResourceCreationLimitPolicyPtrInput interface {
 	pulumi.Input
 
@@ -530,12 +604,22 @@ func (o FleetResourceCreationLimitPolicyPtrOutput) Elem() FleetResourceCreationL
 
 // Maximum number of game sessions that an individual can create during the policy period.
 func (o FleetResourceCreationLimitPolicyPtrOutput) NewGameSessionsPerCreator() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FleetResourceCreationLimitPolicy) *int { return v.NewGameSessionsPerCreator }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *FleetResourceCreationLimitPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NewGameSessionsPerCreator
+	}).(pulumi.IntPtrOutput)
 }
 
 // Time span used in evaluating the resource creation limit policy.
 func (o FleetResourceCreationLimitPolicyPtrOutput) PolicyPeriodInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FleetResourceCreationLimitPolicy) *int { return v.PolicyPeriodInMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *FleetResourceCreationLimitPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyPeriodInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type FleetRuntimeConfiguration struct {
@@ -547,6 +631,10 @@ type FleetRuntimeConfiguration struct {
 	ServerProcesses []FleetRuntimeConfigurationServerProcess `pulumi:"serverProcesses"`
 }
 
+// FleetRuntimeConfigurationInput is an input type that accepts FleetRuntimeConfigurationArgs and FleetRuntimeConfigurationOutput values.
+// You can construct a concrete instance of `FleetRuntimeConfigurationInput` via:
+//
+//          FleetRuntimeConfigurationArgs{...}
 type FleetRuntimeConfigurationInput interface {
 	pulumi.Input
 
@@ -583,6 +671,14 @@ func (i FleetRuntimeConfigurationArgs) ToFleetRuntimeConfigurationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FleetRuntimeConfigurationOutput).ToFleetRuntimeConfigurationPtrOutputWithContext(ctx)
 }
 
+// FleetRuntimeConfigurationPtrInput is an input type that accepts FleetRuntimeConfigurationArgs, FleetRuntimeConfigurationPtr and FleetRuntimeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetRuntimeConfigurationPtrInput` via:
+//
+//          FleetRuntimeConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type FleetRuntimeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -667,17 +763,32 @@ func (o FleetRuntimeConfigurationPtrOutput) Elem() FleetRuntimeConfigurationOutp
 
 // Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
 func (o FleetRuntimeConfigurationPtrOutput) GameSessionActivationTimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FleetRuntimeConfiguration) *int { return v.GameSessionActivationTimeoutSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *FleetRuntimeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.GameSessionActivationTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
 func (o FleetRuntimeConfigurationPtrOutput) MaxConcurrentGameSessionActivations() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FleetRuntimeConfiguration) *int { return v.MaxConcurrentGameSessionActivations }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *FleetRuntimeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentGameSessionActivations
+	}).(pulumi.IntPtrOutput)
 }
 
 // Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
 func (o FleetRuntimeConfigurationPtrOutput) ServerProcesses() FleetRuntimeConfigurationServerProcessArrayOutput {
-	return o.ApplyT(func(v FleetRuntimeConfiguration) []FleetRuntimeConfigurationServerProcess { return v.ServerProcesses }).(FleetRuntimeConfigurationServerProcessArrayOutput)
+	return o.ApplyT(func(v *FleetRuntimeConfiguration) []FleetRuntimeConfigurationServerProcess {
+		if v == nil {
+			return nil
+		}
+		return v.ServerProcesses
+	}).(FleetRuntimeConfigurationServerProcessArrayOutput)
 }
 
 type FleetRuntimeConfigurationServerProcess struct {
@@ -689,6 +800,10 @@ type FleetRuntimeConfigurationServerProcess struct {
 	Parameters *string `pulumi:"parameters"`
 }
 
+// FleetRuntimeConfigurationServerProcessInput is an input type that accepts FleetRuntimeConfigurationServerProcessArgs and FleetRuntimeConfigurationServerProcessOutput values.
+// You can construct a concrete instance of `FleetRuntimeConfigurationServerProcessInput` via:
+//
+//          FleetRuntimeConfigurationServerProcessArgs{...}
 type FleetRuntimeConfigurationServerProcessInput interface {
 	pulumi.Input
 
@@ -717,6 +832,10 @@ func (i FleetRuntimeConfigurationServerProcessArgs) ToFleetRuntimeConfigurationS
 	return pulumi.ToOutputWithContext(ctx, i).(FleetRuntimeConfigurationServerProcessOutput)
 }
 
+// FleetRuntimeConfigurationServerProcessArrayInput is an input type that accepts FleetRuntimeConfigurationServerProcessArray and FleetRuntimeConfigurationServerProcessArrayOutput values.
+// You can construct a concrete instance of `FleetRuntimeConfigurationServerProcessArrayInput` via:
+//
+//          FleetRuntimeConfigurationServerProcessArray{ FleetRuntimeConfigurationServerProcessArgs{...} }
 type FleetRuntimeConfigurationServerProcessArrayInput interface {
 	pulumi.Input
 
@@ -794,6 +913,10 @@ type GameSessionQueuePlayerLatencyPolicy struct {
 	PolicyDurationSeconds *int `pulumi:"policyDurationSeconds"`
 }
 
+// GameSessionQueuePlayerLatencyPolicyInput is an input type that accepts GameSessionQueuePlayerLatencyPolicyArgs and GameSessionQueuePlayerLatencyPolicyOutput values.
+// You can construct a concrete instance of `GameSessionQueuePlayerLatencyPolicyInput` via:
+//
+//          GameSessionQueuePlayerLatencyPolicyArgs{...}
 type GameSessionQueuePlayerLatencyPolicyInput interface {
 	pulumi.Input
 
@@ -820,6 +943,10 @@ func (i GameSessionQueuePlayerLatencyPolicyArgs) ToGameSessionQueuePlayerLatency
 	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePlayerLatencyPolicyOutput)
 }
 
+// GameSessionQueuePlayerLatencyPolicyArrayInput is an input type that accepts GameSessionQueuePlayerLatencyPolicyArray and GameSessionQueuePlayerLatencyPolicyArrayOutput values.
+// You can construct a concrete instance of `GameSessionQueuePlayerLatencyPolicyArrayInput` via:
+//
+//          GameSessionQueuePlayerLatencyPolicyArray{ GameSessionQueuePlayerLatencyPolicyArgs{...} }
 type GameSessionQueuePlayerLatencyPolicyArrayInput interface {
 	pulumi.Input
 

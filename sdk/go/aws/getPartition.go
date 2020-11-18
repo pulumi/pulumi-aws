@@ -4,10 +4,50 @@
 package aws
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to lookup current AWS partition in which this provider is working
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := aws.GetPartition(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			Statements: []iam.GetPolicyDocumentStatement{
+// 				iam.GetPolicyDocumentStatement{
+// 					Actions: []string{
+// 						"s3:ListBucket",
+// 					},
+// 					Resources: []string{
+// 						fmt.Sprintf("%v%v%v", "arn:", current.Partition, ":s3:::my-bucket"),
+// 					},
+// 					Sid: "1",
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetPartition(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPartitionResult, error) {
 	var rv GetPartitionResult
 	err := ctx.Invoke("aws:index/getPartition:getPartition", nil, &rv, opts...)
@@ -19,8 +59,10 @@ func GetPartition(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPartiti
 
 // A collection of values returned by getPartition.
 type GetPartitionResult struct {
+	// Base DNS domain name for the current partition (e.g. `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
 	DnsSuffix string `pulumi:"dnsSuffix"`
-	// id is the provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
+	// The provider-assigned unique ID for this managed resource.
+	Id string `pulumi:"id"`
+	// Identifier of the current partition (e.g. `aws` in AWS Commercial, `aws-cn` in AWS China).
 	Partition string `pulumi:"partition"`
 }

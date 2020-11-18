@@ -4,23 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool resource.
- * 
+ *
  * ## Example Usage
- * 
  * ### Basic configuration
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const pool = new aws.cognito.UserPool("pool", {});
  * ```
+ * ### Enabling SMS and Software Token Multi-Factor Authentication
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool.markdown.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ... other configuration ...
+ * const example = new aws.cognito.UserPool("example", {
+ *     mfaConfiguration: "ON",
+ *     smsAuthenticationMessage: "Your code is {####}",
+ *     smsConfiguration: {
+ *         externalId: "example",
+ *         snsCallerArn: aws_iam_role.example.arn,
+ *     },
+ *     softwareTokenMfaConfiguration: {
+ *         enabled: true,
+ *     },
+ * });
+ * ```
  */
 export class UserPool extends pulumi.CustomResource {
     /**
@@ -30,6 +47,7 @@ export class UserPool extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserPoolState, opts?: pulumi.CustomResourceOptions): UserPool {
         return new UserPool(name, <any>state, { ...opts, id: id });
@@ -130,9 +148,9 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly softwareTokenMfaConfiguration!: pulumi.Output<outputs.cognito.UserPoolSoftwareTokenMfaConfiguration | undefined>;
     /**
-     * A mapping of tags to assign to the User Pool.
+     * A map of tags to assign to the User Pool.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features.
      */
@@ -311,9 +329,9 @@ export interface UserPoolState {
      */
     readonly softwareTokenMfaConfiguration?: pulumi.Input<inputs.cognito.UserPoolSoftwareTokenMfaConfiguration>;
     /**
-     * A mapping of tags to assign to the User Pool.
+     * A map of tags to assign to the User Pool.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features.
      */
@@ -401,9 +419,9 @@ export interface UserPoolArgs {
      */
     readonly softwareTokenMfaConfiguration?: pulumi.Input<inputs.cognito.UserPoolSoftwareTokenMfaConfiguration>;
     /**
-     * A mapping of tags to assign to the User Pool.
+     * A map of tags to assign to the User Pool.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features.
      */

@@ -6,12 +6,54 @@ package glacier
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Glacier Vault Resource. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-vaults.html) for a full explanation of the Glacier Vault functionality
 //
 // > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/glacier"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		awsSnsTopic, err := sns.NewTopic(ctx, "awsSnsTopic", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = glacier.NewVault(ctx, "myArchive", &glacier.VaultArgs{
+// 			Notifications: glacier.VaultNotificationArray{
+// 				&glacier.VaultNotificationArgs{
+// 					SnsTopic: awsSnsTopic.Arn,
+// 					Events: pulumi.StringArray{
+// 						pulumi.String("ArchiveRetrievalCompleted"),
+// 						pulumi.String("InventoryRetrievalCompleted"),
+// 					},
+// 				},
+// 			},
+// 			AccessPolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\":\"2012-10-17\",\n", "    \"Statement\":[\n", "       {\n", "          \"Sid\": \"add-read-only-perm\",\n", "          \"Principal\": \"*\",\n", "          \"Effect\": \"Allow\",\n", "          \"Action\": [\n", "             \"glacier:InitiateJob\",\n", "             \"glacier:GetJobOutput\"\n", "          ],\n", "          \"Resource\": \"arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive\"\n", "       }\n", "    ]\n", "}\n")),
+// 			Tags: pulumi.StringMap{
+// 				"Test": pulumi.String("MyArchive"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Vault struct {
 	pulumi.CustomResourceState
 
@@ -26,8 +68,8 @@ type Vault struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
 	Notifications VaultNotificationArrayOutput `pulumi:"notifications"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewVault registers a new resource with the given unique name, arguments, and options.
@@ -69,8 +111,8 @@ type vaultState struct {
 	Name *string `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
 	Notifications []VaultNotification `pulumi:"notifications"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type VaultState struct {
@@ -85,8 +127,8 @@ type VaultState struct {
 	Name pulumi.StringPtrInput
 	// The notifications for the Vault. Fields documented below.
 	Notifications VaultNotificationArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (VaultState) ElementType() reflect.Type {
@@ -101,8 +143,8 @@ type vaultArgs struct {
 	Name *string `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
 	Notifications []VaultNotification `pulumi:"notifications"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Vault resource.
@@ -114,8 +156,8 @@ type VaultArgs struct {
 	Name pulumi.StringPtrInput
 	// The notifications for the Vault. Fields documented below.
 	Notifications VaultNotificationArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (VaultArgs) ElementType() reflect.Type {

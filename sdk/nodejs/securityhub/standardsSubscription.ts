@@ -6,25 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Subscribes to a Security Hub standard.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.securityhub.Account("example", {});
- * const cis = new aws.securityhub.StandardsSubscription("cis", {
- *     standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
- * }, {dependsOn: [example]});
- * const pci321 = new aws.securityhub.StandardsSubscription("pci321", {
- *     standardsArn: "arn:aws:securityhub:us-east-1::standards/pci-dss/v/3.2.1",
- * }, {dependsOn: [example]});
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_standards_subscription.markdown.
+ * const example = new aws.securityhub.Account("example", {});
+ * const cis = new aws.securityhub.StandardsSubscription("cis", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"}, {
+ *     dependsOn: [example],
+ * });
+ * const pci321 = new aws.securityhub.StandardsSubscription("pci321", {standardsArn: "arn:aws:securityhub:us-east-1::standards/pci-dss/v/3.2.1"}, {
+ *     dependsOn: [example],
+ * });
+ * ```
  */
 export class StandardsSubscription extends pulumi.CustomResource {
     /**
@@ -34,6 +30,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: StandardsSubscriptionState, opts?: pulumi.CustomResourceOptions): StandardsSubscription {
         return new StandardsSubscription(name, <any>state, { ...opts, id: id });

@@ -12,23 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// This file contains two categories of exports:
+// This file contains individual constants for each autoscaling Notification type.
 //
-//     1) A union type, NotificationType, that accepts any valid AutoScaling Notification type
-//     2) Individual constants for each such AutoScaling Notification type
-//
-// These give a better developer experience and are just sugared strings.
+// These constants will not be updated with new values.
+// It is recommended to use NotificationType.[Value] instead.
 
+import {NotificationType} from ".";
+
+/** Use NotificationType.InstanceLaunch instead. */
 export let InstanceLaunchNotification:         NotificationType = "autoscaling:EC2_INSTANCE_LAUNCH";
+/** Use NotificationType.InstanceTerminate instead. */
 export let InstanceTerminateNotification:      NotificationType = "autoscaling:EC2_INSTANCE_TERMINATE";
+/** Use NotificationType.InstanceLaunchError instead. */
 export let InstanceLaunchErrorNotification:    NotificationType = "autoscaling:EC2_INSTANCE_LAUNCH_ERROR";
+/** Use NotificationType.InstanceTerminateError instead. */
 export let InstanceTerminateErrorNotification: NotificationType = "autoscaling:EC2_INSTANCE_TERMINATE_ERROR";
+/** Use NotificationType.TestNotification instead. */
 export let TestNotification:                   NotificationType = "autoscaling:TEST_NOTIFICATION";
-
-// See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_NotificationConfiguration.html
-export type NotificationType =
-    "autoscaling:EC2_INSTANCE_LAUNCH" |
-    "autoscaling:EC2_INSTANCE_TERMINATE" |
-    "autoscaling:EC2_INSTANCE_LAUNCH_ERROR" |
-    "autoscaling:EC2_INSTANCE_TERMINATE_ERROR" |
-    "autoscaling:TEST_NOTIFICATION"

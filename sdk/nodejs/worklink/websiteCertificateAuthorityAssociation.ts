@@ -2,28 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
+ * import * from "fs";
+ *
  * const example = new aws.worklink.Fleet("example", {});
  * const test = new aws.worklink.WebsiteCertificateAuthorityAssociation("test", {
- *     certificate: fs.readFileSync("certificate.pem", "utf-8"),
- *     fleetArn: aws_worklink_fleet_test.arn,
+ *     fleetArn: aws_worklink_fleet.test.arn,
+ *     certificate: fs.readFileSync("certificate.pem"),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/worklink_website_certificate_authority_association.html.markdown.
  */
 export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResource {
     /**
@@ -33,6 +27,7 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WebsiteCertificateAuthorityAssociationState, opts?: pulumi.CustomResourceOptions): WebsiteCertificateAuthorityAssociation {
         return new WebsiteCertificateAuthorityAssociation(name, <any>state, { ...opts, id: id });

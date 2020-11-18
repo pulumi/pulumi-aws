@@ -13,18 +13,46 @@ namespace Pulumi.Aws.Ssm
     /// Provides an SSM Document resource
     /// 
     /// &gt; **NOTE on updating SSM documents:** Only documents with a schema version of 2.0
-    /// or greater can update their content once created, see [SSM Schema Features][1]. To update a document with an older
+    /// or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older
     /// schema version you must recreate the resource.
     /// 
+    /// ## Example Usage
     /// 
-    /// ## attachments_source
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// The `attachments_source` block supports the following:
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ssm.Document("foo", new Aws.Ssm.DocumentArgs
+    ///         {
+    ///             Content = @"  {
+    ///     ""schemaVersion"": ""1.2"",
+    ///     ""description"": ""Check ip configuration of a Linux instance."",
+    ///     ""parameters"": {
     /// 
-    /// * `key` - (Required) The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
-    /// * `values` - (Required) The value describing the location of an attachment to a document
-    /// * `name` - (Optional) The name of the document attachment file
+    ///     },
+    ///     ""runtimeConfig"": {
+    ///       ""aws:runShellScript"": {
+    ///         ""properties"": [
+    ///           {
+    ///             ""id"": ""0.aws:runShellScript"",
+    ///             ""runCommand"": [""ifconfig""]
+    ///           }
+    ///         ]
+    ///       }
+    ///     }
+    ///   }
     /// 
+    /// ",
+    ///             DocumentType = "Command",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Permissions
     /// 
     /// The permissions attribute specifies how you want to share the document. If you share a document privately,
@@ -35,8 +63,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// * `type` - The permission type for the document. The permission type can be `Share`.
     /// * `account_ids` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_document.html.markdown.
     /// </summary>
     public partial class Document : Pulumi.CustomResource
     {
@@ -47,7 +73,7 @@ namespace Pulumi.Aws.Ssm
         /// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
         /// </summary>
         [Output("attachmentsSources")]
-        public Output<ImmutableArray<Outputs.DocumentAttachmentsSources>> AttachmentsSources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DocumentAttachmentsSource>> AttachmentsSources { get; private set; } = null!;
 
         /// <summary>
         /// The JSON or YAML content of the document.
@@ -86,6 +112,12 @@ namespace Pulumi.Aws.Ssm
         public Output<string> DocumentType { get; private set; } = null!;
 
         /// <summary>
+        /// The document version.
+        /// </summary>
+        [Output("documentVersion")]
+        public Output<string> DocumentVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The sha1 or sha256 of the document content
         /// </summary>
         [Output("hash")]
@@ -119,13 +151,13 @@ namespace Pulumi.Aws.Ssm
         /// The parameters that are available to this document.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableArray<Outputs.DocumentParameters>> Parameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DocumentParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Additional Permissions to attach to the document. See Permissions below for details.
         /// </summary>
         [Output("permissions")]
-        public Output<Outputs.DocumentPermissions?> Permissions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Permissions { get; private set; } = null!;
 
         /// <summary>
         /// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
@@ -146,10 +178,10 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
@@ -166,7 +198,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Document(string name, DocumentArgs args, CustomResourceOptions? options = null)
-            : base("aws:ssm/document:Document", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ssm/document:Document", name, args ?? new DocumentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -204,14 +236,14 @@ namespace Pulumi.Aws.Ssm
     public sealed class DocumentArgs : Pulumi.ResourceArgs
     {
         [Input("attachmentsSources")]
-        private InputList<Inputs.DocumentAttachmentsSourcesArgs>? _attachmentsSources;
+        private InputList<Inputs.DocumentAttachmentsSourceArgs>? _attachmentsSources;
 
         /// <summary>
         /// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
         /// </summary>
-        public InputList<Inputs.DocumentAttachmentsSourcesArgs> AttachmentsSources
+        public InputList<Inputs.DocumentAttachmentsSourceArgs> AttachmentsSources
         {
-            get => _attachmentsSources ?? (_attachmentsSources = new InputList<Inputs.DocumentAttachmentsSourcesArgs>());
+            get => _attachmentsSources ?? (_attachmentsSources = new InputList<Inputs.DocumentAttachmentsSourceArgs>());
             set => _attachmentsSources = value;
         }
 
@@ -239,21 +271,27 @@ namespace Pulumi.Aws.Ssm
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("permissions")]
+        private InputMap<string>? _permissions;
+
         /// <summary>
         /// Additional Permissions to attach to the document. See Permissions below for details.
         /// </summary>
-        [Input("permissions")]
-        public Input<Inputs.DocumentPermissionsArgs>? Permissions { get; set; }
+        public InputMap<string> Permissions
+        {
+            get => _permissions ?? (_permissions = new InputMap<string>());
+            set => _permissions = value;
+        }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -274,14 +312,14 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Arn { get; set; }
 
         [Input("attachmentsSources")]
-        private InputList<Inputs.DocumentAttachmentsSourcesGetArgs>? _attachmentsSources;
+        private InputList<Inputs.DocumentAttachmentsSourceGetArgs>? _attachmentsSources;
 
         /// <summary>
         /// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
         /// </summary>
-        public InputList<Inputs.DocumentAttachmentsSourcesGetArgs> AttachmentsSources
+        public InputList<Inputs.DocumentAttachmentsSourceGetArgs> AttachmentsSources
         {
-            get => _attachmentsSources ?? (_attachmentsSources = new InputList<Inputs.DocumentAttachmentsSourcesGetArgs>());
+            get => _attachmentsSources ?? (_attachmentsSources = new InputList<Inputs.DocumentAttachmentsSourceGetArgs>());
             set => _attachmentsSources = value;
         }
 
@@ -322,6 +360,12 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? DocumentType { get; set; }
 
         /// <summary>
+        /// The document version.
+        /// </summary>
+        [Input("documentVersion")]
+        public Input<string>? DocumentVersion { get; set; }
+
+        /// <summary>
         /// The sha1 or sha256 of the document content
         /// </summary>
         [Input("hash")]
@@ -352,22 +396,28 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Owner { get; set; }
 
         [Input("parameters")]
-        private InputList<Inputs.DocumentParametersGetArgs>? _parameters;
+        private InputList<Inputs.DocumentParameterGetArgs>? _parameters;
 
         /// <summary>
         /// The parameters that are available to this document.
         /// </summary>
-        public InputList<Inputs.DocumentParametersGetArgs> Parameters
+        public InputList<Inputs.DocumentParameterGetArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputList<Inputs.DocumentParametersGetArgs>());
+            get => _parameters ?? (_parameters = new InputList<Inputs.DocumentParameterGetArgs>());
             set => _parameters = value;
         }
+
+        [Input("permissions")]
+        private InputMap<string>? _permissions;
 
         /// <summary>
         /// Additional Permissions to attach to the document. See Permissions below for details.
         /// </summary>
-        [Input("permissions")]
-        public Input<Inputs.DocumentPermissionsGetArgs>? Permissions { get; set; }
+        public InputMap<string> Permissions
+        {
+            get => _permissions ?? (_permissions = new InputMap<string>());
+            set => _permissions = value;
+        }
 
         [Input("platformTypes")]
         private InputList<string>? _platformTypes;
@@ -394,14 +444,14 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -414,178 +464,5 @@ namespace Pulumi.Aws.Ssm
         public DocumentState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DocumentAttachmentsSourcesArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the document.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public DocumentAttachmentsSourcesArgs()
-        {
-        }
-    }
-
-    public sealed class DocumentAttachmentsSourcesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the document.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public DocumentAttachmentsSourcesGetArgs()
-        {
-        }
-    }
-
-    public sealed class DocumentParametersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("defaultValue")]
-        public Input<string>? DefaultValue { get; set; }
-
-        /// <summary>
-        /// The description of the document.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The name of the document.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public DocumentParametersGetArgs()
-        {
-        }
-    }
-
-    public sealed class DocumentPermissionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("accountIds", required: true)]
-        public Input<string> AccountIds { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DocumentPermissionsArgs()
-        {
-        }
-    }
-
-    public sealed class DocumentPermissionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("accountIds", required: true)]
-        public Input<string> AccountIds { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DocumentPermissionsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DocumentAttachmentsSources
-    {
-        public readonly string Key;
-        /// <summary>
-        /// The name of the document.
-        /// </summary>
-        public readonly string? Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private DocumentAttachmentsSources(
-            string key,
-            string? name,
-            ImmutableArray<string> values)
-        {
-            Key = key;
-            Name = name;
-            Values = values;
-        }
-    }
-
-    [OutputType]
-    public sealed class DocumentParameters
-    {
-        public readonly string? DefaultValue;
-        /// <summary>
-        /// The description of the document.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The name of the document.
-        /// </summary>
-        public readonly string? Name;
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private DocumentParameters(
-            string? defaultValue,
-            string? description,
-            string? name,
-            string? type)
-        {
-            DefaultValue = defaultValue;
-            Description = description;
-            Name = name;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class DocumentPermissions
-    {
-        public readonly string AccountIds;
-        public readonly string Type;
-
-        [OutputConstructor]
-        private DocumentPermissions(
-            string accountIds,
-            string type)
-        {
-            AccountIds = accountIds;
-            Type = type;
-        }
-    }
     }
 }

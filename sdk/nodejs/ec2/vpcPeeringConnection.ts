@@ -4,11 +4,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a VPC peering connection.
- * 
+ *
  * > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
  * both a standalone VPC Peering Connection Options and a VPC Peering Connection
  * resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
@@ -16,19 +17,86 @@ import * as utilities from "../utilities";
  * Doing so will cause a conflict of options and will overwrite the options.
  * Using a VPC Peering Connection Options resource decouples management of the connection options from
  * management of the VPC Peering Connection and allows options to be set correctly in cross-account scenarios.
- * 
+ *
  * > **Note:** For cross-account (requester's AWS account differs from the accepter's AWS account) or inter-region
  * VPC Peering Connections use the `aws.ec2.VpcPeeringConnection` resource to manage the requester's side of the
  * connection and use the `aws.ec2.VpcPeeringConnectionAccepter` resource to manage the accepter's side of the connection.
- * 
- * 
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = new aws.ec2.VpcPeeringConnection("foo", {
+ *     peerOwnerId: _var.peer_owner_id,
+ *     peerVpcId: aws_vpc.bar.id,
+ *     vpcId: aws_vpc.foo.id,
+ * });
+ * ```
+ *
+ * Basic usage with connection options:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = new aws.ec2.VpcPeeringConnection("foo", {
+ *     peerOwnerId: _var.peer_owner_id,
+ *     peerVpcId: aws_vpc.bar.id,
+ *     vpcId: aws_vpc.foo.id,
+ *     accepter: {
+ *         allowRemoteVpcDnsResolution: true,
+ *     },
+ *     requester: {
+ *         allowRemoteVpcDnsResolution: true,
+ *     },
+ * });
+ * ```
+ *
+ * Basic usage with tags:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"});
+ * const bar = new aws.ec2.Vpc("bar", {cidrBlock: "10.2.0.0/16"});
+ * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection", {
+ *     peerOwnerId: _var.peer_owner_id,
+ *     peerVpcId: bar.id,
+ *     vpcId: fooVpc.id,
+ *     autoAccept: true,
+ *     tags: {
+ *         Name: "VPC Peering between foo and bar",
+ *     },
+ * });
+ * ```
+ *
+ * Basic usage with region:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"}, {
+ *     provider: aws["us-west-2"],
+ * });
+ * const bar = new aws.ec2.Vpc("bar", {cidrBlock: "10.2.0.0/16"}, {
+ *     provider: aws["us-east-1"],
+ * });
+ * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection", {
+ *     peerOwnerId: _var.peer_owner_id,
+ *     peerVpcId: bar.id,
+ *     vpcId: fooVpc.id,
+ *     peerRegion: "us-east-1",
+ * });
+ * ```
  * ## Notes
- * 
+ *
  * If both VPCs are not in the same AWS account do not enable the `autoAccept` attribute.
  * The accepter can manage its side of the connection using the `aws.ec2.VpcPeeringConnectionAccepter` resource
  * or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection.html.markdown.
  */
 export class VpcPeeringConnection extends pulumi.CustomResource {
     /**
@@ -38,6 +106,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcPeeringConnectionState, opts?: pulumi.CustomResourceOptions): VpcPeeringConnection {
         return new VpcPeeringConnection(name, <any>state, { ...opts, id: id });
@@ -63,7 +132,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     public /*out*/ readonly acceptStatus!: pulumi.Output<string>;
     /**
      * An optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
     public readonly accepter!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepter>;
@@ -73,7 +142,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     public readonly autoAccept!: pulumi.Output<boolean | undefined>;
     /**
      * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to.
+     * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
      */
     public readonly peerOwnerId!: pulumi.Output<string>;
     /**
@@ -87,14 +156,14 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     public readonly peerVpcId!: pulumi.Output<string>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
     public readonly requester!: pulumi.Output<outputs.ec2.VpcPeeringConnectionRequester>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the requester VPC.
      */
@@ -160,7 +229,7 @@ export interface VpcPeeringConnectionState {
     readonly acceptStatus?: pulumi.Input<string>;
     /**
      * An optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
     readonly accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepter>;
@@ -170,7 +239,7 @@ export interface VpcPeeringConnectionState {
     readonly autoAccept?: pulumi.Input<boolean>;
     /**
      * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to.
+     * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
      */
     readonly peerOwnerId?: pulumi.Input<string>;
     /**
@@ -184,14 +253,14 @@ export interface VpcPeeringConnectionState {
     readonly peerVpcId?: pulumi.Input<string>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
     readonly requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionRequester>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the requester VPC.
      */
@@ -204,7 +273,7 @@ export interface VpcPeeringConnectionState {
 export interface VpcPeeringConnectionArgs {
     /**
      * An optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
     readonly accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepter>;
@@ -214,7 +283,7 @@ export interface VpcPeeringConnectionArgs {
     readonly autoAccept?: pulumi.Input<boolean>;
     /**
      * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to.
+     * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
      */
     readonly peerOwnerId?: pulumi.Input<string>;
     /**
@@ -228,14 +297,14 @@ export interface VpcPeeringConnectionArgs {
     readonly peerVpcId: pulumi.Input<string>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
     readonly requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionRequester>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the requester VPC.
      */

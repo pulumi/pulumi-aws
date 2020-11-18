@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type GetDirectConnectGatewayAttachmentFilter struct {
@@ -17,6 +17,10 @@ type GetDirectConnectGatewayAttachmentFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetDirectConnectGatewayAttachmentFilterInput is an input type that accepts GetDirectConnectGatewayAttachmentFilterArgs and GetDirectConnectGatewayAttachmentFilterOutput values.
+// You can construct a concrete instance of `GetDirectConnectGatewayAttachmentFilterInput` via:
+//
+//          GetDirectConnectGatewayAttachmentFilterArgs{...}
 type GetDirectConnectGatewayAttachmentFilterInput interface {
 	pulumi.Input
 
@@ -43,6 +47,10 @@ func (i GetDirectConnectGatewayAttachmentFilterArgs) ToGetDirectConnectGatewayAt
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectConnectGatewayAttachmentFilterOutput)
 }
 
+// GetDirectConnectGatewayAttachmentFilterArrayInput is an input type that accepts GetDirectConnectGatewayAttachmentFilterArray and GetDirectConnectGatewayAttachmentFilterArrayOutput values.
+// You can construct a concrete instance of `GetDirectConnectGatewayAttachmentFilterArrayInput` via:
+//
+//          GetDirectConnectGatewayAttachmentFilterArray{ GetDirectConnectGatewayAttachmentFilterArgs{...} }
 type GetDirectConnectGatewayAttachmentFilterArrayInput interface {
 	pulumi.Input
 
@@ -108,6 +116,118 @@ func (o GetDirectConnectGatewayAttachmentFilterArrayOutput) Index(i pulumi.IntIn
 	}).(GetDirectConnectGatewayAttachmentFilterOutput)
 }
 
+type GetPeeringAttachmentFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetPeeringAttachmentFilterInput is an input type that accepts GetPeeringAttachmentFilterArgs and GetPeeringAttachmentFilterOutput values.
+// You can construct a concrete instance of `GetPeeringAttachmentFilterInput` via:
+//
+//          GetPeeringAttachmentFilterArgs{...}
+type GetPeeringAttachmentFilterInput interface {
+	pulumi.Input
+
+	ToGetPeeringAttachmentFilterOutput() GetPeeringAttachmentFilterOutput
+	ToGetPeeringAttachmentFilterOutputWithContext(context.Context) GetPeeringAttachmentFilterOutput
+}
+
+type GetPeeringAttachmentFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetPeeringAttachmentFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringAttachmentFilter)(nil)).Elem()
+}
+
+func (i GetPeeringAttachmentFilterArgs) ToGetPeeringAttachmentFilterOutput() GetPeeringAttachmentFilterOutput {
+	return i.ToGetPeeringAttachmentFilterOutputWithContext(context.Background())
+}
+
+func (i GetPeeringAttachmentFilterArgs) ToGetPeeringAttachmentFilterOutputWithContext(ctx context.Context) GetPeeringAttachmentFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAttachmentFilterOutput)
+}
+
+// GetPeeringAttachmentFilterArrayInput is an input type that accepts GetPeeringAttachmentFilterArray and GetPeeringAttachmentFilterArrayOutput values.
+// You can construct a concrete instance of `GetPeeringAttachmentFilterArrayInput` via:
+//
+//          GetPeeringAttachmentFilterArray{ GetPeeringAttachmentFilterArgs{...} }
+type GetPeeringAttachmentFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetPeeringAttachmentFilterArrayOutput() GetPeeringAttachmentFilterArrayOutput
+	ToGetPeeringAttachmentFilterArrayOutputWithContext(context.Context) GetPeeringAttachmentFilterArrayOutput
+}
+
+type GetPeeringAttachmentFilterArray []GetPeeringAttachmentFilterInput
+
+func (GetPeeringAttachmentFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPeeringAttachmentFilter)(nil)).Elem()
+}
+
+func (i GetPeeringAttachmentFilterArray) ToGetPeeringAttachmentFilterArrayOutput() GetPeeringAttachmentFilterArrayOutput {
+	return i.ToGetPeeringAttachmentFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetPeeringAttachmentFilterArray) ToGetPeeringAttachmentFilterArrayOutputWithContext(ctx context.Context) GetPeeringAttachmentFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAttachmentFilterArrayOutput)
+}
+
+type GetPeeringAttachmentFilterOutput struct{ *pulumi.OutputState }
+
+func (GetPeeringAttachmentFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringAttachmentFilter)(nil)).Elem()
+}
+
+func (o GetPeeringAttachmentFilterOutput) ToGetPeeringAttachmentFilterOutput() GetPeeringAttachmentFilterOutput {
+	return o
+}
+
+func (o GetPeeringAttachmentFilterOutput) ToGetPeeringAttachmentFilterOutputWithContext(ctx context.Context) GetPeeringAttachmentFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
+func (o GetPeeringAttachmentFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPeeringAttachmentFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
+func (o GetPeeringAttachmentFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPeeringAttachmentFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetPeeringAttachmentFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPeeringAttachmentFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPeeringAttachmentFilter)(nil)).Elem()
+}
+
+func (o GetPeeringAttachmentFilterArrayOutput) ToGetPeeringAttachmentFilterArrayOutput() GetPeeringAttachmentFilterArrayOutput {
+	return o
+}
+
+func (o GetPeeringAttachmentFilterArrayOutput) ToGetPeeringAttachmentFilterArrayOutputWithContext(ctx context.Context) GetPeeringAttachmentFilterArrayOutput {
+	return o
+}
+
+func (o GetPeeringAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetPeeringAttachmentFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPeeringAttachmentFilter {
+		return vs[0].([]GetPeeringAttachmentFilter)[vs[1].(int)]
+	}).(GetPeeringAttachmentFilterOutput)
+}
+
 type GetRouteTableFilter struct {
 	// Name of the filter.
 	Name string `pulumi:"name"`
@@ -115,6 +235,10 @@ type GetRouteTableFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetRouteTableFilterInput is an input type that accepts GetRouteTableFilterArgs and GetRouteTableFilterOutput values.
+// You can construct a concrete instance of `GetRouteTableFilterInput` via:
+//
+//          GetRouteTableFilterArgs{...}
 type GetRouteTableFilterInput interface {
 	pulumi.Input
 
@@ -141,6 +265,10 @@ func (i GetRouteTableFilterArgs) ToGetRouteTableFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableFilterOutput)
 }
 
+// GetRouteTableFilterArrayInput is an input type that accepts GetRouteTableFilterArray and GetRouteTableFilterArrayOutput values.
+// You can construct a concrete instance of `GetRouteTableFilterArrayInput` via:
+//
+//          GetRouteTableFilterArray{ GetRouteTableFilterArgs{...} }
 type GetRouteTableFilterArrayInput interface {
 	pulumi.Input
 
@@ -213,6 +341,10 @@ type GetTransitGatewayFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetTransitGatewayFilterInput is an input type that accepts GetTransitGatewayFilterArgs and GetTransitGatewayFilterOutput values.
+// You can construct a concrete instance of `GetTransitGatewayFilterInput` via:
+//
+//          GetTransitGatewayFilterArgs{...}
 type GetTransitGatewayFilterInput interface {
 	pulumi.Input
 
@@ -239,6 +371,10 @@ func (i GetTransitGatewayFilterArgs) ToGetTransitGatewayFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayFilterOutput)
 }
 
+// GetTransitGatewayFilterArrayInput is an input type that accepts GetTransitGatewayFilterArray and GetTransitGatewayFilterArrayOutput values.
+// You can construct a concrete instance of `GetTransitGatewayFilterArrayInput` via:
+//
+//          GetTransitGatewayFilterArray{ GetTransitGatewayFilterArgs{...} }
 type GetTransitGatewayFilterArrayInput interface {
 	pulumi.Input
 
@@ -311,6 +447,10 @@ type GetVpcAttachmentFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetVpcAttachmentFilterInput is an input type that accepts GetVpcAttachmentFilterArgs and GetVpcAttachmentFilterOutput values.
+// You can construct a concrete instance of `GetVpcAttachmentFilterInput` via:
+//
+//          GetVpcAttachmentFilterArgs{...}
 type GetVpcAttachmentFilterInput interface {
 	pulumi.Input
 
@@ -337,6 +477,10 @@ func (i GetVpcAttachmentFilterArgs) ToGetVpcAttachmentFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcAttachmentFilterOutput)
 }
 
+// GetVpcAttachmentFilterArrayInput is an input type that accepts GetVpcAttachmentFilterArray and GetVpcAttachmentFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcAttachmentFilterArrayInput` via:
+//
+//          GetVpcAttachmentFilterArray{ GetVpcAttachmentFilterArgs{...} }
 type GetVpcAttachmentFilterArrayInput interface {
 	pulumi.Input
 
@@ -409,6 +553,10 @@ type GetVpnAttachmentFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetVpnAttachmentFilterInput is an input type that accepts GetVpnAttachmentFilterArgs and GetVpnAttachmentFilterOutput values.
+// You can construct a concrete instance of `GetVpnAttachmentFilterInput` via:
+//
+//          GetVpnAttachmentFilterArgs{...}
 type GetVpnAttachmentFilterInput interface {
 	pulumi.Input
 
@@ -435,6 +583,10 @@ func (i GetVpnAttachmentFilterArgs) ToGetVpnAttachmentFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpnAttachmentFilterOutput)
 }
 
+// GetVpnAttachmentFilterArrayInput is an input type that accepts GetVpnAttachmentFilterArray and GetVpnAttachmentFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpnAttachmentFilterArrayInput` via:
+//
+//          GetVpnAttachmentFilterArray{ GetVpnAttachmentFilterArgs{...} }
 type GetVpnAttachmentFilterArrayInput interface {
 	pulumi.Input
 
@@ -503,6 +655,8 @@ func (o GetVpnAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetVpnAttach
 func init() {
 	pulumi.RegisterOutputType(GetDirectConnectGatewayAttachmentFilterOutput{})
 	pulumi.RegisterOutputType(GetDirectConnectGatewayAttachmentFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetPeeringAttachmentFilterOutput{})
+	pulumi.RegisterOutputType(GetPeeringAttachmentFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableFilterOutput{})
 	pulumi.RegisterOutputType(GetRouteTableFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetTransitGatewayFilterOutput{})

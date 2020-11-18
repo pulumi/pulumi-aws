@@ -4,11 +4,35 @@
 package ecs
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The ECS container definition data source allows access to details of
 // a specific container within an AWS ECS service.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ecs.GetContainerDefinition(ctx, &ecs.GetContainerDefinitionArgs{
+// 			TaskDefinition: aws_ecs_task_definition.Mongo.Id,
+// 			ContainerName:  "mongodb",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetContainerDefinition(ctx *pulumi.Context, args *GetContainerDefinitionArgs, opts ...pulumi.InvokeOption) (*GetContainerDefinitionResult, error) {
 	var rv GetContainerDefinitionResult
 	err := ctx.Invoke("aws:ecs/getContainerDefinition:getContainerDefinition", args, &rv, opts...)
@@ -37,7 +61,7 @@ type GetContainerDefinitionResult struct {
 	DockerLabels map[string]string `pulumi:"dockerLabels"`
 	// The environment in use
 	Environment map[string]string `pulumi:"environment"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The docker image in use, including the digest
 	Image string `pulumi:"image"`

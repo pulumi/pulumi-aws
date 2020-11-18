@@ -9,25 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Alb
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
-        /// 
-        /// Provides information about a Load Balancer Target Group.
-        /// 
-        /// This data source can prove useful when a module accepts an LB Target Group as an
-        /// input variable and needs to know its attributes. It can also be used to get the ARN of
-        /// an LB Target Group for use in other resources, given LB Target Group name.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetTargetGroup.InvokeAsync() instead")]
-        public static Task<GetTargetGroupResult> GetTargetGroup(GetTargetGroupArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTargetGroupResult>("aws:alb/getTargetGroup:getTargetGroup", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetTargetGroup
     {
         /// <summary>
@@ -39,13 +20,37 @@ namespace Pulumi.Aws.Alb
         /// input variable and needs to know its attributes. It can also be used to get the ARN of
         /// an LB Target Group for use in other resources, given LB Target Group name.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var lbTgArn = config.Get("lbTgArn") ?? "";
+        ///         var lbTgName = config.Get("lbTgName") ?? "";
+        ///         var test = Output.Create(Aws.LB.GetTargetGroup.InvokeAsync(new Aws.LB.GetTargetGroupArgs
+        ///         {
+        ///             Arn = lbTgArn,
+        ///             Name = lbTgName,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTargetGroupResult> InvokeAsync(GetTargetGroupArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTargetGroupResult>("aws:alb/getTargetGroup:getTargetGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTargetGroupResult>("aws:alb/getTargetGroup:getTargetGroup", args ?? new GetTargetGroupArgs(), options.WithVersion());
     }
+
 
     public sealed class GetTargetGroupArgs : Pulumi.InvokeArgs
     {
@@ -62,10 +67,10 @@ namespace Pulumi.Aws.Alb
         public string? Name { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -74,6 +79,7 @@ namespace Pulumi.Aws.Alb
         }
     }
 
+
     [OutputType]
     public sealed class GetTargetGroupResult
     {
@@ -81,44 +87,63 @@ namespace Pulumi.Aws.Alb
         public readonly string ArnSuffix;
         public readonly int DeregistrationDelay;
         public readonly Outputs.GetTargetGroupHealthCheckResult HealthCheck;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly bool LambdaMultiValueHeadersEnabled;
+        public readonly string LoadBalancingAlgorithmType;
         public readonly string Name;
         public readonly int Port;
         public readonly string Protocol;
         public readonly bool ProxyProtocolV2;
         public readonly int SlowStart;
         public readonly Outputs.GetTargetGroupStickinessResult Stickiness;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly string TargetType;
         public readonly string VpcId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetTargetGroupResult(
             string arn,
+
             string arnSuffix,
+
             int deregistrationDelay,
+
             Outputs.GetTargetGroupHealthCheckResult healthCheck,
+
+            string id,
+
             bool lambdaMultiValueHeadersEnabled,
+
+            string loadBalancingAlgorithmType,
+
             string name,
+
             int port,
+
             string protocol,
+
             bool proxyProtocolV2,
+
             int slowStart,
+
             Outputs.GetTargetGroupStickinessResult stickiness,
-            ImmutableDictionary<string, object> tags,
+
+            ImmutableDictionary<string, string> tags,
+
             string targetType,
-            string vpcId,
-            string id)
+
+            string vpcId)
         {
             Arn = arn;
             ArnSuffix = arnSuffix;
             DeregistrationDelay = deregistrationDelay;
             HealthCheck = healthCheck;
+            Id = id;
             LambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
+            LoadBalancingAlgorithmType = loadBalancingAlgorithmType;
             Name = name;
             Port = port;
             Protocol = protocol;
@@ -128,67 +153,6 @@ namespace Pulumi.Aws.Alb
             Tags = tags;
             TargetType = targetType;
             VpcId = vpcId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetTargetGroupHealthCheckResult
-    {
-        public readonly bool Enabled;
-        public readonly int HealthyThreshold;
-        public readonly int Interval;
-        public readonly string Matcher;
-        public readonly string Path;
-        public readonly string Port;
-        public readonly string Protocol;
-        public readonly int Timeout;
-        public readonly int UnhealthyThreshold;
-
-        [OutputConstructor]
-        private GetTargetGroupHealthCheckResult(
-            bool enabled,
-            int healthyThreshold,
-            int interval,
-            string matcher,
-            string path,
-            string port,
-            string protocol,
-            int timeout,
-            int unhealthyThreshold)
-        {
-            Enabled = enabled;
-            HealthyThreshold = healthyThreshold;
-            Interval = interval;
-            Matcher = matcher;
-            Path = path;
-            Port = port;
-            Protocol = protocol;
-            Timeout = timeout;
-            UnhealthyThreshold = unhealthyThreshold;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetTargetGroupStickinessResult
-    {
-        public readonly int CookieDuration;
-        public readonly bool Enabled;
-        public readonly string Type;
-
-        [OutputConstructor]
-        private GetTargetGroupStickinessResult(
-            int cookieDuration,
-            bool enabled,
-            string type)
-        {
-            CookieDuration = cookieDuration;
-            Enabled = enabled;
-            Type = type;
-        }
-    }
     }
 }

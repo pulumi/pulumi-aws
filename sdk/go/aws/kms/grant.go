@@ -7,18 +7,65 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a resource-based access control mechanism for a KMS customer master key.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/kms"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		key, err := kms.NewKey(ctx, "key", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = kms.NewGrant(ctx, "grant", &kms.GrantArgs{
+// 			KeyId:            key.KeyId,
+// 			GranteePrincipal: role.Arn,
+// 			Operations: pulumi.StringArray{
+// 				pulumi.String("Encrypt"),
+// 				pulumi.String("Decrypt"),
+// 				pulumi.String("GenerateDataKey"),
+// 			},
+// 			Constraints: kms.GrantConstraintArray{
+// 				&kms.GrantConstraintArgs{
+// 					EncryptionContextEquals: pulumi.StringMap{
+// 						"Department": pulumi.String("Finance"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Grant struct {
 	pulumi.CustomResourceState
 
 	// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
 	Constraints GrantConstraintArrayOutput `pulumi:"constraints"`
 	// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-	// * `retireOnDelete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-	// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
 	GrantCreationTokens pulumi.StringArrayOutput `pulumi:"grantCreationTokens"`
 	// The unique identifier for the grant.
 	GrantId pulumi.StringOutput `pulumi:"grantId"`
@@ -31,8 +78,10 @@ type Grant struct {
 	// A friendly name for identifying the grant.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-	Operations     pulumi.StringArrayOutput `pulumi:"operations"`
-	RetireOnDelete pulumi.BoolPtrOutput     `pulumi:"retireOnDelete"`
+	Operations pulumi.StringArrayOutput `pulumi:"operations"`
+	// -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+	// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+	RetireOnDelete pulumi.BoolPtrOutput `pulumi:"retireOnDelete"`
 	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	RetiringPrincipal pulumi.StringPtrOutput `pulumi:"retiringPrincipal"`
 }
@@ -77,8 +126,6 @@ type grantState struct {
 	// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
 	Constraints []GrantConstraint `pulumi:"constraints"`
 	// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-	// * `retireOnDelete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-	// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
 	GrantCreationTokens []string `pulumi:"grantCreationTokens"`
 	// The unique identifier for the grant.
 	GrantId *string `pulumi:"grantId"`
@@ -91,8 +138,10 @@ type grantState struct {
 	// A friendly name for identifying the grant.
 	Name *string `pulumi:"name"`
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-	Operations     []string `pulumi:"operations"`
-	RetireOnDelete *bool    `pulumi:"retireOnDelete"`
+	Operations []string `pulumi:"operations"`
+	// -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+	// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+	RetireOnDelete *bool `pulumi:"retireOnDelete"`
 	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	RetiringPrincipal *string `pulumi:"retiringPrincipal"`
 }
@@ -101,8 +150,6 @@ type GrantState struct {
 	// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
 	Constraints GrantConstraintArrayInput
 	// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-	// * `retireOnDelete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-	// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
 	GrantCreationTokens pulumi.StringArrayInput
 	// The unique identifier for the grant.
 	GrantId pulumi.StringPtrInput
@@ -115,7 +162,9 @@ type GrantState struct {
 	// A friendly name for identifying the grant.
 	Name pulumi.StringPtrInput
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-	Operations     pulumi.StringArrayInput
+	Operations pulumi.StringArrayInput
+	// -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+	// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
 	RetireOnDelete pulumi.BoolPtrInput
 	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	RetiringPrincipal pulumi.StringPtrInput
@@ -129,8 +178,6 @@ type grantArgs struct {
 	// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
 	Constraints []GrantConstraint `pulumi:"constraints"`
 	// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-	// * `retireOnDelete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-	// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
 	GrantCreationTokens []string `pulumi:"grantCreationTokens"`
 	// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	GranteePrincipal string `pulumi:"granteePrincipal"`
@@ -139,8 +186,10 @@ type grantArgs struct {
 	// A friendly name for identifying the grant.
 	Name *string `pulumi:"name"`
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-	Operations     []string `pulumi:"operations"`
-	RetireOnDelete *bool    `pulumi:"retireOnDelete"`
+	Operations []string `pulumi:"operations"`
+	// -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+	// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+	RetireOnDelete *bool `pulumi:"retireOnDelete"`
 	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	RetiringPrincipal *string `pulumi:"retiringPrincipal"`
 }
@@ -150,8 +199,6 @@ type GrantArgs struct {
 	// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
 	Constraints GrantConstraintArrayInput
 	// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-	// * `retireOnDelete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-	// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
 	GrantCreationTokens pulumi.StringArrayInput
 	// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	GranteePrincipal pulumi.StringInput
@@ -160,7 +207,9 @@ type GrantArgs struct {
 	// A friendly name for identifying the grant.
 	Name pulumi.StringPtrInput
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-	Operations     pulumi.StringArrayInput
+	Operations pulumi.StringArrayInput
+	// -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+	// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
 	RetireOnDelete pulumi.BoolPtrInput
 	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	RetiringPrincipal pulumi.StringPtrInput

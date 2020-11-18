@@ -13,12 +13,31 @@ namespace Pulumi.Aws.Pinpoint
     /// Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
     /// 
     /// &gt; **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
+    ///         {
+    ///         });
+    ///         var channel = new Aws.Pinpoint.AdmChannel("channel", new Aws.Pinpoint.AdmChannelArgs
+    ///         {
+    ///             ApplicationId = app.ApplicationId,
+    ///             ClientId = "",
+    ///             ClientSecret = "",
+    ///             Enabled = true,
+    ///         });
+    ///     }
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_adm_channel.markdown.
+    /// }
+    /// ```
     /// </summary>
     public partial class AdmChannel : Pulumi.CustomResource
     {
@@ -55,7 +74,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AdmChannel(string name, AdmChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws:pinpoint/admChannel:AdmChannel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:pinpoint/admChannel:AdmChannel", name, args ?? new AdmChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -4,24 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
- * in a given region for the purpose of whitelisting in S3 bucket policy.
- * 
+ * in a given region for the purpose of permitting in S3 bucket policy.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const main = aws.elb.getServiceAccount();
+ *
+ * const main = aws.elb.getServiceAccount({});
  * const elbLogs = new aws.s3.Bucket("elbLogs", {
  *     acl: "private",
- *     policy: `{
+ *     policy: main.then(main => `{
  *   "Id": "Policy",
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -39,14 +38,14 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
+ * `),
  * });
  * const bar = new aws.elb.LoadBalancer("bar", {
+ *     availabilityZones: ["us-west-2a"],
  *     accessLogs: {
  *         bucket: elbLogs.bucket,
  *         interval: 5,
  *     },
- *     availabilityZones: ["us-west-2a"],
  *     listeners: [{
  *         instancePort: 8000,
  *         instanceProtocol: "http",
@@ -55,10 +54,10 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_service_account.html.markdown.
  */
-export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> & GetServiceAccountResult {
+/** @deprecated aws.elasticloadbalancing.getServiceAccount has been deprecated in favor of aws.elb.getServiceAccount */
+export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
+    pulumi.log.warn("getServiceAccount is deprecated: aws.elasticloadbalancing.getServiceAccount has been deprecated in favor of aws.elb.getServiceAccount")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -67,11 +66,9 @@ export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.In
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetServiceAccountResult> = pulumi.runtime.invoke("aws:elasticloadbalancing/getServiceAccount:getServiceAccount", {
+    return pulumi.runtime.invoke("aws:elasticloadbalancing/getServiceAccount:getServiceAccount", {
         "region": args.region,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -93,9 +90,9 @@ export interface GetServiceAccountResult {
      * The ARN of the AWS ELB service account in the selected region.
      */
     readonly arn: string;
-    readonly region?: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region?: string;
 }

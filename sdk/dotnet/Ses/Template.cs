@@ -12,9 +12,28 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides a resource to create a SES template.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_template.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var myTemplate = new Aws.Ses.Template("myTemplate", new Aws.Ses.TemplateArgs
+    ///         {
+    ///             Html = "&lt;h1&gt;Hello {{name}},&lt;/h1&gt;&lt;p&gt;Your favorite animal is {{favoriteanimal}}.&lt;/p&gt;",
+    ///             Subject = "Greetings, {{name}}!",
+    ///             Text = @"Hello {{name}},
+    /// Your favorite animal is {{favoriteanimal}}.
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Template : Pulumi.CustomResource
     {
@@ -51,7 +70,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Template(string name, TemplateArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ses/template:Template", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/template:Template", name, args ?? new TemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -6,36 +6,32 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EC2 Transit Gateway Route.
- * 
- * ## Example Usage
- * 
- * ### Standard usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2transitgateway.Route("example", {
- *     destinationCidrBlock: "0.0.0.0/0",
- *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment_example.id,
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway_example.associationDefaultRouteTableId,
- * });
- * ```
- * 
- * ### Blackhole route
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2transitgateway.Route("example", {
- *     blackhole: true,
- *     destinationCidrBlock: "0.0.0.0/0",
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway_example.associationDefaultRouteTableId,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_route.html.markdown.
+ * ## Example Usage
+ * ### Standard usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2transitgateway.Route("example", {
+ *     destinationCidrBlock: "0.0.0.0/0",
+ *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment.example.id,
+ *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,
+ * });
+ * ```
+ * ### Blackhole route
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2transitgateway.Route("example", {
+ *     destinationCidrBlock: "0.0.0.0/0",
+ *     blackhole: true,
+ *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,
+ * });
+ * ```
  */
 export class Route extends pulumi.CustomResource {
     /**
@@ -45,6 +41,7 @@ export class Route extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RouteState, opts?: pulumi.CustomResourceOptions): Route {
         return new Route(name, <any>state, { ...opts, id: id });
@@ -69,7 +66,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly blackhole!: pulumi.Output<boolean | undefined>;
     /**
-     * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+     * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      */
     public readonly destinationCidrBlock!: pulumi.Output<string>;
     /**
@@ -130,7 +127,7 @@ export interface RouteState {
      */
     readonly blackhole?: pulumi.Input<boolean>;
     /**
-     * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+     * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      */
     readonly destinationCidrBlock?: pulumi.Input<string>;
     /**
@@ -152,7 +149,7 @@ export interface RouteArgs {
      */
     readonly blackhole?: pulumi.Input<boolean>;
     /**
-     * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+     * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      */
     readonly destinationCidrBlock: pulumi.Input<string>;
     /**

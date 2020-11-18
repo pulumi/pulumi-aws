@@ -4,29 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Document resource
- * 
+ *
  * > **NOTE on updating SSM documents:** Only documents with a schema version of 2.0
- * or greater can update their content once created, see [SSM Schema Features][1]. To update a document with an older
+ * or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older
  * schema version you must recreate the resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ssm.Document("foo", {
  *     content: `  {
  *     "schemaVersion": "1.2",
  *     "description": "Check ip configuration of a Linux instance.",
  *     "parameters": {
- * 
+ *
  *     },
  *     "runtimeConfig": {
  *       "aws:runShellScript": {
@@ -43,27 +42,16 @@ import * as utilities from "../utilities";
  *     documentType: "Command",
  * });
  * ```
- * 
- * ## attachmentsSource
- * 
- * The `attachmentsSource` block supports the following:
- * 
- * * `key` - (Required) The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
- * * `values` - (Required) The value describing the location of an attachment to a document
- * * `name` - (Optional) The name of the document attachment file
- * 
  * ## Permissions
- * 
+ *
  * The permissions attribute specifies how you want to share the document. If you share a document privately,
  * you must specify the AWS user account IDs for those people who can use the document. If you share a document
  * publicly, you must specify All as the account ID.
- * 
+ *
  * The permissions mapping supports the following:
- * 
+ *
  * * `type` - The permission type for the document. The permission type can be `Share`.
  * * `accountIds` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_document.html.markdown.
  */
 export class Document extends pulumi.CustomResource {
     /**
@@ -73,6 +61,7 @@ export class Document extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DocumentState, opts?: pulumi.CustomResourceOptions): Document {
         return new Document(name, <any>state, { ...opts, id: id });
@@ -122,6 +111,10 @@ export class Document extends pulumi.CustomResource {
      */
     public readonly documentType!: pulumi.Output<string>;
     /**
+     * The document version.
+     */
+    public /*out*/ readonly documentVersion!: pulumi.Output<string>;
+    /**
      * The sha1 or sha256 of the document content
      */
     public /*out*/ readonly hash!: pulumi.Output<string>;
@@ -148,7 +141,7 @@ export class Document extends pulumi.CustomResource {
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
-    public readonly permissions!: pulumi.Output<outputs.ssm.DocumentPermissions | undefined>;
+    public readonly permissions!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
      */
@@ -162,9 +155,9 @@ export class Document extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
      */
@@ -190,6 +183,7 @@ export class Document extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["documentFormat"] = state ? state.documentFormat : undefined;
             inputs["documentType"] = state ? state.documentType : undefined;
+            inputs["documentVersion"] = state ? state.documentVersion : undefined;
             inputs["hash"] = state ? state.hash : undefined;
             inputs["hashType"] = state ? state.hashType : undefined;
             inputs["latestVersion"] = state ? state.latestVersion : undefined;
@@ -222,6 +216,7 @@ export class Document extends pulumi.CustomResource {
             inputs["createdDate"] = undefined /*out*/;
             inputs["defaultVersion"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
+            inputs["documentVersion"] = undefined /*out*/;
             inputs["hash"] = undefined /*out*/;
             inputs["hashType"] = undefined /*out*/;
             inputs["latestVersion"] = undefined /*out*/;
@@ -276,6 +271,10 @@ export interface DocumentState {
      */
     readonly documentType?: pulumi.Input<string>;
     /**
+     * The document version.
+     */
+    readonly documentVersion?: pulumi.Input<string>;
+    /**
      * The sha1 or sha256 of the document content
      */
     readonly hash?: pulumi.Input<string>;
@@ -302,7 +301,7 @@ export interface DocumentState {
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
-    readonly permissions?: pulumi.Input<inputs.ssm.DocumentPermissions>;
+    readonly permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
      */
@@ -316,9 +315,9 @@ export interface DocumentState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
      */
@@ -352,11 +351,11 @@ export interface DocumentArgs {
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
-    readonly permissions?: pulumi.Input<inputs.ssm.DocumentPermissions>;
+    readonly permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
      */

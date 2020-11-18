@@ -7,10 +7,71 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
+//
+// ## Example Usage
+// ### Add metrics configuration for entire S3 bucket
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := s3.NewBucket(ctx, "example", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketMetric(ctx, "example_entire_bucket", &s3.BucketMetricArgs{
+// 			Bucket: example.Bucket,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Add metrics configuration with S3 bucket object filter
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := s3.NewBucket(ctx, "example", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketMetric(ctx, "example_filtered", &s3.BucketMetricArgs{
+// 			Bucket: example.Bucket,
+// 			Filter: &s3.BucketMetricFilterArgs{
+// 				Prefix: pulumi.String("documents/"),
+// 				Tags: pulumi.StringMap{
+// 					"priority": pulumi.String("high"),
+// 					"class":    pulumi.String("blue"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type BucketMetric struct {
 	pulumi.CustomResourceState
 

@@ -9,35 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lambda
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to invoke custom lambda functions as data source.
-        /// The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
-        /// invocation type.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetInvocation.InvokeAsync() instead")]
-        public static Task<GetInvocationResult> GetInvocation(GetInvocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetInvocation
     {
         /// <summary>
         /// Use this data source to invoke custom lambda functions as data source.
         /// The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
         /// invocation type.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
         /// </summary>
         public static Task<GetInvocationResult> InvokeAsync(GetInvocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationArgs(), options.WithVersion());
     }
+
 
     public sealed class GetInvocationArgs : Pulumi.InvokeArgs
     {
@@ -65,40 +47,39 @@ namespace Pulumi.Aws.Lambda
         }
     }
 
+
     [OutputType]
     public sealed class GetInvocationResult
     {
         public readonly string FunctionName;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Input;
         public readonly string? Qualifier;
         /// <summary>
         /// String result of the lambda function invocation.
         /// </summary>
         public readonly string Result;
-        /// <summary>
-        /// This field is set only if result is a map of primitive types, where the map is string keys and string values.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> ResultMap;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetInvocationResult(
             string functionName,
+
+            string id,
+
             string input,
+
             string? qualifier,
-            string result,
-            ImmutableDictionary<string, string> resultMap,
-            string id)
+
+            string result)
         {
             FunctionName = functionName;
+            Id = id;
             Input = input;
             Qualifier = qualifier;
             Result = result;
-            ResultMap = resultMap;
-            Id = id;
         }
     }
 }

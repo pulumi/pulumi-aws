@@ -14,9 +14,33 @@ namespace Pulumi.Aws.Iam
     /// 
     /// &gt; To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_login_profile.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleUser = new Aws.Iam.User("exampleUser", new Aws.Iam.UserArgs
+    ///         {
+    ///             Path = "/",
+    ///             ForceDestroy = true,
+    ///         });
+    ///         var exampleUserLoginProfile = new Aws.Iam.UserLoginProfile("exampleUserLoginProfile", new Aws.Iam.UserLoginProfileArgs
+    ///         {
+    ///             User = exampleUser.Name,
+    ///             PgpKey = "keybase:some_person_that_exists",
+    ///         });
+    ///         this.Password = exampleUserLoginProfile.EncryptedPassword;
+    ///     }
+    /// 
+    ///     [Output("password")]
+    ///     public Output&lt;string&gt; Password { get; set; }
+    /// }
+    /// ```
     /// </summary>
     public partial class UserLoginProfile : Pulumi.CustomResource
     {
@@ -65,7 +89,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserLoginProfile(string name, UserLoginProfileArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/userLoginProfile:UserLoginProfile", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/userLoginProfile:UserLoginProfile", name, args ?? new UserLoginProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 

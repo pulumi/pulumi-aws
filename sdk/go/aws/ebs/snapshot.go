@@ -7,13 +7,51 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates a Snapshot of an EBS Volume.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ebs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
+// 			AvailabilityZone: pulumi.String("us-west-2a"),
+// 			Size:             pulumi.Int(40),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("HelloWorld"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
+// 			VolumeId: example.ID(),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("HelloWorld_snap"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Snapshot struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId pulumi.StringOutput `pulumi:"dataEncryptionKeyId"`
 	// A description of what the snapshot is.
@@ -26,8 +64,8 @@ type Snapshot struct {
 	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A mapping of tags to assign to the snapshot
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the snapshot
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
@@ -65,6 +103,8 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn *string `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId *string `pulumi:"dataEncryptionKeyId"`
 	// A description of what the snapshot is.
@@ -77,8 +117,8 @@ type snapshotState struct {
 	OwnerAlias *string `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId *string `pulumi:"ownerId"`
-	// A mapping of tags to assign to the snapshot
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the snapshot
+	Tags map[string]string `pulumi:"tags"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId *string `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
@@ -86,6 +126,8 @@ type snapshotState struct {
 }
 
 type SnapshotState struct {
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn pulumi.StringPtrInput
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId pulumi.StringPtrInput
 	// A description of what the snapshot is.
@@ -98,8 +140,8 @@ type SnapshotState struct {
 	OwnerAlias pulumi.StringPtrInput
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringPtrInput
-	// A mapping of tags to assign to the snapshot
-	Tags pulumi.MapInput
+	// A map of tags to assign to the snapshot
+	Tags pulumi.StringMapInput
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringPtrInput
 	// The size of the drive in GiBs.
@@ -113,8 +155,8 @@ func (SnapshotState) ElementType() reflect.Type {
 type snapshotArgs struct {
 	// A description of what the snapshot is.
 	Description *string `pulumi:"description"`
-	// A mapping of tags to assign to the snapshot
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the snapshot
+	Tags map[string]string `pulumi:"tags"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId string `pulumi:"volumeId"`
 }
@@ -123,8 +165,8 @@ type snapshotArgs struct {
 type SnapshotArgs struct {
 	// A description of what the snapshot is.
 	Description pulumi.StringPtrInput
-	// A mapping of tags to assign to the snapshot
-	Tags pulumi.MapInput
+	// A map of tags to assign to the snapshot
+	Tags pulumi.StringMapInput
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringInput
 }

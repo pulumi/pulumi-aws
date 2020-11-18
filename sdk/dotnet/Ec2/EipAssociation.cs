@@ -18,9 +18,39 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **NOTE:** `aws.ec2.EipAssociation` is useful in scenarios where EIPs are either
     /// pre-existing or distributed to customers or users and therefore cannot be changed.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip_association.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
+    ///         {
+    ///             Ami = "ami-21f78e11",
+    ///             AvailabilityZone = "us-west-2a",
+    ///             InstanceType = "t2.micro",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "HelloWorld" },
+    ///             },
+    ///         });
+    ///         var example = new Aws.Ec2.Eip("example", new Aws.Ec2.EipArgs
+    ///         {
+    ///             Vpc = true,
+    ///         });
+    ///         var eipAssoc = new Aws.Ec2.EipAssociation("eipAssoc", new Aws.Ec2.EipAssociationArgs
+    ///         {
+    ///             InstanceId = web.Id,
+    ///             AllocationId = example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EipAssociation : Pulumi.CustomResource
     {
@@ -78,7 +108,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EipAssociation(string name, EipAssociationArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ec2/eipAssociation:EipAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/eipAssociation:EipAssociation", name, args ?? new EipAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

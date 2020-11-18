@@ -8,3 +8,5 @@ from .principal_association import *
 from .resource_association import *
 from .resource_share import *
 from .resource_share_accepter import *
+from ._inputs import *
+from . import outputs

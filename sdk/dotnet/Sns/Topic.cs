@@ -12,12 +12,82 @@ namespace Pulumi.Aws.Sns
     /// <summary>
     /// Provides an SNS topic resource
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var userUpdates = new Aws.Sns.Topic("userUpdates", new Aws.Sns.TopicArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ## Example with Delivery Policy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var userUpdates = new Aws.Sns.Topic("userUpdates", new Aws.Sns.TopicArgs
+    ///         {
+    ///             DeliveryPolicy = @"{
+    ///   ""http"": {
+    ///     ""defaultHealthyRetryPolicy"": {
+    ///       ""minDelayTarget"": 20,
+    ///       ""maxDelayTarget"": 20,
+    ///       ""numRetries"": 3,
+    ///       ""numMaxDelayRetries"": 0,
+    ///       ""numNoDelayRetries"": 0,
+    ///       ""numMinDelayRetries"": 0,
+    ///       ""backoffFunction"": ""linear""
+    ///     },
+    ///     ""disableSubscriptionOverrides"": false,
+    ///     ""defaultThrottlePolicy"": {
+    ///       ""maxReceivesPerSecond"": 1
+    ///     }
+    ///   }
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example with Server-side encryption (SSE)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var userUpdates = new Aws.Sns.Topic("userUpdates", new Aws.Sns.TopicArgs
+    ///         {
+    ///             KmsMasterKeyId = "alias/aws/sns",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Message Delivery Status Arguments
     /// 
     /// The `&lt;endpoint&gt;_success_feedback_role_arn` and `&lt;endpoint&gt;_failure_feedback_role_arn` arguments are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `&lt;endpoint&gt;_success_feedback_sample_rate` argument is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the  `&lt;endpoint&gt;_failure_feedback_role_arn` argument, then all failed message deliveries generate CloudWatch Logs.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic.html.markdown.
     /// </summary>
     public partial class Topic : Pulumi.CustomResource
     {
@@ -136,10 +206,10 @@ namespace Pulumi.Aws.Sns
         public Output<int?> SqsSuccessFeedbackSampleRate { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -150,7 +220,7 @@ namespace Pulumi.Aws.Sns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Topic(string name, TopicArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:sns/topic:Topic", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:sns/topic:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -296,14 +366,14 @@ namespace Pulumi.Aws.Sns
         public Input<int>? SqsSuccessFeedbackSampleRate { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -429,14 +499,14 @@ namespace Pulumi.Aws.Sns
         public Input<int>? SqsSuccessFeedbackSampleRate { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

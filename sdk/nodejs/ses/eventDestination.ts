@@ -4,74 +4,70 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an SES event destination
- * 
+ *
  * ## Example Usage
- * 
  * ### CloudWatch Destination
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const cloudwatch = new aws.ses.EventDestination("cloudwatch", {
+ *     configurationSetName: aws_ses_configuration_set.example.name,
+ *     enabled: true,
+ *     matchingTypes: [
+ *         "bounce",
+ *         "send",
+ *     ],
  *     cloudwatchDestinations: [{
  *         defaultValue: "default",
  *         dimensionName: "dimension",
  *         valueSource: "emailHeader",
  *     }],
- *     configurationSetName: aws_ses_configuration_set_example.name,
- *     enabled: true,
- *     matchingTypes: [
- *         "bounce",
- *         "send",
- *     ],
  * });
  * ```
- * 
  * ### Kinesis Destination
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const kinesis = new aws.ses.EventDestination("kinesis", {
- *     configurationSetName: aws_ses_configuration_set_example.name,
+ *     configurationSetName: aws_ses_configuration_set.example.name,
  *     enabled: true,
- *     kinesisDestination: {
- *         roleArn: aws_iam_role_example.arn,
- *         streamArn: aws_kinesis_firehose_delivery_stream_example.arn,
- *     },
  *     matchingTypes: [
  *         "bounce",
  *         "send",
  *     ],
+ *     kinesisDestination: {
+ *         streamArn: aws_kinesis_firehose_delivery_stream.example.arn,
+ *         roleArn: aws_iam_role.example.arn,
+ *     },
  * });
  * ```
- * 
  * ### SNS Destination
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sns = new aws.ses.EventDestination("sns", {
- *     configurationSetName: aws_ses_configuration_set_example.name,
+ *     configurationSetName: aws_ses_configuration_set.example.name,
  *     enabled: true,
  *     matchingTypes: [
  *         "bounce",
  *         "send",
  *     ],
  *     snsDestination: {
- *         topicArn: aws_sns_topic_example.arn,
+ *         topicArn: aws_sns_topic.example.arn,
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_event_destination.markdown.
  */
 export class EventDestination extends pulumi.CustomResource {
     /**
@@ -81,6 +77,7 @@ export class EventDestination extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventDestinationState, opts?: pulumi.CustomResourceOptions): EventDestination {
         return new EventDestination(name, <any>state, { ...opts, id: id });

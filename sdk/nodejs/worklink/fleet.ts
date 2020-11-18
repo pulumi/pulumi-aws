@@ -4,21 +4,46 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * Basic usage:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.worklink.Fleet("example", {});
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/worklink_fleet.html.markdown.
+ * Network Configuration Usage:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.worklink.Fleet("example", {network: {
+ *     vpcId: aws_vpc.test.id,
+ *     subnetIds: [aws_subnet.test.map(__item => __item.id)],
+ *     securityGroupIds: [aws_security_group.test.id],
+ * }});
+ * ```
+ *
+ * Identity Provider Configuration Usage:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * from "fs";
+ *
+ * const test = new aws.worklink.Fleet("test", {identityProvider: {
+ *     type: "SAML",
+ *     samlMetadata: fs.readFileSync("saml-metadata.xml"),
+ * }});
+ * ```
  */
 export class Fleet extends pulumi.CustomResource {
     /**
@@ -28,6 +53,7 @@ export class Fleet extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FleetState, opts?: pulumi.CustomResourceOptions): Fleet {
         return new Fleet(name, <any>state, { ...opts, id: id });
@@ -52,7 +78,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The ARN of the Amazon Kinesis data stream that receives the audit events.
+     * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
      */
     public readonly auditStreamArn!: pulumi.Output<string | undefined>;
     /**
@@ -149,7 +175,7 @@ export interface FleetState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The ARN of the Amazon Kinesis data stream that receives the audit events.
+     * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
      */
     readonly auditStreamArn?: pulumi.Input<string>;
     /**
@@ -195,7 +221,7 @@ export interface FleetState {
  */
 export interface FleetArgs {
     /**
-     * The ARN of the Amazon Kinesis data stream that receives the audit events.
+     * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
      */
     readonly auditStreamArn?: pulumi.Input<string>;
     /**

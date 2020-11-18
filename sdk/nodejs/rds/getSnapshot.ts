@@ -4,32 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a DB Snapshot for use when provisioning DB instances
- * 
+ *
  * > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
- * See the [`aws.rds.ClusterSnapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
- * 
+ * See the `aws.rds.ClusterSnapshot` data source for DB Cluster snapshots.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const prod = new aws.rds.Instance("prod", {
  *     allocatedStorage: 10,
- *     dbSubnetGroupName: "myDatabaseSubnetGroup",
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
  *     instanceClass: "db.t2.micro",
  *     name: "mydb",
- *     parameterGroupName: "default.mysql5.6",
- *     password: "bar",
  *     username: "foo",
+ *     password: "bar",
+ *     dbSubnetGroupName: "my_database_subnet_group",
+ *     parameterGroupName: "default.mysql5.6",
  * });
  * const latestProdSnapshot = prod.id.apply(id => aws.rds.getSnapshot({
  *     dbInstanceIdentifier: id,
@@ -40,12 +39,10 @@ import * as utilities from "../utilities";
  *     instanceClass: "db.t2.micro",
  *     name: "mydbdev",
  *     snapshotIdentifier: latestProdSnapshot.id,
- * }, {ignoreChanges: ["snapshotIdentifier"]});
+ * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
  */
-export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> & GetSnapshotResult {
+export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -54,7 +51,7 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSnapshotResult> = pulumi.runtime.invoke("aws:rds/getSnapshot:getSnapshot", {
+    return pulumi.runtime.invoke("aws:rds/getSnapshot:getSnapshot", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
         "dbSnapshotIdentifier": args.dbSnapshotIdentifier,
         "includePublic": args.includePublic,
@@ -62,8 +59,6 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
         "mostRecent": args.mostRecent,
         "snapshotType": args.snapshotType,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -132,6 +127,10 @@ export interface GetSnapshotResult {
      * Specifies the version of the database engine.
      */
     readonly engineVersion: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly includePublic?: boolean;
     readonly includeShared?: boolean;
     /**
@@ -177,8 +176,4 @@ export interface GetSnapshotResult {
      * Specifies the ID of the VPC associated with the DB snapshot.
      */
     readonly vpcId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

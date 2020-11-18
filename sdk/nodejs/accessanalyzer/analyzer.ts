@@ -6,21 +6,32 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ * ### Account Analyzer
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.accessanalyzer.Analyzer("example", {
  *     analyzerName: "example",
  * });
  * ```
+ * ### Organization Analyzer
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/accessanalyzer_analyzer.html.markdown.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {awsServiceAccessPrincipals: ["access-analyzer.amazonaws.com"]});
+ * const exampleAnalyzer = new aws.accessanalyzer.Analyzer("exampleAnalyzer", {
+ *     analyzerName: "example",
+ *     type: "ORGANIZATION",
+ * }, {
+ *     dependsOn: [exampleOrganization],
+ * });
+ * ```
  */
 export class Analyzer extends pulumi.CustomResource {
     /**
@@ -30,6 +41,7 @@ export class Analyzer extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AnalyzerState, opts?: pulumi.CustomResourceOptions): Analyzer {
         return new Analyzer(name, <any>state, { ...opts, id: id });
@@ -55,11 +67,11 @@ export class Analyzer extends pulumi.CustomResource {
     public readonly analyzerName!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
+     * Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -110,11 +122,11 @@ export interface AnalyzerState {
     readonly analyzerName?: pulumi.Input<string>;
     readonly arn?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
+     * Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -128,11 +140,11 @@ export interface AnalyzerArgs {
      */
     readonly analyzerName: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
+     * Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
      */
     readonly type?: pulumi.Input<string>;
 }

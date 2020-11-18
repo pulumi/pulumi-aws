@@ -6,15 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudFormation Stack resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const network = new aws.cloudformation.Stack("network", {
  *     parameters: {
  *         VPCCidr: "10.0.0.0/16",
@@ -42,8 +40,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudformation_stack.html.markdown.
  */
 export class Stack extends pulumi.CustomResource {
     /**
@@ -53,6 +49,7 @@ export class Stack extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: StackState, opts?: pulumi.CustomResourceOptions): Stack {
         return new Stack(name, <any>state, { ...opts, id: id });
@@ -102,11 +99,11 @@ export class Stack extends pulumi.CustomResource {
     /**
      * A map of outputs from the stack.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string}>;
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: any}>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string}>;
     /**
      * Structure containing the stack policy body.
      * Conflicts w/ `policyUrl`.
@@ -120,7 +117,7 @@ export class Stack extends pulumi.CustomResource {
     /**
      * A list of tags to associate with this stack.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */
@@ -222,11 +219,11 @@ export interface StackState {
     /**
      * A map of outputs from the stack.
      */
-    readonly outputs?: pulumi.Input<{[key: string]: any}>;
+    readonly outputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Structure containing the stack policy body.
      * Conflicts w/ `policyUrl`.
@@ -240,7 +237,7 @@ export interface StackState {
     /**
      * A list of tags to associate with this stack.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */
@@ -289,7 +286,7 @@ export interface StackArgs {
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Structure containing the stack policy body.
      * Conflicts w/ `policyUrl`.
@@ -303,7 +300,7 @@ export interface StackArgs {
     /**
      * A list of tags to associate with this stack.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */

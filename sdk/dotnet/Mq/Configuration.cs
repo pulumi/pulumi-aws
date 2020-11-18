@@ -10,13 +10,40 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Mq
 {
     /// <summary>
-    /// Provides an MQ Configuration Resource. 
+    /// Provides an MQ Configuration Resource.
     /// 
     /// For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_configuration.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Mq.Configuration("example", new Aws.Mq.ConfigurationArgs
+    ///         {
+    ///             Data = @"&lt;?xml version=""1.0"" encoding=""UTF-8"" standalone=""yes""?&gt;
+    /// &lt;broker xmlns=""http://activemq.apache.org/schema/core""&gt;
+    ///   &lt;plugins&gt;
+    ///     &lt;forcePersistencyModeBrokerPlugin persistenceFlag=""true""/&gt;
+    ///     &lt;statisticsBrokerPlugin/&gt;
+    ///     &lt;timeStampingBrokerPlugin ttlCeiling=""86400000"" zeroExpirationOverride=""86400000""/&gt;
+    ///   &lt;/plugins&gt;
+    /// &lt;/broker&gt;
+    /// 
+    /// ",
+    ///             Description = "Example Configuration",
+    ///             EngineType = "ActiveMQ",
+    ///             EngineVersion = "5.15.0",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Configuration : Pulumi.CustomResource
     {
@@ -65,10 +92,10 @@ namespace Pulumi.Aws.Mq
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -79,7 +106,7 @@ namespace Pulumi.Aws.Mq
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Configuration(string name, ConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws:mq/configuration:Configuration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:mq/configuration:Configuration", name, args ?? new ConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -149,14 +176,14 @@ namespace Pulumi.Aws.Mq
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -212,14 +239,14 @@ namespace Pulumi.Aws.Mq
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

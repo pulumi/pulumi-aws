@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type ClusterLogging struct {
@@ -20,6 +20,10 @@ type ClusterLogging struct {
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
 
+// ClusterLoggingInput is an input type that accepts ClusterLoggingArgs and ClusterLoggingOutput values.
+// You can construct a concrete instance of `ClusterLoggingInput` via:
+//
+//          ClusterLoggingArgs{...}
 type ClusterLoggingInput interface {
 	pulumi.Input
 
@@ -57,6 +61,14 @@ func (i ClusterLoggingArgs) ToClusterLoggingPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingOutput).ToClusterLoggingPtrOutputWithContext(ctx)
 }
 
+// ClusterLoggingPtrInput is an input type that accepts ClusterLoggingArgs, ClusterLoggingPtr and ClusterLoggingPtrOutput values.
+// You can construct a concrete instance of `ClusterLoggingPtrInput` via:
+//
+//          ClusterLoggingArgs{...}
+//
+//  or:
+//
+//          nil
 type ClusterLoggingPtrInput interface {
 	pulumi.Input
 
@@ -143,17 +155,32 @@ func (o ClusterLoggingPtrOutput) Elem() ClusterLoggingOutput {
 // The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
 // For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
 func (o ClusterLoggingPtrOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterLogging) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterLogging) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
-func (o ClusterLoggingPtrOutput) Enable() pulumi.BoolOutput {
-	return o.ApplyT(func(v ClusterLogging) bool { return v.Enable }).(pulumi.BoolOutput)
+func (o ClusterLoggingPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterLogging) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The prefix applied to the log file names.
 func (o ClusterLoggingPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterLogging) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterLogging) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3KeyPrefix
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterSnapshotCopy struct {
@@ -165,6 +192,10 @@ type ClusterSnapshotCopy struct {
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 }
 
+// ClusterSnapshotCopyInput is an input type that accepts ClusterSnapshotCopyArgs and ClusterSnapshotCopyOutput values.
+// You can construct a concrete instance of `ClusterSnapshotCopyInput` via:
+//
+//          ClusterSnapshotCopyArgs{...}
 type ClusterSnapshotCopyInput interface {
 	pulumi.Input
 
@@ -201,6 +232,14 @@ func (i ClusterSnapshotCopyArgs) ToClusterSnapshotCopyPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotCopyOutput).ToClusterSnapshotCopyPtrOutputWithContext(ctx)
 }
 
+// ClusterSnapshotCopyPtrInput is an input type that accepts ClusterSnapshotCopyArgs, ClusterSnapshotCopyPtr and ClusterSnapshotCopyPtrOutput values.
+// You can construct a concrete instance of `ClusterSnapshotCopyPtrInput` via:
+//
+//          ClusterSnapshotCopyArgs{...}
+//
+//  or:
+//
+//          nil
 type ClusterSnapshotCopyPtrInput interface {
 	pulumi.Input
 
@@ -284,18 +323,33 @@ func (o ClusterSnapshotCopyPtrOutput) Elem() ClusterSnapshotCopyOutput {
 }
 
 // The destination region that you want to copy snapshots to.
-func (o ClusterSnapshotCopyPtrOutput) DestinationRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterSnapshotCopy) string { return v.DestinationRegion }).(pulumi.StringOutput)
+func (o ClusterSnapshotCopyPtrOutput) DestinationRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshotCopy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationRegion
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
 func (o ClusterSnapshotCopyPtrOutput) GrantName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterSnapshotCopy) *string { return v.GrantName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterSnapshotCopy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GrantName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
 func (o ClusterSnapshotCopyPtrOutput) RetentionPeriod() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterSnapshotCopy) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ClusterSnapshotCopy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriod
+	}).(pulumi.IntPtrOutput)
 }
 
 type ParameterGroupParameter struct {
@@ -305,6 +359,10 @@ type ParameterGroupParameter struct {
 	Value string `pulumi:"value"`
 }
 
+// ParameterGroupParameterInput is an input type that accepts ParameterGroupParameterArgs and ParameterGroupParameterOutput values.
+// You can construct a concrete instance of `ParameterGroupParameterInput` via:
+//
+//          ParameterGroupParameterArgs{...}
 type ParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -331,6 +389,10 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterOutput)
 }
 
+// ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
+// You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
+//
+//          ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
 type ParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -406,6 +468,10 @@ type SecurityGroupIngress struct {
 	SecurityGroupOwnerId *string `pulumi:"securityGroupOwnerId"`
 }
 
+// SecurityGroupIngressInput is an input type that accepts SecurityGroupIngressArgs and SecurityGroupIngressOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressInput` via:
+//
+//          SecurityGroupIngressArgs{...}
 type SecurityGroupIngressInput interface {
 	pulumi.Input
 
@@ -435,6 +501,10 @@ func (i SecurityGroupIngressArgs) ToSecurityGroupIngressOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressOutput)
 }
 
+// SecurityGroupIngressArrayInput is an input type that accepts SecurityGroupIngressArray and SecurityGroupIngressArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressArrayInput` via:
+//
+//          SecurityGroupIngressArray{ SecurityGroupIngressArgs{...} }
 type SecurityGroupIngressArrayInput interface {
 	pulumi.Input
 

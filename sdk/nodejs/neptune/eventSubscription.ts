@@ -2,36 +2,35 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const defaultCluster = new aws.neptune.Cluster("default", {
- *     applyImmediately: true,
- *     backupRetentionPeriod: 5,
+ *
+ * const defaultCluster = new aws.neptune.Cluster("defaultCluster", {
  *     clusterIdentifier: "neptune-cluster-demo",
  *     engine: "neptune",
- *     iamDatabaseAuthenticationEnabled: true,
+ *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  *     skipFinalSnapshot: true,
+ *     iamDatabaseAuthenticationEnabled: "true",
+ *     applyImmediately: "true",
  * });
  * const example = new aws.neptune.ClusterInstance("example", {
- *     applyImmediately: true,
  *     clusterIdentifier: defaultCluster.id,
  *     engine: "neptune",
  *     instanceClass: "db.r4.large",
+ *     applyImmediately: "true",
  * });
- * const defaultTopic = new aws.sns.Topic("default", {});
- * const defaultEventSubscription = new aws.neptune.EventSubscription("default", {
+ * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
+ * const defaultEventSubscription = new aws.neptune.EventSubscription("defaultEventSubscription", {
+ *     snsTopicArn: defaultTopic.arn,
+ *     sourceType: "db-instance",
+ *     sourceIds: [example.id],
  *     eventCategories: [
  *         "maintenance",
  *         "availability",
@@ -46,24 +45,18 @@ import * as utilities from "../utilities";
  *         "configuration change",
  *         "read replica",
  *     ],
- *     snsTopicArn: defaultTopic.arn,
- *     sourceIds: [example.id],
- *     sourceType: "db-instance",
  *     tags: {
  *         env: "test",
  *     },
  * });
  * ```
- * 
  * ## Attributes
- * 
+ *
  * The following additional atttributes are provided:
- * 
+ *
  * * `id` - The name of the Neptune event notification subscription.
  * * `arn` - The Amazon Resource Name of the Neptune event notification subscription.
  * * `customerAwsId` - The AWS customer account associated with the Neptune event notification subscription.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_event_subscription.html.markdown.
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**
@@ -73,6 +66,7 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventSubscriptionState, opts?: pulumi.CustomResourceOptions): EventSubscription {
         return new EventSubscription(name, <any>state, { ...opts, id: id });
@@ -123,9 +117,9 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly sourceType!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a EventSubscription resource with the given unique name, arguments, and options.
@@ -211,9 +205,9 @@ export interface EventSubscriptionState {
      */
     readonly sourceType?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -249,7 +243,7 @@ export interface EventSubscriptionArgs {
      */
     readonly sourceType?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

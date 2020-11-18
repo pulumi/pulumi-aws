@@ -12,9 +12,36 @@ namespace Pulumi.Aws.Waf
     /// <summary>
     /// Provides a WAF Geo Match Set Resource
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_geo_match_set.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var geoMatchSet = new Aws.Waf.GeoMatchSet("geoMatchSet", new Aws.Waf.GeoMatchSetArgs
+    ///         {
+    ///             GeoMatchConstraints = 
+    ///             {
+    ///                 new Aws.Waf.Inputs.GeoMatchSetGeoMatchConstraintArgs
+    ///                 {
+    ///                     Type = "Country",
+    ///                     Value = "US",
+    ///                 },
+    ///                 new Aws.Waf.Inputs.GeoMatchSetGeoMatchConstraintArgs
+    ///                 {
+    ///                     Type = "Country",
+    ///                     Value = "CA",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GeoMatchSet : Pulumi.CustomResource
     {
@@ -28,7 +55,7 @@ namespace Pulumi.Aws.Waf
         /// The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
         /// </summary>
         [Output("geoMatchConstraints")]
-        public Output<ImmutableArray<Outputs.GeoMatchSetGeoMatchConstraints>> GeoMatchConstraints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GeoMatchSetGeoMatchConstraint>> GeoMatchConstraints { get; private set; } = null!;
 
         /// <summary>
         /// The name or description of the GeoMatchSet.
@@ -45,7 +72,7 @@ namespace Pulumi.Aws.Waf
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GeoMatchSet(string name, GeoMatchSetArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:waf/geoMatchSet:GeoMatchSet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:waf/geoMatchSet:GeoMatchSet", name, args ?? new GeoMatchSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -83,14 +110,14 @@ namespace Pulumi.Aws.Waf
     public sealed class GeoMatchSetArgs : Pulumi.ResourceArgs
     {
         [Input("geoMatchConstraints")]
-        private InputList<Inputs.GeoMatchSetGeoMatchConstraintsArgs>? _geoMatchConstraints;
+        private InputList<Inputs.GeoMatchSetGeoMatchConstraintArgs>? _geoMatchConstraints;
 
         /// <summary>
         /// The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
         /// </summary>
-        public InputList<Inputs.GeoMatchSetGeoMatchConstraintsArgs> GeoMatchConstraints
+        public InputList<Inputs.GeoMatchSetGeoMatchConstraintArgs> GeoMatchConstraints
         {
-            get => _geoMatchConstraints ?? (_geoMatchConstraints = new InputList<Inputs.GeoMatchSetGeoMatchConstraintsArgs>());
+            get => _geoMatchConstraints ?? (_geoMatchConstraints = new InputList<Inputs.GeoMatchSetGeoMatchConstraintArgs>());
             set => _geoMatchConstraints = value;
         }
 
@@ -114,14 +141,14 @@ namespace Pulumi.Aws.Waf
         public Input<string>? Arn { get; set; }
 
         [Input("geoMatchConstraints")]
-        private InputList<Inputs.GeoMatchSetGeoMatchConstraintsGetArgs>? _geoMatchConstraints;
+        private InputList<Inputs.GeoMatchSetGeoMatchConstraintGetArgs>? _geoMatchConstraints;
 
         /// <summary>
         /// The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
         /// </summary>
-        public InputList<Inputs.GeoMatchSetGeoMatchConstraintsGetArgs> GeoMatchConstraints
+        public InputList<Inputs.GeoMatchSetGeoMatchConstraintGetArgs> GeoMatchConstraints
         {
-            get => _geoMatchConstraints ?? (_geoMatchConstraints = new InputList<Inputs.GeoMatchSetGeoMatchConstraintsGetArgs>());
+            get => _geoMatchConstraints ?? (_geoMatchConstraints = new InputList<Inputs.GeoMatchSetGeoMatchConstraintGetArgs>());
             set => _geoMatchConstraints = value;
         }
 
@@ -134,79 +161,5 @@ namespace Pulumi.Aws.Waf
         public GeoMatchSetState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GeoMatchSetGeoMatchConstraintsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// The country that you want AWS WAF to search for.
-        /// This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
-        /// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public GeoMatchSetGeoMatchConstraintsArgs()
-        {
-        }
-    }
-
-    public sealed class GeoMatchSetGeoMatchConstraintsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// The country that you want AWS WAF to search for.
-        /// This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
-        /// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public GeoMatchSetGeoMatchConstraintsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GeoMatchSetGeoMatchConstraints
-    {
-        /// <summary>
-        /// The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
-        /// </summary>
-        public readonly string Type;
-        /// <summary>
-        /// The country that you want AWS WAF to search for.
-        /// This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
-        /// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private GeoMatchSetGeoMatchConstraints(
-            string type,
-            string value)
-        {
-            Type = type;
-            Value = value;
-        }
-    }
     }
 }

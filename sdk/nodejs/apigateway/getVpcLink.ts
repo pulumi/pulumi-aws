@@ -4,30 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the id of a VPC Link in
- * API Gateway. To fetch the VPC Link you must provide a name to match against. 
- * As there is no unique name constraint on API Gateway VPC Links this data source will 
+ * API Gateway. To fetch the VPC Link you must provide a name to match against.
+ * As there is no unique name constraint on API Gateway VPC Links this data source will
  * error if there is more than one match.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const myApiGatewayVpcLink = aws.apigateway.getVpcLink({
- *     name: "my-vpc-link",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_vpc_link.html.markdown.
+ * const myApiGatewayVpcLink = pulumi.output(aws.apigateway.getVpcLink({
+ *     name: "my-vpc-link",
+ * }, { async: true }));
+ * ```
  */
-export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> & GetVpcLinkResult {
+export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
     if (!opts) {
         opts = {}
     }
@@ -35,12 +32,10 @@ export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetVpcLinkResult> = pulumi.runtime.invoke("aws:apigateway/getVpcLink:getVpcLink", {
+    return pulumi.runtime.invoke("aws:apigateway/getVpcLink:getVpcLink", {
         "name": args.name,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -48,14 +43,14 @@ export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetVpcLinkArgs {
     /**
-     * The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. 
+     * The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
      * If multiple API Gateway VPC Links are found with this name, an error will be returned.
      */
     readonly name: string;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -80,9 +75,9 @@ export interface GetVpcLinkResult {
      */
     readonly statusMessage: string;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      */

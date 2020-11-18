@@ -9,25 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
-        /// e.g. to allow easier migration from another management solution
-        /// or to make it easier for an operator to connect through bastion host(s).
-        /// 
-        /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
-        /// instances (e.g. managed via autoscaling group), as the output may change at any time
-        /// and you'd need to re-run `apply` every time an instance comes up or dies.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetInstances.InvokeAsync() instead")]
-        public static Task<GetInstancesResult> GetInstances(GetInstancesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetInstances
     {
         /// <summary>
@@ -39,27 +20,86 @@ namespace Pulumi.Aws.Ec2
         /// instances (e.g. managed via autoscaling group), as the output may change at any time
         /// and you'd need to re-run `apply` every time an instance comes up or dies.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Threading.Tasks;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var dict = Output.Create(Initialize());
+        ///     }
+        /// 
+        ///     private async Task&lt;IDictionary&lt;string, Output&lt;string&gt;&gt;&gt; Initialize()
+        ///     {
+        ///         var testInstances = await Aws.Ec2.GetInstances.InvokeAsync(new Aws.Ec2.GetInstancesArgs
+        ///         {
+        ///             InstanceTags = 
+        ///             {
+        ///                 { "Role", "HardWorker" },
+        ///             },
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetInstancesFilterArgs
+        ///                 {
+        ///                     Name = "instance.group-id",
+        ///                     Values = 
+        ///                     {
+        ///                         "sg-12345678",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             InstanceStateNames = 
+        ///             {
+        ///                 "running",
+        ///                 "stopped",
+        ///             },
+        ///         });
+        ///         var testEip = new List&lt;Aws.Ec2.Eip&gt;();
+        ///         for (var rangeIndex = 0; rangeIndex &lt; testInstances.Ids.Length; rangeIndex++)
+        ///         {
+        ///             var range = new { Value = rangeIndex };
+        ///             testEip.Add(new Aws.Ec2.Eip($"testEip-{range.Value}", new Aws.Ec2.EipArgs
+        ///             {
+        ///                 Instance = testInstances.Ids[range.Value],
+        ///             }));
+        ///         }
+        /// 
+        ///         return new Dictionary&lt;string, Output&lt;string&gt;&gt;
+        ///         {
+        ///         };
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstancesResult> InvokeAsync(GetInstancesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? new GetInstancesArgs(), options.WithVersion());
     }
+
 
     public sealed class GetInstancesArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetInstancesFiltersArgs>? _filters;
+        private List<Inputs.GetInstancesFilterArgs>? _filters;
 
         /// <summary>
         /// One or more name/value pairs to use as filters. There are
         /// several valid keys, for a full reference, check out
         /// [describe-instances in the AWS CLI reference][1].
         /// </summary>
-        public List<Inputs.GetInstancesFiltersArgs> Filters
+        public List<Inputs.GetInstancesFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetInstancesFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetInstancesFilterArgs>());
             set => _filters = value;
         }
 
@@ -76,15 +116,15 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("instanceTags")]
-        private Dictionary<string, object>? _instanceTags;
+        private Dictionary<string, string>? _instanceTags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must
+        /// A map of tags, each pair of which must
         /// exactly match a pair on desired instances.
         /// </summary>
-        public Dictionary<string, object> InstanceTags
+        public Dictionary<string, string> InstanceTags
         {
-            get => _instanceTags ?? (_instanceTags = new Dictionary<string, object>());
+            get => _instanceTags ?? (_instanceTags = new Dictionary<string, string>());
             set => _instanceTags = value;
         }
 
@@ -93,16 +133,21 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetInstancesResult
     {
-        public readonly ImmutableArray<Outputs.GetInstancesFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetInstancesFilterResult> Filters;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// IDs of instances found through the filter
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableArray<string> InstanceStateNames;
-        public readonly ImmutableDictionary<string, object> InstanceTags;
+        public readonly ImmutableDictionary<string, string> InstanceTags;
         /// <summary>
         /// Private IP addresses of instances found through the filter
         /// </summary>
@@ -111,70 +156,30 @@ namespace Pulumi.Aws.Ec2
         /// Public IP addresses of instances found through the filter
         /// </summary>
         public readonly ImmutableArray<string> PublicIps;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetInstancesResult(
-            ImmutableArray<Outputs.GetInstancesFiltersResult> filters,
+            ImmutableArray<Outputs.GetInstancesFilterResult> filters,
+
+            string id,
+
             ImmutableArray<string> ids,
+
             ImmutableArray<string> instanceStateNames,
-            ImmutableDictionary<string, object> instanceTags,
+
+            ImmutableDictionary<string, string> instanceTags,
+
             ImmutableArray<string> privateIps,
-            ImmutableArray<string> publicIps,
-            string id)
+
+            ImmutableArray<string> publicIps)
         {
             Filters = filters;
+            Id = id;
             Ids = ids;
             InstanceStateNames = instanceStateNames;
             InstanceTags = instanceTags;
             PrivateIps = privateIps;
             PublicIps = publicIps;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetInstancesFiltersArgs : Pulumi.InvokeArgs
-    {
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetInstancesFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetInstancesFiltersResult
-    {
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetInstancesFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

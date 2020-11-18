@@ -2,25 +2,21 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
  * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
- * 
+ *
  * ## Example Usage
- * 
  * ### CloudWatch Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
- * const exampleRole = new aws.iam.Role("example", {
- *     assumeRolePolicy: `{
+ *
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -33,15 +29,15 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const exampleFlowLog = new aws.ec2.FlowLog("example", {
+ * `});
+ * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
  *     iamRoleArn: exampleRole.arn,
  *     logDestination: exampleLogGroup.arn,
  *     trafficType: "ALL",
- *     vpcId: aws_vpc_example.id,
+ *     vpcId: aws_vpc.example.id,
  * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
+ * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
+ *     role: exampleRole.id,
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -59,26 +55,22 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     role: exampleRole.id,
  * });
  * ```
- * 
  * ### S3 Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleBucket = new aws.s3.Bucket("example", {});
- * const exampleFlowLog = new aws.ec2.FlowLog("example", {
+ *
+ * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
+ * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
  *     logDestination: exampleBucket.arn,
  *     logDestinationType: "s3",
  *     trafficType: "ALL",
- *     vpcId: aws_vpc_example.id,
+ *     vpcId: aws_vpc.example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/flow_log.html.markdown.
  */
 export class FlowLog extends pulumi.CustomResource {
     /**
@@ -88,6 +80,7 @@ export class FlowLog extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FlowLogState, opts?: pulumi.CustomResourceOptions): FlowLog {
         return new FlowLog(name, <any>state, { ...opts, id: id });
@@ -107,6 +100,10 @@ export class FlowLog extends pulumi.CustomResource {
         return obj['__pulumiType'] === FlowLog.__pulumiType;
     }
 
+    /**
+     * The ARN of the Flow Log.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Elastic Network Interface ID to attach to
      */
@@ -129,6 +126,8 @@ export class FlowLog extends pulumi.CustomResource {
     public readonly logFormat!: pulumi.Output<string>;
     /**
      * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+     *
+     * @deprecated use 'log_destination' argument instead
      */
     public readonly logGroupName!: pulumi.Output<string>;
     /**
@@ -143,9 +142,9 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */
@@ -167,6 +166,7 @@ export class FlowLog extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as FlowLogState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["eniId"] = state ? state.eniId : undefined;
             inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
             inputs["logDestination"] = state ? state.logDestination : undefined;
@@ -194,6 +194,7 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["trafficType"] = args ? args.trafficType : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -210,6 +211,10 @@ export class FlowLog extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FlowLog resources.
  */
 export interface FlowLogState {
+    /**
+     * The ARN of the Flow Log.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Elastic Network Interface ID to attach to
      */
@@ -232,7 +237,7 @@ export interface FlowLogState {
     readonly logFormat?: pulumi.Input<string>;
     /**
      * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
-     * 
+     *
      * @deprecated use 'log_destination' argument instead
      */
     readonly logGroupName?: pulumi.Input<string>;
@@ -248,9 +253,9 @@ export interface FlowLogState {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */
@@ -287,7 +292,7 @@ export interface FlowLogArgs {
     readonly logFormat?: pulumi.Input<string>;
     /**
      * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
-     * 
+     *
      * @deprecated use 'log_destination' argument instead
      */
     readonly logGroupName?: pulumi.Input<string>;
@@ -303,9 +308,9 @@ export interface FlowLogArgs {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */

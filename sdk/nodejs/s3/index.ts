@@ -9,6 +9,7 @@ export * from "./bucket";
 export * from "./bucketMetric";
 export * from "./bucketNotification";
 export * from "./bucketObject";
+export * from "./bucketOwnershipControls";
 export * from "./bucketPolicy";
 export * from "./bucketPublicAccessBlock";
 export * from "./cannedAcl";
@@ -18,3 +19,6 @@ export * from "./getBucketObjects";
 export * from "./inventory";
 export * from "./routingRules";
 export * from "./s3Mixins";
+
+// Export enums:
+export * from "../types/enums/s3";

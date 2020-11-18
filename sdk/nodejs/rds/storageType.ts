@@ -12,23 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// This file contains two categories of exports:
+// This file contains individual constants for each RDS Storage type.
 //
-//     1) A union type, InstanceType, that accepts any valid RDS instance type.
-//     2) Individual constants for each such RDS instance type.
-//
-// These give a better developer experience and are just sugared strings.
-// Based from https://aws.amazon.com/rds/instance-types/
+// These constants will not be updated with new values.
+// It is recommended to use StorageType.[Value] instead.
 
+import {StorageType} from ".";
+
+/** Use StorageType instead. */
 export module StorageTypes {
+    /** Use StorageType.Standard instead. */
     export const Standard: StorageType = "standard";
+    /** Use StorageType.GP2 instead. */
     export const GP2:      StorageType = "gp2";
+    /** Use StorageType.IO1 instead. */
     export const Io1:      StorageType = "io1";
 }
-
-export type StorageType =
-    "standard" |
-    "gp2"      |
-    "io1"      ;
-
-

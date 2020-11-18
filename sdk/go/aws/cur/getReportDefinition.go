@@ -4,7 +4,7 @@
 package cur
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get information on an AWS Cost and Usage Report Definition.
@@ -12,6 +12,29 @@ import (
 // > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
 //
 // > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cur"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cur.LookupReportDefinition(ctx, &cur.LookupReportDefinitionArgs{
+// 			ReportName: "example",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupReportDefinition(ctx *pulumi.Context, args *LookupReportDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupReportDefinitionResult, error) {
 	var rv LookupReportDefinitionResult
 	err := ctx.Invoke("aws:cur/getReportDefinition:getReportDefinition", args, &rv, opts...)
@@ -37,9 +60,13 @@ type LookupReportDefinitionResult struct {
 	Compression string `pulumi:"compression"`
 	// Preferred compression format for report.
 	Format string `pulumi:"format"`
-	// id is the provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	ReportName string `pulumi:"reportName"`
+	// The provider-assigned unique ID for this managed resource.
+	Id string `pulumi:"id"`
+	// If true reports are updated after they have been finalized.
+	RefreshClosedReports bool   `pulumi:"refreshClosedReports"`
+	ReportName           string `pulumi:"reportName"`
+	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
+	ReportVersioning string `pulumi:"reportVersioning"`
 	// Name of customer S3 bucket.
 	S3Bucket string `pulumi:"s3Bucket"`
 	// Preferred report path prefix.

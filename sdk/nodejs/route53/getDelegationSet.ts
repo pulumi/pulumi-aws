@@ -4,29 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * `aws.route53.DelegationSet` provides details about a specific Route 53 Delegation Set.
- * 
+ *
  * This data source allows to find a list of name servers associated with a specific delegation set.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * The following example shows how to get a delegation set from its id.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const dset = aws.route53.getDelegationSet({
- *     id: "MQWGHCBFAKEID",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_delegation_set.html.markdown.
+ * const dset = pulumi.output(aws.route53.getDelegationSet({
+ *     id: "MQWGHCBFAKEID",
+ * }, { async: true }));
+ * ```
  */
-export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegationSetResult> & GetDelegationSetResult {
+export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegationSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -34,11 +33,9 @@ export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDelegationSetResult> = pulumi.runtime.invoke("aws:route53/getDelegationSet:getDelegationSet", {
+    return pulumi.runtime.invoke("aws:route53/getDelegationSet:getDelegationSet", {
         "id": args.id,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

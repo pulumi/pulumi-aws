@@ -23,9 +23,97 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
     /// 
+    /// ## Example Usage
     /// 
+    /// Basic usage
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var allowTls = new Aws.Ec2.SecurityGroup("allowTls", new Aws.Ec2.SecurityGroupArgs
+    ///         {
+    ///             Description = "Allow TLS inbound traffic",
+    ///             VpcId = aws_vpc.Main.Id,
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
+    ///                 {
+    ///                     Description = "TLS from VPC",
+    ///                     FromPort = 443,
+    ///                     ToPort = 443,
+    ///                     Protocol = "tcp",
+    ///                     CidrBlocks = 
+    ///                     {
+    ///                         aws_vpc.Main.Cidr_block,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
+    ///                     CidrBlocks = 
+    ///                     {
+    ///                         "0.0.0.0/0",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "allow_tls" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ## Usage with prefix list IDs
+    /// 
+    /// Prefix list IDs are managed by AWS internally. Prefix list IDs
+    /// are associated with a prefix list name, or service name, that is linked to a specific region.
+    /// Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var myEndpoint = new Aws.Ec2.VpcEndpoint("myEndpoint", new Aws.Ec2.VpcEndpointArgs
+    ///         {
+    ///         });
+    ///         // ... other configuration ...
+    ///         // ... other configuration ...
+    ///         var example = new Aws.Ec2.SecurityGroup("example", new Aws.Ec2.SecurityGroupArgs
+    ///         {
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
+    ///                     PrefixListIds = 
+    ///                     {
+    ///                         myEndpoint.PrefixListId,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SecurityGroup : Pulumi.CustomResource
     {
@@ -88,10 +176,10 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> RevokeRulesOnDelete { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The VPC ID.
@@ -108,7 +196,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityGroup(string name, SecurityGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ec2/securityGroup:SecurityGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/securityGroup:SecurityGroup", name, args ?? new SecurityGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -204,14 +292,14 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? RevokeRulesOnDelete { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -300,14 +388,14 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? RevokeRulesOnDelete { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -321,499 +409,5 @@ namespace Pulumi.Aws.Ec2
         {
             Description = "Managed by Pulumi";
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SecurityGroupEgressArgs : Pulumi.ResourceArgs
-    {
-        [Input("cidrBlocks")]
-        private InputList<string>? _cidrBlocks;
-
-        /// <summary>
-        /// List of CIDR blocks.
-        /// </summary>
-        public InputList<string> CidrBlocks
-        {
-            get => _cidrBlocks ?? (_cidrBlocks = new InputList<string>());
-            set => _cidrBlocks = value;
-        }
-
-        /// <summary>
-        /// Description of this egress rule.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The start port (or ICMP type number if protocol is "icmp")
-        /// </summary>
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        [Input("ipv6CidrBlocks")]
-        private InputList<string>? _ipv6CidrBlocks;
-
-        /// <summary>
-        /// List of IPv6 CIDR blocks.
-        /// </summary>
-        public InputList<string> Ipv6CidrBlocks
-        {
-            get => _ipv6CidrBlocks ?? (_ipv6CidrBlocks = new InputList<string>());
-            set => _ipv6CidrBlocks = value;
-        }
-
-        [Input("prefixListIds")]
-        private InputList<string>? _prefixListIds;
-
-        /// <summary>
-        /// List of prefix list IDs (for allowing access to VPC endpoints)
-        /// </summary>
-        public InputList<string> PrefixListIds
-        {
-            get => _prefixListIds ?? (_prefixListIds = new InputList<string>());
-            set => _prefixListIds = value;
-        }
-
-        /// <summary>
-        /// The protocol. If you select a protocol of
-        /// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// List of security group Group Names if using
-        /// EC2-Classic, or Group IDs if using a VPC.
-        /// </summary>
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        /// <summary>
-        /// If true, the security group itself will be added as
-        /// a source to this egress rule.
-        /// </summary>
-        [Input("self")]
-        public Input<bool>? Self { get; set; }
-
-        /// <summary>
-        /// The end range port (or ICMP code if protocol is "icmp").
-        /// </summary>
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public SecurityGroupEgressArgs()
-        {
-        }
-    }
-
-    public sealed class SecurityGroupEgressGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("cidrBlocks")]
-        private InputList<string>? _cidrBlocks;
-
-        /// <summary>
-        /// List of CIDR blocks.
-        /// </summary>
-        public InputList<string> CidrBlocks
-        {
-            get => _cidrBlocks ?? (_cidrBlocks = new InputList<string>());
-            set => _cidrBlocks = value;
-        }
-
-        /// <summary>
-        /// Description of this egress rule.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The start port (or ICMP type number if protocol is "icmp")
-        /// </summary>
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        [Input("ipv6CidrBlocks")]
-        private InputList<string>? _ipv6CidrBlocks;
-
-        /// <summary>
-        /// List of IPv6 CIDR blocks.
-        /// </summary>
-        public InputList<string> Ipv6CidrBlocks
-        {
-            get => _ipv6CidrBlocks ?? (_ipv6CidrBlocks = new InputList<string>());
-            set => _ipv6CidrBlocks = value;
-        }
-
-        [Input("prefixListIds")]
-        private InputList<string>? _prefixListIds;
-
-        /// <summary>
-        /// List of prefix list IDs (for allowing access to VPC endpoints)
-        /// </summary>
-        public InputList<string> PrefixListIds
-        {
-            get => _prefixListIds ?? (_prefixListIds = new InputList<string>());
-            set => _prefixListIds = value;
-        }
-
-        /// <summary>
-        /// The protocol. If you select a protocol of
-        /// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// List of security group Group Names if using
-        /// EC2-Classic, or Group IDs if using a VPC.
-        /// </summary>
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        /// <summary>
-        /// If true, the security group itself will be added as
-        /// a source to this egress rule.
-        /// </summary>
-        [Input("self")]
-        public Input<bool>? Self { get; set; }
-
-        /// <summary>
-        /// The end range port (or ICMP code if protocol is "icmp").
-        /// </summary>
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public SecurityGroupEgressGetArgs()
-        {
-        }
-    }
-
-    public sealed class SecurityGroupIngressArgs : Pulumi.ResourceArgs
-    {
-        [Input("cidrBlocks")]
-        private InputList<string>? _cidrBlocks;
-
-        /// <summary>
-        /// List of CIDR blocks.
-        /// </summary>
-        public InputList<string> CidrBlocks
-        {
-            get => _cidrBlocks ?? (_cidrBlocks = new InputList<string>());
-            set => _cidrBlocks = value;
-        }
-
-        /// <summary>
-        /// Description of this egress rule.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The start port (or ICMP type number if protocol is "icmp")
-        /// </summary>
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        [Input("ipv6CidrBlocks")]
-        private InputList<string>? _ipv6CidrBlocks;
-
-        /// <summary>
-        /// List of IPv6 CIDR blocks.
-        /// </summary>
-        public InputList<string> Ipv6CidrBlocks
-        {
-            get => _ipv6CidrBlocks ?? (_ipv6CidrBlocks = new InputList<string>());
-            set => _ipv6CidrBlocks = value;
-        }
-
-        [Input("prefixListIds")]
-        private InputList<string>? _prefixListIds;
-
-        /// <summary>
-        /// List of prefix list IDs (for allowing access to VPC endpoints)
-        /// </summary>
-        public InputList<string> PrefixListIds
-        {
-            get => _prefixListIds ?? (_prefixListIds = new InputList<string>());
-            set => _prefixListIds = value;
-        }
-
-        /// <summary>
-        /// The protocol. If you select a protocol of
-        /// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// List of security group Group Names if using
-        /// EC2-Classic, or Group IDs if using a VPC.
-        /// </summary>
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        /// <summary>
-        /// If true, the security group itself will be added as
-        /// a source to this egress rule.
-        /// </summary>
-        [Input("self")]
-        public Input<bool>? Self { get; set; }
-
-        /// <summary>
-        /// The end range port (or ICMP code if protocol is "icmp").
-        /// </summary>
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public SecurityGroupIngressArgs()
-        {
-        }
-    }
-
-    public sealed class SecurityGroupIngressGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("cidrBlocks")]
-        private InputList<string>? _cidrBlocks;
-
-        /// <summary>
-        /// List of CIDR blocks.
-        /// </summary>
-        public InputList<string> CidrBlocks
-        {
-            get => _cidrBlocks ?? (_cidrBlocks = new InputList<string>());
-            set => _cidrBlocks = value;
-        }
-
-        /// <summary>
-        /// Description of this egress rule.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The start port (or ICMP type number if protocol is "icmp")
-        /// </summary>
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        [Input("ipv6CidrBlocks")]
-        private InputList<string>? _ipv6CidrBlocks;
-
-        /// <summary>
-        /// List of IPv6 CIDR blocks.
-        /// </summary>
-        public InputList<string> Ipv6CidrBlocks
-        {
-            get => _ipv6CidrBlocks ?? (_ipv6CidrBlocks = new InputList<string>());
-            set => _ipv6CidrBlocks = value;
-        }
-
-        [Input("prefixListIds")]
-        private InputList<string>? _prefixListIds;
-
-        /// <summary>
-        /// List of prefix list IDs (for allowing access to VPC endpoints)
-        /// </summary>
-        public InputList<string> PrefixListIds
-        {
-            get => _prefixListIds ?? (_prefixListIds = new InputList<string>());
-            set => _prefixListIds = value;
-        }
-
-        /// <summary>
-        /// The protocol. If you select a protocol of
-        /// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// List of security group Group Names if using
-        /// EC2-Classic, or Group IDs if using a VPC.
-        /// </summary>
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        /// <summary>
-        /// If true, the security group itself will be added as
-        /// a source to this egress rule.
-        /// </summary>
-        [Input("self")]
-        public Input<bool>? Self { get; set; }
-
-        /// <summary>
-        /// The end range port (or ICMP code if protocol is "icmp").
-        /// </summary>
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public SecurityGroupIngressGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SecurityGroupEgress
-    {
-        /// <summary>
-        /// List of CIDR blocks.
-        /// </summary>
-        public readonly ImmutableArray<string> CidrBlocks;
-        /// <summary>
-        /// Description of this egress rule.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The start port (or ICMP type number if protocol is "icmp")
-        /// </summary>
-        public readonly int FromPort;
-        /// <summary>
-        /// List of IPv6 CIDR blocks.
-        /// </summary>
-        public readonly ImmutableArray<string> Ipv6CidrBlocks;
-        /// <summary>
-        /// List of prefix list IDs (for allowing access to VPC endpoints)
-        /// </summary>
-        public readonly ImmutableArray<string> PrefixListIds;
-        /// <summary>
-        /// The protocol. If you select a protocol of
-        /// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        /// </summary>
-        public readonly string Protocol;
-        /// <summary>
-        /// List of security group Group Names if using
-        /// EC2-Classic, or Group IDs if using a VPC.
-        /// </summary>
-        public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// If true, the security group itself will be added as
-        /// a source to this egress rule.
-        /// </summary>
-        public readonly bool? Self;
-        /// <summary>
-        /// The end range port (or ICMP code if protocol is "icmp").
-        /// </summary>
-        public readonly int ToPort;
-
-        [OutputConstructor]
-        private SecurityGroupEgress(
-            ImmutableArray<string> cidrBlocks,
-            string? description,
-            int fromPort,
-            ImmutableArray<string> ipv6CidrBlocks,
-            ImmutableArray<string> prefixListIds,
-            string protocol,
-            ImmutableArray<string> securityGroups,
-            bool? self,
-            int toPort)
-        {
-            CidrBlocks = cidrBlocks;
-            Description = description;
-            FromPort = fromPort;
-            Ipv6CidrBlocks = ipv6CidrBlocks;
-            PrefixListIds = prefixListIds;
-            Protocol = protocol;
-            SecurityGroups = securityGroups;
-            Self = self;
-            ToPort = toPort;
-        }
-    }
-
-    [OutputType]
-    public sealed class SecurityGroupIngress
-    {
-        /// <summary>
-        /// List of CIDR blocks.
-        /// </summary>
-        public readonly ImmutableArray<string> CidrBlocks;
-        /// <summary>
-        /// Description of this egress rule.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The start port (or ICMP type number if protocol is "icmp")
-        /// </summary>
-        public readonly int FromPort;
-        /// <summary>
-        /// List of IPv6 CIDR blocks.
-        /// </summary>
-        public readonly ImmutableArray<string> Ipv6CidrBlocks;
-        /// <summary>
-        /// List of prefix list IDs (for allowing access to VPC endpoints)
-        /// </summary>
-        public readonly ImmutableArray<string> PrefixListIds;
-        /// <summary>
-        /// The protocol. If you select a protocol of
-        /// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        /// </summary>
-        public readonly string Protocol;
-        /// <summary>
-        /// List of security group Group Names if using
-        /// EC2-Classic, or Group IDs if using a VPC.
-        /// </summary>
-        public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// If true, the security group itself will be added as
-        /// a source to this egress rule.
-        /// </summary>
-        public readonly bool? Self;
-        /// <summary>
-        /// The end range port (or ICMP code if protocol is "icmp").
-        /// </summary>
-        public readonly int ToPort;
-
-        [OutputConstructor]
-        private SecurityGroupIngress(
-            ImmutableArray<string> cidrBlocks,
-            string? description,
-            int fromPort,
-            ImmutableArray<string> ipv6CidrBlocks,
-            ImmutableArray<string> prefixListIds,
-            string protocol,
-            ImmutableArray<string> securityGroups,
-            bool? self,
-            int toPort)
-        {
-            CidrBlocks = cidrBlocks;
-            Description = description;
-            FromPort = fromPort;
-            Ipv6CidrBlocks = ipv6CidrBlocks;
-            PrefixListIds = prefixListIds;
-            Protocol = protocol;
-            SecurityGroups = securityGroups;
-            Self = self;
-            ToPort = toPort;
-        }
-    }
     }
 }

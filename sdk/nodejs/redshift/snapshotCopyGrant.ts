@@ -2,36 +2,25 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
- * 
+ *
  * Note that the grant must exist in the destination region, and not in the region of the cluster.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testSnapshotCopyGrant = new aws.redshift.SnapshotCopyGrant("test", {
- *     snapshotCopyGrantName: "my-grant",
- * });
- * const testCluster = new aws.redshift.Cluster("test", {
- *     // ... other configuration ...
- *     snapshotCopy: {
- *         destinationRegion: "us-east-2",
- *         grantName: testSnapshotCopyGrant.snapshotCopyGrantName,
- *     },
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_snapshot_copy_grant.html.markdown.
+ * const testSnapshotCopyGrant = new aws.redshift.SnapshotCopyGrant("testSnapshotCopyGrant", {snapshotCopyGrantName: "my-grant"});
+ * const testCluster = new aws.redshift.Cluster("testCluster", {snapshotCopy: {
+ *     destinationRegion: "us-east-2",
+ *     grantName: testSnapshotCopyGrant.snapshotCopyGrantName,
+ * }});
+ * ```
  */
 export class SnapshotCopyGrant extends pulumi.CustomResource {
     /**
@@ -41,6 +30,7 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SnapshotCopyGrantState, opts?: pulumi.CustomResourceOptions): SnapshotCopyGrant {
         return new SnapshotCopyGrant(name, <any>state, { ...opts, id: id });
@@ -73,9 +63,9 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
      */
     public readonly snapshotCopyGrantName!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SnapshotCopyGrant resource with the given unique name, arguments, and options.
@@ -131,9 +121,9 @@ export interface SnapshotCopyGrantState {
      */
     readonly snapshotCopyGrantName?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -149,7 +139,7 @@ export interface SnapshotCopyGrantArgs {
      */
     readonly snapshotCopyGrantName: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

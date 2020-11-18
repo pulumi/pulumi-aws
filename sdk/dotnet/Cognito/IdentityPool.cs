@@ -12,9 +12,58 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides an AWS Cognito Identity Pool.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Iam.SamlProvider("default", new Aws.Iam.SamlProviderArgs
+    ///         {
+    ///             SamlMetadataDocument = File.ReadAllText("saml-metadata.xml"),
+    ///         });
+    ///         var main = new Aws.Cognito.IdentityPool("main", new Aws.Cognito.IdentityPoolArgs
+    ///         {
+    ///             IdentityPoolName = "identity pool",
+    ///             AllowUnauthenticatedIdentities = false,
+    ///             CognitoIdentityProviders = 
+    ///             {
+    ///                 new Aws.Cognito.Inputs.IdentityPoolCognitoIdentityProviderArgs
+    ///                 {
+    ///                     ClientId = "6lhlkkfbfb4q5kpp90urffae",
+    ///                     ProviderName = "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
+    ///                     ServerSideTokenCheck = false,
+    ///                 },
+    ///                 new Aws.Cognito.Inputs.IdentityPoolCognitoIdentityProviderArgs
+    ///                 {
+    ///                     ClientId = "7kodkvfqfb4qfkp39eurffae",
+    ///                     ProviderName = "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
+    ///                     ServerSideTokenCheck = false,
+    ///                 },
+    ///             },
+    ///             SupportedLoginProviders = 
+    ///             {
+    ///                 { "graph.facebook.com", "7346241598935552" },
+    ///                 { "accounts.google.com", "123456789012.apps.googleusercontent.com" },
+    ///             },
+    ///             SamlProviderArns = 
+    ///             {
+    ///                 @default.Arn,
+    ///             },
+    ///             OpenidConnectProviderArns = 
+    ///             {
+    ///                 "arn:aws:iam::123456789012:oidc-provider/id.example.com",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class IdentityPool : Pulumi.CustomResource
     {
@@ -34,7 +83,7 @@ namespace Pulumi.Aws.Cognito
         /// An array of Amazon Cognito Identity user pools and their client IDs.
         /// </summary>
         [Output("cognitoIdentityProviders")]
-        public Output<ImmutableArray<Outputs.IdentityPoolCognitoIdentityProviders>> CognitoIdentityProviders { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IdentityPoolCognitoIdentityProvider>> CognitoIdentityProviders { get; private set; } = null!;
 
         /// <summary>
         /// The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
@@ -50,7 +99,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> IdentityPoolName { get; private set; } = null!;
 
         /// <summary>
-        /// A list of OpendID Connect provider ARNs.
+        /// Set of OpendID Connect provider ARNs.
         /// </summary>
         [Output("openidConnectProviderArns")]
         public Output<ImmutableArray<string>> OpenidConnectProviderArns { get; private set; } = null!;
@@ -68,10 +117,10 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableDictionary<string, string>?> SupportedLoginProviders { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the Identity Pool.
+        /// A map of tags to assign to the Identity Pool.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -82,7 +131,7 @@ namespace Pulumi.Aws.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IdentityPool(string name, IdentityPoolArgs args, CustomResourceOptions? options = null)
-            : base("aws:cognito/identityPool:IdentityPool", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cognito/identityPool:IdentityPool", name, args ?? new IdentityPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -126,14 +175,14 @@ namespace Pulumi.Aws.Cognito
         public Input<bool>? AllowUnauthenticatedIdentities { get; set; }
 
         [Input("cognitoIdentityProviders")]
-        private InputList<Inputs.IdentityPoolCognitoIdentityProvidersArgs>? _cognitoIdentityProviders;
+        private InputList<Inputs.IdentityPoolCognitoIdentityProviderArgs>? _cognitoIdentityProviders;
 
         /// <summary>
         /// An array of Amazon Cognito Identity user pools and their client IDs.
         /// </summary>
-        public InputList<Inputs.IdentityPoolCognitoIdentityProvidersArgs> CognitoIdentityProviders
+        public InputList<Inputs.IdentityPoolCognitoIdentityProviderArgs> CognitoIdentityProviders
         {
-            get => _cognitoIdentityProviders ?? (_cognitoIdentityProviders = new InputList<Inputs.IdentityPoolCognitoIdentityProvidersArgs>());
+            get => _cognitoIdentityProviders ?? (_cognitoIdentityProviders = new InputList<Inputs.IdentityPoolCognitoIdentityProviderArgs>());
             set => _cognitoIdentityProviders = value;
         }
 
@@ -154,7 +203,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _openidConnectProviderArns;
 
         /// <summary>
-        /// A list of OpendID Connect provider ARNs.
+        /// Set of OpendID Connect provider ARNs.
         /// </summary>
         public InputList<string> OpenidConnectProviderArns
         {
@@ -187,14 +236,14 @@ namespace Pulumi.Aws.Cognito
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the Identity Pool.
+        /// A map of tags to assign to the Identity Pool.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -218,14 +267,14 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? Arn { get; set; }
 
         [Input("cognitoIdentityProviders")]
-        private InputList<Inputs.IdentityPoolCognitoIdentityProvidersGetArgs>? _cognitoIdentityProviders;
+        private InputList<Inputs.IdentityPoolCognitoIdentityProviderGetArgs>? _cognitoIdentityProviders;
 
         /// <summary>
         /// An array of Amazon Cognito Identity user pools and their client IDs.
         /// </summary>
-        public InputList<Inputs.IdentityPoolCognitoIdentityProvidersGetArgs> CognitoIdentityProviders
+        public InputList<Inputs.IdentityPoolCognitoIdentityProviderGetArgs> CognitoIdentityProviders
         {
-            get => _cognitoIdentityProviders ?? (_cognitoIdentityProviders = new InputList<Inputs.IdentityPoolCognitoIdentityProvidersGetArgs>());
+            get => _cognitoIdentityProviders ?? (_cognitoIdentityProviders = new InputList<Inputs.IdentityPoolCognitoIdentityProviderGetArgs>());
             set => _cognitoIdentityProviders = value;
         }
 
@@ -246,7 +295,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _openidConnectProviderArns;
 
         /// <summary>
-        /// A list of OpendID Connect provider ARNs.
+        /// Set of OpendID Connect provider ARNs.
         /// </summary>
         public InputList<string> OpenidConnectProviderArns
         {
@@ -279,105 +328,19 @@ namespace Pulumi.Aws.Cognito
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the Identity Pool.
+        /// A map of tags to assign to the Identity Pool.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public IdentityPoolState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class IdentityPoolCognitoIdentityProvidersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The client ID for the Amazon Cognito Identity User Pool.
-        /// </summary>
-        [Input("clientId")]
-        public Input<string>? ClientId { get; set; }
-
-        /// <summary>
-        /// The provider name for an Amazon Cognito Identity User Pool.
-        /// </summary>
-        [Input("providerName")]
-        public Input<string>? ProviderName { get; set; }
-
-        /// <summary>
-        /// Whether server-side token validation is enabled for the identity provider’s token or not.
-        /// </summary>
-        [Input("serverSideTokenCheck")]
-        public Input<bool>? ServerSideTokenCheck { get; set; }
-
-        public IdentityPoolCognitoIdentityProvidersArgs()
-        {
-        }
-    }
-
-    public sealed class IdentityPoolCognitoIdentityProvidersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The client ID for the Amazon Cognito Identity User Pool.
-        /// </summary>
-        [Input("clientId")]
-        public Input<string>? ClientId { get; set; }
-
-        /// <summary>
-        /// The provider name for an Amazon Cognito Identity User Pool.
-        /// </summary>
-        [Input("providerName")]
-        public Input<string>? ProviderName { get; set; }
-
-        /// <summary>
-        /// Whether server-side token validation is enabled for the identity provider’s token or not.
-        /// </summary>
-        [Input("serverSideTokenCheck")]
-        public Input<bool>? ServerSideTokenCheck { get; set; }
-
-        public IdentityPoolCognitoIdentityProvidersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class IdentityPoolCognitoIdentityProviders
-    {
-        /// <summary>
-        /// The client ID for the Amazon Cognito Identity User Pool.
-        /// </summary>
-        public readonly string? ClientId;
-        /// <summary>
-        /// The provider name for an Amazon Cognito Identity User Pool.
-        /// </summary>
-        public readonly string? ProviderName;
-        /// <summary>
-        /// Whether server-side token validation is enabled for the identity provider’s token or not.
-        /// </summary>
-        public readonly bool? ServerSideTokenCheck;
-
-        [OutputConstructor]
-        private IdentityPoolCognitoIdentityProviders(
-            string? clientId,
-            string? providerName,
-            bool? serverSideTokenCheck)
-        {
-            ClientId = clientId;
-            ProviderName = providerName;
-            ServerSideTokenCheck = serverSideTokenCheck;
-        }
-    }
     }
 }

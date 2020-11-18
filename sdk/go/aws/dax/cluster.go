@@ -7,10 +7,36 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a DAX Cluster resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/dax"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dax.NewCluster(ctx, "bar", &dax.ClusterArgs{
+// 			ClusterName:       pulumi.String("cluster-example"),
+// 			IamRoleArn:        pulumi.Any(data.Aws_iam_role.Example.Arn),
+// 			NodeType:          pulumi.String("dax.r4.large"),
+// 			ReplicationFactor: pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -39,7 +65,7 @@ type Cluster struct {
 	// `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes. See
-	// [Nodes][1] for supported node types
+	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// List of node objects including `id`, `address`, `port` and
 	// `availabilityZone`. Referenceable e.g. as
@@ -66,8 +92,8 @@ type Cluster struct {
 	// Name of the subnet group to be used for the
 	// cluster
 	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -135,7 +161,7 @@ type clusterState struct {
 	// `sun:05:00-sun:09:00`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes. See
-	// [Nodes][1] for supported node types
+	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType *string `pulumi:"nodeType"`
 	// List of node objects including `id`, `address`, `port` and
 	// `availabilityZone`. Referenceable e.g. as
@@ -162,8 +188,8 @@ type clusterState struct {
 	// Name of the subnet group to be used for the
 	// cluster
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ClusterState struct {
@@ -192,7 +218,7 @@ type ClusterState struct {
 	// `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringPtrInput
 	// The compute and memory capacity of the nodes. See
-	// [Nodes][1] for supported node types
+	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType pulumi.StringPtrInput
 	// List of node objects including `id`, `address`, `port` and
 	// `availabilityZone`. Referenceable e.g. as
@@ -219,8 +245,8 @@ type ClusterState struct {
 	// Name of the subnet group to be used for the
 	// cluster
 	SubnetGroupName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -246,7 +272,7 @@ type clusterArgs struct {
 	// `sun:05:00-sun:09:00`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes. See
-	// [Nodes][1] for supported node types
+	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType string `pulumi:"nodeType"`
 	// An Amazon Resource Name (ARN) of an
 	// SNS topic to send DAX notifications to. Example:
@@ -267,8 +293,8 @@ type clusterArgs struct {
 	// Name of the subnet group to be used for the
 	// cluster
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -291,7 +317,7 @@ type ClusterArgs struct {
 	// `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringPtrInput
 	// The compute and memory capacity of the nodes. See
-	// [Nodes][1] for supported node types
+	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType pulumi.StringInput
 	// An Amazon Resource Name (ARN) of an
 	// SNS topic to send DAX notifications to. Example:
@@ -312,8 +338,8 @@ type ClusterArgs struct {
 	// Name of the subnet group to be used for the
 	// cluster
 	SubnetGroupName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

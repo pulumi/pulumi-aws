@@ -4,21 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "../iam/documents";
+import {PolicyDocument} from "../iam";
 
 /**
  * Manages an AWS Elasticsearch Domain.
- * 
+ *
  * ## Example Usage
- * 
  * ### Basic Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.elasticsearch.Domain("example", {
  *     clusterConfig: {
  *         instanceType: "r4.large.elasticsearch",
@@ -32,45 +32,43 @@ import {PolicyDocument} from "../iam/documents";
  *     },
  * });
  * ```
- * 
  * ### Access Policy
- * 
+ *
+ * > See also: `aws.elasticsearch.DomainPolicy` resource
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const domain = config.get("domain") || "tf-test";
- * 
- * const currentRegion = aws.getRegion();
- * const currentCallerIdentity = aws.getCallerIdentity();
- * const example = new aws.elasticsearch.Domain("example", {
- *     accessPolicies: `{
+ * const currentRegion = aws.getRegion({});
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const example = new aws.elasticsearch.Domain("example", {accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
  *       "Action": "es:*",
  *       "Principal": "*",
  *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:${currentRegion.name!}:${currentCallerIdentity.accountId}:domain/${domain}/*",
+ *       "Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*",
  *       "Condition": {
  *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
  *       }
  *     }
  *   ]
  * }
- * `,
- * });
+ * `)});
  * ```
- * 
  * ### Log Publishing to CloudWatch Logs
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
- * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
+ *
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy", {
+ *     policyName: "example",
  *     policyDocument: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -89,89 +87,83 @@ import {PolicyDocument} from "../iam/documents";
  *   ]
  * }
  * `,
- *     policyName: "example",
  * });
- * const exampleDomain = new aws.elasticsearch.Domain("example", {
- *     logPublishingOptions: [{
- *         cloudwatchLogGroupArn: exampleLogGroup.arn,
- *         logType: "INDEX_SLOW_LOGS",
- *     }],
- * });
+ * // .. other configuration ...
+ * const exampleDomain = new aws.elasticsearch.Domain("exampleDomain", {logPublishingOptions: [{
+ *     cloudwatchLogGroupArn: exampleLogGroup.arn,
+ *     logType: "INDEX_SLOW_LOGS",
+ * }]});
  * ```
- * 
  * ### VPC based ES
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
- * const vpc = config.require("vpc");
+ * const vpc = config.requireObject("vpc");
  * const domain = config.get("domain") || "tf-test";
- * 
  * const selectedVpc = aws.ec2.getVpc({
  *     tags: {
  *         Name: vpc,
  *     },
  * });
- * const selectedSubnetIds = aws.ec2.getSubnetIds({
+ * const selectedSubnetIds = selectedVpc.then(selectedVpc => aws.ec2.getSubnetIds({
+ *     vpcId: selectedVpc.id,
  *     tags: {
  *         Tier: "private",
  *     },
- *     vpcId: selectedVpc.id!,
- * });
- * const currentRegion = aws.getRegion();
- * const currentCallerIdentity = aws.getCallerIdentity();
- * const esSecurityGroup = new aws.ec2.SecurityGroup("es", {
+ * }));
+ * const currentRegion = aws.getRegion({});
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const esSecurityGroup = new aws.ec2.SecurityGroup("esSecurityGroup", {
  *     description: "Managed by Pulumi",
+ *     vpcId: selectedVpc.then(selectedVpc => selectedVpc.id),
  *     ingress: [{
- *         cidrBlocks: [selectedVpc.cidrBlock!],
  *         fromPort: 443,
- *         protocol: "tcp",
  *         toPort: 443,
+ *         protocol: "tcp",
+ *         cidrBlocks: [selectedVpc.then(selectedVpc => selectedVpc.cidrBlock)],
  *     }],
- *     vpcId: selectedVpc.id!,
  * });
- * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("es", {
- *     awsServiceName: "es.amazonaws.com",
- * });
- * const esDomain = new aws.elasticsearch.Domain("es", {
- *     accessPolicies: `{
+ * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("esServiceLinkedRole", {awsServiceName: "es.amazonaws.com"});
+ * const esDomain = new aws.elasticsearch.Domain("esDomain", {
+ *     elasticsearchVersion: "6.3",
+ *     clusterConfig: {
+ *         instanceType: "m4.large.elasticsearch",
+ *     },
+ *     vpcOptions: {
+ *         subnetIds: [
+ *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids[0]),
+ *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids[1]),
+ *         ],
+ *         securityGroupIds: [esSecurityGroup.id],
+ *     },
+ *     advancedOptions: {
+ *         "rest.action.multi.allow_explicit_index": "true",
+ *     },
+ *     accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
  * 			"Action": "es:*",
  * 			"Principal": "*",
  * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:${currentRegion.name!}:${currentCallerIdentity.accountId}:domain/${domain}/*"
+ * 			"Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*"
  * 		}
  * 	]
  * }
- * `,
- *     advancedOptions: {
- *         "rest.action.multi.allow_explicit_index": "true",
- *     },
- *     clusterConfig: {
- *         instanceType: "m4.large.elasticsearch",
- *     },
- *     elasticsearchVersion: "6.3",
+ * `),
  *     snapshotOptions: {
  *         automatedSnapshotStartHour: 23,
  *     },
  *     tags: {
  *         Domain: "TestDomain",
  *     },
- *     vpcOptions: {
- *         securityGroupIds: [aws_security_group_elasticsearch.id],
- *         subnetIds: [
- *             selectedSubnetIds.ids[0],
- *             selectedSubnetIds.ids[1],
- *         ],
- *     },
- * }, {dependsOn: [esServiceLinkedRole]});
+ * }, {
+ *     dependsOn: [esServiceLinkedRole],
+ * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticsearch_domain.html.markdown.
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -181,6 +173,7 @@ export class Domain extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DomainState, opts?: pulumi.CustomResourceOptions): Domain {
         return new Domain(name, <any>state, { ...opts, id: id });
@@ -210,7 +203,11 @@ export class Domain extends pulumi.CustomResource {
      * may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
      * domain on every apply.
      */
-    public readonly advancedOptions!: pulumi.Output<{[key: string]: any}>;
+    public readonly advancedOptions!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+     */
+    public readonly advancedSecurityOptions!: pulumi.Output<outputs.elasticsearch.DomainAdvancedSecurityOptions>;
     /**
      * Amazon Resource Name (ARN) of the domain.
      */
@@ -255,7 +252,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string>;
     /**
-     * Options for publishing slow logs to CloudWatch Logs.
+     * Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
      */
     public readonly logPublishingOptions!: pulumi.Output<outputs.elasticsearch.DomainLogPublishingOption[] | undefined>;
     /**
@@ -267,9 +264,9 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly snapshotOptions!: pulumi.Output<outputs.elasticsearch.DomainSnapshotOptions | undefined>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
      */
@@ -289,6 +286,7 @@ export class Domain extends pulumi.CustomResource {
             const state = argsOrState as DomainState | undefined;
             inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
             inputs["advancedOptions"] = state ? state.advancedOptions : undefined;
+            inputs["advancedSecurityOptions"] = state ? state.advancedSecurityOptions : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clusterConfig"] = state ? state.clusterConfig : undefined;
             inputs["cognitoOptions"] = state ? state.cognitoOptions : undefined;
@@ -309,6 +307,7 @@ export class Domain extends pulumi.CustomResource {
             const args = argsOrState as DomainArgs | undefined;
             inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
             inputs["advancedOptions"] = args ? args.advancedOptions : undefined;
+            inputs["advancedSecurityOptions"] = args ? args.advancedSecurityOptions : undefined;
             inputs["clusterConfig"] = args ? args.clusterConfig : undefined;
             inputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
             inputs["domainEndpointOptions"] = args ? args.domainEndpointOptions : undefined;
@@ -351,7 +350,11 @@ export interface DomainState {
      * may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
      * domain on every apply.
      */
-    readonly advancedOptions?: pulumi.Input<{[key: string]: any}>;
+    readonly advancedOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+     */
+    readonly advancedSecurityOptions?: pulumi.Input<inputs.elasticsearch.DomainAdvancedSecurityOptions>;
     /**
      * Amazon Resource Name (ARN) of the domain.
      */
@@ -396,7 +399,7 @@ export interface DomainState {
      */
     readonly kibanaEndpoint?: pulumi.Input<string>;
     /**
-     * Options for publishing slow logs to CloudWatch Logs.
+     * Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
      */
     readonly logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.elasticsearch.DomainLogPublishingOption>[]>;
     /**
@@ -408,9 +411,9 @@ export interface DomainState {
      */
     readonly snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptions>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
      */
@@ -431,7 +434,11 @@ export interface DomainArgs {
      * may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
      * domain on every apply.
      */
-    readonly advancedOptions?: pulumi.Input<{[key: string]: any}>;
+    readonly advancedOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+     */
+    readonly advancedSecurityOptions?: pulumi.Input<inputs.elasticsearch.DomainAdvancedSecurityOptions>;
     /**
      * Cluster configuration of the domain, see below.
      */
@@ -458,7 +465,7 @@ export interface DomainArgs {
      */
     readonly encryptAtRest?: pulumi.Input<inputs.elasticsearch.DomainEncryptAtRest>;
     /**
-     * Options for publishing slow logs to CloudWatch Logs.
+     * Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
      */
     readonly logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.elasticsearch.DomainLogPublishingOption>[]>;
     /**
@@ -470,9 +477,9 @@ export interface DomainArgs {
      */
     readonly snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptions>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
      */

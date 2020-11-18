@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a VPC Endpoint Service resource.
@@ -18,6 +18,8 @@ import (
 // and a VPC Endpoint Service resource with an `allowedPrincipals` attribute. Do not use the same principal ARN in both
 // a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
 // and will overwrite the association.
+//
+// ## Example Usage
 type VpcEndpointService struct {
 	pulumi.CustomResourceState
 
@@ -25,13 +27,17 @@ type VpcEndpointService struct {
 	AcceptanceRequired pulumi.BoolOutput `pulumi:"acceptanceRequired"`
 	// The ARNs of one or more principals allowed to discover the endpoint service.
 	AllowedPrincipals pulumi.StringArrayOutput `pulumi:"allowedPrincipals"`
+	// The Amazon Resource Name (ARN) of the VPC endpoint service.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Availability Zones in which the service is available.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// The DNS names for the service.
 	BaseEndpointDnsNames pulumi.StringArrayOutput `pulumi:"baseEndpointDnsNames"`
+	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+	GatewayLoadBalancerArns pulumi.StringArrayOutput `pulumi:"gatewayLoadBalancerArns"`
 	// Whether or not the service manages its VPC endpoints - `true` or `false`.
 	ManagesVpcEndpoints pulumi.BoolOutput `pulumi:"managesVpcEndpoints"`
-	// The ARNs of one or more Network Load Balancers for the endpoint service.
+	// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
 	NetworkLoadBalancerArns pulumi.StringArrayOutput `pulumi:"networkLoadBalancerArns"`
 	// The private DNS name for the service.
 	PrivateDnsName pulumi.StringOutput `pulumi:"privateDnsName"`
@@ -41,8 +47,8 @@ type VpcEndpointService struct {
 	ServiceType pulumi.StringOutput `pulumi:"serviceType"`
 	// The state of the VPC endpoint service.
 	State pulumi.StringOutput `pulumi:"state"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewVpcEndpointService registers a new resource with the given unique name, arguments, and options.
@@ -50,9 +56,6 @@ func NewVpcEndpointService(ctx *pulumi.Context,
 	name string, args *VpcEndpointServiceArgs, opts ...pulumi.ResourceOption) (*VpcEndpointService, error) {
 	if args == nil || args.AcceptanceRequired == nil {
 		return nil, errors.New("missing required argument 'AcceptanceRequired'")
-	}
-	if args == nil || args.NetworkLoadBalancerArns == nil {
-		return nil, errors.New("missing required argument 'NetworkLoadBalancerArns'")
 	}
 	if args == nil {
 		args = &VpcEndpointServiceArgs{}
@@ -83,13 +86,17 @@ type vpcEndpointServiceState struct {
 	AcceptanceRequired *bool `pulumi:"acceptanceRequired"`
 	// The ARNs of one or more principals allowed to discover the endpoint service.
 	AllowedPrincipals []string `pulumi:"allowedPrincipals"`
+	// The Amazon Resource Name (ARN) of the VPC endpoint service.
+	Arn *string `pulumi:"arn"`
 	// The Availability Zones in which the service is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The DNS names for the service.
 	BaseEndpointDnsNames []string `pulumi:"baseEndpointDnsNames"`
+	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+	GatewayLoadBalancerArns []string `pulumi:"gatewayLoadBalancerArns"`
 	// Whether or not the service manages its VPC endpoints - `true` or `false`.
 	ManagesVpcEndpoints *bool `pulumi:"managesVpcEndpoints"`
-	// The ARNs of one or more Network Load Balancers for the endpoint service.
+	// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
 	// The private DNS name for the service.
 	PrivateDnsName *string `pulumi:"privateDnsName"`
@@ -99,8 +106,8 @@ type vpcEndpointServiceState struct {
 	ServiceType *string `pulumi:"serviceType"`
 	// The state of the VPC endpoint service.
 	State *string `pulumi:"state"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type VpcEndpointServiceState struct {
@@ -108,13 +115,17 @@ type VpcEndpointServiceState struct {
 	AcceptanceRequired pulumi.BoolPtrInput
 	// The ARNs of one or more principals allowed to discover the endpoint service.
 	AllowedPrincipals pulumi.StringArrayInput
+	// The Amazon Resource Name (ARN) of the VPC endpoint service.
+	Arn pulumi.StringPtrInput
 	// The Availability Zones in which the service is available.
 	AvailabilityZones pulumi.StringArrayInput
 	// The DNS names for the service.
 	BaseEndpointDnsNames pulumi.StringArrayInput
+	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+	GatewayLoadBalancerArns pulumi.StringArrayInput
 	// Whether or not the service manages its VPC endpoints - `true` or `false`.
 	ManagesVpcEndpoints pulumi.BoolPtrInput
-	// The ARNs of one or more Network Load Balancers for the endpoint service.
+	// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
 	NetworkLoadBalancerArns pulumi.StringArrayInput
 	// The private DNS name for the service.
 	PrivateDnsName pulumi.StringPtrInput
@@ -124,8 +135,8 @@ type VpcEndpointServiceState struct {
 	ServiceType pulumi.StringPtrInput
 	// The state of the VPC endpoint service.
 	State pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (VpcEndpointServiceState) ElementType() reflect.Type {
@@ -137,10 +148,12 @@ type vpcEndpointServiceArgs struct {
 	AcceptanceRequired bool `pulumi:"acceptanceRequired"`
 	// The ARNs of one or more principals allowed to discover the endpoint service.
 	AllowedPrincipals []string `pulumi:"allowedPrincipals"`
-	// The ARNs of one or more Network Load Balancers for the endpoint service.
+	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+	GatewayLoadBalancerArns []string `pulumi:"gatewayLoadBalancerArns"`
+	// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcEndpointService resource.
@@ -149,10 +162,12 @@ type VpcEndpointServiceArgs struct {
 	AcceptanceRequired pulumi.BoolInput
 	// The ARNs of one or more principals allowed to discover the endpoint service.
 	AllowedPrincipals pulumi.StringArrayInput
-	// The ARNs of one or more Network Load Balancers for the endpoint service.
+	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+	GatewayLoadBalancerArns pulumi.StringArrayInput
+	// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
 	NetworkLoadBalancerArns pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (VpcEndpointServiceArgs) ElementType() reflect.Type {

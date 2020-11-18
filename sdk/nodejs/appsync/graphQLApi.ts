@@ -4,57 +4,54 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AppSync GraphQL API.
- * 
+ *
  * ## Example Usage
- * 
  * ### API Key Authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "API_KEY",
  * });
  * ```
- * 
  * ### AWS Cognito User Pool Authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "AMAZON_COGNITO_USER_POOLS",
  *     userPoolConfig: {
- *         awsRegion: aws_region_current.name,
+ *         awsRegion: data.aws_region.current.name,
  *         defaultAction: "DENY",
- *         userPoolId: aws_cognito_user_pool_example.id,
+ *         userPoolId: aws_cognito_user_pool.example.id,
  *     },
  * });
  * ```
- * 
  * ### AWS IAM Authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "AWS_IAM",
  * });
  * ```
- * 
  * ### With Schema
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "AWS_IAM",
  *     schema: `schema {
@@ -66,13 +63,12 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * 
  * ### OpenID Connect Authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "OPENID_CONNECT",
  *     openidConnectConfig: {
@@ -80,13 +76,12 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
  * ### With Multiple Authentication Providers
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     additionalAuthenticationProviders: [{
  *         authenticationType: "AWS_IAM",
@@ -94,15 +89,13 @@ import * as utilities from "../utilities";
  *     authenticationType: "API_KEY",
  * });
  * ```
- * 
  * ### Enabling Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleRole = new aws.iam.Role("example", {
- *     assumeRolePolicy: `{
+ *
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
  *         {
@@ -114,21 +107,17 @@ import * as utilities from "../utilities";
  *         }
  *     ]
  * }
- * `,
- * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ * `});
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
  *     role: exampleRole.name,
  * });
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
- *     logConfig: {
- *         cloudwatchLogsRoleArn: exampleRole.arn,
- *         fieldLogLevel: "ERROR",
- *     },
- * });
+ * // ... other configuration ...
+ * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {logConfig: {
+ *     cloudwatchLogsRoleArn: exampleRole.arn,
+ *     fieldLogLevel: "ERROR",
+ * }});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_graphql_api.html.markdown.
  */
 export class GraphQLApi extends pulumi.CustomResource {
     /**
@@ -138,6 +127,7 @@ export class GraphQLApi extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GraphQLApiState, opts?: pulumi.CustomResourceOptions): GraphQLApi {
         return new GraphQLApi(name, <any>state, { ...opts, id: id });
@@ -186,9 +176,9 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly schema!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
@@ -286,9 +276,9 @@ export interface GraphQLApiState {
      */
     readonly schema?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
@@ -332,9 +322,9 @@ export interface GraphQLApiArgs {
      */
     readonly schema?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon Cognito User Pool configuration. Defined below.
      */

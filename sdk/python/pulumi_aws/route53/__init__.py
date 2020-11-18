@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .delegation_set import *
 from .get_delegation_set import *
+from .get_resolver_endpoint import *
 from .get_resolver_rule import *
 from .get_resolver_rules import *
 from .get_zone import *
@@ -12,7 +13,12 @@ from .health_check import *
 from .query_log import *
 from .record import *
 from .resolver_endpoint import *
+from .resolver_query_log_config import *
+from .resolver_query_log_config_association import *
 from .resolver_rule import *
 from .resolver_rule_association import *
+from .vpc_association_authorization import *
 from .zone import *
 from .zone_association import *
+from ._inputs import *
+from . import outputs

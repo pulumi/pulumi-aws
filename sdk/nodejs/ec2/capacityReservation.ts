@@ -2,25 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {InstancePlatform} from "./instancePlatform";
-import {InstanceType} from "./instanceType";
-import {Tenancy} from "./tenancy";
+import {InstancePlatform, InstanceType, Tenancy} from "./index";
 
 /**
  * Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCapacityReservation = new aws.ec2.CapacityReservation("default", {
  *     availabilityZone: "eu-west-1a",
  *     instanceCount: 1,
@@ -28,8 +22,6 @@ import {Tenancy} from "./tenancy";
  *     instanceType: "t2.micro",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_capacity_reservation.markdown.
  */
 export class CapacityReservation extends pulumi.CustomResource {
     /**
@@ -39,6 +31,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CapacityReservationState, opts?: pulumi.CustomResourceOptions): CapacityReservation {
         return new CapacityReservation(name, <any>state, { ...opts, id: id });
@@ -58,6 +51,10 @@ export class CapacityReservation extends pulumi.CustomResource {
         return obj['__pulumiType'] === CapacityReservation.__pulumiType;
     }
 
+    /**
+     * The ARN of the Capacity Reservation.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      */
@@ -95,9 +92,9 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public readonly instanceType!: pulumi.Output<InstanceType>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */
@@ -115,6 +112,7 @@ export class CapacityReservation extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as CapacityReservationState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
             inputs["endDate"] = state ? state.endDate : undefined;
@@ -151,6 +149,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["instanceType"] = args ? args.instanceType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenancy"] = args ? args.tenancy : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -167,6 +166,10 @@ export class CapacityReservation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CapacityReservation resources.
  */
 export interface CapacityReservationState {
+    /**
+     * The ARN of the Capacity Reservation.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      */
@@ -204,9 +207,9 @@ export interface CapacityReservationState {
      */
     readonly instanceType?: pulumi.Input<InstanceType>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */
@@ -254,9 +257,9 @@ export interface CapacityReservationArgs {
      */
     readonly instanceType: pulumi.Input<InstanceType>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */

@@ -6,10 +6,104 @@ package route53
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages a Route53 Hosted Zone.
+//
+// ## Example Usage
+// ### Public Zone
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := route53.NewZone(ctx, "primary", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Public Subdomain Zone
+//
+// For use in subdomains, note that you need to create a
+// `route53.Record` of type `NS` as well as the subdomain
+// zone.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		main, err := route53.NewZone(ctx, "main", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		dev, err := route53.NewZone(ctx, "dev", &route53.ZoneArgs{
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("dev"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "dev_ns", &route53.RecordArgs{
+// 			ZoneId:  main.ZoneId,
+// 			Name:    pulumi.String("dev.example.com"),
+// 			Type:    pulumi.String("NS"),
+// 			Ttl:     pulumi.Int(30),
+// 			Records: dev.NameServers,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Private Zone
+//
+// > **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate ` Zone VPC Association resource. At this time, you cannot use in-line VPC associations in conjunction with any  `route53.ZoneAssociation`  resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [ `ignoreChanges` ](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the  `route53.ZoneAssociation` resource.
+//
+// > **NOTE:** Private zones require at least one VPC association at all times.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := route53.NewZone(ctx, "private", &route53.ZoneArgs{
+// 			Vpcs: route53.ZoneVpcArray{
+// 				&route53.ZoneVpcArgs{
+// 					VpcId: pulumi.Any(aws_vpc.Example.Id),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Zone struct {
 	pulumi.CustomResourceState
 
@@ -25,8 +119,8 @@ type Zone struct {
 	// Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
 	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
 	// A mapping of tags to assign to the zone.
-	Tags pulumi.MapOutput `pulumi:"tags"`
-	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs ZoneVpcArrayOutput `pulumi:"vpcs"`
 	// The Hosted Zone ID. This can be referenced by zone records.
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
@@ -75,8 +169,8 @@ type zoneState struct {
 	// Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
 	NameServers []string `pulumi:"nameServers"`
 	// A mapping of tags to assign to the zone.
-	Tags map[string]interface{} `pulumi:"tags"`
-	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+	Tags map[string]string `pulumi:"tags"`
+	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs []ZoneVpc `pulumi:"vpcs"`
 	// The Hosted Zone ID. This can be referenced by zone records.
 	ZoneId *string `pulumi:"zoneId"`
@@ -95,8 +189,8 @@ type ZoneState struct {
 	// Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
 	NameServers pulumi.StringArrayInput
 	// A mapping of tags to assign to the zone.
-	Tags pulumi.MapInput
-	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+	Tags pulumi.StringMapInput
+	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs ZoneVpcArrayInput
 	// The Hosted Zone ID. This can be referenced by zone records.
 	ZoneId pulumi.StringPtrInput
@@ -116,8 +210,8 @@ type zoneArgs struct {
 	// This is the name of the hosted zone.
 	Name *string `pulumi:"name"`
 	// A mapping of tags to assign to the zone.
-	Tags map[string]interface{} `pulumi:"tags"`
-	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+	Tags map[string]string `pulumi:"tags"`
+	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs []ZoneVpc `pulumi:"vpcs"`
 }
 
@@ -132,8 +226,8 @@ type ZoneArgs struct {
 	// This is the name of the hosted zone.
 	Name pulumi.StringPtrInput
 	// A mapping of tags to assign to the zone.
-	Tags pulumi.MapInput
-	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+	Tags pulumi.StringMapInput
+	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs ZoneVpcArrayInput
 }
 

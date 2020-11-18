@@ -6,12 +6,40 @@ package kinesis
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Kinesis Video Stream resource. Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing.
 //
-// For more details, see the [Amazon Kinesis Documentation][1].
+// For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/kinesis"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := kinesis.NewVideoStream(ctx, "_default", &kinesis.VideoStreamArgs{
+// 			DataRetentionInHours: pulumi.Int(1),
+// 			DeviceName:           pulumi.String("kinesis-video-device-name"),
+// 			MediaType:            pulumi.String("video/h264"),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("kinesis-video-stream"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VideoStream struct {
 	pulumi.CustomResourceState
 
@@ -25,13 +53,13 @@ type VideoStream struct {
 	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
 	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
 	MediaType pulumi.StringPtrOutput `pulumi:"mediaType"`
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The version of the stream.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -74,13 +102,13 @@ type videoStreamState struct {
 	DeviceName *string `pulumi:"deviceName"`
 	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
 	MediaType *string `pulumi:"mediaType"`
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The version of the stream.
 	Version *string `pulumi:"version"`
 }
@@ -96,13 +124,13 @@ type VideoStreamState struct {
 	DeviceName pulumi.StringPtrInput
 	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
 	KmsKeyId pulumi.StringPtrInput
-	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
 	MediaType pulumi.StringPtrInput
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The version of the stream.
 	Version pulumi.StringPtrInput
 }
@@ -118,13 +146,13 @@ type videoStreamArgs struct {
 	DeviceName *string `pulumi:"deviceName"`
 	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
 	MediaType *string `pulumi:"mediaType"`
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VideoStream resource.
@@ -135,13 +163,13 @@ type VideoStreamArgs struct {
 	DeviceName pulumi.StringPtrInput
 	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
 	KmsKeyId pulumi.StringPtrInput
-	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
 	MediaType pulumi.StringPtrInput
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (VideoStreamArgs) ElementType() reflect.Type {

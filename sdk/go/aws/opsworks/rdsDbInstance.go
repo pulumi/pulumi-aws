@@ -7,13 +7,38 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an OpsWorks RDS DB Instance resource.
 //
 // > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/opsworks"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := opsworks.NewRdsDbInstance(ctx, "myInstance", &opsworks.RdsDbInstanceArgs{
+// 			StackId:          pulumi.Any(aws_opsworks_stack.My_stack.Id),
+// 			RdsDbInstanceArn: pulumi.Any(aws_db_instance.My_instance.Arn),
+// 			DbUser:           pulumi.String("someUser"),
+// 			DbPassword:       pulumi.String("somePass"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type RdsDbInstance struct {
 	pulumi.CustomResourceState
 

@@ -4,21 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an EBS volume for use in other
  * resources.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const ebsVolume = aws.ebs.getVolume({
+ *
+ * const ebsVolume = pulumi.output(aws.ebs.getVolume({
  *     filters: [
  *         {
  *             name: "volume-type",
@@ -30,12 +29,10 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     mostRecent: true,
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
  */
-export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> & GetVolumeResult {
+export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -44,13 +41,11 @@ export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetVolumeResult> = pulumi.runtime.invoke("aws:ebs/getVolume:getVolume", {
+    return pulumi.runtime.invoke("aws:ebs/getVolume:getVolume", {
         "filters": args.filters,
         "mostRecent": args.mostRecent,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -69,9 +64,9 @@ export interface GetVolumeArgs {
      */
     readonly mostRecent?: boolean;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -92,6 +87,10 @@ export interface GetVolumeResult {
     readonly encrypted: boolean;
     readonly filters?: outputs.ebs.GetVolumeFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The amount of IOPS for the disk.
      */
     readonly iops: number;
@@ -101,6 +100,14 @@ export interface GetVolumeResult {
     readonly kmsKeyId: string;
     readonly mostRecent?: boolean;
     /**
+     * (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
+     */
+    readonly multiAttachEnabled: boolean;
+    /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
+    readonly outpostArn: string;
+    /**
      * The size of the drive in GiBs.
      */
     readonly size: number;
@@ -109,9 +116,9 @@ export interface GetVolumeResult {
      */
     readonly snapshotId: string;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The volume ID (e.g. vol-59fcb34e).
      */
@@ -120,8 +127,4 @@ export interface GetVolumeResult {
      * The type of EBS volume.
      */
     readonly volumeType: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

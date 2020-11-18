@@ -6,28 +6,23 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint APNs Sandbox Channel resource.
- * 
+ *
  * > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
+ * import * from "fs";
+ *
  * const app = new aws.pinpoint.App("app", {});
  * const apnsSandbox = new aws.pinpoint.ApnsSandboxChannel("apnsSandbox", {
  *     applicationId: app.applicationId,
- *     certificate: fs.readFileSync("./certificate.pem", "utf-8"),
- *     privateKey: fs.readFileSync("./private_key.key", "utf-8"),
+ *     certificate: fs.readFileSync("./certificate.pem"),
+ *     privateKey: fs.readFileSync("./private_key.key"),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_apns_sandbox_channel.markdown.
  */
 export class ApnsSandboxChannel extends pulumi.CustomResource {
     /**
@@ -37,6 +32,7 @@ export class ApnsSandboxChannel extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ApnsSandboxChannelState, opts?: pulumi.CustomResourceOptions): ApnsSandboxChannel {
         return new ApnsSandboxChannel(name, <any>state, { ...opts, id: id });
@@ -69,7 +65,7 @@ export class ApnsSandboxChannel extends pulumi.CustomResource {
      */
     public readonly certificate!: pulumi.Output<string | undefined>;
     /**
-     * The default authentication method used for APNs Sandbox. 
+     * The default authentication method used for APNs Sandbox.
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -88,7 +84,7 @@ export class ApnsSandboxChannel extends pulumi.CustomResource {
      */
     public readonly teamId!: pulumi.Output<string | undefined>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
     public readonly tokenKey!: pulumi.Output<string | undefined>;
     /**
@@ -160,7 +156,7 @@ export interface ApnsSandboxChannelState {
      */
     readonly certificate?: pulumi.Input<string>;
     /**
-     * The default authentication method used for APNs Sandbox. 
+     * The default authentication method used for APNs Sandbox.
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -179,7 +175,7 @@ export interface ApnsSandboxChannelState {
      */
     readonly teamId?: pulumi.Input<string>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
     readonly tokenKey?: pulumi.Input<string>;
     /**
@@ -205,7 +201,7 @@ export interface ApnsSandboxChannelArgs {
      */
     readonly certificate?: pulumi.Input<string>;
     /**
-     * The default authentication method used for APNs Sandbox. 
+     * The default authentication method used for APNs Sandbox.
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -224,7 +220,7 @@ export interface ApnsSandboxChannelArgs {
      */
     readonly teamId?: pulumi.Input<string>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
     readonly tokenKey?: pulumi.Input<string>;
     /**

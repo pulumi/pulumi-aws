@@ -14,9 +14,59 @@ namespace Pulumi.Aws.Iam
     /// 
     /// &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy_attachment.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"    {
+    ///       ""Version"": ""2012-10-17"",
+    ///       ""Statement"": [
+    ///         {
+    ///           ""Action"": ""sts:AssumeRole"",
+    ///           ""Principal"": {
+    ///             ""Service"": ""ec2.amazonaws.com""
+    ///           },
+    ///           ""Effect"": ""Allow"",
+    ///           ""Sid"": """"
+    ///         }
+    ///       ]
+    ///     }
+    /// ",
+    ///         });
+    ///         var policy = new Aws.Iam.Policy("policy", new Aws.Iam.PolicyArgs
+    ///         {
+    ///             Description = "A test policy",
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": [
+    ///         ""ec2:Describe*""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": ""*""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var test_attach = new Aws.Iam.RolePolicyAttachment("test-attach", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             Role = role.Name,
+    ///             PolicyArn = policy.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RolePolicyAttachment : Pulumi.CustomResource
     {
@@ -41,7 +91,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RolePolicyAttachment(string name, RolePolicyAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/rolePolicyAttachment:RolePolicyAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/rolePolicyAttachment:RolePolicyAttachment", name, args ?? new RolePolicyAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -9,45 +9,119 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Pricing
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get the pricing information of all products in AWS.
-        /// This data source is only available in a us-east-1 or ap-south-1 provider.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetProduct.InvokeAsync() instead")]
-        public static Task<GetProductResult> GetProduct(GetProductArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:pricing/getProduct:getProduct", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetProduct
     {
         /// <summary>
         /// Use this data source to get the pricing information of all products in AWS.
         /// This data source is only available in a us-east-1 or ap-south-1 provider.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Pricing.GetProduct.InvokeAsync(new Aws.Pricing.GetProductArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
+        ///                 {
+        ///                     Field = "instanceType",
+        ///                     Value = "c5.xlarge",
+        ///                 },
+        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
+        ///                 {
+        ///                     Field = "operatingSystem",
+        ///                     Value = "Linux",
+        ///                 },
+        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
+        ///                 {
+        ///                     Field = "location",
+        ///                     Value = "US East (N. Virginia)",
+        ///                 },
+        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
+        ///                 {
+        ///                     Field = "preInstalledSw",
+        ///                     Value = "NA",
+        ///                 },
+        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
+        ///                 {
+        ///                     Field = "licenseModel",
+        ///                     Value = "No License required",
+        ///                 },
+        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
+        ///                 {
+        ///                     Field = "tenancy",
+        ///                     Value = "Shared",
+        ///                 },
+        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
+        ///                 {
+        ///                     Field = "capacitystatus",
+        ///                     Value = "Used",
+        ///                 },
+        ///             },
+        ///             ServiceCode = "AmazonEC2",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Pricing.GetProduct.InvokeAsync(new Aws.Pricing.GetProductArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
+        ///                 {
+        ///                     Field = "instanceType",
+        ///                     Value = "ds1.xlarge",
+        ///                 },
+        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
+        ///                 {
+        ///                     Field = "location",
+        ///                     Value = "US East (N. Virginia)",
+        ///                 },
+        ///             },
+        ///             ServiceCode = "AmazonRedshift",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:pricing/getProduct:getProduct", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:pricing/getProduct:getProduct", args ?? new GetProductArgs(), options.WithVersion());
     }
+
 
     public sealed class GetProductArgs : Pulumi.InvokeArgs
     {
         [Input("filters", required: true)]
-        private List<Inputs.GetProductFiltersArgs>? _filters;
+        private List<Inputs.GetProductFilterArgs>? _filters;
 
         /// <summary>
         /// A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
         /// </summary>
-        public List<Inputs.GetProductFiltersArgs> Filters
+        public List<Inputs.GetProductFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetProductFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetProductFilterArgs>());
             set => _filters = value;
         }
 
@@ -62,80 +136,35 @@ namespace Pulumi.Aws.Pricing
         }
     }
 
+
     [OutputType]
     public sealed class GetProductResult
     {
-        public readonly ImmutableArray<Outputs.GetProductFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetProductFilterResult> Filters;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Set to the product returned from the API.
         /// </summary>
         public readonly string Result;
         public readonly string ServiceCode;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetProductResult(
-            ImmutableArray<Outputs.GetProductFiltersResult> filters,
+            ImmutableArray<Outputs.GetProductFilterResult> filters,
+
+            string id,
+
             string result,
-            string serviceCode,
-            string id)
+
+            string serviceCode)
         {
             Filters = filters;
+            Id = id;
             Result = result;
             ServiceCode = serviceCode;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetProductFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The product attribute name that you want to filter on.
-        /// </summary>
-        [Input("field", required: true)]
-        public string Field { get; set; } = null!;
-
-        /// <summary>
-        /// The product attribute value that you want to filter on.
-        /// </summary>
-        [Input("value", required: true)]
-        public string Value { get; set; } = null!;
-
-        public GetProductFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetProductFiltersResult
-    {
-        /// <summary>
-        /// The product attribute name that you want to filter on.
-        /// </summary>
-        public readonly string Field;
-        /// <summary>
-        /// The product attribute value that you want to filter on.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private GetProductFiltersResult(
-            string field,
-            string value)
-        {
-            Field = field;
-            Value = value;
-        }
-    }
     }
 }

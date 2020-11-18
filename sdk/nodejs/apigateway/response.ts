@@ -2,36 +2,30 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Gateway Response for a REST API Gateway.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.apigateway.RestApi("main", {});
  * const test = new aws.apigateway.Response("test", {
+ *     restApiId: main.id,
+ *     statusCode: "401",
+ *     responseType: "UNAUTHORIZED",
+ *     responseTemplates: {
+ *         "application/json": `{'message':$context.error.messageString}`,
+ *     },
  *     responseParameters: {
  *         "gatewayresponse.header.Authorization": "'Basic'",
  *     },
- *     responseTemplates: {
- *         "application/json": "{'message':$context.error.messageString}",
- *     },
- *     responseType: "UNAUTHORIZED",
- *     restApiId: main.id,
- *     statusCode: "401",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_gateway_response.markdown.
  */
 export class Response extends pulumi.CustomResource {
     /**
@@ -41,6 +35,7 @@ export class Response extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ResponseState, opts?: pulumi.CustomResourceOptions): Response {
         return new Response(name, <any>state, { ...opts, id: id });

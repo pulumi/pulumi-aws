@@ -7,30 +7,56 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
 //
-// > **NOTE:** The AWS API does not currently support deleting ECS cluster capacity providers. Removing this resource will only remove the state for it.
+// > **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `minSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
 //
+// ## Example Usage
 //
-// ## autoScalingGroupProvider
+// ```go
+// package main
 //
-// The `autoScalingGroupProvider` block supports the following:
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
 //
-// * `autoScalingGroupArn` - (Required) - The Amazon Resource Name (ARN) of the associated auto scaling group.
-// * `managedScaling` - (Optional) - Nested argument defining the parameters of the auto scaling. Defined below.
-// * `managedTerminationProtection` - (Optional) - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
-//
-// ## managedScaling
-//
-// The `managedScaling` block supports the following:
-//
-// * `maximumScalingStepSize` - (Optional) The maximum step adjustment size. A number between 1 and 10,000.
-// * `minimumScalingStepSize` - (Optional) The minimum step adjustment size. A number between 1 and 10,000.
-// * `status` - (Optional) Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
-// * `targetCapacity` - (Optional) The target utilization for the capacity provider. A number between 1 and 100.
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testGroup, err := autoscaling.NewGroup(ctx, "testGroup", &autoscaling.GroupArgs{
+// 			Tags: autoscaling.GroupTagArray{
+// 				&autoscaling.GroupTagArgs{
+// 					Key:               pulumi.String("AmazonECSManaged"),
+// 					PropagateAtLaunch: pulumi.Bool(true),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ecs.NewCapacityProvider(ctx, "testCapacityProvider", &ecs.CapacityProviderArgs{
+// 			AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
+// 				AutoScalingGroupArn:          testGroup.Arn,
+// 				ManagedTerminationProtection: pulumi.String("ENABLED"),
+// 				ManagedScaling: &ecs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs{
+// 					MaximumScalingStepSize: pulumi.Int(1000),
+// 					MinimumScalingStepSize: pulumi.Int(1),
+// 					Status:                 pulumi.String("ENABLED"),
+// 					TargetCapacity:         pulumi.Int(10),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type CapacityProvider struct {
 	pulumi.CustomResourceState
 
@@ -40,8 +66,8 @@ type CapacityProvider struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderOutput `pulumi:"autoScalingGroupProvider"`
 	// The name of the capacity provider.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of resource tags.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewCapacityProvider registers a new resource with the given unique name, arguments, and options.
@@ -81,8 +107,8 @@ type capacityProviderState struct {
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	// The name of the capacity provider.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type CapacityProviderState struct {
@@ -92,8 +118,8 @@ type CapacityProviderState struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrInput
 	// The name of the capacity provider.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags.
-	Tags pulumi.MapInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 }
 
 func (CapacityProviderState) ElementType() reflect.Type {
@@ -105,8 +131,8 @@ type capacityProviderArgs struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	// The name of the capacity provider.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CapacityProvider resource.
@@ -115,8 +141,8 @@ type CapacityProviderArgs struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderInput
 	// The name of the capacity provider.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags.
-	Tags pulumi.MapInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 }
 
 func (CapacityProviderArgs) ElementType() reflect.Type {

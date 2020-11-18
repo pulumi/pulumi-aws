@@ -12,9 +12,23 @@ namespace Pulumi.Aws.Sns
     /// <summary>
     /// Provides a way to set SNS SMS preferences.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_sms_preferences.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var updateSmsPrefs = new Aws.Sns.SmsPreferences("updateSmsPrefs", new Aws.Sns.SmsPreferencesArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SmsPreferences : Pulumi.CustomResource
     {
@@ -63,7 +77,7 @@ namespace Pulumi.Aws.Sns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SmsPreferences(string name, SmsPreferencesArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:sns/smsPreferences:SmsPreferences", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:sns/smsPreferences:SmsPreferences", name, args ?? new SmsPreferencesArgs(), MakeResourceOptions(options, ""))
         {
         }
 

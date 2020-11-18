@@ -5,37 +5,35 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource for adding an [IAM User][2] to [IAM Groups][1]. This
+ * Provides a resource for adding an [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html). This
  * resource can be used multiple times with the same user for non-overlapping
  * groups.
- * 
+ *
  * To exclusively manage the users in a group, see the
  * [`aws.iam.GroupMembership` resource][3].
- * 
- * ## Example usage
- * 
+ *
+ * ## Example Usage
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const user1 = new aws.iam.User("user1", {});
  * const group1 = new aws.iam.Group("group1", {});
  * const group2 = new aws.iam.Group("group2", {});
  * const example1 = new aws.iam.UserGroupMembership("example1", {
+ *     user: user1.name,
  *     groups: [
  *         group1.name,
  *         group2.name,
  *     ],
- *     user: user1.name,
  * });
  * const group3 = new aws.iam.Group("group3", {});
  * const example2 = new aws.iam.UserGroupMembership("example2", {
- *     groups: [group3.name],
  *     user: user1.name,
+ *     groups: [group3.name],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_group_membership.html.markdown.
  */
 export class UserGroupMembership extends pulumi.CustomResource {
     /**
@@ -45,6 +43,7 @@ export class UserGroupMembership extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserGroupMembershipState, opts?: pulumi.CustomResourceOptions): UserGroupMembership {
         return new UserGroupMembership(name, <any>state, { ...opts, id: id });
@@ -65,11 +64,11 @@ export class UserGroupMembership extends pulumi.CustomResource {
     }
 
     /**
-     * A list of [IAM Groups][1] to add the user to
+     * A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
      */
     public readonly groups!: pulumi.Output<string[]>;
     /**
-     * The name of the [IAM User][2] to add to groups
+     * The name of the [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to add to groups
      */
     public readonly user!: pulumi.Output<string>;
 
@@ -114,11 +113,11 @@ export class UserGroupMembership extends pulumi.CustomResource {
  */
 export interface UserGroupMembershipState {
     /**
-     * A list of [IAM Groups][1] to add the user to
+     * A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the [IAM User][2] to add to groups
+     * The name of the [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to add to groups
      */
     readonly user?: pulumi.Input<string>;
 }
@@ -128,11 +127,11 @@ export interface UserGroupMembershipState {
  */
 export interface UserGroupMembershipArgs {
     /**
-     * A list of [IAM Groups][1] to add the user to
+     * A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
      */
     readonly groups: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the [IAM User][2] to add to groups
+     * The name of the [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to add to groups
      */
     readonly user: pulumi.Input<string>;
 }

@@ -12,13 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export let ProvisionedEngine:   EngineMode = "provisioned";
-export let ServerlessEngine:    EngineMode = "serverless";
-export let ParallelQueryEngine: EngineMode = "parallelquery";
-export let GlobalEngine:        EngineMode = "global";
+// This file contains individual constants for each RDS Engine mode.
+//
+// These constants will not be updated with new values.
+// It is recommended to use EngineMode.[Value] instead.
 
-export type EngineMode =
-    "provisioned"   |
-    "serverless"    |
-    "parallelquery" |
-    "global"        ;
+import {EngineMode} from ".";
+
+/** Use EngineMode.Provisioned instead. */
+export let ProvisionedEngine:   EngineMode = "provisioned";
+/** Use EngineMode.Serverless instead. */
+export let ServerlessEngine:    EngineMode = "serverless";
+/** Use EngineMode.ParallelQuery instead. */
+export let ParallelQueryEngine: EngineMode = "parallelquery";
+/** Use EngineMode.Global instead. */
+export let GlobalEngine:        EngineMode = "global";

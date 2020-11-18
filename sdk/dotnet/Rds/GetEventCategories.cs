@@ -9,27 +9,60 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_event_categories.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetEventCategories.InvokeAsync() instead")]
-        public static Task<GetEventCategoriesResult> GetEventCategories(GetEventCategoriesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventCategoriesResult>("aws:rds/getEventCategories:getEventCategories", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetEventCategories
     {
         /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// List the event categories of all the RDS resources.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_event_categories.html.markdown.
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleEventCategories = Output.Create(Aws.Rds.GetEventCategories.InvokeAsync());
+        ///         this.Example = exampleEventCategories.Apply(exampleEventCategories =&gt; exampleEventCategories.EventCategories);
+        ///     }
+        /// 
+        ///     [Output("example")]
+        ///     public Output&lt;string&gt; Example { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// List the event categories specific to the RDS resource `db-snapshot`.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleEventCategories = Output.Create(Aws.Rds.GetEventCategories.InvokeAsync(new Aws.Rds.GetEventCategoriesArgs
+        ///         {
+        ///             SourceType = "db-snapshot",
+        ///         }));
+        ///         this.Example = exampleEventCategories.Apply(exampleEventCategories =&gt; exampleEventCategories.EventCategories);
+        ///     }
+        /// 
+        ///     [Output("example")]
+        ///     public Output&lt;string&gt; Example { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEventCategoriesResult> InvokeAsync(GetEventCategoriesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventCategoriesResult>("aws:rds/getEventCategories:getEventCategories", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventCategoriesResult>("aws:rds/getEventCategories:getEventCategories", args ?? new GetEventCategoriesArgs(), options.WithVersion());
     }
+
 
     public sealed class GetEventCategoriesArgs : Pulumi.InvokeArgs
     {
@@ -44,6 +77,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
+
     [OutputType]
     public sealed class GetEventCategoriesResult
     {
@@ -51,21 +85,23 @@ namespace Pulumi.Aws.Rds
         /// A list of the event categories.
         /// </summary>
         public readonly ImmutableArray<string> EventCategories;
-        public readonly string? SourceType;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? SourceType;
 
         [OutputConstructor]
         private GetEventCategoriesResult(
             ImmutableArray<string> eventCategories,
-            string? sourceType,
-            string id)
+
+            string id,
+
+            string? sourceType)
         {
             EventCategories = eventCategories;
-            SourceType = sourceType;
             Id = id;
+            SourceType = sourceType;
         }
     }
 }

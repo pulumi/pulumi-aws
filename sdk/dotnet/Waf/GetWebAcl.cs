@@ -9,31 +9,38 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Waf
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_web_acl.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetWebAcl.InvokeAsync() instead")]
-        public static Task<GetWebAclResult> GetWebAcl(GetWebAclArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:waf/getWebAcl:getWebAcl", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetWebAcl
     {
         /// <summary>
         /// `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_web_acl.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Waf.GetWebAcl.InvokeAsync(new Aws.Waf.GetWebAclArgs
+        ///         {
+        ///             Name = "tfWAFWebACL",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetWebAclResult> InvokeAsync(GetWebAclArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:waf/getWebAcl:getWebAcl", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:waf/getWebAcl:getWebAcl", args ?? new GetWebAclArgs(), options.WithVersion());
     }
+
 
     public sealed class GetWebAclArgs : Pulumi.InvokeArgs
     {
@@ -48,22 +55,24 @@ namespace Pulumi.Aws.Waf
         }
     }
 
+
     [OutputType]
     public sealed class GetWebAclResult
     {
-        public readonly string Name;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetWebAclResult(
-            string name,
-            string id)
+            string id,
+
+            string name)
         {
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

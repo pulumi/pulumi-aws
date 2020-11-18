@@ -4,40 +4,34 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic Beanstalk Configuration Template, which are associated with
  * a specific application and are used to deploy different versions of the
  * application with the same configuration settings.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const tftest = new aws.elasticbeanstalk.Application("tftest", {
- *     description: "tf-test-desc",
- * });
+ *
+ * const tftest = new aws.elasticbeanstalk.Application("tftest", {description: "tf-test-desc"});
  * const tfTemplate = new aws.elasticbeanstalk.ConfigurationTemplate("tfTemplate", {
  *     application: tftest.name,
  *     solutionStackName: "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
  * });
  * ```
- * 
  * ## Option Settings
- * 
+ *
  * The `setting` field supports the following format:
- * 
+ *
  * * `namespace` - unique namespace identifying the option's associated AWS resource
  * * `name` - name of the configuration option
  * * `value` - value for the configuration option
  * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_configuration_template.html.markdown.
  */
 export class ConfigurationTemplate extends pulumi.CustomResource {
     /**
@@ -47,6 +41,7 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ConfigurationTemplateState, opts?: pulumi.CustomResourceOptions): ConfigurationTemplate {
         return new ConfigurationTemplate(name, <any>state, { ...opts, id: id });
@@ -90,7 +85,7 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
     public readonly settings!: pulumi.Output<outputs.elasticbeanstalk.ConfigurationTemplateSetting[]>;
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     public readonly solutionStackName!: pulumi.Output<string | undefined>;
 
@@ -163,7 +158,7 @@ export interface ConfigurationTemplateState {
     readonly settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[]>;
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     readonly solutionStackName?: pulumi.Input<string>;
 }
@@ -196,7 +191,7 @@ export interface ConfigurationTemplateArgs {
     readonly settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[]>;
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     readonly solutionStackName?: pulumi.Input<string>;
 }

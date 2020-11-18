@@ -4,12 +4,35 @@
 package iam
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // This data source can be used to fetch information about a specific
 // IAM role. By using this data source, you can reference IAM role
 // properties without having to hard code ARNs as input.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := iam.LookupRole(ctx, &iam.LookupRoleArgs{
+// 			Name: "an_example_role_name",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.InvokeOption) (*LookupRoleResult, error) {
 	var rv LookupRoleResult
 	err := ctx.Invoke("aws:iam/getRole:getRole", args, &rv, opts...)
@@ -24,7 +47,7 @@ type LookupRoleArgs struct {
 	// The friendly IAM role name to match.
 	Name string `pulumi:"name"`
 	// The tags attached to the role.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getRole.
@@ -37,7 +60,7 @@ type LookupRoleResult struct {
 	CreateDate string `pulumi:"createDate"`
 	// Description for the role.
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Maximum session duration.
 	MaxSessionDuration int    `pulumi:"maxSessionDuration"`
@@ -47,7 +70,7 @@ type LookupRoleResult struct {
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary string `pulumi:"permissionsBoundary"`
 	// The tags attached to the role.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The stable and unique string identifying the role.
 	UniqueId string `pulumi:"uniqueId"`
 }

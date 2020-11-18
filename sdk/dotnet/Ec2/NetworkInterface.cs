@@ -12,9 +12,40 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an Elastic network interface (ENI) resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.Ec2.NetworkInterface("test", new Aws.Ec2.NetworkInterfaceArgs
+    ///         {
+    ///             SubnetId = aws_subnet.Public_a.Id,
+    ///             PrivateIps = 
+    ///             {
+    ///                 "10.0.0.50",
+    ///             },
+    ///             SecurityGroups = 
+    ///             {
+    ///                 aws_security_group.Web.Id,
+    ///             },
+    ///             Attachments = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.NetworkInterfaceAttachmentArgs
+    ///                 {
+    ///                     Instance = aws_instance.Test.Id,
+    ///                     DeviceIndex = 1,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class NetworkInterface : Pulumi.CustomResource
     {
@@ -22,7 +53,7 @@ namespace Pulumi.Aws.Ec2
         /// Block to define the attachment of the ENI. Documented below.
         /// </summary>
         [Output("attachments")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceAttachments>> Attachments { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceAttachment>> Attachments { get; private set; } = null!;
 
         /// <summary>
         /// A description for the network interface.
@@ -31,10 +62,25 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        /// </summary>
+        [Output("ipv6AddressCount")]
+        public Output<int> Ipv6AddressCount { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6_address_count`.
+        /// </summary>
+        [Output("ipv6Addresses")]
+        public Output<ImmutableArray<string>> Ipv6Addresses { get; private set; } = null!;
+
+        /// <summary>
         /// The MAC address of the network interface.
         /// </summary>
         [Output("macAddress")]
         public Output<string> MacAddress { get; private set; } = null!;
+
+        [Output("outpostArn")]
+        public Output<string> OutpostArn { get; private set; } = null!;
 
         /// <summary>
         /// The private DNS name of the network interface (IPv4).
@@ -52,7 +98,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> PrivateIps { get; private set; } = null!;
 
         /// <summary>
-        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
         /// </summary>
         [Output("privateIpsCount")]
         public Output<int> PrivateIpsCount { get; private set; } = null!;
@@ -76,10 +122,10 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -90,7 +136,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkInterface(string name, NetworkInterfaceArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/networkInterface:NetworkInterface", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/networkInterface:NetworkInterface", name, args ?? new NetworkInterfaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -128,14 +174,14 @@ namespace Pulumi.Aws.Ec2
     public sealed class NetworkInterfaceArgs : Pulumi.ResourceArgs
     {
         [Input("attachments")]
-        private InputList<Inputs.NetworkInterfaceAttachmentsArgs>? _attachments;
+        private InputList<Inputs.NetworkInterfaceAttachmentArgs>? _attachments;
 
         /// <summary>
         /// Block to define the attachment of the ENI. Documented below.
         /// </summary>
-        public InputList<Inputs.NetworkInterfaceAttachmentsArgs> Attachments
+        public InputList<Inputs.NetworkInterfaceAttachmentArgs> Attachments
         {
-            get => _attachments ?? (_attachments = new InputList<Inputs.NetworkInterfaceAttachmentsArgs>());
+            get => _attachments ?? (_attachments = new InputList<Inputs.NetworkInterfaceAttachmentArgs>());
             set => _attachments = value;
         }
 
@@ -144,6 +190,24 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        /// </summary>
+        [Input("ipv6AddressCount")]
+        public Input<int>? Ipv6AddressCount { get; set; }
+
+        [Input("ipv6Addresses")]
+        private InputList<string>? _ipv6Addresses;
+
+        /// <summary>
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6_address_count`.
+        /// </summary>
+        public InputList<string> Ipv6Addresses
+        {
+            get => _ipv6Addresses ?? (_ipv6Addresses = new InputList<string>());
+            set => _ipv6Addresses = value;
+        }
 
         [Input("privateIp")]
         public Input<string>? PrivateIp { get; set; }
@@ -161,7 +225,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
         /// </summary>
         [Input("privateIpsCount")]
         public Input<int>? PrivateIpsCount { get; set; }
@@ -191,14 +255,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string> SubnetId { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -210,14 +274,14 @@ namespace Pulumi.Aws.Ec2
     public sealed class NetworkInterfaceState : Pulumi.ResourceArgs
     {
         [Input("attachments")]
-        private InputList<Inputs.NetworkInterfaceAttachmentsGetArgs>? _attachments;
+        private InputList<Inputs.NetworkInterfaceAttachmentGetArgs>? _attachments;
 
         /// <summary>
         /// Block to define the attachment of the ENI. Documented below.
         /// </summary>
-        public InputList<Inputs.NetworkInterfaceAttachmentsGetArgs> Attachments
+        public InputList<Inputs.NetworkInterfaceAttachmentGetArgs> Attachments
         {
-            get => _attachments ?? (_attachments = new InputList<Inputs.NetworkInterfaceAttachmentsGetArgs>());
+            get => _attachments ?? (_attachments = new InputList<Inputs.NetworkInterfaceAttachmentGetArgs>());
             set => _attachments = value;
         }
 
@@ -228,10 +292,31 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        /// </summary>
+        [Input("ipv6AddressCount")]
+        public Input<int>? Ipv6AddressCount { get; set; }
+
+        [Input("ipv6Addresses")]
+        private InputList<string>? _ipv6Addresses;
+
+        /// <summary>
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6_address_count`.
+        /// </summary>
+        public InputList<string> Ipv6Addresses
+        {
+            get => _ipv6Addresses ?? (_ipv6Addresses = new InputList<string>());
+            set => _ipv6Addresses = value;
+        }
+
+        /// <summary>
         /// The MAC address of the network interface.
         /// </summary>
         [Input("macAddress")]
         public Input<string>? MacAddress { get; set; }
+
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
         /// The private DNS name of the network interface (IPv4).
@@ -255,7 +340,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
         /// </summary>
         [Input("privateIpsCount")]
         public Input<int>? PrivateIpsCount { get; set; }
@@ -285,96 +370,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public NetworkInterfaceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class NetworkInterfaceAttachmentsArgs : Pulumi.ResourceArgs
-    {
-        [Input("attachmentId")]
-        public Input<string>? AttachmentId { get; set; }
-
-        /// <summary>
-        /// Integer to define the devices index.
-        /// </summary>
-        [Input("deviceIndex", required: true)]
-        public Input<int> DeviceIndex { get; set; } = null!;
-
-        /// <summary>
-        /// ID of the instance to attach to.
-        /// </summary>
-        [Input("instance", required: true)]
-        public Input<string> Instance { get; set; } = null!;
-
-        public NetworkInterfaceAttachmentsArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkInterfaceAttachmentsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("attachmentId")]
-        public Input<string>? AttachmentId { get; set; }
-
-        /// <summary>
-        /// Integer to define the devices index.
-        /// </summary>
-        [Input("deviceIndex", required: true)]
-        public Input<int> DeviceIndex { get; set; } = null!;
-
-        /// <summary>
-        /// ID of the instance to attach to.
-        /// </summary>
-        [Input("instance", required: true)]
-        public Input<string> Instance { get; set; } = null!;
-
-        public NetworkInterfaceAttachmentsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class NetworkInterfaceAttachments
-    {
-        public readonly string AttachmentId;
-        /// <summary>
-        /// Integer to define the devices index.
-        /// </summary>
-        public readonly int DeviceIndex;
-        /// <summary>
-        /// ID of the instance to attach to.
-        /// </summary>
-        public readonly string Instance;
-
-        [OutputConstructor]
-        private NetworkInterfaceAttachments(
-            string attachmentId,
-            int deviceIndex,
-            string instance)
-        {
-            AttachmentId = attachmentId;
-            DeviceIndex = deviceIndex;
-            Instance = instance;
-        }
-    }
     }
 }

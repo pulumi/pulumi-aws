@@ -4,31 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages a SMB Location within AWS DataSync.
- * 
+ *
  * > **NOTE:** The DataSync Agents must be available before creating this resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.datasync.LocationSmb("example", {
- *     agentArns: [aws_datasync_agent_example.arn],
- *     password: "ANotGreatPassword",
  *     serverHostname: "smb.example.com",
  *     subdirectory: "/exported/path",
  *     user: "Guest",
+ *     password: "ANotGreatPassword",
+ *     agentArns: [aws_datasync_agent.example.arn],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_smb.html.markdown.
  */
 export class LocationSmb extends pulumi.CustomResource {
     /**
@@ -38,6 +35,7 @@ export class LocationSmb extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LocationSmbState, opts?: pulumi.CustomResourceOptions): LocationSmb {
         return new LocationSmb(name, <any>state, { ...opts, id: id });
@@ -88,7 +86,7 @@ export class LocationSmb extends pulumi.CustomResource {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly uri!: pulumi.Output<string>;
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
@@ -191,7 +189,7 @@ export interface LocationSmbState {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly uri?: pulumi.Input<string>;
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
@@ -230,7 +228,7 @@ export interface LocationSmbArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
      */

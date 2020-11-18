@@ -2,8 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./codeRepository";
 export * from "./endpoint";
 export * from "./endpointConfiguration";
+export * from "./getPrebuiltEcrImage";
 export * from "./model";
 export * from "./notebookInstance";
 export * from "./notebookInstanceLifecycleConfiguration";

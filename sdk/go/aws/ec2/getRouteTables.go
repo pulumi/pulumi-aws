@@ -4,7 +4,7 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
@@ -21,9 +21,9 @@ func GetRouteTables(ctx *pulumi.Context, args *GetRouteTablesArgs, opts ...pulum
 type GetRouteTablesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetRouteTablesFilter `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired route tables.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID that you want to filter from.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -31,10 +31,10 @@ type GetRouteTablesArgs struct {
 // A collection of values returned by getRouteTables.
 type GetRouteTablesResult struct {
 	Filters []GetRouteTablesFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A list of all the route table ids found. This data source will fail if none are found.
-	Ids   []string               `pulumi:"ids"`
-	Tags  map[string]interface{} `pulumi:"tags"`
-	VpcId *string                `pulumi:"vpcId"`
+	// A set of all the route table ids found. This data source will fail if none are found.
+	Ids   []string          `pulumi:"ids"`
+	Tags  map[string]string `pulumi:"tags"`
+	VpcId *string           `pulumi:"vpcId"`
 }

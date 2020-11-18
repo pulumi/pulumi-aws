@@ -4,11 +4,49 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get the ID of an Amazon EC2 Instance for use in other
 // resources.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "i-instanceid"
+// 		_, err := ec2.LookupInstance(ctx, &ec2.LookupInstanceArgs{
+// 			Filters: []ec2.GetInstanceFilter{
+// 				ec2.GetInstanceFilter{
+// 					Name: "image-id",
+// 					Values: []string{
+// 						"ami-xxxxxxxx",
+// 					},
+// 				},
+// 				ec2.GetInstanceFilter{
+// 					Name: "tag:Name",
+// 					Values: []string{
+// 						"instance-name-tag",
+// 					},
+// 				},
+// 			},
+// 			InstanceId: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupInstanceResult, error) {
 	var rv LookupInstanceResult
 	err := ctx.Invoke("aws:ec2/getInstance:getInstance", args, &rv, opts...)
@@ -30,11 +68,11 @@ type LookupInstanceArgs struct {
 	GetUserData *bool `pulumi:"getUserData"`
 	// Specify the exact Instance ID with which to populate the data source.
 	InstanceId *string `pulumi:"instanceId"`
-	// A mapping of tags, each pair of which must
+	// A map of tags, each pair of which must
 	// exactly match a pair on the desired Instance.
-	InstanceTags map[string]interface{} `pulumi:"instanceTags"`
+	InstanceTags map[string]string `pulumi:"instanceTags"`
 	// A mapping of tags assigned to the Instance.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getInstance.
@@ -63,12 +101,12 @@ type LookupInstanceResult struct {
 	HostId string `pulumi:"hostId"`
 	// The name of the instance profile associated with the Instance.
 	IamInstanceProfile string `pulumi:"iamInstanceProfile"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id         string  `pulumi:"id"`
 	InstanceId *string `pulumi:"instanceId"`
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-	InstanceState string                 `pulumi:"instanceState"`
-	InstanceTags  map[string]interface{} `pulumi:"instanceTags"`
+	InstanceState string            `pulumi:"instanceState"`
+	InstanceTags  map[string]string `pulumi:"instanceTags"`
 	// The type of the Instance.
 	InstanceType string `pulumi:"instanceType"`
 	// The key name of the Instance.
@@ -79,6 +117,8 @@ type LookupInstanceResult struct {
 	Monitoring bool `pulumi:"monitoring"`
 	// The ID of the network interface that was created with the Instance.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn string `pulumi:"outpostArn"`
 	// Base-64 encoded encrypted password data for the instance.
 	// Useful for getting the administrator password for instances running Microsoft Windows.
 	// This attribute is only exported if `getPasswordData` is true.
@@ -95,10 +135,12 @@ type LookupInstanceResult struct {
 	// The public DNS name assigned to the Instance. For EC2-VPC, this
 	// is only available if you've enabled DNS hostnames for your VPC.
 	PublicDns string `pulumi:"publicDns"`
-	// The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
+	// The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
 	PublicIp string `pulumi:"publicIp"`
 	// The root block device mappings of the Instance
 	RootBlockDevices []GetInstanceRootBlockDevice `pulumi:"rootBlockDevices"`
+	// The secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
+	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// The associated security groups.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Whether the network interface performs source/destination checking (Boolean).
@@ -106,7 +148,7 @@ type LookupInstanceResult struct {
 	// The VPC subnet ID.
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags assigned to the Instance.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The tenancy of the instance: `dedicated`, `default`, `host`.
 	Tenancy string `pulumi:"tenancy"`
 	// SHA-1 hash of User Data supplied to the Instance.

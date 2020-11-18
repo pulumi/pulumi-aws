@@ -9,43 +9,81 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ram
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetResourceShare.InvokeAsync() instead")]
-        public static Task<GetResourceShareResult> GetResourceShare(GetResourceShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetResourceShare
     {
         /// <summary>
         /// `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ram.GetResourceShare.InvokeAsync(new Aws.Ram.GetResourceShareArgs
+        ///         {
+        ///             Name = "example",
+        ///             ResourceOwner = "SELF",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Search by filters
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var tagFilter = Output.Create(Aws.Ram.GetResourceShare.InvokeAsync(new Aws.Ram.GetResourceShareArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ram.Inputs.GetResourceShareFilterArgs
+        ///                 {
+        ///                     Name = "NameOfTag",
+        ///                     Values = 
+        ///                     {
+        ///                         "exampleNameTagValue",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             Name = "MyResourceName",
+        ///             ResourceOwner = "SELF",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
         /// </summary>
         public static Task<GetResourceShareResult> InvokeAsync(GetResourceShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareArgs(), options.WithVersion());
     }
+
 
     public sealed class GetResourceShareArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetResourceShareFiltersArgs>? _filters;
+        private List<Inputs.GetResourceShareFilterArgs>? _filters;
 
         /// <summary>
         /// A filter used to scope the list e.g. by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
         /// </summary>
-        public List<Inputs.GetResourceShareFiltersArgs> Filters
+        public List<Inputs.GetResourceShareFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetResourceShareFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetResourceShareFilterArgs>());
             set => _filters = value;
         }
 
@@ -62,14 +100,14 @@ namespace Pulumi.Aws.Ram
         public string ResourceOwner { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// The Tags attached to the RAM share
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -78,6 +116,7 @@ namespace Pulumi.Aws.Ram
         }
     }
 
+
     [OutputType]
     public sealed class GetResourceShareResult
     {
@@ -85,12 +124,16 @@ namespace Pulumi.Aws.Ram
         /// The Amazon Resource Name (ARN) of the resource share.
         /// </summary>
         public readonly string Arn;
-        public readonly ImmutableArray<Outputs.GetResourceShareFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetResourceShareFilterResult> Filters;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource share.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// The ID of the AWS account that owns the resource share.
+        /// </summary>
+        public readonly string OwningAccountId;
         public readonly string ResourceOwner;
         /// <summary>
         /// The Status of the RAM share.
@@ -99,80 +142,34 @@ namespace Pulumi.Aws.Ram
         /// <summary>
         /// The Tags attached to the RAM share
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetResourceShareResult(
             string arn,
-            ImmutableArray<Outputs.GetResourceShareFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetResourceShareFilterResult> filters,
+
             string id,
+
             string name,
+
+            string owningAccountId,
+
             string resourceOwner,
+
             string status,
-            ImmutableDictionary<string, object> tags)
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             Filters = filters;
             Id = id;
             Name = name;
+            OwningAccountId = owningAccountId;
             ResourceOwner = resourceOwner;
             Status = status;
             Tags = tags;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetResourceShareFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the tag key to filter on.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// The value of the tag key.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetResourceShareFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetResourceShareFiltersResult
-    {
-        /// <summary>
-        /// The name of the tag key to filter on.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The value of the tag key.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetResourceShareFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

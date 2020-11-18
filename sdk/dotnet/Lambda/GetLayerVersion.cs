@@ -9,31 +9,40 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lambda
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Provides information about a Lambda Layer Version.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetLayerVersion.InvokeAsync() instead")]
-        public static Task<GetLayerVersionResult> GetLayerVersion(GetLayerVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetLayerVersion
     {
         /// <summary>
         /// Provides information about a Lambda Layer Version.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var layerName = config.Require("layerName");
+        ///         var existing = Output.Create(Aws.Lambda.GetLayerVersion.InvokeAsync(new Aws.Lambda.GetLayerVersionArgs
+        ///         {
+        ///             LayerName = layerName,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLayerVersionResult> InvokeAsync(GetLayerVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args ?? new GetLayerVersionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetLayerVersionArgs : Pulumi.InvokeArgs
     {
@@ -60,6 +69,7 @@ namespace Pulumi.Aws.Lambda
         }
     }
 
+
     [OutputType]
     public sealed class GetLayerVersionResult
     {
@@ -69,7 +79,7 @@ namespace Pulumi.Aws.Lambda
         public readonly string Arn;
         public readonly string? CompatibleRuntime;
         /// <summary>
-        /// A list of [Runtimes][1] the specific Lambda Layer version is compatible with.
+        /// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
         /// </summary>
         public readonly ImmutableArray<string> CompatibleRuntimes;
         /// <summary>
@@ -80,6 +90,10 @@ namespace Pulumi.Aws.Lambda
         /// Description of the specific Lambda Layer version.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Lambda Layer without version.
         /// </summary>
@@ -101,38 +115,45 @@ namespace Pulumi.Aws.Lambda
         /// This Lamba Layer version.
         /// </summary>
         public readonly int Version;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetLayerVersionResult(
             string arn,
+
             string? compatibleRuntime,
+
             ImmutableArray<string> compatibleRuntimes,
+
             string createdDate,
+
             string description,
+
+            string id,
+
             string layerArn,
+
             string layerName,
+
             string licenseInfo,
+
             string sourceCodeHash,
+
             int sourceCodeSize,
-            int version,
-            string id)
+
+            int version)
         {
             Arn = arn;
             CompatibleRuntime = compatibleRuntime;
             CompatibleRuntimes = compatibleRuntimes;
             CreatedDate = createdDate;
             Description = description;
+            Id = id;
             LayerArn = layerArn;
             LayerName = layerName;
             LicenseInfo = licenseInfo;
             SourceCodeHash = sourceCodeHash;
             SourceCodeSize = sourceCodeSize;
             Version = version;
-            Id = id;
         }
     }
 }

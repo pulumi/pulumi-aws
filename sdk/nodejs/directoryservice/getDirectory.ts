@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration. 
- * 
+ * Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws_directory_service_directory_main.id.apply(id => aws.directoryservice.getDirectory({
- *     directoryId: id,
- * }));
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/directory_service_directory.html.markdown.
+ * const example = aws.directoryservice.getDirectory({
+ *     directoryId: aws_directory_service_directory.main.id,
+ * });
+ * ```
  */
-export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryResult> & GetDirectoryResult {
+export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,12 +29,10 @@ export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDirectoryResult> = pulumi.runtime.invoke("aws:directoryservice/getDirectory:getDirectory", {
+    return pulumi.runtime.invoke("aws:directoryservice/getDirectory:getDirectory", {
         "directoryId": args.directoryId,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -49,9 +44,9 @@ export interface GetDirectoryArgs {
      */
     readonly directoryId: string;
     /**
-     * A mapping of tags assigned to the directory/connector.
+     * A map of tags assigned to the directory/connector.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -85,6 +80,10 @@ export interface GetDirectoryResult {
      */
     readonly enableSso: boolean;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The fully qualified name for the directory/connector.
      */
     readonly name: string;
@@ -101,16 +100,12 @@ export interface GetDirectoryResult {
      */
     readonly size: string;
     /**
-     * A mapping of tags assigned to the directory/connector.
+     * A map of tags assigned to the directory/connector.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
      */
     readonly type: string;
     readonly vpcSettings: outputs.directoryservice.GetDirectoryVpcSetting[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

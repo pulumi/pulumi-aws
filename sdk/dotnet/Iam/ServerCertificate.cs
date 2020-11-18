@@ -22,11 +22,105 @@ namespace Pulumi.Aws.Iam
     /// Certificates][2] in AWS Documentation.
     /// 
     /// &gt; **Note:** All arguments including the private key will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
+    /// ## Example Usage
     /// 
+    /// **Using certs on file:**
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_server_certificate.html.markdown.
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testCert = new Aws.Iam.ServerCertificate("testCert", new Aws.Iam.ServerCertificateArgs
+    ///         {
+    ///             CertificateBody = File.ReadAllText("self-ca-cert.pem"),
+    ///             PrivateKey = File.ReadAllText("test-key.pem"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// **Example with cert in-line:**
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testCertAlt = new Aws.Iam.ServerCertificate("testCertAlt", new Aws.Iam.ServerCertificateArgs
+    ///         {
+    ///             CertificateBody = @"-----BEGIN CERTIFICATE-----
+    /// [......] # cert contents
+    /// -----END CERTIFICATE-----
+    /// 
+    /// ",
+    ///             PrivateKey = @"-----BEGIN RSA PRIVATE KEY-----
+    /// [......] # cert contents
+    /// -----END RSA PRIVATE KEY-----
+    /// 
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// **Use in combination with an AWS ELB resource:**
+    /// 
+    /// Some properties of an IAM Server Certificates cannot be updated while they are
+    /// in use. In order for this provider to effectively manage a Certificate in this situation, it is
+    /// recommended you utilize the `name_prefix` attribute and enable the
+    /// `create_before_destroy` [lifecycle block][lifecycle]. This will allow this provider
+    /// to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
+    /// dependant resources before attempting to destroy the old version.
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testCert = new Aws.Iam.ServerCertificate("testCert", new Aws.Iam.ServerCertificateArgs
+    ///         {
+    ///             NamePrefix = "example-cert",
+    ///             CertificateBody = File.ReadAllText("self-ca-cert.pem"),
+    ///             PrivateKey = File.ReadAllText("test-key.pem"),
+    ///         });
+    ///         var ourapp = new Aws.Elb.LoadBalancer("ourapp", new Aws.Elb.LoadBalancerArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-west-2a",
+    ///             },
+    ///             CrossZoneLoadBalancing = true,
+    ///             Listeners = 
+    ///             {
+    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///                 {
+    ///                     InstancePort = 8000,
+    ///                     InstanceProtocol = "http",
+    ///                     LbPort = 443,
+    ///                     LbProtocol = "https",
+    ///                     SslCertificateId = testCert.Arn,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ServerCertificate : Pulumi.CustomResource
     {
@@ -69,7 +163,7 @@ namespace Pulumi.Aws.Iam
         /// The IAM path for the server certificate.  If it is not
         /// included, it defaults to a slash (/). If this certificate is for use with
         /// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-        /// See [IAM Identifiers][1] for more details on IAM Paths.
+        /// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
@@ -89,7 +183,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerCertificate(string name, ServerCertificateArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/serverCertificate:ServerCertificate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/serverCertificate:ServerCertificate", name, args ?? new ServerCertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -165,7 +259,7 @@ namespace Pulumi.Aws.Iam
         /// The IAM path for the server certificate.  If it is not
         /// included, it defaults to a slash (/). If this certificate is for use with
         /// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-        /// See [IAM Identifiers][1] for more details on IAM Paths.
+        /// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
@@ -222,7 +316,7 @@ namespace Pulumi.Aws.Iam
         /// The IAM path for the server certificate.  If it is not
         /// included, it defaults to a slash (/). If this certificate is for use with
         /// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-        /// See [IAM Identifiers][1] for more details on IAM Paths.
+        /// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

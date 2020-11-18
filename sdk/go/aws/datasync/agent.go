@@ -6,12 +6,35 @@ package datasync
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages an AWS DataSync Agent deployed on premises.
 //
 // > **NOTE:** One of `activationKey` or `ipAddress` must be provided for resource creation (agent activation). Neither is required for resource import. If using `ipAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running. The agent will turn off that HTTP server after activation.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/datasync"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datasync.NewAgent(ctx, "example", &datasync.AgentArgs{
+// 			IpAddress: pulumi.String("1.2.3.4"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Agent struct {
 	pulumi.CustomResourceState
 
@@ -24,7 +47,7 @@ type Agent struct {
 	// Name of the DataSync Agent.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value pairs of resource tags to assign to the DataSync Agent.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAgent registers a new resource with the given unique name, arguments, and options.
@@ -64,7 +87,7 @@ type agentState struct {
 	// Name of the DataSync Agent.
 	Name *string `pulumi:"name"`
 	// Key-value pairs of resource tags to assign to the DataSync Agent.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AgentState struct {
@@ -77,7 +100,7 @@ type AgentState struct {
 	// Name of the DataSync Agent.
 	Name pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Agent.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AgentState) ElementType() reflect.Type {
@@ -92,7 +115,7 @@ type agentArgs struct {
 	// Name of the DataSync Agent.
 	Name *string `pulumi:"name"`
 	// Key-value pairs of resource tags to assign to the DataSync Agent.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Agent resource.
@@ -104,7 +127,7 @@ type AgentArgs struct {
 	// Name of the DataSync Agent.
 	Name pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Agent.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AgentArgs) ElementType() reflect.Type {

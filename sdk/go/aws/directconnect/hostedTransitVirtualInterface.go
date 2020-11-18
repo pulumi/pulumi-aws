@@ -7,16 +7,42 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Direct Connect hosted transit virtual interface resource.
 // This resource represents the allocator's side of the hosted virtual interface.
 // A hosted virtual interface is a virtual interface that is owned by another AWS account.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/directconnect"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := directconnect.NewHostedTransitVirtualInterface(ctx, "example", &directconnect.HostedTransitVirtualInterfaceArgs{
+// 			ConnectionId:  pulumi.Any(aws_dx_connection.Example.Id),
+// 			Vlan:          pulumi.Int(4094),
+// 			AddressFamily: pulumi.String("ipv4"),
+// 			BgpAsn:        pulumi.Int(65352),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type HostedTransitVirtualInterface struct {
 	pulumi.CustomResourceState
 
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress pulumi.StringOutput `pulumi:"amazonAddress"`
@@ -88,7 +114,7 @@ func GetHostedTransitVirtualInterface(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HostedTransitVirtualInterface resources.
 type hostedTransitVirtualInterfaceState struct {
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily *string `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress *string `pulumi:"amazonAddress"`
@@ -118,7 +144,7 @@ type hostedTransitVirtualInterfaceState struct {
 }
 
 type HostedTransitVirtualInterfaceState struct {
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily pulumi.StringPtrInput
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress pulumi.StringPtrInput
@@ -152,7 +178,7 @@ func (HostedTransitVirtualInterfaceState) ElementType() reflect.Type {
 }
 
 type hostedTransitVirtualInterfaceArgs struct {
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily string `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress *string `pulumi:"amazonAddress"`
@@ -176,7 +202,7 @@ type hostedTransitVirtualInterfaceArgs struct {
 
 // The set of arguments for constructing a HostedTransitVirtualInterface resource.
 type HostedTransitVirtualInterfaceArgs struct {
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily pulumi.StringInput
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress pulumi.StringPtrInput

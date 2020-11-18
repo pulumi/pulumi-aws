@@ -2,29 +2,25 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Manages status (recording / stopped) of an AWS Config Configuration Recorder.
- * 
- * > **Note:** Starting Configuration Recorder requires a [Delivery Channel](https://www.terraform.io/docs/providers/aws/r/config_delivery_channel.html) to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
- * 
+ *
+ * > **Note:** Starting Configuration Recorder requires a `Delivery Channel` to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const bucket = new aws.s3.Bucket("b", {});
- * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("foo", {
- *     s3BucketName: bucket.bucket,
+ *
+ * const bucket = new aws.s3.Bucket("bucket", {});
+ * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("fooDeliveryChannel", {s3BucketName: bucket.bucket});
+ * const fooRecorderStatus = new aws.cfg.RecorderStatus("fooRecorderStatus", {isEnabled: true}, {
+ *     dependsOn: [fooDeliveryChannel],
  * });
- * const role = new aws.iam.Role("r", {
- *     assumeRolePolicy: `{
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -37,19 +33,14 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const fooRecorder = new aws.cfg.Recorder("foo", {
- *     roleArn: role.arn,
- * });
- * const fooRecorderStatus = new aws.cfg.RecorderStatus("foo", {
- *     isEnabled: true,
- * }, {dependsOn: [fooDeliveryChannel]});
- * const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("a", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
+ * `});
+ * const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("rolePolicyAttachment", {
  *     role: role.name,
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
  * });
- * const rolePolicy = new aws.iam.RolePolicy("p", {
+ * const fooRecorder = new aws.cfg.Recorder("fooRecorder", {roleArn: role.arn});
+ * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
+ *     role: role.id,
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -66,11 +57,8 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     role: role.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_recorder_status.html.markdown.
  */
 export class RecorderStatus extends pulumi.CustomResource {
     /**
@@ -80,6 +68,7 @@ export class RecorderStatus extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RecorderStatusState, opts?: pulumi.CustomResourceOptions): RecorderStatus {
         return new RecorderStatus(name, <any>state, { ...opts, id: id });

@@ -9,31 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lambda
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Provides information about a Lambda Alias.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_alias.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAlias.InvokeAsync() instead")]
-        public static Task<GetAliasResult> GetAlias(GetAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:lambda/getAlias:getAlias", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAlias
     {
         /// <summary>
         /// Provides information about a Lambda Alias.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_alias.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var production = Output.Create(Aws.Lambda.GetAlias.InvokeAsync(new Aws.Lambda.GetAliasArgs
+        ///         {
+        ///             FunctionName = "my-lambda-func",
+        ///             Name = "production",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:lambda/getAlias:getAlias", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:lambda/getAlias:getAlias", args ?? new GetAliasArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAliasArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +62,7 @@ namespace Pulumi.Aws.Lambda
         }
     }
 
+
     [OutputType]
     public sealed class GetAliasResult
     {
@@ -71,32 +80,38 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string FunctionVersion;
         /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
         /// </summary>
         public readonly string InvokeArn;
         public readonly string Name;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAliasResult(
             string arn,
+
             string description,
+
             string functionName,
+
             string functionVersion,
+
+            string id,
+
             string invokeArn,
-            string name,
-            string id)
+
+            string name)
         {
             Arn = arn;
             Description = description;
             FunctionName = functionName;
             FunctionVersion = functionVersion;
+            Id = id;
             InvokeArn = invokeArn;
             Name = name;
-            Id = id;
         }
     }
 }

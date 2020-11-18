@@ -4,25 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create an organizational unit.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.organizations.OrganizationalUnit("example", {
- *     parentId: aws_organizations_organization_example.roots.0.id,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organizational_unit.html.markdown.
+ * const example = new aws.organizations.OrganizationalUnit("example", {parentId: aws_organizations_organization.example.roots[0].id});
+ * ```
  */
 export class OrganizationalUnit extends pulumi.CustomResource {
     /**
@@ -32,6 +27,7 @@ export class OrganizationalUnit extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: OrganizationalUnitState, opts?: pulumi.CustomResourceOptions): OrganizationalUnit {
         return new OrganizationalUnit(name, <any>state, { ...opts, id: id });

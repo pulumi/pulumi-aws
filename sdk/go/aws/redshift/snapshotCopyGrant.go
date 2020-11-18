@@ -7,12 +7,44 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
 //
 // Note that the grant must exist in the destination region, and not in the region of the cluster.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/redshift"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testSnapshotCopyGrant, err := redshift.NewSnapshotCopyGrant(ctx, "testSnapshotCopyGrant", &redshift.SnapshotCopyGrantArgs{
+// 			SnapshotCopyGrantName: pulumi.String("my-grant"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = redshift.NewCluster(ctx, "testCluster", &redshift.ClusterArgs{
+// 			SnapshotCopy: &redshift.ClusterSnapshotCopyArgs{
+// 				DestinationRegion: pulumi.String("us-east-2"),
+// 				GrantName:         testSnapshotCopyGrant.SnapshotCopyGrantName,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SnapshotCopyGrant struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +54,8 @@ type SnapshotCopyGrant struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName pulumi.StringOutput `pulumi:"snapshotCopyGrantName"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewSnapshotCopyGrant registers a new resource with the given unique name, arguments, and options.
@@ -63,8 +95,8 @@ type snapshotCopyGrantState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName *string `pulumi:"snapshotCopyGrantName"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type SnapshotCopyGrantState struct {
@@ -74,8 +106,8 @@ type SnapshotCopyGrantState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (SnapshotCopyGrantState) ElementType() reflect.Type {
@@ -87,8 +119,8 @@ type snapshotCopyGrantArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName string `pulumi:"snapshotCopyGrantName"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SnapshotCopyGrant resource.
@@ -97,8 +129,8 @@ type SnapshotCopyGrantArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName pulumi.StringInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (SnapshotCopyGrantArgs) ElementType() reflect.Type {

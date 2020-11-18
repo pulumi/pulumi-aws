@@ -4,62 +4,65 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage a DynamoDB Global Table. These are layered on top of existing DynamoDB Tables.
- * 
+ * Manages [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html). These are layered on top of existing DynamoDB Tables.
+ *
+ * > **NOTE:** To instead manage [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html), use the `aws.dynamodb.Table` resource `replica` configuration block.
+ *
  * > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const usEast1 = new aws.Provider("us-east-1", {
- *     region: "us-east-1",
- * });
- * const usWest2 = new aws.Provider("us-west-2", {
- *     region: "us-west-2",
- * });
- * const us_east_1Table = new aws.dynamodb.Table("us-east-1", {
- *     attributes: [{
- *         name: "myAttribute",
- *         type: "S",
- *     }],
- *     hashKey: "myAttribute",
- *     readCapacity: 1,
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
- *     writeCapacity: 1,
- * }, {provider: us_east_1});
- * const us_west_2Table = new aws.dynamodb.Table("us-west-2", {
- *     attributes: [{
- *         name: "myAttribute",
- *         type: "S",
- *     }],
- *     hashKey: "myAttribute",
- *     readCapacity: 1,
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
- *     writeCapacity: 1,
- * }, {provider: us_west_2});
- * const myTable = new aws.dynamodb.GlobalTable("myTable", {
- *     replicas: [
- *         {
- *             regionName: "us-east-1",
- *         },
- *         {
- *             regionName: "us-west-2",
- *         },
- *     ],
- * }, {provider: us_east_1,dependsOn: [us_east_1Table, us_west_2Table]});
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_global_table.html.markdown.
+ * const us_east_1 = new aws.Provider("us-east-1", {region: "us-east-1"});
+ * const us_west_2 = new aws.Provider("us-west-2", {region: "us-west-2"});
+ * const us_east_1Table = new aws.dynamodb.Table("us-east-1Table", {
+ *     hashKey: "myAttribute",
+ *     streamEnabled: true,
+ *     streamViewType: "NEW_AND_OLD_IMAGES",
+ *     readCapacity: 1,
+ *     writeCapacity: 1,
+ *     attributes: [{
+ *         name: "myAttribute",
+ *         type: "S",
+ *     }],
+ * }, {
+ *     provider: aws["us-east-1"],
+ * });
+ * const us_west_2Table = new aws.dynamodb.Table("us-west-2Table", {
+ *     hashKey: "myAttribute",
+ *     streamEnabled: true,
+ *     streamViewType: "NEW_AND_OLD_IMAGES",
+ *     readCapacity: 1,
+ *     writeCapacity: 1,
+ *     attributes: [{
+ *         name: "myAttribute",
+ *         type: "S",
+ *     }],
+ * }, {
+ *     provider: aws["us-west-2"],
+ * });
+ * const myTable = new aws.dynamodb.GlobalTable("myTable", {replicas: [
+ *     {
+ *         regionName: "us-east-1",
+ *     },
+ *     {
+ *         regionName: "us-west-2",
+ *     },
+ * ]}, {
+ *     provider: aws["us-east-1"],
+ *     dependsOn: [
+ *         us_east_1Table,
+ *         us_west_2Table,
+ *     ],
+ * });
+ * ```
  */
 export class GlobalTable extends pulumi.CustomResource {
     /**
@@ -69,6 +72,7 @@ export class GlobalTable extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GlobalTableState, opts?: pulumi.CustomResourceOptions): GlobalTable {
         return new GlobalTable(name, <any>state, { ...opts, id: id });

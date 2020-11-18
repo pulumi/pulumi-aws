@@ -9,31 +9,64 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ssm
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_patch_baseline.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetPatchBaseline.InvokeAsync() instead")]
-        public static Task<GetPatchBaselineResult> GetPatchBaseline(GetPatchBaselineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPatchBaselineResult>("aws:ssm/getPatchBaseline:getPatchBaseline", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPatchBaseline
     {
         /// <summary>
         /// Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// To retrieve a baseline provided by AWS:
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_patch_baseline.html.markdown.
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var centos = Output.Create(Aws.Ssm.GetPatchBaseline.InvokeAsync(new Aws.Ssm.GetPatchBaselineArgs
+        ///         {
+        ///             NamePrefix = "AWS-",
+        ///             OperatingSystem = "CENTOS",
+        ///             Owner = "AWS",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// To retrieve a baseline on your account:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var defaultCustom = Output.Create(Aws.Ssm.GetPatchBaseline.InvokeAsync(new Aws.Ssm.GetPatchBaselineArgs
+        ///         {
+        ///             DefaultBaseline = true,
+        ///             NamePrefix = "MyCustomBaseline",
+        ///             OperatingSystem = "WINDOWS",
+        ///             Owner = "Self",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPatchBaselineResult> InvokeAsync(GetPatchBaselineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPatchBaselineResult>("aws:ssm/getPatchBaseline:getPatchBaseline", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPatchBaselineResult>("aws:ssm/getPatchBaseline:getPatchBaseline", args ?? new GetPatchBaselineArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPatchBaselineArgs : Pulumi.InvokeArgs
     {
@@ -66,6 +99,7 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
+
     [OutputType]
     public sealed class GetPatchBaselineResult
     {
@@ -75,34 +109,40 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the baseline.
         /// </summary>
         public readonly string Name;
         public readonly string? NamePrefix;
         public readonly string? OperatingSystem;
         public readonly string Owner;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetPatchBaselineResult(
             bool? defaultBaseline,
+
             string description,
+
+            string id,
+
             string name,
+
             string? namePrefix,
+
             string? operatingSystem,
-            string owner,
-            string id)
+
+            string owner)
         {
             DefaultBaseline = defaultBaseline;
             Description = description;
+            Id = id;
             Name = name;
             NamePrefix = namePrefix;
             OperatingSystem = operatingSystem;
             Owner = owner;
-            Id = id;
         }
     }
 }

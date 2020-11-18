@@ -4,24 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage EC2 Fleets.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2.Fleet("example", {
  *     launchTemplateConfig: {
  *         launchTemplateSpecification: {
- *             launchTemplateId: aws_launch_template_example.id,
- *             version: aws_launch_template_example.latestVersion,
+ *             launchTemplateId: aws_launch_template.example.id,
+ *             version: aws_launch_template.example.latest_version,
  *         },
  *     },
  *     targetCapacitySpecification: {
@@ -30,8 +29,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_fleet.html.markdown.
  */
 export class Fleet extends pulumi.CustomResource {
     /**
@@ -41,6 +38,7 @@ export class Fleet extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FleetState, opts?: pulumi.CustomResourceOptions): Fleet {
         return new Fleet(name, <any>state, { ...opts, id: id });
@@ -83,7 +81,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
@@ -180,7 +178,7 @@ export interface FleetState {
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
@@ -226,7 +224,7 @@ export interface FleetArgs {
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */

@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a resource to create a member account in the current organization.
@@ -15,6 +15,29 @@ import (
 // > **Note:** Account management must be done from the organization's master account.
 //
 // !> **WARNING:** Deleting this resource will only remove an AWS account from an organization. This provider will not close the account. The member account must be prepared to be a standalone account beforehand. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html) for more information.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/organizations"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := organizations.NewAccount(ctx, "account", &organizations.AccountArgs{
+// 			Email: pulumi.String("john@doe.org"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -34,7 +57,7 @@ type Account struct {
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
 	Status   pulumi.StringOutput    `pulumi:"status"`
 	// Key-value mapping of resource tags.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +107,7 @@ type accountState struct {
 	RoleName *string `pulumi:"roleName"`
 	Status   *string `pulumi:"status"`
 	// Key-value mapping of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AccountState struct {
@@ -104,7 +127,7 @@ type AccountState struct {
 	RoleName pulumi.StringPtrInput
 	Status   pulumi.StringPtrInput
 	// Key-value mapping of resource tags.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AccountState) ElementType() reflect.Type {
@@ -123,7 +146,7 @@ type accountArgs struct {
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
 	RoleName *string `pulumi:"roleName"`
 	// Key-value mapping of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
@@ -139,7 +162,7 @@ type AccountArgs struct {
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
 	RoleName pulumi.StringPtrInput
 	// Key-value mapping of resource tags.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

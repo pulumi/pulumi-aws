@@ -7,14 +7,44 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a License Manager license configuration resource.
 //
 // > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API - recreate the resource instead.
 //
+// ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/licensemanager"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := licensemanager.NewLicenseConfiguration(ctx, "example", &licensemanager.LicenseConfigurationArgs{
+// 			Description:           pulumi.String("Example"),
+// 			LicenseCount:          pulumi.Int(10),
+// 			LicenseCountHardLimit: pulumi.Bool(true),
+// 			LicenseCountingType:   pulumi.String("Socket"),
+// 			LicenseRules: pulumi.StringArray{
+// 				pulumi.String("#minimumSockets=2"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"foo": pulumi.String("barr"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Rules
 //
 // License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
@@ -41,8 +71,8 @@ type LicenseConfiguration struct {
 	LicenseRules pulumi.StringArrayOutput `pulumi:"licenseRules"`
 	// Name of the license configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewLicenseConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -88,8 +118,8 @@ type licenseConfigurationState struct {
 	LicenseRules []string `pulumi:"licenseRules"`
 	// Name of the license configuration.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type LicenseConfigurationState struct {
@@ -105,8 +135,8 @@ type LicenseConfigurationState struct {
 	LicenseRules pulumi.StringArrayInput
 	// Name of the license configuration.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (LicenseConfigurationState) ElementType() reflect.Type {
@@ -126,8 +156,8 @@ type licenseConfigurationArgs struct {
 	LicenseRules []string `pulumi:"licenseRules"`
 	// Name of the license configuration.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LicenseConfiguration resource.
@@ -144,8 +174,8 @@ type LicenseConfigurationArgs struct {
 	LicenseRules pulumi.StringArrayInput
 	// Name of the license configuration.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (LicenseConfigurationArgs) ElementType() reflect.Type {

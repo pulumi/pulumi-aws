@@ -17,9 +17,40 @@ namespace Pulumi.Aws.Ec2
     /// resource can also automatically attach the Virtual Private Gateway it creates
     /// to an existing VPC by setting the `vpc_id` attribute accordingly.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_attachment.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var network = new Aws.Ec2.Vpc("network", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///         });
+    ///         var vpn = new Aws.Ec2.VpnGateway("vpn", new Aws.Ec2.VpnGatewayArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "example-vpn-gateway" },
+    ///             },
+    ///         });
+    ///         var vpnAttachment = new Aws.Ec2.VpnGatewayAttachment("vpnAttachment", new Aws.Ec2.VpnGatewayAttachmentArgs
+    ///         {
+    ///             VpcId = network.Id,
+    ///             VpnGatewayId = vpn.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
+    /// and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
+    /// guides for more information.
     /// </summary>
     public partial class VpnGatewayAttachment : Pulumi.CustomResource
     {
@@ -44,7 +75,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpnGatewayAttachment(string name, VpnGatewayAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment", name, args ?? new VpnGatewayAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

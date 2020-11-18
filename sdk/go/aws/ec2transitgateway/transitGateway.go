@@ -6,10 +6,33 @@ package ec2transitgateway
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages an EC2 Transit Gateway.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2transitgateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2transitgateway.NewTransitGateway(ctx, "example", &ec2transitgateway.TransitGatewayArgs{
+// 			Description: pulumi.String("example"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type TransitGateway struct {
 	pulumi.CustomResourceState
 
@@ -34,7 +57,7 @@ type TransitGateway struct {
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId pulumi.StringOutput `pulumi:"propagationDefaultRouteTableId"`
 	// Key-value tags for the EC2 Transit Gateway.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport pulumi.StringPtrOutput `pulumi:"vpnEcmpSupport"`
 }
@@ -88,7 +111,7 @@ type transitGatewayState struct {
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId *string `pulumi:"propagationDefaultRouteTableId"`
 	// Key-value tags for the EC2 Transit Gateway.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport *string `pulumi:"vpnEcmpSupport"`
 }
@@ -115,7 +138,7 @@ type TransitGatewayState struct {
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport pulumi.StringPtrInput
 }
@@ -138,7 +161,7 @@ type transitGatewayArgs struct {
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Key-value tags for the EC2 Transit Gateway.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport *string `pulumi:"vpnEcmpSupport"`
 }
@@ -158,7 +181,7 @@ type TransitGatewayArgs struct {
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	DnsSupport pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport pulumi.StringPtrInput
 }

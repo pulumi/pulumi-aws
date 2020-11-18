@@ -12,7 +12,76 @@ namespace Pulumi.Aws.Transfer
     /// <summary>
     /// Provides a AWS Transfer User SSH Key resource.
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_ssh_key.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleServer = new Aws.Transfer.Server("exampleServer", new Aws.Transfer.ServerArgs
+    ///         {
+    ///             IdentityProviderType = "SERVICE_MANAGED",
+    ///             Tags = 
+    ///             {
+    ///                 { "NAME", "tf-acc-test-transfer-server" },
+    ///             },
+    ///         });
+    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    /// 	""Version"": ""2012-10-17"",
+    /// 	""Statement"": [
+    /// 		{
+    /// 		""Effect"": ""Allow"",
+    /// 		""Principal"": {
+    /// 			""Service"": ""transfer.amazonaws.com""
+    /// 		},
+    /// 		""Action"": ""sts:AssumeRole""
+    /// 		}
+    /// 	]
+    /// }
+    /// ",
+    ///         });
+    ///         var exampleUser = new Aws.Transfer.User("exampleUser", new Aws.Transfer.UserArgs
+    ///         {
+    ///             ServerId = exampleServer.Id,
+    ///             UserName = "tftestuser",
+    ///             Role = exampleRole.Arn,
+    ///             Tags = 
+    ///             {
+    ///                 { "NAME", "tftestuser" },
+    ///             },
+    ///         });
+    ///         var exampleSshKey = new Aws.Transfer.SshKey("exampleSshKey", new Aws.Transfer.SshKeyArgs
+    ///         {
+    ///             ServerId = exampleServer.Id,
+    ///             UserName = exampleUser.UserName,
+    ///             Body = "... SSH key ...",
+    ///         });
+    ///         var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = exampleRole.Id,
+    ///             Policy = @"{
+    /// 	""Version"": ""2012-10-17"",
+    /// 	""Statement"": [
+    /// 		{
+    /// 			""Sid"": ""AllowFullAccesstoS3"",
+    /// 			""Effect"": ""Allow"",
+    /// 			""Action"": [
+    /// 				""s3:*""
+    /// 			],
+    /// 			""Resource"": ""*""
+    /// 		}
+    /// 	]
+    /// }
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SshKey : Pulumi.CustomResource
     {
@@ -43,7 +112,7 @@ namespace Pulumi.Aws.Transfer
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SshKey(string name, SshKeyArgs args, CustomResourceOptions? options = null)
-            : base("aws:transfer/sshKey:SshKey", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:transfer/sshKey:SshKey", name, args ?? new SshKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

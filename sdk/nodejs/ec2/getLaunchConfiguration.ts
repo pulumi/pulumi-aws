@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides information about a Launch Configuration.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const ubuntu = aws.ec2.getLaunchConfiguration({
- *     name: "test-launch-config",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_configuration.html.markdown.
+ * const ubuntu = pulumi.output(aws.ec2.getLaunchConfiguration({
+ *     name: "test-launch-config",
+ * }, { async: true }));
+ * ```
  */
-export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchConfigurationResult> & GetLaunchConfigurationResult {
+export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,11 +29,9 @@ export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetLaunchConfigurationResult> = pulumi.runtime.invoke("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", {
+    return pulumi.runtime.invoke("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -82,6 +77,10 @@ export interface GetLaunchConfigurationResult {
      */
     readonly iamInstanceProfile: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The EC2 Image ID of the instance.
      */
     readonly imageId: string;
@@ -125,8 +124,4 @@ export interface GetLaunchConfigurationResult {
      * The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
      */
     readonly vpcClassicLinkSecurityGroups: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

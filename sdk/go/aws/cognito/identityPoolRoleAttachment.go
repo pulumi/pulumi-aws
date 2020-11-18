@@ -7,10 +7,79 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an AWS Cognito Identity Pool Roles Attachment.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cognito"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		mainIdentityPool, err := cognito.NewIdentityPool(ctx, "mainIdentityPool", &cognito.IdentityPoolArgs{
+// 			IdentityPoolName:               pulumi.String("identity pool"),
+// 			AllowUnauthenticatedIdentities: pulumi.Bool(false),
+// 			SupportedLoginProviders: pulumi.StringMap{
+// 				"graph.facebook.com": pulumi.String("7346241598935555"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		authenticatedRole, err := iam.NewRole(ctx, "authenticatedRole", &iam.RoleArgs{
+// 			AssumeRolePolicy: mainIdentityPool.ID().ApplyT(func(id string) (string, error) {
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Federated\": \"cognito-identity.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRoleWithWebIdentity\",\n", "      \"Condition\": {\n", "        \"StringEquals\": {\n", "          \"cognito-identity.amazonaws.com:aud\": \"", id, "\"\n", "        },\n", "        \"ForAnyValue:StringLike\": {\n", "          \"cognito-identity.amazonaws.com:amr\": \"authenticated\"\n", "        }\n", "      }\n", "    }\n", "  ]\n", "}\n"), nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRolePolicy(ctx, "authenticatedRolePolicy", &iam.RolePolicyArgs{
+// 			Role:   authenticatedRole.ID(),
+// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"mobileanalytics:PutEvents\",\n", "        \"cognito-sync:*\",\n", "        \"cognito-identity:*\"\n", "      ],\n", "      \"Resource\": [\n", "        \"*\"\n", "      ]\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cognito.NewIdentityPoolRoleAttachment(ctx, "mainIdentityPoolRoleAttachment", &cognito.IdentityPoolRoleAttachmentArgs{
+// 			IdentityPoolId: mainIdentityPool.ID(),
+// 			RoleMappings: cognito.IdentityPoolRoleAttachmentRoleMappingArray{
+// 				&cognito.IdentityPoolRoleAttachmentRoleMappingArgs{
+// 					IdentityProvider:        pulumi.String("graph.facebook.com"),
+// 					AmbiguousRoleResolution: pulumi.String("AuthenticatedRole"),
+// 					Type:                    pulumi.String("Rules"),
+// 					MappingRules: cognito.IdentityPoolRoleAttachmentRoleMappingMappingRuleArray{
+// 						&cognito.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs{
+// 							Claim:     pulumi.String("isAdmin"),
+// 							MatchType: pulumi.String("Equals"),
+// 							RoleArn:   authenticatedRole.Arn,
+// 							Value:     pulumi.String("paid"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			Roles: pulumi.StringMap{
+// 				"authenticated": authenticatedRole.Arn,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type IdentityPoolRoleAttachment struct {
 	pulumi.CustomResourceState
 
@@ -19,7 +88,7 @@ type IdentityPoolRoleAttachment struct {
 	// A List of Role Mapping.
 	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayOutput `pulumi:"roleMappings"`
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles IdentityPoolRoleAttachmentRolesOutput `pulumi:"roles"`
+	Roles pulumi.StringMapOutput `pulumi:"roles"`
 }
 
 // NewIdentityPoolRoleAttachment registers a new resource with the given unique name, arguments, and options.
@@ -61,7 +130,7 @@ type identityPoolRoleAttachmentState struct {
 	// A List of Role Mapping.
 	RoleMappings []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles *IdentityPoolRoleAttachmentRoles `pulumi:"roles"`
+	Roles map[string]string `pulumi:"roles"`
 }
 
 type IdentityPoolRoleAttachmentState struct {
@@ -70,7 +139,7 @@ type IdentityPoolRoleAttachmentState struct {
 	// A List of Role Mapping.
 	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayInput
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles IdentityPoolRoleAttachmentRolesPtrInput
+	Roles pulumi.StringMapInput
 }
 
 func (IdentityPoolRoleAttachmentState) ElementType() reflect.Type {
@@ -83,7 +152,7 @@ type identityPoolRoleAttachmentArgs struct {
 	// A List of Role Mapping.
 	RoleMappings []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles IdentityPoolRoleAttachmentRoles `pulumi:"roles"`
+	Roles map[string]string `pulumi:"roles"`
 }
 
 // The set of arguments for constructing a IdentityPoolRoleAttachment resource.
@@ -93,7 +162,7 @@ type IdentityPoolRoleAttachmentArgs struct {
 	// A List of Role Mapping.
 	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayInput
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles IdentityPoolRoleAttachmentRolesInput
+	Roles pulumi.StringMapInput
 }
 
 func (IdentityPoolRoleAttachmentArgs) ElementType() reflect.Type {

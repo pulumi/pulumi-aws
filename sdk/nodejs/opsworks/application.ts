@@ -4,51 +4,48 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks application resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
- * const fooApp = new aws.opsworks.Application("foo-app", {
- *     appSources: [{
- *         revision: "master",
- *         type: "git",
- *         url: "https://github.com/example.git",
- *     }],
- *     autoBundleOnDeploy: "true",
+ * import * from "fs";
+ *
+ * const foo_app = new aws.opsworks.Application("foo-app", {
+ *     shortName: "foobar",
+ *     stackId: aws_opsworks_stack.main.id,
+ *     type: "rails",
  *     description: "This is a Rails application",
- *     documentRoot: "public",
  *     domains: [
  *         "example.com",
  *         "sub.example.com",
  *     ],
- *     enableSsl: true,
  *     environments: [{
  *         key: "key",
- *         secure: false,
  *         value: "value",
+ *         secure: false,
  *     }],
- *     railsEnv: "staging",
- *     shortName: "foobar",
+ *     appSources: [{
+ *         type: "git",
+ *         revision: "master",
+ *         url: "https://github.com/example.git",
+ *     }],
+ *     enableSsl: true,
  *     sslConfigurations: [{
- *         certificate: fs.readFileSync("./foobar.crt", "utf-8"),
- *         privateKey: fs.readFileSync("./foobar.key", "utf-8"),
+ *         privateKey: fs.readFileSync("./foobar.key"),
+ *         certificate: fs.readFileSync("./foobar.crt"),
  *     }],
- *     stackId: aws_opsworks_stack_main.id,
- *     type: "rails",
+ *     documentRoot: "public",
+ *     autoBundleOnDeploy: true,
+ *     railsEnv: "staging",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_application.html.markdown.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -58,6 +55,7 @@ export class Application extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ApplicationState, opts?: pulumi.CustomResourceOptions): Application {
         return new Application(name, <any>state, { ...opts, id: id });

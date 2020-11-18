@@ -4,10 +4,33 @@
 package elasticache
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get information about an Elasticache Cluster
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := elasticache.LookupCluster(ctx, &elasticache.LookupClusterArgs{
+// 			ClusterId: "my-cluster-id",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws:elasticache/getCluster:getCluster", args, &rv, opts...)
@@ -22,7 +45,7 @@ type LookupClusterArgs struct {
 	// Group identifier.
 	ClusterId string `pulumi:"clusterId"`
 	// The tags assigned to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
@@ -42,7 +65,7 @@ type LookupClusterResult struct {
 	Engine string `pulumi:"engine"`
 	// Version number of the cache engine.
 	EngineVersion string `pulumi:"engineVersion"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed.
@@ -74,5 +97,5 @@ type LookupClusterResult struct {
 	// Name of the subnet group associated to the cache cluster.
 	SubnetGroupName string `pulumi:"subnetGroupName"`
 	// The tags assigned to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

@@ -12,40 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// This file contains four categories of exports:
+// This file contains individual constants for each Metric and MetricsGranularity type.
 //
-//     1) A union type, MetricsGranularity, that accepts any valid metrics granularity
-//     2) Individual constants for each such metrics granularity
-//     3) A union type, Metric, that accepts any valid metrics type
-//     4) Individual constants for each such metric type
-//
-// These give a better developer experience and are just sugared strings.
+// These constants will not be updated with new values.
+// It is recommended to use Metric.[Value] or MetricsGranularity.[Value] instead.
 
+import {MetricsGranularity, Metric} from ".";
 
-import * as cloudwatch from "../cloudwatch";
-
+/** Use MetricsGranularity.OneMinute instead. */
 export let OneMinuteMetricsGranularity: MetricsGranularity = "1Minute";
 
-// See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
-export type MetricsGranularity =
-    "1Minute";
-
+/** Use Metric.GroupMinSize instead. */
 export let GroupMinSizeMetric: Metric = "GroupMinSize";
+/** Use Metric.GroupMaxSize instead. */
 export let GroupMaxSizeMetric: Metric = "GroupMaxSize";
+/** Use Metric.GroupDesiredCapacity instead. */
 export let GroupDesiredCapacityMetric: Metric = "GroupDesiredCapacity";
+/** Use Metric.GroupGroupInServiceInstancesMinSize instead. */
 export let GroupInServiceInstancesMetric: Metric = "GroupInServiceInstances";
+/** Use Metric.GroupPendingInstances instead. */
 export let GroupPendingInstances: Metric = "GroupPendingInstances";
+/** Use Metric.GroupStandbyInstances instead. */
 export let GroupStandbyInstances: Metric = "GroupStandbyInstances";
+/** Use Metric.GroupTerminatingInstances instead. */
 export let GroupTerminatingInstances: Metric = "GroupTerminatingInstances";
+/** Use Metric.GroupTotalInstances instead. */
 export let GroupTotalInstances: Metric = "GroupTotalInstances";
-
-// See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
-export type Metric =
-    "GroupMinSize" |
-    "GroupMaxSize" |
-    "GroupDesiredCapacity" |
-    "GroupInServiceInstances" |
-    "GroupPendingInstances" |
-    "GroupStandbyInstances" |
-    "GroupTerminatingInstances" |
-    "GroupTotalInstances";

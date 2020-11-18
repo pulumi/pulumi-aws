@@ -7,10 +7,38 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Batch Job Queue resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/batch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := batch.NewJobQueue(ctx, "testQueue", &batch.JobQueueArgs{
+// 			State:    pulumi.String("ENABLED"),
+// 			Priority: pulumi.Int(1),
+// 			ComputeEnvironments: pulumi.StringArray{
+// 				pulumi.Any(aws_batch_compute_environment.Test_environment_1.Arn),
+// 				pulumi.Any(aws_batch_compute_environment.Test_environment_2.Arn),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type JobQueue struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +56,8 @@ type JobQueue struct {
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
 	State pulumi.StringOutput `pulumi:"state"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewJobQueue registers a new resource with the given unique name, arguments, and options.
@@ -81,6 +111,8 @@ type jobQueueState struct {
 	Priority *int `pulumi:"priority"`
 	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
 	State *string `pulumi:"state"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type JobQueueState struct {
@@ -98,6 +130,8 @@ type JobQueueState struct {
 	Priority pulumi.IntPtrInput
 	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
 	State pulumi.StringPtrInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (JobQueueState) ElementType() reflect.Type {
@@ -117,6 +151,8 @@ type jobQueueArgs struct {
 	Priority int `pulumi:"priority"`
 	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
 	State string `pulumi:"state"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a JobQueue resource.
@@ -133,6 +169,8 @@ type JobQueueArgs struct {
 	Priority pulumi.IntInput
 	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
 	State pulumi.StringInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (JobQueueArgs) ElementType() reflect.Type {

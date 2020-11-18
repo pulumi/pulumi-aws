@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type PipelineArtifactStore struct {
@@ -21,6 +21,10 @@ type PipelineArtifactStore struct {
 	Type string `pulumi:"type"`
 }
 
+// PipelineArtifactStoreInput is an input type that accepts PipelineArtifactStoreArgs and PipelineArtifactStoreOutput values.
+// You can construct a concrete instance of `PipelineArtifactStoreInput` via:
+//
+//          PipelineArtifactStoreArgs{...}
 type PipelineArtifactStoreInput interface {
 	pulumi.Input
 
@@ -59,6 +63,14 @@ func (i PipelineArtifactStoreArgs) ToPipelineArtifactStorePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStoreOutput).ToPipelineArtifactStorePtrOutputWithContext(ctx)
 }
 
+// PipelineArtifactStorePtrInput is an input type that accepts PipelineArtifactStoreArgs, PipelineArtifactStorePtr and PipelineArtifactStorePtrOutput values.
+// You can construct a concrete instance of `PipelineArtifactStorePtrInput` via:
+//
+//          PipelineArtifactStoreArgs{...}
+//
+//  or:
+//
+//          nil
 type PipelineArtifactStorePtrInput interface {
 	pulumi.Input
 
@@ -148,22 +160,42 @@ func (o PipelineArtifactStorePtrOutput) Elem() PipelineArtifactStoreOutput {
 
 // The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
 func (o PipelineArtifactStorePtrOutput) EncryptionKey() PipelineArtifactStoreEncryptionKeyPtrOutput {
-	return o.ApplyT(func(v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v *PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKey
+	}).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
 // The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
-func (o PipelineArtifactStorePtrOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Location }).(pulumi.StringOutput)
+func (o PipelineArtifactStorePtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineArtifactStore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Location
+	}).(pulumi.StringPtrOutput)
 }
 
 // The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
 func (o PipelineArtifactStorePtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineArtifactStore) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PipelineArtifactStore) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of the artifact store, such as Amazon S3
-func (o PipelineArtifactStorePtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Type }).(pulumi.StringOutput)
+func (o PipelineArtifactStorePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineArtifactStore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type PipelineArtifactStoreEncryptionKey struct {
@@ -173,6 +205,10 @@ type PipelineArtifactStoreEncryptionKey struct {
 	Type string `pulumi:"type"`
 }
 
+// PipelineArtifactStoreEncryptionKeyInput is an input type that accepts PipelineArtifactStoreEncryptionKeyArgs and PipelineArtifactStoreEncryptionKeyOutput values.
+// You can construct a concrete instance of `PipelineArtifactStoreEncryptionKeyInput` via:
+//
+//          PipelineArtifactStoreEncryptionKeyArgs{...}
 type PipelineArtifactStoreEncryptionKeyInput interface {
 	pulumi.Input
 
@@ -207,6 +243,14 @@ func (i PipelineArtifactStoreEncryptionKeyArgs) ToPipelineArtifactStoreEncryptio
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStoreEncryptionKeyOutput).ToPipelineArtifactStoreEncryptionKeyPtrOutputWithContext(ctx)
 }
 
+// PipelineArtifactStoreEncryptionKeyPtrInput is an input type that accepts PipelineArtifactStoreEncryptionKeyArgs, PipelineArtifactStoreEncryptionKeyPtr and PipelineArtifactStoreEncryptionKeyPtrOutput values.
+// You can construct a concrete instance of `PipelineArtifactStoreEncryptionKeyPtrInput` via:
+//
+//          PipelineArtifactStoreEncryptionKeyArgs{...}
+//
+//  or:
+//
+//          nil
 type PipelineArtifactStoreEncryptionKeyPtrInput interface {
 	pulumi.Input
 
@@ -285,13 +329,23 @@ func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Elem() PipelineArtifactStor
 }
 
 // The KMS key ARN or ID
-func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Id }).(pulumi.StringOutput)
+func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineArtifactStoreEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of key; currently only `KMS` is supported
-func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Type }).(pulumi.StringOutput)
+func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineArtifactStoreEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type PipelineStage struct {
@@ -301,6 +355,10 @@ type PipelineStage struct {
 	Name string `pulumi:"name"`
 }
 
+// PipelineStageInput is an input type that accepts PipelineStageArgs and PipelineStageOutput values.
+// You can construct a concrete instance of `PipelineStageInput` via:
+//
+//          PipelineStageArgs{...}
 type PipelineStageInput interface {
 	pulumi.Input
 
@@ -327,6 +385,10 @@ func (i PipelineStageArgs) ToPipelineStageOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOutput)
 }
 
+// PipelineStageArrayInput is an input type that accepts PipelineStageArray and PipelineStageArrayOutput values.
+// You can construct a concrete instance of `PipelineStageArrayInput` via:
+//
+//          PipelineStageArray{ PipelineStageArgs{...} }
 type PipelineStageArrayInput interface {
 	pulumi.Input
 
@@ -395,12 +457,14 @@ func (o PipelineStageArrayOutput) Index(i pulumi.IntInput) PipelineStageOutput {
 type PipelineStageAction struct {
 	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
 	Category string `pulumi:"category"`
-	// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+	// A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
 	Configuration map[string]string `pulumi:"configuration"`
 	// A list of artifact names to be worked on.
 	InputArtifacts []string `pulumi:"inputArtifacts"`
 	// The action declaration's name.
 	Name string `pulumi:"name"`
+	// The namespace all output variables will be accessed from.
+	Namespace *string `pulumi:"namespace"`
 	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
 	OutputArtifacts []string `pulumi:"outputArtifacts"`
 	// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
@@ -417,6 +481,10 @@ type PipelineStageAction struct {
 	Version string `pulumi:"version"`
 }
 
+// PipelineStageActionInput is an input type that accepts PipelineStageActionArgs and PipelineStageActionOutput values.
+// You can construct a concrete instance of `PipelineStageActionInput` via:
+//
+//          PipelineStageActionArgs{...}
 type PipelineStageActionInput interface {
 	pulumi.Input
 
@@ -427,12 +495,14 @@ type PipelineStageActionInput interface {
 type PipelineStageActionArgs struct {
 	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
 	Category pulumi.StringInput `pulumi:"category"`
-	// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+	// A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
 	Configuration pulumi.StringMapInput `pulumi:"configuration"`
 	// A list of artifact names to be worked on.
 	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
 	// The action declaration's name.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The namespace all output variables will be accessed from.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
 	OutputArtifacts pulumi.StringArrayInput `pulumi:"outputArtifacts"`
 	// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
@@ -461,6 +531,10 @@ func (i PipelineStageActionArgs) ToPipelineStageActionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageActionOutput)
 }
 
+// PipelineStageActionArrayInput is an input type that accepts PipelineStageActionArray and PipelineStageActionArrayOutput values.
+// You can construct a concrete instance of `PipelineStageActionArrayInput` via:
+//
+//          PipelineStageActionArray{ PipelineStageActionArgs{...} }
 type PipelineStageActionArrayInput interface {
 	pulumi.Input
 
@@ -501,7 +575,7 @@ func (o PipelineStageActionOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageAction) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+// A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
 func (o PipelineStageActionOutput) Configuration() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipelineStageAction) map[string]string { return v.Configuration }).(pulumi.StringMapOutput)
 }
@@ -514,6 +588,11 @@ func (o PipelineStageActionOutput) InputArtifacts() pulumi.StringArrayOutput {
 // The action declaration's name.
 func (o PipelineStageActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The namespace all output variables will be accessed from.
+func (o PipelineStageActionOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageAction) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
 // A list of artifact names to output. Output artifact names must be unique within a pipeline.
@@ -578,6 +657,10 @@ type WebhookAuthenticationConfiguration struct {
 	SecretToken *string `pulumi:"secretToken"`
 }
 
+// WebhookAuthenticationConfigurationInput is an input type that accepts WebhookAuthenticationConfigurationArgs and WebhookAuthenticationConfigurationOutput values.
+// You can construct a concrete instance of `WebhookAuthenticationConfigurationInput` via:
+//
+//          WebhookAuthenticationConfigurationArgs{...}
 type WebhookAuthenticationConfigurationInput interface {
 	pulumi.Input
 
@@ -612,6 +695,14 @@ func (i WebhookAuthenticationConfigurationArgs) ToWebhookAuthenticationConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookAuthenticationConfigurationOutput).ToWebhookAuthenticationConfigurationPtrOutputWithContext(ctx)
 }
 
+// WebhookAuthenticationConfigurationPtrInput is an input type that accepts WebhookAuthenticationConfigurationArgs, WebhookAuthenticationConfigurationPtr and WebhookAuthenticationConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebhookAuthenticationConfigurationPtrInput` via:
+//
+//          WebhookAuthenticationConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type WebhookAuthenticationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -691,12 +782,22 @@ func (o WebhookAuthenticationConfigurationPtrOutput) Elem() WebhookAuthenticatio
 
 // A valid CIDR block for `IP` filtering. Required for `IP`.
 func (o WebhookAuthenticationConfigurationPtrOutput) AllowedIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *WebhookAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedIpRange
+	}).(pulumi.StringPtrOutput)
 }
 
 // The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`'s `configuration` block. Required for `GITHUB_HMAC`.
 func (o WebhookAuthenticationConfigurationPtrOutput) SecretToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *WebhookAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretToken
+	}).(pulumi.StringPtrOutput)
 }
 
 type WebhookFilter struct {
@@ -706,6 +807,10 @@ type WebhookFilter struct {
 	MatchEquals string `pulumi:"matchEquals"`
 }
 
+// WebhookFilterInput is an input type that accepts WebhookFilterArgs and WebhookFilterOutput values.
+// You can construct a concrete instance of `WebhookFilterInput` via:
+//
+//          WebhookFilterArgs{...}
 type WebhookFilterInput interface {
 	pulumi.Input
 
@@ -732,6 +837,10 @@ func (i WebhookFilterArgs) ToWebhookFilterOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookFilterOutput)
 }
 
+// WebhookFilterArrayInput is an input type that accepts WebhookFilterArray and WebhookFilterArrayOutput values.
+// You can construct a concrete instance of `WebhookFilterArrayInput` via:
+//
+//          WebhookFilterArray{ WebhookFilterArgs{...} }
 type WebhookFilterArrayInput interface {
 	pulumi.Input
 

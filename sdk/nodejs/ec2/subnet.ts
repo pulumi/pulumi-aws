@@ -2,49 +2,46 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an VPC subnet resource.
- * 
+ *
  * > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), subnets associated with Lambda Functions can take up to 45 minutes to successfully delete.
- * 
+ *
  * ## Example Usage
- * 
  * ### Basic Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ec2.Subnet("main", {
+ *     vpcId: aws_vpc.main.id,
  *     cidrBlock: "10.0.1.0/24",
  *     tags: {
  *         Name: "Main",
  *     },
- *     vpcId: aws_vpc_main.id,
  * });
  * ```
- * 
  * ### Subnets In Secondary VPC CIDR Blocks
- * 
+ *
+ * When managing subnets in one of a VPC's secondary CIDR blocks created using a `aws.ec2.VpcIpv4CidrBlockAssociation`
+ * resource, it is recommended to reference that resource's `vpcId` attribute to ensure correct dependency ordering.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", {
+ *     vpcId: aws_vpc.main.id,
  *     cidrBlock: "172.2.0.0/16",
- *     vpcId: aws_vpc_main.id,
  * });
  * const inSecondaryCidr = new aws.ec2.Subnet("inSecondaryCidr", {
- *     cidrBlock: "172.2.0.0/24",
  *     vpcId: secondaryCidr.vpcId,
+ *     cidrBlock: "172.2.0.0/24",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/subnet.html.markdown.
  */
 export class Subnet extends pulumi.CustomResource {
     /**
@@ -54,6 +51,7 @@ export class Subnet extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SubnetState, opts?: pulumi.CustomResourceOptions): Subnet {
         return new Subnet(name, <any>state, { ...opts, id: id });
@@ -99,7 +97,7 @@ export class Subnet extends pulumi.CustomResource {
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
-    public readonly ipv6CidrBlock!: pulumi.Output<string>;
+    public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
     /**
      * The association ID for the IPv6 CIDR block.
      */
@@ -111,13 +109,17 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
     /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
+    public readonly outpostArn!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the AWS account that owns the subnet.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The VPC ID.
      */
@@ -143,6 +145,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
             inputs["ipv6CidrBlockAssociationId"] = state ? state.ipv6CidrBlockAssociationId : undefined;
             inputs["mapPublicIpOnLaunch"] = state ? state.mapPublicIpOnLaunch : undefined;
+            inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
@@ -160,6 +163,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
             inputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
+            inputs["outpostArn"] = args ? args.outpostArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -219,13 +223,17 @@ export interface SubnetState {
      */
     readonly mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
+    readonly outpostArn?: pulumi.Input<string>;
+    /**
      * The ID of the AWS account that owns the subnet.
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID.
      */
@@ -266,9 +274,13 @@ export interface SubnetArgs {
      */
     readonly mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the resource.
+     * The Amazon Resource Name (ARN) of the Outpost.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly outpostArn?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID.
      */

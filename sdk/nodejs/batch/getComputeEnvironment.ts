@@ -4,28 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The Batch Compute Environment data source allows access to details of a specific
  * compute environment within AWS Batch.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const batchMongo = aws.batch.getComputeEnvironment({
- *     computeEnvironmentName: "batch-mongo-production",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
+ * const batch_mongo = pulumi.output(aws.batch.getComputeEnvironment({
+ *     computeEnvironmentName: "batch-mongo-production",
+ * }, { async: true }));
+ * ```
  */
-export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> & GetComputeEnvironmentResult {
+export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,11 +30,10 @@ export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetComputeEnvironmentResult> = pulumi.runtime.invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", {
+    return pulumi.runtime.invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", {
         "computeEnvironmentName": args.computeEnvironmentName,
+        "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -48,6 +44,10 @@ export interface GetComputeEnvironmentArgs {
      * The name of the Batch Compute Environment
      */
     readonly computeEnvironmentName: string;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -63,6 +63,10 @@ export interface GetComputeEnvironmentResult {
      * The ARN of the underlying Amazon ECS cluster used by the compute environment.
      */
     readonly ecsClusterArn: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     /**
      * The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
@@ -80,11 +84,11 @@ export interface GetComputeEnvironmentResult {
      */
     readonly statusReason: string;
     /**
+     * Key-value map of resource tags
+     */
+    readonly tags: {[key: string]: string};
+    /**
      * The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      */
     readonly type: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

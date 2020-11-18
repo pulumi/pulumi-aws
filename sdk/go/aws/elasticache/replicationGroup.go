@@ -7,12 +7,12 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an ElastiCache Replication Group resource.
 // For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
-// [`elasticache.Cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
+// `elasticache.Cluster` resource.
 //
 // > **Note:** When you change an attribute, such as `engineVersion`, by
 // default the ElastiCache API applies it in the next maintenance window. Because
@@ -21,6 +21,124 @@ import (
 // `applyImmediately` flag to instruct the service to apply the change
 // immediately. Using `applyImmediately` can result in a brief downtime as
 // servers reboots.
+//
+// ## Example Usage
+// ### Redis Cluster Mode Disabled
+//
+// To create a single shard primary with single read replica:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := elasticache.NewReplicationGroup(ctx, "example", &elasticache.ReplicationGroupArgs{
+// 			AutomaticFailoverEnabled: pulumi.Bool(true),
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-west-2a"),
+// 				pulumi.String("us-west-2b"),
+// 			},
+// 			NodeType:                    pulumi.String("cache.m4.large"),
+// 			NumberCacheClusters:         pulumi.Int(2),
+// 			ParameterGroupName:          pulumi.String("default.redis3.2"),
+// 			Port:                        pulumi.Int(6379),
+// 			ReplicationGroupDescription: pulumi.String("test description"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// You have two options for adjusting the number of replicas:
+//
+// * Adjusting `numberCacheClusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g. preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
+// * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `elasticache.Cluster` resource and its `replicationGroupId` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `numberCacheCluster` attribute.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := elasticache.NewReplicationGroup(ctx, "example", &elasticache.ReplicationGroupArgs{
+// 			AutomaticFailoverEnabled: pulumi.Bool(true),
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-west-2a"),
+// 				pulumi.String("us-west-2b"),
+// 			},
+// 			ReplicationGroupDescription: pulumi.String("test description"),
+// 			NodeType:                    pulumi.String("cache.m4.large"),
+// 			NumberCacheClusters:         pulumi.Int(2),
+// 			ParameterGroupName:          pulumi.String("default.redis3.2"),
+// 			Port:                        pulumi.Int(6379),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		var replica []*elasticache.Cluster
+// 		for key0, _ := range 1 == true {
+// 			__res, err := elasticache.NewCluster(ctx, fmt.Sprintf("replica-%v", key0), &elasticache.ClusterArgs{
+// 				ReplicationGroupId: example.ID(),
+// 			})
+// 			if err != nil {
+// 				return err
+// 			}
+// 			replica = append(replica, __res)
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Redis Cluster Mode Enabled
+//
+// To create two shards with a primary and a single read replica each:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := elasticache.NewReplicationGroup(ctx, "baz", &elasticache.ReplicationGroupArgs{
+// 			AutomaticFailoverEnabled: pulumi.Bool(true),
+// 			ClusterMode: &elasticache.ReplicationGroupClusterModeArgs{
+// 				NumNodeGroups:        pulumi.Int(2),
+// 				ReplicasPerNodeGroup: pulumi.Int(1),
+// 			},
+// 			NodeType:                    pulumi.String("cache.t2.small"),
+// 			ParameterGroupName:          pulumi.String("default.redis3.2.cluster.on"),
+// 			Port:                        pulumi.Int(6379),
+// 			ReplicationGroupDescription: pulumi.String("test description"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// > **Note:** We currently do not support passing a `primaryClusterId` in order to create the Replication Group.
+//
+// > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
+// and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
+// for full details on using Replication Groups.
 type ReplicationGroup struct {
 	pulumi.CustomResourceState
 
@@ -91,8 +209,8 @@ type ReplicationGroup struct {
 	SnapshotWindow pulumi.StringOutput `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
 }
@@ -195,8 +313,8 @@ type replicationGroupState struct {
 	SnapshotWindow *string `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
+	Tags map[string]string `pulumi:"tags"`
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
@@ -269,8 +387,8 @@ type ReplicationGroupState struct {
 	SnapshotWindow pulumi.StringPtrInput
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
+	Tags pulumi.StringMapInput
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
@@ -341,8 +459,8 @@ type replicationGroupArgs struct {
 	SnapshotWindow *string `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
+	Tags map[string]string `pulumi:"tags"`
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
@@ -410,8 +528,8 @@ type ReplicationGroupArgs struct {
 	SnapshotWindow pulumi.StringPtrInput
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
+	Tags pulumi.StringMapInput
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }

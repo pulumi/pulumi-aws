@@ -7,17 +7,56 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // > **WARNING:** Multiple iam.GroupMembership resources with the same group name will produce inconsistent behavior!
 //
 // Provides a top level resource to manage IAM Group membership for IAM Users. For
-// more information on managing IAM Groups or IAM Users, see [IAM Groups][1] or
-// [IAM Users][2]
+// more information on managing IAM Groups or IAM Users, see [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) or
+// [IAM Users](https://www.terraform.io/docs/providers/aws/r/iam_user.html)
 //
 // > **Note:** `iam.GroupMembership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
 // [`iam.UserGroupMembership` resource][3].
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		group, err := iam.NewGroup(ctx, "group", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		userOne, err := iam.NewUser(ctx, "userOne", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		userTwo, err := iam.NewUser(ctx, "userTwo", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewGroupMembership(ctx, "team", &iam.GroupMembershipArgs{
+// 			Users: pulumi.StringArray{
+// 				userOne.Name,
+// 				userTwo.Name,
+// 			},
+// 			Group: group.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type GroupMembership struct {
 	pulumi.CustomResourceState
 

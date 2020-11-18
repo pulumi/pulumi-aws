@@ -4,40 +4,38 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {EngineMode} from "./engineMode";
-import {EngineType} from "./engineType";
+import {EngineMode, EngineType} from "./index";
 
 /**
- * Manages a [RDS Aurora Cluster][2]. To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`aws.rds.ClusterInstance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`aws.rds.Instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
- * 
+ * Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the `aws.rds.ClusterInstance` resource. To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the `aws.rds.Instance` resource.
+ *
  * For information on the difference between the available Aurora MySQL engines
  * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
  * in the Amazon RDS User Guide.
- * 
- * Changes to a RDS Cluster can occur when you manually change a
+ *
+ * Changes to an RDS Cluster can occur when you manually change a
  * parameter, such as `port`, and are reflected in the next maintenance
  * window. Because of this, this provider may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
  * `applyImmediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
- * 
+ *
  * > **Note:** using `applyImmediately` can result in a
- * brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance][4]
+ * brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html)
  * for more information.
- * 
+ *
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
  * ### Aurora MySQL 2.x (MySQL 5.7)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCluster = new aws.rds.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
@@ -45,7 +43,6 @@ import {EngineType} from "./engineType";
  *         "us-west-2c",
  *     ],
  *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
  *     engine: "aurora-mysql",
  *     engineVersion: "5.7.mysql_aurora.2.03.2",
@@ -54,13 +51,12 @@ import {EngineType} from "./engineType";
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
- * 
  * ### Aurora MySQL 1.x (MySQL 5.6)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCluster = new aws.rds.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
@@ -68,20 +64,18 @@ import {EngineType} from "./engineType";
  *         "us-west-2c",
  *     ],
  *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
  *     masterPassword: "bar",
  *     masterUsername: "foo",
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
- * 
  * ### Aurora with PostgreSQL engine
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const postgresql = new aws.rds.Cluster("postgresql", {
  *     availabilityZones: [
  *         "us-west-2a",
@@ -89,7 +83,6 @@ import {EngineType} from "./engineType";
  *         "us-west-2c",
  *     ],
  *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
  *     engine: "aurora-postgresql",
  *     masterPassword: "bar",
@@ -97,24 +90,22 @@ import {EngineType} from "./engineType";
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
- * 
  * ### Aurora Multi-Master Cluster
- * 
+ *
+ * > More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.rds.Cluster("example", {
- *     clusterIdentifier: "example",
- *     dbSubnetGroupName: aws_db_subnet_group_example.name,
+ *     dbSubnetGroupName: aws_db_subnet_group.example.name,
  *     engineMode: "multimaster",
  *     masterPassword: "barbarbarbar",
  *     masterUsername: "foo",
  *     skipFinalSnapshot: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -124,6 +115,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterState, opts?: pulumi.CustomResourceOptions): Cluster {
         return new Cluster(name, <any>state, { ...opts, id: id });
@@ -144,9 +136,11 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether any cluster modifications
-     * are applied immediately, or during the next maintenance window. Default is
-     * `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+     * Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+     */
+    public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      */
     public readonly applyImmediately!: pulumi.Output<boolean>;
     /**
@@ -154,7 +148,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
+     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next provider update. It is recommended to specify 3 AZs or use [the `ignoreChanges` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if necessary.
      */
     public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
@@ -186,7 +180,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
     /**
-     * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
+     * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
@@ -194,7 +188,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dbClusterParameterGroupName!: pulumi.Output<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`aws.rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
@@ -206,8 +200,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enableHttpEndpoint!: pulumi.Output<boolean | undefined>;
     /**
-     * List of log types to export to cloudwatch. If omitted, no logs will be exported.
-     * The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+     * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
      */
     public readonly enabledCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
@@ -219,7 +212,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<EngineType | undefined>;
     /**
-     * The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     public readonly engineMode!: pulumi.Output<EngineMode | undefined>;
     /**
@@ -227,13 +220,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
-     * The name of your final DB snapshot
-     * when this DB cluster is deleted. If omitted, no final snapshot will be
-     * made.
+     * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * The global cluster identifier specified on [`aws.rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+     * The global cluster identifier specified on `aws.rds.GlobalCluster`.
      */
     public readonly globalClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -253,12 +244,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
-     * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      */
     public readonly masterPassword!: pulumi.Output<string | undefined>;
     /**
-     * Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+     * Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
     public readonly masterUsername!: pulumi.Output<string>;
     /**
@@ -266,8 +256,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-     * Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
      */
     public readonly preferredBackupWindow!: pulumi.Output<string>;
     /**
@@ -280,9 +269,13 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
     /**
-     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+     * ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
      */
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+     */
+    public readonly restoreToPointInTime!: pulumi.Output<outputs.rds.ClusterRestoreToPointInTime | undefined>;
     public readonly s3Import!: pulumi.Output<outputs.rds.ClusterS3Import | undefined>;
     /**
      * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
@@ -301,16 +294,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly sourceRegion!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
+     * Specifies whether the DB cluster is encrypted
      */
-    public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
+    public readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
-     * A mapping of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * List of VPC security groups to associate
-     * with the Cluster
+     * List of VPC security groups to associate with the Cluster
      */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
 
@@ -326,6 +318,7 @@ export class Cluster extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ClusterState | undefined;
+            inputs["allowMajorVersionUpgrade"] = state ? state.allowMajorVersionUpgrade : undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
@@ -359,6 +352,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             inputs["readerEndpoint"] = state ? state.readerEndpoint : undefined;
             inputs["replicationSourceIdentifier"] = state ? state.replicationSourceIdentifier : undefined;
+            inputs["restoreToPointInTime"] = state ? state.restoreToPointInTime : undefined;
             inputs["s3Import"] = state ? state.s3Import : undefined;
             inputs["scalingConfiguration"] = state ? state.scalingConfiguration : undefined;
             inputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
@@ -369,6 +363,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
+            inputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             inputs["backtrackWindow"] = args ? args.backtrackWindow : undefined;
@@ -397,6 +392,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             inputs["replicationSourceIdentifier"] = args ? args.replicationSourceIdentifier : undefined;
+            inputs["restoreToPointInTime"] = args ? args.restoreToPointInTime : undefined;
             inputs["s3Import"] = args ? args.s3Import : undefined;
             inputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
             inputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
@@ -427,9 +423,11 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterState {
     /**
-     * Specifies whether any cluster modifications
-     * are applied immediately, or during the next maintenance window. Default is
-     * `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+     * Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+     */
+    readonly allowMajorVersionUpgrade?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
     /**
@@ -437,7 +435,7 @@ export interface ClusterState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
+     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next provider update. It is recommended to specify 3 AZs or use [the `ignoreChanges` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if necessary.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -469,7 +467,7 @@ export interface ClusterState {
      */
     readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
-     * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
+     * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      */
     readonly databaseName?: pulumi.Input<string>;
     /**
@@ -477,7 +475,7 @@ export interface ClusterState {
      */
     readonly dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`aws.rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -489,8 +487,7 @@ export interface ClusterState {
      */
     readonly enableHttpEndpoint?: pulumi.Input<boolean>;
     /**
-     * List of log types to export to cloudwatch. If omitted, no logs will be exported.
-     * The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+     * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -502,7 +499,7 @@ export interface ClusterState {
      */
     readonly engine?: pulumi.Input<EngineType>;
     /**
-     * The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     readonly engineMode?: pulumi.Input<EngineMode>;
     /**
@@ -510,13 +507,11 @@ export interface ClusterState {
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
-     * The name of your final DB snapshot
-     * when this DB cluster is deleted. If omitted, no final snapshot will be
-     * made.
+     * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The global cluster identifier specified on [`aws.rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+     * The global cluster identifier specified on `aws.rds.GlobalCluster`.
      */
     readonly globalClusterIdentifier?: pulumi.Input<string>;
     /**
@@ -536,12 +531,11 @@ export interface ClusterState {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
-     * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      */
     readonly masterPassword?: pulumi.Input<string>;
     /**
-     * Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+     * Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
     readonly masterUsername?: pulumi.Input<string>;
     /**
@@ -549,8 +543,7 @@ export interface ClusterState {
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-     * Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
      */
     readonly preferredBackupWindow?: pulumi.Input<string>;
     /**
@@ -563,9 +556,13 @@ export interface ClusterState {
      */
     readonly readerEndpoint?: pulumi.Input<string>;
     /**
-     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+     * ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
+    /**
+     * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+     */
+    readonly restoreToPointInTime?: pulumi.Input<inputs.rds.ClusterRestoreToPointInTime>;
     readonly s3Import?: pulumi.Input<inputs.rds.ClusterS3Import>;
     /**
      * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
@@ -584,16 +581,15 @@ export interface ClusterState {
      */
     readonly sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
+     * Specifies whether the DB cluster is encrypted
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * List of VPC security groups to associate
-     * with the Cluster
+     * List of VPC security groups to associate with the Cluster
      */
     readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -603,13 +599,15 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * Specifies whether any cluster modifications
-     * are applied immediately, or during the next maintenance window. Default is
-     * `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+     * Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+     */
+    readonly allowMajorVersionUpgrade?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
     /**
-     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
+     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next provider update. It is recommended to specify 3 AZs or use [the `ignoreChanges` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if necessary.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -637,7 +635,7 @@ export interface ClusterArgs {
      */
     readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
-     * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
+     * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      */
     readonly databaseName?: pulumi.Input<string>;
     /**
@@ -645,7 +643,7 @@ export interface ClusterArgs {
      */
     readonly dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`aws.rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -657,8 +655,7 @@ export interface ClusterArgs {
      */
     readonly enableHttpEndpoint?: pulumi.Input<boolean>;
     /**
-     * List of log types to export to cloudwatch. If omitted, no logs will be exported.
-     * The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+     * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -666,7 +663,7 @@ export interface ClusterArgs {
      */
     readonly engine?: pulumi.Input<EngineType>;
     /**
-     * The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     readonly engineMode?: pulumi.Input<EngineMode>;
     /**
@@ -674,13 +671,11 @@ export interface ClusterArgs {
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
-     * The name of your final DB snapshot
-     * when this DB cluster is deleted. If omitted, no final snapshot will be
-     * made.
+     * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The global cluster identifier specified on [`aws.rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+     * The global cluster identifier specified on `aws.rds.GlobalCluster`.
      */
     readonly globalClusterIdentifier?: pulumi.Input<string>;
     /**
@@ -696,12 +691,11 @@ export interface ClusterArgs {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
-     * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      */
     readonly masterPassword?: pulumi.Input<string>;
     /**
-     * Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+     * Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
     readonly masterUsername?: pulumi.Input<string>;
     /**
@@ -709,8 +703,7 @@ export interface ClusterArgs {
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-     * Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
      */
     readonly preferredBackupWindow?: pulumi.Input<string>;
     /**
@@ -718,9 +711,13 @@ export interface ClusterArgs {
      */
     readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+     * ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
+    /**
+     * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+     */
+    readonly restoreToPointInTime?: pulumi.Input<inputs.rds.ClusterRestoreToPointInTime>;
     readonly s3Import?: pulumi.Input<inputs.rds.ClusterS3Import>;
     /**
      * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
@@ -739,16 +736,15 @@ export interface ClusterArgs {
      */
     readonly sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
+     * Specifies whether the DB cluster is encrypted
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * List of VPC security groups to associate
-     * with the Cluster
+     * List of VPC security groups to associate with the Cluster
      */
     readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

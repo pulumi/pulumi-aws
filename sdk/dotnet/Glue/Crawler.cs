@@ -12,20 +12,165 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
     /// 
+    /// ## Example Usage
+    /// ### DynamoDB Target
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Crawler("example", new Aws.Glue.CrawlerArgs
+    ///         {
+    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///             Role = aws_iam_role.Example.Arn,
+    ///             DynamodbTargets = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.CrawlerDynamodbTargetArgs
+    ///                 {
+    ///                     Path = "table-name",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### JDBC Target
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Crawler("example", new Aws.Glue.CrawlerArgs
+    ///         {
+    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///             Role = aws_iam_role.Example.Arn,
+    ///             JdbcTargets = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.CrawlerJdbcTargetArgs
+    ///                 {
+    ///                     ConnectionName = aws_glue_connection.Example.Name,
+    ///                     Path = "database-name/%",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### S3 Target
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Crawler("example", new Aws.Glue.CrawlerArgs
+    ///         {
+    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///             Role = aws_iam_role.Example.Arn,
+    ///             S3Targets = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.CrawlerS3TargetArgs
+    ///                 {
+    ///                     Path = $"s3://{aws_s3_bucket.Example.Bucket}",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Catalog Target
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Crawler("example", new Aws.Glue.CrawlerArgs
+    ///         {
+    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///             Role = aws_iam_role.Example.Arn,
+    ///             CatalogTargets = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.CrawlerCatalogTargetArgs
+    ///                 {
+    ///                     DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///                     Tables = 
+    ///                     {
+    ///                         aws_glue_catalog_table.Example.Name,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SchemaChangePolicy = new Aws.Glue.Inputs.CrawlerSchemaChangePolicyArgs
+    ///             {
+    ///                 DeleteBehavior = "LOG",
+    ///             },
+    ///             Configuration = @"{
+    ///   ""Version"":1.0,
+    ///   ""Grouping"": {
+    ///     ""TableGroupingPolicy"": ""CombineCompatibleSchemas""
+    ///   }
+    /// }
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### MongoDB Target
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Crawler("example", new Aws.Glue.CrawlerArgs
+    ///         {
+    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///             Role = aws_iam_role.Example.Arn,
+    ///             MongodbTargets = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.CrawlerMongodbTargetArgs
+    ///                 {
+    ///                     ConnectionName = aws_glue_connection.Example.Name,
+    ///                     Path = "database-name/%",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Crawler : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the crawler 
+        /// The ARN of the crawler
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("catalogTargets")]
-        public Output<ImmutableArray<Outputs.CrawlerCatalogTargets>> CatalogTargets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CrawlerCatalogTarget>> CatalogTargets { get; private set; } = null!;
 
         /// <summary>
         /// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
@@ -55,13 +200,19 @@ namespace Pulumi.Aws.Glue
         /// List of nested DynamoDB target arguments. See below.
         /// </summary>
         [Output("dynamodbTargets")]
-        public Output<ImmutableArray<Outputs.CrawlerDynamodbTargets>> DynamodbTargets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CrawlerDynamodbTarget>> DynamodbTargets { get; private set; } = null!;
 
         /// <summary>
         /// List of nested JBDC target arguments. See below.
         /// </summary>
         [Output("jdbcTargets")]
-        public Output<ImmutableArray<Outputs.CrawlerJdbcTargets>> JdbcTargets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CrawlerJdbcTarget>> JdbcTargets { get; private set; } = null!;
+
+        /// <summary>
+        /// List nested MongoDB target arguments. See below.
+        /// </summary>
+        [Output("mongodbTargets")]
+        public Output<ImmutableArray<Outputs.CrawlerMongodbTarget>> MongodbTargets { get; private set; } = null!;
 
         /// <summary>
         /// Name of the crawler.
@@ -79,7 +230,7 @@ namespace Pulumi.Aws.Glue
         /// List nested Amazon S3 target arguments. See below.
         /// </summary>
         [Output("s3Targets")]
-        public Output<ImmutableArray<Outputs.CrawlerS3Targets>> S3Targets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CrawlerS3Target>> S3Targets { get; private set; } = null!;
 
         /// <summary>
         /// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
@@ -106,10 +257,10 @@ namespace Pulumi.Aws.Glue
         public Output<string?> TablePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -120,7 +271,7 @@ namespace Pulumi.Aws.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Crawler(string name, CrawlerArgs args, CustomResourceOptions? options = null)
-            : base("aws:glue/crawler:Crawler", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:glue/crawler:Crawler", name, args ?? new CrawlerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -158,10 +309,10 @@ namespace Pulumi.Aws.Glue
     public sealed class CrawlerArgs : Pulumi.ResourceArgs
     {
         [Input("catalogTargets")]
-        private InputList<Inputs.CrawlerCatalogTargetsArgs>? _catalogTargets;
-        public InputList<Inputs.CrawlerCatalogTargetsArgs> CatalogTargets
+        private InputList<Inputs.CrawlerCatalogTargetArgs>? _catalogTargets;
+        public InputList<Inputs.CrawlerCatalogTargetArgs> CatalogTargets
         {
-            get => _catalogTargets ?? (_catalogTargets = new InputList<Inputs.CrawlerCatalogTargetsArgs>());
+            get => _catalogTargets ?? (_catalogTargets = new InputList<Inputs.CrawlerCatalogTargetArgs>());
             set => _catalogTargets = value;
         }
 
@@ -196,27 +347,39 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         [Input("dynamodbTargets")]
-        private InputList<Inputs.CrawlerDynamodbTargetsArgs>? _dynamodbTargets;
+        private InputList<Inputs.CrawlerDynamodbTargetArgs>? _dynamodbTargets;
 
         /// <summary>
         /// List of nested DynamoDB target arguments. See below.
         /// </summary>
-        public InputList<Inputs.CrawlerDynamodbTargetsArgs> DynamodbTargets
+        public InputList<Inputs.CrawlerDynamodbTargetArgs> DynamodbTargets
         {
-            get => _dynamodbTargets ?? (_dynamodbTargets = new InputList<Inputs.CrawlerDynamodbTargetsArgs>());
+            get => _dynamodbTargets ?? (_dynamodbTargets = new InputList<Inputs.CrawlerDynamodbTargetArgs>());
             set => _dynamodbTargets = value;
         }
 
         [Input("jdbcTargets")]
-        private InputList<Inputs.CrawlerJdbcTargetsArgs>? _jdbcTargets;
+        private InputList<Inputs.CrawlerJdbcTargetArgs>? _jdbcTargets;
 
         /// <summary>
         /// List of nested JBDC target arguments. See below.
         /// </summary>
-        public InputList<Inputs.CrawlerJdbcTargetsArgs> JdbcTargets
+        public InputList<Inputs.CrawlerJdbcTargetArgs> JdbcTargets
         {
-            get => _jdbcTargets ?? (_jdbcTargets = new InputList<Inputs.CrawlerJdbcTargetsArgs>());
+            get => _jdbcTargets ?? (_jdbcTargets = new InputList<Inputs.CrawlerJdbcTargetArgs>());
             set => _jdbcTargets = value;
+        }
+
+        [Input("mongodbTargets")]
+        private InputList<Inputs.CrawlerMongodbTargetArgs>? _mongodbTargets;
+
+        /// <summary>
+        /// List nested MongoDB target arguments. See below.
+        /// </summary>
+        public InputList<Inputs.CrawlerMongodbTargetArgs> MongodbTargets
+        {
+            get => _mongodbTargets ?? (_mongodbTargets = new InputList<Inputs.CrawlerMongodbTargetArgs>());
+            set => _mongodbTargets = value;
         }
 
         /// <summary>
@@ -232,14 +395,14 @@ namespace Pulumi.Aws.Glue
         public Input<string> Role { get; set; } = null!;
 
         [Input("s3Targets")]
-        private InputList<Inputs.CrawlerS3TargetsArgs>? _s3Targets;
+        private InputList<Inputs.CrawlerS3TargetArgs>? _s3Targets;
 
         /// <summary>
         /// List nested Amazon S3 target arguments. See below.
         /// </summary>
-        public InputList<Inputs.CrawlerS3TargetsArgs> S3Targets
+        public InputList<Inputs.CrawlerS3TargetArgs> S3Targets
         {
-            get => _s3Targets ?? (_s3Targets = new InputList<Inputs.CrawlerS3TargetsArgs>());
+            get => _s3Targets ?? (_s3Targets = new InputList<Inputs.CrawlerS3TargetArgs>());
             set => _s3Targets = value;
         }
 
@@ -268,14 +431,14 @@ namespace Pulumi.Aws.Glue
         public Input<string>? TablePrefix { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -287,16 +450,16 @@ namespace Pulumi.Aws.Glue
     public sealed class CrawlerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the crawler 
+        /// The ARN of the crawler
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("catalogTargets")]
-        private InputList<Inputs.CrawlerCatalogTargetsGetArgs>? _catalogTargets;
-        public InputList<Inputs.CrawlerCatalogTargetsGetArgs> CatalogTargets
+        private InputList<Inputs.CrawlerCatalogTargetGetArgs>? _catalogTargets;
+        public InputList<Inputs.CrawlerCatalogTargetGetArgs> CatalogTargets
         {
-            get => _catalogTargets ?? (_catalogTargets = new InputList<Inputs.CrawlerCatalogTargetsGetArgs>());
+            get => _catalogTargets ?? (_catalogTargets = new InputList<Inputs.CrawlerCatalogTargetGetArgs>());
             set => _catalogTargets = value;
         }
 
@@ -331,27 +494,39 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         [Input("dynamodbTargets")]
-        private InputList<Inputs.CrawlerDynamodbTargetsGetArgs>? _dynamodbTargets;
+        private InputList<Inputs.CrawlerDynamodbTargetGetArgs>? _dynamodbTargets;
 
         /// <summary>
         /// List of nested DynamoDB target arguments. See below.
         /// </summary>
-        public InputList<Inputs.CrawlerDynamodbTargetsGetArgs> DynamodbTargets
+        public InputList<Inputs.CrawlerDynamodbTargetGetArgs> DynamodbTargets
         {
-            get => _dynamodbTargets ?? (_dynamodbTargets = new InputList<Inputs.CrawlerDynamodbTargetsGetArgs>());
+            get => _dynamodbTargets ?? (_dynamodbTargets = new InputList<Inputs.CrawlerDynamodbTargetGetArgs>());
             set => _dynamodbTargets = value;
         }
 
         [Input("jdbcTargets")]
-        private InputList<Inputs.CrawlerJdbcTargetsGetArgs>? _jdbcTargets;
+        private InputList<Inputs.CrawlerJdbcTargetGetArgs>? _jdbcTargets;
 
         /// <summary>
         /// List of nested JBDC target arguments. See below.
         /// </summary>
-        public InputList<Inputs.CrawlerJdbcTargetsGetArgs> JdbcTargets
+        public InputList<Inputs.CrawlerJdbcTargetGetArgs> JdbcTargets
         {
-            get => _jdbcTargets ?? (_jdbcTargets = new InputList<Inputs.CrawlerJdbcTargetsGetArgs>());
+            get => _jdbcTargets ?? (_jdbcTargets = new InputList<Inputs.CrawlerJdbcTargetGetArgs>());
             set => _jdbcTargets = value;
+        }
+
+        [Input("mongodbTargets")]
+        private InputList<Inputs.CrawlerMongodbTargetGetArgs>? _mongodbTargets;
+
+        /// <summary>
+        /// List nested MongoDB target arguments. See below.
+        /// </summary>
+        public InputList<Inputs.CrawlerMongodbTargetGetArgs> MongodbTargets
+        {
+            get => _mongodbTargets ?? (_mongodbTargets = new InputList<Inputs.CrawlerMongodbTargetGetArgs>());
+            set => _mongodbTargets = value;
         }
 
         /// <summary>
@@ -367,14 +542,14 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Role { get; set; }
 
         [Input("s3Targets")]
-        private InputList<Inputs.CrawlerS3TargetsGetArgs>? _s3Targets;
+        private InputList<Inputs.CrawlerS3TargetGetArgs>? _s3Targets;
 
         /// <summary>
         /// List nested Amazon S3 target arguments. See below.
         /// </summary>
-        public InputList<Inputs.CrawlerS3TargetsGetArgs> S3Targets
+        public InputList<Inputs.CrawlerS3TargetGetArgs> S3Targets
         {
-            get => _s3Targets ?? (_s3Targets = new InputList<Inputs.CrawlerS3TargetsGetArgs>());
+            get => _s3Targets ?? (_s3Targets = new InputList<Inputs.CrawlerS3TargetGetArgs>());
             set => _s3Targets = value;
         }
 
@@ -403,362 +578,19 @@ namespace Pulumi.Aws.Glue
         public Input<string>? TablePrefix { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public CrawlerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class CrawlerCatalogTargetsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the Glue database to be synchronized.
-        /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
-
-        [Input("tables", required: true)]
-        private InputList<string>? _tables;
-
-        /// <summary>
-        /// A list of catalog tables to be synchronized.
-        /// </summary>
-        public InputList<string> Tables
-        {
-            get => _tables ?? (_tables = new InputList<string>());
-            set => _tables = value;
-        }
-
-        public CrawlerCatalogTargetsArgs()
-        {
-        }
-    }
-
-    public sealed class CrawlerCatalogTargetsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the Glue database to be synchronized.
-        /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
-
-        [Input("tables", required: true)]
-        private InputList<string>? _tables;
-
-        /// <summary>
-        /// A list of catalog tables to be synchronized.
-        /// </summary>
-        public InputList<string> Tables
-        {
-            get => _tables ?? (_tables = new InputList<string>());
-            set => _tables = value;
-        }
-
-        public CrawlerCatalogTargetsGetArgs()
-        {
-        }
-    }
-
-    public sealed class CrawlerDynamodbTargetsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the DynamoDB table to crawl.
-        /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
-
-        public CrawlerDynamodbTargetsArgs()
-        {
-        }
-    }
-
-    public sealed class CrawlerDynamodbTargetsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the DynamoDB table to crawl.
-        /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
-
-        public CrawlerDynamodbTargetsGetArgs()
-        {
-        }
-    }
-
-    public sealed class CrawlerJdbcTargetsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the connection to use to connect to the JDBC target.
-        /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
-
-        [Input("exclusions")]
-        private InputList<string>? _exclusions;
-
-        /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
-        /// </summary>
-        public InputList<string> Exclusions
-        {
-            get => _exclusions ?? (_exclusions = new InputList<string>());
-            set => _exclusions = value;
-        }
-
-        /// <summary>
-        /// The path of the JDBC target.
-        /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
-
-        public CrawlerJdbcTargetsArgs()
-        {
-        }
-    }
-
-    public sealed class CrawlerJdbcTargetsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the connection to use to connect to the JDBC target.
-        /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
-
-        [Input("exclusions")]
-        private InputList<string>? _exclusions;
-
-        /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
-        /// </summary>
-        public InputList<string> Exclusions
-        {
-            get => _exclusions ?? (_exclusions = new InputList<string>());
-            set => _exclusions = value;
-        }
-
-        /// <summary>
-        /// The path of the JDBC target.
-        /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
-
-        public CrawlerJdbcTargetsGetArgs()
-        {
-        }
-    }
-
-    public sealed class CrawlerS3TargetsArgs : Pulumi.ResourceArgs
-    {
-        [Input("exclusions")]
-        private InputList<string>? _exclusions;
-
-        /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
-        /// </summary>
-        public InputList<string> Exclusions
-        {
-            get => _exclusions ?? (_exclusions = new InputList<string>());
-            set => _exclusions = value;
-        }
-
-        /// <summary>
-        /// The name of the DynamoDB table to crawl.
-        /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
-
-        public CrawlerS3TargetsArgs()
-        {
-        }
-    }
-
-    public sealed class CrawlerS3TargetsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("exclusions")]
-        private InputList<string>? _exclusions;
-
-        /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
-        /// </summary>
-        public InputList<string> Exclusions
-        {
-            get => _exclusions ?? (_exclusions = new InputList<string>());
-            set => _exclusions = value;
-        }
-
-        /// <summary>
-        /// The name of the DynamoDB table to crawl.
-        /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
-
-        public CrawlerS3TargetsGetArgs()
-        {
-        }
-    }
-
-    public sealed class CrawlerSchemaChangePolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
-        /// </summary>
-        [Input("deleteBehavior")]
-        public Input<string>? DeleteBehavior { get; set; }
-
-        /// <summary>
-        /// The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
-        /// </summary>
-        [Input("updateBehavior")]
-        public Input<string>? UpdateBehavior { get; set; }
-
-        public CrawlerSchemaChangePolicyArgs()
-        {
-        }
-    }
-
-    public sealed class CrawlerSchemaChangePolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
-        /// </summary>
-        [Input("deleteBehavior")]
-        public Input<string>? DeleteBehavior { get; set; }
-
-        /// <summary>
-        /// The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
-        /// </summary>
-        [Input("updateBehavior")]
-        public Input<string>? UpdateBehavior { get; set; }
-
-        public CrawlerSchemaChangePolicyGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class CrawlerCatalogTargets
-    {
-        /// <summary>
-        /// The name of the Glue database to be synchronized.
-        /// </summary>
-        public readonly string DatabaseName;
-        /// <summary>
-        /// A list of catalog tables to be synchronized.
-        /// </summary>
-        public readonly ImmutableArray<string> Tables;
-
-        [OutputConstructor]
-        private CrawlerCatalogTargets(
-            string databaseName,
-            ImmutableArray<string> tables)
-        {
-            DatabaseName = databaseName;
-            Tables = tables;
-        }
-    }
-
-    [OutputType]
-    public sealed class CrawlerDynamodbTargets
-    {
-        /// <summary>
-        /// The name of the DynamoDB table to crawl.
-        /// </summary>
-        public readonly string Path;
-
-        [OutputConstructor]
-        private CrawlerDynamodbTargets(string path)
-        {
-            Path = path;
-        }
-    }
-
-    [OutputType]
-    public sealed class CrawlerJdbcTargets
-    {
-        /// <summary>
-        /// The name of the connection to use to connect to the JDBC target.
-        /// </summary>
-        public readonly string ConnectionName;
-        /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
-        /// </summary>
-        public readonly ImmutableArray<string> Exclusions;
-        /// <summary>
-        /// The path of the JDBC target.
-        /// </summary>
-        public readonly string Path;
-
-        [OutputConstructor]
-        private CrawlerJdbcTargets(
-            string connectionName,
-            ImmutableArray<string> exclusions,
-            string path)
-        {
-            ConnectionName = connectionName;
-            Exclusions = exclusions;
-            Path = path;
-        }
-    }
-
-    [OutputType]
-    public sealed class CrawlerS3Targets
-    {
-        /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
-        /// </summary>
-        public readonly ImmutableArray<string> Exclusions;
-        /// <summary>
-        /// The name of the DynamoDB table to crawl.
-        /// </summary>
-        public readonly string Path;
-
-        [OutputConstructor]
-        private CrawlerS3Targets(
-            ImmutableArray<string> exclusions,
-            string path)
-        {
-            Exclusions = exclusions;
-            Path = path;
-        }
-    }
-
-    [OutputType]
-    public sealed class CrawlerSchemaChangePolicy
-    {
-        /// <summary>
-        /// The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
-        /// </summary>
-        public readonly string? DeleteBehavior;
-        /// <summary>
-        /// The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
-        /// </summary>
-        public readonly string? UpdateBehavior;
-
-        [OutputConstructor]
-        private CrawlerSchemaChangePolicy(
-            string? deleteBehavior,
-            string? updateBehavior)
-        {
-            DeleteBehavior = deleteBehavior;
-            UpdateBehavior = updateBehavior;
-        }
-    }
     }
 }

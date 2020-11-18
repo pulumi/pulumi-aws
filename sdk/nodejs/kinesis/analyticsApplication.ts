@@ -4,57 +4,52 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
+import {ARN} from "..";
 
 /**
  * Provides a Kinesis Analytics Application resource. Kinesis Analytics is a managed service that
  * allows processing and analyzing streaming data using standard SQL.
- * 
- * For more details, see the [Amazon Kinesis Analytics Documentation][1].
- * 
+ *
+ * For more details, see the [Amazon Kinesis Analytics Documentation](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/what-is.html).
+ *
+ * > **Note:** To manage Amazon Kinesis Data Analytics for Apache Flink applications, use the [`aws.kinesisanalyticsv2.Application`](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html) resource.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testStream = new aws.kinesis.Stream("testStream", {
- *     shardCount: 1,
- * });
- * const testApplication = new aws.kinesis.AnalyticsApplication("testApplication", {
- *     inputs: {
- *         kinesisStream: {
- *             resourceArn: testStream.arn,
- *             roleArn: aws_iam_role_test.arn,
- *         },
- *         namePrefix: "testPrefix",
- *         parallelism: {
- *             count: 1,
- *         },
- *         schema: {
- *             recordColumns: [{
- *                 mapping: "$.test",
- *                 name: "test",
- *                 sqlType: "VARCHAR(8)",
- *             }],
- *             recordEncoding: "UTF-8",
- *             recordFormat: {
- *                 mappingParameters: {
- *                     json: {
- *                         recordRowPath: "$",
- *                     },
+ *
+ * const testStream = new aws.kinesis.Stream("testStream", {shardCount: 1});
+ * const testApplication = new aws.kinesis.AnalyticsApplication("testApplication", {inputs: {
+ *     namePrefix: "test_prefix",
+ *     kinesisStream: {
+ *         resourceArn: testStream.arn,
+ *         roleArn: aws_iam_role.test.arn,
+ *     },
+ *     parallelism: {
+ *         count: 1,
+ *     },
+ *     schema: {
+ *         recordColumns: [{
+ *             mapping: `$.test`,
+ *             name: "test",
+ *             sqlType: "VARCHAR(8)",
+ *         }],
+ *         recordEncoding: "UTF-8",
+ *         recordFormat: {
+ *             mappingParameters: {
+ *                 json: {
+ *                     recordRowPath: "$",
  *                 },
  *             },
  *         },
  *     },
- * });
+ * }});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_analytics_application.html.markdown.
  */
 export class AnalyticsApplication extends pulumi.CustomResource {
     /**
@@ -64,6 +59,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AnalyticsApplicationState, opts?: pulumi.CustomResourceOptions): AnalyticsApplication {
         return new AnalyticsApplication(name, <any>state, { ...opts, id: id });
@@ -130,9 +126,9 @@ export class AnalyticsApplication extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Key-value mapping of tags for the Kinesis Analytics Application.
+     * Key-value map of tags for the Kinesis Analytics Application.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Version of the application.
      */
@@ -241,9 +237,9 @@ export interface AnalyticsApplicationState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * Key-value mapping of tags for the Kinesis Analytics Application.
+     * Key-value map of tags for the Kinesis Analytics Application.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Version of the application.
      */
@@ -285,7 +281,7 @@ export interface AnalyticsApplicationArgs {
      */
     readonly referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources>;
     /**
-     * Key-value mapping of tags for the Kinesis Analytics Application.
+     * Key-value map of tags for the Kinesis Analytics Application.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

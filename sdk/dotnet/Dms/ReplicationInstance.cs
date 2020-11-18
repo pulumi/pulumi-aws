@@ -12,9 +12,95 @@ namespace Pulumi.Aws.Dms
     /// <summary>
     /// Provides a DMS (Data Migration Service) replication instance resource. DMS replication instances can be created, updated, deleted, and imported.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_replication_instance.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dmsAssumeRole = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         {
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         {
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 "dms.amazonaws.com",
+    ///                             },
+    ///                             Type = "Service",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var dms_access_for_endpoint = new Aws.Iam.Role("dms-access-for-endpoint", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = dmsAssumeRole.Apply(dmsAssumeRole =&gt; dmsAssumeRole.Json),
+    ///         });
+    ///         var dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new Aws.Iam.RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role",
+    ///             Role = dms_access_for_endpoint.Name,
+    ///         });
+    ///         var dms_cloudwatch_logs_role = new Aws.Iam.Role("dms-cloudwatch-logs-role", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = dmsAssumeRole.Apply(dmsAssumeRole =&gt; dmsAssumeRole.Json),
+    ///         });
+    ///         var dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new Aws.Iam.RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole",
+    ///             Role = dms_cloudwatch_logs_role.Name,
+    ///         });
+    ///         var dms_vpc_role = new Aws.Iam.Role("dms-vpc-role", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = dmsAssumeRole.Apply(dmsAssumeRole =&gt; dmsAssumeRole.Json),
+    ///         });
+    ///         var dms_vpc_role_AmazonDMSVPCManagementRole = new Aws.Iam.RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
+    ///             Role = dms_vpc_role.Name,
+    ///         });
+    ///         // Create a new replication instance
+    ///         var test = new Aws.Dms.ReplicationInstance("test", new Aws.Dms.ReplicationInstanceArgs
+    ///         {
+    ///             AllocatedStorage = 20,
+    ///             ApplyImmediately = true,
+    ///             AutoMinorVersionUpgrade = true,
+    ///             AvailabilityZone = "us-west-2c",
+    ///             EngineVersion = "3.1.4",
+    ///             KmsKeyArn = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
+    ///             MultiAz = false,
+    ///             PreferredMaintenanceWindow = "sun:10:30-sun:14:30",
+    ///             PubliclyAccessible = true,
+    ///             ReplicationInstanceClass = "dms.t2.micro",
+    ///             ReplicationInstanceId = "test-dms-replication-instance-tf",
+    ///             ReplicationSubnetGroupId = aws_dms_replication_subnet_group.Test_dms_replication_subnet_group_tf.Id,
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "test" },
+    ///             },
+    ///             VpcSecurityGroupIds = 
+    ///             {
+    ///                 "sg-12345678",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ReplicationInstance : Pulumi.CustomResource
     {
@@ -23,6 +109,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Output("allocatedStorage")]
         public Output<int> AllocatedStorage { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates that major version upgrades are allowed.
+        /// </summary>
+        [Output("allowMajorVersionUpgrade")]
+        public Output<bool?> AllowMajorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
@@ -109,10 +201,10 @@ namespace Pulumi.Aws.Dms
         public Output<string> ReplicationSubnetGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
@@ -129,7 +221,7 @@ namespace Pulumi.Aws.Dms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationInstance(string name, ReplicationInstanceArgs args, CustomResourceOptions? options = null)
-            : base("aws:dms/replicationInstance:ReplicationInstance", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:dms/replicationInstance:ReplicationInstance", name, args ?? new ReplicationInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -171,6 +263,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
+
+        /// <summary>
+        /// Indicates that major version upgrades are allowed.
+        /// </summary>
+        [Input("allowMajorVersionUpgrade")]
+        public Input<bool>? AllowMajorVersionUpgrade { get; set; }
 
         /// <summary>
         /// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
@@ -239,14 +337,14 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ReplicationSubnetGroupId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -274,6 +372,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
+
+        /// <summary>
+        /// Indicates that major version upgrades are allowed.
+        /// </summary>
+        [Input("allowMajorVersionUpgrade")]
+        public Input<bool>? AllowMajorVersionUpgrade { get; set; }
 
         /// <summary>
         /// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
@@ -372,14 +476,14 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ReplicationSubnetGroupId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

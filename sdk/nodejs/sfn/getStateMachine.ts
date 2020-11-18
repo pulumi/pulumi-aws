@@ -2,29 +2,28 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the ARN of a State Machine in AWS Step
  * Function (SFN). By using this data source, you can reference a
  * state machine without having to hard code the ARNs as input.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.sfn.getStateMachine({
- *     name: "anExampleSfnName",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_state_machine.html.markdown.
+ * const example = pulumi.output(aws.sfn.getStateMachine({
+ *     name: "an_example_sfn_name",
+ * }, { async: true }));
+ * ```
  */
-export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> & GetStateMachineResult {
+export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,11 +31,9 @@ export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetStateMachineResult> = pulumi.runtime.invoke("aws:sfn/getStateMachine:getStateMachine", {
+    return pulumi.runtime.invoke("aws:sfn/getStateMachine:getStateMachine", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -65,6 +62,10 @@ export interface GetStateMachineResult {
      * Set to the state machine definition.
      */
     readonly definition: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * Set to the roleArn used by the state function.
@@ -74,8 +75,4 @@ export interface GetStateMachineResult {
      * Set to the current status of the state machine.
      */
     readonly status: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

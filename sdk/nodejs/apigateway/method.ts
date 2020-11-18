@@ -2,75 +2,65 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {RestApi} from "./restApi";
+import {RestApi} from "./index";
 
 /**
  * Provides a HTTP Method for an API Gateway Resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
- *     description: "This is my API for demonstration purposes",
- * });
- * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
+ *
+ * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
+ * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
+ *     restApi: myDemoAPI.id,
  *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
- *     restApi: myDemoAPI.id,
  * });
- * const myDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
- *     authorization: "NONE",
- *     httpMethod: "GET",
- *     resourceId: myDemoResource.id,
+ * const myDemoMethod = new aws.apigateway.Method("myDemoMethod", {
  *     restApi: myDemoAPI.id,
+ *     resourceId: myDemoResource.id,
+ *     httpMethod: "GET",
+ *     authorization: "NONE",
  * });
  * ```
- * 
  * ## Usage with Cognito User Pool Authorizer
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
- * const cognitoUserPoolName = config.require("cognitoUserPoolName");
- * 
+ * const cognitoUserPoolName = config.requireObject("cognitoUserPoolName");
  * const thisUserPools = aws.cognito.getUserPools({
  *     name: cognitoUserPoolName,
  * });
- * const thisRestApi = new aws.apigateway.RestApi("this", {});
- * const thisResource = new aws.apigateway.Resource("this", {
+ * const thisRestApi = new aws.apigateway.RestApi("thisRestApi", {});
+ * const thisResource = new aws.apigateway.Resource("thisResource", {
+ *     restApi: thisRestApi.id,
  *     parentId: thisRestApi.rootResourceId,
  *     pathPart: "{proxy+}",
- *     restApi: thisRestApi.id,
  * });
- * const thisAuthorizer = new aws.apigateway.Authorizer("this", {
- *     providerArns: thisUserPools.arns,
- *     restApi: thisRestApi.id,
+ * const thisAuthorizer = new aws.apigateway.Authorizer("thisAuthorizer", {
  *     type: "COGNITO_USER_POOLS",
+ *     restApi: thisRestApi.id,
+ *     providerArns: thisUserPools.then(thisUserPools => thisUserPools.arns),
  * });
  * const any = new aws.apigateway.Method("any", {
+ *     restApi: thisRestApi.id,
+ *     resourceId: thisResource.id,
+ *     httpMethod: "ANY",
  *     authorization: "COGNITO_USER_POOLS",
  *     authorizerId: thisAuthorizer.id,
- *     httpMethod: "ANY",
  *     requestParameters: {
  *         "method.request.path.proxy": true,
  *     },
- *     resourceId: thisResource.id,
- *     restApi: thisRestApi.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method.html.markdown.
  */
 export class Method extends pulumi.CustomResource {
     /**
@@ -80,6 +70,7 @@ export class Method extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MethodState, opts?: pulumi.CustomResourceOptions): Method {
         return new Method(name, <any>state, { ...opts, id: id });

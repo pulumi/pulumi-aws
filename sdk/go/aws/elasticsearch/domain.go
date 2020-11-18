@@ -6,10 +6,125 @@ package elasticsearch
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages an AWS Elasticsearch Domain.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticsearch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
+// 			ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
+// 				InstanceType: pulumi.String("r4.large.elasticsearch"),
+// 			},
+// 			ElasticsearchVersion: pulumi.String("1.5"),
+// 			SnapshotOptions: &elasticsearch.DomainSnapshotOptionsArgs{
+// 				AutomatedSnapshotStartHour: pulumi.Int(23),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Domain": pulumi.String("TestDomain"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Access Policy
+//
+// > See also: `elasticsearch.DomainPolicy` resource
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticsearch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		domain := "tf-test"
+// 		if param := cfg.Get("domain"); param != "" {
+// 			domain = param
+// 		}
+// 		currentRegion, err := aws.GetRegion(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
+// 			AccessPolicies: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"es:*\",\n", "      \"Principal\": \"*\",\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"arn:aws:es:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":domain/", domain, "/*\",\n", "      \"Condition\": {\n", "        \"IpAddress\": {\"aws:SourceIp\": [\"66.193.100.22/32\"]}\n", "      }\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Log Publishing to CloudWatch Logs
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticsearch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "exampleLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+// 			PolicyName:     pulumi.String("example"),
+// 			PolicyDocument: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"es.amazonaws.com\"\n", "      },\n", "      \"Action\": [\n", "        \"logs:PutLogEvents\",\n", "        \"logs:PutLogEventsBatch\",\n", "        \"logs:CreateLogStream\"\n", "      ],\n", "      \"Resource\": \"arn:aws:logs:*\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = elasticsearch.NewDomain(ctx, "exampleDomain", &elasticsearch.DomainArgs{
+// 			LogPublishingOptions: elasticsearch.DomainLogPublishingOptionArray{
+// 				&elasticsearch.DomainLogPublishingOptionArgs{
+// 					CloudwatchLogGroupArn: exampleLogGroup.Arn,
+// 					LogType:               pulumi.String("INDEX_SLOW_LOGS"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Domain struct {
 	pulumi.CustomResourceState
 
@@ -19,7 +134,9 @@ type Domain struct {
 	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
-	AdvancedOptions pulumi.MapOutput `pulumi:"advancedOptions"`
+	AdvancedOptions pulumi.StringMapOutput `pulumi:"advancedOptions"`
+	// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+	AdvancedSecurityOptions DomainAdvancedSecurityOptionsOutput `pulumi:"advancedSecurityOptions"`
 	// Amazon Resource Name (ARN) of the domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Cluster configuration of the domain, see below.
@@ -43,14 +160,14 @@ type Domain struct {
 	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
 	KibanaEndpoint pulumi.StringOutput `pulumi:"kibanaEndpoint"`
-	// Options for publishing slow logs to CloudWatch Logs.
+	// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
 	LogPublishingOptions DomainLogPublishingOptionArrayOutput `pulumi:"logPublishingOptions"`
 	// Node-to-node encryption options. See below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionOutput `pulumi:"nodeToNodeEncryption"`
 	// Snapshot related options, see below.
 	SnapshotOptions DomainSnapshotOptionsPtrOutput `pulumi:"snapshotOptions"`
-	// A mapping of tags to assign to the resource
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions DomainVpcOptionsPtrOutput `pulumi:"vpcOptions"`
 }
@@ -89,7 +206,9 @@ type domainState struct {
 	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
-	AdvancedOptions map[string]interface{} `pulumi:"advancedOptions"`
+	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
+	// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
 	// Amazon Resource Name (ARN) of the domain.
 	Arn *string `pulumi:"arn"`
 	// Cluster configuration of the domain, see below.
@@ -113,14 +232,14 @@ type domainState struct {
 	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
 	KibanaEndpoint *string `pulumi:"kibanaEndpoint"`
-	// Options for publishing slow logs to CloudWatch Logs.
+	// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Node-to-node encryption options. See below.
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
 	// Snapshot related options, see below.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
-	// A mapping of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource
+	Tags map[string]string `pulumi:"tags"`
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
 }
@@ -132,7 +251,9 @@ type DomainState struct {
 	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
-	AdvancedOptions pulumi.MapInput
+	AdvancedOptions pulumi.StringMapInput
+	// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput
 	// Amazon Resource Name (ARN) of the domain.
 	Arn pulumi.StringPtrInput
 	// Cluster configuration of the domain, see below.
@@ -156,14 +277,14 @@ type DomainState struct {
 	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
 	KibanaEndpoint pulumi.StringPtrInput
-	// Options for publishing slow logs to CloudWatch Logs.
+	// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
 	// Node-to-node encryption options. See below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput
 	// Snapshot related options, see below.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
-	// A mapping of tags to assign to the resource
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource
+	Tags pulumi.StringMapInput
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions DomainVpcOptionsPtrInput
 }
@@ -179,7 +300,9 @@ type domainArgs struct {
 	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
-	AdvancedOptions map[string]interface{} `pulumi:"advancedOptions"`
+	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
+	// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
 	// Cluster configuration of the domain, see below.
 	ClusterConfig  *DomainClusterConfig  `pulumi:"clusterConfig"`
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
@@ -193,14 +316,14 @@ type domainArgs struct {
 	ElasticsearchVersion *string `pulumi:"elasticsearchVersion"`
 	// Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
 	EncryptAtRest *DomainEncryptAtRest `pulumi:"encryptAtRest"`
-	// Options for publishing slow logs to CloudWatch Logs.
+	// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Node-to-node encryption options. See below.
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
 	// Snapshot related options, see below.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
-	// A mapping of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource
+	Tags map[string]string `pulumi:"tags"`
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
 }
@@ -213,7 +336,9 @@ type DomainArgs struct {
 	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
-	AdvancedOptions pulumi.MapInput
+	AdvancedOptions pulumi.StringMapInput
+	// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput
 	// Cluster configuration of the domain, see below.
 	ClusterConfig  DomainClusterConfigPtrInput
 	CognitoOptions DomainCognitoOptionsPtrInput
@@ -227,14 +352,14 @@ type DomainArgs struct {
 	ElasticsearchVersion pulumi.StringPtrInput
 	// Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
 	EncryptAtRest DomainEncryptAtRestPtrInput
-	// Options for publishing slow logs to CloudWatch Logs.
+	// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
 	// Node-to-node encryption options. See below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput
 	// Snapshot related options, see below.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
-	// A mapping of tags to assign to the resource
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource
+	Tags pulumi.StringMapInput
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions DomainVpcOptionsPtrInput
 }

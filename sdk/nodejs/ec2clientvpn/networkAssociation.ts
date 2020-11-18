@@ -2,29 +2,39 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the 
+ * Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
  * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ * ### Using default security group
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2clientvpn.NetworkAssociation("example", {
- *     clientVpnEndpointId: aws_ec2_client_vpn_endpoint_example.id,
- *     subnetId: aws_subnet_example.id,
+ *     clientVpnEndpointId: aws_ec2_client_vpn_endpoint.example.id,
+ *     subnetId: aws_subnet.example.id,
  * });
  * ```
+ * ### Using custom security groups
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_client_vpn_network_association.html.markdown.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2clientvpn.NetworkAssociation("example", {
+ *     clientVpnEndpointId: aws_ec2_client_vpn_endpoint.example.id,
+ *     subnetId: aws_subnet.example.id,
+ *     securityGroups: [
+ *         aws_security_group.example1.id,
+ *         aws_security_group.example2.id,
+ *     ],
+ * });
+ * ```
  */
 export class NetworkAssociation extends pulumi.CustomResource {
     /**
@@ -34,6 +44,7 @@ export class NetworkAssociation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NetworkAssociationState, opts?: pulumi.CustomResourceOptions): NetworkAssociation {
         return new NetworkAssociation(name, <any>state, { ...opts, id: id });
@@ -54,13 +65,17 @@ export class NetworkAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * The unique ID of the target network association.
+     */
+    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    /**
      * The ID of the Client VPN endpoint.
      */
     public readonly clientVpnEndpointId!: pulumi.Output<string>;
     /**
-     * The IDs of the security groups applied to the target network association.
+     * A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
      */
-    public /*out*/ readonly securityGroups!: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[]>;
     /**
      * The current state of the target network association.
      */
@@ -70,7 +85,7 @@ export class NetworkAssociation extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
-     * The ID of the VPC in which the target network (subnet) is located. 
+     * The ID of the VPC in which the target subnet is located.
      */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
@@ -86,6 +101,7 @@ export class NetworkAssociation extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as NetworkAssociationState | undefined;
+            inputs["associationId"] = state ? state.associationId : undefined;
             inputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -100,8 +116,9 @@ export class NetworkAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
+            inputs["securityGroups"] = args ? args.securityGroups : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["securityGroups"] = undefined /*out*/;
+            inputs["associationId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
@@ -121,11 +138,15 @@ export class NetworkAssociation extends pulumi.CustomResource {
  */
 export interface NetworkAssociationState {
     /**
+     * The unique ID of the target network association.
+     */
+    readonly associationId?: pulumi.Input<string>;
+    /**
      * The ID of the Client VPN endpoint.
      */
     readonly clientVpnEndpointId?: pulumi.Input<string>;
     /**
-     * The IDs of the security groups applied to the target network association.
+     * A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
      */
     readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -137,7 +158,7 @@ export interface NetworkAssociationState {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * The ID of the VPC in which the target network (subnet) is located. 
+     * The ID of the VPC in which the target subnet is located.
      */
     readonly vpcId?: pulumi.Input<string>;
 }
@@ -150,6 +171,10 @@ export interface NetworkAssociationArgs {
      * The ID of the Client VPN endpoint.
      */
     readonly clientVpnEndpointId: pulumi.Input<string>;
+    /**
+     * A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+     */
+    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */

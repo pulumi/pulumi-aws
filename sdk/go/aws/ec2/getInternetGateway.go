@@ -4,7 +4,7 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `ec2.InternetGateway` provides details about a specific Internet Gateway.
@@ -23,19 +23,21 @@ type LookupInternetGatewayArgs struct {
 	Filters []GetInternetGatewayFilter `pulumi:"filters"`
 	// The id of the specific Internet Gateway to retrieve.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired Internet Gateway.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getInternetGateway.
 type LookupInternetGatewayResult struct {
+	// The ARN of the Internet Gateway.
+	Arn         string                         `pulumi:"arn"`
 	Attachments []GetInternetGatewayAttachment `pulumi:"attachments"`
 	Filters     []GetInternetGatewayFilter     `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	InternetGatewayId string `pulumi:"internetGatewayId"`
 	// The ID of the AWS account that owns the internet gateway.
-	OwnerId string                 `pulumi:"ownerId"`
-	Tags    map[string]interface{} `pulumi:"tags"`
+	OwnerId string            `pulumi:"ownerId"`
+	Tags    map[string]string `pulumi:"tags"`
 }

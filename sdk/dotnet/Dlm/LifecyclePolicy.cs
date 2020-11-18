@@ -12,9 +12,106 @@ namespace Pulumi.Aws.Dlm
     /// <summary>
     /// Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dlm_lifecycle_policy.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dlmLifecycleRole = new Aws.Iam.Role("dlmLifecycleRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""dlm.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var dlmLifecycle = new Aws.Iam.RolePolicy("dlmLifecycle", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = dlmLifecycleRole.Id,
+    ///             Policy = @"{
+    ///    ""Version"": ""2012-10-17"",
+    ///    ""Statement"": [
+    ///       {
+    ///          ""Effect"": ""Allow"",
+    ///          ""Action"": [
+    ///             ""ec2:CreateSnapshot"",
+    ///             ""ec2:DeleteSnapshot"",
+    ///             ""ec2:DescribeVolumes"",
+    ///             ""ec2:DescribeSnapshots""
+    ///          ],
+    ///          ""Resource"": ""*""
+    ///       },
+    ///       {
+    ///          ""Effect"": ""Allow"",
+    ///          ""Action"": [
+    ///             ""ec2:CreateTags""
+    ///          ],
+    ///          ""Resource"": ""arn:aws:ec2:*::snapshot/*""
+    ///       }
+    ///    ]
+    /// }
+    /// ",
+    ///         });
+    ///         var example = new Aws.Dlm.LifecyclePolicy("example", new Aws.Dlm.LifecyclePolicyArgs
+    ///         {
+    ///             Description = "example DLM lifecycle policy",
+    ///             ExecutionRoleArn = dlmLifecycleRole.Arn,
+    ///             State = "ENABLED",
+    ///             PolicyDetails = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsArgs
+    ///             {
+    ///                 ResourceTypes = 
+    ///                 {
+    ///                     "VOLUME",
+    ///                 },
+    ///                 Schedules = 
+    ///                 {
+    ///                     new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleArgs
+    ///                     {
+    ///                         Name = "2 weeks of daily snapshots",
+    ///                         CreateRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs
+    ///                         {
+    ///                             Interval = 24,
+    ///                             IntervalUnit = "HOURS",
+    ///                             Times = 
+    ///                             {
+    ///                                 "23:45",
+    ///                             },
+    ///                         },
+    ///                         RetainRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs
+    ///                         {
+    ///                             Count = 14,
+    ///                         },
+    ///                         TagsToAdd = 
+    ///                         {
+    ///                             { "SnapshotCreator", "DLM" },
+    ///                         },
+    ///                         CopyTags = false,
+    ///                     },
+    ///                 },
+    ///                 TargetTags = 
+    ///                 {
+    ///                     { "Snapshot", "true" },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LifecyclePolicy : Pulumi.CustomResource
     {
@@ -49,10 +146,10 @@ namespace Pulumi.Aws.Dlm
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -63,7 +160,7 @@ namespace Pulumi.Aws.Dlm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LifecyclePolicy(string name, LifecyclePolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, args ?? new LifecyclePolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -125,14 +222,14 @@ namespace Pulumi.Aws.Dlm
         public Input<string>? State { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -174,386 +271,19 @@ namespace Pulumi.Aws.Dlm
         public Input<string>? State { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public LifecyclePolicyState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class LifecyclePolicyPolicyDetailsArgs : Pulumi.ResourceArgs
-    {
-        [Input("resourceTypes", required: true)]
-        private InputList<string>? _resourceTypes;
-
-        /// <summary>
-        /// A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
-        /// </summary>
-        public InputList<string> ResourceTypes
-        {
-            get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
-            set => _resourceTypes = value;
-        }
-
-        [Input("schedules", required: true)]
-        private InputList<LifecyclePolicyPolicyDetailsSchedulesArgs>? _schedules;
-
-        /// <summary>
-        /// See the `schedule` configuration block.
-        /// </summary>
-        public InputList<LifecyclePolicyPolicyDetailsSchedulesArgs> Schedules
-        {
-            get => _schedules ?? (_schedules = new InputList<LifecyclePolicyPolicyDetailsSchedulesArgs>());
-            set => _schedules = value;
-        }
-
-        [Input("targetTags", required: true)]
-        private InputMap<object>? _targetTags;
-
-        /// <summary>
-        /// A mapping of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
-        /// </summary>
-        public InputMap<object> TargetTags
-        {
-            get => _targetTags ?? (_targetTags = new InputMap<object>());
-            set => _targetTags = value;
-        }
-
-        public LifecyclePolicyPolicyDetailsArgs()
-        {
-        }
-    }
-
-    public sealed class LifecyclePolicyPolicyDetailsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("resourceTypes", required: true)]
-        private InputList<string>? _resourceTypes;
-
-        /// <summary>
-        /// A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
-        /// </summary>
-        public InputList<string> ResourceTypes
-        {
-            get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
-            set => _resourceTypes = value;
-        }
-
-        [Input("schedules", required: true)]
-        private InputList<LifecyclePolicyPolicyDetailsSchedulesGetArgs>? _schedules;
-
-        /// <summary>
-        /// See the `schedule` configuration block.
-        /// </summary>
-        public InputList<LifecyclePolicyPolicyDetailsSchedulesGetArgs> Schedules
-        {
-            get => _schedules ?? (_schedules = new InputList<LifecyclePolicyPolicyDetailsSchedulesGetArgs>());
-            set => _schedules = value;
-        }
-
-        [Input("targetTags", required: true)]
-        private InputMap<object>? _targetTags;
-
-        /// <summary>
-        /// A mapping of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
-        /// </summary>
-        public InputMap<object> TargetTags
-        {
-            get => _targetTags ?? (_targetTags = new InputMap<object>());
-            set => _targetTags = value;
-        }
-
-        public LifecyclePolicyPolicyDetailsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LifecyclePolicyPolicyDetailsSchedulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
-        /// </summary>
-        [Input("copyTags")]
-        public Input<bool>? CopyTags { get; set; }
-
-        /// <summary>
-        /// See the `create_rule` block. Max of 1 per schedule.
-        /// </summary>
-        [Input("createRule", required: true)]
-        public Input<LifecyclePolicyPolicyDetailsSchedulesCreateRuleArgs> CreateRule { get; set; } = null!;
-
-        /// <summary>
-        /// A name for the schedule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// See the `retain_rule` block. Max of 1 per schedule.
-        /// </summary>
-        [Input("retainRule", required: true)]
-        public Input<LifecyclePolicyPolicyDetailsSchedulesRetainRuleArgs> RetainRule { get; set; } = null!;
-
-        [Input("tagsToAdd")]
-        private InputMap<object>? _tagsToAdd;
-
-        /// <summary>
-        /// A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-        /// </summary>
-        public InputMap<object> TagsToAdd
-        {
-            get => _tagsToAdd ?? (_tagsToAdd = new InputMap<object>());
-            set => _tagsToAdd = value;
-        }
-
-        public LifecyclePolicyPolicyDetailsSchedulesArgs()
-        {
-        }
-    }
-
-    public sealed class LifecyclePolicyPolicyDetailsSchedulesCreateRuleArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
-        /// </summary>
-        [Input("interval", required: true)]
-        public Input<int> Interval { get; set; } = null!;
-
-        /// <summary>
-        /// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
-        /// </summary>
-        [Input("intervalUnit")]
-        public Input<string>? IntervalUnit { get; set; }
-
-        /// <summary>
-        /// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
-        /// </summary>
-        [Input("times")]
-        public Input<string>? Times { get; set; }
-
-        public LifecyclePolicyPolicyDetailsSchedulesCreateRuleArgs()
-        {
-        }
-    }
-
-    public sealed class LifecyclePolicyPolicyDetailsSchedulesCreateRuleGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
-        /// </summary>
-        [Input("interval", required: true)]
-        public Input<int> Interval { get; set; } = null!;
-
-        /// <summary>
-        /// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
-        /// </summary>
-        [Input("intervalUnit")]
-        public Input<string>? IntervalUnit { get; set; }
-
-        /// <summary>
-        /// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
-        /// </summary>
-        [Input("times")]
-        public Input<string>? Times { get; set; }
-
-        public LifecyclePolicyPolicyDetailsSchedulesCreateRuleGetArgs()
-        {
-        }
-    }
-
-    public sealed class LifecyclePolicyPolicyDetailsSchedulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
-        /// </summary>
-        [Input("copyTags")]
-        public Input<bool>? CopyTags { get; set; }
-
-        /// <summary>
-        /// See the `create_rule` block. Max of 1 per schedule.
-        /// </summary>
-        [Input("createRule", required: true)]
-        public Input<LifecyclePolicyPolicyDetailsSchedulesCreateRuleGetArgs> CreateRule { get; set; } = null!;
-
-        /// <summary>
-        /// A name for the schedule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// See the `retain_rule` block. Max of 1 per schedule.
-        /// </summary>
-        [Input("retainRule", required: true)]
-        public Input<LifecyclePolicyPolicyDetailsSchedulesRetainRuleGetArgs> RetainRule { get; set; } = null!;
-
-        [Input("tagsToAdd")]
-        private InputMap<object>? _tagsToAdd;
-
-        /// <summary>
-        /// A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-        /// </summary>
-        public InputMap<object> TagsToAdd
-        {
-            get => _tagsToAdd ?? (_tagsToAdd = new InputMap<object>());
-            set => _tagsToAdd = value;
-        }
-
-        public LifecyclePolicyPolicyDetailsSchedulesGetArgs()
-        {
-        }
-    }
-
-    public sealed class LifecyclePolicyPolicyDetailsSchedulesRetainRuleArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// How many snapshots to keep. Must be an integer between 1 and 1000.
-        /// </summary>
-        [Input("count", required: true)]
-        public Input<int> Count { get; set; } = null!;
-
-        public LifecyclePolicyPolicyDetailsSchedulesRetainRuleArgs()
-        {
-        }
-    }
-
-    public sealed class LifecyclePolicyPolicyDetailsSchedulesRetainRuleGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// How many snapshots to keep. Must be an integer between 1 and 1000.
-        /// </summary>
-        [Input("count", required: true)]
-        public Input<int> Count { get; set; } = null!;
-
-        public LifecyclePolicyPolicyDetailsSchedulesRetainRuleGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class LifecyclePolicyPolicyDetails
-    {
-        /// <summary>
-        /// A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
-        /// </summary>
-        public readonly ImmutableArray<string> ResourceTypes;
-        /// <summary>
-        /// See the `schedule` configuration block.
-        /// </summary>
-        public readonly ImmutableArray<LifecyclePolicyPolicyDetailsSchedules> Schedules;
-        /// <summary>
-        /// A mapping of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> TargetTags;
-
-        [OutputConstructor]
-        private LifecyclePolicyPolicyDetails(
-            ImmutableArray<string> resourceTypes,
-            ImmutableArray<LifecyclePolicyPolicyDetailsSchedules> schedules,
-            ImmutableDictionary<string, object> targetTags)
-        {
-            ResourceTypes = resourceTypes;
-            Schedules = schedules;
-            TargetTags = targetTags;
-        }
-    }
-
-    [OutputType]
-    public sealed class LifecyclePolicyPolicyDetailsSchedules
-    {
-        /// <summary>
-        /// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
-        /// </summary>
-        public readonly bool CopyTags;
-        /// <summary>
-        /// See the `create_rule` block. Max of 1 per schedule.
-        /// </summary>
-        public readonly LifecyclePolicyPolicyDetailsSchedulesCreateRule CreateRule;
-        /// <summary>
-        /// A name for the schedule.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// See the `retain_rule` block. Max of 1 per schedule.
-        /// </summary>
-        public readonly LifecyclePolicyPolicyDetailsSchedulesRetainRule RetainRule;
-        /// <summary>
-        /// A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? TagsToAdd;
-
-        [OutputConstructor]
-        private LifecyclePolicyPolicyDetailsSchedules(
-            bool copyTags,
-            LifecyclePolicyPolicyDetailsSchedulesCreateRule createRule,
-            string name,
-            LifecyclePolicyPolicyDetailsSchedulesRetainRule retainRule,
-            ImmutableDictionary<string, object>? tagsToAdd)
-        {
-            CopyTags = copyTags;
-            CreateRule = createRule;
-            Name = name;
-            RetainRule = retainRule;
-            TagsToAdd = tagsToAdd;
-        }
-    }
-
-    [OutputType]
-    public sealed class LifecyclePolicyPolicyDetailsSchedulesCreateRule
-    {
-        /// <summary>
-        /// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
-        /// </summary>
-        public readonly int Interval;
-        /// <summary>
-        /// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
-        /// </summary>
-        public readonly string? IntervalUnit;
-        /// <summary>
-        /// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
-        /// </summary>
-        public readonly string Times;
-
-        [OutputConstructor]
-        private LifecyclePolicyPolicyDetailsSchedulesCreateRule(
-            int interval,
-            string? intervalUnit,
-            string times)
-        {
-            Interval = interval;
-            IntervalUnit = intervalUnit;
-            Times = times;
-        }
-    }
-
-    [OutputType]
-    public sealed class LifecyclePolicyPolicyDetailsSchedulesRetainRule
-    {
-        /// <summary>
-        /// How many snapshots to keep. Must be an integer between 1 and 1000.
-        /// </summary>
-        public readonly int Count;
-
-        [OutputConstructor]
-        private LifecyclePolicyPolicyDetailsSchedulesRetainRule(int count)
-        {
-            Count = count;
-        }
-    }
     }
 }

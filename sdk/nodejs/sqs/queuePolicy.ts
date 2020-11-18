@@ -4,20 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {PolicyDocument} from "../iam";
+
 /**
  * Allows you to set a policy of an SQS Queue
  * while referencing ARN of the queue within the policy.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const queue = new aws.sqs.Queue("q", {});
+ *
+ * const queue = new aws.sqs.Queue("queue", {});
  * const test = new aws.sqs.QueuePolicy("test", {
+ *     queueUrl: queue.id,
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Id": "sqspolicy",
@@ -30,18 +31,15 @@ import * as utilities from "../utilities";
  *       "Resource": "${queue.arn}",
  *       "Condition": {
  *         "ArnEquals": {
- *           "aws:SourceArn": "${aws_sns_topic_example.arn}"
+ *           "aws:SourceArn": "${aws_sns_topic.example.arn}"
  *         }
  *       }
  *     }
  *   ]
  * }
  * `,
- *     queueUrl: queue.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sqs_queue_policy.html.markdown.
  */
 export class QueuePolicy extends pulumi.CustomResource {
     /**
@@ -51,6 +49,7 @@ export class QueuePolicy extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: QueuePolicyState, opts?: pulumi.CustomResourceOptions): QueuePolicy {
         return new QueuePolicy(name, <any>state, { ...opts, id: id });
@@ -122,7 +121,7 @@ export interface QueuePolicyState {
     /**
      * The JSON policy for the SQS queue.
      */
-    readonly policy?: pulumi.Input<string>;
+    readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The URL of the SQS Queue to which to attach the policy
      */
@@ -136,7 +135,7 @@ export interface QueuePolicyArgs {
     /**
      * The JSON policy for the SQS queue.
      */
-    readonly policy: pulumi.Input<string>;
+    readonly policy: pulumi.Input<string | PolicyDocument>;
     /**
      * The URL of the SQS Queue to which to attach the policy
      */

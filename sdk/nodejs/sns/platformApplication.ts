@@ -6,35 +6,31 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SNS platform application resource
- * 
+ *
  * ## Example Usage
- * 
  * ### Apple Push Notification Service (APNS)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const apnsApplication = new aws.sns.PlatformApplication("apnsApplication", {
+ *
+ * const apnsApplication = new aws.sns.PlatformApplication("apns_application", {
  *     platform: "APNS",
  *     platformCredential: "<APNS PRIVATE KEY>",
  *     platformPrincipal: "<APNS CERTIFICATE>",
  * });
  * ```
- * 
  * ### Google Cloud Messaging (GCM)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const gcmApplication = new aws.sns.PlatformApplication("gcmApplication", {
+ *
+ * const gcmApplication = new aws.sns.PlatformApplication("gcm_application", {
  *     platform: "GCM",
  *     platformCredential: "<GCM API KEY>",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_platform_application.html.markdown.
  */
 export class PlatformApplication extends pulumi.CustomResource {
     /**
@@ -44,6 +40,7 @@ export class PlatformApplication extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PlatformApplicationState, opts?: pulumi.CustomResourceOptions): PlatformApplication {
         return new PlatformApplication(name, <any>state, { ...opts, id: id });
@@ -92,15 +89,15 @@ export class PlatformApplication extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The platform that the app is registered with. See [Platform][1] for supported platforms.
+     * The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
      */
     public readonly platform!: pulumi.Output<string>;
     /**
-     * Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     * Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
     public readonly platformCredential!: pulumi.Output<string>;
     /**
-     * Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     * Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
     public readonly platformPrincipal!: pulumi.Output<string | undefined>;
     /**
@@ -201,15 +198,15 @@ export interface PlatformApplicationState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The platform that the app is registered with. See [Platform][1] for supported platforms.
+     * The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
      */
     readonly platform?: pulumi.Input<string>;
     /**
-     * Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     * Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
     readonly platformCredential?: pulumi.Input<string>;
     /**
-     * Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     * Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
     readonly platformPrincipal?: pulumi.Input<string>;
     /**
@@ -251,15 +248,15 @@ export interface PlatformApplicationArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The platform that the app is registered with. See [Platform][1] for supported platforms.
+     * The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
      */
     readonly platform: pulumi.Input<string>;
     /**
-     * Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     * Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
     readonly platformCredential: pulumi.Input<string>;
     /**
-     * Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     * Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
     readonly platformPrincipal?: pulumi.Input<string>;
     /**

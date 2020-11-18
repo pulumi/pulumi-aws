@@ -2,34 +2,28 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a RDS DB Instance association with an IAM Role. Example use cases:
- * 
+ * Manages an RDS DB Instance association with an IAM Role. Example use cases:
+ *
  * * [Amazon RDS Oracle integration with Amazon S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html)
  * * [Importing Amazon S3 Data into an RDS PostgreSQL DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
- * 
+ *
  * > To manage the RDS DB Instance IAM Role for [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html), see the `aws.rds.Instance` resource `monitoringRoleArn` argument instead.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.rds.RoleAssociation("example", {
- *     dbInstanceIdentifier: aws_db_instance_example.id,
+ *     dbInstanceIdentifier: aws_db_instance.example.id,
  *     featureName: "S3_INTEGRATION",
- *     roleArn: aws_iam_role_example.id,
+ *     roleArn: aws_iam_role.example.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance_role_association.html.markdown.
  */
 export class RoleAssociation extends pulumi.CustomResource {
     /**
@@ -39,6 +33,7 @@ export class RoleAssociation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RoleAssociationState, opts?: pulumi.CustomResourceOptions): RoleAssociation {
         return new RoleAssociation(name, <any>state, { ...opts, id: id });

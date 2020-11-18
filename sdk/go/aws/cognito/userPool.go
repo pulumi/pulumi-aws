@@ -6,10 +6,62 @@ package cognito
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Cognito User Pool resource.
+//
+// ## Example Usage
+// ### Basic configuration
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cognito"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cognito.NewUserPool(ctx, "pool", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Enabling SMS and Software Token Multi-Factor Authentication
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cognito"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+// 			MfaConfiguration:         pulumi.String("ON"),
+// 			SmsAuthenticationMessage: pulumi.String("Your code is {####}"),
+// 			SmsConfiguration: &cognito.UserPoolSmsConfigurationArgs{
+// 				ExternalId:   pulumi.String("example"),
+// 				SnsCallerArn: pulumi.Any(aws_iam_role.Example.Arn),
+// 			},
+// 			SoftwareTokenMfaConfiguration: &cognito.UserPoolSoftwareTokenMfaConfigurationArgs{
+// 				Enabled: pulumi.Bool(true),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type UserPool struct {
 	pulumi.CustomResourceState
 
@@ -53,8 +105,8 @@ type UserPool struct {
 	SmsVerificationMessage pulumi.StringOutput `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrOutput `pulumi:"softwareTokenMfaConfiguration"`
-	// A mapping of tags to assign to the User Pool.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the User Pool.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrOutput `pulumi:"userPoolAddOns"`
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -133,8 +185,8 @@ type userPoolState struct {
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
-	// A mapping of tags to assign to the User Pool.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the User Pool.
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -186,8 +238,8 @@ type UserPoolState struct {
 	SmsVerificationMessage pulumi.StringPtrInput
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
-	// A mapping of tags to assign to the User Pool.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the User Pool.
+	Tags pulumi.StringMapInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -235,8 +287,8 @@ type userPoolArgs struct {
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
-	// A mapping of tags to assign to the User Pool.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the User Pool.
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -281,8 +333,8 @@ type UserPoolArgs struct {
 	SmsVerificationMessage pulumi.StringPtrInput
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
-	// A mapping of tags to assign to the User Pool.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the User Pool.
+	Tags pulumi.StringMapInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.

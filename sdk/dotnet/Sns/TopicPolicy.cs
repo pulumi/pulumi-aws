@@ -14,9 +14,79 @@ namespace Pulumi.Aws.Sns
     /// 
     /// &gt; **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_policy.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.Sns.Topic("test", new Aws.Sns.TopicArgs
+    ///         {
+    ///         });
+    ///         var snsTopicPolicy = test.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         {
+    ///             PolicyId = "__default_policy_ID",
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "SNS:Subscribe",
+    ///                         "SNS:SetTopicAttributes",
+    ///                         "SNS:RemovePermission",
+    ///                         "SNS:Receive",
+    ///                         "SNS:Publish",
+    ///                         "SNS:ListSubscriptionsByTopic",
+    ///                         "SNS:GetTopicAttributes",
+    ///                         "SNS:DeleteTopic",
+    ///                         "SNS:AddPermission",
+    ///                     },
+    ///                     Conditions = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
+    ///                         {
+    ///                             Test = "StringEquals",
+    ///                             Variable = "AWS:SourceOwner",
+    ///                             Values = 
+    ///                             {
+    ///                                 @var.Account_id,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Effect = "Allow",
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         {
+    ///                             Type = "AWS",
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 "*",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         arn,
+    ///                     },
+    ///                     Sid = "__default_statement_ID",
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var @default = new Aws.Sns.TopicPolicy("default", new Aws.Sns.TopicPolicyArgs
+    ///         {
+    ///             Arn = test.Arn,
+    ///             Policy = snsTopicPolicy.Apply(snsTopicPolicy =&gt; snsTopicPolicy.Json),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TopicPolicy : Pulumi.CustomResource
     {
@@ -41,7 +111,7 @@ namespace Pulumi.Aws.Sns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TopicPolicy(string name, TopicPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:sns/topicPolicy:TopicPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:sns/topicPolicy:TopicPolicy", name, args ?? new TopicPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

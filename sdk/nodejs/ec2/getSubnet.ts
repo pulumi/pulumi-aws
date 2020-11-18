@@ -4,43 +4,43 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * `aws.ec2.Subnet` provides details about a specific VPC subnet.
- * 
+ *
  * This resource can prove useful when a module accepts a subnet id as
  * an input variable and needs to, for example, determine the id of the
  * VPC that the subnet belongs to.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * The following example shows how one might accept a subnet id as a variable
+ * and use this data source to obtain the data necessary to create a security
+ * group that allows connections from hosts in that subnet.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
- * const subnetId = config.require("subnetId");
- * 
+ * const subnetId = config.requireObject("subnetId");
  * const selected = aws.ec2.getSubnet({
  *     id: subnetId,
  * });
  * const subnet = new aws.ec2.SecurityGroup("subnet", {
+ *     vpcId: selected.then(selected => selected.vpcId),
  *     ingress: [{
- *         cidrBlocks: [selected.cidrBlock!],
+ *         cidrBlocks: [selected.then(selected => selected.cidrBlock)],
  *         fromPort: 80,
- *         protocol: "tcp",
  *         toPort: 80,
+ *         protocol: "tcp",
  *     }],
- *     vpcId: selected.vpcId!,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet.html.markdown.
  */
-export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> & GetSubnetResult {
+export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -49,7 +49,7 @@ export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Pr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSubnetResult> = pulumi.runtime.invoke("aws:ec2/getSubnet:getSubnet", {
+    return pulumi.runtime.invoke("aws:ec2/getSubnet:getSubnet", {
         "availabilityZone": args.availabilityZone,
         "availabilityZoneId": args.availabilityZoneId,
         "cidrBlock": args.cidrBlock,
@@ -61,8 +61,6 @@ export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Pr
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -104,10 +102,10 @@ export interface GetSubnetArgs {
      */
     readonly state?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired subnet.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The id of the VPC that the desired subnet belongs to.
      */
@@ -133,10 +131,14 @@ export interface GetSubnetResult {
     readonly ipv6CidrBlockAssociationId: string;
     readonly mapPublicIpOnLaunch: boolean;
     /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
+    readonly outpostArn: string;
+    /**
      * The ID of the AWS account that owns the subnet.
      */
     readonly ownerId: string;
     readonly state: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }

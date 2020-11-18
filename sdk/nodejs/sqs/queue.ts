@@ -5,32 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * 
- * ## FIFO queue
- * 
+ * ## Example Usage
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
+ * const queue = new aws.sqs.Queue("queue", {
+ *     delaySeconds: 90,
+ *     maxMessageSize: 2048,
+ *     messageRetentionSeconds: 86400,
+ *     receiveWaitTimeSeconds: 10,
+ *     redrivePolicy: JSON.stringify({
+ *         deadLetterTargetArn: aws_sqs_queue.queue_deadletter.arn,
+ *         maxReceiveCount: 4,
+ *     }),
+ *     tags: {
+ *         Environment: "production",
+ *     },
+ * });
+ * ```
+ * ## FIFO queue
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
  * const queue = new aws.sqs.Queue("queue", {
  *     contentBasedDeduplication: true,
  *     fifoQueue: true,
  * });
  * ```
- * 
+ *
  * ## Server-side encryption (SSE)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const queue = new aws.sqs.Queue("queue", {
  *     kmsDataKeyReusePeriodSeconds: 300,
  *     kmsMasterKeyId: "alias/aws/sqs",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sqs_queue.html.markdown.
  */
 export class Queue extends pulumi.CustomResource {
     /**
@@ -40,6 +57,7 @@ export class Queue extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: QueueState, opts?: pulumi.CustomResourceOptions): Queue {
         return new Queue(name, <any>state, { ...opts, id: id });
@@ -112,9 +130,9 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly redrivePolicy!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the queue.
+     * A map of tags to assign to the queue.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
      */
@@ -233,9 +251,9 @@ export interface QueueState {
      */
     readonly redrivePolicy?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the queue.
+     * A map of tags to assign to the queue.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
      */
@@ -295,9 +313,9 @@ export interface QueueArgs {
      */
     readonly redrivePolicy?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the queue.
+     * A map of tags to assign to the queue.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
      */

@@ -9,37 +9,55 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
-        /// 
-        /// &gt; **NOTE:** This data source does not apply to snapshots created on DB Instances. 
-        /// See the [`aws.rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetClusterSnapshot.InvokeAsync() instead")]
-        public static Task<GetClusterSnapshotResult> GetClusterSnapshot(GetClusterSnapshotArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterSnapshotResult>("aws:rds/getClusterSnapshot:getClusterSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetClusterSnapshot
     {
         /// <summary>
         /// Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
         /// 
-        /// &gt; **NOTE:** This data source does not apply to snapshots created on DB Instances. 
-        /// See the [`aws.rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
+        /// &gt; **NOTE:** This data source does not apply to snapshots created on DB Instances.
+        /// See the `aws.rds.Snapshot` data source for DB Instance snapshots.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var developmentFinalSnapshot = Output.Create(Aws.Rds.GetClusterSnapshot.InvokeAsync(new Aws.Rds.GetClusterSnapshotArgs
+        ///         {
+        ///             DbClusterIdentifier = "development_cluster",
+        ///             MostRecent = true,
+        ///         }));
+        ///         // Use the last snapshot of the dev database before it was destroyed to create
+        ///         // a new dev database.
+        ///         var auroraCluster = new Aws.Rds.Cluster("auroraCluster", new Aws.Rds.ClusterArgs
+        ///         {
+        ///             SnapshotIdentifier = developmentFinalSnapshot.Apply(developmentFinalSnapshot =&gt; developmentFinalSnapshot.Id),
+        ///             DbSubnetGroupName = "my_db_subnet_group",
+        ///         });
+        ///         var auroraClusterInstance = new Aws.Rds.ClusterInstance("auroraClusterInstance", new Aws.Rds.ClusterInstanceArgs
+        ///         {
+        ///             ClusterIdentifier = auroraCluster.Id,
+        ///             InstanceClass = "db.t2.small",
+        ///             DbSubnetGroupName = "my_db_subnet_group",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterSnapshotResult> InvokeAsync(GetClusterSnapshotArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterSnapshotResult>("aws:rds/getClusterSnapshot:getClusterSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterSnapshotResult>("aws:rds/getClusterSnapshot:getClusterSnapshot", args ?? new GetClusterSnapshotArgs(), options.WithVersion());
     }
+
 
     public sealed class GetClusterSnapshotArgs : Pulumi.InvokeArgs
     {
@@ -85,14 +103,14 @@ namespace Pulumi.Aws.Rds
         public string? SnapshotType { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags for the resource.
+        /// A map of tags for the resource.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -100,6 +118,7 @@ namespace Pulumi.Aws.Rds
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetClusterSnapshotResult
@@ -129,6 +148,10 @@ namespace Pulumi.Aws.Rds
         /// Version of the database engine for this DB cluster snapshot.
         /// </summary>
         public readonly string EngineVersion;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly bool? IncludePublic;
         public readonly bool? IncludeShared;
         /// <summary>
@@ -159,41 +182,57 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly bool StorageEncrypted;
         /// <summary>
-        /// A mapping of tags for the resource.
+        /// A map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The VPC ID associated with the DB cluster snapshot.
         /// </summary>
         public readonly string VpcId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterSnapshotResult(
             int allocatedStorage,
+
             ImmutableArray<string> availabilityZones,
+
             string? dbClusterIdentifier,
+
             string dbClusterSnapshotArn,
+
             string? dbClusterSnapshotIdentifier,
+
             string engine,
+
             string engineVersion,
+
+            string id,
+
             bool? includePublic,
+
             bool? includeShared,
+
             string kmsKeyId,
+
             string licenseModel,
+
             bool? mostRecent,
+
             int port,
+
             string snapshotCreateTime,
+
             string? snapshotType,
+
             string sourceDbClusterSnapshotArn,
+
             string status,
+
             bool storageEncrypted,
-            ImmutableDictionary<string, object> tags,
-            string vpcId,
-            string id)
+
+            ImmutableDictionary<string, string> tags,
+
+            string vpcId)
         {
             AllocatedStorage = allocatedStorage;
             AvailabilityZones = availabilityZones;
@@ -202,6 +241,7 @@ namespace Pulumi.Aws.Rds
             DbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
             Engine = engine;
             EngineVersion = engineVersion;
+            Id = id;
             IncludePublic = includePublic;
             IncludeShared = includeShared;
             KmsKeyId = kmsKeyId;
@@ -215,7 +255,6 @@ namespace Pulumi.Aws.Rds
             StorageEncrypted = storageEncrypted;
             Tags = tags;
             VpcId = vpcId;
-            Id = id;
         }
     }
 }

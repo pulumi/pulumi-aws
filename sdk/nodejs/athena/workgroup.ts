@@ -4,35 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an Athena Workgroup.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.athena.Workgroup("example", {
- *     configuration: {
- *         enforceWorkgroupConfiguration: true,
- *         publishCloudwatchMetricsEnabled: true,
- *         resultConfiguration: {
- *             encryptionConfiguration: {
- *                 encryptionOption: "SSE_KMS",
- *                 kmsKeyArn: aws_kms_key_example.arn,
- *             },
- *             outputLocation: "s3://{aws_s3_bucket.example.bucket}/output/",
+ *
+ * const example = new aws.athena.Workgroup("example", {configuration: {
+ *     enforceWorkgroupConfiguration: true,
+ *     publishCloudwatchMetricsEnabled: true,
+ *     resultConfiguration: {
+ *         outputLocation: `s3://${aws_s3_bucket.example.bucket}/output/`,
+ *         encryptionConfiguration: {
+ *             encryptionOption: "SSE_KMS",
+ *             kmsKeyArn: aws_kms_key.example.arn,
  *         },
  *     },
- * });
+ * }});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_workgroup.html.markdown.
  */
 export class Workgroup extends pulumi.CustomResource {
     /**
@@ -42,6 +37,7 @@ export class Workgroup extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WorkgroupState, opts?: pulumi.CustomResourceOptions): Workgroup {
         return new Workgroup(name, <any>state, { ...opts, id: id });
@@ -86,9 +82,9 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags for the workgroup.
+     * Key-value map of resource tags for the workgroup.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Workgroup resource with the given unique name, arguments, and options.
@@ -159,9 +155,9 @@ export interface WorkgroupState {
      */
     readonly state?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags for the workgroup.
+     * Key-value map of resource tags for the workgroup.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -189,7 +185,7 @@ export interface WorkgroupArgs {
      */
     readonly state?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags for the workgroup.
+     * Key-value map of resource tags for the workgroup.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

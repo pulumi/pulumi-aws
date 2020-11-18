@@ -4,66 +4,61 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an Application AutoScaling ScheduledAction resource.
- * 
+ *
  * ## Example Usage
- * 
  * ### DynamoDB Table Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const dynamodbTarget = new aws.appautoscaling.Target("dynamodb", {
+ *
+ * const dynamodbTarget = new aws.appautoscaling.Target("dynamodbTarget", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
  *     resourceId: "table/tableName",
- *     roleArn: aws_iam_role_DynamoDBAutoscaleRole.arn,
  *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });
- * const dynamodbScheduledAction = new aws.appautoscaling.ScheduledAction("dynamodb", {
+ * const dynamodbScheduledAction = new aws.appautoscaling.ScheduledAction("dynamodbScheduledAction", {
+ *     serviceNamespace: dynamodbTarget.serviceNamespace,
  *     resourceId: dynamodbTarget.resourceId,
  *     scalableDimension: dynamodbTarget.scalableDimension,
- *     scalableTargetAction: {
- *         maxCapacity: 200,
- *         minCapacity: 1,
- *     },
  *     schedule: "at(2006-01-02T15:04:05)",
- *     serviceNamespace: dynamodbTarget.serviceNamespace,
+ *     scalableTargetAction: {
+ *         minCapacity: 1,
+ *         maxCapacity: 200,
+ *     },
  * });
  * ```
- * 
  * ### ECS Service Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const ecsTarget = new aws.appautoscaling.Target("ecs", {
+ *
+ * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
  *     resourceId: "service/clusterName/serviceName",
- *     roleArn: var_ecs_iam_role,
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
  * });
- * const ecsScheduledAction = new aws.appautoscaling.ScheduledAction("ecs", {
+ * const ecsScheduledAction = new aws.appautoscaling.ScheduledAction("ecsScheduledAction", {
+ *     serviceNamespace: ecsTarget.serviceNamespace,
  *     resourceId: ecsTarget.resourceId,
  *     scalableDimension: ecsTarget.scalableDimension,
- *     scalableTargetAction: {
- *         maxCapacity: 10,
- *         minCapacity: 1,
- *     },
  *     schedule: "at(2006-01-02T15:04:05)",
- *     serviceNamespace: ecsTarget.serviceNamespace,
+ *     scalableTargetAction: {
+ *         minCapacity: 1,
+ *         maxCapacity: 10,
+ *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_scheduled_action.html.markdown.
  */
 export class ScheduledAction extends pulumi.CustomResource {
     /**
@@ -73,6 +68,7 @@ export class ScheduledAction extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ScheduledActionState, opts?: pulumi.CustomResourceOptions): ScheduledAction {
         return new ScheduledAction(name, <any>state, { ...opts, id: id });

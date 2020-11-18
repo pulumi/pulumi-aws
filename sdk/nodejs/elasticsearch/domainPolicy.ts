@@ -2,27 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "../iam/documents";
+import {PolicyDocument} from "../iam";
 
 /**
  * Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.elasticsearch.Domain("example", {
- *     elasticsearchVersion: "2.3",
- * });
+ *
+ * const example = new aws.elasticsearch.Domain("example", {elasticsearchVersion: "2.3"});
  * const main = new aws.elasticsearch.DomainPolicy("main", {
+ *     domainName: example.domainName,
  *     accessPolicies: pulumi.interpolate`{
  *     "Version": "2012-10-17",
  *     "Statement": [
@@ -38,11 +33,8 @@ import {PolicyDocument} from "../iam/documents";
  *     ]
  * }
  * `,
- *     domainName: example.domainName,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticsearch_domain_policy.html.markdown.
  */
 export class DomainPolicy extends pulumi.CustomResource {
     /**
@@ -52,6 +44,7 @@ export class DomainPolicy extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DomainPolicyState, opts?: pulumi.CustomResourceOptions): DomainPolicy {
         return new DomainPolicy(name, <any>state, { ...opts, id: id });

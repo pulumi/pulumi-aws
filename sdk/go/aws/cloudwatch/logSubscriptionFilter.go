@@ -7,10 +7,37 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a CloudWatch Logs subscription filter resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cloudwatch.NewLogSubscriptionFilter(ctx, "testLambdafunctionLogfilter", &cloudwatch.LogSubscriptionFilterArgs{
+// 			RoleArn:        pulumi.Any(aws_iam_role.Iam_for_lambda.Arn),
+// 			LogGroup:       pulumi.String("/aws/lambda/example_lambda_name"),
+// 			FilterPattern:  pulumi.String("logtype test"),
+// 			DestinationArn: pulumi.Any(aws_kinesis_stream.Test_logstream.Arn),
+// 			Distribution:   pulumi.String("Random"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LogSubscriptionFilter struct {
 	pulumi.CustomResourceState
 

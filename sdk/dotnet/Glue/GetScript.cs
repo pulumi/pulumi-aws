@@ -9,55 +9,311 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Glue
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/glue_script.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetScript.InvokeAsync() instead")]
-        public static Task<GetScriptResult> GetScript(GetScriptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("aws:glue/getScript:getScript", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetScript
     {
         /// <summary>
         /// Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Generate Python Script
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/glue_script.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Glue.GetScript.InvokeAsync(new Aws.Glue.GetScriptArgs
+        ///         {
+        ///             Language = "PYTHON",
+        ///             DagEdges = 
+        ///             {
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "datasource0",
+        ///                     Target = "applymapping1",
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "applymapping1",
+        ///                     Target = "selectfields2",
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "selectfields2",
+        ///                     Target = "resolvechoice3",
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "resolvechoice3",
+        ///                     Target = "datasink4",
+        ///                 },
+        ///             },
+        ///             DagNodes = 
+        ///             {
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "datasource0",
+        ///                     NodeType = "DataSource",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "database",
+        ///                             Value = $"\"{aws_glue_catalog_database.Source.Name}\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "table_name",
+        ///                             Value = $"\"{aws_glue_catalog_table.Source.Name}\"",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "applymapping1",
+        ///                     NodeType = "ApplyMapping",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "mapping",
+        ///                             Value = "[(\"column1\", \"string\", \"column1\", \"string\")]",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "selectfields2",
+        ///                     NodeType = "SelectFields",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "paths",
+        ///                             Value = "[\"column1\"]",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "resolvechoice3",
+        ///                     NodeType = "ResolveChoice",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "choice",
+        ///                             Value = "\"MATCH_CATALOG\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "database",
+        ///                             Value = $"\"{aws_glue_catalog_database.Destination.Name}\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "table_name",
+        ///                             Value = $"\"{aws_glue_catalog_table.Destination.Name}\"",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "datasink4",
+        ///                     NodeType = "DataSink",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "database",
+        ///                             Value = $"\"{aws_glue_catalog_database.Destination.Name}\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "table_name",
+        ///                             Value = $"\"{aws_glue_catalog_table.Destination.Name}\"",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         this.PythonScript = example.Apply(example =&gt; example.PythonScript);
+        ///     }
+        /// 
+        ///     [Output("pythonScript")]
+        ///     public Output&lt;string&gt; PythonScript { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Generate Scala Code
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Glue.GetScript.InvokeAsync(new Aws.Glue.GetScriptArgs
+        ///         {
+        ///             Language = "SCALA",
+        ///             DagEdges = 
+        ///             {
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "datasource0",
+        ///                     Target = "applymapping1",
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "applymapping1",
+        ///                     Target = "selectfields2",
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "selectfields2",
+        ///                     Target = "resolvechoice3",
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "resolvechoice3",
+        ///                     Target = "datasink4",
+        ///                 },
+        ///             },
+        ///             DagNodes = 
+        ///             {
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "datasource0",
+        ///                     NodeType = "DataSource",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "database",
+        ///                             Value = $"\"{aws_glue_catalog_database.Source.Name}\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "table_name",
+        ///                             Value = $"\"{aws_glue_catalog_table.Source.Name}\"",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "applymapping1",
+        ///                     NodeType = "ApplyMapping",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "mappings",
+        ///                             Value = "[(\"column1\", \"string\", \"column1\", \"string\")]",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "selectfields2",
+        ///                     NodeType = "SelectFields",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "paths",
+        ///                             Value = "[\"column1\"]",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "resolvechoice3",
+        ///                     NodeType = "ResolveChoice",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "choice",
+        ///                             Value = "\"MATCH_CATALOG\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "database",
+        ///                             Value = $"\"{aws_glue_catalog_database.Destination.Name}\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "table_name",
+        ///                             Value = $"\"{aws_glue_catalog_table.Destination.Name}\"",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "datasink4",
+        ///                     NodeType = "DataSink",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "database",
+        ///                             Value = $"\"{aws_glue_catalog_database.Destination.Name}\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "table_name",
+        ///                             Value = $"\"{aws_glue_catalog_table.Destination.Name}\"",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         this.ScalaCode = example.Apply(example =&gt; example.ScalaCode);
+        ///     }
+        /// 
+        ///     [Output("scalaCode")]
+        ///     public Output&lt;string&gt; ScalaCode { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetScriptResult> InvokeAsync(GetScriptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("aws:glue/getScript:getScript", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("aws:glue/getScript:getScript", args ?? new GetScriptArgs(), options.WithVersion());
     }
+
 
     public sealed class GetScriptArgs : Pulumi.InvokeArgs
     {
         [Input("dagEdges", required: true)]
-        private List<Inputs.GetScriptDagEdgesArgs>? _dagEdges;
+        private List<Inputs.GetScriptDagEdgeArgs>? _dagEdges;
 
         /// <summary>
         /// A list of the edges in the DAG. Defined below.
         /// </summary>
-        public List<Inputs.GetScriptDagEdgesArgs> DagEdges
+        public List<Inputs.GetScriptDagEdgeArgs> DagEdges
         {
-            get => _dagEdges ?? (_dagEdges = new List<Inputs.GetScriptDagEdgesArgs>());
+            get => _dagEdges ?? (_dagEdges = new List<Inputs.GetScriptDagEdgeArgs>());
             set => _dagEdges = value;
         }
 
         [Input("dagNodes", required: true)]
-        private List<Inputs.GetScriptDagNodesArgs>? _dagNodes;
+        private List<Inputs.GetScriptDagNodeArgs>? _dagNodes;
 
         /// <summary>
         /// A list of the nodes in the DAG. Defined below.
         /// </summary>
-        public List<Inputs.GetScriptDagNodesArgs> DagNodes
+        public List<Inputs.GetScriptDagNodeArgs> DagNodes
         {
-            get => _dagNodes ?? (_dagNodes = new List<Inputs.GetScriptDagNodesArgs>());
+            get => _dagNodes ?? (_dagNodes = new List<Inputs.GetScriptDagNodeArgs>());
             set => _dagNodes = value;
         }
 
@@ -72,11 +328,16 @@ namespace Pulumi.Aws.Glue
         }
     }
 
+
     [OutputType]
     public sealed class GetScriptResult
     {
-        public readonly ImmutableArray<Outputs.GetScriptDagEdgesResult> DagEdges;
-        public readonly ImmutableArray<Outputs.GetScriptDagNodesResult> DagNodes;
+        public readonly ImmutableArray<Outputs.GetScriptDagEdgeResult> DagEdges;
+        public readonly ImmutableArray<Outputs.GetScriptDagNodeResult> DagNodes;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string? Language;
         /// <summary>
         /// The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
@@ -86,211 +347,27 @@ namespace Pulumi.Aws.Glue
         /// The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
         /// </summary>
         public readonly string ScalaCode;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetScriptResult(
-            ImmutableArray<Outputs.GetScriptDagEdgesResult> dagEdges,
-            ImmutableArray<Outputs.GetScriptDagNodesResult> dagNodes,
+            ImmutableArray<Outputs.GetScriptDagEdgeResult> dagEdges,
+
+            ImmutableArray<Outputs.GetScriptDagNodeResult> dagNodes,
+
+            string id,
+
             string? language,
+
             string pythonScript,
-            string scalaCode,
-            string id)
+
+            string scalaCode)
         {
             DagEdges = dagEdges;
             DagNodes = dagNodes;
+            Id = id;
             Language = language;
             PythonScript = pythonScript;
             ScalaCode = scalaCode;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetScriptDagEdgesArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The ID of the node at which the edge starts.
-        /// </summary>
-        [Input("source", required: true)]
-        public string Source { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the node at which the edge ends.
-        /// </summary>
-        [Input("target", required: true)]
-        public string Target { get; set; } = null!;
-
-        /// <summary>
-        /// The target of the edge.
-        /// </summary>
-        [Input("targetParameter")]
-        public string? TargetParameter { get; set; }
-
-        public GetScriptDagEdgesArgs()
-        {
-        }
-    }
-
-    public sealed class GetScriptDagNodesArgs : Pulumi.InvokeArgs
-    {
-        [Input("args", required: true)]
-        private List<GetScriptDagNodesArgsArgs>? _args;
-
-        /// <summary>
-        /// Nested configuration an argument or property of a node. Defined below.
-        /// </summary>
-        public List<GetScriptDagNodesArgsArgs> Args
-        {
-            get => _args ?? (_args = new List<GetScriptDagNodesArgsArgs>());
-            set => _args = value;
-        }
-
-        /// <summary>
-        /// A node identifier that is unique within the node's graph.
-        /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
-
-        /// <summary>
-        /// The line number of the node.
-        /// </summary>
-        [Input("lineNumber")]
-        public int? LineNumber { get; set; }
-
-        /// <summary>
-        /// The type of node this is.
-        /// </summary>
-        [Input("nodeType", required: true)]
-        public string NodeType { get; set; } = null!;
-
-        public GetScriptDagNodesArgs()
-        {
-        }
-    }
-
-    public sealed class GetScriptDagNodesArgsArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the argument or property.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
-        /// Boolean if the value is used as a parameter. Defaults to `false`.
-        /// </summary>
-        [Input("param")]
-        public bool? Param { get; set; }
-
-        /// <summary>
-        /// The value of the argument or property.
-        /// </summary>
-        [Input("value", required: true)]
-        public string Value { get; set; } = null!;
-
-        public GetScriptDagNodesArgsArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetScriptDagEdgesResult
-    {
-        /// <summary>
-        /// The ID of the node at which the edge starts.
-        /// </summary>
-        public readonly string Source;
-        /// <summary>
-        /// The ID of the node at which the edge ends.
-        /// </summary>
-        public readonly string Target;
-        /// <summary>
-        /// The target of the edge.
-        /// </summary>
-        public readonly string? TargetParameter;
-
-        [OutputConstructor]
-        private GetScriptDagEdgesResult(
-            string source,
-            string target,
-            string? targetParameter)
-        {
-            Source = source;
-            Target = target;
-            TargetParameter = targetParameter;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetScriptDagNodesArgsResult
-    {
-        /// <summary>
-        /// The name of the argument or property.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Boolean if the value is used as a parameter. Defaults to `false`.
-        /// </summary>
-        public readonly bool? Param;
-        /// <summary>
-        /// The value of the argument or property.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private GetScriptDagNodesArgsResult(
-            string name,
-            bool? param,
-            string value)
-        {
-            Name = name;
-            Param = param;
-            Value = value;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetScriptDagNodesResult
-    {
-        /// <summary>
-        /// Nested configuration an argument or property of a node. Defined below.
-        /// </summary>
-        public readonly ImmutableArray<GetScriptDagNodesArgsResult> Args;
-        /// <summary>
-        /// A node identifier that is unique within the node's graph.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The line number of the node.
-        /// </summary>
-        public readonly int? LineNumber;
-        /// <summary>
-        /// The type of node this is.
-        /// </summary>
-        public readonly string NodeType;
-
-        [OutputConstructor]
-        private GetScriptDagNodesResult(
-            ImmutableArray<GetScriptDagNodesArgsResult> args,
-            string id,
-            int? lineNumber,
-            string nodeType)
-        {
-            Args = args;
-            Id = id;
-            LineNumber = lineNumber;
-            NodeType = nodeType;
-        }
-    }
     }
 }

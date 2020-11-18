@@ -4,19 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a DAX Parameter Group resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.dax.ParameterGroup("example", {
  *     parameters: [
  *         {
@@ -30,15 +29,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * 
- * ## parameters
- * 
- * `parameters` supports the following:
- * 
- * * `name` - (Required) The name of the parameter.
- * * `value` - (Required) The value for the parameter.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_parameter_group.html.markdown.
  */
 export class ParameterGroup extends pulumi.CustomResource {
     /**
@@ -48,6 +38,7 @@ export class ParameterGroup extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ParameterGroupState, opts?: pulumi.CustomResourceOptions): ParameterGroup {
         return new ParameterGroup(name, <any>state, { ...opts, id: id });

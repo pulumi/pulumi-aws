@@ -4,65 +4,60 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
  * `aws.ec2.Eip` provides details about a specific Elastic IP.
- * 
+ *
  * ## Example Usage
- * 
  * ### Search By Allocation ID (VPC only)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const byAllocationId = aws.getElasticIp({
+ *
+ * const byAllocationId = pulumi.output(aws.getElasticIp({
  *     id: "eipalloc-12345678",
- * });
+ * }, { async: true }));
  * ```
- * 
  * ### Search By Filters (EC2-Classic or VPC)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const byFilter = aws.getElasticIp({
+ *
+ * const byFilter = pulumi.output(aws.getElasticIp({
  *     filters: [{
  *         name: "tag:Name",
  *         values: ["exampleNameTagValue"],
  *     }],
- * });
+ * }, { async: true }));
  * ```
- * 
  * ### Search By Public IP (EC2-Classic or VPC)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const byPublicIp = aws.getElasticIp({
+ *
+ * const byPublicIp = pulumi.output(aws.getElasticIp({
  *     publicIp: "1.2.3.4",
- * });
+ * }, { async: true }));
  * ```
- * 
  * ### Search By Tags (EC2-Classic or VPC)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const byTags = aws.getElasticIp({
+ *
+ * const byTags = pulumi.output(aws.getElasticIp({
  *     tags: {
  *         Name: "exampleNameTagValue",
  *     },
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.
  */
-export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> & GetElasticIpResult {
+export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -71,14 +66,12 @@ export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOption
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetElasticIpResult> = pulumi.runtime.invoke("aws:index/getElasticIp:getElasticIp", {
+    return pulumi.runtime.invoke("aws:index/getElasticIp:getElasticIp", {
         "filters": args.filters,
         "id": args.id,
         "publicIp": args.publicIp,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -98,9 +91,9 @@ export interface GetElasticIpArgs {
      */
     readonly publicIp?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match a pair on the desired Elastic IP
+     * A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -111,6 +104,14 @@ export interface GetElasticIpResult {
      * The ID representing the association of the address with an instance in a VPC.
      */
     readonly associationId: string;
+    /**
+     * Customer Owned IP.
+     */
+    readonly customerOwnedIp: string;
+    /**
+     * The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+     */
+    readonly customerOwnedIpv4Pool: string;
     /**
      * Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
      */
@@ -155,5 +156,5 @@ export interface GetElasticIpResult {
     /**
      * Key-value map of tags associated with Elastic IP.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

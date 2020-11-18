@@ -15,12 +15,42 @@ namespace Pulumi.Aws.Ec2
     /// over IPv6 from instances in your VPC to the Internet, and prevents hosts
     /// outside of your VPC from initiating an IPv6 connection with your instance.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/egress_only_internet_gateway.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///             AssignGeneratedIpv6CidrBlock = true,
+    ///         });
+    ///         var exampleEgressOnlyInternetGateway = new Aws.Ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway", new Aws.Ec2.EgressOnlyInternetGatewayArgs
+    ///         {
+    ///             VpcId = exampleVpc.Id,
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "main" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EgressOnlyInternetGateway : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
         /// <summary>
         /// The VPC ID to create in.
         /// </summary>
@@ -36,7 +66,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EgressOnlyInternetGateway(string name, EgressOnlyInternetGatewayArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", name, args ?? new EgressOnlyInternetGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -73,6 +103,18 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class EgressOnlyInternetGatewayArgs : Pulumi.ResourceArgs
     {
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The VPC ID to create in.
         /// </summary>
@@ -86,6 +128,18 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class EgressOnlyInternetGatewayState : Pulumi.ResourceArgs
     {
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The VPC ID to create in.
         /// </summary>

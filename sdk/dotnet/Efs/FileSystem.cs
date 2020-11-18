@@ -10,11 +10,51 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Efs
 {
     /// <summary>
-    /// Provides an Elastic File System (EFS) resource.
+    /// Provides an Elastic File System (EFS) File System resource.
     /// 
+    /// ## Example Usage
+    /// ### EFS File System w/ tags
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_file_system.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Efs.FileSystem("foo", new Aws.Efs.FileSystemArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "MyProduct" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Using lifecycle policy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooWithLifecylePolicy = new Aws.Efs.FileSystem("fooWithLifecylePolicy", new Aws.Efs.FileSystemArgs
+    ///         {
+    ///             LifecyclePolicy = new Aws.Efs.Inputs.FileSystemLifecyclePolicyArgs
+    ///             {
+    ///                 TransitionToIa = "AFTER_30_DAYS",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FileSystem : Pulumi.CustomResource
     {
@@ -70,10 +110,10 @@ namespace Pulumi.Aws.Efs
         public Output<double?> ProvisionedThroughputInMibps { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the file system.
+        /// A map of tags to assign to the file system.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
@@ -90,7 +130,7 @@ namespace Pulumi.Aws.Efs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FileSystem(string name, FileSystemArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:efs/fileSystem:FileSystem", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:efs/fileSystem:FileSystem", name, args ?? new FileSystemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -167,14 +207,14 @@ namespace Pulumi.Aws.Efs
         public Input<double>? ProvisionedThroughputInMibps { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the file system.
+        /// A map of tags to assign to the file system.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -243,14 +283,14 @@ namespace Pulumi.Aws.Efs
         public Input<double>? ProvisionedThroughputInMibps { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the file system.
+        /// A map of tags to assign to the file system.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -263,54 +303,5 @@ namespace Pulumi.Aws.Efs
         public FileSystemState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class FileSystemLifecyclePolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-        /// </summary>
-        [Input("transitionToIa")]
-        public Input<string>? TransitionToIa { get; set; }
-
-        public FileSystemLifecyclePolicyArgs()
-        {
-        }
-    }
-
-    public sealed class FileSystemLifecyclePolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-        /// </summary>
-        [Input("transitionToIa")]
-        public Input<string>? TransitionToIa { get; set; }
-
-        public FileSystemLifecyclePolicyGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class FileSystemLifecyclePolicy
-    {
-        /// <summary>
-        /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-        /// </summary>
-        public readonly string? TransitionToIa;
-
-        [OutputConstructor]
-        private FileSystemLifecyclePolicy(string? transitionToIa)
-        {
-            TransitionToIa = transitionToIa;
-        }
-    }
     }
 }

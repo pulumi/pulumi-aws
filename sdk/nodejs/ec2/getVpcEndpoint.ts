@@ -4,34 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The VPC Endpoint data source provides details about
  * a specific VPC endpoint.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * // Declare the data source
- * const s3 = aws_vpc_foo.id.apply(id => aws.ec2.getVpcEndpoint({
+ *
+ * const s3 = aws.ec2.getVpcEndpoint({
+ *     vpcId: aws_vpc.foo.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
- *     vpcId: id,
- * }));
+ * });
  * const privateS3 = new aws.ec2.VpcEndpointRouteTableAssociation("privateS3", {
- *     routeTableId: aws_route_table_private.id,
- *     vpcEndpointId: s3.id!,
+ *     vpcEndpointId: s3.then(s3 => s3.id),
+ *     routeTableId: aws_route_table["private"].id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
  */
-export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> & GetVpcEndpointResult {
+export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -40,7 +36,7 @@ export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetVpcEndpointResult> = pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
+    return pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
         "filters": args.filters,
         "id": args.id,
         "serviceName": args.serviceName,
@@ -48,8 +44,6 @@ export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOp
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -73,10 +67,10 @@ export interface GetVpcEndpointArgs {
      */
     readonly state?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the specific VPC Endpoint to retrieve.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The ID of the VPC in which the specific VPC Endpoint is used.
      */
@@ -87,6 +81,10 @@ export interface GetVpcEndpointArgs {
  * A collection of values returned by getVpcEndpoint.
  */
 export interface GetVpcEndpointResult {
+    /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint.
+     */
+    readonly arn: string;
     /**
      * The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      */
@@ -135,7 +133,7 @@ export interface GetVpcEndpointResult {
      * One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
      */
     readonly subnetIds: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The VPC Endpoint type, `Gateway` or `Interface`.
      */

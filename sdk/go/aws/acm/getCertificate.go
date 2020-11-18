@@ -4,12 +4,58 @@
 package acm
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get the ARN of a certificate in AWS Certificate
 // Manager (ACM), you can reference
 // it by domain without having to hard code the ARNs as input.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/acm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
+// 			Domain: "tf.example.com",
+// 			Statuses: []string{
+// 				"ISSUED",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt0 := true
+// 		_, err = acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
+// 			Domain:     "tf.example.com",
+// 			MostRecent: &opt0,
+// 			Types: []string{
+// 				"AMAZON_ISSUED",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
+// 			Domain: "tf.example.com",
+// 			KeyTypes: []string{
+// 				"RSA_4096",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("aws:acm/getCertificate:getCertificate", args, &rv, opts...)
@@ -31,19 +77,23 @@ type LookupCertificateArgs struct {
 	// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
 	// are returned.
 	Statuses []string `pulumi:"statuses"`
+	// A mapping of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
 	Types []string `pulumi:"types"`
 }
 
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
-	// Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
+	// Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
 	Arn    string `pulumi:"arn"`
 	Domain string `pulumi:"domain"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id         string   `pulumi:"id"`
 	KeyTypes   []string `pulumi:"keyTypes"`
 	MostRecent *bool    `pulumi:"mostRecent"`
 	Statuses   []string `pulumi:"statuses"`
-	Types      []string `pulumi:"types"`
+	// A mapping of tags for the resource.
+	Tags  map[string]string `pulumi:"tags"`
+	Types []string          `pulumi:"types"`
 }

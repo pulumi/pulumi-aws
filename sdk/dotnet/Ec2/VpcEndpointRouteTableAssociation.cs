@@ -12,9 +12,25 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Manages a VPC Endpoint Route Table Association
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_route_table_association.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.VpcEndpointRouteTableAssociation("example", new Aws.Ec2.VpcEndpointRouteTableAssociationArgs
+    ///         {
+    ///             RouteTableId = aws_route_table.Example.Id,
+    ///             VpcEndpointId = aws_vpc_endpoint.Example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VpcEndpointRouteTableAssociation : Pulumi.CustomResource
     {
@@ -39,7 +55,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcEndpointRouteTableAssociation(string name, VpcEndpointRouteTableAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, args ?? new VpcEndpointRouteTableAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -2,38 +2,34 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage the [default AWS DHCP Options Set](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html#AmazonDNS)
  * in the current region.
- * 
+ *
  * Each AWS region comes with a default set of DHCP options.
  * **This is an advanced resource**, and has special caveats to be aware of when
  * using it. Please read this document in its entirety before using this resource.
- * 
+ *
  * The `aws.ec2.DefaultVpcDhcpOptions` behaves differently from normal resources, in that
  * this provider does not _create_ this resource, but instead "adopts" it
  * into management.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * Basic usage with tags:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultDefaultVpcDhcpOptions = new aws.ec2.DefaultVpcDhcpOptions("default", {
  *     tags: {
  *         Name: "Default DHCP Option Set",
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc_dhcp_options.html.markdown.
  */
 export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
     /**
@@ -43,6 +39,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultVpcDhcpOptionsState, opts?: pulumi.CustomResourceOptions): DefaultVpcDhcpOptions {
         return new DefaultVpcDhcpOptions(name, <any>state, { ...opts, id: id });
@@ -62,6 +59,10 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
         return obj['__pulumiType'] === DefaultVpcDhcpOptions.__pulumiType;
     }
 
+    /**
+     * The ARN of the DHCP Options Set.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     public /*out*/ readonly domainNameServers!: pulumi.Output<string>;
     /**
@@ -78,9 +79,9 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DefaultVpcDhcpOptions resource with the given unique name, arguments, and options.
@@ -94,6 +95,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DefaultVpcDhcpOptionsState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["domainNameServers"] = state ? state.domainNameServers : undefined;
             inputs["netbiosNameServers"] = state ? state.netbiosNameServers : undefined;
@@ -106,6 +108,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             inputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
             inputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["domainNameServers"] = undefined /*out*/;
             inputs["ntpServers"] = undefined /*out*/;
@@ -126,6 +129,10 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultVpcDhcpOptions resources.
  */
 export interface DefaultVpcDhcpOptionsState {
+    /**
+     * The ARN of the DHCP Options Set.
+     */
+    readonly arn?: pulumi.Input<string>;
     readonly domainName?: pulumi.Input<string>;
     readonly domainNameServers?: pulumi.Input<string>;
     /**
@@ -142,9 +149,9 @@ export interface DefaultVpcDhcpOptionsState {
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -160,7 +167,7 @@ export interface DefaultVpcDhcpOptionsArgs {
      */
     readonly netbiosNodeType?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

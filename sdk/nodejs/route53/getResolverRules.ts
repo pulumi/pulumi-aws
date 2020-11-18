@@ -4,29 +4,38 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * Retrieving the default resolver rule.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.route53.getResolverRules({
- *     tags: [{
- *         Environment: "dev",
- *     }],
- * });
+ *
+ * const example = pulumi.output(aws.route53.getResolverRules({
+ *     ownerId: "Route 53 Resolver",
+ *     ruleType: "RECURSIVE",
+ *     shareStatus: "NOT_SHARED",
+ * }, { async: true }));
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rules.html.markdown.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = pulumi.output(aws.route53.getResolverRules({
+ *     ruleType: "FORWARD",
+ *     shareStatus: "SHARED_WITH_ME",
+ * }, { async: true }));
+ * ```
  */
-export function getResolverRules(args?: GetResolverRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRulesResult> & GetResolverRulesResult {
+export function getResolverRules(args?: GetResolverRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRulesResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -35,14 +44,12 @@ export function getResolverRules(args?: GetResolverRulesArgs, opts?: pulumi.Invo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetResolverRulesResult> = pulumi.runtime.invoke("aws:route53/getResolverRules:getResolverRules", {
+    return pulumi.runtime.invoke("aws:route53/getResolverRules:getResolverRules", {
         "ownerId": args.ownerId,
         "resolverEndpointId": args.resolverEndpointId,
         "ruleType": args.ruleType,
         "shareStatus": args.shareStatus,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -62,8 +69,7 @@ export interface GetResolverRulesArgs {
      */
     readonly ruleType?: string;
     /**
-     * Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account.
-     * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+     * Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      */
     readonly shareStatus?: string;
 }
@@ -72,6 +78,10 @@ export interface GetResolverRulesArgs {
  * A collection of values returned by getResolverRules.
  */
 export interface GetResolverRulesResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly ownerId?: string;
     readonly resolverEndpointId?: string;
     /**
@@ -80,8 +90,4 @@ export interface GetResolverRulesResult {
     readonly resolverRuleIds: string[];
     readonly ruleType?: string;
     readonly shareStatus?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

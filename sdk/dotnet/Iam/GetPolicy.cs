@@ -9,33 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM policy.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetPolicy.InvokeAsync() instead")]
-        public static Task<GetPolicyResult> GetPolicy(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("aws:iam/getPolicy:getPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPolicy
     {
         /// <summary>
         /// This data source can be used to fetch information about a specific
         /// IAM policy.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Iam.GetPolicy.InvokeAsync(new Aws.Iam.GetPolicyArgs
+        ///         {
+        ///             Arn = "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("aws:iam/getPolicy:getPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("aws:iam/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPolicyArgs : Pulumi.InvokeArgs
     {
@@ -50,6 +56,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
+
     [OutputType]
     public sealed class GetPolicyResult
     {
@@ -62,6 +69,10 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the IAM policy.
         /// </summary>
         public readonly string Name;
@@ -73,26 +84,27 @@ namespace Pulumi.Aws.Iam
         /// The policy document of the policy.
         /// </summary>
         public readonly string Policy;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetPolicyResult(
             string arn,
+
             string description,
+
+            string id,
+
             string name,
+
             string path,
-            string policy,
-            string id)
+
+            string policy)
         {
             Arn = arn;
             Description = description;
+            Id = id;
             Name = name;
             Path = path;
             Policy = policy;
-            Id = id;
         }
     }
 }

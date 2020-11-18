@@ -6,15 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Creates and manages an AWS XRay Sampling Rule.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.xray.SamplingRule("example", {
  *     attributes: {
  *         Hello: "Tris",
@@ -32,8 +30,6 @@ import * as utilities from "../utilities";
  *     version: 1,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/xray_sampling_rule.html.markdown.
  */
 export class SamplingRule extends pulumi.CustomResource {
     /**
@@ -43,6 +39,7 @@ export class SamplingRule extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SamplingRuleState, opts?: pulumi.CustomResourceOptions): SamplingRule {
         return new SamplingRule(name, <any>state, { ...opts, id: id });
@@ -107,6 +104,10 @@ export class SamplingRule extends pulumi.CustomResource {
      */
     public readonly serviceType!: pulumi.Output<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Matches the path from a request URL.
      */
     public readonly urlPath!: pulumi.Output<string>;
@@ -138,6 +139,7 @@ export class SamplingRule extends pulumi.CustomResource {
             inputs["ruleName"] = state ? state.ruleName : undefined;
             inputs["serviceName"] = state ? state.serviceName : undefined;
             inputs["serviceType"] = state ? state.serviceType : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["urlPath"] = state ? state.urlPath : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
@@ -182,6 +184,7 @@ export class SamplingRule extends pulumi.CustomResource {
             inputs["ruleName"] = args ? args.ruleName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["serviceType"] = args ? args.serviceType : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["urlPath"] = args ? args.urlPath : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -246,6 +249,10 @@ export interface SamplingRuleState {
      */
     readonly serviceType?: pulumi.Input<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Matches the path from a request URL.
      */
     readonly urlPath?: pulumi.Input<string>;
@@ -299,6 +306,10 @@ export interface SamplingRuleArgs {
      * Matches the `origin` that the service uses to identify its type in segments.
      */
     readonly serviceType: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Matches the path from a request URL.
      */

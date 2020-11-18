@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type AmiCopyEbsBlockDevice struct {
@@ -30,10 +30,14 @@ type AmiCopyEbsBlockDevice struct {
 	// as the selected snapshot.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1" or "gp2".
+	// default), "io1", "io2" or "gp2".
 	VolumeType *string `pulumi:"volumeType"`
 }
 
+// AmiCopyEbsBlockDeviceInput is an input type that accepts AmiCopyEbsBlockDeviceArgs and AmiCopyEbsBlockDeviceOutput values.
+// You can construct a concrete instance of `AmiCopyEbsBlockDeviceInput` via:
+//
+//          AmiCopyEbsBlockDeviceArgs{...}
 type AmiCopyEbsBlockDeviceInput interface {
 	pulumi.Input
 
@@ -61,7 +65,7 @@ type AmiCopyEbsBlockDeviceArgs struct {
 	// as the selected snapshot.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1" or "gp2".
+	// default), "io1", "io2" or "gp2".
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -77,6 +81,10 @@ func (i AmiCopyEbsBlockDeviceArgs) ToAmiCopyEbsBlockDeviceOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AmiCopyEbsBlockDeviceOutput)
 }
 
+// AmiCopyEbsBlockDeviceArrayInput is an input type that accepts AmiCopyEbsBlockDeviceArray and AmiCopyEbsBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `AmiCopyEbsBlockDeviceArrayInput` via:
+//
+//          AmiCopyEbsBlockDeviceArray{ AmiCopyEbsBlockDeviceArgs{...} }
 type AmiCopyEbsBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -149,7 +157,7 @@ func (o AmiCopyEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 // The type of EBS volume to create. Can be one of "standard" (the
-// default), "io1" or "gp2".
+// default), "io1", "io2" or "gp2".
 func (o AmiCopyEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -182,6 +190,10 @@ type AmiCopyEphemeralBlockDevice struct {
 	VirtualName *string `pulumi:"virtualName"`
 }
 
+// AmiCopyEphemeralBlockDeviceInput is an input type that accepts AmiCopyEphemeralBlockDeviceArgs and AmiCopyEphemeralBlockDeviceOutput values.
+// You can construct a concrete instance of `AmiCopyEphemeralBlockDeviceInput` via:
+//
+//          AmiCopyEphemeralBlockDeviceArgs{...}
 type AmiCopyEphemeralBlockDeviceInput interface {
 	pulumi.Input
 
@@ -209,6 +221,10 @@ func (i AmiCopyEphemeralBlockDeviceArgs) ToAmiCopyEphemeralBlockDeviceOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AmiCopyEphemeralBlockDeviceOutput)
 }
 
+// AmiCopyEphemeralBlockDeviceArrayInput is an input type that accepts AmiCopyEphemeralBlockDeviceArray and AmiCopyEphemeralBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `AmiCopyEphemeralBlockDeviceArrayInput` via:
+//
+//          AmiCopyEphemeralBlockDeviceArray{ AmiCopyEphemeralBlockDeviceArgs{...} }
 type AmiCopyEphemeralBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -295,10 +311,14 @@ type AmiEbsBlockDevice struct {
 	// as the selected snapshot.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1" or "gp2".
+	// default), "io1", "io2" or "gp2".
 	VolumeType *string `pulumi:"volumeType"`
 }
 
+// AmiEbsBlockDeviceInput is an input type that accepts AmiEbsBlockDeviceArgs and AmiEbsBlockDeviceOutput values.
+// You can construct a concrete instance of `AmiEbsBlockDeviceInput` via:
+//
+//          AmiEbsBlockDeviceArgs{...}
 type AmiEbsBlockDeviceInput interface {
 	pulumi.Input
 
@@ -326,7 +346,7 @@ type AmiEbsBlockDeviceArgs struct {
 	// as the selected snapshot.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1" or "gp2".
+	// default), "io1", "io2" or "gp2".
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -342,6 +362,10 @@ func (i AmiEbsBlockDeviceArgs) ToAmiEbsBlockDeviceOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AmiEbsBlockDeviceOutput)
 }
 
+// AmiEbsBlockDeviceArrayInput is an input type that accepts AmiEbsBlockDeviceArray and AmiEbsBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `AmiEbsBlockDeviceArrayInput` via:
+//
+//          AmiEbsBlockDeviceArray{ AmiEbsBlockDeviceArgs{...} }
 type AmiEbsBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -414,7 +438,7 @@ func (o AmiEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 // The type of EBS volume to create. Can be one of "standard" (the
-// default), "io1" or "gp2".
+// default), "io1", "io2" or "gp2".
 func (o AmiEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -447,6 +471,10 @@ type AmiEphemeralBlockDevice struct {
 	VirtualName string `pulumi:"virtualName"`
 }
 
+// AmiEphemeralBlockDeviceInput is an input type that accepts AmiEphemeralBlockDeviceArgs and AmiEphemeralBlockDeviceOutput values.
+// You can construct a concrete instance of `AmiEphemeralBlockDeviceInput` via:
+//
+//          AmiEphemeralBlockDeviceArgs{...}
 type AmiEphemeralBlockDeviceInput interface {
 	pulumi.Input
 
@@ -474,6 +502,10 @@ func (i AmiEphemeralBlockDeviceArgs) ToAmiEphemeralBlockDeviceOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AmiEphemeralBlockDeviceOutput)
 }
 
+// AmiEphemeralBlockDeviceArrayInput is an input type that accepts AmiEphemeralBlockDeviceArray and AmiEphemeralBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `AmiEphemeralBlockDeviceArrayInput` via:
+//
+//          AmiEphemeralBlockDeviceArray{ AmiEphemeralBlockDeviceArgs{...} }
 type AmiEphemeralBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -560,10 +592,14 @@ type AmiFromInstanceEbsBlockDevice struct {
 	// as the selected snapshot.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1" or "gp2".
+	// default), "io1", "io2" or "gp2".
 	VolumeType *string `pulumi:"volumeType"`
 }
 
+// AmiFromInstanceEbsBlockDeviceInput is an input type that accepts AmiFromInstanceEbsBlockDeviceArgs and AmiFromInstanceEbsBlockDeviceOutput values.
+// You can construct a concrete instance of `AmiFromInstanceEbsBlockDeviceInput` via:
+//
+//          AmiFromInstanceEbsBlockDeviceArgs{...}
 type AmiFromInstanceEbsBlockDeviceInput interface {
 	pulumi.Input
 
@@ -591,7 +627,7 @@ type AmiFromInstanceEbsBlockDeviceArgs struct {
 	// as the selected snapshot.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1" or "gp2".
+	// default), "io1", "io2" or "gp2".
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -607,6 +643,10 @@ func (i AmiFromInstanceEbsBlockDeviceArgs) ToAmiFromInstanceEbsBlockDeviceOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AmiFromInstanceEbsBlockDeviceOutput)
 }
 
+// AmiFromInstanceEbsBlockDeviceArrayInput is an input type that accepts AmiFromInstanceEbsBlockDeviceArray and AmiFromInstanceEbsBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `AmiFromInstanceEbsBlockDeviceArrayInput` via:
+//
+//          AmiFromInstanceEbsBlockDeviceArray{ AmiFromInstanceEbsBlockDeviceArgs{...} }
 type AmiFromInstanceEbsBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -679,7 +719,7 @@ func (o AmiFromInstanceEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 // The type of EBS volume to create. Can be one of "standard" (the
-// default), "io1" or "gp2".
+// default), "io1", "io2" or "gp2".
 func (o AmiFromInstanceEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -712,6 +752,10 @@ type AmiFromInstanceEphemeralBlockDevice struct {
 	VirtualName *string `pulumi:"virtualName"`
 }
 
+// AmiFromInstanceEphemeralBlockDeviceInput is an input type that accepts AmiFromInstanceEphemeralBlockDeviceArgs and AmiFromInstanceEphemeralBlockDeviceOutput values.
+// You can construct a concrete instance of `AmiFromInstanceEphemeralBlockDeviceInput` via:
+//
+//          AmiFromInstanceEphemeralBlockDeviceArgs{...}
 type AmiFromInstanceEphemeralBlockDeviceInput interface {
 	pulumi.Input
 
@@ -739,6 +783,10 @@ func (i AmiFromInstanceEphemeralBlockDeviceArgs) ToAmiFromInstanceEphemeralBlock
 	return pulumi.ToOutputWithContext(ctx, i).(AmiFromInstanceEphemeralBlockDeviceOutput)
 }
 
+// AmiFromInstanceEphemeralBlockDeviceArrayInput is an input type that accepts AmiFromInstanceEphemeralBlockDeviceArray and AmiFromInstanceEphemeralBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `AmiFromInstanceEphemeralBlockDeviceArrayInput` via:
+//
+//          AmiFromInstanceEphemeralBlockDeviceArray{ AmiFromInstanceEphemeralBlockDeviceArgs{...} }
 type AmiFromInstanceEphemeralBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -828,6 +876,10 @@ type DefaultNetworkAclEgress struct {
 	ToPort int `pulumi:"toPort"`
 }
 
+// DefaultNetworkAclEgressInput is an input type that accepts DefaultNetworkAclEgressArgs and DefaultNetworkAclEgressOutput values.
+// You can construct a concrete instance of `DefaultNetworkAclEgressInput` via:
+//
+//          DefaultNetworkAclEgressArgs{...}
 type DefaultNetworkAclEgressInput interface {
 	pulumi.Input
 
@@ -870,6 +922,10 @@ func (i DefaultNetworkAclEgressArgs) ToDefaultNetworkAclEgressOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultNetworkAclEgressOutput)
 }
 
+// DefaultNetworkAclEgressArrayInput is an input type that accepts DefaultNetworkAclEgressArray and DefaultNetworkAclEgressArrayOutput values.
+// You can construct a concrete instance of `DefaultNetworkAclEgressArrayInput` via:
+//
+//          DefaultNetworkAclEgressArray{ DefaultNetworkAclEgressArgs{...} }
 type DefaultNetworkAclEgressArrayInput interface {
 	pulumi.Input
 
@@ -995,6 +1051,10 @@ type DefaultNetworkAclIngress struct {
 	ToPort int `pulumi:"toPort"`
 }
 
+// DefaultNetworkAclIngressInput is an input type that accepts DefaultNetworkAclIngressArgs and DefaultNetworkAclIngressOutput values.
+// You can construct a concrete instance of `DefaultNetworkAclIngressInput` via:
+//
+//          DefaultNetworkAclIngressArgs{...}
 type DefaultNetworkAclIngressInput interface {
 	pulumi.Input
 
@@ -1037,6 +1097,10 @@ func (i DefaultNetworkAclIngressArgs) ToDefaultNetworkAclIngressOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultNetworkAclIngressOutput)
 }
 
+// DefaultNetworkAclIngressArrayInput is an input type that accepts DefaultNetworkAclIngressArray and DefaultNetworkAclIngressArrayOutput values.
+// You can construct a concrete instance of `DefaultNetworkAclIngressArrayInput` via:
+//
+//          DefaultNetworkAclIngressArray{ DefaultNetworkAclIngressArgs{...} }
 type DefaultNetworkAclIngressArrayInput interface {
 	pulumi.Input
 
@@ -1156,10 +1220,16 @@ type DefaultRouteTableRoute struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
 
+// DefaultRouteTableRouteInput is an input type that accepts DefaultRouteTableRouteArgs and DefaultRouteTableRouteOutput values.
+// You can construct a concrete instance of `DefaultRouteTableRouteInput` via:
+//
+//          DefaultRouteTableRouteArgs{...}
 type DefaultRouteTableRouteInput interface {
 	pulumi.Input
 
@@ -1184,6 +1254,8 @@ type DefaultRouteTableRouteArgs struct {
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`
+	// Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId pulumi.StringPtrInput `pulumi:"vpcPeeringConnectionId"`
 }
@@ -1200,6 +1272,10 @@ func (i DefaultRouteTableRouteArgs) ToDefaultRouteTableRouteOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTableRouteOutput)
 }
 
+// DefaultRouteTableRouteArrayInput is an input type that accepts DefaultRouteTableRouteArray and DefaultRouteTableRouteArrayOutput values.
+// You can construct a concrete instance of `DefaultRouteTableRouteArrayInput` via:
+//
+//          DefaultRouteTableRouteArray{ DefaultRouteTableRouteArgs{...} }
 type DefaultRouteTableRouteArrayInput interface {
 	pulumi.Input
 
@@ -1275,6 +1351,11 @@ func (o DefaultRouteTableRouteOutput) TransitGatewayId() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v DefaultRouteTableRoute) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }
 
+// Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
+func (o DefaultRouteTableRouteOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRouteTableRoute) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
+}
+
 // Identifier of a VPC peering connection.
 func (o DefaultRouteTableRouteOutput) VpcPeeringConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultRouteTableRoute) *string { return v.VpcPeeringConnectionId }).(pulumi.StringPtrOutput)
@@ -1301,18 +1382,30 @@ func (o DefaultRouteTableRouteArrayOutput) Index(i pulumi.IntInput) DefaultRoute
 }
 
 type DefaultSecurityGroupEgress struct {
+	// List of CIDR blocks.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
-	// The description of the security group
-	Description    *string  `pulumi:"description"`
-	FromPort       int      `pulumi:"fromPort"`
+	// Description of this egress rule.
+	Description *string `pulumi:"description"`
+	// The start port (or ICMP type number if protocol is "icmp")
+	FromPort int `pulumi:"fromPort"`
+	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
-	PrefixListIds  []string `pulumi:"prefixListIds"`
-	Protocol       string   `pulumi:"protocol"`
+	// List of prefix list IDs (for allowing access to VPC endpoints)
+	PrefixListIds []string `pulumi:"prefixListIds"`
+	// The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	Protocol string `pulumi:"protocol"`
+	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	Self           *bool    `pulumi:"self"`
-	ToPort         int      `pulumi:"toPort"`
+	// If true, the security group itself will be added as a source to this egress rule.
+	Self *bool `pulumi:"self"`
+	// The end range port (or ICMP code if protocol is "icmp").
+	ToPort int `pulumi:"toPort"`
 }
 
+// DefaultSecurityGroupEgressInput is an input type that accepts DefaultSecurityGroupEgressArgs and DefaultSecurityGroupEgressOutput values.
+// You can construct a concrete instance of `DefaultSecurityGroupEgressInput` via:
+//
+//          DefaultSecurityGroupEgressArgs{...}
 type DefaultSecurityGroupEgressInput interface {
 	pulumi.Input
 
@@ -1321,16 +1414,24 @@ type DefaultSecurityGroupEgressInput interface {
 }
 
 type DefaultSecurityGroupEgressArgs struct {
+	// List of CIDR blocks.
 	CidrBlocks pulumi.StringArrayInput `pulumi:"cidrBlocks"`
-	// The description of the security group
-	Description    pulumi.StringPtrInput   `pulumi:"description"`
-	FromPort       pulumi.IntInput         `pulumi:"fromPort"`
+	// Description of this egress rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The start port (or ICMP type number if protocol is "icmp")
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
-	PrefixListIds  pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	Protocol       pulumi.StringInput      `pulumi:"protocol"`
+	// List of prefix list IDs (for allowing access to VPC endpoints)
+	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
+	// The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	Self           pulumi.BoolPtrInput     `pulumi:"self"`
-	ToPort         pulumi.IntInput         `pulumi:"toPort"`
+	// If true, the security group itself will be added as a source to this egress rule.
+	Self pulumi.BoolPtrInput `pulumi:"self"`
+	// The end range port (or ICMP code if protocol is "icmp").
+	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
 func (DefaultSecurityGroupEgressArgs) ElementType() reflect.Type {
@@ -1345,6 +1446,10 @@ func (i DefaultSecurityGroupEgressArgs) ToDefaultSecurityGroupEgressOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupEgressOutput)
 }
 
+// DefaultSecurityGroupEgressArrayInput is an input type that accepts DefaultSecurityGroupEgressArray and DefaultSecurityGroupEgressArrayOutput values.
+// You can construct a concrete instance of `DefaultSecurityGroupEgressArrayInput` via:
+//
+//          DefaultSecurityGroupEgressArray{ DefaultSecurityGroupEgressArgs{...} }
 type DefaultSecurityGroupEgressArrayInput interface {
 	pulumi.Input
 
@@ -1380,39 +1485,47 @@ func (o DefaultSecurityGroupEgressOutput) ToDefaultSecurityGroupEgressOutputWith
 	return o
 }
 
+// List of CIDR blocks.
 func (o DefaultSecurityGroupEgressOutput) CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// The description of the security group
+// Description of this egress rule.
 func (o DefaultSecurityGroupEgressOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The start port (or ICMP type number if protocol is "icmp")
 func (o DefaultSecurityGroupEgressOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
+// List of IPv6 CIDR blocks.
 func (o DefaultSecurityGroupEgressOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) []string { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
+// List of prefix list IDs (for allowing access to VPC endpoints)
 func (o DefaultSecurityGroupEgressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
+// The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 func (o DefaultSecurityGroupEgressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 func (o DefaultSecurityGroupEgressOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// If true, the security group itself will be added as a source to this egress rule.
 func (o DefaultSecurityGroupEgressOutput) Self() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) *bool { return v.Self }).(pulumi.BoolPtrOutput)
 }
 
+// The end range port (or ICMP code if protocol is "icmp").
 func (o DefaultSecurityGroupEgressOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -1438,18 +1551,30 @@ func (o DefaultSecurityGroupEgressArrayOutput) Index(i pulumi.IntInput) DefaultS
 }
 
 type DefaultSecurityGroupIngress struct {
+	// List of CIDR blocks.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
-	// The description of the security group
-	Description    *string  `pulumi:"description"`
-	FromPort       int      `pulumi:"fromPort"`
+	// Description of this egress rule.
+	Description *string `pulumi:"description"`
+	// The start port (or ICMP type number if protocol is "icmp")
+	FromPort int `pulumi:"fromPort"`
+	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
-	PrefixListIds  []string `pulumi:"prefixListIds"`
-	Protocol       string   `pulumi:"protocol"`
+	// List of prefix list IDs (for allowing access to VPC endpoints)
+	PrefixListIds []string `pulumi:"prefixListIds"`
+	// The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	Protocol string `pulumi:"protocol"`
+	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	Self           *bool    `pulumi:"self"`
-	ToPort         int      `pulumi:"toPort"`
+	// If true, the security group itself will be added as a source to this egress rule.
+	Self *bool `pulumi:"self"`
+	// The end range port (or ICMP code if protocol is "icmp").
+	ToPort int `pulumi:"toPort"`
 }
 
+// DefaultSecurityGroupIngressInput is an input type that accepts DefaultSecurityGroupIngressArgs and DefaultSecurityGroupIngressOutput values.
+// You can construct a concrete instance of `DefaultSecurityGroupIngressInput` via:
+//
+//          DefaultSecurityGroupIngressArgs{...}
 type DefaultSecurityGroupIngressInput interface {
 	pulumi.Input
 
@@ -1458,16 +1583,24 @@ type DefaultSecurityGroupIngressInput interface {
 }
 
 type DefaultSecurityGroupIngressArgs struct {
+	// List of CIDR blocks.
 	CidrBlocks pulumi.StringArrayInput `pulumi:"cidrBlocks"`
-	// The description of the security group
-	Description    pulumi.StringPtrInput   `pulumi:"description"`
-	FromPort       pulumi.IntInput         `pulumi:"fromPort"`
+	// Description of this egress rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The start port (or ICMP type number if protocol is "icmp")
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
-	PrefixListIds  pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	Protocol       pulumi.StringInput      `pulumi:"protocol"`
+	// List of prefix list IDs (for allowing access to VPC endpoints)
+	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
+	// The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	Self           pulumi.BoolPtrInput     `pulumi:"self"`
-	ToPort         pulumi.IntInput         `pulumi:"toPort"`
+	// If true, the security group itself will be added as a source to this egress rule.
+	Self pulumi.BoolPtrInput `pulumi:"self"`
+	// The end range port (or ICMP code if protocol is "icmp").
+	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
 func (DefaultSecurityGroupIngressArgs) ElementType() reflect.Type {
@@ -1482,6 +1615,10 @@ func (i DefaultSecurityGroupIngressArgs) ToDefaultSecurityGroupIngressOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupIngressOutput)
 }
 
+// DefaultSecurityGroupIngressArrayInput is an input type that accepts DefaultSecurityGroupIngressArray and DefaultSecurityGroupIngressArrayOutput values.
+// You can construct a concrete instance of `DefaultSecurityGroupIngressArrayInput` via:
+//
+//          DefaultSecurityGroupIngressArray{ DefaultSecurityGroupIngressArgs{...} }
 type DefaultSecurityGroupIngressArrayInput interface {
 	pulumi.Input
 
@@ -1517,39 +1654,47 @@ func (o DefaultSecurityGroupIngressOutput) ToDefaultSecurityGroupIngressOutputWi
 	return o
 }
 
+// List of CIDR blocks.
 func (o DefaultSecurityGroupIngressOutput) CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// The description of the security group
+// Description of this egress rule.
 func (o DefaultSecurityGroupIngressOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The start port (or ICMP type number if protocol is "icmp")
 func (o DefaultSecurityGroupIngressOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
+// List of IPv6 CIDR blocks.
 func (o DefaultSecurityGroupIngressOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) []string { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
+// List of prefix list IDs (for allowing access to VPC endpoints)
 func (o DefaultSecurityGroupIngressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
+// The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 func (o DefaultSecurityGroupIngressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 func (o DefaultSecurityGroupIngressOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// If true, the security group itself will be added as a source to this egress rule.
 func (o DefaultSecurityGroupIngressOutput) Self() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) *bool { return v.Self }).(pulumi.BoolPtrOutput)
 }
 
+// The end range port (or ICMP code if protocol is "icmp").
 func (o DefaultSecurityGroupIngressOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -1581,6 +1726,10 @@ type FleetLaunchTemplateConfig struct {
 	Overrides []FleetLaunchTemplateConfigOverride `pulumi:"overrides"`
 }
 
+// FleetLaunchTemplateConfigInput is an input type that accepts FleetLaunchTemplateConfigArgs and FleetLaunchTemplateConfigOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigInput` via:
+//
+//          FleetLaunchTemplateConfigArgs{...}
 type FleetLaunchTemplateConfigInput interface {
 	pulumi.Input
 
@@ -1615,6 +1764,14 @@ func (i FleetLaunchTemplateConfigArgs) ToFleetLaunchTemplateConfigPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOutput).ToFleetLaunchTemplateConfigPtrOutputWithContext(ctx)
 }
 
+// FleetLaunchTemplateConfigPtrInput is an input type that accepts FleetLaunchTemplateConfigArgs, FleetLaunchTemplateConfigPtr and FleetLaunchTemplateConfigPtrOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigPtrInput` via:
+//
+//          FleetLaunchTemplateConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type FleetLaunchTemplateConfigPtrInput interface {
 	pulumi.Input
 
@@ -1695,15 +1852,23 @@ func (o FleetLaunchTemplateConfigPtrOutput) Elem() FleetLaunchTemplateConfigOutp
 }
 
 // Nested argument containing EC2 Launch Template to use. Defined below.
-func (o FleetLaunchTemplateConfigPtrOutput) LaunchTemplateSpecification() FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput {
-	return o.ApplyT(func(v FleetLaunchTemplateConfig) FleetLaunchTemplateConfigLaunchTemplateSpecification {
-		return v.LaunchTemplateSpecification
-	}).(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput)
+func (o FleetLaunchTemplateConfigPtrOutput) LaunchTemplateSpecification() FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfig) *FleetLaunchTemplateConfigLaunchTemplateSpecification {
+		if v == nil {
+			return nil
+		}
+		return &v.LaunchTemplateSpecification
+	}).(FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput)
 }
 
 // Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
 func (o FleetLaunchTemplateConfigPtrOutput) Overrides() FleetLaunchTemplateConfigOverrideArrayOutput {
-	return o.ApplyT(func(v FleetLaunchTemplateConfig) []FleetLaunchTemplateConfigOverride { return v.Overrides }).(FleetLaunchTemplateConfigOverrideArrayOutput)
+	return o.ApplyT(func(v *FleetLaunchTemplateConfig) []FleetLaunchTemplateConfigOverride {
+		if v == nil {
+			return nil
+		}
+		return v.Overrides
+	}).(FleetLaunchTemplateConfigOverrideArrayOutput)
 }
 
 type FleetLaunchTemplateConfigLaunchTemplateSpecification struct {
@@ -1715,6 +1880,10 @@ type FleetLaunchTemplateConfigLaunchTemplateSpecification struct {
 	Version string `pulumi:"version"`
 }
 
+// FleetLaunchTemplateConfigLaunchTemplateSpecificationInput is an input type that accepts FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs and FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigLaunchTemplateSpecificationInput` via:
+//
+//          FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{...}
 type FleetLaunchTemplateConfigLaunchTemplateSpecificationInput interface {
 	pulumi.Input
 
@@ -1743,6 +1912,47 @@ func (i FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs) ToFleetLaunchT
 	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput)
 }
 
+func (i FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput() FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
+	return i.ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput).ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutputWithContext(ctx)
+}
+
+// FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrInput is an input type that accepts FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs, FleetLaunchTemplateConfigLaunchTemplateSpecificationPtr and FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrInput` via:
+//
+//          FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput() FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput
+	ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutputWithContext(context.Context) FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput
+}
+
+type fleetLaunchTemplateConfigLaunchTemplateSpecificationPtrType FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs
+
+func FleetLaunchTemplateConfigLaunchTemplateSpecificationPtr(v *FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs) FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrInput {
+	return (*fleetLaunchTemplateConfigLaunchTemplateSpecificationPtrType)(v)
+}
+
+func (*fleetLaunchTemplateConfigLaunchTemplateSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (i *fleetLaunchTemplateConfigLaunchTemplateSpecificationPtrType) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput() FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
+	return i.ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetLaunchTemplateConfigLaunchTemplateSpecificationPtrType) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput)
+}
+
 type FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
 
 func (FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
@@ -1755,6 +1965,16 @@ func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) ToFleetLaunc
 
 func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput {
 	return o
+}
+
+func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput() FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
+	return o.ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigLaunchTemplateSpecification) *FleetLaunchTemplateConfigLaunchTemplateSpecification {
+		return &v
+	}).(FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput)
 }
 
 // ID of the launch template.
@@ -1772,6 +1992,56 @@ func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) Version() pu
 	return o.ApplyT(func(v FleetLaunchTemplateConfigLaunchTemplateSpecification) string { return v.Version }).(pulumi.StringOutput)
 }
 
+type FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput() FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) Elem() FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigLaunchTemplateSpecification) FleetLaunchTemplateConfigLaunchTemplateSpecification {
+		return *v
+	}).(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput)
+}
+
+// ID of the launch template.
+func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the launch template.
+func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version number of the launch template.
+func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type FleetLaunchTemplateConfigOverride struct {
 	// Availability Zone in which to launch the instances.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
@@ -1787,6 +2057,10 @@ type FleetLaunchTemplateConfigOverride struct {
 	WeightedCapacity *float64 `pulumi:"weightedCapacity"`
 }
 
+// FleetLaunchTemplateConfigOverrideInput is an input type that accepts FleetLaunchTemplateConfigOverrideArgs and FleetLaunchTemplateConfigOverrideOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideArgs{...}
 type FleetLaunchTemplateConfigOverrideInput interface {
 	pulumi.Input
 
@@ -1821,6 +2095,10 @@ func (i FleetLaunchTemplateConfigOverrideArgs) ToFleetLaunchTemplateConfigOverri
 	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideOutput)
 }
 
+// FleetLaunchTemplateConfigOverrideArrayInput is an input type that accepts FleetLaunchTemplateConfigOverrideArray and FleetLaunchTemplateConfigOverrideArrayOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideArrayInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideArray{ FleetLaunchTemplateConfigOverrideArgs{...} }
 type FleetLaunchTemplateConfigOverrideArrayInput interface {
 	pulumi.Input
 
@@ -1911,6 +2189,10 @@ type FleetOnDemandOptions struct {
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
 }
 
+// FleetOnDemandOptionsInput is an input type that accepts FleetOnDemandOptionsArgs and FleetOnDemandOptionsOutput values.
+// You can construct a concrete instance of `FleetOnDemandOptionsInput` via:
+//
+//          FleetOnDemandOptionsArgs{...}
 type FleetOnDemandOptionsInput interface {
 	pulumi.Input
 
@@ -1943,6 +2225,14 @@ func (i FleetOnDemandOptionsArgs) ToFleetOnDemandOptionsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FleetOnDemandOptionsOutput).ToFleetOnDemandOptionsPtrOutputWithContext(ctx)
 }
 
+// FleetOnDemandOptionsPtrInput is an input type that accepts FleetOnDemandOptionsArgs, FleetOnDemandOptionsPtr and FleetOnDemandOptionsPtrOutput values.
+// You can construct a concrete instance of `FleetOnDemandOptionsPtrInput` via:
+//
+//          FleetOnDemandOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type FleetOnDemandOptionsPtrInput interface {
 	pulumi.Input
 
@@ -2017,7 +2307,12 @@ func (o FleetOnDemandOptionsPtrOutput) Elem() FleetOnDemandOptionsOutput {
 
 // How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
 func (o FleetOnDemandOptionsPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FleetOnDemandOptions) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FleetOnDemandOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
 }
 
 type FleetSpotOptions struct {
@@ -2029,6 +2324,10 @@ type FleetSpotOptions struct {
 	InstancePoolsToUseCount *int `pulumi:"instancePoolsToUseCount"`
 }
 
+// FleetSpotOptionsInput is an input type that accepts FleetSpotOptionsArgs and FleetSpotOptionsOutput values.
+// You can construct a concrete instance of `FleetSpotOptionsInput` via:
+//
+//          FleetSpotOptionsArgs{...}
 type FleetSpotOptionsInput interface {
 	pulumi.Input
 
@@ -2065,6 +2364,14 @@ func (i FleetSpotOptionsArgs) ToFleetSpotOptionsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(FleetSpotOptionsOutput).ToFleetSpotOptionsPtrOutputWithContext(ctx)
 }
 
+// FleetSpotOptionsPtrInput is an input type that accepts FleetSpotOptionsArgs, FleetSpotOptionsPtr and FleetSpotOptionsPtrOutput values.
+// You can construct a concrete instance of `FleetSpotOptionsPtrInput` via:
+//
+//          FleetSpotOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type FleetSpotOptionsPtrInput interface {
 	pulumi.Input
 
@@ -2149,17 +2456,32 @@ func (o FleetSpotOptionsPtrOutput) Elem() FleetSpotOptionsOutput {
 
 // How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
 func (o FleetSpotOptionsPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FleetSpotOptions) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FleetSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
 }
 
 // Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
 func (o FleetSpotOptionsPtrOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FleetSpotOptions) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FleetSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceInterruptionBehavior
+	}).(pulumi.StringPtrOutput)
 }
 
 // Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
 func (o FleetSpotOptionsPtrOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FleetSpotOptions) *int { return v.InstancePoolsToUseCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *FleetSpotOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstancePoolsToUseCount
+	}).(pulumi.IntPtrOutput)
 }
 
 type FleetTargetCapacitySpecification struct {
@@ -2173,6 +2495,10 @@ type FleetTargetCapacitySpecification struct {
 	TotalTargetCapacity int `pulumi:"totalTargetCapacity"`
 }
 
+// FleetTargetCapacitySpecificationInput is an input type that accepts FleetTargetCapacitySpecificationArgs and FleetTargetCapacitySpecificationOutput values.
+// You can construct a concrete instance of `FleetTargetCapacitySpecificationInput` via:
+//
+//          FleetTargetCapacitySpecificationArgs{...}
 type FleetTargetCapacitySpecificationInput interface {
 	pulumi.Input
 
@@ -2211,6 +2537,14 @@ func (i FleetTargetCapacitySpecificationArgs) ToFleetTargetCapacitySpecification
 	return pulumi.ToOutputWithContext(ctx, i).(FleetTargetCapacitySpecificationOutput).ToFleetTargetCapacitySpecificationPtrOutputWithContext(ctx)
 }
 
+// FleetTargetCapacitySpecificationPtrInput is an input type that accepts FleetTargetCapacitySpecificationArgs, FleetTargetCapacitySpecificationPtr and FleetTargetCapacitySpecificationPtrOutput values.
+// You can construct a concrete instance of `FleetTargetCapacitySpecificationPtrInput` via:
+//
+//          FleetTargetCapacitySpecificationArgs{...}
+//
+//  or:
+//
+//          nil
 type FleetTargetCapacitySpecificationPtrInput interface {
 	pulumi.Input
 
@@ -2299,23 +2633,43 @@ func (o FleetTargetCapacitySpecificationPtrOutput) Elem() FleetTargetCapacitySpe
 }
 
 // Default target capacity type. Valid values: `on-demand`, `spot`.
-func (o FleetTargetCapacitySpecificationPtrOutput) DefaultTargetCapacityType() pulumi.StringOutput {
-	return o.ApplyT(func(v FleetTargetCapacitySpecification) string { return v.DefaultTargetCapacityType }).(pulumi.StringOutput)
+func (o FleetTargetCapacitySpecificationPtrOutput) DefaultTargetCapacityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetTargetCapacitySpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultTargetCapacityType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of On-Demand units to request.
 func (o FleetTargetCapacitySpecificationPtrOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FleetTargetCapacitySpecification) *int { return v.OnDemandTargetCapacity }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *FleetTargetCapacitySpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandTargetCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // The number of Spot units to request.
 func (o FleetTargetCapacitySpecificationPtrOutput) SpotTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FleetTargetCapacitySpecification) *int { return v.SpotTargetCapacity }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *FleetTargetCapacitySpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpotTargetCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // The number of units to request, filled using `defaultTargetCapacityType`.
-func (o FleetTargetCapacitySpecificationPtrOutput) TotalTargetCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v FleetTargetCapacitySpecification) int { return v.TotalTargetCapacity }).(pulumi.IntOutput)
+func (o FleetTargetCapacitySpecificationPtrOutput) TotalTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetTargetCapacitySpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalTargetCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
 type InstanceCreditSpecification struct {
@@ -2323,6 +2677,10 @@ type InstanceCreditSpecification struct {
 	CpuCredits *string `pulumi:"cpuCredits"`
 }
 
+// InstanceCreditSpecificationInput is an input type that accepts InstanceCreditSpecificationArgs and InstanceCreditSpecificationOutput values.
+// You can construct a concrete instance of `InstanceCreditSpecificationInput` via:
+//
+//          InstanceCreditSpecificationArgs{...}
 type InstanceCreditSpecificationInput interface {
 	pulumi.Input
 
@@ -2355,6 +2713,14 @@ func (i InstanceCreditSpecificationArgs) ToInstanceCreditSpecificationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceCreditSpecificationOutput).ToInstanceCreditSpecificationPtrOutputWithContext(ctx)
 }
 
+// InstanceCreditSpecificationPtrInput is an input type that accepts InstanceCreditSpecificationArgs, InstanceCreditSpecificationPtr and InstanceCreditSpecificationPtrOutput values.
+// You can construct a concrete instance of `InstanceCreditSpecificationPtrInput` via:
+//
+//          InstanceCreditSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
 type InstanceCreditSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -2429,7 +2795,12 @@ func (o InstanceCreditSpecificationPtrOutput) Elem() InstanceCreditSpecification
 
 // The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 func (o InstanceCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *InstanceCreditSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCredits
+	}).(pulumi.StringPtrOutput)
 }
 
 type InstanceEbsBlockDevice struct {
@@ -2444,7 +2815,7 @@ type InstanceEbsBlockDevice struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -2453,11 +2824,15 @@ type InstanceEbsBlockDevice struct {
 	VolumeId   *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+	// or `"io2"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
+// InstanceEbsBlockDeviceInput is an input type that accepts InstanceEbsBlockDeviceArgs and InstanceEbsBlockDeviceOutput values.
+// You can construct a concrete instance of `InstanceEbsBlockDeviceInput` via:
+//
+//          InstanceEbsBlockDeviceArgs{...}
 type InstanceEbsBlockDeviceInput interface {
 	pulumi.Input
 
@@ -2477,7 +2852,7 @@ type InstanceEbsBlockDeviceArgs struct {
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
@@ -2486,8 +2861,8 @@ type InstanceEbsBlockDeviceArgs struct {
 	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+	// or `"io2"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -2503,6 +2878,10 @@ func (i InstanceEbsBlockDeviceArgs) ToInstanceEbsBlockDeviceOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceEbsBlockDeviceOutput)
 }
 
+// InstanceEbsBlockDeviceArrayInput is an input type that accepts InstanceEbsBlockDeviceArray and InstanceEbsBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `InstanceEbsBlockDeviceArrayInput` via:
+//
+//          InstanceEbsBlockDeviceArray{ InstanceEbsBlockDeviceArgs{...} }
 type InstanceEbsBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -2558,7 +2937,7 @@ func (o InstanceEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1"`.
+// This must be set with a `volumeType` of `"io1/io2"`.
 func (o InstanceEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -2582,8 +2961,8 @@ func (o InstanceEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+// or `"io2"`. (Default: `"gp2"`).
 func (o InstanceEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -2619,6 +2998,10 @@ type InstanceEphemeralBlockDevice struct {
 	VirtualName *string `pulumi:"virtualName"`
 }
 
+// InstanceEphemeralBlockDeviceInput is an input type that accepts InstanceEphemeralBlockDeviceArgs and InstanceEphemeralBlockDeviceOutput values.
+// You can construct a concrete instance of `InstanceEphemeralBlockDeviceInput` via:
+//
+//          InstanceEphemeralBlockDeviceArgs{...}
 type InstanceEphemeralBlockDeviceInput interface {
 	pulumi.Input
 
@@ -2649,6 +3032,10 @@ func (i InstanceEphemeralBlockDeviceArgs) ToInstanceEphemeralBlockDeviceOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceEphemeralBlockDeviceOutput)
 }
 
+// InstanceEphemeralBlockDeviceArrayInput is an input type that accepts InstanceEphemeralBlockDeviceArray and InstanceEphemeralBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `InstanceEphemeralBlockDeviceArrayInput` via:
+//
+//          InstanceEphemeralBlockDeviceArray{ InstanceEphemeralBlockDeviceArgs{...} }
 type InstanceEphemeralBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -2730,6 +3117,10 @@ type InstanceMetadataOptions struct {
 	HttpTokens *string `pulumi:"httpTokens"`
 }
 
+// InstanceMetadataOptionsInput is an input type that accepts InstanceMetadataOptionsArgs and InstanceMetadataOptionsOutput values.
+// You can construct a concrete instance of `InstanceMetadataOptionsInput` via:
+//
+//          InstanceMetadataOptionsArgs{...}
 type InstanceMetadataOptionsInput interface {
 	pulumi.Input
 
@@ -2766,6 +3157,14 @@ func (i InstanceMetadataOptionsArgs) ToInstanceMetadataOptionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceMetadataOptionsOutput).ToInstanceMetadataOptionsPtrOutputWithContext(ctx)
 }
 
+// InstanceMetadataOptionsPtrInput is an input type that accepts InstanceMetadataOptionsArgs, InstanceMetadataOptionsPtr and InstanceMetadataOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceMetadataOptionsPtrInput` via:
+//
+//          InstanceMetadataOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type InstanceMetadataOptionsPtrInput interface {
 	pulumi.Input
 
@@ -2850,17 +3249,32 @@ func (o InstanceMetadataOptionsPtrOutput) Elem() InstanceMetadataOptionsOutput {
 
 // Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
 func (o InstanceMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *InstanceMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 // The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 func (o InstanceMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InstanceMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *InstanceMetadataOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPutResponseHopLimit
+	}).(pulumi.IntPtrOutput)
 }
 
 // Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 func (o InstanceMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *InstanceMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpTokens
+	}).(pulumi.StringPtrOutput)
 }
 
 type InstanceNetworkInterface struct {
@@ -2872,6 +3286,10 @@ type InstanceNetworkInterface struct {
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
+// InstanceNetworkInterfaceInput is an input type that accepts InstanceNetworkInterfaceArgs and InstanceNetworkInterfaceOutput values.
+// You can construct a concrete instance of `InstanceNetworkInterfaceInput` via:
+//
+//          InstanceNetworkInterfaceArgs{...}
 type InstanceNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -2900,6 +3318,10 @@ func (i InstanceNetworkInterfaceArgs) ToInstanceNetworkInterfaceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceNetworkInterfaceOutput)
 }
 
+// InstanceNetworkInterfaceArrayInput is an input type that accepts InstanceNetworkInterfaceArray and InstanceNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `InstanceNetworkInterfaceArrayInput` via:
+//
+//          InstanceNetworkInterfaceArray{ InstanceNetworkInterfaceArgs{...} }
 type InstanceNetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -2974,11 +3396,13 @@ type InstanceRootBlockDevice struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// The name of the device to mount.
+	DeviceName *string `pulumi:"deviceName"`
 	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This is only valid for `volumeType` of `"io1"`, and must be specified if
+	// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 	// using that type
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
@@ -2986,10 +3410,14 @@ type InstanceRootBlockDevice struct {
 	VolumeId *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
+// InstanceRootBlockDeviceInput is an input type that accepts InstanceRootBlockDeviceArgs and InstanceRootBlockDeviceOutput values.
+// You can construct a concrete instance of `InstanceRootBlockDeviceInput` via:
+//
+//          InstanceRootBlockDeviceArgs{...}
 type InstanceRootBlockDeviceInput interface {
 	pulumi.Input
 
@@ -3001,11 +3429,13 @@ type InstanceRootBlockDeviceArgs struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// The name of the device to mount.
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
 	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This is only valid for `volumeType` of `"io1"`, and must be specified if
+	// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 	// using that type
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
@@ -3013,7 +3443,7 @@ type InstanceRootBlockDeviceArgs struct {
 	VolumeId pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -3037,6 +3467,14 @@ func (i InstanceRootBlockDeviceArgs) ToInstanceRootBlockDevicePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceRootBlockDeviceOutput).ToInstanceRootBlockDevicePtrOutputWithContext(ctx)
 }
 
+// InstanceRootBlockDevicePtrInput is an input type that accepts InstanceRootBlockDeviceArgs, InstanceRootBlockDevicePtr and InstanceRootBlockDevicePtrOutput values.
+// You can construct a concrete instance of `InstanceRootBlockDevicePtrInput` via:
+//
+//          InstanceRootBlockDeviceArgs{...}
+//
+//  or:
+//
+//          nil
 type InstanceRootBlockDevicePtrInput interface {
 	pulumi.Input
 
@@ -3092,6 +3530,11 @@ func (o InstanceRootBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the device to mount.
+func (o InstanceRootBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
 // Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 func (o InstanceRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
@@ -3099,7 +3542,7 @@ func (o InstanceRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This is only valid for `volumeType` of `"io1"`, and must be specified if
+// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 // using that type
 func (o InstanceRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
@@ -3119,7 +3562,7 @@ func (o InstanceRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o InstanceRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -3145,39 +3588,84 @@ func (o InstanceRootBlockDevicePtrOutput) Elem() InstanceRootBlockDeviceOutput {
 // Whether the volume should be destroyed
 // on instance termination (Default: `true`).
 func (o InstanceRootBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *InstanceRootBlockDevice) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteOnTermination
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the device to mount.
+func (o InstanceRootBlockDevicePtrOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceRootBlockDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 func (o InstanceRootBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *InstanceRootBlockDevice) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This is only valid for `volumeType` of `"io1"`, and must be specified if
+// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 // using that type
 func (o InstanceRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *InstanceRootBlockDevice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 func (o InstanceRootBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *InstanceRootBlockDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o InstanceRootBlockDevicePtrOutput) VolumeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *InstanceRootBlockDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The size of the volume in gibibytes (GiB).
 func (o InstanceRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *InstanceRootBlockDevice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o InstanceRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *InstanceRootBlockDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchConfigurationEbsBlockDevice struct {
@@ -3191,6 +3679,10 @@ type LaunchConfigurationEbsBlockDevice struct {
 	VolumeType          *string `pulumi:"volumeType"`
 }
 
+// LaunchConfigurationEbsBlockDeviceInput is an input type that accepts LaunchConfigurationEbsBlockDeviceArgs and LaunchConfigurationEbsBlockDeviceOutput values.
+// You can construct a concrete instance of `LaunchConfigurationEbsBlockDeviceInput` via:
+//
+//          LaunchConfigurationEbsBlockDeviceArgs{...}
 type LaunchConfigurationEbsBlockDeviceInput interface {
 	pulumi.Input
 
@@ -3221,6 +3713,10 @@ func (i LaunchConfigurationEbsBlockDeviceArgs) ToLaunchConfigurationEbsBlockDevi
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationEbsBlockDeviceOutput)
 }
 
+// LaunchConfigurationEbsBlockDeviceArrayInput is an input type that accepts LaunchConfigurationEbsBlockDeviceArray and LaunchConfigurationEbsBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `LaunchConfigurationEbsBlockDeviceArrayInput` via:
+//
+//          LaunchConfigurationEbsBlockDeviceArray{ LaunchConfigurationEbsBlockDeviceArgs{...} }
 type LaunchConfigurationEbsBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -3313,6 +3809,10 @@ type LaunchConfigurationEphemeralBlockDevice struct {
 	VirtualName string `pulumi:"virtualName"`
 }
 
+// LaunchConfigurationEphemeralBlockDeviceInput is an input type that accepts LaunchConfigurationEphemeralBlockDeviceArgs and LaunchConfigurationEphemeralBlockDeviceOutput values.
+// You can construct a concrete instance of `LaunchConfigurationEphemeralBlockDeviceInput` via:
+//
+//          LaunchConfigurationEphemeralBlockDeviceArgs{...}
 type LaunchConfigurationEphemeralBlockDeviceInput interface {
 	pulumi.Input
 
@@ -3337,6 +3837,10 @@ func (i LaunchConfigurationEphemeralBlockDeviceArgs) ToLaunchConfigurationEpheme
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationEphemeralBlockDeviceOutput)
 }
 
+// LaunchConfigurationEphemeralBlockDeviceArrayInput is an input type that accepts LaunchConfigurationEphemeralBlockDeviceArray and LaunchConfigurationEphemeralBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `LaunchConfigurationEphemeralBlockDeviceArrayInput` via:
+//
+//          LaunchConfigurationEphemeralBlockDeviceArray{ LaunchConfigurationEphemeralBlockDeviceArgs{...} }
 type LaunchConfigurationEphemeralBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -3408,6 +3912,10 @@ type LaunchConfigurationRootBlockDevice struct {
 	VolumeType          *string `pulumi:"volumeType"`
 }
 
+// LaunchConfigurationRootBlockDeviceInput is an input type that accepts LaunchConfigurationRootBlockDeviceArgs and LaunchConfigurationRootBlockDeviceOutput values.
+// You can construct a concrete instance of `LaunchConfigurationRootBlockDeviceInput` via:
+//
+//          LaunchConfigurationRootBlockDeviceArgs{...}
 type LaunchConfigurationRootBlockDeviceInput interface {
 	pulumi.Input
 
@@ -3443,6 +3951,14 @@ func (i LaunchConfigurationRootBlockDeviceArgs) ToLaunchConfigurationRootBlockDe
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationRootBlockDeviceOutput).ToLaunchConfigurationRootBlockDevicePtrOutputWithContext(ctx)
 }
 
+// LaunchConfigurationRootBlockDevicePtrInput is an input type that accepts LaunchConfigurationRootBlockDeviceArgs, LaunchConfigurationRootBlockDevicePtr and LaunchConfigurationRootBlockDevicePtrOutput values.
+// You can construct a concrete instance of `LaunchConfigurationRootBlockDevicePtrInput` via:
+//
+//          LaunchConfigurationRootBlockDeviceArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchConfigurationRootBlockDevicePtrInput interface {
 	pulumi.Input
 
@@ -3530,23 +4046,48 @@ func (o LaunchConfigurationRootBlockDevicePtrOutput) Elem() LaunchConfigurationR
 }
 
 func (o LaunchConfigurationRootBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LaunchConfigurationRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *LaunchConfigurationRootBlockDevice) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteOnTermination
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o LaunchConfigurationRootBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LaunchConfigurationRootBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *LaunchConfigurationRootBlockDevice) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o LaunchConfigurationRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LaunchConfigurationRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *LaunchConfigurationRootBlockDevice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o LaunchConfigurationRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LaunchConfigurationRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *LaunchConfigurationRootBlockDevice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o LaunchConfigurationRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchConfigurationRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchConfigurationRootBlockDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateBlockDeviceMapping struct {
@@ -3562,6 +4103,10 @@ type LaunchTemplateBlockDeviceMapping struct {
 	VirtualName *string `pulumi:"virtualName"`
 }
 
+// LaunchTemplateBlockDeviceMappingInput is an input type that accepts LaunchTemplateBlockDeviceMappingArgs and LaunchTemplateBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `LaunchTemplateBlockDeviceMappingInput` via:
+//
+//          LaunchTemplateBlockDeviceMappingArgs{...}
 type LaunchTemplateBlockDeviceMappingInput interface {
 	pulumi.Input
 
@@ -3594,6 +4139,10 @@ func (i LaunchTemplateBlockDeviceMappingArgs) ToLaunchTemplateBlockDeviceMapping
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBlockDeviceMappingOutput)
 }
 
+// LaunchTemplateBlockDeviceMappingArrayInput is an input type that accepts LaunchTemplateBlockDeviceMappingArray and LaunchTemplateBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateBlockDeviceMappingArrayInput` via:
+//
+//          LaunchTemplateBlockDeviceMappingArray{ LaunchTemplateBlockDeviceMappingArgs{...} }
 type LaunchTemplateBlockDeviceMappingArrayInput interface {
 	pulumi.Input
 
@@ -3672,26 +4221,30 @@ func (o LaunchTemplateBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) La
 }
 
 type LaunchTemplateBlockDeviceMappingEbs struct {
-	// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+	// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
 	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
 	// on the volume (Default: `false`). Cannot be used with `snapshotId`.
 	Encrypted *string `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops *int `pulumi:"iops"`
-	// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
 	// `encrypted` must be set to `true` when this is set.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The size of the volume in gigabytes.
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
+// LaunchTemplateBlockDeviceMappingEbsInput is an input type that accepts LaunchTemplateBlockDeviceMappingEbsArgs and LaunchTemplateBlockDeviceMappingEbsOutput values.
+// You can construct a concrete instance of `LaunchTemplateBlockDeviceMappingEbsInput` via:
+//
+//          LaunchTemplateBlockDeviceMappingEbsArgs{...}
 type LaunchTemplateBlockDeviceMappingEbsInput interface {
 	pulumi.Input
 
@@ -3700,23 +4253,23 @@ type LaunchTemplateBlockDeviceMappingEbsInput interface {
 }
 
 type LaunchTemplateBlockDeviceMappingEbsArgs struct {
-	// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+	// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
 	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
 	// on the volume (Default: `false`). Cannot be used with `snapshotId`.
 	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
 	// `encrypted` must be set to `true` when this is set.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// The size of the volume in gigabytes.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -3740,6 +4293,14 @@ func (i LaunchTemplateBlockDeviceMappingEbsArgs) ToLaunchTemplateBlockDeviceMapp
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBlockDeviceMappingEbsOutput).ToLaunchTemplateBlockDeviceMappingEbsPtrOutputWithContext(ctx)
 }
 
+// LaunchTemplateBlockDeviceMappingEbsPtrInput is an input type that accepts LaunchTemplateBlockDeviceMappingEbsArgs, LaunchTemplateBlockDeviceMappingEbsPtr and LaunchTemplateBlockDeviceMappingEbsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateBlockDeviceMappingEbsPtrInput` via:
+//
+//          LaunchTemplateBlockDeviceMappingEbsArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchTemplateBlockDeviceMappingEbsPtrInput interface {
 	pulumi.Input
 
@@ -3789,7 +4350,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) ToLaunchTemplateBlockDeviceMa
 	}).(LaunchTemplateBlockDeviceMappingEbsPtrOutput)
 }
 
-// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.DeleteOnTermination }).(pulumi.StringPtrOutput)
 }
@@ -3802,12 +4363,12 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) Encrypted() pulumi.StringPtrO
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1"`.
+// This must be set with a `volumeType` of `"io1/io2"`.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
 // `encrypted` must be set to `true` when this is set.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -3823,7 +4384,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) VolumeSize() pulumi.IntPtrOut
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -3846,43 +4407,78 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Elem() LaunchTemplateBlock
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) LaunchTemplateBlockDeviceMappingEbs { return *v }).(LaunchTemplateBlockDeviceMappingEbsOutput)
 }
 
-// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) DeleteOnTermination() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.DeleteOnTermination }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteOnTermination
+	}).(pulumi.StringPtrOutput)
 }
 
 // Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
 // on the volume (Default: `false`). Cannot be used with `snapshotId`.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Encrypted() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.StringPtrOutput)
 }
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1"`.
+// This must be set with a `volumeType` of `"io1/io2"`.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
 }
 
-// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
 // `encrypted` must be set to `true` when this is set.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Snapshot ID to mount.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The size of the volume in gigabytes.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateCapacityReservationSpecification struct {
@@ -3892,6 +4488,10 @@ type LaunchTemplateCapacityReservationSpecification struct {
 	CapacityReservationTarget *LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget `pulumi:"capacityReservationTarget"`
 }
 
+// LaunchTemplateCapacityReservationSpecificationInput is an input type that accepts LaunchTemplateCapacityReservationSpecificationArgs and LaunchTemplateCapacityReservationSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateCapacityReservationSpecificationInput` via:
+//
+//          LaunchTemplateCapacityReservationSpecificationArgs{...}
 type LaunchTemplateCapacityReservationSpecificationInput interface {
 	pulumi.Input
 
@@ -3926,6 +4526,14 @@ func (i LaunchTemplateCapacityReservationSpecificationArgs) ToLaunchTemplateCapa
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationSpecificationOutput).ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(ctx)
 }
 
+// LaunchTemplateCapacityReservationSpecificationPtrInput is an input type that accepts LaunchTemplateCapacityReservationSpecificationArgs, LaunchTemplateCapacityReservationSpecificationPtr and LaunchTemplateCapacityReservationSpecificationPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateCapacityReservationSpecificationPtrInput` via:
+//
+//          LaunchTemplateCapacityReservationSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchTemplateCapacityReservationSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -3977,9 +4585,7 @@ func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCa
 
 // Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
 func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *string {
-		return v.CapacityReservationPreference
-	}).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *string { return v.CapacityReservationPreference }).(pulumi.StringPtrOutput)
 }
 
 // Used to target a specific Capacity Reservation:
@@ -4011,14 +4617,20 @@ func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) Elem() LaunchTe
 
 // Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
 func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *string {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecification) *string {
+		if v == nil {
+			return nil
+		}
 		return v.CapacityReservationPreference
 	}).(pulumi.StringPtrOutput)
 }
 
 // Used to target a specific Capacity Reservation:
 func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReservationTarget() LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
+		if v == nil {
+			return nil
+		}
 		return v.CapacityReservationTarget
 	}).(LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
 }
@@ -4028,6 +4640,10 @@ type LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget str
 	CapacityReservationId *string `pulumi:"capacityReservationId"`
 }
 
+// LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetInput is an input type that accepts LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs and LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput values.
+// You can construct a concrete instance of `LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetInput` via:
+//
+//          LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs{...}
 type LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetInput interface {
 	pulumi.Input
 
@@ -4060,6 +4676,14 @@ func (i LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetA
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput).ToLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx)
 }
 
+// LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrInput is an input type that accepts LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs, LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtr and LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrInput` via:
+//
+//          LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrInput interface {
 	pulumi.Input
 
@@ -4138,7 +4762,10 @@ func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetP
 
 // The ID of the Capacity Reservation to target.
 func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget) *string {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
 		return v.CapacityReservationId
 	}).(pulumi.StringPtrOutput)
 }
@@ -4151,6 +4778,10 @@ type LaunchTemplateCpuOptions struct {
 	ThreadsPerCore *int `pulumi:"threadsPerCore"`
 }
 
+// LaunchTemplateCpuOptionsInput is an input type that accepts LaunchTemplateCpuOptionsArgs and LaunchTemplateCpuOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateCpuOptionsInput` via:
+//
+//          LaunchTemplateCpuOptionsArgs{...}
 type LaunchTemplateCpuOptionsInput interface {
 	pulumi.Input
 
@@ -4186,6 +4817,14 @@ func (i LaunchTemplateCpuOptionsArgs) ToLaunchTemplateCpuOptionsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOptionsOutput).ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx)
 }
 
+// LaunchTemplateCpuOptionsPtrInput is an input type that accepts LaunchTemplateCpuOptionsArgs, LaunchTemplateCpuOptionsPtr and LaunchTemplateCpuOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateCpuOptionsPtrInput` via:
+//
+//          LaunchTemplateCpuOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchTemplateCpuOptionsPtrInput interface {
 	pulumi.Input
 
@@ -4266,13 +4905,23 @@ func (o LaunchTemplateCpuOptionsPtrOutput) Elem() LaunchTemplateCpuOptionsOutput
 
 // The number of CPU cores for the instance.
 func (o LaunchTemplateCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CoreCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
 // Otherwise, specify the default value of 2.
 func (o LaunchTemplateCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThreadsPerCore
+	}).(pulumi.IntPtrOutput)
 }
 
 type LaunchTemplateCreditSpecification struct {
@@ -4280,6 +4929,10 @@ type LaunchTemplateCreditSpecification struct {
 	CpuCredits *string `pulumi:"cpuCredits"`
 }
 
+// LaunchTemplateCreditSpecificationInput is an input type that accepts LaunchTemplateCreditSpecificationArgs and LaunchTemplateCreditSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateCreditSpecificationInput` via:
+//
+//          LaunchTemplateCreditSpecificationArgs{...}
 type LaunchTemplateCreditSpecificationInput interface {
 	pulumi.Input
 
@@ -4312,6 +4965,14 @@ func (i LaunchTemplateCreditSpecificationArgs) ToLaunchTemplateCreditSpecificati
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCreditSpecificationOutput).ToLaunchTemplateCreditSpecificationPtrOutputWithContext(ctx)
 }
 
+// LaunchTemplateCreditSpecificationPtrInput is an input type that accepts LaunchTemplateCreditSpecificationArgs, LaunchTemplateCreditSpecificationPtr and LaunchTemplateCreditSpecificationPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateCreditSpecificationPtrInput` via:
+//
+//          LaunchTemplateCreditSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchTemplateCreditSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -4386,7 +5047,12 @@ func (o LaunchTemplateCreditSpecificationPtrOutput) Elem() LaunchTemplateCreditS
 
 // The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 func (o LaunchTemplateCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateCreditSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCredits
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateElasticGpuSpecification struct {
@@ -4394,6 +5060,10 @@ type LaunchTemplateElasticGpuSpecification struct {
 	Type string `pulumi:"type"`
 }
 
+// LaunchTemplateElasticGpuSpecificationInput is an input type that accepts LaunchTemplateElasticGpuSpecificationArgs and LaunchTemplateElasticGpuSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateElasticGpuSpecificationInput` via:
+//
+//          LaunchTemplateElasticGpuSpecificationArgs{...}
 type LaunchTemplateElasticGpuSpecificationInput interface {
 	pulumi.Input
 
@@ -4418,6 +5088,10 @@ func (i LaunchTemplateElasticGpuSpecificationArgs) ToLaunchTemplateElasticGpuSpe
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticGpuSpecificationOutput)
 }
 
+// LaunchTemplateElasticGpuSpecificationArrayInput is an input type that accepts LaunchTemplateElasticGpuSpecificationArray and LaunchTemplateElasticGpuSpecificationArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateElasticGpuSpecificationArrayInput` via:
+//
+//          LaunchTemplateElasticGpuSpecificationArray{ LaunchTemplateElasticGpuSpecificationArgs{...} }
 type LaunchTemplateElasticGpuSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -4483,6 +5157,10 @@ type LaunchTemplateElasticInferenceAccelerator struct {
 	Type string `pulumi:"type"`
 }
 
+// LaunchTemplateElasticInferenceAcceleratorInput is an input type that accepts LaunchTemplateElasticInferenceAcceleratorArgs and LaunchTemplateElasticInferenceAcceleratorOutput values.
+// You can construct a concrete instance of `LaunchTemplateElasticInferenceAcceleratorInput` via:
+//
+//          LaunchTemplateElasticInferenceAcceleratorArgs{...}
 type LaunchTemplateElasticInferenceAcceleratorInput interface {
 	pulumi.Input
 
@@ -4515,6 +5193,14 @@ func (i LaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateElasticIn
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticInferenceAcceleratorOutput).ToLaunchTemplateElasticInferenceAcceleratorPtrOutputWithContext(ctx)
 }
 
+// LaunchTemplateElasticInferenceAcceleratorPtrInput is an input type that accepts LaunchTemplateElasticInferenceAcceleratorArgs, LaunchTemplateElasticInferenceAcceleratorPtr and LaunchTemplateElasticInferenceAcceleratorPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateElasticInferenceAcceleratorPtrInput` via:
+//
+//          LaunchTemplateElasticInferenceAcceleratorArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchTemplateElasticInferenceAcceleratorPtrInput interface {
 	pulumi.Input
 
@@ -4590,8 +5276,13 @@ func (o LaunchTemplateElasticInferenceAcceleratorPtrOutput) Elem() LaunchTemplat
 }
 
 // Accelerator type.
-func (o LaunchTemplateElasticInferenceAcceleratorPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LaunchTemplateElasticInferenceAccelerator) string { return v.Type }).(pulumi.StringOutput)
+func (o LaunchTemplateElasticInferenceAcceleratorPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateElasticInferenceAccelerator) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateHibernationOptions struct {
@@ -4599,6 +5290,10 @@ type LaunchTemplateHibernationOptions struct {
 	Configured bool `pulumi:"configured"`
 }
 
+// LaunchTemplateHibernationOptionsInput is an input type that accepts LaunchTemplateHibernationOptionsArgs and LaunchTemplateHibernationOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateHibernationOptionsInput` via:
+//
+//          LaunchTemplateHibernationOptionsArgs{...}
 type LaunchTemplateHibernationOptionsInput interface {
 	pulumi.Input
 
@@ -4631,6 +5326,14 @@ func (i LaunchTemplateHibernationOptionsArgs) ToLaunchTemplateHibernationOptions
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateHibernationOptionsOutput).ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx)
 }
 
+// LaunchTemplateHibernationOptionsPtrInput is an input type that accepts LaunchTemplateHibernationOptionsArgs, LaunchTemplateHibernationOptionsPtr and LaunchTemplateHibernationOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateHibernationOptionsPtrInput` via:
+//
+//          LaunchTemplateHibernationOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchTemplateHibernationOptionsPtrInput interface {
 	pulumi.Input
 
@@ -4704,8 +5407,13 @@ func (o LaunchTemplateHibernationOptionsPtrOutput) Elem() LaunchTemplateHibernat
 }
 
 // If set to `true`, the launched EC2 instance will hibernation enabled.
-func (o LaunchTemplateHibernationOptionsPtrOutput) Configured() pulumi.BoolOutput {
-	return o.ApplyT(func(v LaunchTemplateHibernationOptions) bool { return v.Configured }).(pulumi.BoolOutput)
+func (o LaunchTemplateHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateHibernationOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Configured
+	}).(pulumi.BoolPtrOutput)
 }
 
 type LaunchTemplateIamInstanceProfile struct {
@@ -4715,6 +5423,10 @@ type LaunchTemplateIamInstanceProfile struct {
 	Name *string `pulumi:"name"`
 }
 
+// LaunchTemplateIamInstanceProfileInput is an input type that accepts LaunchTemplateIamInstanceProfileArgs and LaunchTemplateIamInstanceProfileOutput values.
+// You can construct a concrete instance of `LaunchTemplateIamInstanceProfileInput` via:
+//
+//          LaunchTemplateIamInstanceProfileArgs{...}
 type LaunchTemplateIamInstanceProfileInput interface {
 	pulumi.Input
 
@@ -4749,6 +5461,14 @@ func (i LaunchTemplateIamInstanceProfileArgs) ToLaunchTemplateIamInstanceProfile
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIamInstanceProfileOutput).ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(ctx)
 }
 
+// LaunchTemplateIamInstanceProfilePtrInput is an input type that accepts LaunchTemplateIamInstanceProfileArgs, LaunchTemplateIamInstanceProfilePtr and LaunchTemplateIamInstanceProfilePtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateIamInstanceProfilePtrInput` via:
+//
+//          LaunchTemplateIamInstanceProfileArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchTemplateIamInstanceProfilePtrInput interface {
 	pulumi.Input
 
@@ -4828,12 +5548,22 @@ func (o LaunchTemplateIamInstanceProfilePtrOutput) Elem() LaunchTemplateIamInsta
 
 // The Amazon Resource Name (ARN) of the instance profile.
 func (o LaunchTemplateIamInstanceProfilePtrOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Arn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the instance profile.
 func (o LaunchTemplateIamInstanceProfilePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateInstanceMarketOptions struct {
@@ -4843,6 +5573,10 @@ type LaunchTemplateInstanceMarketOptions struct {
 	SpotOptions *LaunchTemplateInstanceMarketOptionsSpotOptions `pulumi:"spotOptions"`
 }
 
+// LaunchTemplateInstanceMarketOptionsInput is an input type that accepts LaunchTemplateInstanceMarketOptionsArgs and LaunchTemplateInstanceMarketOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceMarketOptionsInput` via:
+//
+//          LaunchTemplateInstanceMarketOptionsArgs{...}
 type LaunchTemplateInstanceMarketOptionsInput interface {
 	pulumi.Input
 
@@ -4877,6 +5611,14 @@ func (i LaunchTemplateInstanceMarketOptionsArgs) ToLaunchTemplateInstanceMarketO
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceMarketOptionsOutput).ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(ctx)
 }
 
+// LaunchTemplateInstanceMarketOptionsPtrInput is an input type that accepts LaunchTemplateInstanceMarketOptionsArgs, LaunchTemplateInstanceMarketOptionsPtr and LaunchTemplateInstanceMarketOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceMarketOptionsPtrInput` via:
+//
+//          LaunchTemplateInstanceMarketOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchTemplateInstanceMarketOptionsPtrInput interface {
 	pulumi.Input
 
@@ -4958,12 +5700,20 @@ func (o LaunchTemplateInstanceMarketOptionsPtrOutput) Elem() LaunchTemplateInsta
 
 // The market type. Can be `spot`.
 func (o LaunchTemplateInstanceMarketOptionsPtrOutput) MarketType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *string { return v.MarketType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MarketType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 func (o LaunchTemplateInstanceMarketOptionsPtrOutput) SpotOptions() LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *LaunchTemplateInstanceMarketOptionsSpotOptions {
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptions) *LaunchTemplateInstanceMarketOptionsSpotOptions {
+		if v == nil {
+			return nil
+		}
 		return v.SpotOptions
 	}).(LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput)
 }
@@ -4982,6 +5732,10 @@ type LaunchTemplateInstanceMarketOptionsSpotOptions struct {
 	ValidUntil *string `pulumi:"validUntil"`
 }
 
+// LaunchTemplateInstanceMarketOptionsSpotOptionsInput is an input type that accepts LaunchTemplateInstanceMarketOptionsSpotOptionsArgs and LaunchTemplateInstanceMarketOptionsSpotOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceMarketOptionsSpotOptionsInput` via:
+//
+//          LaunchTemplateInstanceMarketOptionsSpotOptionsArgs{...}
 type LaunchTemplateInstanceMarketOptionsSpotOptionsInput interface {
 	pulumi.Input
 
@@ -5023,6 +5777,14 @@ func (i LaunchTemplateInstanceMarketOptionsSpotOptionsArgs) ToLaunchTemplateInst
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceMarketOptionsSpotOptionsOutput).ToLaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutputWithContext(ctx)
 }
 
+// LaunchTemplateInstanceMarketOptionsSpotOptionsPtrInput is an input type that accepts LaunchTemplateInstanceMarketOptionsSpotOptionsArgs, LaunchTemplateInstanceMarketOptionsSpotOptionsPtr and LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceMarketOptionsSpotOptionsPtrInput` via:
+//
+//          LaunchTemplateInstanceMarketOptionsSpotOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchTemplateInstanceMarketOptionsSpotOptionsPtrInput interface {
 	pulumi.Input
 
@@ -5120,28 +5882,53 @@ func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) Elem() LaunchTe
 
 // The required duration in minutes. This value must be a multiple of 60.
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *int { return v.BlockDurationMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptionsSpotOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BlockDurationMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 // The behavior when a Spot Instance is interrupted. Can be `hibernate`,
 // `stop`, or `terminate`. (Default: `terminate`).
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptionsSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceInterruptionBehavior
+	}).(pulumi.StringPtrOutput)
 }
 
 // The maximum hourly price you're willing to pay for the Spot Instances.
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) MaxPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptionsSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPrice
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Spot Instance request type. Can be `one-time`, or `persistent`.
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) SpotInstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *string { return v.SpotInstanceType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptionsSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpotInstanceType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The end date of the request.
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) ValidUntil() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptionsSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidUntil
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateLicenseSpecification struct {
@@ -5149,6 +5936,10 @@ type LaunchTemplateLicenseSpecification struct {
 	LicenseConfigurationArn string `pulumi:"licenseConfigurationArn"`
 }
 
+// LaunchTemplateLicenseSpecificationInput is an input type that accepts LaunchTemplateLicenseSpecificationArgs and LaunchTemplateLicenseSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateLicenseSpecificationInput` via:
+//
+//          LaunchTemplateLicenseSpecificationArgs{...}
 type LaunchTemplateLicenseSpecificationInput interface {
 	pulumi.Input
 
@@ -5173,6 +5964,10 @@ func (i LaunchTemplateLicenseSpecificationArgs) ToLaunchTemplateLicenseSpecifica
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLicenseSpecificationOutput)
 }
 
+// LaunchTemplateLicenseSpecificationArrayInput is an input type that accepts LaunchTemplateLicenseSpecificationArray and LaunchTemplateLicenseSpecificationArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateLicenseSpecificationArrayInput` via:
+//
+//          LaunchTemplateLicenseSpecificationArray{ LaunchTemplateLicenseSpecificationArgs{...} }
 type LaunchTemplateLicenseSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -5242,6 +6037,10 @@ type LaunchTemplateMetadataOptions struct {
 	HttpTokens *string `pulumi:"httpTokens"`
 }
 
+// LaunchTemplateMetadataOptionsInput is an input type that accepts LaunchTemplateMetadataOptionsArgs and LaunchTemplateMetadataOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateMetadataOptionsInput` via:
+//
+//          LaunchTemplateMetadataOptionsArgs{...}
 type LaunchTemplateMetadataOptionsInput interface {
 	pulumi.Input
 
@@ -5278,6 +6077,14 @@ func (i LaunchTemplateMetadataOptionsArgs) ToLaunchTemplateMetadataOptionsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMetadataOptionsOutput).ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx)
 }
 
+// LaunchTemplateMetadataOptionsPtrInput is an input type that accepts LaunchTemplateMetadataOptionsArgs, LaunchTemplateMetadataOptionsPtr and LaunchTemplateMetadataOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateMetadataOptionsPtrInput` via:
+//
+//          LaunchTemplateMetadataOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchTemplateMetadataOptionsPtrInput interface {
 	pulumi.Input
 
@@ -5362,17 +6169,32 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) Elem() LaunchTemplateMetadataOpt
 
 // Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 // The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPutResponseHopLimit
+	}).(pulumi.IntPtrOutput)
 }
 
 // Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpTokens
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateMonitoring struct {
@@ -5380,6 +6202,10 @@ type LaunchTemplateMonitoring struct {
 	Enabled *bool `pulumi:"enabled"`
 }
 
+// LaunchTemplateMonitoringInput is an input type that accepts LaunchTemplateMonitoringArgs and LaunchTemplateMonitoringOutput values.
+// You can construct a concrete instance of `LaunchTemplateMonitoringInput` via:
+//
+//          LaunchTemplateMonitoringArgs{...}
 type LaunchTemplateMonitoringInput interface {
 	pulumi.Input
 
@@ -5412,6 +6238,14 @@ func (i LaunchTemplateMonitoringArgs) ToLaunchTemplateMonitoringPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMonitoringOutput).ToLaunchTemplateMonitoringPtrOutputWithContext(ctx)
 }
 
+// LaunchTemplateMonitoringPtrInput is an input type that accepts LaunchTemplateMonitoringArgs, LaunchTemplateMonitoringPtr and LaunchTemplateMonitoringPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateMonitoringPtrInput` via:
+//
+//          LaunchTemplateMonitoringArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchTemplateMonitoringPtrInput interface {
 	pulumi.Input
 
@@ -5486,14 +6320,19 @@ func (o LaunchTemplateMonitoringPtrOutput) Elem() LaunchTemplateMonitoringOutput
 
 // If `true`, the launched EC2 instance will have detailed monitoring enabled.
 func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateMonitoring) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplateMonitoring) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type LaunchTemplateNetworkInterface struct {
 	// Associate a public ip address with the network interface.  Boolean value.
 	AssociatePublicIpAddress *string `pulumi:"associatePublicIpAddress"`
-	// Whether the network interface should be destroyed on instance termination.
-	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
 	// Description of the network interface.
 	Description *string `pulumi:"description"`
 	// The integer index of the network interface attachment.
@@ -5516,6 +6355,10 @@ type LaunchTemplateNetworkInterface struct {
 	SubnetId *string `pulumi:"subnetId"`
 }
 
+// LaunchTemplateNetworkInterfaceInput is an input type that accepts LaunchTemplateNetworkInterfaceArgs and LaunchTemplateNetworkInterfaceOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceInput` via:
+//
+//          LaunchTemplateNetworkInterfaceArgs{...}
 type LaunchTemplateNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -5526,8 +6369,8 @@ type LaunchTemplateNetworkInterfaceInput interface {
 type LaunchTemplateNetworkInterfaceArgs struct {
 	// Associate a public ip address with the network interface.  Boolean value.
 	AssociatePublicIpAddress pulumi.StringPtrInput `pulumi:"associatePublicIpAddress"`
-	// Whether the network interface should be destroyed on instance termination.
-	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
 	// Description of the network interface.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The integer index of the network interface attachment.
@@ -5562,6 +6405,10 @@ func (i LaunchTemplateNetworkInterfaceArgs) ToLaunchTemplateNetworkInterfaceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceOutput)
 }
 
+// LaunchTemplateNetworkInterfaceArrayInput is an input type that accepts LaunchTemplateNetworkInterfaceArray and LaunchTemplateNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceArrayInput` via:
+//
+//          LaunchTemplateNetworkInterfaceArray{ LaunchTemplateNetworkInterfaceArgs{...} }
 type LaunchTemplateNetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -5602,9 +6449,9 @@ func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.AssociatePublicIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Whether the network interface should be destroyed on instance termination.
-func (o LaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+func (o LaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.DeleteOnTermination }).(pulumi.StringPtrOutput)
 }
 
 // Description of the network interface.
@@ -5686,12 +6533,18 @@ type LaunchTemplatePlacement struct {
 	GroupName *string `pulumi:"groupName"`
 	// The ID of the Dedicated Host for the instance.
 	HostId *string `pulumi:"hostId"`
+	// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+	PartitionNumber *int `pulumi:"partitionNumber"`
 	// Reserved for future use.
 	SpreadDomain *string `pulumi:"spreadDomain"`
 	// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
 	Tenancy *string `pulumi:"tenancy"`
 }
 
+// LaunchTemplatePlacementInput is an input type that accepts LaunchTemplatePlacementArgs and LaunchTemplatePlacementOutput values.
+// You can construct a concrete instance of `LaunchTemplatePlacementInput` via:
+//
+//          LaunchTemplatePlacementArgs{...}
 type LaunchTemplatePlacementInput interface {
 	pulumi.Input
 
@@ -5708,6 +6561,8 @@ type LaunchTemplatePlacementArgs struct {
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
 	// The ID of the Dedicated Host for the instance.
 	HostId pulumi.StringPtrInput `pulumi:"hostId"`
+	// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+	PartitionNumber pulumi.IntPtrInput `pulumi:"partitionNumber"`
 	// Reserved for future use.
 	SpreadDomain pulumi.StringPtrInput `pulumi:"spreadDomain"`
 	// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
@@ -5734,6 +6589,14 @@ func (i LaunchTemplatePlacementArgs) ToLaunchTemplatePlacementPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePlacementOutput).ToLaunchTemplatePlacementPtrOutputWithContext(ctx)
 }
 
+// LaunchTemplatePlacementPtrInput is an input type that accepts LaunchTemplatePlacementArgs, LaunchTemplatePlacementPtr and LaunchTemplatePlacementPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplatePlacementPtrInput` via:
+//
+//          LaunchTemplatePlacementArgs{...}
+//
+//  or:
+//
+//          nil
 type LaunchTemplatePlacementPtrInput interface {
 	pulumi.Input
 
@@ -5803,6 +6666,11 @@ func (o LaunchTemplatePlacementOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
+// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+func (o LaunchTemplatePlacementOutput) PartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *int { return v.PartitionNumber }).(pulumi.IntPtrOutput)
+}
+
 // Reserved for future use.
 func (o LaunchTemplatePlacementOutput) SpreadDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.SpreadDomain }).(pulumi.StringPtrOutput)
@@ -5833,41 +6701,85 @@ func (o LaunchTemplatePlacementPtrOutput) Elem() LaunchTemplatePlacementOutput {
 
 // The affinity setting for an instance on a Dedicated Host.
 func (o LaunchTemplatePlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.Affinity }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Affinity
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Availability Zone for the instance.
 func (o LaunchTemplatePlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the placement group for the instance.
 func (o LaunchTemplatePlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Dedicated Host for the instance.
 func (o LaunchTemplatePlacementPtrOutput) HostId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+func (o LaunchTemplatePlacementPtrOutput) PartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionNumber
+	}).(pulumi.IntPtrOutput)
 }
 
 // Reserved for future use.
 func (o LaunchTemplatePlacementPtrOutput) SpreadDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.SpreadDomain }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpreadDomain
+	}).(pulumi.StringPtrOutput)
 }
 
 // The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
 func (o LaunchTemplatePlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tenancy
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateTagSpecification struct {
-	// The type of resource to tag. Valid values are `instance` and `volume`.
+	// The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
 	ResourceType *string `pulumi:"resourceType"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
+// LaunchTemplateTagSpecificationInput is an input type that accepts LaunchTemplateTagSpecificationArgs and LaunchTemplateTagSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateTagSpecificationInput` via:
+//
+//          LaunchTemplateTagSpecificationArgs{...}
 type LaunchTemplateTagSpecificationInput interface {
 	pulumi.Input
 
@@ -5876,10 +6788,10 @@ type LaunchTemplateTagSpecificationInput interface {
 }
 
 type LaunchTemplateTagSpecificationArgs struct {
-	// The type of resource to tag. Valid values are `instance` and `volume`.
+	// The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LaunchTemplateTagSpecificationArgs) ElementType() reflect.Type {
@@ -5894,6 +6806,10 @@ func (i LaunchTemplateTagSpecificationArgs) ToLaunchTemplateTagSpecificationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTagSpecificationOutput)
 }
 
+// LaunchTemplateTagSpecificationArrayInput is an input type that accepts LaunchTemplateTagSpecificationArray and LaunchTemplateTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateTagSpecificationArrayInput` via:
+//
+//          LaunchTemplateTagSpecificationArray{ LaunchTemplateTagSpecificationArgs{...} }
 type LaunchTemplateTagSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -5929,14 +6845,14 @@ func (o LaunchTemplateTagSpecificationOutput) ToLaunchTemplateTagSpecificationOu
 	return o
 }
 
-// The type of resource to tag. Valid values are `instance` and `volume`.
+// The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
 func (o LaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags to assign to the resource.
-func (o LaunchTemplateTagSpecificationOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v LaunchTemplateTagSpecification) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+// A map of tags to assign to the resource.
+func (o LaunchTemplateTagSpecificationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LaunchTemplateTagSpecification) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type LaunchTemplateTagSpecificationArrayOutput struct{ *pulumi.OutputState }
@@ -5982,6 +6898,10 @@ type NetworkAclEgress struct {
 	ToPort int `pulumi:"toPort"`
 }
 
+// NetworkAclEgressInput is an input type that accepts NetworkAclEgressArgs and NetworkAclEgressOutput values.
+// You can construct a concrete instance of `NetworkAclEgressInput` via:
+//
+//          NetworkAclEgressArgs{...}
 type NetworkAclEgressInput interface {
 	pulumi.Input
 
@@ -6024,6 +6944,10 @@ func (i NetworkAclEgressArgs) ToNetworkAclEgressOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEgressOutput)
 }
 
+// NetworkAclEgressArrayInput is an input type that accepts NetworkAclEgressArray and NetworkAclEgressArrayOutput values.
+// You can construct a concrete instance of `NetworkAclEgressArrayInput` via:
+//
+//          NetworkAclEgressArray{ NetworkAclEgressArgs{...} }
 type NetworkAclEgressArrayInput interface {
 	pulumi.Input
 
@@ -6149,6 +7073,10 @@ type NetworkAclIngress struct {
 	ToPort int `pulumi:"toPort"`
 }
 
+// NetworkAclIngressInput is an input type that accepts NetworkAclIngressArgs and NetworkAclIngressOutput values.
+// You can construct a concrete instance of `NetworkAclIngressInput` via:
+//
+//          NetworkAclIngressArgs{...}
 type NetworkAclIngressInput interface {
 	pulumi.Input
 
@@ -6191,6 +7119,10 @@ func (i NetworkAclIngressArgs) ToNetworkAclIngressOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclIngressOutput)
 }
 
+// NetworkAclIngressArrayInput is an input type that accepts NetworkAclIngressArray and NetworkAclIngressArrayOutput values.
+// You can construct a concrete instance of `NetworkAclIngressArrayInput` via:
+//
+//          NetworkAclIngressArray{ NetworkAclIngressArgs{...} }
 type NetworkAclIngressArrayInput interface {
 	pulumi.Input
 
@@ -6301,6 +7233,10 @@ type NetworkInterfaceAttachmentType struct {
 	Instance string `pulumi:"instance"`
 }
 
+// NetworkInterfaceAttachmentTypeInput is an input type that accepts NetworkInterfaceAttachmentTypeArgs and NetworkInterfaceAttachmentTypeOutput values.
+// You can construct a concrete instance of `NetworkInterfaceAttachmentTypeInput` via:
+//
+//          NetworkInterfaceAttachmentTypeArgs{...}
 type NetworkInterfaceAttachmentTypeInput interface {
 	pulumi.Input
 
@@ -6328,6 +7264,10 @@ func (i NetworkInterfaceAttachmentTypeArgs) ToNetworkInterfaceAttachmentTypeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentTypeOutput)
 }
 
+// NetworkInterfaceAttachmentTypeArrayInput is an input type that accepts NetworkInterfaceAttachmentTypeArray and NetworkInterfaceAttachmentTypeArrayOutput values.
+// You can construct a concrete instance of `NetworkInterfaceAttachmentTypeArrayInput` via:
+//
+//          NetworkInterfaceAttachmentTypeArray{ NetworkInterfaceAttachmentTypeArgs{...} }
 type NetworkInterfaceAttachmentTypeArrayInput interface {
 	pulumi.Input
 
@@ -6411,6 +7351,10 @@ type PeeringConnectionOptionsAccepter struct {
 	AllowVpcToRemoteClassicLink *bool `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
+// PeeringConnectionOptionsAccepterInput is an input type that accepts PeeringConnectionOptionsAccepterArgs and PeeringConnectionOptionsAccepterOutput values.
+// You can construct a concrete instance of `PeeringConnectionOptionsAccepterInput` via:
+//
+//          PeeringConnectionOptionsAccepterArgs{...}
 type PeeringConnectionOptionsAccepterInput interface {
 	pulumi.Input
 
@@ -6452,6 +7396,14 @@ func (i PeeringConnectionOptionsAccepterArgs) ToPeeringConnectionOptionsAccepter
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringConnectionOptionsAccepterOutput).ToPeeringConnectionOptionsAccepterPtrOutputWithContext(ctx)
 }
 
+// PeeringConnectionOptionsAccepterPtrInput is an input type that accepts PeeringConnectionOptionsAccepterArgs, PeeringConnectionOptionsAccepterPtr and PeeringConnectionOptionsAccepterPtrOutput values.
+// You can construct a concrete instance of `PeeringConnectionOptionsAccepterPtrInput` via:
+//
+//          PeeringConnectionOptionsAccepterArgs{...}
+//
+//  or:
+//
+//          nil
 type PeeringConnectionOptionsAccepterPtrInput interface {
 	pulumi.Input
 
@@ -6543,20 +7495,35 @@ func (o PeeringConnectionOptionsAccepterPtrOutput) Elem() PeeringConnectionOptio
 // with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
 // to the remote VPC. This option is not supported for inter-region VPC peering.
 func (o PeeringConnectionOptionsAccepterPtrOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PeeringConnectionOptionsAccepter) *bool { return v.AllowClassicLinkToRemoteVpc }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *PeeringConnectionOptionsAccepter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowClassicLinkToRemoteVpc
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Allow a local VPC to resolve public DNS hostnames to
 // private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsAccepterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PeeringConnectionOptionsAccepter) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *PeeringConnectionOptionsAccepter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowRemoteVpcDnsResolution
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Allow a local VPC to communicate with a linked EC2-Classic
 // instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
 // connection. This option is not supported for inter-region VPC peering.
 func (o PeeringConnectionOptionsAccepterPtrOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PeeringConnectionOptionsAccepter) *bool { return v.AllowVpcToRemoteClassicLink }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *PeeringConnectionOptionsAccepter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowVpcToRemoteClassicLink
+	}).(pulumi.BoolPtrOutput)
 }
 
 type PeeringConnectionOptionsRequester struct {
@@ -6573,6 +7540,10 @@ type PeeringConnectionOptionsRequester struct {
 	AllowVpcToRemoteClassicLink *bool `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
+// PeeringConnectionOptionsRequesterInput is an input type that accepts PeeringConnectionOptionsRequesterArgs and PeeringConnectionOptionsRequesterOutput values.
+// You can construct a concrete instance of `PeeringConnectionOptionsRequesterInput` via:
+//
+//          PeeringConnectionOptionsRequesterArgs{...}
 type PeeringConnectionOptionsRequesterInput interface {
 	pulumi.Input
 
@@ -6614,6 +7585,14 @@ func (i PeeringConnectionOptionsRequesterArgs) ToPeeringConnectionOptionsRequest
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringConnectionOptionsRequesterOutput).ToPeeringConnectionOptionsRequesterPtrOutputWithContext(ctx)
 }
 
+// PeeringConnectionOptionsRequesterPtrInput is an input type that accepts PeeringConnectionOptionsRequesterArgs, PeeringConnectionOptionsRequesterPtr and PeeringConnectionOptionsRequesterPtrOutput values.
+// You can construct a concrete instance of `PeeringConnectionOptionsRequesterPtrInput` via:
+//
+//          PeeringConnectionOptionsRequesterArgs{...}
+//
+//  or:
+//
+//          nil
 type PeeringConnectionOptionsRequesterPtrInput interface {
 	pulumi.Input
 
@@ -6705,20 +7684,35 @@ func (o PeeringConnectionOptionsRequesterPtrOutput) Elem() PeeringConnectionOpti
 // with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
 // to the remote VPC. This option is not supported for inter-region VPC peering.
 func (o PeeringConnectionOptionsRequesterPtrOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PeeringConnectionOptionsRequester) *bool { return v.AllowClassicLinkToRemoteVpc }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *PeeringConnectionOptionsRequester) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowClassicLinkToRemoteVpc
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Allow a local VPC to resolve public DNS hostnames to
 // private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsRequesterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PeeringConnectionOptionsRequester) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *PeeringConnectionOptionsRequester) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowRemoteVpcDnsResolution
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Allow a local VPC to communicate with a linked EC2-Classic
 // instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
 // connection. This option is not supported for inter-region VPC peering.
 func (o PeeringConnectionOptionsRequesterPtrOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PeeringConnectionOptionsRequester) *bool { return v.AllowVpcToRemoteClassicLink }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *PeeringConnectionOptionsRequester) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowVpcToRemoteClassicLink
+	}).(pulumi.BoolPtrOutput)
 }
 
 type RouteTableRoute struct {
@@ -6732,16 +7726,24 @@ type RouteTableRoute struct {
 	InstanceId *string `pulumi:"instanceId"`
 	// The Ipv6 CIDR block of the route.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// Identifier of a Outpost local gateway.
+	LocalGatewayId *string `pulumi:"localGatewayId"`
 	// Identifier of a VPC NAT gateway.
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// Identifier of a VPC Endpoint.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
 
+// RouteTableRouteInput is an input type that accepts RouteTableRouteArgs and RouteTableRouteOutput values.
+// You can construct a concrete instance of `RouteTableRouteInput` via:
+//
+//          RouteTableRouteArgs{...}
 type RouteTableRouteInput interface {
 	pulumi.Input
 
@@ -6760,12 +7762,16 @@ type RouteTableRouteArgs struct {
 	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
 	// The Ipv6 CIDR block of the route.
 	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
+	// Identifier of a Outpost local gateway.
+	LocalGatewayId pulumi.StringPtrInput `pulumi:"localGatewayId"`
 	// Identifier of a VPC NAT gateway.
 	NatGatewayId pulumi.StringPtrInput `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`
+	// Identifier of a VPC Endpoint.
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId pulumi.StringPtrInput `pulumi:"vpcPeeringConnectionId"`
 }
@@ -6782,6 +7788,10 @@ func (i RouteTableRouteArgs) ToRouteTableRouteOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableRouteOutput)
 }
 
+// RouteTableRouteArrayInput is an input type that accepts RouteTableRouteArray and RouteTableRouteArrayOutput values.
+// You can construct a concrete instance of `RouteTableRouteArrayInput` via:
+//
+//          RouteTableRouteArray{ RouteTableRouteArgs{...} }
 type RouteTableRouteArrayInput interface {
 	pulumi.Input
 
@@ -6842,6 +7852,11 @@ func (o RouteTableRouteOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
 }
 
+// Identifier of a Outpost local gateway.
+func (o RouteTableRouteOutput) LocalGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableRoute) *string { return v.LocalGatewayId }).(pulumi.StringPtrOutput)
+}
+
 // Identifier of a VPC NAT gateway.
 func (o RouteTableRouteOutput) NatGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.NatGatewayId }).(pulumi.StringPtrOutput)
@@ -6855,6 +7870,11 @@ func (o RouteTableRouteOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 // Identifier of an EC2 Transit Gateway.
 func (o RouteTableRouteOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of a VPC Endpoint.
+func (o RouteTableRouteOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableRoute) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of a VPC peering connection.
@@ -6906,6 +7926,10 @@ type SecurityGroupEgress struct {
 	ToPort int `pulumi:"toPort"`
 }
 
+// SecurityGroupEgressInput is an input type that accepts SecurityGroupEgressArgs and SecurityGroupEgressOutput values.
+// You can construct a concrete instance of `SecurityGroupEgressInput` via:
+//
+//          SecurityGroupEgressArgs{...}
 type SecurityGroupEgressInput interface {
 	pulumi.Input
 
@@ -6949,6 +7973,10 @@ func (i SecurityGroupEgressArgs) ToSecurityGroupEgressOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupEgressOutput)
 }
 
+// SecurityGroupEgressArrayInput is an input type that accepts SecurityGroupEgressArray and SecurityGroupEgressArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupEgressArrayInput` via:
+//
+//          SecurityGroupEgressArray{ SecurityGroupEgressArgs{...} }
 type SecurityGroupEgressArrayInput interface {
 	pulumi.Input
 
@@ -7076,6 +8104,10 @@ type SecurityGroupIngress struct {
 	ToPort int `pulumi:"toPort"`
 }
 
+// SecurityGroupIngressInput is an input type that accepts SecurityGroupIngressArgs and SecurityGroupIngressOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressInput` via:
+//
+//          SecurityGroupIngressArgs{...}
 type SecurityGroupIngressInput interface {
 	pulumi.Input
 
@@ -7119,6 +8151,10 @@ func (i SecurityGroupIngressArgs) ToSecurityGroupIngressOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressOutput)
 }
 
+// SecurityGroupIngressArrayInput is an input type that accepts SecurityGroupIngressArray and SecurityGroupIngressArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressArrayInput` via:
+//
+//          SecurityGroupIngressArray{ SecurityGroupIngressArgs{...} }
 type SecurityGroupIngressArrayInput interface {
 	pulumi.Input
 
@@ -7223,30 +8259,38 @@ func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupI
 }
 
 type SpotFleetRequestLaunchSpecification struct {
-	Ami                      string                                                    `pulumi:"ami"`
-	AssociatePublicIpAddress *bool                                                     `pulumi:"associatePublicIpAddress"`
-	AvailabilityZone         *string                                                   `pulumi:"availabilityZone"`
-	EbsBlockDevices          []SpotFleetRequestLaunchSpecificationEbsBlockDevice       `pulumi:"ebsBlockDevices"`
-	EbsOptimized             *bool                                                     `pulumi:"ebsOptimized"`
-	EphemeralBlockDevices    []SpotFleetRequestLaunchSpecificationEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
-	IamInstanceProfile       *string                                                   `pulumi:"iamInstanceProfile"`
-	IamInstanceProfileArn    *string                                                   `pulumi:"iamInstanceProfileArn"`
-	InstanceType             string                                                    `pulumi:"instanceType"`
-	KeyName                  *string                                                   `pulumi:"keyName"`
-	Monitoring               *bool                                                     `pulumi:"monitoring"`
-	PlacementGroup           *string                                                   `pulumi:"placementGroup"`
-	PlacementTenancy         *string                                                   `pulumi:"placementTenancy"`
-	RootBlockDevices         []SpotFleetRequestLaunchSpecificationRootBlockDevice      `pulumi:"rootBlockDevices"`
-	// The maximum bid price per unit hour.
+	Ami                      string `pulumi:"ami"`
+	AssociatePublicIpAddress *bool  `pulumi:"associatePublicIpAddress"`
+	// The availability zone in which to place the request.
+	AvailabilityZone      *string                                                   `pulumi:"availabilityZone"`
+	EbsBlockDevices       []SpotFleetRequestLaunchSpecificationEbsBlockDevice       `pulumi:"ebsBlockDevices"`
+	EbsOptimized          *bool                                                     `pulumi:"ebsOptimized"`
+	EphemeralBlockDevices []SpotFleetRequestLaunchSpecificationEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
+	IamInstanceProfile    *string                                                   `pulumi:"iamInstanceProfile"`
+	IamInstanceProfileArn *string                                                   `pulumi:"iamInstanceProfileArn"`
+	// The type of instance to request.
+	InstanceType     string                                               `pulumi:"instanceType"`
+	KeyName          *string                                              `pulumi:"keyName"`
+	Monitoring       *bool                                                `pulumi:"monitoring"`
+	PlacementGroup   *string                                              `pulumi:"placementGroup"`
+	PlacementTenancy *string                                              `pulumi:"placementTenancy"`
+	RootBlockDevices []SpotFleetRequestLaunchSpecificationRootBlockDevice `pulumi:"rootBlockDevices"`
+	// The maximum spot bid for this override request.
 	SpotPrice *string `pulumi:"spotPrice"`
-	SubnetId  *string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
-	Tags                map[string]interface{} `pulumi:"tags"`
-	UserData            *string                `pulumi:"userData"`
-	VpcSecurityGroupIds []string               `pulumi:"vpcSecurityGroupIds"`
-	WeightedCapacity    *string                `pulumi:"weightedCapacity"`
+	// The subnet in which to launch the requested instance.
+	SubnetId *string `pulumi:"subnetId"`
+	// A map of tags to assign to the resource.
+	Tags                map[string]string `pulumi:"tags"`
+	UserData            *string           `pulumi:"userData"`
+	VpcSecurityGroupIds []string          `pulumi:"vpcSecurityGroupIds"`
+	// The capacity added to the fleet by a fulfilled request.
+	WeightedCapacity *string `pulumi:"weightedCapacity"`
 }
 
+// SpotFleetRequestLaunchSpecificationInput is an input type that accepts SpotFleetRequestLaunchSpecificationArgs and SpotFleetRequestLaunchSpecificationOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchSpecificationInput` via:
+//
+//          SpotFleetRequestLaunchSpecificationArgs{...}
 type SpotFleetRequestLaunchSpecificationInput interface {
 	pulumi.Input
 
@@ -7255,28 +8299,32 @@ type SpotFleetRequestLaunchSpecificationInput interface {
 }
 
 type SpotFleetRequestLaunchSpecificationArgs struct {
-	Ami                      pulumi.StringInput                                                `pulumi:"ami"`
-	AssociatePublicIpAddress pulumi.BoolPtrInput                                               `pulumi:"associatePublicIpAddress"`
-	AvailabilityZone         pulumi.StringPtrInput                                             `pulumi:"availabilityZone"`
-	EbsBlockDevices          SpotFleetRequestLaunchSpecificationEbsBlockDeviceArrayInput       `pulumi:"ebsBlockDevices"`
-	EbsOptimized             pulumi.BoolPtrInput                                               `pulumi:"ebsOptimized"`
-	EphemeralBlockDevices    SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrayInput `pulumi:"ephemeralBlockDevices"`
-	IamInstanceProfile       pulumi.StringPtrInput                                             `pulumi:"iamInstanceProfile"`
-	IamInstanceProfileArn    pulumi.StringPtrInput                                             `pulumi:"iamInstanceProfileArn"`
-	InstanceType             pulumi.StringInput                                                `pulumi:"instanceType"`
-	KeyName                  pulumi.StringPtrInput                                             `pulumi:"keyName"`
-	Monitoring               pulumi.BoolPtrInput                                               `pulumi:"monitoring"`
-	PlacementGroup           pulumi.StringPtrInput                                             `pulumi:"placementGroup"`
-	PlacementTenancy         pulumi.StringPtrInput                                             `pulumi:"placementTenancy"`
-	RootBlockDevices         SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayInput      `pulumi:"rootBlockDevices"`
-	// The maximum bid price per unit hour.
+	Ami                      pulumi.StringInput  `pulumi:"ami"`
+	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
+	// The availability zone in which to place the request.
+	AvailabilityZone      pulumi.StringPtrInput                                             `pulumi:"availabilityZone"`
+	EbsBlockDevices       SpotFleetRequestLaunchSpecificationEbsBlockDeviceArrayInput       `pulumi:"ebsBlockDevices"`
+	EbsOptimized          pulumi.BoolPtrInput                                               `pulumi:"ebsOptimized"`
+	EphemeralBlockDevices SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrayInput `pulumi:"ephemeralBlockDevices"`
+	IamInstanceProfile    pulumi.StringPtrInput                                             `pulumi:"iamInstanceProfile"`
+	IamInstanceProfileArn pulumi.StringPtrInput                                             `pulumi:"iamInstanceProfileArn"`
+	// The type of instance to request.
+	InstanceType     pulumi.StringInput                                           `pulumi:"instanceType"`
+	KeyName          pulumi.StringPtrInput                                        `pulumi:"keyName"`
+	Monitoring       pulumi.BoolPtrInput                                          `pulumi:"monitoring"`
+	PlacementGroup   pulumi.StringPtrInput                                        `pulumi:"placementGroup"`
+	PlacementTenancy pulumi.StringPtrInput                                        `pulumi:"placementTenancy"`
+	RootBlockDevices SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayInput `pulumi:"rootBlockDevices"`
+	// The maximum spot bid for this override request.
 	SpotPrice pulumi.StringPtrInput `pulumi:"spotPrice"`
-	SubnetId  pulumi.StringPtrInput `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
-	Tags                pulumi.MapInput         `pulumi:"tags"`
+	// The subnet in which to launch the requested instance.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// A map of tags to assign to the resource.
+	Tags                pulumi.StringMapInput   `pulumi:"tags"`
 	UserData            pulumi.StringPtrInput   `pulumi:"userData"`
 	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
-	WeightedCapacity    pulumi.StringPtrInput   `pulumi:"weightedCapacity"`
+	// The capacity added to the fleet by a fulfilled request.
+	WeightedCapacity pulumi.StringPtrInput `pulumi:"weightedCapacity"`
 }
 
 func (SpotFleetRequestLaunchSpecificationArgs) ElementType() reflect.Type {
@@ -7291,6 +8339,10 @@ func (i SpotFleetRequestLaunchSpecificationArgs) ToSpotFleetRequestLaunchSpecifi
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchSpecificationOutput)
 }
 
+// SpotFleetRequestLaunchSpecificationArrayInput is an input type that accepts SpotFleetRequestLaunchSpecificationArray and SpotFleetRequestLaunchSpecificationArrayOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchSpecificationArrayInput` via:
+//
+//          SpotFleetRequestLaunchSpecificationArray{ SpotFleetRequestLaunchSpecificationArgs{...} }
 type SpotFleetRequestLaunchSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -7334,6 +8386,7 @@ func (o SpotFleetRequestLaunchSpecificationOutput) AssociatePublicIpAddress() pu
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
+// The availability zone in which to place the request.
 func (o SpotFleetRequestLaunchSpecificationOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -7362,6 +8415,7 @@ func (o SpotFleetRequestLaunchSpecificationOutput) IamInstanceProfileArn() pulum
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *string { return v.IamInstanceProfileArn }).(pulumi.StringPtrOutput)
 }
 
+// The type of instance to request.
 func (o SpotFleetRequestLaunchSpecificationOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -7388,18 +8442,19 @@ func (o SpotFleetRequestLaunchSpecificationOutput) RootBlockDevices() SpotFleetR
 	}).(SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayOutput)
 }
 
-// The maximum bid price per unit hour.
+// The maximum spot bid for this override request.
 func (o SpotFleetRequestLaunchSpecificationOutput) SpotPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
 }
 
+// The subnet in which to launch the requested instance.
 func (o SpotFleetRequestLaunchSpecificationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags to assign to the resource.
-func (o SpotFleetRequestLaunchSpecificationOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+// A map of tags to assign to the resource.
+func (o SpotFleetRequestLaunchSpecificationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o SpotFleetRequestLaunchSpecificationOutput) UserData() pulumi.StringPtrOutput {
@@ -7410,6 +8465,7 @@ func (o SpotFleetRequestLaunchSpecificationOutput) VpcSecurityGroupIds() pulumi.
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The capacity added to the fleet by a fulfilled request.
 func (o SpotFleetRequestLaunchSpecificationOutput) WeightedCapacity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *string { return v.WeightedCapacity }).(pulumi.StringPtrOutput)
 }
@@ -7445,6 +8501,10 @@ type SpotFleetRequestLaunchSpecificationEbsBlockDevice struct {
 	VolumeType          *string `pulumi:"volumeType"`
 }
 
+// SpotFleetRequestLaunchSpecificationEbsBlockDeviceInput is an input type that accepts SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs and SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchSpecificationEbsBlockDeviceInput` via:
+//
+//          SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs{...}
 type SpotFleetRequestLaunchSpecificationEbsBlockDeviceInput interface {
 	pulumi.Input
 
@@ -7475,6 +8535,10 @@ func (i SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs) ToSpotFleetReques
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutput)
 }
 
+// SpotFleetRequestLaunchSpecificationEbsBlockDeviceArrayInput is an input type that accepts SpotFleetRequestLaunchSpecificationEbsBlockDeviceArray and SpotFleetRequestLaunchSpecificationEbsBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchSpecificationEbsBlockDeviceArrayInput` via:
+//
+//          SpotFleetRequestLaunchSpecificationEbsBlockDeviceArray{ SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs{...} }
 type SpotFleetRequestLaunchSpecificationEbsBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -7567,6 +8631,10 @@ type SpotFleetRequestLaunchSpecificationEphemeralBlockDevice struct {
 	VirtualName string `pulumi:"virtualName"`
 }
 
+// SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceInput is an input type that accepts SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs and SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceInput` via:
+//
+//          SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs{...}
 type SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceInput interface {
 	pulumi.Input
 
@@ -7591,6 +8659,10 @@ func (i SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs) ToSpotFleet
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutput)
 }
 
+// SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrayInput is an input type that accepts SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArray and SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrayInput` via:
+//
+//          SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArray{ SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs{...} }
 type SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -7663,6 +8735,10 @@ type SpotFleetRequestLaunchSpecificationRootBlockDevice struct {
 	VolumeType          *string `pulumi:"volumeType"`
 }
 
+// SpotFleetRequestLaunchSpecificationRootBlockDeviceInput is an input type that accepts SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs and SpotFleetRequestLaunchSpecificationRootBlockDeviceOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchSpecificationRootBlockDeviceInput` via:
+//
+//          SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs{...}
 type SpotFleetRequestLaunchSpecificationRootBlockDeviceInput interface {
 	pulumi.Input
 
@@ -7691,6 +8767,10 @@ func (i SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs) ToSpotFleetReque
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchSpecificationRootBlockDeviceOutput)
 }
 
+// SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayInput is an input type that accepts SpotFleetRequestLaunchSpecificationRootBlockDeviceArray and SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayInput` via:
+//
+//          SpotFleetRequestLaunchSpecificationRootBlockDeviceArray{ SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs{...} }
 type SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -7770,11 +8850,337 @@ func (o SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayOutput) Index(i p
 	}).(SpotFleetRequestLaunchSpecificationRootBlockDeviceOutput)
 }
 
+type SpotFleetRequestLaunchTemplateConfig struct {
+	// Launch template specification. See Launch Template Specification below for more details.
+	LaunchTemplateSpecification SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification `pulumi:"launchTemplateSpecification"`
+	// One or more override configurations. See Overrides below for more details.
+	Overrides []SpotFleetRequestLaunchTemplateConfigOverride `pulumi:"overrides"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigArgs and SpotFleetRequestLaunchTemplateConfigOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigArgs{...}
+type SpotFleetRequestLaunchTemplateConfigInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOutput() SpotFleetRequestLaunchTemplateConfigOutput
+	ToSpotFleetRequestLaunchTemplateConfigOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigArgs struct {
+	// Launch template specification. See Launch Template Specification below for more details.
+	LaunchTemplateSpecification SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationInput `pulumi:"launchTemplateSpecification"`
+	// One or more override configurations. See Overrides below for more details.
+	Overrides SpotFleetRequestLaunchTemplateConfigOverrideArrayInput `pulumi:"overrides"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfig)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigArgs) ToSpotFleetRequestLaunchTemplateConfigOutput() SpotFleetRequestLaunchTemplateConfigOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigArgs) ToSpotFleetRequestLaunchTemplateConfigOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOutput)
+}
+
+// SpotFleetRequestLaunchTemplateConfigArrayInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigArray and SpotFleetRequestLaunchTemplateConfigArrayOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigArrayInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigArray{ SpotFleetRequestLaunchTemplateConfigArgs{...} }
+type SpotFleetRequestLaunchTemplateConfigArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigArrayOutput() SpotFleetRequestLaunchTemplateConfigArrayOutput
+	ToSpotFleetRequestLaunchTemplateConfigArrayOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigArrayOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigArray []SpotFleetRequestLaunchTemplateConfigInput
+
+func (SpotFleetRequestLaunchTemplateConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetRequestLaunchTemplateConfig)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigArray) ToSpotFleetRequestLaunchTemplateConfigArrayOutput() SpotFleetRequestLaunchTemplateConfigArrayOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigArray) ToSpotFleetRequestLaunchTemplateConfigArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigArrayOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfig)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOutput) ToSpotFleetRequestLaunchTemplateConfigOutput() SpotFleetRequestLaunchTemplateConfigOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOutput) ToSpotFleetRequestLaunchTemplateConfigOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOutput {
+	return o
+}
+
+// Launch template specification. See Launch Template Specification below for more details.
+func (o SpotFleetRequestLaunchTemplateConfigOutput) LaunchTemplateSpecification() SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfig) SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification {
+		return v.LaunchTemplateSpecification
+	}).(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput)
+}
+
+// One or more override configurations. See Overrides below for more details.
+func (o SpotFleetRequestLaunchTemplateConfigOutput) Overrides() SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfig) []SpotFleetRequestLaunchTemplateConfigOverride {
+		return v.Overrides
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetRequestLaunchTemplateConfig)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigArrayOutput) ToSpotFleetRequestLaunchTemplateConfigArrayOutput() SpotFleetRequestLaunchTemplateConfigArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigArrayOutput) ToSpotFleetRequestLaunchTemplateConfigArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigArrayOutput) Index(i pulumi.IntInput) SpotFleetRequestLaunchTemplateConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetRequestLaunchTemplateConfig {
+		return vs[0].([]SpotFleetRequestLaunchTemplateConfig)[vs[1].(int)]
+	}).(SpotFleetRequestLaunchTemplateConfigOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification struct {
+	// The ID of the launch template. Conflicts with `name`.
+	Id *string `pulumi:"id"`
+	// The name of the launch template. Conflicts with `id`.
+	Name *string `pulumi:"name"`
+	// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+	Version *string `pulumi:"version"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs and SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{...}
+type SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput() SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput
+	ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs struct {
+	// The ID of the launch template. Conflicts with `name`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the launch template. Conflicts with `id`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs) ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput() SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs) ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput() SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return o
+}
+
+// The ID of the launch template. Conflicts with `name`.
+func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the launch template. Conflicts with `id`.
+func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverride struct {
+	// The availability zone in which to place the request.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The type of instance to request.
+	InstanceType *string `pulumi:"instanceType"`
+	// The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
+	Priority *float64 `pulumi:"priority"`
+	// The maximum spot bid for this override request.
+	SpotPrice *string `pulumi:"spotPrice"`
+	// The subnet in which to launch the requested instance.
+	SubnetId *string `pulumi:"subnetId"`
+	// The capacity added to the fleet by a fulfilled request.
+	WeightedCapacity *float64 `pulumi:"weightedCapacity"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideArgs and SpotFleetRequestLaunchTemplateConfigOverrideOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideArgs{...}
+type SpotFleetRequestLaunchTemplateConfigOverrideInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideOutput() SpotFleetRequestLaunchTemplateConfigOverrideOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideArgs struct {
+	// The availability zone in which to place the request.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The type of instance to request.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
+	Priority pulumi.Float64PtrInput `pulumi:"priority"`
+	// The maximum spot bid for this override request.
+	SpotPrice pulumi.StringPtrInput `pulumi:"spotPrice"`
+	// The subnet in which to launch the requested instance.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The capacity added to the fleet by a fulfilled request.
+	WeightedCapacity pulumi.Float64PtrInput `pulumi:"weightedCapacity"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverride)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideOutput() SpotFleetRequestLaunchTemplateConfigOverrideOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideOutput)
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideArrayInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideArray and SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideArrayInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideArray{ SpotFleetRequestLaunchTemplateConfigOverrideArgs{...} }
+type SpotFleetRequestLaunchTemplateConfigOverrideArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutput() SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideArray []SpotFleetRequestLaunchTemplateConfigOverrideInput
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetRequestLaunchTemplateConfigOverride)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideArray) ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutput() SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideArray) ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverride)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideOutput() SpotFleetRequestLaunchTemplateConfigOverrideOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideOutput {
+	return o
+}
+
+// The availability zone in which to place the request.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The type of instance to request.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) Priority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
+}
+
+// The maximum spot bid for this override request.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) SpotPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
+}
+
+// The subnet in which to launch the requested instance.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The capacity added to the fleet by a fulfilled request.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) WeightedCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *float64 { return v.WeightedCapacity }).(pulumi.Float64PtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetRequestLaunchTemplateConfigOverride)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutput() SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput) Index(i pulumi.IntInput) SpotFleetRequestLaunchTemplateConfigOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetRequestLaunchTemplateConfigOverride {
+		return vs[0].([]SpotFleetRequestLaunchTemplateConfigOverride)[vs[1].(int)]
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideOutput)
+}
+
 type SpotInstanceRequestCreditSpecification struct {
 	// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits *string `pulumi:"cpuCredits"`
 }
 
+// SpotInstanceRequestCreditSpecificationInput is an input type that accepts SpotInstanceRequestCreditSpecificationArgs and SpotInstanceRequestCreditSpecificationOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestCreditSpecificationInput` via:
+//
+//          SpotInstanceRequestCreditSpecificationArgs{...}
 type SpotInstanceRequestCreditSpecificationInput interface {
 	pulumi.Input
 
@@ -7807,6 +9213,14 @@ func (i SpotInstanceRequestCreditSpecificationArgs) ToSpotInstanceRequestCreditS
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestCreditSpecificationOutput).ToSpotInstanceRequestCreditSpecificationPtrOutputWithContext(ctx)
 }
 
+// SpotInstanceRequestCreditSpecificationPtrInput is an input type that accepts SpotInstanceRequestCreditSpecificationArgs, SpotInstanceRequestCreditSpecificationPtr and SpotInstanceRequestCreditSpecificationPtrOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestCreditSpecificationPtrInput` via:
+//
+//          SpotInstanceRequestCreditSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
 type SpotInstanceRequestCreditSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -7881,7 +9295,12 @@ func (o SpotInstanceRequestCreditSpecificationPtrOutput) Elem() SpotInstanceRequ
 
 // The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 func (o SpotInstanceRequestCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestCreditSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCredits
+	}).(pulumi.StringPtrOutput)
 }
 
 type SpotInstanceRequestEbsBlockDevice struct {
@@ -7896,7 +9315,7 @@ type SpotInstanceRequestEbsBlockDevice struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -7905,11 +9324,15 @@ type SpotInstanceRequestEbsBlockDevice struct {
 	VolumeId   *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+	// or `"io2"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
+// SpotInstanceRequestEbsBlockDeviceInput is an input type that accepts SpotInstanceRequestEbsBlockDeviceArgs and SpotInstanceRequestEbsBlockDeviceOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestEbsBlockDeviceInput` via:
+//
+//          SpotInstanceRequestEbsBlockDeviceArgs{...}
 type SpotInstanceRequestEbsBlockDeviceInput interface {
 	pulumi.Input
 
@@ -7929,7 +9352,7 @@ type SpotInstanceRequestEbsBlockDeviceArgs struct {
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
@@ -7938,8 +9361,8 @@ type SpotInstanceRequestEbsBlockDeviceArgs struct {
 	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+	// or `"io2"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -7955,6 +9378,10 @@ func (i SpotInstanceRequestEbsBlockDeviceArgs) ToSpotInstanceRequestEbsBlockDevi
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestEbsBlockDeviceOutput)
 }
 
+// SpotInstanceRequestEbsBlockDeviceArrayInput is an input type that accepts SpotInstanceRequestEbsBlockDeviceArray and SpotInstanceRequestEbsBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestEbsBlockDeviceArrayInput` via:
+//
+//          SpotInstanceRequestEbsBlockDeviceArray{ SpotInstanceRequestEbsBlockDeviceArgs{...} }
 type SpotInstanceRequestEbsBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -8010,7 +9437,7 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutpu
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1"`.
+// This must be set with a `volumeType` of `"io1/io2"`.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -8034,8 +9461,8 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+// or `"io2"`. (Default: `"gp2"`).
 func (o SpotInstanceRequestEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -8071,6 +9498,10 @@ type SpotInstanceRequestEphemeralBlockDevice struct {
 	VirtualName *string `pulumi:"virtualName"`
 }
 
+// SpotInstanceRequestEphemeralBlockDeviceInput is an input type that accepts SpotInstanceRequestEphemeralBlockDeviceArgs and SpotInstanceRequestEphemeralBlockDeviceOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestEphemeralBlockDeviceInput` via:
+//
+//          SpotInstanceRequestEphemeralBlockDeviceArgs{...}
 type SpotInstanceRequestEphemeralBlockDeviceInput interface {
 	pulumi.Input
 
@@ -8101,6 +9532,10 @@ func (i SpotInstanceRequestEphemeralBlockDeviceArgs) ToSpotInstanceRequestEpheme
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestEphemeralBlockDeviceOutput)
 }
 
+// SpotInstanceRequestEphemeralBlockDeviceArrayInput is an input type that accepts SpotInstanceRequestEphemeralBlockDeviceArray and SpotInstanceRequestEphemeralBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestEphemeralBlockDeviceArrayInput` via:
+//
+//          SpotInstanceRequestEphemeralBlockDeviceArray{ SpotInstanceRequestEphemeralBlockDeviceArgs{...} }
 type SpotInstanceRequestEphemeralBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -8182,6 +9617,10 @@ type SpotInstanceRequestMetadataOptions struct {
 	HttpTokens *string `pulumi:"httpTokens"`
 }
 
+// SpotInstanceRequestMetadataOptionsInput is an input type that accepts SpotInstanceRequestMetadataOptionsArgs and SpotInstanceRequestMetadataOptionsOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestMetadataOptionsInput` via:
+//
+//          SpotInstanceRequestMetadataOptionsArgs{...}
 type SpotInstanceRequestMetadataOptionsInput interface {
 	pulumi.Input
 
@@ -8218,6 +9657,14 @@ func (i SpotInstanceRequestMetadataOptionsArgs) ToSpotInstanceRequestMetadataOpt
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestMetadataOptionsOutput).ToSpotInstanceRequestMetadataOptionsPtrOutputWithContext(ctx)
 }
 
+// SpotInstanceRequestMetadataOptionsPtrInput is an input type that accepts SpotInstanceRequestMetadataOptionsArgs, SpotInstanceRequestMetadataOptionsPtr and SpotInstanceRequestMetadataOptionsPtrOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestMetadataOptionsPtrInput` via:
+//
+//          SpotInstanceRequestMetadataOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type SpotInstanceRequestMetadataOptionsPtrInput interface {
 	pulumi.Input
 
@@ -8302,17 +9749,32 @@ func (o SpotInstanceRequestMetadataOptionsPtrOutput) Elem() SpotInstanceRequestM
 
 // Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
 func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 // The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestMetadataOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPutResponseHopLimit
+	}).(pulumi.IntPtrOutput)
 }
 
 // Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpTokens
+	}).(pulumi.StringPtrOutput)
 }
 
 type SpotInstanceRequestNetworkInterface struct {
@@ -8324,6 +9786,10 @@ type SpotInstanceRequestNetworkInterface struct {
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
+// SpotInstanceRequestNetworkInterfaceInput is an input type that accepts SpotInstanceRequestNetworkInterfaceArgs and SpotInstanceRequestNetworkInterfaceOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestNetworkInterfaceInput` via:
+//
+//          SpotInstanceRequestNetworkInterfaceArgs{...}
 type SpotInstanceRequestNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -8352,6 +9818,10 @@ func (i SpotInstanceRequestNetworkInterfaceArgs) ToSpotInstanceRequestNetworkInt
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestNetworkInterfaceOutput)
 }
 
+// SpotInstanceRequestNetworkInterfaceArrayInput is an input type that accepts SpotInstanceRequestNetworkInterfaceArray and SpotInstanceRequestNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestNetworkInterfaceArrayInput` via:
+//
+//          SpotInstanceRequestNetworkInterfaceArray{ SpotInstanceRequestNetworkInterfaceArgs{...} }
 type SpotInstanceRequestNetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -8426,11 +9896,13 @@ type SpotInstanceRequestRootBlockDevice struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// The name of the device to mount.
+	DeviceName *string `pulumi:"deviceName"`
 	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This is only valid for `volumeType` of `"io1"`, and must be specified if
+	// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 	// using that type
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
@@ -8438,10 +9910,14 @@ type SpotInstanceRequestRootBlockDevice struct {
 	VolumeId *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
+// SpotInstanceRequestRootBlockDeviceInput is an input type that accepts SpotInstanceRequestRootBlockDeviceArgs and SpotInstanceRequestRootBlockDeviceOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestRootBlockDeviceInput` via:
+//
+//          SpotInstanceRequestRootBlockDeviceArgs{...}
 type SpotInstanceRequestRootBlockDeviceInput interface {
 	pulumi.Input
 
@@ -8453,11 +9929,13 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// The name of the device to mount.
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
 	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This is only valid for `volumeType` of `"io1"`, and must be specified if
+	// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 	// using that type
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
@@ -8465,7 +9943,7 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	VolumeId pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -8489,6 +9967,14 @@ func (i SpotInstanceRequestRootBlockDeviceArgs) ToSpotInstanceRequestRootBlockDe
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestRootBlockDeviceOutput).ToSpotInstanceRequestRootBlockDevicePtrOutputWithContext(ctx)
 }
 
+// SpotInstanceRequestRootBlockDevicePtrInput is an input type that accepts SpotInstanceRequestRootBlockDeviceArgs, SpotInstanceRequestRootBlockDevicePtr and SpotInstanceRequestRootBlockDevicePtrOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestRootBlockDevicePtrInput` via:
+//
+//          SpotInstanceRequestRootBlockDeviceArgs{...}
+//
+//  or:
+//
+//          nil
 type SpotInstanceRequestRootBlockDevicePtrInput interface {
 	pulumi.Input
 
@@ -8544,6 +10030,11 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) DeleteOnTermination() pulumi.B
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the device to mount.
+func (o SpotInstanceRequestRootBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
 // Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 func (o SpotInstanceRequestRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
@@ -8551,7 +10042,7 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutp
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This is only valid for `volumeType` of `"io1"`, and must be specified if
+// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 // using that type
 func (o SpotInstanceRequestRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
@@ -8571,7 +10062,7 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutp
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -8597,39 +10088,84 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) Elem() SpotInstanceRequestR
 // Whether the volume should be destroyed
 // on instance termination (Default: `true`).
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteOnTermination
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the device to mount.
+func (o SpotInstanceRequestRootBlockDevicePtrOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This is only valid for `volumeType` of `"io1"`, and must be specified if
+// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 // using that type
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The size of the volume in gibibytes (GiB).
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
 }
 
 type TrafficMirrorFilterRuleDestinationPortRange struct {
@@ -8639,6 +10175,10 @@ type TrafficMirrorFilterRuleDestinationPortRange struct {
 	ToPort *int `pulumi:"toPort"`
 }
 
+// TrafficMirrorFilterRuleDestinationPortRangeInput is an input type that accepts TrafficMirrorFilterRuleDestinationPortRangeArgs and TrafficMirrorFilterRuleDestinationPortRangeOutput values.
+// You can construct a concrete instance of `TrafficMirrorFilterRuleDestinationPortRangeInput` via:
+//
+//          TrafficMirrorFilterRuleDestinationPortRangeArgs{...}
 type TrafficMirrorFilterRuleDestinationPortRangeInput interface {
 	pulumi.Input
 
@@ -8673,6 +10213,14 @@ func (i TrafficMirrorFilterRuleDestinationPortRangeArgs) ToTrafficMirrorFilterRu
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleDestinationPortRangeOutput).ToTrafficMirrorFilterRuleDestinationPortRangePtrOutputWithContext(ctx)
 }
 
+// TrafficMirrorFilterRuleDestinationPortRangePtrInput is an input type that accepts TrafficMirrorFilterRuleDestinationPortRangeArgs, TrafficMirrorFilterRuleDestinationPortRangePtr and TrafficMirrorFilterRuleDestinationPortRangePtrOutput values.
+// You can construct a concrete instance of `TrafficMirrorFilterRuleDestinationPortRangePtrInput` via:
+//
+//          TrafficMirrorFilterRuleDestinationPortRangeArgs{...}
+//
+//  or:
+//
+//          nil
 type TrafficMirrorFilterRuleDestinationPortRangePtrInput interface {
 	pulumi.Input
 
@@ -8754,12 +10302,22 @@ func (o TrafficMirrorFilterRuleDestinationPortRangePtrOutput) Elem() TrafficMirr
 
 // Starting port of the range
 func (o TrafficMirrorFilterRuleDestinationPortRangePtrOutput) FromPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TrafficMirrorFilterRuleDestinationPortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *TrafficMirrorFilterRuleDestinationPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FromPort
+	}).(pulumi.IntPtrOutput)
 }
 
 // Ending port of the range
 func (o TrafficMirrorFilterRuleDestinationPortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TrafficMirrorFilterRuleDestinationPortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *TrafficMirrorFilterRuleDestinationPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ToPort
+	}).(pulumi.IntPtrOutput)
 }
 
 type TrafficMirrorFilterRuleSourcePortRange struct {
@@ -8769,6 +10327,10 @@ type TrafficMirrorFilterRuleSourcePortRange struct {
 	ToPort *int `pulumi:"toPort"`
 }
 
+// TrafficMirrorFilterRuleSourcePortRangeInput is an input type that accepts TrafficMirrorFilterRuleSourcePortRangeArgs and TrafficMirrorFilterRuleSourcePortRangeOutput values.
+// You can construct a concrete instance of `TrafficMirrorFilterRuleSourcePortRangeInput` via:
+//
+//          TrafficMirrorFilterRuleSourcePortRangeArgs{...}
 type TrafficMirrorFilterRuleSourcePortRangeInput interface {
 	pulumi.Input
 
@@ -8803,6 +10365,14 @@ func (i TrafficMirrorFilterRuleSourcePortRangeArgs) ToTrafficMirrorFilterRuleSou
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleSourcePortRangeOutput).ToTrafficMirrorFilterRuleSourcePortRangePtrOutputWithContext(ctx)
 }
 
+// TrafficMirrorFilterRuleSourcePortRangePtrInput is an input type that accepts TrafficMirrorFilterRuleSourcePortRangeArgs, TrafficMirrorFilterRuleSourcePortRangePtr and TrafficMirrorFilterRuleSourcePortRangePtrOutput values.
+// You can construct a concrete instance of `TrafficMirrorFilterRuleSourcePortRangePtrInput` via:
+//
+//          TrafficMirrorFilterRuleSourcePortRangeArgs{...}
+//
+//  or:
+//
+//          nil
 type TrafficMirrorFilterRuleSourcePortRangePtrInput interface {
 	pulumi.Input
 
@@ -8882,12 +10452,22 @@ func (o TrafficMirrorFilterRuleSourcePortRangePtrOutput) Elem() TrafficMirrorFil
 
 // Starting port of the range
 func (o TrafficMirrorFilterRuleSourcePortRangePtrOutput) FromPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TrafficMirrorFilterRuleSourcePortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *TrafficMirrorFilterRuleSourcePortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FromPort
+	}).(pulumi.IntPtrOutput)
 }
 
 // Ending port of the range
 func (o TrafficMirrorFilterRuleSourcePortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TrafficMirrorFilterRuleSourcePortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *TrafficMirrorFilterRuleSourcePortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ToPort
+	}).(pulumi.IntPtrOutput)
 }
 
 type VpcEndpointDnsEntry struct {
@@ -8897,6 +10477,10 @@ type VpcEndpointDnsEntry struct {
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 }
 
+// VpcEndpointDnsEntryInput is an input type that accepts VpcEndpointDnsEntryArgs and VpcEndpointDnsEntryOutput values.
+// You can construct a concrete instance of `VpcEndpointDnsEntryInput` via:
+//
+//          VpcEndpointDnsEntryArgs{...}
 type VpcEndpointDnsEntryInput interface {
 	pulumi.Input
 
@@ -8923,6 +10507,10 @@ func (i VpcEndpointDnsEntryArgs) ToVpcEndpointDnsEntryOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointDnsEntryOutput)
 }
 
+// VpcEndpointDnsEntryArrayInput is an input type that accepts VpcEndpointDnsEntryArray and VpcEndpointDnsEntryArrayOutput values.
+// You can construct a concrete instance of `VpcEndpointDnsEntryArrayInput` via:
+//
+//          VpcEndpointDnsEntryArray{ VpcEndpointDnsEntryArgs{...} }
 type VpcEndpointDnsEntryArrayInput interface {
 	pulumi.Input
 
@@ -9004,6 +10592,10 @@ type VpcPeeringConnectionAccepterType struct {
 	AllowVpcToRemoteClassicLink *bool `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
+// VpcPeeringConnectionAccepterTypeInput is an input type that accepts VpcPeeringConnectionAccepterTypeArgs and VpcPeeringConnectionAccepterTypeOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionAccepterTypeInput` via:
+//
+//          VpcPeeringConnectionAccepterTypeArgs{...}
 type VpcPeeringConnectionAccepterTypeInput interface {
 	pulumi.Input
 
@@ -9047,6 +10639,14 @@ func (i VpcPeeringConnectionAccepterTypeArgs) ToVpcPeeringConnectionAccepterType
 	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterTypeOutput).ToVpcPeeringConnectionAccepterTypePtrOutputWithContext(ctx)
 }
 
+// VpcPeeringConnectionAccepterTypePtrInput is an input type that accepts VpcPeeringConnectionAccepterTypeArgs, VpcPeeringConnectionAccepterTypePtr and VpcPeeringConnectionAccepterTypePtrOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionAccepterTypePtrInput` via:
+//
+//          VpcPeeringConnectionAccepterTypeArgs{...}
+//
+//  or:
+//
+//          nil
 type VpcPeeringConnectionAccepterTypePtrInput interface {
 	pulumi.Input
 
@@ -9140,7 +10740,12 @@ func (o VpcPeeringConnectionAccepterTypePtrOutput) Elem() VpcPeeringConnectionAc
 // with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
 // to the remote VPC.
 func (o VpcPeeringConnectionAccepterTypePtrOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterType) *bool { return v.AllowClassicLinkToRemoteVpc }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepterType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowClassicLinkToRemoteVpc
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Allow a local VPC to resolve public DNS hostnames to
@@ -9148,14 +10753,24 @@ func (o VpcPeeringConnectionAccepterTypePtrOutput) AllowClassicLinkToRemoteVpc()
 // [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
 // inter-region VPC peering.
 func (o VpcPeeringConnectionAccepterTypePtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterType) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepterType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowRemoteVpcDnsResolution
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Allow a local VPC to communicate with a linked EC2-Classic
 // instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
 // connection.
 func (o VpcPeeringConnectionAccepterTypePtrOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterType) *bool { return v.AllowVpcToRemoteClassicLink }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepterType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowVpcToRemoteClassicLink
+	}).(pulumi.BoolPtrOutput)
 }
 
 type VpcPeeringConnectionAccepterAccepter struct {
@@ -9170,6 +10785,10 @@ type VpcPeeringConnectionAccepterAccepter struct {
 	AllowVpcToRemoteClassicLink *bool `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
+// VpcPeeringConnectionAccepterAccepterInput is an input type that accepts VpcPeeringConnectionAccepterAccepterArgs and VpcPeeringConnectionAccepterAccepterOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionAccepterAccepterInput` via:
+//
+//          VpcPeeringConnectionAccepterAccepterArgs{...}
 type VpcPeeringConnectionAccepterAccepterInput interface {
 	pulumi.Input
 
@@ -9209,6 +10828,14 @@ func (i VpcPeeringConnectionAccepterAccepterArgs) ToVpcPeeringConnectionAccepter
 	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterAccepterOutput).ToVpcPeeringConnectionAccepterAccepterPtrOutputWithContext(ctx)
 }
 
+// VpcPeeringConnectionAccepterAccepterPtrInput is an input type that accepts VpcPeeringConnectionAccepterAccepterArgs, VpcPeeringConnectionAccepterAccepterPtr and VpcPeeringConnectionAccepterAccepterPtrOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionAccepterAccepterPtrInput` via:
+//
+//          VpcPeeringConnectionAccepterAccepterArgs{...}
+//
+//  or:
+//
+//          nil
 type VpcPeeringConnectionAccepterAccepterPtrInput interface {
 	pulumi.Input
 
@@ -9297,19 +10924,34 @@ func (o VpcPeeringConnectionAccepterAccepterPtrOutput) Elem() VpcPeeringConnecti
 // Indicates whether a local ClassicLink connection can communicate
 // with the peer VPC over the VPC Peering Connection.
 func (o VpcPeeringConnectionAccepterAccepterPtrOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterAccepter) *bool { return v.AllowClassicLinkToRemoteVpc }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepterAccepter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowClassicLinkToRemoteVpc
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether a local VPC can resolve public DNS hostnames to
 // private IP addresses when queried from instances in a peer VPC.
 func (o VpcPeeringConnectionAccepterAccepterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterAccepter) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepterAccepter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowRemoteVpcDnsResolution
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether a local VPC can communicate with a ClassicLink
 // connection in the peer VPC over the VPC Peering Connection.
 func (o VpcPeeringConnectionAccepterAccepterPtrOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterAccepter) *bool { return v.AllowVpcToRemoteClassicLink }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepterAccepter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowVpcToRemoteClassicLink
+	}).(pulumi.BoolPtrOutput)
 }
 
 type VpcPeeringConnectionAccepterRequester struct {
@@ -9324,6 +10966,10 @@ type VpcPeeringConnectionAccepterRequester struct {
 	AllowVpcToRemoteClassicLink *bool `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
+// VpcPeeringConnectionAccepterRequesterInput is an input type that accepts VpcPeeringConnectionAccepterRequesterArgs and VpcPeeringConnectionAccepterRequesterOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionAccepterRequesterInput` via:
+//
+//          VpcPeeringConnectionAccepterRequesterArgs{...}
 type VpcPeeringConnectionAccepterRequesterInput interface {
 	pulumi.Input
 
@@ -9363,6 +11009,14 @@ func (i VpcPeeringConnectionAccepterRequesterArgs) ToVpcPeeringConnectionAccepte
 	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterRequesterOutput).ToVpcPeeringConnectionAccepterRequesterPtrOutputWithContext(ctx)
 }
 
+// VpcPeeringConnectionAccepterRequesterPtrInput is an input type that accepts VpcPeeringConnectionAccepterRequesterArgs, VpcPeeringConnectionAccepterRequesterPtr and VpcPeeringConnectionAccepterRequesterPtrOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionAccepterRequesterPtrInput` via:
+//
+//          VpcPeeringConnectionAccepterRequesterArgs{...}
+//
+//  or:
+//
+//          nil
 type VpcPeeringConnectionAccepterRequesterPtrInput interface {
 	pulumi.Input
 
@@ -9451,19 +11105,34 @@ func (o VpcPeeringConnectionAccepterRequesterPtrOutput) Elem() VpcPeeringConnect
 // Indicates whether a local ClassicLink connection can communicate
 // with the peer VPC over the VPC Peering Connection.
 func (o VpcPeeringConnectionAccepterRequesterPtrOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterRequester) *bool { return v.AllowClassicLinkToRemoteVpc }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepterRequester) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowClassicLinkToRemoteVpc
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether a local VPC can resolve public DNS hostnames to
 // private IP addresses when queried from instances in a peer VPC.
 func (o VpcPeeringConnectionAccepterRequesterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterRequester) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepterRequester) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowRemoteVpcDnsResolution
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether a local VPC can communicate with a ClassicLink
 // connection in the peer VPC over the VPC Peering Connection.
 func (o VpcPeeringConnectionAccepterRequesterPtrOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterRequester) *bool { return v.AllowVpcToRemoteClassicLink }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepterRequester) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowVpcToRemoteClassicLink
+	}).(pulumi.BoolPtrOutput)
 }
 
 type VpcPeeringConnectionRequester struct {
@@ -9482,6 +11151,10 @@ type VpcPeeringConnectionRequester struct {
 	AllowVpcToRemoteClassicLink *bool `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
+// VpcPeeringConnectionRequesterInput is an input type that accepts VpcPeeringConnectionRequesterArgs and VpcPeeringConnectionRequesterOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionRequesterInput` via:
+//
+//          VpcPeeringConnectionRequesterArgs{...}
 type VpcPeeringConnectionRequesterInput interface {
 	pulumi.Input
 
@@ -9525,6 +11198,14 @@ func (i VpcPeeringConnectionRequesterArgs) ToVpcPeeringConnectionRequesterPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionRequesterOutput).ToVpcPeeringConnectionRequesterPtrOutputWithContext(ctx)
 }
 
+// VpcPeeringConnectionRequesterPtrInput is an input type that accepts VpcPeeringConnectionRequesterArgs, VpcPeeringConnectionRequesterPtr and VpcPeeringConnectionRequesterPtrOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionRequesterPtrInput` via:
+//
+//          VpcPeeringConnectionRequesterArgs{...}
+//
+//  or:
+//
+//          nil
 type VpcPeeringConnectionRequesterPtrInput interface {
 	pulumi.Input
 
@@ -9618,7 +11299,12 @@ func (o VpcPeeringConnectionRequesterPtrOutput) Elem() VpcPeeringConnectionReque
 // with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
 // to the remote VPC.
 func (o VpcPeeringConnectionRequesterPtrOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionRequester) *bool { return v.AllowClassicLinkToRemoteVpc }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionRequester) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowClassicLinkToRemoteVpc
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Allow a local VPC to resolve public DNS hostnames to
@@ -9626,14 +11312,24 @@ func (o VpcPeeringConnectionRequesterPtrOutput) AllowClassicLinkToRemoteVpc() pu
 // [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
 // inter-region VPC peering.
 func (o VpcPeeringConnectionRequesterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionRequester) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionRequester) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowRemoteVpcDnsResolution
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Allow a local VPC to communicate with a linked EC2-Classic
 // instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
 // connection.
 func (o VpcPeeringConnectionRequesterPtrOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionRequester) *bool { return v.AllowVpcToRemoteClassicLink }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionRequester) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowVpcToRemoteClassicLink
+	}).(pulumi.BoolPtrOutput)
 }
 
 type VpnConnectionRouteType struct {
@@ -9642,6 +11338,10 @@ type VpnConnectionRouteType struct {
 	State                *string `pulumi:"state"`
 }
 
+// VpnConnectionRouteTypeInput is an input type that accepts VpnConnectionRouteTypeArgs and VpnConnectionRouteTypeOutput values.
+// You can construct a concrete instance of `VpnConnectionRouteTypeInput` via:
+//
+//          VpnConnectionRouteTypeArgs{...}
 type VpnConnectionRouteTypeInput interface {
 	pulumi.Input
 
@@ -9667,6 +11367,10 @@ func (i VpnConnectionRouteTypeArgs) ToVpnConnectionRouteTypeOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteTypeOutput)
 }
 
+// VpnConnectionRouteTypeArrayInput is an input type that accepts VpnConnectionRouteTypeArray and VpnConnectionRouteTypeArrayOutput values.
+// You can construct a concrete instance of `VpnConnectionRouteTypeArrayInput` via:
+//
+//          VpnConnectionRouteTypeArray{ VpnConnectionRouteTypeArgs{...} }
 type VpnConnectionRouteTypeArrayInput interface {
 	pulumi.Input
 
@@ -9742,6 +11446,10 @@ type VpnConnectionVgwTelemetry struct {
 	StatusMessage      *string `pulumi:"statusMessage"`
 }
 
+// VpnConnectionVgwTelemetryInput is an input type that accepts VpnConnectionVgwTelemetryArgs and VpnConnectionVgwTelemetryOutput values.
+// You can construct a concrete instance of `VpnConnectionVgwTelemetryInput` via:
+//
+//          VpnConnectionVgwTelemetryArgs{...}
 type VpnConnectionVgwTelemetryInput interface {
 	pulumi.Input
 
@@ -9769,6 +11477,10 @@ func (i VpnConnectionVgwTelemetryArgs) ToVpnConnectionVgwTelemetryOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionVgwTelemetryOutput)
 }
 
+// VpnConnectionVgwTelemetryArrayInput is an input type that accepts VpnConnectionVgwTelemetryArray and VpnConnectionVgwTelemetryArrayOutput values.
+// You can construct a concrete instance of `VpnConnectionVgwTelemetryArrayInput` via:
+//
+//          VpnConnectionVgwTelemetryArray{ VpnConnectionVgwTelemetryArgs{...} }
 type VpnConnectionVgwTelemetryArrayInput interface {
 	pulumi.Input
 
@@ -9844,11 +11556,239 @@ func (o VpnConnectionVgwTelemetryArrayOutput) Index(i pulumi.IntInput) VpnConnec
 	}).(VpnConnectionVgwTelemetryOutput)
 }
 
+type GetCoipPoolFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A COIP Pool will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetCoipPoolFilterInput is an input type that accepts GetCoipPoolFilterArgs and GetCoipPoolFilterOutput values.
+// You can construct a concrete instance of `GetCoipPoolFilterInput` via:
+//
+//          GetCoipPoolFilterArgs{...}
+type GetCoipPoolFilterInput interface {
+	pulumi.Input
+
+	ToGetCoipPoolFilterOutput() GetCoipPoolFilterOutput
+	ToGetCoipPoolFilterOutputWithContext(context.Context) GetCoipPoolFilterOutput
+}
+
+type GetCoipPoolFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A COIP Pool will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCoipPoolFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoipPoolFilter)(nil)).Elem()
+}
+
+func (i GetCoipPoolFilterArgs) ToGetCoipPoolFilterOutput() GetCoipPoolFilterOutput {
+	return i.ToGetCoipPoolFilterOutputWithContext(context.Background())
+}
+
+func (i GetCoipPoolFilterArgs) ToGetCoipPoolFilterOutputWithContext(ctx context.Context) GetCoipPoolFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoipPoolFilterOutput)
+}
+
+// GetCoipPoolFilterArrayInput is an input type that accepts GetCoipPoolFilterArray and GetCoipPoolFilterArrayOutput values.
+// You can construct a concrete instance of `GetCoipPoolFilterArrayInput` via:
+//
+//          GetCoipPoolFilterArray{ GetCoipPoolFilterArgs{...} }
+type GetCoipPoolFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetCoipPoolFilterArrayOutput() GetCoipPoolFilterArrayOutput
+	ToGetCoipPoolFilterArrayOutputWithContext(context.Context) GetCoipPoolFilterArrayOutput
+}
+
+type GetCoipPoolFilterArray []GetCoipPoolFilterInput
+
+func (GetCoipPoolFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoipPoolFilter)(nil)).Elem()
+}
+
+func (i GetCoipPoolFilterArray) ToGetCoipPoolFilterArrayOutput() GetCoipPoolFilterArrayOutput {
+	return i.ToGetCoipPoolFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoipPoolFilterArray) ToGetCoipPoolFilterArrayOutputWithContext(ctx context.Context) GetCoipPoolFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoipPoolFilterArrayOutput)
+}
+
+type GetCoipPoolFilterOutput struct{ *pulumi.OutputState }
+
+func (GetCoipPoolFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoipPoolFilter)(nil)).Elem()
+}
+
+func (o GetCoipPoolFilterOutput) ToGetCoipPoolFilterOutput() GetCoipPoolFilterOutput {
+	return o
+}
+
+func (o GetCoipPoolFilterOutput) ToGetCoipPoolFilterOutputWithContext(ctx context.Context) GetCoipPoolFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+func (o GetCoipPoolFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoipPoolFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A COIP Pool will be selected if any one of the given values matches.
+func (o GetCoipPoolFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoipPoolFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCoipPoolFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoipPoolFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoipPoolFilter)(nil)).Elem()
+}
+
+func (o GetCoipPoolFilterArrayOutput) ToGetCoipPoolFilterArrayOutput() GetCoipPoolFilterArrayOutput {
+	return o
+}
+
+func (o GetCoipPoolFilterArrayOutput) ToGetCoipPoolFilterArrayOutputWithContext(ctx context.Context) GetCoipPoolFilterArrayOutput {
+	return o
+}
+
+func (o GetCoipPoolFilterArrayOutput) Index(i pulumi.IntInput) GetCoipPoolFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoipPoolFilter {
+		return vs[0].([]GetCoipPoolFilter)[vs[1].(int)]
+	}).(GetCoipPoolFilterOutput)
+}
+
+type GetCoipPoolsFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A COIP Pool will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetCoipPoolsFilterInput is an input type that accepts GetCoipPoolsFilterArgs and GetCoipPoolsFilterOutput values.
+// You can construct a concrete instance of `GetCoipPoolsFilterInput` via:
+//
+//          GetCoipPoolsFilterArgs{...}
+type GetCoipPoolsFilterInput interface {
+	pulumi.Input
+
+	ToGetCoipPoolsFilterOutput() GetCoipPoolsFilterOutput
+	ToGetCoipPoolsFilterOutputWithContext(context.Context) GetCoipPoolsFilterOutput
+}
+
+type GetCoipPoolsFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A COIP Pool will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCoipPoolsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoipPoolsFilter)(nil)).Elem()
+}
+
+func (i GetCoipPoolsFilterArgs) ToGetCoipPoolsFilterOutput() GetCoipPoolsFilterOutput {
+	return i.ToGetCoipPoolsFilterOutputWithContext(context.Background())
+}
+
+func (i GetCoipPoolsFilterArgs) ToGetCoipPoolsFilterOutputWithContext(ctx context.Context) GetCoipPoolsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoipPoolsFilterOutput)
+}
+
+// GetCoipPoolsFilterArrayInput is an input type that accepts GetCoipPoolsFilterArray and GetCoipPoolsFilterArrayOutput values.
+// You can construct a concrete instance of `GetCoipPoolsFilterArrayInput` via:
+//
+//          GetCoipPoolsFilterArray{ GetCoipPoolsFilterArgs{...} }
+type GetCoipPoolsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetCoipPoolsFilterArrayOutput() GetCoipPoolsFilterArrayOutput
+	ToGetCoipPoolsFilterArrayOutputWithContext(context.Context) GetCoipPoolsFilterArrayOutput
+}
+
+type GetCoipPoolsFilterArray []GetCoipPoolsFilterInput
+
+func (GetCoipPoolsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoipPoolsFilter)(nil)).Elem()
+}
+
+func (i GetCoipPoolsFilterArray) ToGetCoipPoolsFilterArrayOutput() GetCoipPoolsFilterArrayOutput {
+	return i.ToGetCoipPoolsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoipPoolsFilterArray) ToGetCoipPoolsFilterArrayOutputWithContext(ctx context.Context) GetCoipPoolsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoipPoolsFilterArrayOutput)
+}
+
+type GetCoipPoolsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetCoipPoolsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoipPoolsFilter)(nil)).Elem()
+}
+
+func (o GetCoipPoolsFilterOutput) ToGetCoipPoolsFilterOutput() GetCoipPoolsFilterOutput {
+	return o
+}
+
+func (o GetCoipPoolsFilterOutput) ToGetCoipPoolsFilterOutputWithContext(ctx context.Context) GetCoipPoolsFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+func (o GetCoipPoolsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoipPoolsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A COIP Pool will be selected if any one of the given values matches.
+func (o GetCoipPoolsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoipPoolsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCoipPoolsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoipPoolsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoipPoolsFilter)(nil)).Elem()
+}
+
+func (o GetCoipPoolsFilterArrayOutput) ToGetCoipPoolsFilterArrayOutput() GetCoipPoolsFilterArrayOutput {
+	return o
+}
+
+func (o GetCoipPoolsFilterArrayOutput) ToGetCoipPoolsFilterArrayOutputWithContext(ctx context.Context) GetCoipPoolsFilterArrayOutput {
+	return o
+}
+
+func (o GetCoipPoolsFilterArrayOutput) Index(i pulumi.IntInput) GetCoipPoolsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoipPoolsFilter {
+		return vs[0].([]GetCoipPoolsFilter)[vs[1].(int)]
+	}).(GetCoipPoolsFilterOutput)
+}
+
 type GetCustomerGatewayFilter struct {
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
+// GetCustomerGatewayFilterInput is an input type that accepts GetCustomerGatewayFilterArgs and GetCustomerGatewayFilterOutput values.
+// You can construct a concrete instance of `GetCustomerGatewayFilterInput` via:
+//
+//          GetCustomerGatewayFilterArgs{...}
 type GetCustomerGatewayFilterInput interface {
 	pulumi.Input
 
@@ -9873,6 +11813,10 @@ func (i GetCustomerGatewayFilterArgs) ToGetCustomerGatewayFilterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetCustomerGatewayFilterOutput)
 }
 
+// GetCustomerGatewayFilterArrayInput is an input type that accepts GetCustomerGatewayFilterArray and GetCustomerGatewayFilterArrayOutput values.
+// You can construct a concrete instance of `GetCustomerGatewayFilterArrayInput` via:
+//
+//          GetCustomerGatewayFilterArray{ GetCustomerGatewayFilterArgs{...} }
 type GetCustomerGatewayFilterArrayInput interface {
 	pulumi.Input
 
@@ -9940,6 +11884,10 @@ type GetInstanceCreditSpecification struct {
 	CpuCredits string `pulumi:"cpuCredits"`
 }
 
+// GetInstanceCreditSpecificationInput is an input type that accepts GetInstanceCreditSpecificationArgs and GetInstanceCreditSpecificationOutput values.
+// You can construct a concrete instance of `GetInstanceCreditSpecificationInput` via:
+//
+//          GetInstanceCreditSpecificationArgs{...}
 type GetInstanceCreditSpecificationInput interface {
 	pulumi.Input
 
@@ -9963,6 +11911,10 @@ func (i GetInstanceCreditSpecificationArgs) ToGetInstanceCreditSpecificationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceCreditSpecificationOutput)
 }
 
+// GetInstanceCreditSpecificationArrayInput is an input type that accepts GetInstanceCreditSpecificationArray and GetInstanceCreditSpecificationArrayOutput values.
+// You can construct a concrete instance of `GetInstanceCreditSpecificationArrayInput` via:
+//
+//          GetInstanceCreditSpecificationArray{ GetInstanceCreditSpecificationArgs{...} }
 type GetInstanceCreditSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -10041,6 +11993,10 @@ type GetInstanceEbsBlockDevice struct {
 	VolumeType string `pulumi:"volumeType"`
 }
 
+// GetInstanceEbsBlockDeviceInput is an input type that accepts GetInstanceEbsBlockDeviceArgs and GetInstanceEbsBlockDeviceOutput values.
+// You can construct a concrete instance of `GetInstanceEbsBlockDeviceInput` via:
+//
+//          GetInstanceEbsBlockDeviceArgs{...}
 type GetInstanceEbsBlockDeviceInput interface {
 	pulumi.Input
 
@@ -10079,6 +12035,10 @@ func (i GetInstanceEbsBlockDeviceArgs) ToGetInstanceEbsBlockDeviceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceEbsBlockDeviceOutput)
 }
 
+// GetInstanceEbsBlockDeviceArrayInput is an input type that accepts GetInstanceEbsBlockDeviceArray and GetInstanceEbsBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `GetInstanceEbsBlockDeviceArrayInput` via:
+//
+//          GetInstanceEbsBlockDeviceArray{ GetInstanceEbsBlockDeviceArgs{...} }
 type GetInstanceEbsBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -10186,6 +12146,10 @@ type GetInstanceEphemeralBlockDevice struct {
 	VirtualName *string `pulumi:"virtualName"`
 }
 
+// GetInstanceEphemeralBlockDeviceInput is an input type that accepts GetInstanceEphemeralBlockDeviceArgs and GetInstanceEphemeralBlockDeviceOutput values.
+// You can construct a concrete instance of `GetInstanceEphemeralBlockDeviceInput` via:
+//
+//          GetInstanceEphemeralBlockDeviceArgs{...}
 type GetInstanceEphemeralBlockDeviceInput interface {
 	pulumi.Input
 
@@ -10214,6 +12178,10 @@ func (i GetInstanceEphemeralBlockDeviceArgs) ToGetInstanceEphemeralBlockDeviceOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceEphemeralBlockDeviceOutput)
 }
 
+// GetInstanceEphemeralBlockDeviceArrayInput is an input type that accepts GetInstanceEphemeralBlockDeviceArray and GetInstanceEphemeralBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `GetInstanceEphemeralBlockDeviceArrayInput` via:
+//
+//          GetInstanceEphemeralBlockDeviceArray{ GetInstanceEphemeralBlockDeviceArgs{...} }
 type GetInstanceEphemeralBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -10289,6 +12257,10 @@ type GetInstanceFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetInstanceFilterInput is an input type that accepts GetInstanceFilterArgs and GetInstanceFilterOutput values.
+// You can construct a concrete instance of `GetInstanceFilterInput` via:
+//
+//          GetInstanceFilterArgs{...}
 type GetInstanceFilterInput interface {
 	pulumi.Input
 
@@ -10313,6 +12285,10 @@ func (i GetInstanceFilterArgs) ToGetInstanceFilterOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceFilterOutput)
 }
 
+// GetInstanceFilterArrayInput is an input type that accepts GetInstanceFilterArray and GetInstanceFilterArrayOutput values.
+// You can construct a concrete instance of `GetInstanceFilterArrayInput` via:
+//
+//          GetInstanceFilterArray{ GetInstanceFilterArgs{...} }
 type GetInstanceFilterArrayInput interface {
 	pulumi.Input
 
@@ -10385,6 +12361,10 @@ type GetInstanceMetadataOption struct {
 	HttpTokens string `pulumi:"httpTokens"`
 }
 
+// GetInstanceMetadataOptionInput is an input type that accepts GetInstanceMetadataOptionArgs and GetInstanceMetadataOptionOutput values.
+// You can construct a concrete instance of `GetInstanceMetadataOptionInput` via:
+//
+//          GetInstanceMetadataOptionArgs{...}
 type GetInstanceMetadataOptionInput interface {
 	pulumi.Input
 
@@ -10413,6 +12393,10 @@ func (i GetInstanceMetadataOptionArgs) ToGetInstanceMetadataOptionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceMetadataOptionOutput)
 }
 
+// GetInstanceMetadataOptionArrayInput is an input type that accepts GetInstanceMetadataOptionArray and GetInstanceMetadataOptionArrayOutput values.
+// You can construct a concrete instance of `GetInstanceMetadataOptionArrayInput` via:
+//
+//          GetInstanceMetadataOptionArray{ GetInstanceMetadataOptionArgs{...} }
 type GetInstanceMetadataOptionArrayInput interface {
 	pulumi.Input
 
@@ -10486,6 +12470,8 @@ func (o GetInstanceMetadataOptionArrayOutput) Index(i pulumi.IntInput) GetInstan
 type GetInstanceRootBlockDevice struct {
 	// If the root block device will be deleted on termination.
 	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
+	// The physical name of the device.
+	DeviceName string `pulumi:"deviceName"`
 	// If the EBS volume is encrypted.
 	Encrypted bool `pulumi:"encrypted"`
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
@@ -10498,6 +12484,10 @@ type GetInstanceRootBlockDevice struct {
 	VolumeType string `pulumi:"volumeType"`
 }
 
+// GetInstanceRootBlockDeviceInput is an input type that accepts GetInstanceRootBlockDeviceArgs and GetInstanceRootBlockDeviceOutput values.
+// You can construct a concrete instance of `GetInstanceRootBlockDeviceInput` via:
+//
+//          GetInstanceRootBlockDeviceArgs{...}
 type GetInstanceRootBlockDeviceInput interface {
 	pulumi.Input
 
@@ -10508,6 +12498,8 @@ type GetInstanceRootBlockDeviceInput interface {
 type GetInstanceRootBlockDeviceArgs struct {
 	// If the root block device will be deleted on termination.
 	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	// The physical name of the device.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// If the EBS volume is encrypted.
 	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
@@ -10532,6 +12524,10 @@ func (i GetInstanceRootBlockDeviceArgs) ToGetInstanceRootBlockDeviceOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceRootBlockDeviceOutput)
 }
 
+// GetInstanceRootBlockDeviceArrayInput is an input type that accepts GetInstanceRootBlockDeviceArray and GetInstanceRootBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `GetInstanceRootBlockDeviceArrayInput` via:
+//
+//          GetInstanceRootBlockDeviceArray{ GetInstanceRootBlockDeviceArgs{...} }
 type GetInstanceRootBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -10570,6 +12566,11 @@ func (o GetInstanceRootBlockDeviceOutput) ToGetInstanceRootBlockDeviceOutputWith
 // If the root block device will be deleted on termination.
 func (o GetInstanceRootBlockDeviceOutput) DeleteOnTermination() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetInstanceRootBlockDevice) bool { return v.DeleteOnTermination }).(pulumi.BoolOutput)
+}
+
+// The physical name of the device.
+func (o GetInstanceRootBlockDeviceOutput) DeviceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceRootBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
 // If the EBS volume is encrypted.
@@ -10620,6 +12621,448 @@ func (o GetInstanceRootBlockDeviceArrayOutput) Index(i pulumi.IntInput) GetInsta
 	}).(GetInstanceRootBlockDeviceOutput)
 }
 
+type GetInstanceTypeFpga struct {
+	Count        int    `pulumi:"count"`
+	Manufacturer string `pulumi:"manufacturer"`
+	// Size of the instance memory, in MiB.
+	MemorySize int    `pulumi:"memorySize"`
+	Name       string `pulumi:"name"`
+}
+
+// GetInstanceTypeFpgaInput is an input type that accepts GetInstanceTypeFpgaArgs and GetInstanceTypeFpgaOutput values.
+// You can construct a concrete instance of `GetInstanceTypeFpgaInput` via:
+//
+//          GetInstanceTypeFpgaArgs{...}
+type GetInstanceTypeFpgaInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeFpgaOutput() GetInstanceTypeFpgaOutput
+	ToGetInstanceTypeFpgaOutputWithContext(context.Context) GetInstanceTypeFpgaOutput
+}
+
+type GetInstanceTypeFpgaArgs struct {
+	Count        pulumi.IntInput    `pulumi:"count"`
+	Manufacturer pulumi.StringInput `pulumi:"manufacturer"`
+	// Size of the instance memory, in MiB.
+	MemorySize pulumi.IntInput    `pulumi:"memorySize"`
+	Name       pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetInstanceTypeFpgaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeFpga)(nil)).Elem()
+}
+
+func (i GetInstanceTypeFpgaArgs) ToGetInstanceTypeFpgaOutput() GetInstanceTypeFpgaOutput {
+	return i.ToGetInstanceTypeFpgaOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeFpgaArgs) ToGetInstanceTypeFpgaOutputWithContext(ctx context.Context) GetInstanceTypeFpgaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeFpgaOutput)
+}
+
+// GetInstanceTypeFpgaArrayInput is an input type that accepts GetInstanceTypeFpgaArray and GetInstanceTypeFpgaArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeFpgaArrayInput` via:
+//
+//          GetInstanceTypeFpgaArray{ GetInstanceTypeFpgaArgs{...} }
+type GetInstanceTypeFpgaArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeFpgaArrayOutput() GetInstanceTypeFpgaArrayOutput
+	ToGetInstanceTypeFpgaArrayOutputWithContext(context.Context) GetInstanceTypeFpgaArrayOutput
+}
+
+type GetInstanceTypeFpgaArray []GetInstanceTypeFpgaInput
+
+func (GetInstanceTypeFpgaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeFpga)(nil)).Elem()
+}
+
+func (i GetInstanceTypeFpgaArray) ToGetInstanceTypeFpgaArrayOutput() GetInstanceTypeFpgaArrayOutput {
+	return i.ToGetInstanceTypeFpgaArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeFpgaArray) ToGetInstanceTypeFpgaArrayOutputWithContext(ctx context.Context) GetInstanceTypeFpgaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeFpgaArrayOutput)
+}
+
+type GetInstanceTypeFpgaOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeFpgaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeFpga)(nil)).Elem()
+}
+
+func (o GetInstanceTypeFpgaOutput) ToGetInstanceTypeFpgaOutput() GetInstanceTypeFpgaOutput {
+	return o
+}
+
+func (o GetInstanceTypeFpgaOutput) ToGetInstanceTypeFpgaOutputWithContext(ctx context.Context) GetInstanceTypeFpgaOutput {
+	return o
+}
+
+func (o GetInstanceTypeFpgaOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeFpga) int { return v.Count }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeFpgaOutput) Manufacturer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeFpga) string { return v.Manufacturer }).(pulumi.StringOutput)
+}
+
+// Size of the instance memory, in MiB.
+func (o GetInstanceTypeFpgaOutput) MemorySize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeFpga) int { return v.MemorySize }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeFpgaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeFpga) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetInstanceTypeFpgaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeFpgaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeFpga)(nil)).Elem()
+}
+
+func (o GetInstanceTypeFpgaArrayOutput) ToGetInstanceTypeFpgaArrayOutput() GetInstanceTypeFpgaArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeFpgaArrayOutput) ToGetInstanceTypeFpgaArrayOutputWithContext(ctx context.Context) GetInstanceTypeFpgaArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeFpgaArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeFpgaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeFpga {
+		return vs[0].([]GetInstanceTypeFpga)[vs[1].(int)]
+	}).(GetInstanceTypeFpgaOutput)
+}
+
+type GetInstanceTypeGpus struct {
+	Count        int    `pulumi:"count"`
+	Manufacturer string `pulumi:"manufacturer"`
+	// Size of the instance memory, in MiB.
+	MemorySize int    `pulumi:"memorySize"`
+	Name       string `pulumi:"name"`
+}
+
+// GetInstanceTypeGpusInput is an input type that accepts GetInstanceTypeGpusArgs and GetInstanceTypeGpusOutput values.
+// You can construct a concrete instance of `GetInstanceTypeGpusInput` via:
+//
+//          GetInstanceTypeGpusArgs{...}
+type GetInstanceTypeGpusInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeGpusOutput() GetInstanceTypeGpusOutput
+	ToGetInstanceTypeGpusOutputWithContext(context.Context) GetInstanceTypeGpusOutput
+}
+
+type GetInstanceTypeGpusArgs struct {
+	Count        pulumi.IntInput    `pulumi:"count"`
+	Manufacturer pulumi.StringInput `pulumi:"manufacturer"`
+	// Size of the instance memory, in MiB.
+	MemorySize pulumi.IntInput    `pulumi:"memorySize"`
+	Name       pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetInstanceTypeGpusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeGpus)(nil)).Elem()
+}
+
+func (i GetInstanceTypeGpusArgs) ToGetInstanceTypeGpusOutput() GetInstanceTypeGpusOutput {
+	return i.ToGetInstanceTypeGpusOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeGpusArgs) ToGetInstanceTypeGpusOutputWithContext(ctx context.Context) GetInstanceTypeGpusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeGpusOutput)
+}
+
+// GetInstanceTypeGpusArrayInput is an input type that accepts GetInstanceTypeGpusArray and GetInstanceTypeGpusArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeGpusArrayInput` via:
+//
+//          GetInstanceTypeGpusArray{ GetInstanceTypeGpusArgs{...} }
+type GetInstanceTypeGpusArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeGpusArrayOutput() GetInstanceTypeGpusArrayOutput
+	ToGetInstanceTypeGpusArrayOutputWithContext(context.Context) GetInstanceTypeGpusArrayOutput
+}
+
+type GetInstanceTypeGpusArray []GetInstanceTypeGpusInput
+
+func (GetInstanceTypeGpusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeGpus)(nil)).Elem()
+}
+
+func (i GetInstanceTypeGpusArray) ToGetInstanceTypeGpusArrayOutput() GetInstanceTypeGpusArrayOutput {
+	return i.ToGetInstanceTypeGpusArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeGpusArray) ToGetInstanceTypeGpusArrayOutputWithContext(ctx context.Context) GetInstanceTypeGpusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeGpusArrayOutput)
+}
+
+type GetInstanceTypeGpusOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeGpusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeGpus)(nil)).Elem()
+}
+
+func (o GetInstanceTypeGpusOutput) ToGetInstanceTypeGpusOutput() GetInstanceTypeGpusOutput {
+	return o
+}
+
+func (o GetInstanceTypeGpusOutput) ToGetInstanceTypeGpusOutputWithContext(ctx context.Context) GetInstanceTypeGpusOutput {
+	return o
+}
+
+func (o GetInstanceTypeGpusOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeGpus) int { return v.Count }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeGpusOutput) Manufacturer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeGpus) string { return v.Manufacturer }).(pulumi.StringOutput)
+}
+
+// Size of the instance memory, in MiB.
+func (o GetInstanceTypeGpusOutput) MemorySize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeGpus) int { return v.MemorySize }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeGpusOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeGpus) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetInstanceTypeGpusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeGpusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeGpus)(nil)).Elem()
+}
+
+func (o GetInstanceTypeGpusArrayOutput) ToGetInstanceTypeGpusArrayOutput() GetInstanceTypeGpusArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeGpusArrayOutput) ToGetInstanceTypeGpusArrayOutputWithContext(ctx context.Context) GetInstanceTypeGpusArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeGpusArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeGpusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeGpus {
+		return vs[0].([]GetInstanceTypeGpus)[vs[1].(int)]
+	}).(GetInstanceTypeGpusOutput)
+}
+
+type GetInstanceTypeInferenceAccelerator struct {
+	Count        int    `pulumi:"count"`
+	Manufacturer string `pulumi:"manufacturer"`
+	Name         string `pulumi:"name"`
+}
+
+// GetInstanceTypeInferenceAcceleratorInput is an input type that accepts GetInstanceTypeInferenceAcceleratorArgs and GetInstanceTypeInferenceAcceleratorOutput values.
+// You can construct a concrete instance of `GetInstanceTypeInferenceAcceleratorInput` via:
+//
+//          GetInstanceTypeInferenceAcceleratorArgs{...}
+type GetInstanceTypeInferenceAcceleratorInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeInferenceAcceleratorOutput() GetInstanceTypeInferenceAcceleratorOutput
+	ToGetInstanceTypeInferenceAcceleratorOutputWithContext(context.Context) GetInstanceTypeInferenceAcceleratorOutput
+}
+
+type GetInstanceTypeInferenceAcceleratorArgs struct {
+	Count        pulumi.IntInput    `pulumi:"count"`
+	Manufacturer pulumi.StringInput `pulumi:"manufacturer"`
+	Name         pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetInstanceTypeInferenceAcceleratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeInferenceAccelerator)(nil)).Elem()
+}
+
+func (i GetInstanceTypeInferenceAcceleratorArgs) ToGetInstanceTypeInferenceAcceleratorOutput() GetInstanceTypeInferenceAcceleratorOutput {
+	return i.ToGetInstanceTypeInferenceAcceleratorOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeInferenceAcceleratorArgs) ToGetInstanceTypeInferenceAcceleratorOutputWithContext(ctx context.Context) GetInstanceTypeInferenceAcceleratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeInferenceAcceleratorOutput)
+}
+
+// GetInstanceTypeInferenceAcceleratorArrayInput is an input type that accepts GetInstanceTypeInferenceAcceleratorArray and GetInstanceTypeInferenceAcceleratorArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeInferenceAcceleratorArrayInput` via:
+//
+//          GetInstanceTypeInferenceAcceleratorArray{ GetInstanceTypeInferenceAcceleratorArgs{...} }
+type GetInstanceTypeInferenceAcceleratorArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeInferenceAcceleratorArrayOutput() GetInstanceTypeInferenceAcceleratorArrayOutput
+	ToGetInstanceTypeInferenceAcceleratorArrayOutputWithContext(context.Context) GetInstanceTypeInferenceAcceleratorArrayOutput
+}
+
+type GetInstanceTypeInferenceAcceleratorArray []GetInstanceTypeInferenceAcceleratorInput
+
+func (GetInstanceTypeInferenceAcceleratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeInferenceAccelerator)(nil)).Elem()
+}
+
+func (i GetInstanceTypeInferenceAcceleratorArray) ToGetInstanceTypeInferenceAcceleratorArrayOutput() GetInstanceTypeInferenceAcceleratorArrayOutput {
+	return i.ToGetInstanceTypeInferenceAcceleratorArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeInferenceAcceleratorArray) ToGetInstanceTypeInferenceAcceleratorArrayOutputWithContext(ctx context.Context) GetInstanceTypeInferenceAcceleratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeInferenceAcceleratorArrayOutput)
+}
+
+type GetInstanceTypeInferenceAcceleratorOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeInferenceAcceleratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeInferenceAccelerator)(nil)).Elem()
+}
+
+func (o GetInstanceTypeInferenceAcceleratorOutput) ToGetInstanceTypeInferenceAcceleratorOutput() GetInstanceTypeInferenceAcceleratorOutput {
+	return o
+}
+
+func (o GetInstanceTypeInferenceAcceleratorOutput) ToGetInstanceTypeInferenceAcceleratorOutputWithContext(ctx context.Context) GetInstanceTypeInferenceAcceleratorOutput {
+	return o
+}
+
+func (o GetInstanceTypeInferenceAcceleratorOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeInferenceAccelerator) int { return v.Count }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeInferenceAcceleratorOutput) Manufacturer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeInferenceAccelerator) string { return v.Manufacturer }).(pulumi.StringOutput)
+}
+
+func (o GetInstanceTypeInferenceAcceleratorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeInferenceAccelerator) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetInstanceTypeInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeInferenceAccelerator)(nil)).Elem()
+}
+
+func (o GetInstanceTypeInferenceAcceleratorArrayOutput) ToGetInstanceTypeInferenceAcceleratorArrayOutput() GetInstanceTypeInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeInferenceAcceleratorArrayOutput) ToGetInstanceTypeInferenceAcceleratorArrayOutputWithContext(ctx context.Context) GetInstanceTypeInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeInferenceAcceleratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeInferenceAccelerator {
+		return vs[0].([]GetInstanceTypeInferenceAccelerator)[vs[1].(int)]
+	}).(GetInstanceTypeInferenceAcceleratorOutput)
+}
+
+type GetInstanceTypeInstanceDisk struct {
+	Count int    `pulumi:"count"`
+	Size  int    `pulumi:"size"`
+	Type  string `pulumi:"type"`
+}
+
+// GetInstanceTypeInstanceDiskInput is an input type that accepts GetInstanceTypeInstanceDiskArgs and GetInstanceTypeInstanceDiskOutput values.
+// You can construct a concrete instance of `GetInstanceTypeInstanceDiskInput` via:
+//
+//          GetInstanceTypeInstanceDiskArgs{...}
+type GetInstanceTypeInstanceDiskInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeInstanceDiskOutput() GetInstanceTypeInstanceDiskOutput
+	ToGetInstanceTypeInstanceDiskOutputWithContext(context.Context) GetInstanceTypeInstanceDiskOutput
+}
+
+type GetInstanceTypeInstanceDiskArgs struct {
+	Count pulumi.IntInput    `pulumi:"count"`
+	Size  pulumi.IntInput    `pulumi:"size"`
+	Type  pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetInstanceTypeInstanceDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeInstanceDisk)(nil)).Elem()
+}
+
+func (i GetInstanceTypeInstanceDiskArgs) ToGetInstanceTypeInstanceDiskOutput() GetInstanceTypeInstanceDiskOutput {
+	return i.ToGetInstanceTypeInstanceDiskOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeInstanceDiskArgs) ToGetInstanceTypeInstanceDiskOutputWithContext(ctx context.Context) GetInstanceTypeInstanceDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeInstanceDiskOutput)
+}
+
+// GetInstanceTypeInstanceDiskArrayInput is an input type that accepts GetInstanceTypeInstanceDiskArray and GetInstanceTypeInstanceDiskArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeInstanceDiskArrayInput` via:
+//
+//          GetInstanceTypeInstanceDiskArray{ GetInstanceTypeInstanceDiskArgs{...} }
+type GetInstanceTypeInstanceDiskArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeInstanceDiskArrayOutput() GetInstanceTypeInstanceDiskArrayOutput
+	ToGetInstanceTypeInstanceDiskArrayOutputWithContext(context.Context) GetInstanceTypeInstanceDiskArrayOutput
+}
+
+type GetInstanceTypeInstanceDiskArray []GetInstanceTypeInstanceDiskInput
+
+func (GetInstanceTypeInstanceDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeInstanceDisk)(nil)).Elem()
+}
+
+func (i GetInstanceTypeInstanceDiskArray) ToGetInstanceTypeInstanceDiskArrayOutput() GetInstanceTypeInstanceDiskArrayOutput {
+	return i.ToGetInstanceTypeInstanceDiskArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeInstanceDiskArray) ToGetInstanceTypeInstanceDiskArrayOutputWithContext(ctx context.Context) GetInstanceTypeInstanceDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeInstanceDiskArrayOutput)
+}
+
+type GetInstanceTypeInstanceDiskOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeInstanceDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeInstanceDisk)(nil)).Elem()
+}
+
+func (o GetInstanceTypeInstanceDiskOutput) ToGetInstanceTypeInstanceDiskOutput() GetInstanceTypeInstanceDiskOutput {
+	return o
+}
+
+func (o GetInstanceTypeInstanceDiskOutput) ToGetInstanceTypeInstanceDiskOutputWithContext(ctx context.Context) GetInstanceTypeInstanceDiskOutput {
+	return o
+}
+
+func (o GetInstanceTypeInstanceDiskOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeInstanceDisk) int { return v.Count }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeInstanceDiskOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeInstanceDisk) int { return v.Size }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeInstanceDiskOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeInstanceDisk) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetInstanceTypeInstanceDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeInstanceDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeInstanceDisk)(nil)).Elem()
+}
+
+func (o GetInstanceTypeInstanceDiskArrayOutput) ToGetInstanceTypeInstanceDiskArrayOutput() GetInstanceTypeInstanceDiskArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeInstanceDiskArrayOutput) ToGetInstanceTypeInstanceDiskArrayOutputWithContext(ctx context.Context) GetInstanceTypeInstanceDiskArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeInstanceDiskArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeInstanceDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeInstanceDisk {
+		return vs[0].([]GetInstanceTypeInstanceDisk)[vs[1].(int)]
+	}).(GetInstanceTypeInstanceDiskOutput)
+}
+
 type GetInstanceTypeOfferingFilter struct {
 	// Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
 	Name string `pulumi:"name"`
@@ -10627,6 +13070,10 @@ type GetInstanceTypeOfferingFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetInstanceTypeOfferingFilterInput is an input type that accepts GetInstanceTypeOfferingFilterArgs and GetInstanceTypeOfferingFilterOutput values.
+// You can construct a concrete instance of `GetInstanceTypeOfferingFilterInput` via:
+//
+//          GetInstanceTypeOfferingFilterArgs{...}
 type GetInstanceTypeOfferingFilterInput interface {
 	pulumi.Input
 
@@ -10653,6 +13100,10 @@ func (i GetInstanceTypeOfferingFilterArgs) ToGetInstanceTypeOfferingFilterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingFilterOutput)
 }
 
+// GetInstanceTypeOfferingFilterArrayInput is an input type that accepts GetInstanceTypeOfferingFilterArray and GetInstanceTypeOfferingFilterArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeOfferingFilterArrayInput` via:
+//
+//          GetInstanceTypeOfferingFilterArray{ GetInstanceTypeOfferingFilterArgs{...} }
 type GetInstanceTypeOfferingFilterArrayInput interface {
 	pulumi.Input
 
@@ -10725,6 +13176,10 @@ type GetInstanceTypeOfferingsFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetInstanceTypeOfferingsFilterInput is an input type that accepts GetInstanceTypeOfferingsFilterArgs and GetInstanceTypeOfferingsFilterOutput values.
+// You can construct a concrete instance of `GetInstanceTypeOfferingsFilterInput` via:
+//
+//          GetInstanceTypeOfferingsFilterArgs{...}
 type GetInstanceTypeOfferingsFilterInput interface {
 	pulumi.Input
 
@@ -10751,6 +13206,10 @@ func (i GetInstanceTypeOfferingsFilterArgs) ToGetInstanceTypeOfferingsFilterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingsFilterOutput)
 }
 
+// GetInstanceTypeOfferingsFilterArrayInput is an input type that accepts GetInstanceTypeOfferingsFilterArray and GetInstanceTypeOfferingsFilterArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeOfferingsFilterArrayInput` via:
+//
+//          GetInstanceTypeOfferingsFilterArray{ GetInstanceTypeOfferingsFilterArgs{...} }
 type GetInstanceTypeOfferingsFilterArrayInput interface {
 	pulumi.Input
 
@@ -10821,6 +13280,10 @@ type GetInstancesFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetInstancesFilterInput is an input type that accepts GetInstancesFilterArgs and GetInstancesFilterOutput values.
+// You can construct a concrete instance of `GetInstancesFilterInput` via:
+//
+//          GetInstancesFilterArgs{...}
 type GetInstancesFilterInput interface {
 	pulumi.Input
 
@@ -10845,6 +13308,10 @@ func (i GetInstancesFilterArgs) ToGetInstancesFilterOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstancesFilterOutput)
 }
 
+// GetInstancesFilterArrayInput is an input type that accepts GetInstancesFilterArray and GetInstancesFilterArrayOutput values.
+// You can construct a concrete instance of `GetInstancesFilterArrayInput` via:
+//
+//          GetInstancesFilterArray{ GetInstancesFilterArgs{...} }
 type GetInstancesFilterArrayInput interface {
 	pulumi.Input
 
@@ -10915,6 +13382,10 @@ type GetInternetGatewayAttachment struct {
 	VpcId string `pulumi:"vpcId"`
 }
 
+// GetInternetGatewayAttachmentInput is an input type that accepts GetInternetGatewayAttachmentArgs and GetInternetGatewayAttachmentOutput values.
+// You can construct a concrete instance of `GetInternetGatewayAttachmentInput` via:
+//
+//          GetInternetGatewayAttachmentArgs{...}
 type GetInternetGatewayAttachmentInput interface {
 	pulumi.Input
 
@@ -10941,6 +13412,10 @@ func (i GetInternetGatewayAttachmentArgs) ToGetInternetGatewayAttachmentOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetInternetGatewayAttachmentOutput)
 }
 
+// GetInternetGatewayAttachmentArrayInput is an input type that accepts GetInternetGatewayAttachmentArray and GetInternetGatewayAttachmentArrayOutput values.
+// You can construct a concrete instance of `GetInternetGatewayAttachmentArrayInput` via:
+//
+//          GetInternetGatewayAttachmentArray{ GetInternetGatewayAttachmentArgs{...} }
 type GetInternetGatewayAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -11015,6 +13490,10 @@ type GetInternetGatewayFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetInternetGatewayFilterInput is an input type that accepts GetInternetGatewayFilterArgs and GetInternetGatewayFilterOutput values.
+// You can construct a concrete instance of `GetInternetGatewayFilterInput` via:
+//
+//          GetInternetGatewayFilterArgs{...}
 type GetInternetGatewayFilterInput interface {
 	pulumi.Input
 
@@ -11043,6 +13522,10 @@ func (i GetInternetGatewayFilterArgs) ToGetInternetGatewayFilterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetInternetGatewayFilterOutput)
 }
 
+// GetInternetGatewayFilterArrayInput is an input type that accepts GetInternetGatewayFilterArray and GetInternetGatewayFilterArrayOutput values.
+// You can construct a concrete instance of `GetInternetGatewayFilterArrayInput` via:
+//
+//          GetInternetGatewayFilterArray{ GetInternetGatewayFilterArgs{...} }
 type GetInternetGatewayFilterArrayInput interface {
 	pulumi.Input
 
@@ -11119,6 +13602,8 @@ type GetLaunchConfigurationEbsBlockDevice struct {
 	Encrypted bool `pulumi:"encrypted"`
 	// The provisioned IOPs of the volume.
 	Iops int `pulumi:"iops"`
+	// Whether the device in the block device mapping of the AMI is suppressed.
+	NoDevice bool `pulumi:"noDevice"`
 	// The Snapshot ID of the mount.
 	SnapshotId string `pulumi:"snapshotId"`
 	// The Size of the volume.
@@ -11127,6 +13612,10 @@ type GetLaunchConfigurationEbsBlockDevice struct {
 	VolumeType string `pulumi:"volumeType"`
 }
 
+// GetLaunchConfigurationEbsBlockDeviceInput is an input type that accepts GetLaunchConfigurationEbsBlockDeviceArgs and GetLaunchConfigurationEbsBlockDeviceOutput values.
+// You can construct a concrete instance of `GetLaunchConfigurationEbsBlockDeviceInput` via:
+//
+//          GetLaunchConfigurationEbsBlockDeviceArgs{...}
 type GetLaunchConfigurationEbsBlockDeviceInput interface {
 	pulumi.Input
 
@@ -11143,6 +13632,8 @@ type GetLaunchConfigurationEbsBlockDeviceArgs struct {
 	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// The provisioned IOPs of the volume.
 	Iops pulumi.IntInput `pulumi:"iops"`
+	// Whether the device in the block device mapping of the AMI is suppressed.
+	NoDevice pulumi.BoolInput `pulumi:"noDevice"`
 	// The Snapshot ID of the mount.
 	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
 	// The Size of the volume.
@@ -11163,6 +13654,10 @@ func (i GetLaunchConfigurationEbsBlockDeviceArgs) ToGetLaunchConfigurationEbsBlo
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchConfigurationEbsBlockDeviceOutput)
 }
 
+// GetLaunchConfigurationEbsBlockDeviceArrayInput is an input type that accepts GetLaunchConfigurationEbsBlockDeviceArray and GetLaunchConfigurationEbsBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `GetLaunchConfigurationEbsBlockDeviceArrayInput` via:
+//
+//          GetLaunchConfigurationEbsBlockDeviceArray{ GetLaunchConfigurationEbsBlockDeviceArgs{...} }
 type GetLaunchConfigurationEbsBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -11218,6 +13713,11 @@ func (o GetLaunchConfigurationEbsBlockDeviceOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) int { return v.Iops }).(pulumi.IntOutput)
 }
 
+// Whether the device in the block device mapping of the AMI is suppressed.
+func (o GetLaunchConfigurationEbsBlockDeviceOutput) NoDevice() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) bool { return v.NoDevice }).(pulumi.BoolOutput)
+}
+
 // The Snapshot ID of the mount.
 func (o GetLaunchConfigurationEbsBlockDeviceOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) string { return v.SnapshotId }).(pulumi.StringOutput)
@@ -11260,6 +13760,10 @@ type GetLaunchConfigurationEphemeralBlockDevice struct {
 	VirtualName string `pulumi:"virtualName"`
 }
 
+// GetLaunchConfigurationEphemeralBlockDeviceInput is an input type that accepts GetLaunchConfigurationEphemeralBlockDeviceArgs and GetLaunchConfigurationEphemeralBlockDeviceOutput values.
+// You can construct a concrete instance of `GetLaunchConfigurationEphemeralBlockDeviceInput` via:
+//
+//          GetLaunchConfigurationEphemeralBlockDeviceArgs{...}
 type GetLaunchConfigurationEphemeralBlockDeviceInput interface {
 	pulumi.Input
 
@@ -11286,6 +13790,10 @@ func (i GetLaunchConfigurationEphemeralBlockDeviceArgs) ToGetLaunchConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchConfigurationEphemeralBlockDeviceOutput)
 }
 
+// GetLaunchConfigurationEphemeralBlockDeviceArrayInput is an input type that accepts GetLaunchConfigurationEphemeralBlockDeviceArray and GetLaunchConfigurationEphemeralBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `GetLaunchConfigurationEphemeralBlockDeviceArrayInput` via:
+//
+//          GetLaunchConfigurationEphemeralBlockDeviceArray{ GetLaunchConfigurationEphemeralBlockDeviceArgs{...} }
 type GetLaunchConfigurationEphemeralBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -11364,6 +13872,10 @@ type GetLaunchConfigurationRootBlockDevice struct {
 	VolumeType string `pulumi:"volumeType"`
 }
 
+// GetLaunchConfigurationRootBlockDeviceInput is an input type that accepts GetLaunchConfigurationRootBlockDeviceArgs and GetLaunchConfigurationRootBlockDeviceOutput values.
+// You can construct a concrete instance of `GetLaunchConfigurationRootBlockDeviceInput` via:
+//
+//          GetLaunchConfigurationRootBlockDeviceArgs{...}
 type GetLaunchConfigurationRootBlockDeviceInput interface {
 	pulumi.Input
 
@@ -11396,6 +13908,10 @@ func (i GetLaunchConfigurationRootBlockDeviceArgs) ToGetLaunchConfigurationRootB
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchConfigurationRootBlockDeviceOutput)
 }
 
+// GetLaunchConfigurationRootBlockDeviceArrayInput is an input type that accepts GetLaunchConfigurationRootBlockDeviceArray and GetLaunchConfigurationRootBlockDeviceArrayOutput values.
+// You can construct a concrete instance of `GetLaunchConfigurationRootBlockDeviceArrayInput` via:
+//
+//          GetLaunchConfigurationRootBlockDeviceArray{ GetLaunchConfigurationRootBlockDeviceArgs{...} }
 type GetLaunchConfigurationRootBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -11483,6 +13999,10 @@ type GetLaunchTemplateBlockDeviceMapping struct {
 	VirtualName string                                  `pulumi:"virtualName"`
 }
 
+// GetLaunchTemplateBlockDeviceMappingInput is an input type that accepts GetLaunchTemplateBlockDeviceMappingArgs and GetLaunchTemplateBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateBlockDeviceMappingInput` via:
+//
+//          GetLaunchTemplateBlockDeviceMappingArgs{...}
 type GetLaunchTemplateBlockDeviceMappingInput interface {
 	pulumi.Input
 
@@ -11509,6 +14029,10 @@ func (i GetLaunchTemplateBlockDeviceMappingArgs) ToGetLaunchTemplateBlockDeviceM
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateBlockDeviceMappingOutput)
 }
 
+// GetLaunchTemplateBlockDeviceMappingArrayInput is an input type that accepts GetLaunchTemplateBlockDeviceMappingArray and GetLaunchTemplateBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateBlockDeviceMappingArrayInput` via:
+//
+//          GetLaunchTemplateBlockDeviceMappingArray{ GetLaunchTemplateBlockDeviceMappingArgs{...} }
 type GetLaunchTemplateBlockDeviceMappingArrayInput interface {
 	pulumi.Input
 
@@ -11590,6 +14114,10 @@ type GetLaunchTemplateBlockDeviceMappingEb struct {
 	VolumeType          string `pulumi:"volumeType"`
 }
 
+// GetLaunchTemplateBlockDeviceMappingEbInput is an input type that accepts GetLaunchTemplateBlockDeviceMappingEbArgs and GetLaunchTemplateBlockDeviceMappingEbOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateBlockDeviceMappingEbInput` via:
+//
+//          GetLaunchTemplateBlockDeviceMappingEbArgs{...}
 type GetLaunchTemplateBlockDeviceMappingEbInput interface {
 	pulumi.Input
 
@@ -11619,6 +14147,10 @@ func (i GetLaunchTemplateBlockDeviceMappingEbArgs) ToGetLaunchTemplateBlockDevic
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateBlockDeviceMappingEbOutput)
 }
 
+// GetLaunchTemplateBlockDeviceMappingEbArrayInput is an input type that accepts GetLaunchTemplateBlockDeviceMappingEbArray and GetLaunchTemplateBlockDeviceMappingEbArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateBlockDeviceMappingEbArrayInput` via:
+//
+//          GetLaunchTemplateBlockDeviceMappingEbArray{ GetLaunchTemplateBlockDeviceMappingEbArgs{...} }
 type GetLaunchTemplateBlockDeviceMappingEbArrayInput interface {
 	pulumi.Input
 
@@ -11706,6 +14238,10 @@ type GetLaunchTemplateCreditSpecification struct {
 	CpuCredits string `pulumi:"cpuCredits"`
 }
 
+// GetLaunchTemplateCreditSpecificationInput is an input type that accepts GetLaunchTemplateCreditSpecificationArgs and GetLaunchTemplateCreditSpecificationOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateCreditSpecificationInput` via:
+//
+//          GetLaunchTemplateCreditSpecificationArgs{...}
 type GetLaunchTemplateCreditSpecificationInput interface {
 	pulumi.Input
 
@@ -11729,6 +14265,10 @@ func (i GetLaunchTemplateCreditSpecificationArgs) ToGetLaunchTemplateCreditSpeci
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateCreditSpecificationOutput)
 }
 
+// GetLaunchTemplateCreditSpecificationArrayInput is an input type that accepts GetLaunchTemplateCreditSpecificationArray and GetLaunchTemplateCreditSpecificationArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateCreditSpecificationArrayInput` via:
+//
+//          GetLaunchTemplateCreditSpecificationArray{ GetLaunchTemplateCreditSpecificationArgs{...} }
 type GetLaunchTemplateCreditSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -11792,6 +14332,10 @@ type GetLaunchTemplateElasticGpuSpecification struct {
 	Type string `pulumi:"type"`
 }
 
+// GetLaunchTemplateElasticGpuSpecificationInput is an input type that accepts GetLaunchTemplateElasticGpuSpecificationArgs and GetLaunchTemplateElasticGpuSpecificationOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateElasticGpuSpecificationInput` via:
+//
+//          GetLaunchTemplateElasticGpuSpecificationArgs{...}
 type GetLaunchTemplateElasticGpuSpecificationInput interface {
 	pulumi.Input
 
@@ -11815,6 +14359,10 @@ func (i GetLaunchTemplateElasticGpuSpecificationArgs) ToGetLaunchTemplateElastic
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateElasticGpuSpecificationOutput)
 }
 
+// GetLaunchTemplateElasticGpuSpecificationArrayInput is an input type that accepts GetLaunchTemplateElasticGpuSpecificationArray and GetLaunchTemplateElasticGpuSpecificationArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateElasticGpuSpecificationArrayInput` via:
+//
+//          GetLaunchTemplateElasticGpuSpecificationArray{ GetLaunchTemplateElasticGpuSpecificationArgs{...} }
 type GetLaunchTemplateElasticGpuSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -11881,6 +14429,10 @@ type GetLaunchTemplateFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetLaunchTemplateFilterInput is an input type that accepts GetLaunchTemplateFilterArgs and GetLaunchTemplateFilterOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateFilterInput` via:
+//
+//          GetLaunchTemplateFilterArgs{...}
 type GetLaunchTemplateFilterInput interface {
 	pulumi.Input
 
@@ -11907,6 +14459,10 @@ func (i GetLaunchTemplateFilterArgs) ToGetLaunchTemplateFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateFilterOutput)
 }
 
+// GetLaunchTemplateFilterArrayInput is an input type that accepts GetLaunchTemplateFilterArray and GetLaunchTemplateFilterArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateFilterArrayInput` via:
+//
+//          GetLaunchTemplateFilterArray{ GetLaunchTemplateFilterArgs{...} }
 type GetLaunchTemplateFilterArrayInput interface {
 	pulumi.Input
 
@@ -11976,6 +14532,10 @@ type GetLaunchTemplateHibernationOption struct {
 	Configured bool `pulumi:"configured"`
 }
 
+// GetLaunchTemplateHibernationOptionInput is an input type that accepts GetLaunchTemplateHibernationOptionArgs and GetLaunchTemplateHibernationOptionOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateHibernationOptionInput` via:
+//
+//          GetLaunchTemplateHibernationOptionArgs{...}
 type GetLaunchTemplateHibernationOptionInput interface {
 	pulumi.Input
 
@@ -11999,6 +14559,10 @@ func (i GetLaunchTemplateHibernationOptionArgs) ToGetLaunchTemplateHibernationOp
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateHibernationOptionOutput)
 }
 
+// GetLaunchTemplateHibernationOptionArrayInput is an input type that accepts GetLaunchTemplateHibernationOptionArray and GetLaunchTemplateHibernationOptionArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateHibernationOptionArrayInput` via:
+//
+//          GetLaunchTemplateHibernationOptionArray{ GetLaunchTemplateHibernationOptionArgs{...} }
 type GetLaunchTemplateHibernationOptionArrayInput interface {
 	pulumi.Input
 
@@ -12065,6 +14629,10 @@ type GetLaunchTemplateIamInstanceProfile struct {
 	Name string `pulumi:"name"`
 }
 
+// GetLaunchTemplateIamInstanceProfileInput is an input type that accepts GetLaunchTemplateIamInstanceProfileArgs and GetLaunchTemplateIamInstanceProfileOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateIamInstanceProfileInput` via:
+//
+//          GetLaunchTemplateIamInstanceProfileArgs{...}
 type GetLaunchTemplateIamInstanceProfileInput interface {
 	pulumi.Input
 
@@ -12091,6 +14659,10 @@ func (i GetLaunchTemplateIamInstanceProfileArgs) ToGetLaunchTemplateIamInstanceP
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateIamInstanceProfileOutput)
 }
 
+// GetLaunchTemplateIamInstanceProfileArrayInput is an input type that accepts GetLaunchTemplateIamInstanceProfileArray and GetLaunchTemplateIamInstanceProfileArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateIamInstanceProfileArrayInput` via:
+//
+//          GetLaunchTemplateIamInstanceProfileArray{ GetLaunchTemplateIamInstanceProfileArgs{...} }
 type GetLaunchTemplateIamInstanceProfileArrayInput interface {
 	pulumi.Input
 
@@ -12161,6 +14733,10 @@ type GetLaunchTemplateInstanceMarketOption struct {
 	SpotOptions []GetLaunchTemplateInstanceMarketOptionSpotOption `pulumi:"spotOptions"`
 }
 
+// GetLaunchTemplateInstanceMarketOptionInput is an input type that accepts GetLaunchTemplateInstanceMarketOptionArgs and GetLaunchTemplateInstanceMarketOptionOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceMarketOptionInput` via:
+//
+//          GetLaunchTemplateInstanceMarketOptionArgs{...}
 type GetLaunchTemplateInstanceMarketOptionInput interface {
 	pulumi.Input
 
@@ -12185,6 +14761,10 @@ func (i GetLaunchTemplateInstanceMarketOptionArgs) ToGetLaunchTemplateInstanceMa
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceMarketOptionOutput)
 }
 
+// GetLaunchTemplateInstanceMarketOptionArrayInput is an input type that accepts GetLaunchTemplateInstanceMarketOptionArray and GetLaunchTemplateInstanceMarketOptionArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceMarketOptionArrayInput` via:
+//
+//          GetLaunchTemplateInstanceMarketOptionArray{ GetLaunchTemplateInstanceMarketOptionArgs{...} }
 type GetLaunchTemplateInstanceMarketOptionArrayInput interface {
 	pulumi.Input
 
@@ -12258,6 +14838,10 @@ type GetLaunchTemplateInstanceMarketOptionSpotOption struct {
 	ValidUntil                   string `pulumi:"validUntil"`
 }
 
+// GetLaunchTemplateInstanceMarketOptionSpotOptionInput is an input type that accepts GetLaunchTemplateInstanceMarketOptionSpotOptionArgs and GetLaunchTemplateInstanceMarketOptionSpotOptionOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceMarketOptionSpotOptionInput` via:
+//
+//          GetLaunchTemplateInstanceMarketOptionSpotOptionArgs{...}
 type GetLaunchTemplateInstanceMarketOptionSpotOptionInput interface {
 	pulumi.Input
 
@@ -12285,6 +14869,10 @@ func (i GetLaunchTemplateInstanceMarketOptionSpotOptionArgs) ToGetLaunchTemplate
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceMarketOptionSpotOptionOutput)
 }
 
+// GetLaunchTemplateInstanceMarketOptionSpotOptionArrayInput is an input type that accepts GetLaunchTemplateInstanceMarketOptionSpotOptionArray and GetLaunchTemplateInstanceMarketOptionSpotOptionArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceMarketOptionSpotOptionArrayInput` via:
+//
+//          GetLaunchTemplateInstanceMarketOptionSpotOptionArray{ GetLaunchTemplateInstanceMarketOptionSpotOptionArgs{...} }
 type GetLaunchTemplateInstanceMarketOptionSpotOptionArrayInput interface {
 	pulumi.Input
 
@@ -12369,6 +14957,10 @@ type GetLaunchTemplateMetadataOption struct {
 	HttpTokens string `pulumi:"httpTokens"`
 }
 
+// GetLaunchTemplateMetadataOptionInput is an input type that accepts GetLaunchTemplateMetadataOptionArgs and GetLaunchTemplateMetadataOptionOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateMetadataOptionInput` via:
+//
+//          GetLaunchTemplateMetadataOptionArgs{...}
 type GetLaunchTemplateMetadataOptionInput interface {
 	pulumi.Input
 
@@ -12397,6 +14989,10 @@ func (i GetLaunchTemplateMetadataOptionArgs) ToGetLaunchTemplateMetadataOptionOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateMetadataOptionOutput)
 }
 
+// GetLaunchTemplateMetadataOptionArrayInput is an input type that accepts GetLaunchTemplateMetadataOptionArray and GetLaunchTemplateMetadataOptionArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateMetadataOptionArrayInput` via:
+//
+//          GetLaunchTemplateMetadataOptionArray{ GetLaunchTemplateMetadataOptionArgs{...} }
 type GetLaunchTemplateMetadataOptionArrayInput interface {
 	pulumi.Input
 
@@ -12471,6 +15067,10 @@ type GetLaunchTemplateMonitoring struct {
 	Enabled bool `pulumi:"enabled"`
 }
 
+// GetLaunchTemplateMonitoringInput is an input type that accepts GetLaunchTemplateMonitoringArgs and GetLaunchTemplateMonitoringOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateMonitoringInput` via:
+//
+//          GetLaunchTemplateMonitoringArgs{...}
 type GetLaunchTemplateMonitoringInput interface {
 	pulumi.Input
 
@@ -12494,6 +15094,10 @@ func (i GetLaunchTemplateMonitoringArgs) ToGetLaunchTemplateMonitoringOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateMonitoringOutput)
 }
 
+// GetLaunchTemplateMonitoringArrayInput is an input type that accepts GetLaunchTemplateMonitoringArray and GetLaunchTemplateMonitoringArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateMonitoringArrayInput` via:
+//
+//          GetLaunchTemplateMonitoringArray{ GetLaunchTemplateMonitoringArgs{...} }
 type GetLaunchTemplateMonitoringArrayInput interface {
 	pulumi.Input
 
@@ -12554,8 +15158,8 @@ func (o GetLaunchTemplateMonitoringArrayOutput) Index(i pulumi.IntInput) GetLaun
 }
 
 type GetLaunchTemplateNetworkInterface struct {
-	AssociatePublicIpAddress bool `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination      bool `pulumi:"deleteOnTermination"`
+	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination      *bool `pulumi:"deleteOnTermination"`
 	// Description of the launch template.
 	Description        string   `pulumi:"description"`
 	DeviceIndex        int      `pulumi:"deviceIndex"`
@@ -12569,6 +15173,10 @@ type GetLaunchTemplateNetworkInterface struct {
 	SubnetId           string   `pulumi:"subnetId"`
 }
 
+// GetLaunchTemplateNetworkInterfaceInput is an input type that accepts GetLaunchTemplateNetworkInterfaceArgs and GetLaunchTemplateNetworkInterfaceOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateNetworkInterfaceInput` via:
+//
+//          GetLaunchTemplateNetworkInterfaceArgs{...}
 type GetLaunchTemplateNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -12577,8 +15185,8 @@ type GetLaunchTemplateNetworkInterfaceInput interface {
 }
 
 type GetLaunchTemplateNetworkInterfaceArgs struct {
-	AssociatePublicIpAddress pulumi.BoolInput `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination      pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination      pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
 	// Description of the launch template.
 	Description        pulumi.StringInput      `pulumi:"description"`
 	DeviceIndex        pulumi.IntInput         `pulumi:"deviceIndex"`
@@ -12604,6 +15212,10 @@ func (i GetLaunchTemplateNetworkInterfaceArgs) ToGetLaunchTemplateNetworkInterfa
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateNetworkInterfaceOutput)
 }
 
+// GetLaunchTemplateNetworkInterfaceArrayInput is an input type that accepts GetLaunchTemplateNetworkInterfaceArray and GetLaunchTemplateNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateNetworkInterfaceArrayInput` via:
+//
+//          GetLaunchTemplateNetworkInterfaceArray{ GetLaunchTemplateNetworkInterfaceArgs{...} }
 type GetLaunchTemplateNetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -12639,12 +15251,12 @@ func (o GetLaunchTemplateNetworkInterfaceOutput) ToGetLaunchTemplateNetworkInter
 	return o
 }
 
-func (o GetLaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) bool { return v.AssociatePublicIpAddress }).(pulumi.BoolOutput)
+func (o GetLaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetLaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) bool { return v.DeleteOnTermination }).(pulumi.BoolOutput)
+func (o GetLaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
 // Description of the launch template.
@@ -12713,10 +15325,15 @@ type GetLaunchTemplatePlacement struct {
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	GroupName        string `pulumi:"groupName"`
 	HostId           string `pulumi:"hostId"`
+	PartitionNumber  int    `pulumi:"partitionNumber"`
 	SpreadDomain     string `pulumi:"spreadDomain"`
 	Tenancy          string `pulumi:"tenancy"`
 }
 
+// GetLaunchTemplatePlacementInput is an input type that accepts GetLaunchTemplatePlacementArgs and GetLaunchTemplatePlacementOutput values.
+// You can construct a concrete instance of `GetLaunchTemplatePlacementInput` via:
+//
+//          GetLaunchTemplatePlacementArgs{...}
 type GetLaunchTemplatePlacementInput interface {
 	pulumi.Input
 
@@ -12729,6 +15346,7 @@ type GetLaunchTemplatePlacementArgs struct {
 	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	GroupName        pulumi.StringInput `pulumi:"groupName"`
 	HostId           pulumi.StringInput `pulumi:"hostId"`
+	PartitionNumber  pulumi.IntInput    `pulumi:"partitionNumber"`
 	SpreadDomain     pulumi.StringInput `pulumi:"spreadDomain"`
 	Tenancy          pulumi.StringInput `pulumi:"tenancy"`
 }
@@ -12745,6 +15363,10 @@ func (i GetLaunchTemplatePlacementArgs) ToGetLaunchTemplatePlacementOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplatePlacementOutput)
 }
 
+// GetLaunchTemplatePlacementArrayInput is an input type that accepts GetLaunchTemplatePlacementArray and GetLaunchTemplatePlacementArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplatePlacementArrayInput` via:
+//
+//          GetLaunchTemplatePlacementArray{ GetLaunchTemplatePlacementArgs{...} }
 type GetLaunchTemplatePlacementArrayInput interface {
 	pulumi.Input
 
@@ -12796,6 +15418,10 @@ func (o GetLaunchTemplatePlacementOutput) HostId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplatePlacement) string { return v.HostId }).(pulumi.StringOutput)
 }
 
+func (o GetLaunchTemplatePlacementOutput) PartitionNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplatePlacement) int { return v.PartitionNumber }).(pulumi.IntOutput)
+}
+
 func (o GetLaunchTemplatePlacementOutput) SpreadDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplatePlacement) string { return v.SpreadDomain }).(pulumi.StringOutput)
 }
@@ -12826,10 +15452,14 @@ func (o GetLaunchTemplatePlacementArrayOutput) Index(i pulumi.IntInput) GetLaunc
 
 type GetLaunchTemplateTagSpecification struct {
 	ResourceType string `pulumi:"resourceType"`
-	// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+	Tags map[string]string `pulumi:"tags"`
 }
 
+// GetLaunchTemplateTagSpecificationInput is an input type that accepts GetLaunchTemplateTagSpecificationArgs and GetLaunchTemplateTagSpecificationOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateTagSpecificationInput` via:
+//
+//          GetLaunchTemplateTagSpecificationArgs{...}
 type GetLaunchTemplateTagSpecificationInput interface {
 	pulumi.Input
 
@@ -12839,8 +15469,8 @@ type GetLaunchTemplateTagSpecificationInput interface {
 
 type GetLaunchTemplateTagSpecificationArgs struct {
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
-	Tags pulumi.MapInput `pulumi:"tags"`
+	// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetLaunchTemplateTagSpecificationArgs) ElementType() reflect.Type {
@@ -12855,6 +15485,10 @@ func (i GetLaunchTemplateTagSpecificationArgs) ToGetLaunchTemplateTagSpecificati
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateTagSpecificationOutput)
 }
 
+// GetLaunchTemplateTagSpecificationArrayInput is an input type that accepts GetLaunchTemplateTagSpecificationArray and GetLaunchTemplateTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateTagSpecificationArrayInput` via:
+//
+//          GetLaunchTemplateTagSpecificationArray{ GetLaunchTemplateTagSpecificationArgs{...} }
 type GetLaunchTemplateTagSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -12894,9 +15528,9 @@ func (o GetLaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringOut
 	return o.ApplyT(func(v GetLaunchTemplateTagSpecification) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
-func (o GetLaunchTemplateTagSpecificationOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v GetLaunchTemplateTagSpecification) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+func (o GetLaunchTemplateTagSpecificationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetLaunchTemplateTagSpecification) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type GetLaunchTemplateTagSpecificationArrayOutput struct{ *pulumi.OutputState }
@@ -12919,6 +15553,772 @@ func (o GetLaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) G
 	}).(GetLaunchTemplateTagSpecificationOutput)
 }
 
+type GetLocalGatewayFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Local Gateway will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewayFilterInput is an input type that accepts GetLocalGatewayFilterArgs and GetLocalGatewayFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewayFilterInput` via:
+//
+//          GetLocalGatewayFilterArgs{...}
+type GetLocalGatewayFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayFilterOutput() GetLocalGatewayFilterOutput
+	ToGetLocalGatewayFilterOutputWithContext(context.Context) GetLocalGatewayFilterOutput
+}
+
+type GetLocalGatewayFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Local Gateway will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewayFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayFilterArgs) ToGetLocalGatewayFilterOutput() GetLocalGatewayFilterOutput {
+	return i.ToGetLocalGatewayFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayFilterArgs) ToGetLocalGatewayFilterOutputWithContext(ctx context.Context) GetLocalGatewayFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayFilterOutput)
+}
+
+// GetLocalGatewayFilterArrayInput is an input type that accepts GetLocalGatewayFilterArray and GetLocalGatewayFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewayFilterArrayInput` via:
+//
+//          GetLocalGatewayFilterArray{ GetLocalGatewayFilterArgs{...} }
+type GetLocalGatewayFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayFilterArrayOutput() GetLocalGatewayFilterArrayOutput
+	ToGetLocalGatewayFilterArrayOutputWithContext(context.Context) GetLocalGatewayFilterArrayOutput
+}
+
+type GetLocalGatewayFilterArray []GetLocalGatewayFilterInput
+
+func (GetLocalGatewayFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayFilterArray) ToGetLocalGatewayFilterArrayOutput() GetLocalGatewayFilterArrayOutput {
+	return i.ToGetLocalGatewayFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayFilterArray) ToGetLocalGatewayFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayFilterArrayOutput)
+}
+
+type GetLocalGatewayFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayFilterOutput) ToGetLocalGatewayFilterOutput() GetLocalGatewayFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewayFilterOutput) ToGetLocalGatewayFilterOutputWithContext(ctx context.Context) GetLocalGatewayFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+func (o GetLocalGatewayFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A Local Gateway will be selected if any one of the given values matches.
+func (o GetLocalGatewayFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewayFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayFilterArrayOutput) ToGetLocalGatewayFilterArrayOutput() GetLocalGatewayFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayFilterArrayOutput) ToGetLocalGatewayFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewayFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewayFilter {
+		return vs[0].([]GetLocalGatewayFilter)[vs[1].(int)]
+	}).(GetLocalGatewayFilterOutput)
+}
+
+type GetLocalGatewayRouteTableFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A local gateway route table will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewayRouteTableFilterInput is an input type that accepts GetLocalGatewayRouteTableFilterArgs and GetLocalGatewayRouteTableFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewayRouteTableFilterInput` via:
+//
+//          GetLocalGatewayRouteTableFilterArgs{...}
+type GetLocalGatewayRouteTableFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayRouteTableFilterOutput() GetLocalGatewayRouteTableFilterOutput
+	ToGetLocalGatewayRouteTableFilterOutputWithContext(context.Context) GetLocalGatewayRouteTableFilterOutput
+}
+
+type GetLocalGatewayRouteTableFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A local gateway route table will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewayRouteTableFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayRouteTableFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayRouteTableFilterArgs) ToGetLocalGatewayRouteTableFilterOutput() GetLocalGatewayRouteTableFilterOutput {
+	return i.ToGetLocalGatewayRouteTableFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayRouteTableFilterArgs) ToGetLocalGatewayRouteTableFilterOutputWithContext(ctx context.Context) GetLocalGatewayRouteTableFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayRouteTableFilterOutput)
+}
+
+// GetLocalGatewayRouteTableFilterArrayInput is an input type that accepts GetLocalGatewayRouteTableFilterArray and GetLocalGatewayRouteTableFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewayRouteTableFilterArrayInput` via:
+//
+//          GetLocalGatewayRouteTableFilterArray{ GetLocalGatewayRouteTableFilterArgs{...} }
+type GetLocalGatewayRouteTableFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayRouteTableFilterArrayOutput() GetLocalGatewayRouteTableFilterArrayOutput
+	ToGetLocalGatewayRouteTableFilterArrayOutputWithContext(context.Context) GetLocalGatewayRouteTableFilterArrayOutput
+}
+
+type GetLocalGatewayRouteTableFilterArray []GetLocalGatewayRouteTableFilterInput
+
+func (GetLocalGatewayRouteTableFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayRouteTableFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayRouteTableFilterArray) ToGetLocalGatewayRouteTableFilterArrayOutput() GetLocalGatewayRouteTableFilterArrayOutput {
+	return i.ToGetLocalGatewayRouteTableFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayRouteTableFilterArray) ToGetLocalGatewayRouteTableFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayRouteTableFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayRouteTableFilterArrayOutput)
+}
+
+type GetLocalGatewayRouteTableFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayRouteTableFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayRouteTableFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayRouteTableFilterOutput) ToGetLocalGatewayRouteTableFilterOutput() GetLocalGatewayRouteTableFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewayRouteTableFilterOutput) ToGetLocalGatewayRouteTableFilterOutputWithContext(ctx context.Context) GetLocalGatewayRouteTableFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+func (o GetLocalGatewayRouteTableFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTableFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A local gateway route table will be selected if any one of the given values matches.
+func (o GetLocalGatewayRouteTableFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTableFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewayRouteTableFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayRouteTableFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayRouteTableFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayRouteTableFilterArrayOutput) ToGetLocalGatewayRouteTableFilterArrayOutput() GetLocalGatewayRouteTableFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayRouteTableFilterArrayOutput) ToGetLocalGatewayRouteTableFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayRouteTableFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayRouteTableFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewayRouteTableFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewayRouteTableFilter {
+		return vs[0].([]GetLocalGatewayRouteTableFilter)[vs[1].(int)]
+	}).(GetLocalGatewayRouteTableFilterOutput)
+}
+
+type GetLocalGatewayRouteTablesFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Local Gateway Route Table will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewayRouteTablesFilterInput is an input type that accepts GetLocalGatewayRouteTablesFilterArgs and GetLocalGatewayRouteTablesFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewayRouteTablesFilterInput` via:
+//
+//          GetLocalGatewayRouteTablesFilterArgs{...}
+type GetLocalGatewayRouteTablesFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayRouteTablesFilterOutput() GetLocalGatewayRouteTablesFilterOutput
+	ToGetLocalGatewayRouteTablesFilterOutputWithContext(context.Context) GetLocalGatewayRouteTablesFilterOutput
+}
+
+type GetLocalGatewayRouteTablesFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Local Gateway Route Table will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewayRouteTablesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayRouteTablesFilterArgs) ToGetLocalGatewayRouteTablesFilterOutput() GetLocalGatewayRouteTablesFilterOutput {
+	return i.ToGetLocalGatewayRouteTablesFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayRouteTablesFilterArgs) ToGetLocalGatewayRouteTablesFilterOutputWithContext(ctx context.Context) GetLocalGatewayRouteTablesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayRouteTablesFilterOutput)
+}
+
+// GetLocalGatewayRouteTablesFilterArrayInput is an input type that accepts GetLocalGatewayRouteTablesFilterArray and GetLocalGatewayRouteTablesFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewayRouteTablesFilterArrayInput` via:
+//
+//          GetLocalGatewayRouteTablesFilterArray{ GetLocalGatewayRouteTablesFilterArgs{...} }
+type GetLocalGatewayRouteTablesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayRouteTablesFilterArrayOutput() GetLocalGatewayRouteTablesFilterArrayOutput
+	ToGetLocalGatewayRouteTablesFilterArrayOutputWithContext(context.Context) GetLocalGatewayRouteTablesFilterArrayOutput
+}
+
+type GetLocalGatewayRouteTablesFilterArray []GetLocalGatewayRouteTablesFilterInput
+
+func (GetLocalGatewayRouteTablesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayRouteTablesFilterArray) ToGetLocalGatewayRouteTablesFilterArrayOutput() GetLocalGatewayRouteTablesFilterArrayOutput {
+	return i.ToGetLocalGatewayRouteTablesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayRouteTablesFilterArray) ToGetLocalGatewayRouteTablesFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayRouteTablesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayRouteTablesFilterArrayOutput)
+}
+
+type GetLocalGatewayRouteTablesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayRouteTablesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayRouteTablesFilterOutput) ToGetLocalGatewayRouteTablesFilterOutput() GetLocalGatewayRouteTablesFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewayRouteTablesFilterOutput) ToGetLocalGatewayRouteTablesFilterOutputWithContext(ctx context.Context) GetLocalGatewayRouteTablesFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+func (o GetLocalGatewayRouteTablesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTablesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A Local Gateway Route Table will be selected if any one of the given values matches.
+func (o GetLocalGatewayRouteTablesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTablesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewayRouteTablesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayRouteTablesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayRouteTablesFilterArrayOutput) ToGetLocalGatewayRouteTablesFilterArrayOutput() GetLocalGatewayRouteTablesFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayRouteTablesFilterArrayOutput) ToGetLocalGatewayRouteTablesFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayRouteTablesFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayRouteTablesFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewayRouteTablesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewayRouteTablesFilter {
+		return vs[0].([]GetLocalGatewayRouteTablesFilter)[vs[1].(int)]
+	}).(GetLocalGatewayRouteTablesFilterOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewayVirtualInterfaceFilterInput is an input type that accepts GetLocalGatewayVirtualInterfaceFilterArgs and GetLocalGatewayVirtualInterfaceFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewayVirtualInterfaceFilterInput` via:
+//
+//          GetLocalGatewayVirtualInterfaceFilterArgs{...}
+type GetLocalGatewayVirtualInterfaceFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayVirtualInterfaceFilterOutput() GetLocalGatewayVirtualInterfaceFilterOutput
+	ToGetLocalGatewayVirtualInterfaceFilterOutputWithContext(context.Context) GetLocalGatewayVirtualInterfaceFilterOutput
+}
+
+type GetLocalGatewayVirtualInterfaceFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewayVirtualInterfaceFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayVirtualInterfaceFilterArgs) ToGetLocalGatewayVirtualInterfaceFilterOutput() GetLocalGatewayVirtualInterfaceFilterOutput {
+	return i.ToGetLocalGatewayVirtualInterfaceFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayVirtualInterfaceFilterArgs) ToGetLocalGatewayVirtualInterfaceFilterOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayVirtualInterfaceFilterOutput)
+}
+
+// GetLocalGatewayVirtualInterfaceFilterArrayInput is an input type that accepts GetLocalGatewayVirtualInterfaceFilterArray and GetLocalGatewayVirtualInterfaceFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewayVirtualInterfaceFilterArrayInput` via:
+//
+//          GetLocalGatewayVirtualInterfaceFilterArray{ GetLocalGatewayVirtualInterfaceFilterArgs{...} }
+type GetLocalGatewayVirtualInterfaceFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayVirtualInterfaceFilterArrayOutput() GetLocalGatewayVirtualInterfaceFilterArrayOutput
+	ToGetLocalGatewayVirtualInterfaceFilterArrayOutputWithContext(context.Context) GetLocalGatewayVirtualInterfaceFilterArrayOutput
+}
+
+type GetLocalGatewayVirtualInterfaceFilterArray []GetLocalGatewayVirtualInterfaceFilterInput
+
+func (GetLocalGatewayVirtualInterfaceFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayVirtualInterfaceFilterArray) ToGetLocalGatewayVirtualInterfaceFilterArrayOutput() GetLocalGatewayVirtualInterfaceFilterArrayOutput {
+	return i.ToGetLocalGatewayVirtualInterfaceFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayVirtualInterfaceFilterArray) ToGetLocalGatewayVirtualInterfaceFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayVirtualInterfaceFilterArrayOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayVirtualInterfaceFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayVirtualInterfaceFilterOutput) ToGetLocalGatewayVirtualInterfaceFilterOutput() GetLocalGatewayVirtualInterfaceFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceFilterOutput) ToGetLocalGatewayVirtualInterfaceFilterOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetLocalGatewayVirtualInterfaceFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetLocalGatewayVirtualInterfaceFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayVirtualInterfaceFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayVirtualInterfaceFilterArrayOutput) ToGetLocalGatewayVirtualInterfaceFilterArrayOutput() GetLocalGatewayVirtualInterfaceFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceFilterArrayOutput) ToGetLocalGatewayVirtualInterfaceFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewayVirtualInterfaceFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewayVirtualInterfaceFilter {
+		return vs[0].([]GetLocalGatewayVirtualInterfaceFilter)[vs[1].(int)]
+	}).(GetLocalGatewayVirtualInterfaceFilterOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceGroupFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewayVirtualInterfaceGroupFilterInput is an input type that accepts GetLocalGatewayVirtualInterfaceGroupFilterArgs and GetLocalGatewayVirtualInterfaceGroupFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewayVirtualInterfaceGroupFilterInput` via:
+//
+//          GetLocalGatewayVirtualInterfaceGroupFilterArgs{...}
+type GetLocalGatewayVirtualInterfaceGroupFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayVirtualInterfaceGroupFilterOutput() GetLocalGatewayVirtualInterfaceGroupFilterOutput
+	ToGetLocalGatewayVirtualInterfaceGroupFilterOutputWithContext(context.Context) GetLocalGatewayVirtualInterfaceGroupFilterOutput
+}
+
+type GetLocalGatewayVirtualInterfaceGroupFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewayVirtualInterfaceGroupFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceGroupFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupFilterArgs) ToGetLocalGatewayVirtualInterfaceGroupFilterOutput() GetLocalGatewayVirtualInterfaceGroupFilterOutput {
+	return i.ToGetLocalGatewayVirtualInterfaceGroupFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupFilterArgs) ToGetLocalGatewayVirtualInterfaceGroupFilterOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayVirtualInterfaceGroupFilterOutput)
+}
+
+// GetLocalGatewayVirtualInterfaceGroupFilterArrayInput is an input type that accepts GetLocalGatewayVirtualInterfaceGroupFilterArray and GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewayVirtualInterfaceGroupFilterArrayInput` via:
+//
+//          GetLocalGatewayVirtualInterfaceGroupFilterArray{ GetLocalGatewayVirtualInterfaceGroupFilterArgs{...} }
+type GetLocalGatewayVirtualInterfaceGroupFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutput() GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput
+	ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutputWithContext(context.Context) GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput
+}
+
+type GetLocalGatewayVirtualInterfaceGroupFilterArray []GetLocalGatewayVirtualInterfaceGroupFilterInput
+
+func (GetLocalGatewayVirtualInterfaceGroupFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayVirtualInterfaceGroupFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupFilterArray) ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutput() GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput {
+	return i.ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupFilterArray) ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceGroupFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayVirtualInterfaceGroupFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceGroupFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupFilterOutput) ToGetLocalGatewayVirtualInterfaceGroupFilterOutput() GetLocalGatewayVirtualInterfaceGroupFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupFilterOutput) ToGetLocalGatewayVirtualInterfaceGroupFilterOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetLocalGatewayVirtualInterfaceGroupFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetLocalGatewayVirtualInterfaceGroupFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayVirtualInterfaceGroupFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput) ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutput() GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput) ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewayVirtualInterfaceGroupFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewayVirtualInterfaceGroupFilter {
+		return vs[0].([]GetLocalGatewayVirtualInterfaceGroupFilter)[vs[1].(int)]
+	}).(GetLocalGatewayVirtualInterfaceGroupFilterOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceGroupsFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewayVirtualInterfaceGroupsFilterInput is an input type that accepts GetLocalGatewayVirtualInterfaceGroupsFilterArgs and GetLocalGatewayVirtualInterfaceGroupsFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewayVirtualInterfaceGroupsFilterInput` via:
+//
+//          GetLocalGatewayVirtualInterfaceGroupsFilterArgs{...}
+type GetLocalGatewayVirtualInterfaceGroupsFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayVirtualInterfaceGroupsFilterOutput() GetLocalGatewayVirtualInterfaceGroupsFilterOutput
+	ToGetLocalGatewayVirtualInterfaceGroupsFilterOutputWithContext(context.Context) GetLocalGatewayVirtualInterfaceGroupsFilterOutput
+}
+
+type GetLocalGatewayVirtualInterfaceGroupsFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewayVirtualInterfaceGroupsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceGroupsFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupsFilterArgs) ToGetLocalGatewayVirtualInterfaceGroupsFilterOutput() GetLocalGatewayVirtualInterfaceGroupsFilterOutput {
+	return i.ToGetLocalGatewayVirtualInterfaceGroupsFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupsFilterArgs) ToGetLocalGatewayVirtualInterfaceGroupsFilterOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayVirtualInterfaceGroupsFilterOutput)
+}
+
+// GetLocalGatewayVirtualInterfaceGroupsFilterArrayInput is an input type that accepts GetLocalGatewayVirtualInterfaceGroupsFilterArray and GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewayVirtualInterfaceGroupsFilterArrayInput` via:
+//
+//          GetLocalGatewayVirtualInterfaceGroupsFilterArray{ GetLocalGatewayVirtualInterfaceGroupsFilterArgs{...} }
+type GetLocalGatewayVirtualInterfaceGroupsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput() GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput
+	ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutputWithContext(context.Context) GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput
+}
+
+type GetLocalGatewayVirtualInterfaceGroupsFilterArray []GetLocalGatewayVirtualInterfaceGroupsFilterInput
+
+func (GetLocalGatewayVirtualInterfaceGroupsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayVirtualInterfaceGroupsFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupsFilterArray) ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput() GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput {
+	return i.ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupsFilterArray) ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceGroupsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayVirtualInterfaceGroupsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceGroupsFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterOutput) ToGetLocalGatewayVirtualInterfaceGroupsFilterOutput() GetLocalGatewayVirtualInterfaceGroupsFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterOutput) ToGetLocalGatewayVirtualInterfaceGroupsFilterOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupsFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayVirtualInterfaceGroupsFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput) ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput() GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput) ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewayVirtualInterfaceGroupsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewayVirtualInterfaceGroupsFilter {
+		return vs[0].([]GetLocalGatewayVirtualInterfaceGroupsFilter)[vs[1].(int)]
+	}).(GetLocalGatewayVirtualInterfaceGroupsFilterOutput)
+}
+
+type GetLocalGatewaysFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Local Gateway will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewaysFilterInput is an input type that accepts GetLocalGatewaysFilterArgs and GetLocalGatewaysFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewaysFilterInput` via:
+//
+//          GetLocalGatewaysFilterArgs{...}
+type GetLocalGatewaysFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewaysFilterOutput() GetLocalGatewaysFilterOutput
+	ToGetLocalGatewaysFilterOutputWithContext(context.Context) GetLocalGatewaysFilterOutput
+}
+
+type GetLocalGatewaysFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Local Gateway will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewaysFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewaysFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewaysFilterArgs) ToGetLocalGatewaysFilterOutput() GetLocalGatewaysFilterOutput {
+	return i.ToGetLocalGatewaysFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewaysFilterArgs) ToGetLocalGatewaysFilterOutputWithContext(ctx context.Context) GetLocalGatewaysFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewaysFilterOutput)
+}
+
+// GetLocalGatewaysFilterArrayInput is an input type that accepts GetLocalGatewaysFilterArray and GetLocalGatewaysFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewaysFilterArrayInput` via:
+//
+//          GetLocalGatewaysFilterArray{ GetLocalGatewaysFilterArgs{...} }
+type GetLocalGatewaysFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewaysFilterArrayOutput() GetLocalGatewaysFilterArrayOutput
+	ToGetLocalGatewaysFilterArrayOutputWithContext(context.Context) GetLocalGatewaysFilterArrayOutput
+}
+
+type GetLocalGatewaysFilterArray []GetLocalGatewaysFilterInput
+
+func (GetLocalGatewaysFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewaysFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewaysFilterArray) ToGetLocalGatewaysFilterArrayOutput() GetLocalGatewaysFilterArrayOutput {
+	return i.ToGetLocalGatewaysFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewaysFilterArray) ToGetLocalGatewaysFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewaysFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewaysFilterArrayOutput)
+}
+
+type GetLocalGatewaysFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewaysFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewaysFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewaysFilterOutput) ToGetLocalGatewaysFilterOutput() GetLocalGatewaysFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewaysFilterOutput) ToGetLocalGatewaysFilterOutputWithContext(ctx context.Context) GetLocalGatewaysFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+func (o GetLocalGatewaysFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewaysFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A Local Gateway will be selected if any one of the given values matches.
+func (o GetLocalGatewaysFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewaysFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewaysFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewaysFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewaysFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewaysFilterArrayOutput) ToGetLocalGatewaysFilterArrayOutput() GetLocalGatewaysFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewaysFilterArrayOutput) ToGetLocalGatewaysFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewaysFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewaysFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewaysFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewaysFilter {
+		return vs[0].([]GetLocalGatewaysFilter)[vs[1].(int)]
+	}).(GetLocalGatewaysFilterOutput)
+}
+
 type GetNatGatewayFilter struct {
 	// The name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
@@ -12928,6 +16328,10 @@ type GetNatGatewayFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetNatGatewayFilterInput is an input type that accepts GetNatGatewayFilterArgs and GetNatGatewayFilterOutput values.
+// You can construct a concrete instance of `GetNatGatewayFilterInput` via:
+//
+//          GetNatGatewayFilterArgs{...}
 type GetNatGatewayFilterInput interface {
 	pulumi.Input
 
@@ -12956,6 +16360,10 @@ func (i GetNatGatewayFilterArgs) ToGetNatGatewayFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetNatGatewayFilterOutput)
 }
 
+// GetNatGatewayFilterArrayInput is an input type that accepts GetNatGatewayFilterArray and GetNatGatewayFilterArrayOutput values.
+// You can construct a concrete instance of `GetNatGatewayFilterArrayInput` via:
+//
+//          GetNatGatewayFilterArray{ GetNatGatewayFilterArgs{...} }
 type GetNatGatewayFilterArrayInput interface {
 	pulumi.Input
 
@@ -13032,6 +16440,10 @@ type GetNetworkAclsFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetNetworkAclsFilterInput is an input type that accepts GetNetworkAclsFilterArgs and GetNetworkAclsFilterOutput values.
+// You can construct a concrete instance of `GetNetworkAclsFilterInput` via:
+//
+//          GetNetworkAclsFilterArgs{...}
 type GetNetworkAclsFilterInput interface {
 	pulumi.Input
 
@@ -13060,6 +16472,10 @@ func (i GetNetworkAclsFilterArgs) ToGetNetworkAclsFilterOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAclsFilterOutput)
 }
 
+// GetNetworkAclsFilterArrayInput is an input type that accepts GetNetworkAclsFilterArray and GetNetworkAclsFilterArrayOutput values.
+// You can construct a concrete instance of `GetNetworkAclsFilterArrayInput` via:
+//
+//          GetNetworkAclsFilterArray{ GetNetworkAclsFilterArgs{...} }
 type GetNetworkAclsFilterArrayInput interface {
 	pulumi.Input
 
@@ -13140,6 +16556,10 @@ type GetNetworkInterfaceAssociation struct {
 	PublicIp string `pulumi:"publicIp"`
 }
 
+// GetNetworkInterfaceAssociationInput is an input type that accepts GetNetworkInterfaceAssociationArgs and GetNetworkInterfaceAssociationOutput values.
+// You can construct a concrete instance of `GetNetworkInterfaceAssociationInput` via:
+//
+//          GetNetworkInterfaceAssociationArgs{...}
 type GetNetworkInterfaceAssociationInput interface {
 	pulumi.Input
 
@@ -13172,6 +16592,10 @@ func (i GetNetworkInterfaceAssociationArgs) ToGetNetworkInterfaceAssociationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInterfaceAssociationOutput)
 }
 
+// GetNetworkInterfaceAssociationArrayInput is an input type that accepts GetNetworkInterfaceAssociationArray and GetNetworkInterfaceAssociationArrayOutput values.
+// You can construct a concrete instance of `GetNetworkInterfaceAssociationArrayInput` via:
+//
+//          GetNetworkInterfaceAssociationArray{ GetNetworkInterfaceAssociationArgs{...} }
 type GetNetworkInterfaceAssociationArrayInput interface {
 	pulumi.Input
 
@@ -13259,6 +16683,10 @@ type GetNetworkInterfaceAttachmentType struct {
 	InstanceOwnerId string `pulumi:"instanceOwnerId"`
 }
 
+// GetNetworkInterfaceAttachmentTypeInput is an input type that accepts GetNetworkInterfaceAttachmentTypeArgs and GetNetworkInterfaceAttachmentTypeOutput values.
+// You can construct a concrete instance of `GetNetworkInterfaceAttachmentTypeInput` via:
+//
+//          GetNetworkInterfaceAttachmentTypeArgs{...}
 type GetNetworkInterfaceAttachmentTypeInput interface {
 	pulumi.Input
 
@@ -13285,6 +16713,10 @@ func (i GetNetworkInterfaceAttachmentTypeArgs) ToGetNetworkInterfaceAttachmentTy
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInterfaceAttachmentTypeOutput)
 }
 
+// GetNetworkInterfaceAttachmentTypeArrayInput is an input type that accepts GetNetworkInterfaceAttachmentTypeArray and GetNetworkInterfaceAttachmentTypeArrayOutput values.
+// You can construct a concrete instance of `GetNetworkInterfaceAttachmentTypeArrayInput` via:
+//
+//          GetNetworkInterfaceAttachmentTypeArray{ GetNetworkInterfaceAttachmentTypeArgs{...} }
 type GetNetworkInterfaceAttachmentTypeArrayInput interface {
 	pulumi.Input
 
@@ -13361,6 +16793,10 @@ type GetNetworkInterfaceFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetNetworkInterfaceFilterInput is an input type that accepts GetNetworkInterfaceFilterArgs and GetNetworkInterfaceFilterOutput values.
+// You can construct a concrete instance of `GetNetworkInterfaceFilterInput` via:
+//
+//          GetNetworkInterfaceFilterArgs{...}
 type GetNetworkInterfaceFilterInput interface {
 	pulumi.Input
 
@@ -13385,6 +16821,10 @@ func (i GetNetworkInterfaceFilterArgs) ToGetNetworkInterfaceFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInterfaceFilterOutput)
 }
 
+// GetNetworkInterfaceFilterArrayInput is an input type that accepts GetNetworkInterfaceFilterArray and GetNetworkInterfaceFilterArrayOutput values.
+// You can construct a concrete instance of `GetNetworkInterfaceFilterArrayInput` via:
+//
+//          GetNetworkInterfaceFilterArray{ GetNetworkInterfaceFilterArgs{...} }
 type GetNetworkInterfaceFilterArrayInput interface {
 	pulumi.Input
 
@@ -13456,6 +16896,10 @@ type GetNetworkInterfacesFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetNetworkInterfacesFilterInput is an input type that accepts GetNetworkInterfacesFilterArgs and GetNetworkInterfacesFilterOutput values.
+// You can construct a concrete instance of `GetNetworkInterfacesFilterInput` via:
+//
+//          GetNetworkInterfacesFilterArgs{...}
 type GetNetworkInterfacesFilterInput interface {
 	pulumi.Input
 
@@ -13483,6 +16927,10 @@ func (i GetNetworkInterfacesFilterArgs) ToGetNetworkInterfacesFilterOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInterfacesFilterOutput)
 }
 
+// GetNetworkInterfacesFilterArrayInput is an input type that accepts GetNetworkInterfacesFilterArray and GetNetworkInterfacesFilterArrayOutput values.
+// You can construct a concrete instance of `GetNetworkInterfacesFilterArrayInput` via:
+//
+//          GetNetworkInterfacesFilterArray{ GetNetworkInterfacesFilterArgs{...} }
 type GetNetworkInterfacesFilterArrayInput interface {
 	pulumi.Input
 
@@ -13562,6 +17010,10 @@ type GetRouteTableAssociationType struct {
 	SubnetId string `pulumi:"subnetId"`
 }
 
+// GetRouteTableAssociationTypeInput is an input type that accepts GetRouteTableAssociationTypeArgs and GetRouteTableAssociationTypeOutput values.
+// You can construct a concrete instance of `GetRouteTableAssociationTypeInput` via:
+//
+//          GetRouteTableAssociationTypeArgs{...}
 type GetRouteTableAssociationTypeInput interface {
 	pulumi.Input
 
@@ -13594,6 +17046,10 @@ func (i GetRouteTableAssociationTypeArgs) ToGetRouteTableAssociationTypeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableAssociationTypeOutput)
 }
 
+// GetRouteTableAssociationTypeArrayInput is an input type that accepts GetRouteTableAssociationTypeArray and GetRouteTableAssociationTypeArrayOutput values.
+// You can construct a concrete instance of `GetRouteTableAssociationTypeArrayInput` via:
+//
+//          GetRouteTableAssociationTypeArray{ GetRouteTableAssociationTypeArgs{...} }
 type GetRouteTableAssociationTypeArrayInput interface {
 	pulumi.Input
 
@@ -13683,6 +17139,10 @@ type GetRouteTableFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetRouteTableFilterInput is an input type that accepts GetRouteTableFilterArgs and GetRouteTableFilterOutput values.
+// You can construct a concrete instance of `GetRouteTableFilterInput` via:
+//
+//          GetRouteTableFilterArgs{...}
 type GetRouteTableFilterInput interface {
 	pulumi.Input
 
@@ -13711,6 +17171,10 @@ func (i GetRouteTableFilterArgs) ToGetRouteTableFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableFilterOutput)
 }
 
+// GetRouteTableFilterArrayInput is an input type that accepts GetRouteTableFilterArray and GetRouteTableFilterArrayOutput values.
+// You can construct a concrete instance of `GetRouteTableFilterArrayInput` via:
+//
+//          GetRouteTableFilterArray{ GetRouteTableFilterArgs{...} }
 type GetRouteTableFilterArrayInput interface {
 	pulumi.Input
 
@@ -13789,16 +17253,24 @@ type GetRouteTableRoute struct {
 	InstanceId string `pulumi:"instanceId"`
 	// The IPv6 CIDR block of the route.
 	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
+	// The Local Gateway ID.
+	LocalGatewayId string `pulumi:"localGatewayId"`
 	// The NAT Gateway ID.
 	NatGatewayId string `pulumi:"natGatewayId"`
 	// The ID of the elastic network interface (eni) to use.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// The EC2 Transit Gateway ID.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
+	// The VPC Endpoint ID.
+	VpcEndpointId string `pulumi:"vpcEndpointId"`
 	// The VPC Peering ID.
 	VpcPeeringConnectionId string `pulumi:"vpcPeeringConnectionId"`
 }
 
+// GetRouteTableRouteInput is an input type that accepts GetRouteTableRouteArgs and GetRouteTableRouteOutput values.
+// You can construct a concrete instance of `GetRouteTableRouteInput` via:
+//
+//          GetRouteTableRouteArgs{...}
 type GetRouteTableRouteInput interface {
 	pulumi.Input
 
@@ -13817,12 +17289,16 @@ type GetRouteTableRouteArgs struct {
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// The IPv6 CIDR block of the route.
 	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
+	// The Local Gateway ID.
+	LocalGatewayId pulumi.StringInput `pulumi:"localGatewayId"`
 	// The NAT Gateway ID.
 	NatGatewayId pulumi.StringInput `pulumi:"natGatewayId"`
 	// The ID of the elastic network interface (eni) to use.
 	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 	// The EC2 Transit Gateway ID.
 	TransitGatewayId pulumi.StringInput `pulumi:"transitGatewayId"`
+	// The VPC Endpoint ID.
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
 	// The VPC Peering ID.
 	VpcPeeringConnectionId pulumi.StringInput `pulumi:"vpcPeeringConnectionId"`
 }
@@ -13839,6 +17315,10 @@ func (i GetRouteTableRouteArgs) ToGetRouteTableRouteOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableRouteOutput)
 }
 
+// GetRouteTableRouteArrayInput is an input type that accepts GetRouteTableRouteArray and GetRouteTableRouteArrayOutput values.
+// You can construct a concrete instance of `GetRouteTableRouteArrayInput` via:
+//
+//          GetRouteTableRouteArray{ GetRouteTableRouteArgs{...} }
 type GetRouteTableRouteArrayInput interface {
 	pulumi.Input
 
@@ -13899,6 +17379,11 @@ func (o GetRouteTableRouteOutput) Ipv6CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
 }
 
+// The Local Gateway ID.
+func (o GetRouteTableRouteOutput) LocalGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoute) string { return v.LocalGatewayId }).(pulumi.StringOutput)
+}
+
 // The NAT Gateway ID.
 func (o GetRouteTableRouteOutput) NatGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.NatGatewayId }).(pulumi.StringOutput)
@@ -13912,6 +17397,11 @@ func (o GetRouteTableRouteOutput) NetworkInterfaceId() pulumi.StringOutput {
 // The EC2 Transit Gateway ID.
 func (o GetRouteTableRouteOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
+// The VPC Endpoint ID.
+func (o GetRouteTableRouteOutput) VpcEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoute) string { return v.VpcEndpointId }).(pulumi.StringOutput)
 }
 
 // The VPC Peering ID.
@@ -13948,6 +17438,10 @@ type GetRouteTablesFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetRouteTablesFilterInput is an input type that accepts GetRouteTablesFilterArgs and GetRouteTablesFilterOutput values.
+// You can construct a concrete instance of `GetRouteTablesFilterInput` via:
+//
+//          GetRouteTablesFilterArgs{...}
 type GetRouteTablesFilterInput interface {
 	pulumi.Input
 
@@ -13976,6 +17470,10 @@ func (i GetRouteTablesFilterArgs) ToGetRouteTablesFilterOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTablesFilterOutput)
 }
 
+// GetRouteTablesFilterArrayInput is an input type that accepts GetRouteTablesFilterArray and GetRouteTablesFilterArrayOutput values.
+// You can construct a concrete instance of `GetRouteTablesFilterArrayInput` via:
+//
+//          GetRouteTablesFilterArray{ GetRouteTablesFilterArgs{...} }
 type GetRouteTablesFilterArrayInput interface {
 	pulumi.Input
 
@@ -14052,6 +17550,10 @@ type GetSecurityGroupFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetSecurityGroupFilterInput is an input type that accepts GetSecurityGroupFilterArgs and GetSecurityGroupFilterOutput values.
+// You can construct a concrete instance of `GetSecurityGroupFilterInput` via:
+//
+//          GetSecurityGroupFilterArgs{...}
 type GetSecurityGroupFilterInput interface {
 	pulumi.Input
 
@@ -14080,6 +17582,10 @@ func (i GetSecurityGroupFilterArgs) ToGetSecurityGroupFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupFilterOutput)
 }
 
+// GetSecurityGroupFilterArrayInput is an input type that accepts GetSecurityGroupFilterArray and GetSecurityGroupFilterArrayOutput values.
+// You can construct a concrete instance of `GetSecurityGroupFilterArrayInput` via:
+//
+//          GetSecurityGroupFilterArray{ GetSecurityGroupFilterArgs{...} }
 type GetSecurityGroupFilterArrayInput interface {
 	pulumi.Input
 
@@ -14152,6 +17658,10 @@ type GetSecurityGroupsFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetSecurityGroupsFilterInput is an input type that accepts GetSecurityGroupsFilterArgs and GetSecurityGroupsFilterOutput values.
+// You can construct a concrete instance of `GetSecurityGroupsFilterInput` via:
+//
+//          GetSecurityGroupsFilterArgs{...}
 type GetSecurityGroupsFilterInput interface {
 	pulumi.Input
 
@@ -14176,6 +17686,10 @@ func (i GetSecurityGroupsFilterArgs) ToGetSecurityGroupsFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupsFilterOutput)
 }
 
+// GetSecurityGroupsFilterArrayInput is an input type that accepts GetSecurityGroupsFilterArray and GetSecurityGroupsFilterArrayOutput values.
+// You can construct a concrete instance of `GetSecurityGroupsFilterArrayInput` via:
+//
+//          GetSecurityGroupsFilterArray{ GetSecurityGroupsFilterArgs{...} }
 type GetSecurityGroupsFilterArrayInput interface {
 	pulumi.Input
 
@@ -14239,6 +17753,112 @@ func (o GetSecurityGroupsFilterArrayOutput) Index(i pulumi.IntInput) GetSecurity
 	}).(GetSecurityGroupsFilterOutput)
 }
 
+type GetSpotPriceFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetSpotPriceFilterInput is an input type that accepts GetSpotPriceFilterArgs and GetSpotPriceFilterOutput values.
+// You can construct a concrete instance of `GetSpotPriceFilterInput` via:
+//
+//          GetSpotPriceFilterArgs{...}
+type GetSpotPriceFilterInput interface {
+	pulumi.Input
+
+	ToGetSpotPriceFilterOutput() GetSpotPriceFilterOutput
+	ToGetSpotPriceFilterOutputWithContext(context.Context) GetSpotPriceFilterOutput
+}
+
+type GetSpotPriceFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetSpotPriceFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpotPriceFilter)(nil)).Elem()
+}
+
+func (i GetSpotPriceFilterArgs) ToGetSpotPriceFilterOutput() GetSpotPriceFilterOutput {
+	return i.ToGetSpotPriceFilterOutputWithContext(context.Background())
+}
+
+func (i GetSpotPriceFilterArgs) ToGetSpotPriceFilterOutputWithContext(ctx context.Context) GetSpotPriceFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpotPriceFilterOutput)
+}
+
+// GetSpotPriceFilterArrayInput is an input type that accepts GetSpotPriceFilterArray and GetSpotPriceFilterArrayOutput values.
+// You can construct a concrete instance of `GetSpotPriceFilterArrayInput` via:
+//
+//          GetSpotPriceFilterArray{ GetSpotPriceFilterArgs{...} }
+type GetSpotPriceFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetSpotPriceFilterArrayOutput() GetSpotPriceFilterArrayOutput
+	ToGetSpotPriceFilterArrayOutputWithContext(context.Context) GetSpotPriceFilterArrayOutput
+}
+
+type GetSpotPriceFilterArray []GetSpotPriceFilterInput
+
+func (GetSpotPriceFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpotPriceFilter)(nil)).Elem()
+}
+
+func (i GetSpotPriceFilterArray) ToGetSpotPriceFilterArrayOutput() GetSpotPriceFilterArrayOutput {
+	return i.ToGetSpotPriceFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetSpotPriceFilterArray) ToGetSpotPriceFilterArrayOutputWithContext(ctx context.Context) GetSpotPriceFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpotPriceFilterArrayOutput)
+}
+
+type GetSpotPriceFilterOutput struct{ *pulumi.OutputState }
+
+func (GetSpotPriceFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpotPriceFilter)(nil)).Elem()
+}
+
+func (o GetSpotPriceFilterOutput) ToGetSpotPriceFilterOutput() GetSpotPriceFilterOutput {
+	return o
+}
+
+func (o GetSpotPriceFilterOutput) ToGetSpotPriceFilterOutputWithContext(ctx context.Context) GetSpotPriceFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetSpotPriceFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpotPriceFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetSpotPriceFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSpotPriceFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetSpotPriceFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSpotPriceFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpotPriceFilter)(nil)).Elem()
+}
+
+func (o GetSpotPriceFilterArrayOutput) ToGetSpotPriceFilterArrayOutput() GetSpotPriceFilterArrayOutput {
+	return o
+}
+
+func (o GetSpotPriceFilterArrayOutput) ToGetSpotPriceFilterArrayOutputWithContext(ctx context.Context) GetSpotPriceFilterArrayOutput {
+	return o
+}
+
+func (o GetSpotPriceFilterArrayOutput) Index(i pulumi.IntInput) GetSpotPriceFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpotPriceFilter {
+		return vs[0].([]GetSpotPriceFilter)[vs[1].(int)]
+	}).(GetSpotPriceFilterOutput)
+}
+
 type GetSubnetFilter struct {
 	// The name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
@@ -14249,6 +17869,10 @@ type GetSubnetFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetSubnetFilterInput is an input type that accepts GetSubnetFilterArgs and GetSubnetFilterOutput values.
+// You can construct a concrete instance of `GetSubnetFilterInput` via:
+//
+//          GetSubnetFilterArgs{...}
 type GetSubnetFilterInput interface {
 	pulumi.Input
 
@@ -14278,6 +17902,10 @@ func (i GetSubnetFilterArgs) ToGetSubnetFilterOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSubnetFilterOutput)
 }
 
+// GetSubnetFilterArrayInput is an input type that accepts GetSubnetFilterArray and GetSubnetFilterArrayOutput values.
+// You can construct a concrete instance of `GetSubnetFilterArrayInput` via:
+//
+//          GetSubnetFilterArray{ GetSubnetFilterArgs{...} }
 type GetSubnetFilterArrayInput interface {
 	pulumi.Input
 
@@ -14356,6 +17984,10 @@ type GetSubnetIdsFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetSubnetIdsFilterInput is an input type that accepts GetSubnetIdsFilterArgs and GetSubnetIdsFilterOutput values.
+// You can construct a concrete instance of `GetSubnetIdsFilterInput` via:
+//
+//          GetSubnetIdsFilterArgs{...}
 type GetSubnetIdsFilterInput interface {
 	pulumi.Input
 
@@ -14385,6 +18017,10 @@ func (i GetSubnetIdsFilterArgs) ToGetSubnetIdsFilterOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetSubnetIdsFilterOutput)
 }
 
+// GetSubnetIdsFilterArrayInput is an input type that accepts GetSubnetIdsFilterArray and GetSubnetIdsFilterArrayOutput values.
+// You can construct a concrete instance of `GetSubnetIdsFilterArrayInput` via:
+//
+//          GetSubnetIdsFilterArray{ GetSubnetIdsFilterArgs{...} }
 type GetSubnetIdsFilterArrayInput interface {
 	pulumi.Input
 
@@ -14463,6 +18099,10 @@ type GetVpcCidrBlockAssociation struct {
 	State string `pulumi:"state"`
 }
 
+// GetVpcCidrBlockAssociationInput is an input type that accepts GetVpcCidrBlockAssociationArgs and GetVpcCidrBlockAssociationOutput values.
+// You can construct a concrete instance of `GetVpcCidrBlockAssociationInput` via:
+//
+//          GetVpcCidrBlockAssociationArgs{...}
 type GetVpcCidrBlockAssociationInput interface {
 	pulumi.Input
 
@@ -14492,6 +18132,10 @@ func (i GetVpcCidrBlockAssociationArgs) ToGetVpcCidrBlockAssociationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcCidrBlockAssociationOutput)
 }
 
+// GetVpcCidrBlockAssociationArrayInput is an input type that accepts GetVpcCidrBlockAssociationArray and GetVpcCidrBlockAssociationArrayOutput values.
+// You can construct a concrete instance of `GetVpcCidrBlockAssociationArrayInput` via:
+//
+//          GetVpcCidrBlockAssociationArray{ GetVpcCidrBlockAssociationArgs{...} }
 type GetVpcCidrBlockAssociationArrayInput interface {
 	pulumi.Input
 
@@ -14570,6 +18214,10 @@ type GetVpcDhcpOptionsFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetVpcDhcpOptionsFilterInput is an input type that accepts GetVpcDhcpOptionsFilterArgs and GetVpcDhcpOptionsFilterOutput values.
+// You can construct a concrete instance of `GetVpcDhcpOptionsFilterInput` via:
+//
+//          GetVpcDhcpOptionsFilterArgs{...}
 type GetVpcDhcpOptionsFilterInput interface {
 	pulumi.Input
 
@@ -14596,6 +18244,10 @@ func (i GetVpcDhcpOptionsFilterArgs) ToGetVpcDhcpOptionsFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcDhcpOptionsFilterOutput)
 }
 
+// GetVpcDhcpOptionsFilterArrayInput is an input type that accepts GetVpcDhcpOptionsFilterArray and GetVpcDhcpOptionsFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcDhcpOptionsFilterArrayInput` via:
+//
+//          GetVpcDhcpOptionsFilterArray{ GetVpcDhcpOptionsFilterArgs{...} }
 type GetVpcDhcpOptionsFilterArrayInput interface {
 	pulumi.Input
 
@@ -14668,6 +18320,10 @@ type GetVpcEndpointDnsEntry struct {
 	HostedZoneId string `pulumi:"hostedZoneId"`
 }
 
+// GetVpcEndpointDnsEntryInput is an input type that accepts GetVpcEndpointDnsEntryArgs and GetVpcEndpointDnsEntryOutput values.
+// You can construct a concrete instance of `GetVpcEndpointDnsEntryInput` via:
+//
+//          GetVpcEndpointDnsEntryArgs{...}
 type GetVpcEndpointDnsEntryInput interface {
 	pulumi.Input
 
@@ -14694,6 +18350,10 @@ func (i GetVpcEndpointDnsEntryArgs) ToGetVpcEndpointDnsEntryOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointDnsEntryOutput)
 }
 
+// GetVpcEndpointDnsEntryArrayInput is an input type that accepts GetVpcEndpointDnsEntryArray and GetVpcEndpointDnsEntryArrayOutput values.
+// You can construct a concrete instance of `GetVpcEndpointDnsEntryArrayInput` via:
+//
+//          GetVpcEndpointDnsEntryArray{ GetVpcEndpointDnsEntryArgs{...} }
 type GetVpcEndpointDnsEntryArrayInput interface {
 	pulumi.Input
 
@@ -14768,6 +18428,10 @@ type GetVpcEndpointFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetVpcEndpointFilterInput is an input type that accepts GetVpcEndpointFilterArgs and GetVpcEndpointFilterOutput values.
+// You can construct a concrete instance of `GetVpcEndpointFilterInput` via:
+//
+//          GetVpcEndpointFilterArgs{...}
 type GetVpcEndpointFilterInput interface {
 	pulumi.Input
 
@@ -14796,6 +18460,10 @@ func (i GetVpcEndpointFilterArgs) ToGetVpcEndpointFilterOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointFilterOutput)
 }
 
+// GetVpcEndpointFilterArrayInput is an input type that accepts GetVpcEndpointFilterArray and GetVpcEndpointFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcEndpointFilterArrayInput` via:
+//
+//          GetVpcEndpointFilterArray{ GetVpcEndpointFilterArgs{...} }
 type GetVpcEndpointFilterArrayInput interface {
 	pulumi.Input
 
@@ -14870,6 +18538,10 @@ type GetVpcEndpointServiceFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetVpcEndpointServiceFilterInput is an input type that accepts GetVpcEndpointServiceFilterArgs and GetVpcEndpointServiceFilterOutput values.
+// You can construct a concrete instance of `GetVpcEndpointServiceFilterInput` via:
+//
+//          GetVpcEndpointServiceFilterArgs{...}
 type GetVpcEndpointServiceFilterInput interface {
 	pulumi.Input
 
@@ -14896,6 +18568,10 @@ func (i GetVpcEndpointServiceFilterArgs) ToGetVpcEndpointServiceFilterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointServiceFilterOutput)
 }
 
+// GetVpcEndpointServiceFilterArrayInput is an input type that accepts GetVpcEndpointServiceFilterArray and GetVpcEndpointServiceFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcEndpointServiceFilterArrayInput` via:
+//
+//          GetVpcEndpointServiceFilterArray{ GetVpcEndpointServiceFilterArgs{...} }
 type GetVpcEndpointServiceFilterArrayInput interface {
 	pulumi.Input
 
@@ -14970,6 +18646,10 @@ type GetVpcFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetVpcFilterInput is an input type that accepts GetVpcFilterArgs and GetVpcFilterOutput values.
+// You can construct a concrete instance of `GetVpcFilterInput` via:
+//
+//          GetVpcFilterArgs{...}
 type GetVpcFilterInput interface {
 	pulumi.Input
 
@@ -14998,6 +18678,10 @@ func (i GetVpcFilterArgs) ToGetVpcFilterOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcFilterOutput)
 }
 
+// GetVpcFilterArrayInput is an input type that accepts GetVpcFilterArray and GetVpcFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcFilterArrayInput` via:
+//
+//          GetVpcFilterArray{ GetVpcFilterArgs{...} }
 type GetVpcFilterArrayInput interface {
 	pulumi.Input
 
@@ -15074,6 +18758,10 @@ type GetVpcPeeringConnectionFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetVpcPeeringConnectionFilterInput is an input type that accepts GetVpcPeeringConnectionFilterArgs and GetVpcPeeringConnectionFilterOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionFilterInput` via:
+//
+//          GetVpcPeeringConnectionFilterArgs{...}
 type GetVpcPeeringConnectionFilterInput interface {
 	pulumi.Input
 
@@ -15102,6 +18790,10 @@ func (i GetVpcPeeringConnectionFilterArgs) ToGetVpcPeeringConnectionFilterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionFilterOutput)
 }
 
+// GetVpcPeeringConnectionFilterArrayInput is an input type that accepts GetVpcPeeringConnectionFilterArray and GetVpcPeeringConnectionFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionFilterArrayInput` via:
+//
+//          GetVpcPeeringConnectionFilterArray{ GetVpcPeeringConnectionFilterArgs{...} }
 type GetVpcPeeringConnectionFilterArrayInput interface {
 	pulumi.Input
 
@@ -15169,6 +18861,118 @@ func (o GetVpcPeeringConnectionFilterArrayOutput) Index(i pulumi.IntInput) GetVp
 	}).(GetVpcPeeringConnectionFilterOutput)
 }
 
+type GetVpcPeeringConnectionsFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPC Peering Connection will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetVpcPeeringConnectionsFilterInput is an input type that accepts GetVpcPeeringConnectionsFilterArgs and GetVpcPeeringConnectionsFilterOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionsFilterInput` via:
+//
+//          GetVpcPeeringConnectionsFilterArgs{...}
+type GetVpcPeeringConnectionsFilterInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionsFilterOutput() GetVpcPeeringConnectionsFilterOutput
+	ToGetVpcPeeringConnectionsFilterOutputWithContext(context.Context) GetVpcPeeringConnectionsFilterOutput
+}
+
+type GetVpcPeeringConnectionsFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPC Peering Connection will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetVpcPeeringConnectionsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionsFilter)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionsFilterArgs) ToGetVpcPeeringConnectionsFilterOutput() GetVpcPeeringConnectionsFilterOutput {
+	return i.ToGetVpcPeeringConnectionsFilterOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionsFilterArgs) ToGetVpcPeeringConnectionsFilterOutputWithContext(ctx context.Context) GetVpcPeeringConnectionsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionsFilterOutput)
+}
+
+// GetVpcPeeringConnectionsFilterArrayInput is an input type that accepts GetVpcPeeringConnectionsFilterArray and GetVpcPeeringConnectionsFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionsFilterArrayInput` via:
+//
+//          GetVpcPeeringConnectionsFilterArray{ GetVpcPeeringConnectionsFilterArgs{...} }
+type GetVpcPeeringConnectionsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionsFilterArrayOutput() GetVpcPeeringConnectionsFilterArrayOutput
+	ToGetVpcPeeringConnectionsFilterArrayOutputWithContext(context.Context) GetVpcPeeringConnectionsFilterArrayOutput
+}
+
+type GetVpcPeeringConnectionsFilterArray []GetVpcPeeringConnectionsFilterInput
+
+func (GetVpcPeeringConnectionsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionsFilter)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionsFilterArray) ToGetVpcPeeringConnectionsFilterArrayOutput() GetVpcPeeringConnectionsFilterArrayOutput {
+	return i.ToGetVpcPeeringConnectionsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionsFilterArray) ToGetVpcPeeringConnectionsFilterArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionsFilterArrayOutput)
+}
+
+type GetVpcPeeringConnectionsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionsFilter)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionsFilterOutput) ToGetVpcPeeringConnectionsFilterOutput() GetVpcPeeringConnectionsFilterOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionsFilterOutput) ToGetVpcPeeringConnectionsFilterOutputWithContext(ctx context.Context) GetVpcPeeringConnectionsFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+func (o GetVpcPeeringConnectionsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcPeeringConnectionsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A VPC Peering Connection will be selected if any one of the given values matches.
+func (o GetVpcPeeringConnectionsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpcPeeringConnectionsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetVpcPeeringConnectionsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionsFilter)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionsFilterArrayOutput) ToGetVpcPeeringConnectionsFilterArrayOutput() GetVpcPeeringConnectionsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionsFilterArrayOutput) ToGetVpcPeeringConnectionsFilterArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcPeeringConnectionsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcPeeringConnectionsFilter {
+		return vs[0].([]GetVpcPeeringConnectionsFilter)[vs[1].(int)]
+	}).(GetVpcPeeringConnectionsFilterOutput)
+}
+
 type GetVpcsFilter struct {
 	// The name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
@@ -15178,6 +18982,10 @@ type GetVpcsFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetVpcsFilterInput is an input type that accepts GetVpcsFilterArgs and GetVpcsFilterOutput values.
+// You can construct a concrete instance of `GetVpcsFilterInput` via:
+//
+//          GetVpcsFilterArgs{...}
 type GetVpcsFilterInput interface {
 	pulumi.Input
 
@@ -15206,6 +19014,10 @@ func (i GetVpcsFilterArgs) ToGetVpcsFilterOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcsFilterOutput)
 }
 
+// GetVpcsFilterArrayInput is an input type that accepts GetVpcsFilterArray and GetVpcsFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcsFilterArrayInput` via:
+//
+//          GetVpcsFilterArray{ GetVpcsFilterArgs{...} }
 type GetVpcsFilterArrayInput interface {
 	pulumi.Input
 
@@ -15282,6 +19094,10 @@ type GetVpnGatewayFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetVpnGatewayFilterInput is an input type that accepts GetVpnGatewayFilterArgs and GetVpnGatewayFilterOutput values.
+// You can construct a concrete instance of `GetVpnGatewayFilterInput` via:
+//
+//          GetVpnGatewayFilterArgs{...}
 type GetVpnGatewayFilterInput interface {
 	pulumi.Input
 
@@ -15310,6 +19126,10 @@ func (i GetVpnGatewayFilterArgs) ToGetVpnGatewayFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpnGatewayFilterOutput)
 }
 
+// GetVpnGatewayFilterArrayInput is an input type that accepts GetVpnGatewayFilterArray and GetVpnGatewayFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpnGatewayFilterArrayInput` via:
+//
+//          GetVpnGatewayFilterArray{ GetVpnGatewayFilterArgs{...} }
 type GetVpnGatewayFilterArrayInput interface {
 	pulumi.Input
 
@@ -15403,6 +19223,7 @@ func init() {
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigPtrOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideArrayOutput{})
 	pulumi.RegisterOutputType(FleetOnDemandOptionsOutput{})
@@ -15489,6 +19310,11 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationRootBlockDeviceOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestCreditSpecificationOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestCreditSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestEbsBlockDeviceOutput{})
@@ -15519,6 +19345,10 @@ func init() {
 	pulumi.RegisterOutputType(VpnConnectionRouteTypeArrayOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVgwTelemetryOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVgwTelemetryArrayOutput{})
+	pulumi.RegisterOutputType(GetCoipPoolFilterOutput{})
+	pulumi.RegisterOutputType(GetCoipPoolFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetCoipPoolsFilterOutput{})
+	pulumi.RegisterOutputType(GetCoipPoolsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetCustomerGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetCustomerGatewayFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceCreditSpecificationOutput{})
@@ -15533,6 +19363,14 @@ func init() {
 	pulumi.RegisterOutputType(GetInstanceMetadataOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceRootBlockDeviceOutput{})
 	pulumi.RegisterOutputType(GetInstanceRootBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeFpgaOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeFpgaArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeGpusOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeGpusArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeInferenceAcceleratorOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeInferenceAcceleratorArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeInstanceDiskOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeInstanceDiskArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingFilterOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingsFilterOutput{})
@@ -15577,6 +19415,20 @@ func init() {
 	pulumi.RegisterOutputType(GetLaunchTemplatePlacementArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateTagSpecificationOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayRouteTableFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayRouteTableFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayRouteTablesFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayRouteTablesFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceGroupFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceGroupsFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewaysFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewaysFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkAclsFilterOutput{})
@@ -15601,6 +19453,8 @@ func init() {
 	pulumi.RegisterOutputType(GetSecurityGroupFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupsFilterOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetSpotPriceFilterOutput{})
+	pulumi.RegisterOutputType(GetSpotPriceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSubnetFilterOutput{})
 	pulumi.RegisterOutputType(GetSubnetFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSubnetIdsFilterOutput{})
@@ -15619,6 +19473,8 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionsFilterOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcsFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpnGatewayFilterOutput{})

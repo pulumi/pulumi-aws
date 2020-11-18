@@ -2,43 +2,37 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Logs destination policy resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testDestination = new aws.cloudwatch.LogDestination("testDestination", {
- *     roleArn: aws_iam_role_iam_for_cloudwatch.arn,
- *     targetArn: aws_kinesis_stream_kinesis_for_cloudwatch.arn,
+ *     roleArn: aws_iam_role.iam_for_cloudwatch.arn,
+ *     targetArn: aws_kinesis_stream.kinesis_for_cloudwatch.arn,
  * });
  * const testDestinationPolicyPolicyDocument = testDestination.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["logs:PutSubscriptionFilter"],
  *         effect: "Allow",
  *         principals: [{
- *             identifiers: ["123456789012"],
  *             type: "AWS",
+ *             identifiers: ["123456789012"],
  *         }],
+ *         actions: ["logs:PutSubscriptionFilter"],
  *         resources: [arn],
  *     }],
  * }));
- * const testDestinationPolicyLogDestinationPolicy = new aws.cloudwatch.LogDestinationPolicy("testDestinationPolicy", {
- *     accessPolicy: testDestinationPolicyPolicyDocument.json,
+ * const testDestinationPolicyLogDestinationPolicy = new aws.cloudwatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", {
  *     destinationName: testDestination.name,
+ *     accessPolicy: testDestinationPolicyPolicyDocument.json,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_destination_policy.html.markdown.
  */
 export class LogDestinationPolicy extends pulumi.CustomResource {
     /**
@@ -48,6 +42,7 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LogDestinationPolicyState, opts?: pulumi.CustomResourceOptions): LogDestinationPolicy {
         return new LogDestinationPolicy(name, <any>state, { ...opts, id: id });

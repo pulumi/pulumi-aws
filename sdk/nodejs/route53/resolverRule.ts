@@ -4,45 +4,42 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Route53 Resolver rule.
- * 
+ *
  * ## Example Usage
- * 
  * ### System rule
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sys = new aws.route53.ResolverRule("sys", {
  *     domainName: "subdomain.example.com",
  *     ruleType: "SYSTEM",
  * });
  * ```
- * 
  * ### Forward rule
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fwd = new aws.route53.ResolverRule("fwd", {
  *     domainName: "example.com",
- *     resolverEndpointId: aws_route53_resolver_endpoint_foo.id,
  *     ruleType: "FORWARD",
- *     tags: {
- *         Environment: "Prod",
- *     },
+ *     resolverEndpointId: aws_route53_resolver_endpoint.foo.id,
  *     targetIps: [{
  *         ip: "123.45.67.89",
  *     }],
+ *     tags: {
+ *         Environment: "Prod",
+ *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule.html.markdown.
  */
 export class ResolverRule extends pulumi.CustomResource {
     /**
@@ -52,6 +49,7 @@ export class ResolverRule extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ResolverRuleState, opts?: pulumi.CustomResourceOptions): ResolverRule {
         return new ResolverRule(name, <any>state, { ...opts, id: id });
@@ -102,9 +100,9 @@ export class ResolverRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly shareStatus!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
      * This argument should only be specified for `FORWARD` type rules.
@@ -196,9 +194,9 @@ export interface ResolverRuleState {
      */
     readonly shareStatus?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
      * This argument should only be specified for `FORWARD` type rules.
@@ -228,9 +226,9 @@ export interface ResolverRuleArgs {
      */
     readonly ruleType: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
      * This argument should only be specified for `FORWARD` type rules.

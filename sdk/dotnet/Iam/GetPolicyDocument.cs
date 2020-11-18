@@ -9,44 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Generates an IAM policy document in JSON format.
-        /// 
-        /// This is a data source which can be used to construct a JSON representation of
-        /// an IAM policy document, for use with resources which expect policy documents,
-        /// such as the `aws.iam.Policy` resource.
-        /// 
-        /// 
-        /// Using this data source to generate policy documents is *optional*. It is also
-        /// valid to use literal JSON strings within your configuration, or to use the
-        /// `file` interpolation function to read a raw JSON policy document from a file.
-        /// 
-        /// ## Context Variable Interpolation
-        /// 
-        /// The IAM policy document format allows context variables to be interpolated
-        /// into various strings within a statement. The native IAM policy document format
-        /// uses `${...}`-style syntax that is in conflict with interpolation
-        /// syntax, so this data source instead uses `&amp;{...}` syntax for interpolations that
-        /// should be processed by AWS rather than by this provider.
-        /// 
-        /// ## Wildcard Principal
-        /// 
-        /// In order to define wildcard principal (a.k.a. anonymous user) use `type = "*"` and
-        /// `identifiers = ["*"]`. In that case the rendered json will contain `"Principal": "*"`.
-        /// Note, that even though the [IAM Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html)
-        /// states that `"Principal": "*"` and `"Principal": {"AWS": "*"}` are equivalent,
-        /// those principals have different behavior for IAM Role Trust Policy. Therefore
-        /// this provider will normalize the principal field only in above-mentioned case and principals
-        /// like `type = "AWS"` and `identifiers = ["*"]` will be rendered as `"Principal": {"AWS": "*"}`.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy_document.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetPolicyDocument.InvokeAsync() instead")]
-        public static Task<GetPolicyDocumentResult> GetPolicyDocument(GetPolicyDocumentArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDocumentResult>("aws:iam/getPolicyDocument:getPolicyDocument", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPolicyDocument
     {
         /// <summary>
@@ -56,6 +18,79 @@ namespace Pulumi.Aws.Iam
         /// an IAM policy document, for use with resources which expect policy documents,
         /// such as the `aws.iam.Policy` resource.
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var examplePolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         {
+        ///             Statements = 
+        ///             {
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Sid = "1",
+        ///                     Actions = 
+        ///                     {
+        ///                         "s3:ListAllMyBuckets",
+        ///                         "s3:GetBucketLocation",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         "arn:aws:s3:::*",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Actions = 
+        ///                     {
+        ///                         "s3:ListBucket",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         $"arn:aws:s3:::{@var.S3_bucket_name}",
+        ///                     },
+        ///                     Conditions = 
+        ///                     {
+        ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
+        ///                         {
+        ///                             Test = "StringLike",
+        ///                             Variable = "s3:prefix",
+        ///                             Values = 
+        ///                             {
+        ///                                 "",
+        ///                                 "home/",
+        ///                                 "home/&amp;{aws:username}/",
+        ///                             },
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Actions = 
+        ///                     {
+        ///                         "s3:*",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         $"arn:aws:s3:::{@var.S3_bucket_name}/home/&amp;{{aws:username}}",
+        ///                         $"arn:aws:s3:::{@var.S3_bucket_name}/home/&amp;{{aws:username}}/*",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         var examplePolicy = new Aws.Iam.Policy("examplePolicy", new Aws.Iam.PolicyArgs
+        ///         {
+        ///             Path = "/",
+        ///             Policy = examplePolicyDocument.Apply(examplePolicyDocument =&gt; examplePolicyDocument.Json),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
         /// 
         /// Using this data source to generate policy documents is *optional*. It is also
         /// valid to use literal JSON strings within your configuration, or to use the
@@ -79,11 +114,290 @@ namespace Pulumi.Aws.Iam
         /// this provider will normalize the principal field only in above-mentioned case and principals
         /// like `type = "AWS"` and `identifiers = ["*"]` will be rendered as `"Principal": {"AWS": "*"}`.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy_document.html.markdown.
+        /// ## Example with Multiple Principals
+        /// 
+        /// Showing how you can use this as an assume role policy as well as showing how you can specify multiple principal blocks with different types.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var eventStreamBucketRoleAssumeRolePolicy = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         {
+        ///             Statements = 
+        ///             {
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Actions = 
+        ///                     {
+        ///                         "sts:AssumeRole",
+        ///                     },
+        ///                     Principals = 
+        ///                     {
+        ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+        ///                         {
+        ///                             Type = "Service",
+        ///                             Identifiers = 
+        ///                             {
+        ///                                 "firehose.amazonaws.com",
+        ///                             },
+        ///                         },
+        ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+        ///                         {
+        ///                             Type = "AWS",
+        ///                             Identifiers = 
+        ///                             {
+        ///                                 @var.Trusted_role_arn,
+        ///                             },
+        ///                         },
+        ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+        ///                         {
+        ///                             Type = "Federated",
+        ///                             Identifiers = 
+        ///                             {
+        ///                                 $"arn:aws:iam::{@var.Account_id}:saml-provider/{@var.Provider_name}",
+        ///                                 "cognito-identity.amazonaws.com",
+        ///                             },
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// ## Example with Source and Override
+        /// 
+        /// Showing how you can use `source_json` and `override_json`
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var source = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         {
+        ///             Statements = 
+        ///             {
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Actions = 
+        ///                     {
+        ///                         "ec2:*",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         "*",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Sid = "SidToOverwrite",
+        ///                     Actions = 
+        ///                     {
+        ///                         "s3:*",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         "*",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         var sourceJsonExample = source.Apply(source =&gt; Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         {
+        ///             SourceJson = source.Json,
+        ///             Statements = 
+        ///             {
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Sid = "SidToOverwrite",
+        ///                     Actions = 
+        ///                     {
+        ///                         "s3:*",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         "arn:aws:s3:::somebucket",
+        ///                         "arn:aws:s3:::somebucket/*",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         })));
+        ///         var @override = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         {
+        ///             Statements = 
+        ///             {
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Sid = "SidToOverwrite",
+        ///                     Actions = 
+        ///                     {
+        ///                         "s3:*",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         "*",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         var overrideJsonExample = @override.Apply(@override =&gt; Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         {
+        ///             OverrideJson = @override.Json,
+        ///             Statements = 
+        ///             {
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Actions = 
+        ///                     {
+        ///                         "ec2:*",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         "*",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Sid = "SidToOverwrite",
+        ///                     Actions = 
+        ///                     {
+        ///                         "s3:*",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         "arn:aws:s3:::somebucket",
+        ///                         "arn:aws:s3:::somebucket/*",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         })));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// `data.aws_iam_policy_document.override_json_example.json` will evaluate to:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// You can also combine `source_json` and `override_json` in the same document.
+        /// 
+        /// ## Example without Statement
+        /// 
+        /// Use without a `statement`:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var source = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         {
+        ///             Statements = 
+        ///             {
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Sid = "OverridePlaceholder",
+        ///                     Actions = 
+        ///                     {
+        ///                         "ec2:DescribeAccountAttributes",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         "*",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         var @override = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         {
+        ///             Statements = 
+        ///             {
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Sid = "OverridePlaceholder",
+        ///                     Actions = 
+        ///                     {
+        ///                         "s3:GetObject",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         "*",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         var politik = Output.Tuple(source, @override).Apply(values =&gt;
+        ///         {
+        ///             var source = values.Item1;
+        ///             var @override = values.Item2;
+        ///             return Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///             {
+        ///                 SourceJson = source.Json,
+        ///                 OverrideJson = @override.Json,
+        ///             }));
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// `data.aws_iam_policy_document.politik.json` will evaluate to:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///     }
+        /// 
+        /// }
+        /// ```
         /// </summary>
         public static Task<GetPolicyDocumentResult> InvokeAsync(GetPolicyDocumentArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDocumentResult>("aws:iam/getPolicyDocument:getPolicyDocument", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDocumentResult>("aws:iam/getPolicyDocument:getPolicyDocument", args ?? new GetPolicyDocumentArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPolicyDocumentArgs : Pulumi.InvokeArgs
     {
@@ -112,15 +426,15 @@ namespace Pulumi.Aws.Iam
         public string? SourceJson { get; set; }
 
         [Input("statements")]
-        private List<Inputs.GetPolicyDocumentStatementsArgs>? _statements;
+        private List<Inputs.GetPolicyDocumentStatementArgs>? _statements;
 
         /// <summary>
         /// A nested configuration block (described below)
         /// configuring one *statement* to be included in the policy document.
         /// </summary>
-        public List<Inputs.GetPolicyDocumentStatementsArgs> Statements
+        public List<Inputs.GetPolicyDocumentStatementArgs> Statements
         {
-            get => _statements ?? (_statements = new List<Inputs.GetPolicyDocumentStatementsArgs>());
+            get => _statements ?? (_statements = new List<Inputs.GetPolicyDocumentStatementArgs>());
             set => _statements = value;
         }
 
@@ -135,9 +449,14 @@ namespace Pulumi.Aws.Iam
         }
     }
 
+
     [OutputType]
     public sealed class GetPolicyDocumentResult
     {
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The above arguments serialized as a standard JSON policy document.
         /// </summary>
@@ -145,400 +464,32 @@ namespace Pulumi.Aws.Iam
         public readonly string? OverrideJson;
         public readonly string? PolicyId;
         public readonly string? SourceJson;
-        public readonly ImmutableArray<Outputs.GetPolicyDocumentStatementsResult> Statements;
+        public readonly ImmutableArray<Outputs.GetPolicyDocumentStatementResult> Statements;
         public readonly string? Version;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetPolicyDocumentResult(
+            string id,
+
             string json,
+
             string? overrideJson,
+
             string? policyId,
+
             string? sourceJson,
-            ImmutableArray<Outputs.GetPolicyDocumentStatementsResult> statements,
-            string? version,
-            string id)
+
+            ImmutableArray<Outputs.GetPolicyDocumentStatementResult> statements,
+
+            string? version)
         {
+            Id = id;
             Json = json;
             OverrideJson = overrideJson;
             PolicyId = policyId;
             SourceJson = sourceJson;
             Statements = statements;
             Version = version;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetPolicyDocumentStatementsArgs : Pulumi.InvokeArgs
-    {
-        [Input("actions")]
-        private List<string>? _actions;
-
-        /// <summary>
-        /// A list of actions that this statement either allows
-        /// or denies. For example, ``["ec2:RunInstances", "s3:*"]``.
-        /// </summary>
-        public List<string> Actions
-        {
-            get => _actions ?? (_actions = new List<string>());
-            set => _actions = value;
-        }
-
-        [Input("conditions")]
-        private List<GetPolicyDocumentStatementsConditionsArgs>? _conditions;
-
-        /// <summary>
-        /// A nested configuration block (described below)
-        /// that defines a further, possibly-service-specific condition that constrains
-        /// whether this statement applies.
-        /// </summary>
-        public List<GetPolicyDocumentStatementsConditionsArgs> Conditions
-        {
-            get => _conditions ?? (_conditions = new List<GetPolicyDocumentStatementsConditionsArgs>());
-            set => _conditions = value;
-        }
-
-        /// <summary>
-        /// Either "Allow" or "Deny", to specify whether this
-        /// statement allows or denies the given actions. The default is "Allow".
-        /// </summary>
-        [Input("effect")]
-        public string? Effect { get; set; }
-
-        [Input("notActions")]
-        private List<string>? _notActions;
-
-        /// <summary>
-        /// A list of actions that this statement does *not*
-        /// apply to. Used to apply a policy statement to all actions *except* those
-        /// listed.
-        /// </summary>
-        public List<string> NotActions
-        {
-            get => _notActions ?? (_notActions = new List<string>());
-            set => _notActions = value;
-        }
-
-        [Input("notPrincipals")]
-        private List<GetPolicyDocumentStatementsNotPrincipalsArgs>? _notPrincipals;
-
-        /// <summary>
-        /// Like `principals` except gives resources that
-        /// the statement does *not* apply to.
-        /// </summary>
-        public List<GetPolicyDocumentStatementsNotPrincipalsArgs> NotPrincipals
-        {
-            get => _notPrincipals ?? (_notPrincipals = new List<GetPolicyDocumentStatementsNotPrincipalsArgs>());
-            set => _notPrincipals = value;
-        }
-
-        [Input("notResources")]
-        private List<string>? _notResources;
-
-        /// <summary>
-        /// A list of resource ARNs that this statement
-        /// does *not* apply to. Used to apply a policy statement to all resources
-        /// *except* those listed.
-        /// </summary>
-        public List<string> NotResources
-        {
-            get => _notResources ?? (_notResources = new List<string>());
-            set => _notResources = value;
-        }
-
-        [Input("principals")]
-        private List<GetPolicyDocumentStatementsPrincipalsArgs>? _principals;
-
-        /// <summary>
-        /// A nested configuration block (described below)
-        /// specifying a resource (or resource pattern) to which this statement applies.
-        /// </summary>
-        public List<GetPolicyDocumentStatementsPrincipalsArgs> Principals
-        {
-            get => _principals ?? (_principals = new List<GetPolicyDocumentStatementsPrincipalsArgs>());
-            set => _principals = value;
-        }
-
-        [Input("resources")]
-        private List<string>? _resources;
-
-        /// <summary>
-        /// A list of resource ARNs that this statement applies
-        /// to. This is required by AWS if used for an IAM policy.
-        /// </summary>
-        public List<string> Resources
-        {
-            get => _resources ?? (_resources = new List<string>());
-            set => _resources = value;
-        }
-
-        /// <summary>
-        /// An ID for the policy statement.
-        /// </summary>
-        [Input("sid")]
-        public string? Sid { get; set; }
-
-        public GetPolicyDocumentStatementsArgs()
-        {
-        }
-    }
-
-    public sealed class GetPolicyDocumentStatementsConditionsArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the
-        /// [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html)
-        /// to evaluate.
-        /// </summary>
-        [Input("test", required: true)]
-        public string Test { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// The values to evaluate the condition against. If multiple
-        /// values are provided, the condition matches if at least one of them applies.
-        /// (That is, the tests are combined with the "OR" boolean operation.)
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        /// <summary>
-        /// The name of a
-        /// [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys)
-        /// to apply the condition to. Context variables may either be standard AWS
-        /// variables starting with `aws:`, or service-specific variables prefixed with
-        /// the service name.
-        /// </summary>
-        [Input("variable", required: true)]
-        public string Variable { get; set; } = null!;
-
-        public GetPolicyDocumentStatementsConditionsArgs()
-        {
-        }
-    }
-
-    public sealed class GetPolicyDocumentStatementsNotPrincipalsArgs : Pulumi.InvokeArgs
-    {
-        [Input("identifiers", required: true)]
-        private List<string>? _identifiers;
-
-        /// <summary>
-        /// List of identifiers for principals. When `type`
-        /// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
-        /// </summary>
-        public List<string> Identifiers
-        {
-            get => _identifiers ?? (_identifiers = new List<string>());
-            set => _identifiers = value;
-        }
-
-        /// <summary>
-        /// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
-        /// </summary>
-        [Input("type", required: true)]
-        public string Type { get; set; } = null!;
-
-        public GetPolicyDocumentStatementsNotPrincipalsArgs()
-        {
-        }
-    }
-
-    public sealed class GetPolicyDocumentStatementsPrincipalsArgs : Pulumi.InvokeArgs
-    {
-        [Input("identifiers", required: true)]
-        private List<string>? _identifiers;
-
-        /// <summary>
-        /// List of identifiers for principals. When `type`
-        /// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
-        /// </summary>
-        public List<string> Identifiers
-        {
-            get => _identifiers ?? (_identifiers = new List<string>());
-            set => _identifiers = value;
-        }
-
-        /// <summary>
-        /// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
-        /// </summary>
-        [Input("type", required: true)]
-        public string Type { get; set; } = null!;
-
-        public GetPolicyDocumentStatementsPrincipalsArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetPolicyDocumentStatementsConditionsResult
-    {
-        /// <summary>
-        /// The name of the
-        /// [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html)
-        /// to evaluate.
-        /// </summary>
-        public readonly string Test;
-        /// <summary>
-        /// The values to evaluate the condition against. If multiple
-        /// values are provided, the condition matches if at least one of them applies.
-        /// (That is, the tests are combined with the "OR" boolean operation.)
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-        /// <summary>
-        /// The name of a
-        /// [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys)
-        /// to apply the condition to. Context variables may either be standard AWS
-        /// variables starting with `aws:`, or service-specific variables prefixed with
-        /// the service name.
-        /// </summary>
-        public readonly string Variable;
-
-        [OutputConstructor]
-        private GetPolicyDocumentStatementsConditionsResult(
-            string test,
-            ImmutableArray<string> values,
-            string variable)
-        {
-            Test = test;
-            Values = values;
-            Variable = variable;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetPolicyDocumentStatementsNotPrincipalsResult
-    {
-        /// <summary>
-        /// List of identifiers for principals. When `type`
-        /// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
-        /// </summary>
-        public readonly ImmutableArray<string> Identifiers;
-        /// <summary>
-        /// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private GetPolicyDocumentStatementsNotPrincipalsResult(
-            ImmutableArray<string> identifiers,
-            string type)
-        {
-            Identifiers = identifiers;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetPolicyDocumentStatementsPrincipalsResult
-    {
-        /// <summary>
-        /// List of identifiers for principals. When `type`
-        /// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
-        /// </summary>
-        public readonly ImmutableArray<string> Identifiers;
-        /// <summary>
-        /// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private GetPolicyDocumentStatementsPrincipalsResult(
-            ImmutableArray<string> identifiers,
-            string type)
-        {
-            Identifiers = identifiers;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetPolicyDocumentStatementsResult
-    {
-        /// <summary>
-        /// A list of actions that this statement either allows
-        /// or denies. For example, ``["ec2:RunInstances", "s3:*"]``.
-        /// </summary>
-        public readonly ImmutableArray<string> Actions;
-        /// <summary>
-        /// A nested configuration block (described below)
-        /// that defines a further, possibly-service-specific condition that constrains
-        /// whether this statement applies.
-        /// </summary>
-        public readonly ImmutableArray<GetPolicyDocumentStatementsConditionsResult> Conditions;
-        /// <summary>
-        /// Either "Allow" or "Deny", to specify whether this
-        /// statement allows or denies the given actions. The default is "Allow".
-        /// </summary>
-        public readonly string? Effect;
-        /// <summary>
-        /// A list of actions that this statement does *not*
-        /// apply to. Used to apply a policy statement to all actions *except* those
-        /// listed.
-        /// </summary>
-        public readonly ImmutableArray<string> NotActions;
-        /// <summary>
-        /// Like `principals` except gives resources that
-        /// the statement does *not* apply to.
-        /// </summary>
-        public readonly ImmutableArray<GetPolicyDocumentStatementsNotPrincipalsResult> NotPrincipals;
-        /// <summary>
-        /// A list of resource ARNs that this statement
-        /// does *not* apply to. Used to apply a policy statement to all resources
-        /// *except* those listed.
-        /// </summary>
-        public readonly ImmutableArray<string> NotResources;
-        /// <summary>
-        /// A nested configuration block (described below)
-        /// specifying a resource (or resource pattern) to which this statement applies.
-        /// </summary>
-        public readonly ImmutableArray<GetPolicyDocumentStatementsPrincipalsResult> Principals;
-        /// <summary>
-        /// A list of resource ARNs that this statement applies
-        /// to. This is required by AWS if used for an IAM policy.
-        /// </summary>
-        public readonly ImmutableArray<string> Resources;
-        /// <summary>
-        /// An ID for the policy statement.
-        /// </summary>
-        public readonly string? Sid;
-
-        [OutputConstructor]
-        private GetPolicyDocumentStatementsResult(
-            ImmutableArray<string> actions,
-            ImmutableArray<GetPolicyDocumentStatementsConditionsResult> conditions,
-            string? effect,
-            ImmutableArray<string> notActions,
-            ImmutableArray<GetPolicyDocumentStatementsNotPrincipalsResult> notPrincipals,
-            ImmutableArray<string> notResources,
-            ImmutableArray<GetPolicyDocumentStatementsPrincipalsResult> principals,
-            ImmutableArray<string> resources,
-            string? sid)
-        {
-            Actions = actions;
-            Conditions = conditions;
-            Effect = effect;
-            NotActions = notActions;
-            NotPrincipals = notPrincipals;
-            NotResources = notResources;
-            Principals = principals;
-            Resources = resources;
-            Sid = sid;
-        }
-    }
     }
 }

@@ -4,76 +4,67 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {Application} from "./application";
-import {ApplicationVersion} from "./applicationVersion";
+import {Application, ApplicationVersion} from "./index";
 
 /**
  * Provides an Elastic Beanstalk Environment Resource. Elastic Beanstalk allows
  * you to deploy and manage applications in the AWS cloud without worrying about
  * the infrastructure that runs those applications.
- * 
+ *
  * Environments are often things such as `development`, `integration`, or
  * `production`.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const tftest = new aws.elasticbeanstalk.Application("tftest", {
- *     description: "tf-test-desc",
- * });
+ *
+ * const tftest = new aws.elasticbeanstalk.Application("tftest", {description: "tf-test-desc"});
  * const tfenvtest = new aws.elasticbeanstalk.Environment("tfenvtest", {
  *     application: tftest.name,
  *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
  * });
  * ```
- * 
  * ## Option Settings
- * 
+ *
  * Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
  * for supported options and examples.
- * 
+ *
  * The `setting` and `allSettings` mappings support the following format:
- * 
+ *
  * * `namespace` - unique namespace identifying the option's associated AWS resource
  * * `name` - name of the configuration option
  * * `value` - value for the configuration option
  * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
- * 
+ *
  * ### Example With Options
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const tftest = new aws.elasticbeanstalk.Application("tftest", {
- *     description: "tf-test-desc",
- * });
+ *
+ * const tftest = new aws.elasticbeanstalk.Application("tftest", {description: "tf-test-desc"});
  * const tfenvtest = new aws.elasticbeanstalk.Environment("tfenvtest", {
  *     application: tftest.name,
+ *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
  *     settings: [
  *         {
- *             name: "VPCId",
  *             namespace: "aws:ec2:vpc",
+ *             name: "VPCId",
  *             value: "vpc-xxxxxxxx",
  *         },
  *         {
- *             name: "Subnets",
  *             namespace: "aws:ec2:vpc",
+ *             name: "Subnets",
  *             value: "subnet-xxxxxxxx",
  *         },
  *     ],
- *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_environment.html.markdown.
  */
 export class Environment extends pulumi.CustomResource {
     /**
@@ -83,6 +74,7 @@ export class Environment extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EnvironmentState, opts?: pulumi.CustomResourceOptions): Environment {
         return new Environment(name, <any>state, { ...opts, id: id });
@@ -153,7 +145,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The [ARN][2] of the Elastic Beanstalk [Platform][3]
+     * The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
      * to use in deployment
      */
     public readonly platformArn!: pulumi.Output<string>;
@@ -176,13 +168,13 @@ export class Environment extends pulumi.CustomResource {
     public readonly settings!: pulumi.Output<outputs.elasticbeanstalk.EnvironmentSetting[] | undefined>;
     /**
      * A solution stack to base your environment
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     public readonly solutionStackName!: pulumi.Output<string>;
     /**
      * A set of tags to apply to the Environment.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
@@ -340,7 +332,7 @@ export interface EnvironmentState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The [ARN][2] of the Elastic Beanstalk [Platform][3]
+     * The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
      * to use in deployment
      */
     readonly platformArn?: pulumi.Input<string>;
@@ -363,13 +355,13 @@ export interface EnvironmentState {
     readonly settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentSetting>[]>;
     /**
      * A solution stack to base your environment
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     readonly solutionStackName?: pulumi.Input<string>;
     /**
      * A set of tags to apply to the Environment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
@@ -422,7 +414,7 @@ export interface EnvironmentArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The [ARN][2] of the Elastic Beanstalk [Platform][3]
+     * The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
      * to use in deployment
      */
     readonly platformArn?: pulumi.Input<string>;
@@ -441,13 +433,13 @@ export interface EnvironmentArgs {
     readonly settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentSetting>[]>;
     /**
      * A solution stack to base your environment
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     readonly solutionStackName?: pulumi.Input<string>;
     /**
      * A set of tags to apply to the Environment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment

@@ -4,25 +4,53 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * The following shows outputing all network interface ids in a region.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleNetworkInterfaces = aws.ec2.getNetworkInterfaces();
- * 
- * export const example = exampleNetworkInterfaces.ids;
+ *
+ * const exampleNetworkInterfaces = aws.ec2.getNetworkInterfaces({});
+ * export const example = exampleNetworkInterfaces.then(exampleNetworkInterfaces => exampleNetworkInterfaces.ids);
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interfaces.html.markdown.
+ * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getNetworkInterfaces({
+ *     tags: {
+ *         Name: "test",
+ *     },
+ * });
+ * export const example1 = example.then(example => example.ids);
+ * ```
+ *
+ * The following example retrieves a network interface ids which associated
+ * with specific subnet.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleNetworkInterfaces = aws.ec2.getNetworkInterfaces({
+ *     filters: [{
+ *         name: "subnet-id",
+ *         values: [aws_subnet.test.id],
+ *     }],
+ * });
+ * export const example = exampleNetworkInterfaces.then(exampleNetworkInterfaces => exampleNetworkInterfaces.ids);
+ * ```
  */
-export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacesResult> & GetNetworkInterfacesResult {
+export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacesResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -31,12 +59,10 @@ export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pul
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetNetworkInterfacesResult> = pulumi.runtime.invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", {
+    return pulumi.runtime.invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", {
         "filters": args.filters,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -48,10 +74,10 @@ export interface GetNetworkInterfacesArgs {
      */
     readonly filters?: inputs.ec2.GetNetworkInterfacesFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired network interfaces.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -60,12 +86,12 @@ export interface GetNetworkInterfacesArgs {
 export interface GetNetworkInterfacesResult {
     readonly filters?: outputs.ec2.GetNetworkInterfacesFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of all the network interface ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
-    readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
+    readonly tags: {[key: string]: string};
 }

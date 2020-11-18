@@ -12,9 +12,36 @@ namespace Pulumi.Aws.Dms
     /// <summary>
     /// Provides a DMS (Data Migration Service) replication task resource. DMS replication tasks can be created, updated, deleted, and imported.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_replication_task.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new replication task
+    ///         var test = new Aws.Dms.ReplicationTask("test", new Aws.Dms.ReplicationTaskArgs
+    ///         {
+    ///             CdcStartTime = "1484346880",
+    ///             MigrationType = "full-load",
+    ///             ReplicationInstanceArn = aws_dms_replication_instance.Test_dms_replication_instance_tf.Replication_instance_arn,
+    ///             ReplicationTaskId = "test-dms-replication-task-tf",
+    ///             ReplicationTaskSettings = "...",
+    ///             SourceEndpointArn = aws_dms_endpoint.Test_dms_source_endpoint_tf.Endpoint_arn,
+    ///             TableMappings = "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "test" },
+    ///             },
+    ///             TargetEndpointArn = aws_dms_endpoint.Test_dms_target_endpoint_tf.Endpoint_arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ReplicationTask : Pulumi.CustomResource
     {
@@ -67,10 +94,10 @@ namespace Pulumi.Aws.Dms
         public Output<string> TableMappings { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
@@ -87,7 +114,7 @@ namespace Pulumi.Aws.Dms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationTask(string name, ReplicationTaskArgs args, CustomResourceOptions? options = null)
-            : base("aws:dms/replicationTask:ReplicationTask", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:dms/replicationTask:ReplicationTask", name, args ?? new ReplicationTaskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -167,14 +194,14 @@ namespace Pulumi.Aws.Dms
         public Input<string> TableMappings { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -240,14 +267,14 @@ namespace Pulumi.Aws.Dms
         public Input<string>? TableMappings { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

@@ -7,12 +7,41 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages a SMB Location within AWS DataSync.
 //
 // > **NOTE:** The DataSync Agents must be available before creating this resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/datasync"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datasync.NewLocationSmb(ctx, "example", &datasync.LocationSmbArgs{
+// 			ServerHostname: pulumi.String("smb.example.com"),
+// 			Subdirectory:   pulumi.String("/exported/path"),
+// 			User:           pulumi.String("Guest"),
+// 			Password:       pulumi.String("ANotGreatPassword"),
+// 			AgentArns: pulumi.StringArray{
+// 				pulumi.Any(aws_datasync_agent.Example.Arn),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LocationSmb struct {
 	pulumi.CustomResourceState
 
@@ -31,8 +60,8 @@ type LocationSmb struct {
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags pulumi.MapOutput    `pulumi:"tags"`
-	Uri  pulumi.StringOutput `pulumi:"uri"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Uri  pulumi.StringOutput    `pulumi:"uri"`
 	// The user who can mount the share and has file and folder permissions in the SMB share.
 	User pulumi.StringOutput `pulumi:"user"`
 }
@@ -95,8 +124,8 @@ type locationSmbState struct {
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags map[string]interface{} `pulumi:"tags"`
-	Uri  *string                `pulumi:"uri"`
+	Tags map[string]string `pulumi:"tags"`
+	Uri  *string           `pulumi:"uri"`
 	// The user who can mount the share and has file and folder permissions in the SMB share.
 	User *string `pulumi:"user"`
 }
@@ -117,7 +146,7 @@ type LocationSmbState struct {
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	Uri  pulumi.StringPtrInput
 	// The user who can mount the share and has file and folder permissions in the SMB share.
 	User pulumi.StringPtrInput
@@ -141,7 +170,7 @@ type locationSmbArgs struct {
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The user who can mount the share and has file and folder permissions in the SMB share.
 	User string `pulumi:"user"`
 }
@@ -161,7 +190,7 @@ type LocationSmbArgs struct {
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory pulumi.StringInput
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The user who can mount the share and has file and folder permissions in the SMB share.
 	User pulumi.StringInput
 }

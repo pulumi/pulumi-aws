@@ -5,23 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the [`aws.rds.Snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_snapshot.html).
- * 
+ * Manages an RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the `aws.rds.Snapshot` resource.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.rds.ClusterSnapshot("example", {
- *     dbClusterIdentifier: aws_rds_cluster_example.id,
+ *     dbClusterIdentifier: aws_rds_cluster.example.id,
  *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_cluster_snapshot.html.markdown.
  */
 export class ClusterSnapshot extends pulumi.CustomResource {
     /**
@@ -31,6 +27,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterSnapshotState, opts?: pulumi.CustomResourceOptions): ClusterSnapshot {
         return new ClusterSnapshot(name, <any>state, { ...opts, id: id });
@@ -101,9 +98,9 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
-     * A mapping of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The VPC ID associated with the DB cluster snapshot.
      */
@@ -228,9 +225,9 @@ export interface ClusterSnapshotState {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID associated with the DB cluster snapshot.
      */
@@ -250,7 +247,7 @@ export interface ClusterSnapshotArgs {
      */
     readonly dbClusterSnapshotIdentifier: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

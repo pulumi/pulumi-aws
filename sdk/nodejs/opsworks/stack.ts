@@ -4,36 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks stack resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.opsworks.Stack("main", {
+ *     region: "us-west-1",
+ *     serviceRoleArn: aws_iam_role.opsworks.arn,
+ *     defaultInstanceProfileArn: aws_iam_instance_profile.opsworks.arn,
+ *     tags: {
+ *         Name: "foobar-stack",
+ *     },
  *     customJson: `{
  *  "foobar": {
  *     "version": "1.0.0"
  *   }
  * }
  * `,
- *     defaultInstanceProfileArn: aws_iam_instance_profile_opsworks.arn,
- *     region: "us-west-1",
- *     serviceRoleArn: aws_iam_role_opsworks.arn,
- *     tags: {
- *         Name: "foobar-stack",
- *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_stack.html.markdown.
  */
 export class Stack extends pulumi.CustomResource {
     /**
@@ -43,6 +40,7 @@ export class Stack extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: StackState, opts?: pulumi.CustomResourceOptions): Stack {
         return new Stack(name, <any>state, { ...opts, id: id });
@@ -142,9 +140,9 @@ export class Stack extends pulumi.CustomResource {
     public readonly serviceRoleArn!: pulumi.Output<string>;
     public /*out*/ readonly stackEndpoint!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Boolean value controlling whether the custom cookbook settings are
      * enabled.
@@ -327,9 +325,9 @@ export interface StackState {
     readonly serviceRoleArn?: pulumi.Input<string>;
     readonly stackEndpoint?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean value controlling whether the custom cookbook settings are
      * enabled.
@@ -428,9 +426,9 @@ export interface StackArgs {
      */
     readonly serviceRoleArn: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean value controlling whether the custom cookbook settings are
      * enabled.

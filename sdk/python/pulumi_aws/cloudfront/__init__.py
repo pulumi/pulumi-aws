@@ -4,5 +4,8 @@
 
 # Export this package's modules as members:
 from .distribution import *
+from .get_distribution import *
 from .origin_access_identity import *
 from .public_key import *
+from ._inputs import *
+from . import outputs

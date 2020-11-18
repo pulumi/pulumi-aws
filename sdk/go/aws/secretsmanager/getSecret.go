@@ -4,10 +4,58 @@
 package secretsmanager
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
+// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion`.
+//
+// ## Example Usage
+// ### ARN
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/secretsmanager"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456"
+// 		_, err := secretsmanager.LookupSecret(ctx, &secretsmanager.LookupSecretArgs{
+// 			Arn: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Name
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/secretsmanager"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "example"
+// 		_, err := secretsmanager.LookupSecret(ctx, &secretsmanager.LookupSecretArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
 	err := ctx.Invoke("aws:secretsmanager/getSecret:getSecret", args, &rv, opts...)
@@ -31,7 +79,7 @@ type LookupSecretResult struct {
 	Arn string `pulumi:"arn"`
 	// A description of the secret.
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
@@ -39,11 +87,17 @@ type LookupSecretResult struct {
 	// The resource-based policy document that's attached to the secret.
 	Policy string `pulumi:"policy"`
 	// Whether rotation is enabled or not.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 	RotationEnabled bool `pulumi:"rotationEnabled"`
 	// Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 	RotationLambdaArn string `pulumi:"rotationLambdaArn"`
 	// Rotation rules if rotation is enabled.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 	RotationRules []GetSecretRotationRule `pulumi:"rotationRules"`
 	// Tags of the secret.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

@@ -7,13 +7,57 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // A Cluster Instance Resource defines attributes that are specific to a single instance in a Neptune Cluster.
 //
-// You can simply add neptune instances and Neptune manages the replication. You can use the [count][1]
+// You can simply add neptune instances and Neptune manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/resources.html#count)
 // meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instanceClass` sizes.
+//
+// ## Example Usage
+//
+// The following example will create a neptune cluster with two neptune instances(one writer and one reader).
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/neptune"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := neptune.NewCluster(ctx, "_default", &neptune.ClusterArgs{
+// 			ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),
+// 			Engine:                           pulumi.String("neptune"),
+// 			BackupRetentionPeriod:            pulumi.Int(5),
+// 			PreferredBackupWindow:            pulumi.String("07:00-09:00"),
+// 			SkipFinalSnapshot:                pulumi.Bool(true),
+// 			IamDatabaseAuthenticationEnabled: pulumi.Bool(true),
+// 			ApplyImmediately:                 pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		var example []*neptune.ClusterInstance
+// 		for key0, _ := range 2 {
+// 			__res, err := neptune.NewClusterInstance(ctx, fmt.Sprintf("example-%v", key0), &neptune.ClusterInstanceArgs{
+// 				ClusterIdentifier: _default.ID(),
+// 				Engine:            pulumi.String("neptune"),
+// 				InstanceClass:     pulumi.String("db.r4.large"),
+// 				ApplyImmediately:  pulumi.Bool(true),
+// 			})
+// 			if err != nil {
+// 				return err
+// 			}
+// 			example = append(example, __res)
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ClusterInstance struct {
 	pulumi.CustomResourceState
 
@@ -28,7 +72,7 @@ type ClusterInstance struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the neptune instance is created in.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+	// The identifier of the `neptune.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// The region-unique, immutable identifier for the neptune instance.
 	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
@@ -38,7 +82,7 @@ type ClusterInstance struct {
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The neptune engine version.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
@@ -48,7 +92,7 @@ type ClusterInstance struct {
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// The name of the neptune parameter group to associate with this instance.
 	NeptuneParameterGroupName pulumi.StringPtrOutput `pulumi:"neptuneParameterGroupName"`
-	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.
 	NeptuneSubnetGroupName pulumi.StringOutput `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the DB accepts connections. Defaults to `8182`.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
@@ -63,8 +107,8 @@ type ClusterInstance struct {
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the instance.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the instance.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolOutput `pulumi:"writer"`
 }
@@ -114,7 +158,7 @@ type clusterInstanceState struct {
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the neptune instance is created in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+	// The identifier of the `neptune.Cluster` in which to launch this instance.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// The region-unique, immutable identifier for the neptune instance.
 	DbiResourceId *string `pulumi:"dbiResourceId"`
@@ -124,7 +168,7 @@ type clusterInstanceState struct {
 	Engine *string `pulumi:"engine"`
 	// The neptune engine version.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
@@ -134,7 +178,7 @@ type clusterInstanceState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the neptune parameter group to associate with this instance.
 	NeptuneParameterGroupName *string `pulumi:"neptuneParameterGroupName"`
-	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.
 	NeptuneSubnetGroupName *string `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the DB accepts connections. Defaults to `8182`.
 	Port *int `pulumi:"port"`
@@ -149,8 +193,8 @@ type clusterInstanceState struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the instance.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the instance.
+	Tags map[string]string `pulumi:"tags"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer *bool `pulumi:"writer"`
 }
@@ -167,7 +211,7 @@ type ClusterInstanceState struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// The EC2 Availability Zone that the neptune instance is created in.
 	AvailabilityZone pulumi.StringPtrInput
-	// The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+	// The identifier of the `neptune.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringPtrInput
 	// The region-unique, immutable identifier for the neptune instance.
 	DbiResourceId pulumi.StringPtrInput
@@ -177,7 +221,7 @@ type ClusterInstanceState struct {
 	Engine pulumi.StringPtrInput
 	// The neptune engine version.
 	EngineVersion pulumi.StringPtrInput
-	// The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
@@ -187,7 +231,7 @@ type ClusterInstanceState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// The name of the neptune parameter group to associate with this instance.
 	NeptuneParameterGroupName pulumi.StringPtrInput
-	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.
 	NeptuneSubnetGroupName pulumi.StringPtrInput
 	// The port on which the DB accepts connections. Defaults to `8182`.
 	Port pulumi.IntPtrInput
@@ -202,8 +246,8 @@ type ClusterInstanceState struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the instance.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the instance.
+	Tags pulumi.StringMapInput
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolPtrInput
 }
@@ -220,13 +264,13 @@ type clusterInstanceArgs struct {
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the neptune instance is created in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+	// The identifier of the `neptune.Cluster` in which to launch this instance.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
 	Engine *string `pulumi:"engine"`
 	// The neptune engine version.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
@@ -234,7 +278,7 @@ type clusterInstanceArgs struct {
 	InstanceClass string `pulumi:"instanceClass"`
 	// The name of the neptune parameter group to associate with this instance.
 	NeptuneParameterGroupName *string `pulumi:"neptuneParameterGroupName"`
-	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.
 	NeptuneSubnetGroupName *string `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the DB accepts connections. Defaults to `8182`.
 	Port *int `pulumi:"port"`
@@ -247,8 +291,8 @@ type clusterInstanceArgs struct {
 	PromotionTier *int `pulumi:"promotionTier"`
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// A mapping of tags to assign to the instance.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the instance.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterInstance resource.
@@ -260,13 +304,13 @@ type ClusterInstanceArgs struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// The EC2 Availability Zone that the neptune instance is created in.
 	AvailabilityZone pulumi.StringPtrInput
-	// The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+	// The identifier of the `neptune.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringInput
 	// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
 	Engine pulumi.StringPtrInput
 	// The neptune engine version.
 	EngineVersion pulumi.StringPtrInput
-	// The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
@@ -274,7 +318,7 @@ type ClusterInstanceArgs struct {
 	InstanceClass pulumi.StringInput
 	// The name of the neptune parameter group to associate with this instance.
 	NeptuneParameterGroupName pulumi.StringPtrInput
-	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.
 	NeptuneSubnetGroupName pulumi.StringPtrInput
 	// The port on which the DB accepts connections. Defaults to `8182`.
 	Port pulumi.IntPtrInput
@@ -287,8 +331,8 @@ type ClusterInstanceArgs struct {
 	PromotionTier pulumi.IntPtrInput
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// A mapping of tags to assign to the instance.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the instance.
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterInstanceArgs) ElementType() reflect.Type {

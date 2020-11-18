@@ -2,26 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a AWS Transfer User SSH Key resource.
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const fooServer = new aws.transfer.Server("foo", {
+ *
+ * const exampleServer = new aws.transfer.Server("exampleServer", {
  *     identityProviderType: "SERVICE_MANAGED",
  *     tags: {
  *         NAME: "tf-acc-test-transfer-server",
  *     },
  * });
- * const fooRole = new aws.iam.Role("foo", {
- *     assumeRolePolicy: `{
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -33,9 +29,22 @@ import * as utilities from "../utilities";
  * 		}
  * 	]
  * }
- * `,
+ * `});
+ * const exampleUser = new aws.transfer.User("exampleUser", {
+ *     serverId: exampleServer.id,
+ *     userName: "tftestuser",
+ *     role: exampleRole.arn,
+ *     tags: {
+ *         NAME: "tftestuser",
+ *     },
  * });
- * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
+ * const exampleSshKey = new aws.transfer.SshKey("exampleSshKey", {
+ *     serverId: exampleServer.id,
+ *     userName: exampleUser.userName,
+ *     body: "... SSH key ...",
+ * });
+ * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
+ *     role: exampleRole.id,
  *     policy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
@@ -50,24 +59,8 @@ import * as utilities from "../utilities";
  * 	]
  * }
  * `,
- *     role: fooRole.id,
- * });
- * const fooUser = new aws.transfer.User("foo", {
- *     role: fooRole.arn,
- *     serverId: fooServer.id,
- *     tags: {
- *         NAME: "tftestuser",
- *     },
- *     userName: "tftestuser",
- * });
- * const fooSshKey = new aws.transfer.SshKey("foo", {
- *     body: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 example@example.com",
- *     serverId: fooServer.id,
- *     userName: fooUser.userName,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_ssh_key.html.markdown.
  */
 export class SshKey extends pulumi.CustomResource {
     /**
@@ -77,6 +70,7 @@ export class SshKey extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SshKeyState, opts?: pulumi.CustomResourceOptions): SshKey {
         return new SshKey(name, <any>state, { ...opts, id: id });

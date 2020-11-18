@@ -6,23 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Direct Connect BGP peer resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const peer = new aws.directconnect.BgpPeer("peer", {
+ *     virtualInterfaceId: aws_dx_private_virtual_interface.foo.id,
  *     addressFamily: "ipv6",
  *     bgpAsn: 65351,
- *     virtualInterfaceId: aws_dx_private_virtual_interface_foo.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_bgp_peer.html.markdown.
  */
 export class BgpPeer extends pulumi.CustomResource {
     /**
@@ -32,6 +28,7 @@ export class BgpPeer extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BgpPeerState, opts?: pulumi.CustomResourceOptions): BgpPeer {
         return new BgpPeer(name, <any>state, { ...opts, id: id });

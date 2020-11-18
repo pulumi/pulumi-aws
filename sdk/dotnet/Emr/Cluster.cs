@@ -14,115 +14,690 @@ namespace Pulumi.Aws.Emr
     /// process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
     /// for more information.
     /// 
-    /// To configure [Instance Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for [task nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-task), see the [`aws.emr.InstanceGroup` resource](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html).
+    /// To configure [Instance Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for [task nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-task), see the `aws.emr.InstanceGroup` resource.
     /// 
-    /// &gt; Support for [Instance Fleets](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-fleets) will be made available in an upcoming release.
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// ## core_instance_group Configuration Block
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cluster = new Aws.Emr.Cluster("cluster", new Aws.Emr.ClusterArgs
+    ///         {
+    ///             ReleaseLabel = "emr-4.6.0",
+    ///             Applications = 
+    ///             {
+    ///                 "Spark",
+    ///             },
+    ///             AdditionalInfo = @"{
+    ///   ""instanceAwsClientConfiguration"": {
+    ///     ""proxyPort"": 8099,
+    ///     ""proxyHost"": ""myproxy.example.com""
+    ///   }
+    /// }
+    /// ",
+    ///             TerminationProtection = false,
+    ///             KeepJobFlowAliveWhenNoSteps = true,
+    ///             Ec2Attributes = new Aws.Emr.Inputs.ClusterEc2AttributesArgs
+    ///             {
+    ///                 SubnetId = aws_subnet.Main.Id,
+    ///                 EmrManagedMasterSecurityGroup = aws_security_group.Sg.Id,
+    ///                 EmrManagedSlaveSecurityGroup = aws_security_group.Sg.Id,
+    ///                 InstanceProfile = aws_iam_instance_profile.Emr_profile.Arn,
+    ///             },
+    ///             MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
+    ///             {
+    ///                 InstanceType = "m4.large",
+    ///             },
+    ///             CoreInstanceGroup = new Aws.Emr.Inputs.ClusterCoreInstanceGroupArgs
+    ///             {
+    ///                 InstanceType = "c4.large",
+    ///                 InstanceCount = 1,
+    ///                 EbsConfigs = 
+    ///                 {
+    ///                     new Aws.Emr.Inputs.ClusterCoreInstanceGroupEbsConfigArgs
+    ///                     {
+    ///                         Size = 40,
+    ///                         Type = "gp2",
+    ///                         VolumesPerInstance = 1,
+    ///                     },
+    ///                 },
+    ///                 BidPrice = "0.30",
+    ///                 AutoscalingPolicy = @"{
+    /// ""Constraints"": {
+    ///   ""MinCapacity"": 1,
+    ///   ""MaxCapacity"": 2
+    /// },
+    /// ""Rules"": [
+    ///   {
+    ///     ""Name"": ""ScaleOutMemoryPercentage"",
+    ///     ""Description"": ""Scale out if YARNMemoryAvailablePercentage is less than 15"",
+    ///     ""Action"": {
+    ///       ""SimpleScalingPolicyConfiguration"": {
+    ///         ""AdjustmentType"": ""CHANGE_IN_CAPACITY"",
+    ///         ""ScalingAdjustment"": 1,
+    ///         ""CoolDown"": 300
+    ///       }
+    ///     },
+    ///     ""Trigger"": {
+    ///       ""CloudWatchAlarmDefinition"": {
+    ///         ""ComparisonOperator"": ""LESS_THAN"",
+    ///         ""EvaluationPeriods"": 1,
+    ///         ""MetricName"": ""YARNMemoryAvailablePercentage"",
+    ///         ""Namespace"": ""AWS/ElasticMapReduce"",
+    ///         ""Period"": 300,
+    ///         ""Statistic"": ""AVERAGE"",
+    ///         ""Threshold"": 15.0,
+    ///         ""Unit"": ""PERCENT""
+    ///       }
+    ///     }
+    ///   }
+    /// ]
+    /// }
+    /// ",
+    ///             },
+    ///             EbsRootVolumeSize = 100,
+    ///             Tags = 
+    ///             {
+    ///                 { "role", "rolename" },
+    ///                 { "env", "env" },
+    ///             },
+    ///             BootstrapActions = 
+    ///             {
+    ///                 new Aws.Emr.Inputs.ClusterBootstrapActionArgs
+    ///                 {
+    ///                     Path = "s3://elasticmapreduce/bootstrap-actions/run-if",
+    ///                     Name = "runif",
+    ///                     Args = 
+    ///                     {
+    ///                         "instance.isMaster=true",
+    ///                         "echo running on master node",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ConfigurationsJson = @"  [
+    ///     {
+    ///       ""Classification"": ""hadoop-env"",
+    ///       ""Configurations"": [
+    ///         {
+    ///           ""Classification"": ""export"",
+    ///           ""Properties"": {
+    ///             ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+    ///           }
+    ///         }
+    ///       ],
+    ///       ""Properties"": {}
+    ///     },
+    ///     {
+    ///       ""Classification"": ""spark-env"",
+    ///       ""Configurations"": [
+    ///         {
+    ///           ""Classification"": ""export"",
+    ///           ""Properties"": {
+    ///             ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+    ///           }
+    ///         }
+    ///       ],
+    ///       ""Properties"": {}
+    ///     }
+    ///   ]
+    /// ",
+    ///             ServiceRole = aws_iam_role.Iam_emr_service_role.Arn,
+    ///         });
+    ///     }
     /// 
-    /// Supported arguments for the `core_instance_group` configuration block:
+    /// }
+    /// ```
     /// 
-    /// * `instance_type` - (Required) EC2 instance type for all instances in the instance group.
-    /// * `autoscaling_policy` - (Optional) String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
-    /// * `bid_price` - (Optional) Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-    /// * `ebs_config` - (Optional) Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-    /// * `instance_count` - (Optional) Target number of instances for the instance group. Must be at least 1. Defaults to 1.
-    /// * `name` - (Optional) Friendly name given to the instance group.
+    /// The `aws.emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster
+    /// to use as a service, and another to place on your Cluster Instances to interact
+    /// with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`,
+    /// and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting
+    /// Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html)
+    /// guide for more information on these IAM roles. There is also a fully-bootable
+    /// example this provider configuration at the bottom of this page.
+    /// ## Instance Fleet
     /// 
-    /// ## ec2_attributes
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// Attributes for the Amazon EC2 instances running the job flow
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Emr.Cluster("example", new Aws.Emr.ClusterArgs
+    ///         {
+    ///             MasterInstanceFleet = new Aws.Emr.Inputs.ClusterMasterInstanceFleetArgs
+    ///             {
+    ///                 InstanceTypeConfigs = 
+    ///                 {
+    ///                     new Aws.Emr.Inputs.ClusterMasterInstanceFleetInstanceTypeConfigArgs
+    ///                     {
+    ///                         InstanceType = "m4.xlarge",
+    ///                     },
+    ///                 },
+    ///                 TargetOnDemandCapacity = 1,
+    ///             },
+    ///             CoreInstanceFleet = new Aws.Emr.Inputs.ClusterCoreInstanceFleetArgs
+    ///             {
+    ///                 InstanceTypeConfigs = 
+    ///                 {
+    ///                     new Aws.Emr.Inputs.ClusterCoreInstanceFleetInstanceTypeConfigArgs
+    ///                     {
+    ///                         BidPriceAsPercentageOfOnDemandPrice = 80,
+    ///                         EbsConfigs = 
+    ///                         {
+    ///                             new Aws.Emr.Inputs.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                             {
+    ///                                 Size = 100,
+    ///                                 Type = "gp2",
+    ///                                 VolumesPerInstance = 1,
+    ///                             },
+    ///                         },
+    ///                         InstanceType = "m3.xlarge",
+    ///                         WeightedCapacity = 1,
+    ///                     },
+    ///                     new Aws.Emr.Inputs.ClusterCoreInstanceFleetInstanceTypeConfigArgs
+    ///                     {
+    ///                         BidPriceAsPercentageOfOnDemandPrice = 100,
+    ///                         EbsConfigs = 
+    ///                         {
+    ///                             new Aws.Emr.Inputs.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                             {
+    ///                                 Size = 100,
+    ///                                 Type = "gp2",
+    ///                                 VolumesPerInstance = 1,
+    ///                             },
+    ///                         },
+    ///                         InstanceType = "m4.xlarge",
+    ///                         WeightedCapacity = 1,
+    ///                     },
+    ///                     new Aws.Emr.Inputs.ClusterCoreInstanceFleetInstanceTypeConfigArgs
+    ///                     {
+    ///                         BidPriceAsPercentageOfOnDemandPrice = 100,
+    ///                         EbsConfigs = 
+    ///                         {
+    ///                             new Aws.Emr.Inputs.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                             {
+    ///                                 Size = 100,
+    ///                                 Type = "gp2",
+    ///                                 VolumesPerInstance = 1,
+    ///                             },
+    ///                         },
+    ///                         InstanceType = "m4.2xlarge",
+    ///                         WeightedCapacity = 2,
+    ///                     },
+    ///                 },
+    ///                 LaunchSpecifications = new Aws.Emr.Inputs.ClusterCoreInstanceFleetLaunchSpecificationsArgs
+    ///                 {
+    ///                     SpotSpecifications = 
+    ///                     {
+    ///                         new Aws.Emr.Inputs.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs
+    ///                         {
+    ///                             AllocationStrategy = "capacity-optimized",
+    ///                             BlockDurationMinutes = 0,
+    ///                             TimeoutAction = "SWITCH_TO_ON_DEMAND",
+    ///                             TimeoutDurationMinutes = 10,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Name = "core fleet",
+    ///                 TargetOnDemandCapacity = 2,
+    ///                 TargetSpotCapacity = 2,
+    ///             },
+    ///         });
+    ///         var task = new Aws.Emr.InstanceFleet("task", new Aws.Emr.InstanceFleetArgs
+    ///         {
+    ///             ClusterId = example.Id,
+    ///             InstanceTypeConfigs = 
+    ///             {
+    ///                 new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
+    ///                 {
+    ///                     BidPriceAsPercentageOfOnDemandPrice = 100,
+    ///                     EbsConfigs = 
+    ///                     {
+    ///                         new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                         {
+    ///                             Size = 100,
+    ///                             Type = "gp2",
+    ///                             VolumesPerInstance = 1,
+    ///                         },
+    ///                     },
+    ///                     InstanceType = "m4.xlarge",
+    ///                     WeightedCapacity = 1,
+    ///                 },
+    ///                 new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
+    ///                 {
+    ///                     BidPriceAsPercentageOfOnDemandPrice = 100,
+    ///                     EbsConfigs = 
+    ///                     {
+    ///                         new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                         {
+    ///                             Size = 100,
+    ///                             Type = "gp2",
+    ///                             VolumesPerInstance = 1,
+    ///                         },
+    ///                     },
+    ///                     InstanceType = "m4.2xlarge",
+    ///                     WeightedCapacity = 2,
+    ///                 },
+    ///             },
+    ///             LaunchSpecifications = new Aws.Emr.Inputs.InstanceFleetLaunchSpecificationsArgs
+    ///             {
+    ///                 SpotSpecifications = 
+    ///                 {
+    ///                     new Aws.Emr.Inputs.InstanceFleetLaunchSpecificationsSpotSpecificationArgs
+    ///                     {
+    ///                         AllocationStrategy = "capacity-optimized",
+    ///                         BlockDurationMinutes = 0,
+    ///                         TimeoutAction = "TERMINATE_CLUSTER",
+    ///                         TimeoutDurationMinutes = 10,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TargetOnDemandCapacity = 1,
+    ///             TargetSpotCapacity = 1,
+    ///         });
+    ///     }
     /// 
-    /// * `key_name` - (Optional) Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`
-    /// * `subnet_id` - (Optional) VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
-    /// * `additional_master_security_groups` - (Optional) String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
-    /// * `additional_slave_security_groups` - (Optional) String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string
-    /// * `emr_managed_master_security_group` - (Optional) Identifier of the Amazon EC2 EMR-Managed security group for the master node
-    /// * `emr_managed_slave_security_group` - (Optional) Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes
-    /// * `service_access_security_group` - (Optional) Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet
-    /// * `instance_profile` - (Required) Instance Profile for EC2 instances of the cluster assume this role
+    /// }
+    /// ```
     /// 
-    /// &gt; **NOTE on EMR-Managed security groups:** These security groups will have any
-    /// missing inbound or outbound access rules added and maintained by AWS, to ensure
-    /// proper communication between instances in a cluster. The EMR service will
-    /// maintain these rules for groups provided in `emr_managed_master_security_group`
-    /// and `emr_managed_slave_security_group`; attempts to remove the required rules
-    /// may succeed, only for the EMR service to re-add them in a matter of minutes.
-    /// This may cause this provider to fail to destroy an environment that contains an EMR
-    /// cluster, because the EMR service does not revoke rules added on deletion,
-    /// leaving a cyclic dependency between the security groups that prevents their
-    /// deletion. To avoid this, use the `revoke_rules_on_delete` optional attribute for
-    /// any Security Group used in `emr_managed_master_security_group` and
-    /// `emr_managed_slave_security_group`. See [Amazon EMR-Managed Security
-    /// Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html)
-    /// for more information about the EMR-managed security group rules.
+    /// ### Enable Debug Logging
     /// 
-    /// ## kerberos_attributes
+    /// [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html)
+    /// is implemented as a step. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other
+    /// steps are being managed outside of this provider.
     /// 
-    /// Attributes for Kerberos configuration
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// * `ad_domain_join_password` - (Optional) The Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
-    /// * `ad_domain_join_user` - (Optional) Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
-    /// * `cross_realm_trust_principal_password` - (Optional) Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
-    /// * `kdc_admin_password` - (Required) The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
-    /// * `realm` - (Required) The name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ... other configuration ...
+    ///         var example = new Aws.Emr.Cluster("example", new Aws.Emr.ClusterArgs
+    ///         {
+    ///             Steps = 
+    ///             {
+    ///                 new Aws.Emr.Inputs.ClusterStepArgs
+    ///                 {
+    ///                     ActionOnFailure = "TERMINATE_CLUSTER",
+    ///                     Name = "Setup Hadoop Debugging",
+    ///                     HadoopJarStep = new Aws.Emr.Inputs.ClusterStepHadoopJarStepArgs
+    ///                     {
+    ///                         Jar = "command-runner.jar",
+    ///                         Args = 
+    ///                         {
+    ///                             "state-pusher-script",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
     /// 
-    /// ## instance_group
+    /// }
+    /// ```
     /// 
-    /// Attributes for each task instance group in the cluster
+    /// ### Multiple Node Master Instance Group
     /// 
-    /// * `instance_role` - (Required) The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
-    /// * `instance_type` - (Required) The EC2 instance type for all instances in the instance group
-    /// * `instance_count` - (Optional) Target number of instances for the instance group
-    /// * `name` - (Optional) Friendly name given to the instance group
-    /// * `bid_price` - (Optional) If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-    /// * `ebs_config` - (Optional) A list of attributes for the EBS volumes attached to each instance in the instance group. Each `ebs_config` defined will result in additional EBS volumes being attached to _each_ instance in the instance group. Defined below
-    /// * `autoscaling_policy` - (Optional) The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+    /// Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
     /// 
-    /// ## master_instance_group Configuration Block
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// Supported nested arguments for the `master_instance_group` configuration block:
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // This configuration is for illustrative purposes and highlights
+    ///         // only relevant configurations for working with this functionality.
+    ///         // Map public IP on launch must be enabled for public (Internet accessible) subnets
+    ///         // ... other configuration ...
+    ///         var exampleSubnet = new Aws.Ec2.Subnet("exampleSubnet", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             MapPublicIpOnLaunch = true,
+    ///         });
+    ///         // ... other configuration ...
+    ///         var exampleCluster = new Aws.Emr.Cluster("exampleCluster", new Aws.Emr.ClusterArgs
+    ///         {
+    ///             ReleaseLabel = "emr-5.24.1",
+    ///             TerminationProtection = true,
+    ///             Ec2Attributes = new Aws.Emr.Inputs.ClusterEc2AttributesArgs
+    ///             {
+    ///                 SubnetId = exampleSubnet.Id,
+    ///             },
+    ///             MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
+    ///             {
+    ///                 InstanceCount = 3,
+    ///             },
+    ///             CoreInstanceGroup = ,
+    ///         });
+    ///     }
     /// 
-    /// * `instance_type` - (Required) EC2 instance type for all instances in the instance group.
-    /// * `bid_price` - (Optional) Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-    /// * `ebs_config` - (Optional) Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-    /// * `instance_count` - (Optional) Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
-    /// * `name` - (Optional) Friendly name given to the instance group.
+    /// }
+    /// ```
     /// 
-    /// ## ebs_config
+    /// ## Example bootable config
     /// 
-    /// Attributes for the EBS volumes attached to each EC2 instance in the `instance_group`
+    /// **NOTE:** This configuration demonstrates a minimal configuration needed to
+    /// boot an example EMR Cluster. It is not meant to display best practices. Please
+    /// use at your own risk.
     /// 
-    /// * `size` - (Required) The volume size, in gibibytes (GiB).
-    /// * `type` - (Required) The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-    /// * `iops` - (Optional) The number of I/O operations per second (IOPS) that the volume supports
-    /// * `volumes_per_instance` - (Optional) The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// ## bootstrap_action
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainVpc = new Aws.Ec2.Vpc("mainVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "168.31.0.0/16",
+    ///             EnableDnsHostnames = true,
+    ///             Tags = 
+    ///             {
+    ///                 { "name", "emr_test" },
+    ///             },
+    ///         });
+    ///         var mainSubnet = new Aws.Ec2.Subnet("mainSubnet", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             VpcId = mainVpc.Id,
+    ///             CidrBlock = "168.31.0.0/20",
+    ///             Tags = 
+    ///             {
+    ///                 { "name", "emr_test" },
+    ///             },
+    ///         });
+    ///         // IAM role for EMR Service
+    ///         var iamEmrServiceRole = new Aws.Iam.Role("iamEmrServiceRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2008-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Sid"": """",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""elasticmapreduce.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         // IAM Role for EC2 Instance Profile
+    ///         var iamEmrProfileRole = new Aws.Iam.Role("iamEmrProfileRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2008-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Sid"": """",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""ec2.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var emrProfile = new Aws.Iam.InstanceProfile("emrProfile", new Aws.Iam.InstanceProfileArgs
+    ///         {
+    ///             Role = iamEmrProfileRole.Name,
+    ///         });
+    ///         var cluster = new Aws.Emr.Cluster("cluster", new Aws.Emr.ClusterArgs
+    ///         {
+    ///             ReleaseLabel = "emr-4.6.0",
+    ///             Applications = 
+    ///             {
+    ///                 "Spark",
+    ///             },
+    ///             Ec2Attributes = new Aws.Emr.Inputs.ClusterEc2AttributesArgs
+    ///             {
+    ///                 SubnetId = mainSubnet.Id,
+    ///                 EmrManagedMasterSecurityGroup = aws_security_group.Allow_all.Id,
+    ///                 EmrManagedSlaveSecurityGroup = aws_security_group.Allow_all.Id,
+    ///                 InstanceProfile = emrProfile.Arn,
+    ///             },
+    ///             MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
+    ///             {
+    ///                 InstanceType = "m5.xlarge",
+    ///             },
+    ///             CoreInstanceGroup = new Aws.Emr.Inputs.ClusterCoreInstanceGroupArgs
+    ///             {
+    ///                 InstanceCount = 1,
+    ///                 InstanceType = "m5.xlarge",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "role", "rolename" },
+    ///                 { "dns_zone", "env_zone" },
+    ///                 { "env", "env" },
+    ///                 { "name", "name-env" },
+    ///             },
+    ///             BootstrapActions = 
+    ///             {
+    ///                 new Aws.Emr.Inputs.ClusterBootstrapActionArgs
+    ///                 {
+    ///                     Path = "s3://elasticmapreduce/bootstrap-actions/run-if",
+    ///                     Name = "runif",
+    ///                     Args = 
+    ///                     {
+    ///                         "instance.isMaster=true",
+    ///                         "echo running on master node",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ConfigurationsJson = @"  [
+    ///     {
+    ///       ""Classification"": ""hadoop-env"",
+    ///       ""Configurations"": [
+    ///         {
+    ///           ""Classification"": ""export"",
+    ///           ""Properties"": {
+    ///             ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+    ///           }
+    ///         }
+    ///       ],
+    ///       ""Properties"": {}
+    ///     },
+    ///     {
+    ///       ""Classification"": ""spark-env"",
+    ///       ""Configurations"": [
+    ///         {
+    ///           ""Classification"": ""export"",
+    ///           ""Properties"": {
+    ///             ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+    ///           }
+    ///         }
+    ///       ],
+    ///       ""Properties"": {}
+    ///     }
+    ///   ]
+    /// ",
+    ///             ServiceRole = iamEmrServiceRole.Arn,
+    ///         });
+    ///         var allowAccess = new Aws.Ec2.SecurityGroup("allowAccess", new Aws.Ec2.SecurityGroupArgs
+    ///         {
+    ///             Description = "Allow inbound traffic",
+    ///             VpcId = mainVpc.Id,
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
+    ///                     CidrBlocks = mainVpc.CidrBlock,
+    ///                 },
+    ///             },
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
+    ///                     CidrBlocks = 
+    ///                     {
+    ///                         "0.0.0.0/0",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "name", "emr_test" },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 mainSubnet,
+    ///             },
+    ///         });
+    ///         var gw = new Aws.Ec2.InternetGateway("gw", new Aws.Ec2.InternetGatewayArgs
+    ///         {
+    ///             VpcId = mainVpc.Id,
+    ///         });
+    ///         var routeTable = new Aws.Ec2.RouteTable("routeTable", new Aws.Ec2.RouteTableArgs
+    ///         {
+    ///             VpcId = mainVpc.Id,
+    ///             Routes = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.RouteTableRouteArgs
+    ///                 {
+    ///                     CidrBlock = "0.0.0.0/0",
+    ///                     GatewayId = gw.Id,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var mainRouteTableAssociation = new Aws.Ec2.MainRouteTableAssociation("mainRouteTableAssociation", new Aws.Ec2.MainRouteTableAssociationArgs
+    ///         {
+    ///             VpcId = mainVpc.Id,
+    ///             RouteTableId = routeTable.Id,
+    ///         });
+    ///         //##
+    ///         var iamEmrServicePolicy = new Aws.Iam.RolePolicy("iamEmrServicePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = iamEmrServiceRole.Id,
+    ///             Policy = @"{
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": [{
+    ///         ""Effect"": ""Allow"",
+    ///         ""Resource"": ""*"",
+    ///         ""Action"": [
+    ///             ""ec2:AuthorizeSecurityGroupEgress"",
+    ///             ""ec2:AuthorizeSecurityGroupIngress"",
+    ///             ""ec2:CancelSpotInstanceRequests"",
+    ///             ""ec2:CreateNetworkInterface"",
+    ///             ""ec2:CreateSecurityGroup"",
+    ///             ""ec2:CreateTags"",
+    ///             ""ec2:DeleteNetworkInterface"",
+    ///             ""ec2:DeleteSecurityGroup"",
+    ///             ""ec2:DeleteTags"",
+    ///             ""ec2:DescribeAvailabilityZones"",
+    ///             ""ec2:DescribeAccountAttributes"",
+    ///             ""ec2:DescribeDhcpOptions"",
+    ///             ""ec2:DescribeInstanceStatus"",
+    ///             ""ec2:DescribeInstances"",
+    ///             ""ec2:DescribeKeyPairs"",
+    ///             ""ec2:DescribeNetworkAcls"",
+    ///             ""ec2:DescribeNetworkInterfaces"",
+    ///             ""ec2:DescribePrefixLists"",
+    ///             ""ec2:DescribeRouteTables"",
+    ///             ""ec2:DescribeSecurityGroups"",
+    ///             ""ec2:DescribeSpotInstanceRequests"",
+    ///             ""ec2:DescribeSpotPriceHistory"",
+    ///             ""ec2:DescribeSubnets"",
+    ///             ""ec2:DescribeVpcAttribute"",
+    ///             ""ec2:DescribeVpcEndpoints"",
+    ///             ""ec2:DescribeVpcEndpointServices"",
+    ///             ""ec2:DescribeVpcs"",
+    ///             ""ec2:DetachNetworkInterface"",
+    ///             ""ec2:ModifyImageAttribute"",
+    ///             ""ec2:ModifyInstanceAttribute"",
+    ///             ""ec2:RequestSpotInstances"",
+    ///             ""ec2:RevokeSecurityGroupEgress"",
+    ///             ""ec2:RunInstances"",
+    ///             ""ec2:TerminateInstances"",
+    ///             ""ec2:DeleteVolume"",
+    ///             ""ec2:DescribeVolumeStatus"",
+    ///             ""ec2:DescribeVolumes"",
+    ///             ""ec2:DetachVolume"",
+    ///             ""iam:GetRole"",
+    ///             ""iam:GetRolePolicy"",
+    ///             ""iam:ListInstanceProfiles"",
+    ///             ""iam:ListRolePolicies"",
+    ///             ""iam:PassRole"",
+    ///             ""s3:CreateBucket"",
+    ///             ""s3:Get*"",
+    ///             ""s3:List*"",
+    ///             ""sdb:BatchPutAttributes"",
+    ///             ""sdb:Select"",
+    ///             ""sqs:CreateQueue"",
+    ///             ""sqs:Delete*"",
+    ///             ""sqs:GetQueue*"",
+    ///             ""sqs:PurgeQueue"",
+    ///             ""sqs:ReceiveMessage""
+    ///         ]
+    ///     }]
+    /// }
+    /// ",
+    ///         });
+    ///         var iamEmrProfilePolicy = new Aws.Iam.RolePolicy("iamEmrProfilePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = iamEmrProfileRole.Id,
+    ///             Policy = @"{
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": [{
+    ///         ""Effect"": ""Allow"",
+    ///         ""Resource"": ""*"",
+    ///         ""Action"": [
+    ///             ""cloudwatch:*"",
+    ///             ""dynamodb:*"",
+    ///             ""ec2:Describe*"",
+    ///             ""elasticmapreduce:Describe*"",
+    ///             ""elasticmapreduce:ListBootstrapActions"",
+    ///             ""elasticmapreduce:ListClusters"",
+    ///             ""elasticmapreduce:ListInstanceGroups"",
+    ///             ""elasticmapreduce:ListInstances"",
+    ///             ""elasticmapreduce:ListSteps"",
+    ///             ""kinesis:CreateStream"",
+    ///             ""kinesis:DeleteStream"",
+    ///             ""kinesis:DescribeStream"",
+    ///             ""kinesis:GetRecords"",
+    ///             ""kinesis:GetShardIterator"",
+    ///             ""kinesis:MergeShards"",
+    ///             ""kinesis:PutRecord"",
+    ///             ""kinesis:SplitShard"",
+    ///             ""rds:Describe*"",
+    ///             ""s3:*"",
+    ///             ""sdb:*"",
+    ///             ""sns:*"",
+    ///             ""sqs:*""
+    ///         ]
+    ///     }]
+    /// }
+    /// ",
+    ///         });
+    ///     }
     /// 
-    /// * `name` - (Required) Name of the bootstrap action
-    /// * `path` - (Required) Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system
-    /// * `args` - (Optional) List of command line arguments to pass to the bootstrap action script
-    /// 
-    /// ## step
-    /// 
-    /// Attributes for step configuration
-    /// 
-    /// * `action_on_failure` - (Required) The action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
-    /// * `hadoop_jar_step` - (Required) The JAR file used for the step. Defined below.
-    /// * `name` - (Required) The name of the step.
-    /// 
-    /// ### hadoop_jar_step
-    /// 
-    /// Attributes for Hadoop job step configuration
-    /// 
-    /// * `args` - (Optional) List of command line arguments passed to the JAR file's main function when executed.
-    /// * `jar` - (Required) Path to a JAR file run during the step.
-    /// * `main_class` - (Optional) Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
-    /// * `properties` - (Optional) Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.
+    /// }
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -151,13 +726,13 @@ namespace Pulumi.Aws.Emr
         /// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
         /// </summary>
         [Output("bootstrapActions")]
-        public Output<ImmutableArray<Outputs.ClusterBootstrapActions>> BootstrapActions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterBootstrapAction>> BootstrapActions { get; private set; } = null!;
 
         [Output("clusterState")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// List of configurations supplied for the EMR cluster you are creating
+        /// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         /// </summary>
         [Output("configurations")]
         public Output<string?> Configurations { get; private set; } = null!;
@@ -169,22 +744,16 @@ namespace Pulumi.Aws.Emr
         public Output<string?> ConfigurationsJson { get; private set; } = null!;
 
         /// <summary>
-        /// Use the `core_instance_group` configuration block `instance_count` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `core_instance_group` or `instance_group` configuration blocks are set. Default `1`
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         /// </summary>
-        [Output("coreInstanceCount")]
-        public Output<int> CoreInstanceCount { get; private set; } = null!;
+        [Output("coreInstanceFleet")]
+        public Output<Outputs.ClusterCoreInstanceFleet> CoreInstanceFleet { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `core_instance_count` argument, `core_instance_type` argument, or `instance_group` configuration blocks are set. Detailed below.
+        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         /// </summary>
         [Output("coreInstanceGroup")]
         public Output<Outputs.ClusterCoreInstanceGroup> CoreInstanceGroup { get; private set; } = null!;
-
-        /// <summary>
-        /// Use the `core_instance_group` configuration block `instance_type` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `core_instance_group` or `instance_group` configuration blocks are set.
-        /// </summary>
-        [Output("coreInstanceType")]
-        public Output<string> CoreInstanceType { get; private set; } = null!;
 
         /// <summary>
         /// A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
@@ -205,12 +774,6 @@ namespace Pulumi.Aws.Emr
         public Output<Outputs.ClusterEc2Attributes?> Ec2Attributes { get; private set; } = null!;
 
         /// <summary>
-        /// Use the `master_instance_group` configuration block, `core_instance_group` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `master_instance_group` or `core_instance_group` configuration blocks are set. Defined below
-        /// </summary>
-        [Output("instanceGroups")]
-        public Output<ImmutableArray<Outputs.ClusterInstanceGroups>> InstanceGroups { get; private set; } = null!;
-
-        /// <summary>
         /// Switch on/off run cluster with no steps or when all steps are complete (default is on)
         /// </summary>
         [Output("keepJobFlowAliveWhenNoSteps")]
@@ -229,16 +792,16 @@ namespace Pulumi.Aws.Emr
         public Output<string?> LogUri { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `master_instance_type` argument or `instance_group` configuration blocks are set. Detailed below.
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
+        /// </summary>
+        [Output("masterInstanceFleet")]
+        public Output<Outputs.ClusterMasterInstanceFleet> MasterInstanceFleet { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         /// </summary>
         [Output("masterInstanceGroup")]
         public Output<Outputs.ClusterMasterInstanceGroup> MasterInstanceGroup { get; private set; } = null!;
-
-        /// <summary>
-        /// Use the `master_instance_group` configuration block `instance_type` argument instead. The EC2 instance type of the master node. Cannot be specified if `master_instance_group` or `instance_group` configuration blocks are set.
-        /// </summary>
-        [Output("masterInstanceType")]
-        public Output<string> MasterInstanceType { get; private set; } = null!;
 
         /// <summary>
         /// The public DNS name of the master EC2 instance.
@@ -248,7 +811,7 @@ namespace Pulumi.Aws.Emr
         public Output<string> MasterPublicDns { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the job flow
+        /// Friendly name given to the instance fleet.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -278,22 +841,22 @@ namespace Pulumi.Aws.Emr
         public Output<string> ServiceRole { get; private set; } = null!;
 
         /// <summary>
-        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
-        /// </summary>
-        [Output("steps")]
-        public Output<ImmutableArray<Outputs.ClusterSteps>> Steps { get; private set; } = null!;
-
-        /// <summary>
         /// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
         /// </summary>
         [Output("stepConcurrencyLevel")]
         public Output<int?> StepConcurrencyLevel { get; private set; } = null!;
 
         /// <summary>
+        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
+        /// </summary>
+        [Output("steps")]
+        public Output<ImmutableArray<Outputs.ClusterStep>> Steps { get; private set; } = null!;
+
+        /// <summary>
         /// list of tags to apply to the EMR Cluster
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
@@ -316,7 +879,7 @@ namespace Pulumi.Aws.Emr
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("aws:emr/cluster:Cluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:emr/cluster:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -378,19 +941,19 @@ namespace Pulumi.Aws.Emr
         public Input<string>? AutoscalingRole { get; set; }
 
         [Input("bootstrapActions")]
-        private InputList<Inputs.ClusterBootstrapActionsArgs>? _bootstrapActions;
+        private InputList<Inputs.ClusterBootstrapActionArgs>? _bootstrapActions;
 
         /// <summary>
         /// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
         /// </summary>
-        public InputList<Inputs.ClusterBootstrapActionsArgs> BootstrapActions
+        public InputList<Inputs.ClusterBootstrapActionArgs> BootstrapActions
         {
-            get => _bootstrapActions ?? (_bootstrapActions = new InputList<Inputs.ClusterBootstrapActionsArgs>());
+            get => _bootstrapActions ?? (_bootstrapActions = new InputList<Inputs.ClusterBootstrapActionArgs>());
             set => _bootstrapActions = value;
         }
 
         /// <summary>
-        /// List of configurations supplied for the EMR cluster you are creating
+        /// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         /// </summary>
         [Input("configurations")]
         public Input<string>? Configurations { get; set; }
@@ -402,22 +965,16 @@ namespace Pulumi.Aws.Emr
         public Input<string>? ConfigurationsJson { get; set; }
 
         /// <summary>
-        /// Use the `core_instance_group` configuration block `instance_count` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `core_instance_group` or `instance_group` configuration blocks are set. Default `1`
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         /// </summary>
-        [Input("coreInstanceCount")]
-        public Input<int>? CoreInstanceCount { get; set; }
+        [Input("coreInstanceFleet")]
+        public Input<Inputs.ClusterCoreInstanceFleetArgs>? CoreInstanceFleet { get; set; }
 
         /// <summary>
-        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `core_instance_count` argument, `core_instance_type` argument, or `instance_group` configuration blocks are set. Detailed below.
+        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         /// </summary>
         [Input("coreInstanceGroup")]
         public Input<Inputs.ClusterCoreInstanceGroupArgs>? CoreInstanceGroup { get; set; }
-
-        /// <summary>
-        /// Use the `core_instance_group` configuration block `instance_type` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `core_instance_group` or `instance_group` configuration blocks are set.
-        /// </summary>
-        [Input("coreInstanceType")]
-        public Input<string>? CoreInstanceType { get; set; }
 
         /// <summary>
         /// A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
@@ -436,19 +993,6 @@ namespace Pulumi.Aws.Emr
         /// </summary>
         [Input("ec2Attributes")]
         public Input<Inputs.ClusterEc2AttributesArgs>? Ec2Attributes { get; set; }
-
-        [Input("instanceGroups")]
-        private InputList<Inputs.ClusterInstanceGroupsArgs>? _instanceGroups;
-
-        /// <summary>
-        /// Use the `master_instance_group` configuration block, `core_instance_group` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `master_instance_group` or `core_instance_group` configuration blocks are set. Defined below
-        /// </summary>
-        [Obsolete(@"use `master_instance_group` configuration block, `core_instance_group` configuration block, and `aws_emr_instance_group` resource(s) instead")]
-        public InputList<Inputs.ClusterInstanceGroupsArgs> InstanceGroups
-        {
-            get => _instanceGroups ?? (_instanceGroups = new InputList<Inputs.ClusterInstanceGroupsArgs>());
-            set => _instanceGroups = value;
-        }
 
         /// <summary>
         /// Switch on/off run cluster with no steps or when all steps are complete (default is on)
@@ -469,19 +1013,19 @@ namespace Pulumi.Aws.Emr
         public Input<string>? LogUri { get; set; }
 
         /// <summary>
-        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `master_instance_type` argument or `instance_group` configuration blocks are set. Detailed below.
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
+        /// </summary>
+        [Input("masterInstanceFleet")]
+        public Input<Inputs.ClusterMasterInstanceFleetArgs>? MasterInstanceFleet { get; set; }
+
+        /// <summary>
+        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         /// </summary>
         [Input("masterInstanceGroup")]
         public Input<Inputs.ClusterMasterInstanceGroupArgs>? MasterInstanceGroup { get; set; }
 
         /// <summary>
-        /// Use the `master_instance_group` configuration block `instance_type` argument instead. The EC2 instance type of the master node. Cannot be specified if `master_instance_group` or `instance_group` configuration blocks are set.
-        /// </summary>
-        [Input("masterInstanceType")]
-        public Input<string>? MasterInstanceType { get; set; }
-
-        /// <summary>
-        /// The name of the job flow
+        /// Friendly name given to the instance fleet.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -510,33 +1054,33 @@ namespace Pulumi.Aws.Emr
         [Input("serviceRole", required: true)]
         public Input<string> ServiceRole { get; set; } = null!;
 
-        [Input("steps")]
-        private InputList<Inputs.ClusterStepsArgs>? _steps;
-
-        /// <summary>
-        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
-        /// </summary>
-        public InputList<Inputs.ClusterStepsArgs> Steps
-        {
-            get => _steps ?? (_steps = new InputList<Inputs.ClusterStepsArgs>());
-            set => _steps = value;
-        }
-
         /// <summary>
         /// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
         /// </summary>
         [Input("stepConcurrencyLevel")]
         public Input<int>? StepConcurrencyLevel { get; set; }
 
+        [Input("steps")]
+        private InputList<Inputs.ClusterStepArgs>? _steps;
+
+        /// <summary>
+        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
+        /// </summary>
+        public InputList<Inputs.ClusterStepArgs> Steps
+        {
+            get => _steps ?? (_steps = new InputList<Inputs.ClusterStepArgs>());
+            set => _steps = value;
+        }
+
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// list of tags to apply to the EMR Cluster
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -587,14 +1131,14 @@ namespace Pulumi.Aws.Emr
         public Input<string>? AutoscalingRole { get; set; }
 
         [Input("bootstrapActions")]
-        private InputList<Inputs.ClusterBootstrapActionsGetArgs>? _bootstrapActions;
+        private InputList<Inputs.ClusterBootstrapActionGetArgs>? _bootstrapActions;
 
         /// <summary>
         /// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
         /// </summary>
-        public InputList<Inputs.ClusterBootstrapActionsGetArgs> BootstrapActions
+        public InputList<Inputs.ClusterBootstrapActionGetArgs> BootstrapActions
         {
-            get => _bootstrapActions ?? (_bootstrapActions = new InputList<Inputs.ClusterBootstrapActionsGetArgs>());
+            get => _bootstrapActions ?? (_bootstrapActions = new InputList<Inputs.ClusterBootstrapActionGetArgs>());
             set => _bootstrapActions = value;
         }
 
@@ -602,7 +1146,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// List of configurations supplied for the EMR cluster you are creating
+        /// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         /// </summary>
         [Input("configurations")]
         public Input<string>? Configurations { get; set; }
@@ -614,22 +1158,16 @@ namespace Pulumi.Aws.Emr
         public Input<string>? ConfigurationsJson { get; set; }
 
         /// <summary>
-        /// Use the `core_instance_group` configuration block `instance_count` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `core_instance_group` or `instance_group` configuration blocks are set. Default `1`
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         /// </summary>
-        [Input("coreInstanceCount")]
-        public Input<int>? CoreInstanceCount { get; set; }
+        [Input("coreInstanceFleet")]
+        public Input<Inputs.ClusterCoreInstanceFleetGetArgs>? CoreInstanceFleet { get; set; }
 
         /// <summary>
-        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `core_instance_count` argument, `core_instance_type` argument, or `instance_group` configuration blocks are set. Detailed below.
+        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         /// </summary>
         [Input("coreInstanceGroup")]
         public Input<Inputs.ClusterCoreInstanceGroupGetArgs>? CoreInstanceGroup { get; set; }
-
-        /// <summary>
-        /// Use the `core_instance_group` configuration block `instance_type` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `core_instance_group` or `instance_group` configuration blocks are set.
-        /// </summary>
-        [Input("coreInstanceType")]
-        public Input<string>? CoreInstanceType { get; set; }
 
         /// <summary>
         /// A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
@@ -648,19 +1186,6 @@ namespace Pulumi.Aws.Emr
         /// </summary>
         [Input("ec2Attributes")]
         public Input<Inputs.ClusterEc2AttributesGetArgs>? Ec2Attributes { get; set; }
-
-        [Input("instanceGroups")]
-        private InputList<Inputs.ClusterInstanceGroupsGetArgs>? _instanceGroups;
-
-        /// <summary>
-        /// Use the `master_instance_group` configuration block, `core_instance_group` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `master_instance_group` or `core_instance_group` configuration blocks are set. Defined below
-        /// </summary>
-        [Obsolete(@"use `master_instance_group` configuration block, `core_instance_group` configuration block, and `aws_emr_instance_group` resource(s) instead")]
-        public InputList<Inputs.ClusterInstanceGroupsGetArgs> InstanceGroups
-        {
-            get => _instanceGroups ?? (_instanceGroups = new InputList<Inputs.ClusterInstanceGroupsGetArgs>());
-            set => _instanceGroups = value;
-        }
 
         /// <summary>
         /// Switch on/off run cluster with no steps or when all steps are complete (default is on)
@@ -681,16 +1206,16 @@ namespace Pulumi.Aws.Emr
         public Input<string>? LogUri { get; set; }
 
         /// <summary>
-        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `master_instance_type` argument or `instance_group` configuration blocks are set. Detailed below.
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
+        /// </summary>
+        [Input("masterInstanceFleet")]
+        public Input<Inputs.ClusterMasterInstanceFleetGetArgs>? MasterInstanceFleet { get; set; }
+
+        /// <summary>
+        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         /// </summary>
         [Input("masterInstanceGroup")]
         public Input<Inputs.ClusterMasterInstanceGroupGetArgs>? MasterInstanceGroup { get; set; }
-
-        /// <summary>
-        /// Use the `master_instance_group` configuration block `instance_type` argument instead. The EC2 instance type of the master node. Cannot be specified if `master_instance_group` or `instance_group` configuration blocks are set.
-        /// </summary>
-        [Input("masterInstanceType")]
-        public Input<string>? MasterInstanceType { get; set; }
 
         /// <summary>
         /// The public DNS name of the master EC2 instance.
@@ -700,7 +1225,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? MasterPublicDns { get; set; }
 
         /// <summary>
-        /// The name of the job flow
+        /// Friendly name given to the instance fleet.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -729,33 +1254,33 @@ namespace Pulumi.Aws.Emr
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
 
-        [Input("steps")]
-        private InputList<Inputs.ClusterStepsGetArgs>? _steps;
-
-        /// <summary>
-        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
-        /// </summary>
-        public InputList<Inputs.ClusterStepsGetArgs> Steps
-        {
-            get => _steps ?? (_steps = new InputList<Inputs.ClusterStepsGetArgs>());
-            set => _steps = value;
-        }
-
         /// <summary>
         /// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
         /// </summary>
         [Input("stepConcurrencyLevel")]
         public Input<int>? StepConcurrencyLevel { get; set; }
 
+        [Input("steps")]
+        private InputList<Inputs.ClusterStepGetArgs>? _steps;
+
+        /// <summary>
+        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
+        /// </summary>
+        public InputList<Inputs.ClusterStepGetArgs> Steps
+        {
+            get => _steps ?? (_steps = new InputList<Inputs.ClusterStepGetArgs>());
+            set => _steps = value;
+        }
+
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// list of tags to apply to the EMR Cluster
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -774,913 +1299,5 @@ namespace Pulumi.Aws.Emr
         public ClusterState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ClusterBootstrapActionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("args")]
-        private InputList<string>? _args;
-        public InputList<string> Args
-        {
-            get => _args ?? (_args = new InputList<string>());
-            set => _args = value;
-        }
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
-
-        public ClusterBootstrapActionsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterBootstrapActionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("args")]
-        private InputList<string>? _args;
-        public InputList<string> Args
-        {
-            get => _args ?? (_args = new InputList<string>());
-            set => _args = value;
-        }
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
-
-        public ClusterBootstrapActionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCoreInstanceGroupArgs : Pulumi.ResourceArgs
-    {
-        [Input("autoscalingPolicy")]
-        public Input<string>? AutoscalingPolicy { get; set; }
-
-        [Input("bidPrice")]
-        public Input<string>? BidPrice { get; set; }
-
-        [Input("ebsConfigs")]
-        private InputList<ClusterCoreInstanceGroupEbsConfigsArgs>? _ebsConfigs;
-        public InputList<ClusterCoreInstanceGroupEbsConfigsArgs> EbsConfigs
-        {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<ClusterCoreInstanceGroupEbsConfigsArgs>());
-            set => _ebsConfigs = value;
-        }
-
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("instanceCount")]
-        public Input<int>? InstanceCount { get; set; }
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public ClusterCoreInstanceGroupArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCoreInstanceGroupEbsConfigsArgs : Pulumi.ResourceArgs
-    {
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public ClusterCoreInstanceGroupEbsConfigsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCoreInstanceGroupEbsConfigsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public ClusterCoreInstanceGroupEbsConfigsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCoreInstanceGroupGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("autoscalingPolicy")]
-        public Input<string>? AutoscalingPolicy { get; set; }
-
-        [Input("bidPrice")]
-        public Input<string>? BidPrice { get; set; }
-
-        [Input("ebsConfigs")]
-        private InputList<ClusterCoreInstanceGroupEbsConfigsGetArgs>? _ebsConfigs;
-        public InputList<ClusterCoreInstanceGroupEbsConfigsGetArgs> EbsConfigs
-        {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<ClusterCoreInstanceGroupEbsConfigsGetArgs>());
-            set => _ebsConfigs = value;
-        }
-
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("instanceCount")]
-        public Input<int>? InstanceCount { get; set; }
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public ClusterCoreInstanceGroupGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterEc2AttributesArgs : Pulumi.ResourceArgs
-    {
-        [Input("additionalMasterSecurityGroups")]
-        public Input<string>? AdditionalMasterSecurityGroups { get; set; }
-
-        [Input("additionalSlaveSecurityGroups")]
-        public Input<string>? AdditionalSlaveSecurityGroups { get; set; }
-
-        [Input("emrManagedMasterSecurityGroup")]
-        public Input<string>? EmrManagedMasterSecurityGroup { get; set; }
-
-        [Input("emrManagedSlaveSecurityGroup")]
-        public Input<string>? EmrManagedSlaveSecurityGroup { get; set; }
-
-        [Input("instanceProfile", required: true)]
-        public Input<string> InstanceProfile { get; set; } = null!;
-
-        [Input("keyName")]
-        public Input<string>? KeyName { get; set; }
-
-        [Input("serviceAccessSecurityGroup")]
-        public Input<string>? ServiceAccessSecurityGroup { get; set; }
-
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public ClusterEc2AttributesArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterEc2AttributesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("additionalMasterSecurityGroups")]
-        public Input<string>? AdditionalMasterSecurityGroups { get; set; }
-
-        [Input("additionalSlaveSecurityGroups")]
-        public Input<string>? AdditionalSlaveSecurityGroups { get; set; }
-
-        [Input("emrManagedMasterSecurityGroup")]
-        public Input<string>? EmrManagedMasterSecurityGroup { get; set; }
-
-        [Input("emrManagedSlaveSecurityGroup")]
-        public Input<string>? EmrManagedSlaveSecurityGroup { get; set; }
-
-        [Input("instanceProfile", required: true)]
-        public Input<string> InstanceProfile { get; set; } = null!;
-
-        [Input("keyName")]
-        public Input<string>? KeyName { get; set; }
-
-        [Input("serviceAccessSecurityGroup")]
-        public Input<string>? ServiceAccessSecurityGroup { get; set; }
-
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public ClusterEc2AttributesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterInstanceGroupsArgs : Pulumi.ResourceArgs
-    {
-        [Input("autoscalingPolicy")]
-        public Input<string>? AutoscalingPolicy { get; set; }
-
-        [Input("bidPrice")]
-        public Input<string>? BidPrice { get; set; }
-
-        [Input("ebsConfigs")]
-        private InputList<ClusterInstanceGroupsEbsConfigsArgs>? _ebsConfigs;
-        public InputList<ClusterInstanceGroupsEbsConfigsArgs> EbsConfigs
-        {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<ClusterInstanceGroupsEbsConfigsArgs>());
-            set => _ebsConfigs = value;
-        }
-
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("instanceCount")]
-        public Input<int>? InstanceCount { get; set; }
-
-        [Input("instanceRole", required: true)]
-        public Input<string> InstanceRole { get; set; } = null!;
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public ClusterInstanceGroupsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterInstanceGroupsEbsConfigsArgs : Pulumi.ResourceArgs
-    {
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public ClusterInstanceGroupsEbsConfigsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterInstanceGroupsEbsConfigsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public ClusterInstanceGroupsEbsConfigsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterInstanceGroupsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("autoscalingPolicy")]
-        public Input<string>? AutoscalingPolicy { get; set; }
-
-        [Input("bidPrice")]
-        public Input<string>? BidPrice { get; set; }
-
-        [Input("ebsConfigs")]
-        private InputList<ClusterInstanceGroupsEbsConfigsGetArgs>? _ebsConfigs;
-        public InputList<ClusterInstanceGroupsEbsConfigsGetArgs> EbsConfigs
-        {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<ClusterInstanceGroupsEbsConfigsGetArgs>());
-            set => _ebsConfigs = value;
-        }
-
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("instanceCount")]
-        public Input<int>? InstanceCount { get; set; }
-
-        [Input("instanceRole", required: true)]
-        public Input<string> InstanceRole { get; set; } = null!;
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public ClusterInstanceGroupsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterKerberosAttributesArgs : Pulumi.ResourceArgs
-    {
-        [Input("adDomainJoinPassword")]
-        public Input<string>? AdDomainJoinPassword { get; set; }
-
-        [Input("adDomainJoinUser")]
-        public Input<string>? AdDomainJoinUser { get; set; }
-
-        [Input("crossRealmTrustPrincipalPassword")]
-        public Input<string>? CrossRealmTrustPrincipalPassword { get; set; }
-
-        [Input("kdcAdminPassword", required: true)]
-        public Input<string> KdcAdminPassword { get; set; } = null!;
-
-        [Input("realm", required: true)]
-        public Input<string> Realm { get; set; } = null!;
-
-        public ClusterKerberosAttributesArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterKerberosAttributesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("adDomainJoinPassword")]
-        public Input<string>? AdDomainJoinPassword { get; set; }
-
-        [Input("adDomainJoinUser")]
-        public Input<string>? AdDomainJoinUser { get; set; }
-
-        [Input("crossRealmTrustPrincipalPassword")]
-        public Input<string>? CrossRealmTrustPrincipalPassword { get; set; }
-
-        [Input("kdcAdminPassword", required: true)]
-        public Input<string> KdcAdminPassword { get; set; } = null!;
-
-        [Input("realm", required: true)]
-        public Input<string> Realm { get; set; } = null!;
-
-        public ClusterKerberosAttributesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterMasterInstanceGroupArgs : Pulumi.ResourceArgs
-    {
-        [Input("bidPrice")]
-        public Input<string>? BidPrice { get; set; }
-
-        [Input("ebsConfigs")]
-        private InputList<ClusterMasterInstanceGroupEbsConfigsArgs>? _ebsConfigs;
-        public InputList<ClusterMasterInstanceGroupEbsConfigsArgs> EbsConfigs
-        {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<ClusterMasterInstanceGroupEbsConfigsArgs>());
-            set => _ebsConfigs = value;
-        }
-
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("instanceCount")]
-        public Input<int>? InstanceCount { get; set; }
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public ClusterMasterInstanceGroupArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterMasterInstanceGroupEbsConfigsArgs : Pulumi.ResourceArgs
-    {
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public ClusterMasterInstanceGroupEbsConfigsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterMasterInstanceGroupEbsConfigsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public ClusterMasterInstanceGroupEbsConfigsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterMasterInstanceGroupGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("bidPrice")]
-        public Input<string>? BidPrice { get; set; }
-
-        [Input("ebsConfigs")]
-        private InputList<ClusterMasterInstanceGroupEbsConfigsGetArgs>? _ebsConfigs;
-        public InputList<ClusterMasterInstanceGroupEbsConfigsGetArgs> EbsConfigs
-        {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<ClusterMasterInstanceGroupEbsConfigsGetArgs>());
-            set => _ebsConfigs = value;
-        }
-
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("instanceCount")]
-        public Input<int>? InstanceCount { get; set; }
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public ClusterMasterInstanceGroupGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterStepsArgs : Pulumi.ResourceArgs
-    {
-        [Input("actionOnFailure", required: true)]
-        public Input<string> ActionOnFailure { get; set; } = null!;
-
-        [Input("hadoopJarStep", required: true)]
-        public Input<ClusterStepsHadoopJarStepArgs> HadoopJarStep { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ClusterStepsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterStepsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("actionOnFailure", required: true)]
-        public Input<string> ActionOnFailure { get; set; } = null!;
-
-        [Input("hadoopJarStep", required: true)]
-        public Input<ClusterStepsHadoopJarStepGetArgs> HadoopJarStep { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ClusterStepsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterStepsHadoopJarStepArgs : Pulumi.ResourceArgs
-    {
-        [Input("args")]
-        private InputList<string>? _args;
-        public InputList<string> Args
-        {
-            get => _args ?? (_args = new InputList<string>());
-            set => _args = value;
-        }
-
-        [Input("jar", required: true)]
-        public Input<string> Jar { get; set; } = null!;
-
-        [Input("mainClass")]
-        public Input<string>? MainClass { get; set; }
-
-        [Input("properties")]
-        private InputMap<object>? _properties;
-        public InputMap<object> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<object>());
-            set => _properties = value;
-        }
-
-        public ClusterStepsHadoopJarStepArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterStepsHadoopJarStepGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("args")]
-        private InputList<string>? _args;
-        public InputList<string> Args
-        {
-            get => _args ?? (_args = new InputList<string>());
-            set => _args = value;
-        }
-
-        [Input("jar", required: true)]
-        public Input<string> Jar { get; set; } = null!;
-
-        [Input("mainClass")]
-        public Input<string>? MainClass { get; set; }
-
-        [Input("properties")]
-        private InputMap<object>? _properties;
-        public InputMap<object> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<object>());
-            set => _properties = value;
-        }
-
-        public ClusterStepsHadoopJarStepGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ClusterBootstrapActions
-    {
-        public readonly ImmutableArray<string> Args;
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        public readonly string Name;
-        public readonly string Path;
-
-        [OutputConstructor]
-        private ClusterBootstrapActions(
-            ImmutableArray<string> args,
-            string name,
-            string path)
-        {
-            Args = args;
-            Name = name;
-            Path = path;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterCoreInstanceGroup
-    {
-        public readonly string? AutoscalingPolicy;
-        public readonly string? BidPrice;
-        public readonly ImmutableArray<ClusterCoreInstanceGroupEbsConfigs> EbsConfigs;
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        public readonly string Id;
-        public readonly int? InstanceCount;
-        public readonly string InstanceType;
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        public readonly string? Name;
-
-        [OutputConstructor]
-        private ClusterCoreInstanceGroup(
-            string? autoscalingPolicy,
-            string? bidPrice,
-            ImmutableArray<ClusterCoreInstanceGroupEbsConfigs> ebsConfigs,
-            string id,
-            int? instanceCount,
-            string instanceType,
-            string? name)
-        {
-            AutoscalingPolicy = autoscalingPolicy;
-            BidPrice = bidPrice;
-            EbsConfigs = ebsConfigs;
-            Id = id;
-            InstanceCount = instanceCount;
-            InstanceType = instanceType;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterCoreInstanceGroupEbsConfigs
-    {
-        public readonly int? Iops;
-        public readonly int Size;
-        public readonly string Type;
-        public readonly int? VolumesPerInstance;
-
-        [OutputConstructor]
-        private ClusterCoreInstanceGroupEbsConfigs(
-            int? iops,
-            int size,
-            string type,
-            int? volumesPerInstance)
-        {
-            Iops = iops;
-            Size = size;
-            Type = type;
-            VolumesPerInstance = volumesPerInstance;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterEc2Attributes
-    {
-        public readonly string? AdditionalMasterSecurityGroups;
-        public readonly string? AdditionalSlaveSecurityGroups;
-        public readonly string EmrManagedMasterSecurityGroup;
-        public readonly string EmrManagedSlaveSecurityGroup;
-        public readonly string InstanceProfile;
-        public readonly string? KeyName;
-        public readonly string ServiceAccessSecurityGroup;
-        public readonly string? SubnetId;
-
-        [OutputConstructor]
-        private ClusterEc2Attributes(
-            string? additionalMasterSecurityGroups,
-            string? additionalSlaveSecurityGroups,
-            string emrManagedMasterSecurityGroup,
-            string emrManagedSlaveSecurityGroup,
-            string instanceProfile,
-            string? keyName,
-            string serviceAccessSecurityGroup,
-            string? subnetId)
-        {
-            AdditionalMasterSecurityGroups = additionalMasterSecurityGroups;
-            AdditionalSlaveSecurityGroups = additionalSlaveSecurityGroups;
-            EmrManagedMasterSecurityGroup = emrManagedMasterSecurityGroup;
-            EmrManagedSlaveSecurityGroup = emrManagedSlaveSecurityGroup;
-            InstanceProfile = instanceProfile;
-            KeyName = keyName;
-            ServiceAccessSecurityGroup = serviceAccessSecurityGroup;
-            SubnetId = subnetId;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterInstanceGroups
-    {
-        public readonly string? AutoscalingPolicy;
-        public readonly string? BidPrice;
-        public readonly ImmutableArray<ClusterInstanceGroupsEbsConfigs> EbsConfigs;
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        public readonly string Id;
-        public readonly int? InstanceCount;
-        public readonly string InstanceRole;
-        public readonly string InstanceType;
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        public readonly string? Name;
-
-        [OutputConstructor]
-        private ClusterInstanceGroups(
-            string? autoscalingPolicy,
-            string? bidPrice,
-            ImmutableArray<ClusterInstanceGroupsEbsConfigs> ebsConfigs,
-            string id,
-            int? instanceCount,
-            string instanceRole,
-            string instanceType,
-            string? name)
-        {
-            AutoscalingPolicy = autoscalingPolicy;
-            BidPrice = bidPrice;
-            EbsConfigs = ebsConfigs;
-            Id = id;
-            InstanceCount = instanceCount;
-            InstanceRole = instanceRole;
-            InstanceType = instanceType;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterInstanceGroupsEbsConfigs
-    {
-        public readonly int? Iops;
-        public readonly int Size;
-        public readonly string Type;
-        public readonly int? VolumesPerInstance;
-
-        [OutputConstructor]
-        private ClusterInstanceGroupsEbsConfigs(
-            int? iops,
-            int size,
-            string type,
-            int? volumesPerInstance)
-        {
-            Iops = iops;
-            Size = size;
-            Type = type;
-            VolumesPerInstance = volumesPerInstance;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterKerberosAttributes
-    {
-        public readonly string? AdDomainJoinPassword;
-        public readonly string? AdDomainJoinUser;
-        public readonly string? CrossRealmTrustPrincipalPassword;
-        public readonly string KdcAdminPassword;
-        public readonly string Realm;
-
-        [OutputConstructor]
-        private ClusterKerberosAttributes(
-            string? adDomainJoinPassword,
-            string? adDomainJoinUser,
-            string? crossRealmTrustPrincipalPassword,
-            string kdcAdminPassword,
-            string realm)
-        {
-            AdDomainJoinPassword = adDomainJoinPassword;
-            AdDomainJoinUser = adDomainJoinUser;
-            CrossRealmTrustPrincipalPassword = crossRealmTrustPrincipalPassword;
-            KdcAdminPassword = kdcAdminPassword;
-            Realm = realm;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterMasterInstanceGroup
-    {
-        public readonly string? BidPrice;
-        public readonly ImmutableArray<ClusterMasterInstanceGroupEbsConfigs> EbsConfigs;
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        public readonly string Id;
-        public readonly int? InstanceCount;
-        public readonly string InstanceType;
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        public readonly string? Name;
-
-        [OutputConstructor]
-        private ClusterMasterInstanceGroup(
-            string? bidPrice,
-            ImmutableArray<ClusterMasterInstanceGroupEbsConfigs> ebsConfigs,
-            string id,
-            int? instanceCount,
-            string instanceType,
-            string? name)
-        {
-            BidPrice = bidPrice;
-            EbsConfigs = ebsConfigs;
-            Id = id;
-            InstanceCount = instanceCount;
-            InstanceType = instanceType;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterMasterInstanceGroupEbsConfigs
-    {
-        public readonly int? Iops;
-        public readonly int Size;
-        public readonly string Type;
-        public readonly int? VolumesPerInstance;
-
-        [OutputConstructor]
-        private ClusterMasterInstanceGroupEbsConfigs(
-            int? iops,
-            int size,
-            string type,
-            int? volumesPerInstance)
-        {
-            Iops = iops;
-            Size = size;
-            Type = type;
-            VolumesPerInstance = volumesPerInstance;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterSteps
-    {
-        public readonly string ActionOnFailure;
-        public readonly ClusterStepsHadoopJarStep HadoopJarStep;
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private ClusterSteps(
-            string actionOnFailure,
-            ClusterStepsHadoopJarStep hadoopJarStep,
-            string name)
-        {
-            ActionOnFailure = actionOnFailure;
-            HadoopJarStep = hadoopJarStep;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterStepsHadoopJarStep
-    {
-        public readonly ImmutableArray<string> Args;
-        public readonly string Jar;
-        public readonly string? MainClass;
-        public readonly ImmutableDictionary<string, object>? Properties;
-
-        [OutputConstructor]
-        private ClusterStepsHadoopJarStep(
-            ImmutableArray<string> args,
-            string jar,
-            string? mainClass,
-            ImmutableDictionary<string, object>? properties)
-        {
-            Args = args;
-            Jar = jar;
-            MainClass = mainClass;
-            Properties = properties;
-        }
-    }
     }
 }

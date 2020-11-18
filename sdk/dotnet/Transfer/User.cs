@@ -10,9 +10,68 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer
 {
     /// <summary>
-    /// Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the [`aws.transfer.SshKey` resource](https://www.terraform.io/docs/providers/aws/r/transfer_ssh_key.html).
+    /// Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `aws.transfer.SshKey` resource.
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_user.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooServer = new Aws.Transfer.Server("fooServer", new Aws.Transfer.ServerArgs
+    ///         {
+    ///             IdentityProviderType = "SERVICE_MANAGED",
+    ///             Tags = 
+    ///             {
+    ///                 { "NAME", "tf-acc-test-transfer-server" },
+    ///             },
+    ///         });
+    ///         var fooRole = new Aws.Iam.Role("fooRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    /// 	""Version"": ""2012-10-17"",
+    /// 	""Statement"": [
+    /// 		{
+    /// 		""Effect"": ""Allow"",
+    /// 		""Principal"": {
+    /// 			""Service"": ""transfer.amazonaws.com""
+    /// 		},
+    /// 		""Action"": ""sts:AssumeRole""
+    /// 		}
+    /// 	]
+    /// }
+    /// ",
+    ///         });
+    ///         var fooRolePolicy = new Aws.Iam.RolePolicy("fooRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = fooRole.Id,
+    ///             Policy = @"{
+    /// 	""Version"": ""2012-10-17"",
+    /// 	""Statement"": [
+    /// 		{
+    /// 			""Sid"": ""AllowFullAccesstoS3"",
+    /// 			""Effect"": ""Allow"",
+    /// 			""Action"": [
+    /// 				""s3:*""
+    /// 			],
+    /// 			""Resource"": ""*""
+    /// 		}
+    /// 	]
+    /// }
+    /// ",
+    ///         });
+    ///         var fooUser = new Aws.Transfer.User("fooUser", new Aws.Transfer.UserArgs
+    ///         {
+    ///             ServerId = fooServer.Id,
+    ///             UserName = "tftestuser",
+    ///             Role = fooRole.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {
@@ -27,6 +86,18 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Output("homeDirectory")]
         public Output<string?> HomeDirectory { get; private set; } = null!;
+
+        /// <summary>
+        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        /// </summary>
+        [Output("homeDirectoryMappings")]
+        public Output<ImmutableArray<Outputs.UserHomeDirectoryMapping>> HomeDirectoryMappings { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        /// </summary>
+        [Output("homeDirectoryType")]
+        public Output<string?> HomeDirectoryType { get; private set; } = null!;
 
         /// <summary>
         /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
@@ -47,10 +118,10 @@ namespace Pulumi.Aws.Transfer
         public Output<string> ServerId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The name used for log in to your SFTP server.
@@ -67,7 +138,7 @@ namespace Pulumi.Aws.Transfer
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public User(string name, UserArgs args, CustomResourceOptions? options = null)
-            : base("aws:transfer/user:User", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:transfer/user:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -110,6 +181,24 @@ namespace Pulumi.Aws.Transfer
         [Input("homeDirectory")]
         public Input<string>? HomeDirectory { get; set; }
 
+        [Input("homeDirectoryMappings")]
+        private InputList<Inputs.UserHomeDirectoryMappingArgs>? _homeDirectoryMappings;
+
+        /// <summary>
+        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        /// </summary>
+        public InputList<Inputs.UserHomeDirectoryMappingArgs> HomeDirectoryMappings
+        {
+            get => _homeDirectoryMappings ?? (_homeDirectoryMappings = new InputList<Inputs.UserHomeDirectoryMappingArgs>());
+            set => _homeDirectoryMappings = value;
+        }
+
+        /// <summary>
+        /// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        /// </summary>
+        [Input("homeDirectoryType")]
+        public Input<string>? HomeDirectoryType { get; set; }
+
         /// <summary>
         /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         /// </summary>
@@ -129,14 +218,14 @@ namespace Pulumi.Aws.Transfer
         public Input<string> ServerId { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -165,6 +254,24 @@ namespace Pulumi.Aws.Transfer
         [Input("homeDirectory")]
         public Input<string>? HomeDirectory { get; set; }
 
+        [Input("homeDirectoryMappings")]
+        private InputList<Inputs.UserHomeDirectoryMappingGetArgs>? _homeDirectoryMappings;
+
+        /// <summary>
+        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        /// </summary>
+        public InputList<Inputs.UserHomeDirectoryMappingGetArgs> HomeDirectoryMappings
+        {
+            get => _homeDirectoryMappings ?? (_homeDirectoryMappings = new InputList<Inputs.UserHomeDirectoryMappingGetArgs>());
+            set => _homeDirectoryMappings = value;
+        }
+
+        /// <summary>
+        /// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        /// </summary>
+        [Input("homeDirectoryType")]
+        public Input<string>? HomeDirectoryType { get; set; }
+
         /// <summary>
         /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         /// </summary>
@@ -184,14 +291,14 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? ServerId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

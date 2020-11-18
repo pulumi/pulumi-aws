@@ -7,16 +7,51 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // [IPv6 only] Creates an egress-only Internet gateway for your VPC.
 // An egress-only Internet gateway is used to enable outbound communication
 // over IPv6 from instances in your VPC to the Internet, and prevents hosts
 // outside of your VPC from initiating an IPv6 connection with your instance.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+// 			CidrBlock:                    pulumi.String("10.1.0.0/16"),
+// 			AssignGeneratedIpv6CidrBlock: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewEgressOnlyInternetGateway(ctx, "exampleEgressOnlyInternetGateway", &ec2.EgressOnlyInternetGatewayArgs{
+// 			VpcId: exampleVpc.ID(),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("main"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type EgressOnlyInternetGateway struct {
 	pulumi.CustomResourceState
 
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The VPC ID to create in.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -52,11 +87,15 @@ func GetEgressOnlyInternetGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EgressOnlyInternetGateway resources.
 type egressOnlyInternetGatewayState struct {
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID to create in.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type EgressOnlyInternetGatewayState struct {
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The VPC ID to create in.
 	VpcId pulumi.StringPtrInput
 }
@@ -66,12 +105,16 @@ func (EgressOnlyInternetGatewayState) ElementType() reflect.Type {
 }
 
 type egressOnlyInternetGatewayArgs struct {
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID to create in.
 	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a EgressOnlyInternetGateway resource.
 type EgressOnlyInternetGatewayArgs struct {
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The VPC ID to create in.
 	VpcId pulumi.StringInput
 }

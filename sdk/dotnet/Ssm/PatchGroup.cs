@@ -12,9 +12,32 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Provides an SSM Patch Group resource
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_group.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var production = new Aws.Ssm.PatchBaseline("production", new Aws.Ssm.PatchBaselineArgs
+    ///         {
+    ///             ApprovedPatches = 
+    ///             {
+    ///                 "KB123456",
+    ///             },
+    ///         });
+    ///         var patchgroup = new Aws.Ssm.PatchGroup("patchgroup", new Aws.Ssm.PatchGroupArgs
+    ///         {
+    ///             BaselineId = production.Id,
+    ///             PatchGroup = "patch-group-name",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PatchGroup : Pulumi.CustomResource
     {
@@ -39,7 +62,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PatchGroup(string name, PatchGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:ssm/patchGroup:PatchGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ssm/patchGroup:PatchGroup", name, args ?? new PatchGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

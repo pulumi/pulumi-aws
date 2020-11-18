@@ -16,9 +16,25 @@ namespace Pulumi.Aws.Ec2
     /// the `propagating_vgws` argument set. If that argument is set, any route
     /// propagation not explicitly listed in its value will be removed.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_route_propagation.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.VpnGatewayRoutePropagation("example", new Aws.Ec2.VpnGatewayRoutePropagationArgs
+    ///         {
+    ///             VpnGatewayId = aws_vpn_gateway.Example.Id,
+    ///             RouteTableId = aws_route_table.Example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VpnGatewayRoutePropagation : Pulumi.CustomResource
     {
@@ -43,7 +59,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpnGatewayRoutePropagation(string name, VpnGatewayRoutePropagationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation", name, args ?? new VpnGatewayRoutePropagationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

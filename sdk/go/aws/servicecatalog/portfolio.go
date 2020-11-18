@@ -6,10 +6,34 @@ package servicecatalog
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a resource to create a Service Catalog Portfolio.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/servicecatalog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicecatalog.NewPortfolio(ctx, "portfolio", &servicecatalog.PortfolioArgs{
+// 			Description:  pulumi.String("List of my organizations apps"),
+// 			ProviderName: pulumi.String("Brett"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Portfolio struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +46,7 @@ type Portfolio struct {
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringPtrOutput `pulumi:"providerName"`
 	// Tags to apply to the connection.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewPortfolio registers a new resource with the given unique name, arguments, and options.
@@ -62,7 +86,7 @@ type portfolioState struct {
 	// Name of the person or organization who owns the portfolio.
 	ProviderName *string `pulumi:"providerName"`
 	// Tags to apply to the connection.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type PortfolioState struct {
@@ -75,7 +99,7 @@ type PortfolioState struct {
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringPtrInput
 	// Tags to apply to the connection.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (PortfolioState) ElementType() reflect.Type {
@@ -90,7 +114,7 @@ type portfolioArgs struct {
 	// Name of the person or organization who owns the portfolio.
 	ProviderName *string `pulumi:"providerName"`
 	// Tags to apply to the connection.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Portfolio resource.
@@ -102,7 +126,7 @@ type PortfolioArgs struct {
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringPtrInput
 	// Tags to apply to the connection.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (PortfolioArgs) ElementType() reflect.Type {

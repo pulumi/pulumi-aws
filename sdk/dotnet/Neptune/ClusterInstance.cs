@@ -12,13 +12,48 @@ namespace Pulumi.Aws.Neptune
     /// <summary>
     /// A Cluster Instance Resource defines attributes that are specific to a single instance in a Neptune Cluster.
     /// 
-    /// You can simply add neptune instances and Neptune manages the replication. You can use the [count][1]
+    /// You can simply add neptune instances and Neptune manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/resources.html#count)
     /// meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
     /// 
+    /// ## Example Usage
     /// 
+    /// The following example will create a neptune cluster with two neptune instances(one writer and one reader).
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_instance.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Neptune.Cluster("default", new Aws.Neptune.ClusterArgs
+    ///         {
+    ///             ClusterIdentifier = "neptune-cluster-demo",
+    ///             Engine = "neptune",
+    ///             BackupRetentionPeriod = 5,
+    ///             PreferredBackupWindow = "07:00-09:00",
+    ///             SkipFinalSnapshot = true,
+    ///             IamDatabaseAuthenticationEnabled = true,
+    ///             ApplyImmediately = true,
+    ///         });
+    ///         var example = new List&lt;Aws.Neptune.ClusterInstance&gt;();
+    ///         for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
+    ///         {
+    ///             var range = new { Value = rangeIndex };
+    ///             example.Add(new Aws.Neptune.ClusterInstance($"example-{range.Value}", new Aws.Neptune.ClusterInstanceArgs
+    ///             {
+    ///                 ClusterIdentifier = @default.Id,
+    ///                 Engine = "neptune",
+    ///                 InstanceClass = "db.r4.large",
+    ///                 ApplyImmediately = true,
+    ///             }));
+    ///         }
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ClusterInstance : Pulumi.CustomResource
     {
@@ -54,7 +89,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+        /// The identifier of the `aws.neptune.Cluster` in which to launch this instance.
         /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
@@ -84,7 +119,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+        /// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
@@ -114,7 +149,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string?> NeptuneParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Output("neptuneSubnetGroupName")]
         public Output<string> NeptuneSubnetGroupName { get; private set; } = null!;
@@ -157,10 +192,10 @@ namespace Pulumi.Aws.Neptune
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the instance.
+        /// A map of tags to assign to the instance.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
@@ -177,7 +212,7 @@ namespace Pulumi.Aws.Neptune
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClusterInstance(string name, ClusterInstanceArgs args, CustomResourceOptions? options = null)
-            : base("aws:neptune/clusterInstance:ClusterInstance", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:neptune/clusterInstance:ClusterInstance", name, args ?? new ClusterInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -234,7 +269,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The identifier of the [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+        /// The identifier of the `aws.neptune.Cluster` in which to launch this instance.
         /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
@@ -252,7 +287,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+        /// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
@@ -276,7 +311,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NeptuneParameterGroupName { get; set; }
 
         /// <summary>
-        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Input("neptuneSubnetGroupName")]
         public Input<string>? NeptuneSubnetGroupName { get; set; }
@@ -313,14 +348,14 @@ namespace Pulumi.Aws.Neptune
         public Input<bool>? PubliclyAccessible { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the instance.
+        /// A map of tags to assign to the instance.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -363,7 +398,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The identifier of the [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+        /// The identifier of the `aws.neptune.Cluster` in which to launch this instance.
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
@@ -393,7 +428,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+        /// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
@@ -423,7 +458,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NeptuneParameterGroupName { get; set; }
 
         /// <summary>
-        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Input("neptuneSubnetGroupName")]
         public Input<string>? NeptuneSubnetGroupName { get; set; }
@@ -466,14 +501,14 @@ namespace Pulumi.Aws.Neptune
         public Input<bool>? StorageEncrypted { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the instance.
+        /// A map of tags to assign to the instance.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

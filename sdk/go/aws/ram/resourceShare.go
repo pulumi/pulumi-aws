@@ -6,10 +6,36 @@ package ram
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a Resource Access Manager (RAM) Resource Share. To association principals with the share, see the [`ram.PrincipalAssociation` resource](https://www.terraform.io/docs/providers/aws/r/ram_principal_association.html). To associate resources with the share, see the [`ram.ResourceAssociation` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_association.html).
+// Manages a Resource Access Manager (RAM) Resource Share. To associate principals with the share, see the `ram.PrincipalAssociation` resource. To associate resources with the share, see the `ram.ResourceAssociation` resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ram"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ram.NewResourceShare(ctx, "example", &ram.ResourceShareArgs{
+// 			AllowExternalPrincipals: pulumi.Bool(true),
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("Production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ResourceShare struct {
 	pulumi.CustomResourceState
 
@@ -19,8 +45,8 @@ type ResourceShare struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the resource share.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource share.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource share.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewResourceShare registers a new resource with the given unique name, arguments, and options.
@@ -57,8 +83,8 @@ type resourceShareState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the resource share.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource share.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource share.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ResourceShareState struct {
@@ -68,8 +94,8 @@ type ResourceShareState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the resource share.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource share.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource share.
+	Tags pulumi.StringMapInput
 }
 
 func (ResourceShareState) ElementType() reflect.Type {
@@ -81,8 +107,8 @@ type resourceShareArgs struct {
 	AllowExternalPrincipals *bool `pulumi:"allowExternalPrincipals"`
 	// The name of the resource share.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource share.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource share.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceShare resource.
@@ -91,8 +117,8 @@ type ResourceShareArgs struct {
 	AllowExternalPrincipals pulumi.BoolPtrInput
 	// The name of the resource share.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource share.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource share.
+	Tags pulumi.StringMapInput
 }
 
 func (ResourceShareArgs) ElementType() reflect.Type {

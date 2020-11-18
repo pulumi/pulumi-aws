@@ -12,9 +12,117 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Provides a Route53 health check.
     /// 
+    /// ## Example Usage
+    /// ### Connectivity and HTTP Status Code Check
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_health_check.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Route53.HealthCheck("example", new Aws.Route53.HealthCheckArgs
+    ///         {
+    ///             FailureThreshold = 5,
+    ///             Fqdn = "example.com",
+    ///             Port = 80,
+    ///             RequestInterval = 30,
+    ///             ResourcePath = "/",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "tf-test-health-check" },
+    ///             },
+    ///             Type = "HTTP",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Connectivity and String Matching Check
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Route53.HealthCheck("example", new Aws.Route53.HealthCheckArgs
+    ///         {
+    ///             FailureThreshold = 5,
+    ///             Fqdn = "example.com",
+    ///             Port = 443,
+    ///             RequestInterval = 30,
+    ///             ResourcePath = "/",
+    ///             SearchString = "example",
+    ///             Type = "HTTPS_STR_MATCH",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Aggregate Check
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var parent = new Aws.Route53.HealthCheck("parent", new Aws.Route53.HealthCheckArgs
+    ///         {
+    ///             Type = "CALCULATED",
+    ///             ChildHealthThreshold = 1,
+    ///             ChildHealthchecks = 
+    ///             {
+    ///                 aws_route53_health_check.Child.Id,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "tf-test-calculated-health-check" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### CloudWatch Alarm Check
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foobar = new Aws.CloudWatch.MetricAlarm("foobar", new Aws.CloudWatch.MetricAlarmArgs
+    ///         {
+    ///             ComparisonOperator = "GreaterThanOrEqualToThreshold",
+    ///             EvaluationPeriods = 2,
+    ///             MetricName = "CPUUtilization",
+    ///             Namespace = "AWS/EC2",
+    ///             Period = 120,
+    ///             Statistic = "Average",
+    ///             Threshold = 80,
+    ///             AlarmDescription = "This metric monitors ec2 cpu utilization",
+    ///         });
+    ///         var foo = new Aws.Route53.HealthCheck("foo", new Aws.Route53.HealthCheckArgs
+    ///         {
+    ///             Type = "CLOUDWATCH_METRIC",
+    ///             CloudwatchAlarmName = foobar.Name,
+    ///             CloudwatchAlarmRegion = "us-west-2",
+    ///             InsufficientDataHealthStatus = "Healthy",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class HealthCheck : Pulumi.CustomResource
     {
@@ -41,6 +149,15 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Output("cloudwatchAlarmRegion")]
         public Output<string?> CloudwatchAlarmRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
+        /// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+        /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
+        /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+        /// </summary>
+        [Output("disabled")]
+        public Output<bool?> Disabled { get; private set; } = null!;
 
         /// <summary>
         /// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
@@ -122,10 +239,10 @@ namespace Pulumi.Aws.Route53
         public Output<string?> SearchString { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the health check.
+        /// A map of tags to assign to the health check.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
@@ -142,7 +259,7 @@ namespace Pulumi.Aws.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HealthCheck(string name, HealthCheckArgs args, CustomResourceOptions? options = null)
-            : base("aws:route53/healthCheck:HealthCheck", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:route53/healthCheck:HealthCheck", name, args ?? new HealthCheckArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -210,6 +327,15 @@ namespace Pulumi.Aws.Route53
         public Input<string>? CloudwatchAlarmRegion { get; set; }
 
         /// <summary>
+        /// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
+        /// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+        /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
+        /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+        /// </summary>
+        [Input("disabled")]
+        public Input<bool>? Disabled { get; set; }
+
+        /// <summary>
         /// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
         /// </summary>
         [Input("enableSni")]
@@ -295,14 +421,14 @@ namespace Pulumi.Aws.Route53
         public Input<string>? SearchString { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the health check.
+        /// A map of tags to assign to the health check.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -350,6 +476,15 @@ namespace Pulumi.Aws.Route53
         public Input<string>? CloudwatchAlarmRegion { get; set; }
 
         /// <summary>
+        /// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
+        /// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+        /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
+        /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+        /// </summary>
+        [Input("disabled")]
+        public Input<bool>? Disabled { get; set; }
+
+        /// <summary>
         /// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
         /// </summary>
         [Input("enableSni")]
@@ -435,14 +570,14 @@ namespace Pulumi.Aws.Route53
         public Input<string>? SearchString { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the health check.
+        /// A map of tags to assign to the health check.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

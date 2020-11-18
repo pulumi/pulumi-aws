@@ -6,26 +6,31 @@ package ecs
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an ECS cluster.
 //
+// ## Example Usage
 //
-// ## setting
+// ```go
+// package main
 //
-// The `setting` configuration block supports the following:
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
 //
-// * `name` - (Required) Name of the setting to manage. Valid values: `containerInsights`.
-// * `value` -  (Required) The value to assign to the setting. Value values are `enabled` and `disabled`.
-//
-// ## defaultCapacityProviderStrategy
-//
-// The `defaultCapacityProviderStrategy` configuration block supports the following:
-//
-// * `capacityProvider` - (Required) The short name of the capacity provider.
-// * `weight` - (Optional) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
-// * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ecs.NewCluster(ctx, "foo", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -39,8 +44,8 @@ type Cluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
 	Settings ClusterSettingArrayOutput `pulumi:"settings"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -81,8 +86,8 @@ type clusterState struct {
 	Name *string `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
 	Settings []ClusterSetting `pulumi:"settings"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ClusterState struct {
@@ -96,8 +101,8 @@ type ClusterState struct {
 	Name pulumi.StringPtrInput
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
 	Settings ClusterSettingArrayInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -113,8 +118,8 @@ type clusterArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
 	Settings []ClusterSetting `pulumi:"settings"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -127,8 +132,8 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
 	Settings ClusterSettingArrayInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

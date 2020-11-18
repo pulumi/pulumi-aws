@@ -4,7 +4,7 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
@@ -31,20 +31,20 @@ type GetInstancesArgs struct {
 	Filters []GetInstancesFilter `pulumi:"filters"`
 	// A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
 	InstanceStateNames []string `pulumi:"instanceStateNames"`
-	// A mapping of tags, each pair of which must
+	// A map of tags, each pair of which must
 	// exactly match a pair on desired instances.
-	InstanceTags map[string]interface{} `pulumi:"instanceTags"`
+	InstanceTags map[string]string `pulumi:"instanceTags"`
 }
 
 // A collection of values returned by getInstances.
 type GetInstancesResult struct {
 	Filters []GetInstancesFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// IDs of instances found through the filter
-	Ids                []string               `pulumi:"ids"`
-	InstanceStateNames []string               `pulumi:"instanceStateNames"`
-	InstanceTags       map[string]interface{} `pulumi:"instanceTags"`
+	Ids                []string          `pulumi:"ids"`
+	InstanceStateNames []string          `pulumi:"instanceStateNames"`
+	InstanceTags       map[string]string `pulumi:"instanceTags"`
 	// Private IP addresses of instances found through the filter
 	PrivateIps []string `pulumi:"privateIps"`
 	// Public IP addresses of instances found through the filter

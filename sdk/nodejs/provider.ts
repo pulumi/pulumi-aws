@@ -4,17 +4,16 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
-import {Region} from "./region";
+import {Region} from "./index";
 
 /**
  * The provider type for the aws package. By default, resources use package-wide configuration
  * settings, however an explicit `Provider` instance may be created and passed during resource
  * construction to achieve fine-grained programmatic control over provider settings. See the
  * [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/index.html.markdown.
  */
 export class Provider extends pulumi.ProviderResource {
     /** @internal */
@@ -47,12 +46,11 @@ export class Provider extends pulumi.ProviderResource {
             inputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
             inputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
             inputs["forbiddenAccountIds"] = pulumi.output(args ? args.forbiddenAccountIds : undefined).apply(JSON.stringify);
-            inputs["ignoreTagPrefixes"] = pulumi.output(args ? args.ignoreTagPrefixes : undefined).apply(JSON.stringify);
             inputs["ignoreTags"] = pulumi.output(args ? args.ignoreTags : undefined).apply(JSON.stringify);
             inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
             inputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
             inputs["profile"] = (args ? args.profile : undefined) || utilities.getEnv("AWS_PROFILE");
-            inputs["region"] = (args ? args.region : undefined) || utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+            inputs["region"] = (args ? args.region : undefined) || <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             inputs["s3ForcePathStyle"] = pulumi.output(args ? args.s3ForcePathStyle : undefined).apply(JSON.stringify);
             inputs["secretKey"] = args ? args.secretKey : undefined;
             inputs["sharedCredentialsFile"] = args ? args.sharedCredentialsFile : undefined;
@@ -79,8 +77,7 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS
-     * console.
+     * The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
      */
     readonly accessKey?: pulumi.Input<string>;
     readonly allowedAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -88,20 +85,15 @@ export interface ProviderArgs {
     readonly endpoints?: pulumi.Input<pulumi.Input<inputs.ProviderEndpoint>[]>;
     readonly forbiddenAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Resource tag key prefixes to ignore across all resources.
+     * Configuration block with settings to ignore resource tags across all resources.
      */
-    readonly ignoreTagPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Resource tag keys to ignore across all resources.
-     */
-    readonly ignoreTags?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly ignoreTags?: pulumi.Input<inputs.ProviderIgnoreTags>;
     /**
      * Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
      */
     readonly insecure?: pulumi.Input<boolean>;
     /**
-     * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is
-     * thrown.
+     * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
      */
     readonly maxRetries?: pulumi.Input<number>;
     /**
@@ -119,8 +111,7 @@ export interface ProviderArgs {
      */
     readonly s3ForcePathStyle?: pulumi.Input<boolean>;
     /**
-     * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS
-     * console.
+     * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
      */
     readonly secretKey?: pulumi.Input<string>;
     /**
@@ -138,8 +129,8 @@ export interface ProviderArgs {
     readonly skipGetEc2Platforms?: pulumi.Input<boolean>;
     readonly skipMetadataApiCheck?: pulumi.Input<boolean>;
     /**
-     * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that
-     * are not public (yet).
+     * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
+     * not public (yet).
      */
     readonly skipRegionValidation?: pulumi.Input<boolean>;
     /**

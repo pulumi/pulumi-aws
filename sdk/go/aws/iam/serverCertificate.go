@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an IAM Server Certificate resource to upload Server Certificates.
@@ -22,7 +22,6 @@ import (
 // Certificates][2] in AWS Documentation.
 //
 // > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type ServerCertificate struct {
 	pulumi.CustomResourceState
 
@@ -44,7 +43,7 @@ type ServerCertificate struct {
 	// The IAM path for the server certificate.  If it is not
 	// included, it defaults to a slash (/). If this certificate is for use with
 	// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-	// See [IAM Identifiers][1] for more details on IAM Paths.
+	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
@@ -102,7 +101,7 @@ type serverCertificateState struct {
 	// The IAM path for the server certificate.  If it is not
 	// included, it defaults to a slash (/). If this certificate is for use with
 	// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-	// See [IAM Identifiers][1] for more details on IAM Paths.
+	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
 	Path *string `pulumi:"path"`
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey *string `pulumi:"privateKey"`
@@ -127,7 +126,7 @@ type ServerCertificateState struct {
 	// The IAM path for the server certificate.  If it is not
 	// included, it defaults to a slash (/). If this certificate is for use with
 	// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-	// See [IAM Identifiers][1] for more details on IAM Paths.
+	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
 	Path pulumi.StringPtrInput
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey pulumi.StringPtrInput
@@ -156,7 +155,7 @@ type serverCertificateArgs struct {
 	// The IAM path for the server certificate.  If it is not
 	// included, it defaults to a slash (/). If this certificate is for use with
 	// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-	// See [IAM Identifiers][1] for more details on IAM Paths.
+	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
 	Path *string `pulumi:"path"`
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey string `pulumi:"privateKey"`
@@ -182,7 +181,7 @@ type ServerCertificateArgs struct {
 	// The IAM path for the server certificate.  If it is not
 	// included, it defaults to a slash (/). If this certificate is for use with
 	// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-	// See [IAM Identifiers][1] for more details on IAM Paths.
+	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
 	Path pulumi.StringPtrInput
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey pulumi.StringInput

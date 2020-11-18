@@ -6,26 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeCommit Repository Resource.
- * 
- * > **NOTE on CodeCommit Availability**: The CodeCommit is not yet rolled out
- * in all regions - available regions are listed
- * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.codecommit.Repository("test", {
  *     description: "This is the Sample App Repository",
  *     repositoryName: "MyTestRepository",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codecommit_repository.html.markdown.
  */
 export class Repository extends pulumi.CustomResource {
     /**
@@ -35,6 +27,7 @@ export class Repository extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RepositoryState, opts?: pulumi.CustomResourceOptions): Repository {
         return new Repository(name, <any>state, { ...opts, id: id });
@@ -83,9 +76,9 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly repositoryName!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -165,9 +158,9 @@ export interface RepositoryState {
      */
     readonly repositoryName?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -187,7 +180,7 @@ export interface RepositoryArgs {
      */
     readonly repositoryName: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

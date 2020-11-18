@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type ApplicationAppversionLifecycle struct {
@@ -21,6 +21,10 @@ type ApplicationAppversionLifecycle struct {
 	ServiceRole string `pulumi:"serviceRole"`
 }
 
+// ApplicationAppversionLifecycleInput is an input type that accepts ApplicationAppversionLifecycleArgs and ApplicationAppversionLifecycleOutput values.
+// You can construct a concrete instance of `ApplicationAppversionLifecycleInput` via:
+//
+//          ApplicationAppversionLifecycleArgs{...}
 type ApplicationAppversionLifecycleInput interface {
 	pulumi.Input
 
@@ -59,6 +63,14 @@ func (i ApplicationAppversionLifecycleArgs) ToApplicationAppversionLifecyclePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppversionLifecycleOutput).ToApplicationAppversionLifecyclePtrOutputWithContext(ctx)
 }
 
+// ApplicationAppversionLifecyclePtrInput is an input type that accepts ApplicationAppversionLifecycleArgs, ApplicationAppversionLifecyclePtr and ApplicationAppversionLifecyclePtrOutput values.
+// You can construct a concrete instance of `ApplicationAppversionLifecyclePtrInput` via:
+//
+//          ApplicationAppversionLifecycleArgs{...}
+//
+//  or:
+//
+//          nil
 type ApplicationAppversionLifecyclePtrInput interface {
 	pulumi.Input
 
@@ -148,22 +160,42 @@ func (o ApplicationAppversionLifecyclePtrOutput) Elem() ApplicationAppversionLif
 
 // Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
 func (o ApplicationAppversionLifecyclePtrOutput) DeleteSourceFromS3() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationAppversionLifecycle) *bool { return v.DeleteSourceFromS3 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ApplicationAppversionLifecycle) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteSourceFromS3
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 func (o ApplicationAppversionLifecyclePtrOutput) MaxAgeInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationAppversionLifecycle) *int { return v.MaxAgeInDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ApplicationAppversionLifecycle) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAgeInDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 func (o ApplicationAppversionLifecyclePtrOutput) MaxCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationAppversionLifecycle) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ApplicationAppversionLifecycle) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-func (o ApplicationAppversionLifecyclePtrOutput) ServiceRole() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationAppversionLifecycle) string { return v.ServiceRole }).(pulumi.StringOutput)
+func (o ApplicationAppversionLifecyclePtrOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationAppversionLifecycle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceRole
+	}).(pulumi.StringPtrOutput)
 }
 
 type ConfigurationTemplateSetting struct {
@@ -174,6 +206,10 @@ type ConfigurationTemplateSetting struct {
 	Value     string  `pulumi:"value"`
 }
 
+// ConfigurationTemplateSettingInput is an input type that accepts ConfigurationTemplateSettingArgs and ConfigurationTemplateSettingOutput values.
+// You can construct a concrete instance of `ConfigurationTemplateSettingInput` via:
+//
+//          ConfigurationTemplateSettingArgs{...}
 type ConfigurationTemplateSettingInput interface {
 	pulumi.Input
 
@@ -201,6 +237,10 @@ func (i ConfigurationTemplateSettingArgs) ToConfigurationTemplateSettingOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateSettingOutput)
 }
 
+// ConfigurationTemplateSettingArrayInput is an input type that accepts ConfigurationTemplateSettingArray and ConfigurationTemplateSettingArrayOutput values.
+// You can construct a concrete instance of `ConfigurationTemplateSettingArrayInput` via:
+//
+//          ConfigurationTemplateSettingArray{ ConfigurationTemplateSettingArgs{...} }
 type ConfigurationTemplateSettingArrayInput interface {
 	pulumi.Input
 
@@ -282,6 +322,10 @@ type EnvironmentAllSetting struct {
 	Value     string  `pulumi:"value"`
 }
 
+// EnvironmentAllSettingInput is an input type that accepts EnvironmentAllSettingArgs and EnvironmentAllSettingOutput values.
+// You can construct a concrete instance of `EnvironmentAllSettingInput` via:
+//
+//          EnvironmentAllSettingArgs{...}
 type EnvironmentAllSettingInput interface {
 	pulumi.Input
 
@@ -310,6 +354,10 @@ func (i EnvironmentAllSettingArgs) ToEnvironmentAllSettingOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentAllSettingOutput)
 }
 
+// EnvironmentAllSettingArrayInput is an input type that accepts EnvironmentAllSettingArray and EnvironmentAllSettingArrayOutput values.
+// You can construct a concrete instance of `EnvironmentAllSettingArrayInput` via:
+//
+//          EnvironmentAllSettingArray{ EnvironmentAllSettingArgs{...} }
 type EnvironmentAllSettingArrayInput interface {
 	pulumi.Input
 
@@ -392,6 +440,10 @@ type EnvironmentSetting struct {
 	Value     string  `pulumi:"value"`
 }
 
+// EnvironmentSettingInput is an input type that accepts EnvironmentSettingArgs and EnvironmentSettingOutput values.
+// You can construct a concrete instance of `EnvironmentSettingInput` via:
+//
+//          EnvironmentSettingArgs{...}
 type EnvironmentSettingInput interface {
 	pulumi.Input
 
@@ -420,6 +472,10 @@ func (i EnvironmentSettingArgs) ToEnvironmentSettingOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSettingOutput)
 }
 
+// EnvironmentSettingArrayInput is an input type that accepts EnvironmentSettingArray and EnvironmentSettingArrayOutput values.
+// You can construct a concrete instance of `EnvironmentSettingArrayInput` via:
+//
+//          EnvironmentSettingArray{ EnvironmentSettingArgs{...} }
 type EnvironmentSettingArrayInput interface {
 	pulumi.Input
 
@@ -504,6 +560,10 @@ type GetApplicationAppversionLifecycle struct {
 	ServiceRole string `pulumi:"serviceRole"`
 }
 
+// GetApplicationAppversionLifecycleInput is an input type that accepts GetApplicationAppversionLifecycleArgs and GetApplicationAppversionLifecycleOutput values.
+// You can construct a concrete instance of `GetApplicationAppversionLifecycleInput` via:
+//
+//          GetApplicationAppversionLifecycleArgs{...}
 type GetApplicationAppversionLifecycleInput interface {
 	pulumi.Input
 

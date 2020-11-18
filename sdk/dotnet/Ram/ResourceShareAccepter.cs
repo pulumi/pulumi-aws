@@ -10,13 +10,54 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ram
 {
     /// <summary>
-    /// Manage accepting a Resource Access Manager (RAM) Resource Share invitation. From a _receiver_ AWS account, accept an invitation to share resources that were shared by a _sender_ AWS account. To create a resource share in the _sender_, see the [`aws.ram.ResourceShare` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_share.html).
+    /// Manage accepting a Resource Access Manager (RAM) Resource Share invitation. From a _receiver_ AWS account, accept an invitation to share resources that were shared by a _sender_ AWS account. To create a resource share in the _sender_, see the `aws.ram.ResourceShare` resource.
     /// 
     /// &gt; **Note:** If both AWS accounts are in the same Organization and [RAM Sharing with AWS Organizations is enabled](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs), this resource is not necessary as RAM Resource Share invitations are not used.
     /// 
+    /// ## Example Usage
     /// 
+    /// This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws.ram.ResourceShare` and uses a data source in the _receiver_ account to create a `aws.ram.PrincipalAssociation` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws.ram.ResourceShareAccepter`.
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_resource_share_accepter.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var alternate = new Aws.Provider("alternate", new Aws.ProviderArgs
+    ///         {
+    ///             Profile = "profile1",
+    ///         });
+    ///         var senderShare = new Aws.Ram.ResourceShare("senderShare", new Aws.Ram.ResourceShareArgs
+    ///         {
+    ///             AllowExternalPrincipals = true,
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "tf-test-resource-share" },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Alternate,
+    ///         });
+    ///         var receiver = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+    ///         var senderInvite = new Aws.Ram.PrincipalAssociation("senderInvite", new Aws.Ram.PrincipalAssociationArgs
+    ///         {
+    ///             Principal = receiver.Apply(receiver =&gt; receiver.AccountId),
+    ///             ResourceShareArn = senderShare.Arn,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Alternate,
+    ///         });
+    ///         var receiverAccept = new Aws.Ram.ResourceShareAccepter("receiverAccept", new Aws.Ram.ResourceShareAccepterArgs
+    ///         {
+    ///             ShareArn = senderInvite.ResourceShareArn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ResourceShareAccepter : Pulumi.CustomResource
     {
@@ -77,7 +118,7 @@ namespace Pulumi.Aws.Ram
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceShareAccepter(string name, ResourceShareAccepterArgs args, CustomResourceOptions? options = null)
-            : base("aws:ram/resourceShareAccepter:ResourceShareAccepter", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ram/resourceShareAccepter:ResourceShareAccepter", name, args ?? new ResourceShareAccepterArgs(), MakeResourceOptions(options, ""))
         {
         }
 

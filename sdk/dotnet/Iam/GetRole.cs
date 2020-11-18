@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM role. By using this data source, you can reference IAM role
-        /// properties without having to hard code ARNs as input.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetRole.InvokeAsync() instead")]
-        public static Task<GetRoleResult> GetRole(GetRoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("aws:iam/getRole:getRole", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRole
     {
         /// <summary>
@@ -31,13 +16,33 @@ namespace Pulumi.Aws.Iam
         /// IAM role. By using this data source, you can reference IAM role
         /// properties without having to hard code ARNs as input.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Iam.GetRole.InvokeAsync(new Aws.Iam.GetRoleArgs
+        ///         {
+        ///             Name = "an_example_role_name",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("aws:iam/getRole:getRole", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("aws:iam/getRole:getRole", args ?? new GetRoleArgs(), options.WithVersion());
     }
+
 
     public sealed class GetRoleArgs : Pulumi.InvokeArgs
     {
@@ -48,14 +53,14 @@ namespace Pulumi.Aws.Iam
         public string Name { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// The tags attached to the role.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -63,6 +68,7 @@ namespace Pulumi.Aws.Iam
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetRoleResult
@@ -84,6 +90,10 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Maximum session duration.
         /// </summary>
         public readonly int MaxSessionDuration;
@@ -99,41 +109,47 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// The tags attached to the role.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The stable and unique string identifying the role.
         /// </summary>
         public readonly string UniqueId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetRoleResult(
             string arn,
+
             string assumeRolePolicy,
+
             string createDate,
+
             string description,
+
+            string id,
+
             int maxSessionDuration,
+
             string name,
+
             string path,
+
             string permissionsBoundary,
-            ImmutableDictionary<string, object> tags,
-            string uniqueId,
-            string id)
+
+            ImmutableDictionary<string, string> tags,
+
+            string uniqueId)
         {
             Arn = arn;
             AssumeRolePolicy = assumeRolePolicy;
             CreateDate = createDate;
             Description = description;
+            Id = id;
             MaxSessionDuration = maxSessionDuration;
             Name = name;
             Path = path;
             PermissionsBoundary = permissionsBoundary;
             Tags = tags;
             UniqueId = uniqueId;
-            Id = id;
         }
     }
 }

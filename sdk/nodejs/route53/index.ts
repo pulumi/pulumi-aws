@@ -4,6 +4,7 @@
 // Export members:
 export * from "./delegationSet";
 export * from "./getDelegationSet";
+export * from "./getResolverEndpoint";
 export * from "./getResolverRule";
 export * from "./getResolverRules";
 export * from "./getZone";
@@ -12,7 +13,13 @@ export * from "./queryLog";
 export * from "./record";
 export * from "./recordType";
 export * from "./resolverEndpoint";
+export * from "./resolverQueryLogConfig";
+export * from "./resolverQueryLogConfigAssociation";
 export * from "./resolverRule";
 export * from "./resolverRuleAssociation";
+export * from "./vpcAssociationAuthorization";
 export * from "./zone";
 export * from "./zoneAssociation";
+
+// Export enums:
+export * from "../types/enums/route53";

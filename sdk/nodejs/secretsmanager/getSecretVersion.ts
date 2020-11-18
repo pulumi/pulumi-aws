@@ -4,39 +4,38 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`aws.secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
- * 
- * ## Example Usage
- * 
- * ### Retrieve Current Secret Version
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = aws_secretsmanager_secret_example.id.apply(id => aws.secretsmanager.getSecretVersion({
- *     secretId: id,
- * }));
- * ```
- * 
- * ### Retrieve Specific Secret Version
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const byVersionStage = aws_secretsmanager_secret_example.id.apply(id => aws.secretsmanager.getSecretVersion({
- *     secretId: id,
- *     versionStage: "example",
- * }));
- * ```
+ * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
+ * ## Example Usage
+ * ### Retrieve Current Secret Version
+ *
+ * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.secretsmanager.getSecretVersion({
+ *     secretId: data.aws_secretsmanager_secret.example.id,
+ * });
+ * ```
+ * ### Retrieve Specific Secret Version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const by-version-stage = aws.secretsmanager.getSecretVersion({
+ *     secretId: data.aws_secretsmanager_secret.example.id,
+ *     versionStage: "example",
+ * });
+ * ```
  */
-export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> & GetSecretVersionResult {
+export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -44,13 +43,11 @@ export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSecretVersionResult> = pulumi.runtime.invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", {
+    return pulumi.runtime.invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", {
         "secretId": args.secretId,
         "versionId": args.versionId,
         "versionStage": args.versionStage,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -80,6 +77,10 @@ export interface GetSecretVersionResult {
      */
     readonly arn: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
      */
     readonly secretBinary: string;
@@ -94,8 +95,4 @@ export interface GetSecretVersionResult {
     readonly versionId: string;
     readonly versionStage?: string;
     readonly versionStages: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

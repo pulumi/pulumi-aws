@@ -4,27 +4,43 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
  * The Availability Zones data source allows access to the list of AWS
  * Availability Zones which can be accessed by an AWS account within the region
  * configured in the provider.
- * 
- * This is different from the `aws..getAvailabilityZone` (singular) data source,
+ *
+ * This is different from the `aws.getAvailabilityZone` (singular) data source,
  * which provides some details about a specific availability zone.
- * 
+ *
  * > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
- * 
+ *
  * ## Example Usage
- * 
- * ### By Filter
- * 
+ * ### By State
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.getAvailabilityZones({
+ *
+ * const available = aws.getAvailabilityZones({
+ *     state: "available",
+ * });
+ * const primary = new aws.ec2.Subnet("primary", {availabilityZone: available.then(available => available.names[0])});
+ * // ...
+ * const secondary = new aws.ec2.Subnet("secondary", {availabilityZone: available.then(available => available.names[1])});
+ * // ...
+ * ```
+ * ### By Filter
+ *
+ * All Local Zones (regardless of opt-in status):
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = pulumi.output(aws.getAvailabilityZones({
  *     allAvailabilityZones: true,
  *     filters: [{
  *         name: "opt-in-status",
@@ -33,12 +49,24 @@ import * as utilities from "./utilities";
  *             "opted-in",
  *         ],
  *     }],
- * });
+ * }, { async: true }));
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
+ * Only Availability Zones (no Local Zones):
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = pulumi.output(aws.getAvailabilityZones({
+ *     filters: [{
+ *         name: "opt-in-status",
+ *         values: ["opt-in-not-required"],
+ *     }],
+ * }, { async: true }));
+ * ```
  */
-export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZonesResult> & GetAvailabilityZonesResult {
+export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZonesResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -47,16 +75,13 @@ export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pul
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAvailabilityZonesResult> = pulumi.runtime.invoke("aws:index/getAvailabilityZones:getAvailabilityZones", {
+    return pulumi.runtime.invoke("aws:index/getAvailabilityZones:getAvailabilityZones", {
         "allAvailabilityZones": args.allAvailabilityZones,
-        "blacklistedNames": args.blacklistedNames,
-        "blacklistedZoneIds": args.blacklistedZoneIds,
+        "excludeNames": args.excludeNames,
+        "excludeZoneIds": args.excludeZoneIds,
         "filters": args.filters,
-        "groupNames": args.groupNames,
         "state": args.state,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -68,18 +93,17 @@ export interface GetAvailabilityZonesArgs {
      */
     readonly allAvailabilityZones?: boolean;
     /**
-     * List of blacklisted Availability Zone names.
+     * List of Availability Zone names to exclude.
      */
-    readonly blacklistedNames?: string[];
+    readonly excludeNames?: string[];
     /**
-     * List of blacklisted Availability Zone IDs.
+     * List of Availability Zone IDs to exclude.
      */
-    readonly blacklistedZoneIds?: string[];
+    readonly excludeZoneIds?: string[];
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
     readonly filters?: inputs.GetAvailabilityZonesFilter[];
-    readonly groupNames?: string[];
     /**
      * Allows to filter list of Availability Zones based on their
      * current state. Can be either `"available"`, `"information"`, `"impaired"` or
@@ -94,10 +118,14 @@ export interface GetAvailabilityZonesArgs {
  */
 export interface GetAvailabilityZonesResult {
     readonly allAvailabilityZones?: boolean;
-    readonly blacklistedNames?: string[];
-    readonly blacklistedZoneIds?: string[];
+    readonly excludeNames?: string[];
+    readonly excludeZoneIds?: string[];
     readonly filters?: outputs.GetAvailabilityZonesFilter[];
-    readonly groupNames?: string[];
+    readonly groupNames: string[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     /**
      * A list of the Availability Zone names available to the account.
      */
@@ -107,8 +135,4 @@ export interface GetAvailabilityZonesResult {
      * A list of the Availability Zone IDs available to the account.
      */
     readonly zoneIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

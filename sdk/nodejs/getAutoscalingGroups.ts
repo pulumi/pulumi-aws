@@ -4,20 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
  * The Autoscaling Groups data source allows access to the list of AWS
  * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const groups = aws.getAutoscalingGroups({
  *     filters: [
  *         {
@@ -31,7 +30,7 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * const slackNotifications = new aws.autoscaling.Notification("slackNotifications", {
- *     groupNames: groups.names,
+ *     groupNames: groups.then(groups => groups.names),
  *     notifications: [
  *         "autoscaling:EC2_INSTANCE_LAUNCH",
  *         "autoscaling:EC2_INSTANCE_TERMINATE",
@@ -41,10 +40,8 @@ import * as utilities from "./utilities";
  *     topicArn: "TOPIC ARN",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_groups.html.markdown.
  */
-export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscalingGroupsResult> & GetAutoscalingGroupsResult {
+export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscalingGroupsResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -53,11 +50,9 @@ export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pul
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAutoscalingGroupsResult> = pulumi.runtime.invoke("aws:index/getAutoscalingGroups:getAutoscalingGroups", {
+    return pulumi.runtime.invoke("aws:index/getAutoscalingGroups:getAutoscalingGroups", {
         "filters": args.filters,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -80,11 +75,11 @@ export interface GetAutoscalingGroupsResult {
     readonly arns: string[];
     readonly filters?: outputs.GetAutoscalingGroupsFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of the Autoscaling Groups in the current region.
      */
     readonly names: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

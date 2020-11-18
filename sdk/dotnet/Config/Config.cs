@@ -8,30 +8,23 @@ namespace Pulumi.Aws
     public static class Config
     {
         private static readonly Pulumi.Config __config = new Pulumi.Config("aws");
-
         /// <summary>
-        /// The access key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of
-        /// the AWS console.
+        /// The access key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         public static string? AccessKey { get; set; } = __config.Get("accessKey");
 
         public static ImmutableArray<string> AllowedAccountIds { get; set; } = __config.GetObject<ImmutableArray<string>>("allowedAccountIds");
 
-        public static ConfigTypes.AssumeRole? AssumeRole { get; set; } = __config.GetObject<ConfigTypes.AssumeRole>("assumeRole");
+        public static Pulumi.Aws.Config.Types.AssumeRole? AssumeRole { get; set; } = __config.GetObject<Pulumi.Aws.Config.Types.AssumeRole>("assumeRole");
 
-        public static ImmutableArray<ConfigTypes.Endpoints> Endpoints { get; set; } = __config.GetObject<ImmutableArray<ConfigTypes.Endpoints>>("endpoints");
+        public static ImmutableArray<Pulumi.Aws.Config.Types.Endpoints> Endpoints { get; set; } = __config.GetObject<ImmutableArray<Pulumi.Aws.Config.Types.Endpoints>>("endpoints");
 
         public static ImmutableArray<string> ForbiddenAccountIds { get; set; } = __config.GetObject<ImmutableArray<string>>("forbiddenAccountIds");
 
         /// <summary>
-        /// Resource tag key prefixes to ignore across all resources.
+        /// Configuration block with settings to ignore resource tags across all resources.
         /// </summary>
-        public static ImmutableArray<string> IgnoreTagPrefixes { get; set; } = __config.GetObject<ImmutableArray<string>>("ignoreTagPrefixes");
-
-        /// <summary>
-        /// Resource tag keys to ignore across all resources.
-        /// </summary>
-        public static ImmutableArray<string> IgnoreTags { get; set; } = __config.GetObject<ImmutableArray<string>>("ignoreTags");
+        public static Pulumi.Aws.Config.Types.IgnoreTags? IgnoreTags { get; set; } = __config.GetObject<Pulumi.Aws.Config.Types.IgnoreTags>("ignoreTags");
 
         /// <summary>
         /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
@@ -39,8 +32,7 @@ namespace Pulumi.Aws
         public static bool? Insecure { get; set; } = __config.GetBoolean("insecure");
 
         /// <summary>
-        /// The maximum number of times an AWS API request is being executed. If the API request still fails, an error
-        /// is thrown.
+        /// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         /// </summary>
         public static int? MaxRetries { get; set; } = __config.GetInt32("maxRetries");
 
@@ -55,15 +47,14 @@ namespace Pulumi.Aws
         public static string? Region { get; set; } = __config.Get("region") ?? Utilities.GetEnv("AWS_REGION", "AWS_DEFAULT_REGION");
 
         /// <summary>
-        /// Set this to true to force the request to use path-style addressing, i.e.,
-        /// http://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will use virtual hosted bucket addressing when
-        /// possible (http://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
+        /// Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
+        /// default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+        /// Specific to the Amazon S3 service.
         /// </summary>
         public static bool? S3ForcePathStyle { get; set; } = __config.GetBoolean("s3ForcePathStyle");
 
         /// <summary>
-        /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of
-        /// the AWS console.
+        /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         public static string? SecretKey { get; set; } = __config.Get("secretKey");
 
@@ -79,22 +70,20 @@ namespace Pulumi.Aws
         public static bool? SkipCredentialsValidation { get; set; } = __config.GetBoolean("skipCredentialsValidation");
 
         /// <summary>
-        /// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes
-        /// permissions.
+        /// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
         /// </summary>
         public static bool? SkipGetEc2Platforms { get; set; } = __config.GetBoolean("skipGetEc2Platforms");
 
         public static bool? SkipMetadataApiCheck { get; set; } = __config.GetBoolean("skipMetadataApiCheck");
 
         /// <summary>
-        /// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to
-        /// regions that are not public (yet).
+        /// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
+        /// not public (yet).
         /// </summary>
         public static bool? SkipRegionValidation { get; set; } = __config.GetBoolean("skipRegionValidation");
 
         /// <summary>
-        /// Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or
-        /// metadata API.
+        /// Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
         /// </summary>
         public static bool? SkipRequestingAccountId { get; set; } = __config.GetBoolean("skipRequestingAccountId");
 
@@ -103,154 +92,175 @@ namespace Pulumi.Aws
         /// </summary>
         public static string? Token { get; set; } = __config.Get("token");
 
-    }
-    namespace ConfigTypes
-    {
+        public static class Types
+        {
 
-    public class AssumeRole
-    {
-        public string? ExternalId { get; set; }
-        public string? Policy { get; set; }
-        public string? RoleArn { get; set; }
-        public string? SessionName { get; set; }
-    }
+             public class AssumeRole
+             {
+                public int? DurationSeconds { get; set; }
+                public string? ExternalId { get; set; } = null!;
+                public string? Policy { get; set; } = null!;
+                public ImmutableArray<string> PolicyArns { get; set; }
+                public string? RoleArn { get; set; } = null!;
+                public string? SessionName { get; set; } = null!;
+                public ImmutableDictionary<string, string>? Tags { get; set; } = null!;
+                public ImmutableArray<string> TransitiveTagKeys { get; set; }
+            }
 
-    public class Endpoints
-    {
-        public string? Accessanalyzer { get; set; }
-        public string? Acm { get; set; }
-        public string? Acmpca { get; set; }
-        public string? Amplify { get; set; }
-        public string? Apigateway { get; set; }
-        public string? Applicationautoscaling { get; set; }
-        public string? Applicationinsights { get; set; }
-        public string? Appmesh { get; set; }
-        public string? Appstream { get; set; }
-        public string? Appsync { get; set; }
-        public string? Athena { get; set; }
-        public string? Autoscaling { get; set; }
-        public string? Autoscalingplans { get; set; }
-        public string? Backup { get; set; }
-        public string? Batch { get; set; }
-        public string? Budgets { get; set; }
-        public string? Cloud9 { get; set; }
-        public string? Cloudformation { get; set; }
-        public string? Cloudfront { get; set; }
-        public string? Cloudhsm { get; set; }
-        public string? Cloudsearch { get; set; }
-        public string? Cloudtrail { get; set; }
-        public string? Cloudwatch { get; set; }
-        public string? Cloudwatchevents { get; set; }
-        public string? Cloudwatchlogs { get; set; }
-        public string? Codebuild { get; set; }
-        public string? Codecommit { get; set; }
-        public string? Codedeploy { get; set; }
-        public string? Codepipeline { get; set; }
-        public string? Cognitoidentity { get; set; }
-        public string? Cognitoidp { get; set; }
-        public string? Configservice { get; set; }
-        public string? Cur { get; set; }
-        public string? Dataexchange { get; set; }
-        public string? Datapipeline { get; set; }
-        public string? Datasync { get; set; }
-        public string? Dax { get; set; }
-        public string? Devicefarm { get; set; }
-        public string? Directconnect { get; set; }
-        public string? Dlm { get; set; }
-        public string? Dms { get; set; }
-        public string? Docdb { get; set; }
-        public string? Ds { get; set; }
-        public string? Dynamodb { get; set; }
-        public string? Ec2 { get; set; }
-        public string? Ecr { get; set; }
-        public string? Ecs { get; set; }
-        public string? Efs { get; set; }
-        public string? Eks { get; set; }
-        public string? Elasticache { get; set; }
-        public string? Elasticbeanstalk { get; set; }
-        public string? Elastictranscoder { get; set; }
-        public string? Elb { get; set; }
-        public string? Emr { get; set; }
-        public string? Es { get; set; }
-        public string? Firehose { get; set; }
-        public string? Fms { get; set; }
-        public string? Forecast { get; set; }
-        public string? Fsx { get; set; }
-        public string? Gamelift { get; set; }
-        public string? Glacier { get; set; }
-        public string? Globalaccelerator { get; set; }
-        public string? Glue { get; set; }
-        public string? Greengrass { get; set; }
-        public string? Guardduty { get; set; }
-        public string? Iam { get; set; }
-        public string? Imagebuilder { get; set; }
-        public string? Inspector { get; set; }
-        public string? Iot { get; set; }
-        public string? Iotanalytics { get; set; }
-        public string? Iotevents { get; set; }
-        public string? Kafka { get; set; }
-        public string? Kinesis { get; set; }
-        public string? KinesisAnalytics { get; set; }
-        public string? Kinesisanalytics { get; set; }
-        public string? Kinesisvideo { get; set; }
-        public string? Kms { get; set; }
-        public string? Lakeformation { get; set; }
-        public string? Lambda { get; set; }
-        public string? Lexmodels { get; set; }
-        public string? Licensemanager { get; set; }
-        public string? Lightsail { get; set; }
-        public string? Macie { get; set; }
-        public string? Managedblockchain { get; set; }
-        public string? Marketplacecatalog { get; set; }
-        public string? Mediaconnect { get; set; }
-        public string? Mediaconvert { get; set; }
-        public string? Medialive { get; set; }
-        public string? Mediapackage { get; set; }
-        public string? Mediastore { get; set; }
-        public string? Mediastoredata { get; set; }
-        public string? Mq { get; set; }
-        public string? Neptune { get; set; }
-        public string? Opsworks { get; set; }
-        public string? Organizations { get; set; }
-        public string? Personalize { get; set; }
-        public string? Pinpoint { get; set; }
-        public string? Pricing { get; set; }
-        public string? Qldb { get; set; }
-        public string? Quicksight { get; set; }
-        public string? R53 { get; set; }
-        public string? Ram { get; set; }
-        public string? Rds { get; set; }
-        public string? Redshift { get; set; }
-        public string? Resourcegroups { get; set; }
-        public string? Route53 { get; set; }
-        public string? Route53resolver { get; set; }
-        public string? S3 { get; set; }
-        public string? S3control { get; set; }
-        public string? Sagemaker { get; set; }
-        public string? Sdb { get; set; }
-        public string? Secretsmanager { get; set; }
-        public string? Securityhub { get; set; }
-        public string? Serverlessrepo { get; set; }
-        public string? Servicecatalog { get; set; }
-        public string? Servicediscovery { get; set; }
-        public string? Servicequotas { get; set; }
-        public string? Ses { get; set; }
-        public string? Shield { get; set; }
-        public string? Sns { get; set; }
-        public string? Sqs { get; set; }
-        public string? Ssm { get; set; }
-        public string? Stepfunctions { get; set; }
-        public string? Storagegateway { get; set; }
-        public string? Sts { get; set; }
-        public string? Swf { get; set; }
-        public string? Transfer { get; set; }
-        public string? Waf { get; set; }
-        public string? Wafregional { get; set; }
-        public string? Wafv2 { get; set; }
-        public string? Worklink { get; set; }
-        public string? Workmail { get; set; }
-        public string? Workspaces { get; set; }
-        public string? Xray { get; set; }
-    }
+             public class Endpoints
+             {
+                public string? Accessanalyzer { get; set; } = null!;
+                public string? Acm { get; set; } = null!;
+                public string? Acmpca { get; set; } = null!;
+                public string? Amplify { get; set; } = null!;
+                public string? Apigateway { get; set; } = null!;
+                public string? Applicationautoscaling { get; set; } = null!;
+                public string? Applicationinsights { get; set; } = null!;
+                public string? Appmesh { get; set; } = null!;
+                public string? Appstream { get; set; } = null!;
+                public string? Appsync { get; set; } = null!;
+                public string? Athena { get; set; } = null!;
+                public string? Autoscaling { get; set; } = null!;
+                public string? Autoscalingplans { get; set; } = null!;
+                public string? Backup { get; set; } = null!;
+                public string? Batch { get; set; } = null!;
+                public string? Budgets { get; set; } = null!;
+                public string? Cloud9 { get; set; } = null!;
+                public string? Cloudformation { get; set; } = null!;
+                public string? Cloudfront { get; set; } = null!;
+                public string? Cloudhsm { get; set; } = null!;
+                public string? Cloudsearch { get; set; } = null!;
+                public string? Cloudtrail { get; set; } = null!;
+                public string? Cloudwatch { get; set; } = null!;
+                public string? Cloudwatchevents { get; set; } = null!;
+                public string? Cloudwatchlogs { get; set; } = null!;
+                public string? Codeartifact { get; set; } = null!;
+                public string? Codebuild { get; set; } = null!;
+                public string? Codecommit { get; set; } = null!;
+                public string? Codedeploy { get; set; } = null!;
+                public string? Codepipeline { get; set; } = null!;
+                public string? Codestarconnections { get; set; } = null!;
+                public string? Cognitoidentity { get; set; } = null!;
+                public string? Cognitoidp { get; set; } = null!;
+                public string? Configservice { get; set; } = null!;
+                public string? Cur { get; set; } = null!;
+                public string? Dataexchange { get; set; } = null!;
+                public string? Datapipeline { get; set; } = null!;
+                public string? Datasync { get; set; } = null!;
+                public string? Dax { get; set; } = null!;
+                public string? Devicefarm { get; set; } = null!;
+                public string? Directconnect { get; set; } = null!;
+                public string? Dlm { get; set; } = null!;
+                public string? Dms { get; set; } = null!;
+                public string? Docdb { get; set; } = null!;
+                public string? Ds { get; set; } = null!;
+                public string? Dynamodb { get; set; } = null!;
+                public string? Ec2 { get; set; } = null!;
+                public string? Ecr { get; set; } = null!;
+                public string? Ecs { get; set; } = null!;
+                public string? Efs { get; set; } = null!;
+                public string? Eks { get; set; } = null!;
+                public string? Elasticache { get; set; } = null!;
+                public string? Elasticbeanstalk { get; set; } = null!;
+                public string? Elastictranscoder { get; set; } = null!;
+                public string? Elb { get; set; } = null!;
+                public string? Emr { get; set; } = null!;
+                public string? Es { get; set; } = null!;
+                public string? Firehose { get; set; } = null!;
+                public string? Fms { get; set; } = null!;
+                public string? Forecast { get; set; } = null!;
+                public string? Fsx { get; set; } = null!;
+                public string? Gamelift { get; set; } = null!;
+                public string? Glacier { get; set; } = null!;
+                public string? Globalaccelerator { get; set; } = null!;
+                public string? Glue { get; set; } = null!;
+                public string? Greengrass { get; set; } = null!;
+                public string? Guardduty { get; set; } = null!;
+                public string? Iam { get; set; } = null!;
+                public string? Identitystore { get; set; } = null!;
+                public string? Imagebuilder { get; set; } = null!;
+                public string? Inspector { get; set; } = null!;
+                public string? Iot { get; set; } = null!;
+                public string? Iotanalytics { get; set; } = null!;
+                public string? Iotevents { get; set; } = null!;
+                public string? Kafka { get; set; } = null!;
+                public string? Kinesis { get; set; } = null!;
+                public string? Kinesisanalytics { get; set; } = null!;
+                public string? Kinesisanalyticsv2 { get; set; } = null!;
+                public string? Kinesisvideo { get; set; } = null!;
+                public string? Kms { get; set; } = null!;
+                public string? Lakeformation { get; set; } = null!;
+                public string? Lambda { get; set; } = null!;
+                public string? Lexmodels { get; set; } = null!;
+                public string? Licensemanager { get; set; } = null!;
+                public string? Lightsail { get; set; } = null!;
+                public string? Macie { get; set; } = null!;
+                public string? Macie2 { get; set; } = null!;
+                public string? Managedblockchain { get; set; } = null!;
+                public string? Marketplacecatalog { get; set; } = null!;
+                public string? Mediaconnect { get; set; } = null!;
+                public string? Mediaconvert { get; set; } = null!;
+                public string? Medialive { get; set; } = null!;
+                public string? Mediapackage { get; set; } = null!;
+                public string? Mediastore { get; set; } = null!;
+                public string? Mediastoredata { get; set; } = null!;
+                public string? Mq { get; set; } = null!;
+                public string? Neptune { get; set; } = null!;
+                public string? Networkmanager { get; set; } = null!;
+                public string? Opsworks { get; set; } = null!;
+                public string? Organizations { get; set; } = null!;
+                public string? Outposts { get; set; } = null!;
+                public string? Personalize { get; set; } = null!;
+                public string? Pinpoint { get; set; } = null!;
+                public string? Pricing { get; set; } = null!;
+                public string? Qldb { get; set; } = null!;
+                public string? Quicksight { get; set; } = null!;
+                public string? Ram { get; set; } = null!;
+                public string? Rds { get; set; } = null!;
+                public string? Redshift { get; set; } = null!;
+                public string? Resourcegroups { get; set; } = null!;
+                public string? Resourcegroupstaggingapi { get; set; } = null!;
+                public string? Route53 { get; set; } = null!;
+                public string? Route53domains { get; set; } = null!;
+                public string? Route53resolver { get; set; } = null!;
+                public string? S3 { get; set; } = null!;
+                public string? S3control { get; set; } = null!;
+                public string? S3outposts { get; set; } = null!;
+                public string? Sagemaker { get; set; } = null!;
+                public string? Sdb { get; set; } = null!;
+                public string? Secretsmanager { get; set; } = null!;
+                public string? Securityhub { get; set; } = null!;
+                public string? Serverlessrepo { get; set; } = null!;
+                public string? Servicecatalog { get; set; } = null!;
+                public string? Servicediscovery { get; set; } = null!;
+                public string? Servicequotas { get; set; } = null!;
+                public string? Ses { get; set; } = null!;
+                public string? Shield { get; set; } = null!;
+                public string? Sns { get; set; } = null!;
+                public string? Sqs { get; set; } = null!;
+                public string? Ssm { get; set; } = null!;
+                public string? Ssoadmin { get; set; } = null!;
+                public string? Stepfunctions { get; set; } = null!;
+                public string? Storagegateway { get; set; } = null!;
+                public string? Sts { get; set; } = null!;
+                public string? Swf { get; set; } = null!;
+                public string? Synthetics { get; set; } = null!;
+                public string? Timestreamwrite { get; set; } = null!;
+                public string? Transfer { get; set; } = null!;
+                public string? Waf { get; set; } = null!;
+                public string? Wafregional { get; set; } = null!;
+                public string? Wafv2 { get; set; } = null!;
+                public string? Worklink { get; set; } = null!;
+                public string? Workmail { get; set; } = null!;
+                public string? Workspaces { get; set; } = null!;
+                public string? Xray { get; set; } = null!;
+            }
+
+             public class IgnoreTags
+             {
+                public ImmutableArray<string> KeyPrefixes { get; set; }
+                public ImmutableArray<string> Keys { get; set; }
+            }
+        }
     }
 }

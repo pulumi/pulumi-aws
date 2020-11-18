@@ -2,21 +2,37 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Creates an entry (a rule) in a network ACL with the specified rule number.
- * 
+ *
  * > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
  * provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
  * defined in-line. At this time you cannot use a Network ACL with in-line rules
  * in conjunction with any Network ACL Rule resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
- * 
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl_rule.html.markdown.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const barNetworkAcl = new aws.ec2.NetworkAcl("barNetworkAcl", {vpcId: aws_vpc.foo.id});
+ * const barNetworkAclRule = new aws.ec2.NetworkAclRule("barNetworkAclRule", {
+ *     networkAclId: barNetworkAcl.id,
+ *     ruleNumber: 200,
+ *     egress: false,
+ *     protocol: "tcp",
+ *     ruleAction: "allow",
+ *     cidrBlock: aws_vpc.foo.cidr_block,
+ *     fromPort: 22,
+ *     toPort: 22,
+ * });
+ * ```
+ *
+ * > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
  */
 export class NetworkAclRule extends pulumi.CustomResource {
     /**
@@ -26,6 +42,7 @@ export class NetworkAclRule extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NetworkAclRuleState, opts?: pulumi.CustomResourceOptions): NetworkAclRule {
         return new NetworkAclRule(name, <any>state, { ...opts, id: id });

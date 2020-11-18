@@ -14,11 +14,27 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; **NOTE:** Each AWS account may only have one S3 Public Access Block configuration. Multiple configurations of the resource against the same AWS account will cause a perpetual difference.
     /// 
-    /// &gt; Advanced usage: To use a custom API endpoint for this resource, use the [`s3control` endpoint provider configuration](https://www.terraform.io/docs/providers/aws/index.html#s3control), not the `s3` endpoint provider configuration.
+    /// &gt; Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration, not the `s3` endpoint provider configuration.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_account_public_access_block.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.S3.AccountPublicAccessBlock("example", new Aws.S3.AccountPublicAccessBlockArgs
+    ///         {
+    ///             BlockPublicAcls = true,
+    ///             BlockPublicPolicy = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AccountPublicAccessBlock : Pulumi.CustomResource
     {
@@ -66,7 +82,7 @@ namespace Pulumi.Aws.S3
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccountPublicAccessBlock(string name, AccountPublicAccessBlockArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock", name, args ?? new AccountPublicAccessBlockArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -7,17 +7,91 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides an AutoScaling Attachment resource.
+// Provides an Auto Scaling Attachment resource.
 //
-// > **NOTE on AutoScaling Groups and ASG Attachments:** This provider currently provides
-// both a standalone ASG Attachment resource (describing an ASG attached to
-// an ELB), and an AutoScaling Group resource with
-// `loadBalancers` defined in-line. At this time you cannot use an ASG with in-line
-// load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
-// conflict and will overwrite attachments.
+// > **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
+// both a standalone `autoscaling.Attachment` resource
+// (describing an ASG attached to an ELB or ALB), and an `autoscaling.Group`
+// with `loadBalancers` and `targetGroupArns` defined in-line. These two methods are not
+// mutually-exclusive. If `autoscaling.Attachment` resources are used, either alone or with inline
+// `loadBalancers` or `targetGroupArns`, the `autoscaling.Group` resource must be configured
+// to [ignore changes](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to the `loadBalancers` and `targetGroupArns` arguments.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := autoscaling.NewAttachment(ctx, "asgAttachmentBar", &autoscaling.AttachmentArgs{
+// 			AutoscalingGroupName: pulumi.Any(aws_autoscaling_group.Asg.Id),
+// 			Elb:                  pulumi.Any(aws_elb.Bar.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := autoscaling.NewAttachment(ctx, "asgAttachmentBar", &autoscaling.AttachmentArgs{
+// 			AutoscalingGroupName: pulumi.Any(aws_autoscaling_group.Asg.Id),
+// 			AlbTargetGroupArn:    pulumi.Any(aws_alb_target_group.Test.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## With An AutoScaling Group Resource
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		asg, err := autoscaling.NewGroup(ctx, "asg", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewAttachment(ctx, "asgAttachmentBar", &autoscaling.AttachmentArgs{
+// 			AutoscalingGroupName: asg.ID(),
+// 			Elb:                  pulumi.Any(aws_elb.Test.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Attachment struct {
 	pulumi.CustomResourceState
 

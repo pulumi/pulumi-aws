@@ -4,24 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Information about single EC2 Instance Type Offering.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ec2.getInstanceTypeOffering({
+ *
+ * const example = pulumi.output(aws.ec2.getInstanceTypeOffering({
  *     filters: [{
  *         name: "instance-type",
  *         values: [
- *             "t1.micro",
  *             "t2.micro",
  *             "t3.micro",
  *         ],
@@ -29,14 +27,11 @@ import * as utilities from "../utilities";
  *     preferredInstanceTypes: [
  *         "t3.micro",
  *         "t2.micro",
- *         "t1.micro",
  *     ],
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_instance_type_offering.html.markdown.
  */
-export function getInstanceTypeOffering(args?: GetInstanceTypeOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingResult> & GetInstanceTypeOfferingResult {
+export function getInstanceTypeOffering(args?: GetInstanceTypeOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -45,13 +40,11 @@ export function getInstanceTypeOffering(args?: GetInstanceTypeOfferingArgs, opts
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetInstanceTypeOfferingResult> = pulumi.runtime.invoke("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", {
+    return pulumi.runtime.invoke("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", {
         "filters": args.filters,
         "locationType": args.locationType,
         "preferredInstanceTypes": args.preferredInstanceTypes,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -78,13 +71,13 @@ export interface GetInstanceTypeOfferingArgs {
 export interface GetInstanceTypeOfferingResult {
     readonly filters?: outputs.ec2.GetInstanceTypeOfferingFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * EC2 Instance Type.
      */
     readonly instanceType: string;
     readonly locationType?: string;
     readonly preferredInstanceTypes?: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

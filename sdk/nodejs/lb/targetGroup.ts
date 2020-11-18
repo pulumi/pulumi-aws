@@ -4,60 +4,52 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Target Group resource for use with Load Balancer resources.
- * 
+ *
  * > **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
  * ### Instance Target Group
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
+ *
+ * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
  * const test = new aws.lb.TargetGroup("test", {
  *     port: 80,
  *     protocol: "HTTP",
  *     vpcId: main.id,
  * });
  * ```
- * 
  * ### IP Target Group
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const ipExample = new aws.lb.TargetGroup("ip-example", {
+ *
+ * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
+ * const ip_example = new aws.lb.TargetGroup("ip-example", {
  *     port: 80,
  *     protocol: "HTTP",
  *     targetType: "ip",
  *     vpcId: main.id,
  * });
  * ```
- * 
  * ### Lambda Target Group
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const lambdaExample = new aws.lb.TargetGroup("lambda-example", {
+ *
+ * const lambda_example = new aws.lb.TargetGroup("lambda-example", {
  *     targetType: "lambda",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group.html.markdown.
  */
 export class TargetGroup extends pulumi.CustomResource {
     /**
@@ -67,6 +59,7 @@ export class TargetGroup extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TargetGroupState, opts?: pulumi.CustomResourceOptions): TargetGroup {
         return new TargetGroup(name, <any>state, { ...opts, id: id });
@@ -123,7 +116,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
-     * The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+     * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
     /**
@@ -135,13 +128,13 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly slowStart!: pulumi.Output<number | undefined>;
     /**
-     * A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+     * A Stickiness block. Stickiness blocks are documented below.
      */
     public readonly stickiness!: pulumi.Output<outputs.lb.TargetGroupStickiness>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of target that you must specify when registering targets with this target group.
      * The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
@@ -257,7 +250,7 @@ export interface TargetGroupState {
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+     * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -269,13 +262,13 @@ export interface TargetGroupState {
      */
     readonly slowStart?: pulumi.Input<number>;
     /**
-     * A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+     * A Stickiness block. Stickiness blocks are documented below.
      */
     readonly stickiness?: pulumi.Input<inputs.lb.TargetGroupStickiness>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of target that you must specify when registering targets with this target group.
      * The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
@@ -324,7 +317,7 @@ export interface TargetGroupArgs {
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+     * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -336,13 +329,13 @@ export interface TargetGroupArgs {
      */
     readonly slowStart?: pulumi.Input<number>;
     /**
-     * A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+     * A Stickiness block. Stickiness blocks are documented below.
      */
     readonly stickiness?: pulumi.Input<inputs.lb.TargetGroupStickiness>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of target that you must specify when registering targets with this target group.
      * The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).

@@ -7,23 +7,50 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
 // [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
+//
+// ## Example Usage
+// ### Using default security group
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2clientvpn"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2clientvpn.NewNetworkAssociation(ctx, "example", &ec2clientvpn.NetworkAssociationArgs{
+// 			ClientVpnEndpointId: pulumi.Any(aws_ec2_client_vpn_endpoint.Example.Id),
+// 			SubnetId:            pulumi.Any(aws_subnet.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type NetworkAssociation struct {
 	pulumi.CustomResourceState
 
+	// The unique ID of the target network association.
+	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId pulumi.StringOutput `pulumi:"clientVpnEndpointId"`
-	// The IDs of the security groups applied to the target network association.
+	// A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// The current state of the target network association.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// The ID of the VPC in which the target network (subnet) is located.
+	// The ID of the VPC in which the target subnet is located.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -61,28 +88,32 @@ func GetNetworkAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkAssociation resources.
 type networkAssociationState struct {
+	// The unique ID of the target network association.
+	AssociationId *string `pulumi:"associationId"`
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId *string `pulumi:"clientVpnEndpointId"`
-	// The IDs of the security groups applied to the target network association.
+	// A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The current state of the target network association.
 	Status *string `pulumi:"status"`
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId *string `pulumi:"subnetId"`
-	// The ID of the VPC in which the target network (subnet) is located.
+	// The ID of the VPC in which the target subnet is located.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type NetworkAssociationState struct {
+	// The unique ID of the target network association.
+	AssociationId pulumi.StringPtrInput
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId pulumi.StringPtrInput
-	// The IDs of the security groups applied to the target network association.
+	// A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
 	SecurityGroups pulumi.StringArrayInput
 	// The current state of the target network association.
 	Status pulumi.StringPtrInput
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId pulumi.StringPtrInput
-	// The ID of the VPC in which the target network (subnet) is located.
+	// The ID of the VPC in which the target subnet is located.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -93,6 +124,8 @@ func (NetworkAssociationState) ElementType() reflect.Type {
 type networkAssociationArgs struct {
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId string `pulumi:"clientVpnEndpointId"`
+	// A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+	SecurityGroups []string `pulumi:"securityGroups"`
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -101,6 +134,8 @@ type networkAssociationArgs struct {
 type NetworkAssociationArgs struct {
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId pulumi.StringInput
+	// A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+	SecurityGroups pulumi.StringArrayInput
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId pulumi.StringInput
 }

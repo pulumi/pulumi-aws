@@ -6,7 +6,7 @@ package ec2
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a security group resource.
@@ -21,6 +21,46 @@ import (
 // > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 //
 // > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
+//
+// ## Usage with prefix list IDs
+//
+// Prefix list IDs are managed by AWS internally. Prefix list IDs
+// are associated with a prefix list name, or service name, that is linked to a specific region.
+// Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		myEndpoint, err := ec2.NewVpcEndpoint(ctx, "myEndpoint", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+// 			Egress: ec2.SecurityGroupEgressArray{
+// 				&ec2.SecurityGroupEgressArgs{
+// 					FromPort: pulumi.Int(0),
+// 					ToPort:   pulumi.Int(0),
+// 					Protocol: pulumi.String("-1"),
+// 					PrefixListIds: pulumi.StringArray{
+// 						myEndpoint.PrefixListId,
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SecurityGroup struct {
 	pulumi.CustomResourceState
 
@@ -50,8 +90,8 @@ type SecurityGroup struct {
 	// the security groups from being destroyed without removing the dependency first.
 	// Default `false`
 	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The VPC ID.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -113,8 +153,8 @@ type securityGroupState struct {
 	// the security groups from being destroyed without removing the dependency first.
 	// Default `false`
 	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -146,8 +186,8 @@ type SecurityGroupState struct {
 	// the security groups from being destroyed without removing the dependency first.
 	// Default `false`
 	RevokeRulesOnDelete pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringPtrInput
 }
@@ -179,8 +219,8 @@ type securityGroupArgs struct {
 	// the security groups from being destroyed without removing the dependency first.
 	// Default `false`
 	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -209,8 +249,8 @@ type SecurityGroupArgs struct {
 	// the security groups from being destroyed without removing the dependency first.
 	// Default `false`
 	RevokeRulesOnDelete pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringPtrInput
 }

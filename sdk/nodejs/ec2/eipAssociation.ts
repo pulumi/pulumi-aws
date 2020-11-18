@@ -2,45 +2,37 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AWS EIP Association as a top level resource, to associate and
  * disassociate Elastic IPs from AWS Instances and Network Interfaces.
- * 
+ *
  * > **NOTE:** Do not use this resource to associate an EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocationId` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
- * 
+ *
  * > **NOTE:** `aws.ec2.EipAssociation` is useful in scenarios where EIPs are either
  * pre-existing or distributed to customers or users and therefore cannot be changed.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-21f78e11",
  *     availabilityZone: "us-west-2a",
- *     instanceType: "t1.micro",
+ *     instanceType: "t2.micro",
  *     tags: {
  *         Name: "HelloWorld",
  *     },
  * });
- * const example = new aws.ec2.Eip("example", {
- *     vpc: true,
- * });
+ * const example = new aws.ec2.Eip("example", {vpc: true});
  * const eipAssoc = new aws.ec2.EipAssociation("eipAssoc", {
- *     allocationId: example.id,
  *     instanceId: web.id,
+ *     allocationId: example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip_association.html.markdown.
  */
 export class EipAssociation extends pulumi.CustomResource {
     /**
@@ -50,6 +42,7 @@ export class EipAssociation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EipAssociationState, opts?: pulumi.CustomResourceOptions): EipAssociation {
         return new EipAssociation(name, <any>state, { ...opts, id: id });

@@ -9,33 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Elb
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
-        /// in a given region for the purpose of using in an AWS Route53 Alias.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetHostedZoneId.InvokeAsync() instead")]
-        public static Task<GetHostedZoneIdResult> GetHostedZoneId(GetHostedZoneIdArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:elb/getHostedZoneId:getHostedZoneId", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetHostedZoneId
     {
         /// <summary>
         /// Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
         /// in a given region for the purpose of using in an AWS Route53 Alias.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var main = Output.Create(Aws.Elb.GetHostedZoneId.InvokeAsync());
+        ///         var www = new Aws.Route53.Record("www", new Aws.Route53.RecordArgs
+        ///         {
+        ///             ZoneId = aws_route53_zone.Primary.Zone_id,
+        ///             Name = "example.com",
+        ///             Type = "A",
+        ///             Aliases = 
+        ///             {
+        ///                 new Aws.Route53.Inputs.RecordAliasArgs
+        ///                 {
+        ///                     Name = aws_elb.Main.Dns_name,
+        ///                     ZoneId = main.Apply(main =&gt; main.Id),
+        ///                     EvaluateTargetHealth = true,
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetHostedZoneIdResult> InvokeAsync(GetHostedZoneIdArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:elb/getHostedZoneId:getHostedZoneId", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:elb/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdArgs(), options.WithVersion());
     }
+
 
     public sealed class GetHostedZoneIdArgs : Pulumi.InvokeArgs
     {
@@ -51,22 +69,24 @@ namespace Pulumi.Aws.Elb
         }
     }
 
+
     [OutputType]
     public sealed class GetHostedZoneIdResult
     {
-        public readonly string? Region;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? Region;
 
         [OutputConstructor]
         private GetHostedZoneIdResult(
-            string? region,
-            string id)
+            string id,
+
+            string? region)
         {
-            Region = region;
             Id = id;
+            Region = region;
         }
     }
 }

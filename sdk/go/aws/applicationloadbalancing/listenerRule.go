@@ -7,18 +7,244 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Load Balancer Listener Rule resource.
 //
 // > **Note:** `alb.ListenerRule` is known as `lb.ListenerRule`. The functionality is identical.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cognito"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/lb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		frontEndListener, err := lb.NewListener(ctx, "frontEndListener", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lb.NewListenerRule(ctx, "static", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
+// 			Priority:    pulumi.Int(100),
+// 			Actions: lb.ListenerRuleActionArray{
+// 				&lb.ListenerRuleActionArgs{
+// 					Type:           pulumi.String("forward"),
+// 					TargetGroupArn: pulumi.Any(aws_lb_target_group.Static.Arn),
+// 				},
+// 			},
+// 			Conditions: lb.ListenerRuleConditionArray{
+// 				&lb.ListenerRuleConditionArgs{
+// 					PathPattern: &lb.ListenerRuleConditionPathPatternArgs{
+// 						Values: pulumi.StringArray{
+// 							pulumi.String("/static/*"),
+// 						},
+// 					},
+// 				},
+// 				&lb.ListenerRuleConditionArgs{
+// 					HostHeader: &lb.ListenerRuleConditionHostHeaderArgs{
+// 						Values: pulumi.StringArray{
+// 							pulumi.String("example.com"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lb.NewListenerRule(ctx, "hostBasedWeightedRouting", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
+// 			Priority:    pulumi.Int(99),
+// 			Actions: lb.ListenerRuleActionArray{
+// 				&lb.ListenerRuleActionArgs{
+// 					Type:           pulumi.String("forward"),
+// 					TargetGroupArn: pulumi.Any(aws_lb_target_group.Static.Arn),
+// 				},
+// 			},
+// 			Conditions: lb.ListenerRuleConditionArray{
+// 				&lb.ListenerRuleConditionArgs{
+// 					HostHeader: &lb.ListenerRuleConditionHostHeaderArgs{
+// 						Values: pulumi.StringArray{
+// 							pulumi.String("my-service.*.mycompany.io"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lb.NewListenerRule(ctx, "hostBasedRouting", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
+// 			Priority:    pulumi.Int(99),
+// 			Actions: lb.ListenerRuleActionArray{
+// 				&lb.ListenerRuleActionArgs{
+// 					Type: pulumi.String("forward"),
+// 					Forward: &lb.ListenerRuleActionForwardArgs{
+// 						TargetGroups: lb.ListenerRuleActionForwardTargetGroupArray{
+// 							&lb.ListenerRuleActionForwardTargetGroupArgs{
+// 								Arn:    pulumi.Any(aws_lb_target_group.Main.Arn),
+// 								Weight: pulumi.Int(80),
+// 							},
+// 							&lb.ListenerRuleActionForwardTargetGroupArgs{
+// 								Arn:    pulumi.Any(aws_lb_target_group.Canary.Arn),
+// 								Weight: pulumi.Int(20),
+// 							},
+// 						},
+// 						Stickiness: &lb.ListenerRuleActionForwardStickinessArgs{
+// 							Enabled:  pulumi.Bool(true),
+// 							Duration: pulumi.Int(600),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			Conditions: lb.ListenerRuleConditionArray{
+// 				&lb.ListenerRuleConditionArgs{
+// 					HostHeader: &lb.ListenerRuleConditionHostHeaderArgs{
+// 						Values: pulumi.StringArray{
+// 							pulumi.String("my-service.*.mycompany.io"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lb.NewListenerRule(ctx, "redirectHttpToHttps", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
+// 			Actions: lb.ListenerRuleActionArray{
+// 				&lb.ListenerRuleActionArgs{
+// 					Type: pulumi.String("redirect"),
+// 					Redirect: &lb.ListenerRuleActionRedirectArgs{
+// 						Port:       pulumi.String("443"),
+// 						Protocol:   pulumi.String("HTTPS"),
+// 						StatusCode: pulumi.String("HTTP_301"),
+// 					},
+// 				},
+// 			},
+// 			Conditions: lb.ListenerRuleConditionArray{
+// 				&lb.ListenerRuleConditionArgs{
+// 					HttpHeader: &lb.ListenerRuleConditionHttpHeaderArgs{
+// 						HttpHeaderName: pulumi.String("X-Forwarded-For"),
+// 						Values: pulumi.StringArray{
+// 							pulumi.String("192.168.1.*"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lb.NewListenerRule(ctx, "healthCheck", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
+// 			Actions: lb.ListenerRuleActionArray{
+// 				&lb.ListenerRuleActionArgs{
+// 					Type: pulumi.String("fixed-response"),
+// 					FixedResponse: &lb.ListenerRuleActionFixedResponseArgs{
+// 						ContentType: pulumi.String("text/plain"),
+// 						MessageBody: pulumi.String("HEALTHY"),
+// 						StatusCode:  pulumi.String("200"),
+// 					},
+// 				},
+// 			},
+// 			Conditions: lb.ListenerRuleConditionArray{
+// 				&lb.ListenerRuleConditionArgs{
+// 					QueryStrings: lb.ListenerRuleConditionQueryStringArray{
+// 						&lb.ListenerRuleConditionQueryStringArgs{
+// 							Key:   pulumi.String("health"),
+// 							Value: pulumi.String("check"),
+// 						},
+// 						&lb.ListenerRuleConditionQueryStringArgs{
+// 							Value: pulumi.String("bar"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		pool, err := cognito.NewUserPool(ctx, "pool", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		client, err := cognito.NewUserPoolClient(ctx, "client", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		domain, err := cognito.NewUserPoolDomain(ctx, "domain", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lb.NewListenerRule(ctx, "admin", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
+// 			Actions: lb.ListenerRuleActionArray{
+// 				&lb.ListenerRuleActionArgs{
+// 					Type: pulumi.String("authenticate-cognito"),
+// 					AuthenticateCognito: &lb.ListenerRuleActionAuthenticateCognitoArgs{
+// 						UserPoolArn:      pool.Arn,
+// 						UserPoolClientId: client.ID(),
+// 						UserPoolDomain:   domain.Domain,
+// 					},
+// 				},
+// 				&lb.ListenerRuleActionArgs{
+// 					Type:           pulumi.String("forward"),
+// 					TargetGroupArn: pulumi.Any(aws_lb_target_group.Static.Arn),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lb.NewListenerRule(ctx, "oidc", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
+// 			Actions: lb.ListenerRuleActionArray{
+// 				&lb.ListenerRuleActionArgs{
+// 					Type: pulumi.String("authenticate-oidc"),
+// 					AuthenticateOidc: &lb.ListenerRuleActionAuthenticateOidcArgs{
+// 						AuthorizationEndpoint: pulumi.String("https://example.com/authorization_endpoint"),
+// 						ClientId:              pulumi.String("client_id"),
+// 						ClientSecret:          pulumi.String("client_secret"),
+// 						Issuer:                pulumi.String("https://example.com"),
+// 						TokenEndpoint:         pulumi.String("https://example.com/token_endpoint"),
+// 						UserInfoEndpoint:      pulumi.String("https://example.com/user_info_endpoint"),
+// 					},
+// 				},
+// 				&lb.ListenerRuleActionArgs{
+// 					Type:           pulumi.String("forward"),
+// 					TargetGroupArn: pulumi.Any(aws_lb_target_group.Static.Arn),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// Deprecated: aws.applicationloadbalancing.ListenerRule has been deprecated in favor of aws.alb.ListenerRule
 type ListenerRule struct {
 	pulumi.CustomResourceState
 
 	// An Action block. Action blocks are documented below.
 	Actions ListenerRuleActionArrayOutput `pulumi:"actions"`
-	// The ARN of the rule (matches `id`)
+	// The Amazon Resource Name (ARN) of the target group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
 	Conditions ListenerRuleConditionArrayOutput `pulumi:"conditions"`
@@ -67,7 +293,7 @@ func GetListenerRule(ctx *pulumi.Context,
 type listenerRuleState struct {
 	// An Action block. Action blocks are documented below.
 	Actions []ListenerRuleAction `pulumi:"actions"`
-	// The ARN of the rule (matches `id`)
+	// The Amazon Resource Name (ARN) of the target group.
 	Arn *string `pulumi:"arn"`
 	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
 	Conditions []ListenerRuleCondition `pulumi:"conditions"`
@@ -80,7 +306,7 @@ type listenerRuleState struct {
 type ListenerRuleState struct {
 	// An Action block. Action blocks are documented below.
 	Actions ListenerRuleActionArrayInput
-	// The ARN of the rule (matches `id`)
+	// The Amazon Resource Name (ARN) of the target group.
 	Arn pulumi.StringPtrInput
 	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
 	Conditions ListenerRuleConditionArrayInput

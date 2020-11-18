@@ -2,29 +2,25 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Provides an Traffic mirror filter.  
+ * Provides an Traffic mirror filter.\
  * Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * To create a basic traffic mirror filter
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ec2.TrafficMirrorFilter("foo", {
  *     description: "traffic mirror filter - example",
  *     networkServices: ["amazon-dns"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_filter.html.markdown.
  */
 export class TrafficMirrorFilter extends pulumi.CustomResource {
     /**
@@ -34,6 +30,7 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TrafficMirrorFilterState, opts?: pulumi.CustomResourceOptions): TrafficMirrorFilter {
         return new TrafficMirrorFilter(name, <any>state, { ...opts, id: id });
@@ -62,9 +59,9 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
      */
     public readonly networkServices!: pulumi.Output<string[] | undefined>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a TrafficMirrorFilter resource with the given unique name, arguments, and options.
@@ -111,9 +108,9 @@ export interface TrafficMirrorFilterState {
      */
     readonly networkServices?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -129,7 +126,7 @@ export interface TrafficMirrorFilterArgs {
      */
     readonly networkServices?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

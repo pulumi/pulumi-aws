@@ -6,21 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Service Discovery Public DNS Namespace resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.servicediscovery.PublicDnsNamespace("example", {
  *     description: "example",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_public_dns_namespace.html.markdown.
  */
 export class PublicDnsNamespace extends pulumi.CustomResource {
     /**
@@ -30,6 +26,7 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PublicDnsNamespaceState, opts?: pulumi.CustomResourceOptions): PublicDnsNamespace {
         return new PublicDnsNamespace(name, <any>state, { ...opts, id: id });
@@ -65,6 +62,10 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
      * The name of the namespace.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the namespace.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a PublicDnsNamespace resource with the given unique name, arguments, and options.
@@ -82,10 +83,12 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["hostedZone"] = state ? state.hostedZone : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PublicDnsNamespaceArgs | undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["hostedZone"] = undefined /*out*/;
         }
@@ -120,6 +123,10 @@ export interface PublicDnsNamespaceState {
      * The name of the namespace.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the namespace.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -134,4 +141,8 @@ export interface PublicDnsNamespaceArgs {
      * The name of the namespace.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the namespace.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

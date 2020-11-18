@@ -6,10 +6,39 @@ package globalaccelerator
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates a Global Accelerator accelerator.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/globalaccelerator"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := globalaccelerator.NewAccelerator(ctx, "example", &globalaccelerator.AcceleratorArgs{
+// 			Attributes: &globalaccelerator.AcceleratorAttributesArgs{
+// 				FlowLogsEnabled:  pulumi.Bool(true),
+// 				FlowLogsS3Bucket: pulumi.String("example-bucket"),
+// 				FlowLogsS3Prefix: pulumi.String("flow-logs/"),
+// 			},
+// 			Enabled:       pulumi.Bool(true),
+// 			IpAddressType: pulumi.String("IPV4"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Accelerator struct {
 	pulumi.CustomResourceState
 
@@ -17,8 +46,8 @@ type Accelerator struct {
 	Attributes AcceleratorAttributesPtrOutput `pulumi:"attributes"`
 	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
 	// * `hostedZoneId` --  The Global Accelerator Route 53 zone ID that can be used to
-	// route an [Alias Resource Record Set][1] to the Global Accelerator. This attribute
-	// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+	//   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+	//   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
 	Enabled      pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -29,8 +58,8 @@ type Accelerator struct {
 	IpSets AcceleratorIpSetArrayOutput `pulumi:"ipSets"`
 	// The name of the accelerator.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAccelerator registers a new resource with the given unique name, arguments, and options.
@@ -65,8 +94,8 @@ type acceleratorState struct {
 	Attributes *AcceleratorAttributes `pulumi:"attributes"`
 	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
 	// * `hostedZoneId` --  The Global Accelerator Route 53 zone ID that can be used to
-	// route an [Alias Resource Record Set][1] to the Global Accelerator. This attribute
-	// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+	//   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+	//   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 	DnsName *string `pulumi:"dnsName"`
 	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
 	Enabled      *bool   `pulumi:"enabled"`
@@ -77,8 +106,8 @@ type acceleratorState struct {
 	IpSets []AcceleratorIpSet `pulumi:"ipSets"`
 	// The name of the accelerator.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AcceleratorState struct {
@@ -86,8 +115,8 @@ type AcceleratorState struct {
 	Attributes AcceleratorAttributesPtrInput
 	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
 	// * `hostedZoneId` --  The Global Accelerator Route 53 zone ID that can be used to
-	// route an [Alias Resource Record Set][1] to the Global Accelerator. This attribute
-	// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+	//   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+	//   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 	DnsName pulumi.StringPtrInput
 	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
 	Enabled      pulumi.BoolPtrInput
@@ -98,8 +127,8 @@ type AcceleratorState struct {
 	IpSets AcceleratorIpSetArrayInput
 	// The name of the accelerator.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (AcceleratorState) ElementType() reflect.Type {
@@ -115,8 +144,8 @@ type acceleratorArgs struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The name of the accelerator.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Accelerator resource.
@@ -129,8 +158,8 @@ type AcceleratorArgs struct {
 	IpAddressType pulumi.StringPtrInput
 	// The name of the accelerator.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (AcceleratorArgs) ElementType() reflect.Type {

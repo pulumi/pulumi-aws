@@ -7,10 +7,49 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a RDS database instance snapshot. For managing RDS database cluster snapshots, see the [`rds.ClusterSnapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
+// Manages an RDS database instance snapshot. For managing RDS database cluster snapshots, see the `rds.ClusterSnapshot` resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		bar, err := rds.NewInstance(ctx, "bar", &rds.InstanceArgs{
+// 			AllocatedStorage:      pulumi.Int(10),
+// 			Engine:                pulumi.String("MySQL"),
+// 			EngineVersion:         pulumi.String("5.6.21"),
+// 			InstanceClass:         pulumi.String("db.t2.micro"),
+// 			Name:                  pulumi.String("baz"),
+// 			Password:              pulumi.String("barbarbarbar"),
+// 			Username:              pulumi.String("foo"),
+// 			MaintenanceWindow:     pulumi.String("Fri:09:00-Fri:09:30"),
+// 			BackupRetentionPeriod: pulumi.Int(0),
+// 			ParameterGroupName:    pulumi.String("default.mysql5.6"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = rds.NewSnapshot(ctx, "test", &rds.SnapshotArgs{
+// 			DbInstanceIdentifier: bar.ID(),
+// 			DbSnapshotIdentifier: pulumi.String("testsnapshot1234"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Snapshot struct {
 	pulumi.CustomResourceState
 
@@ -48,8 +87,8 @@ type Snapshot struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Specifies the storage type associated with DB snapshot.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the storage type associated with DB snapshot.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -122,8 +161,8 @@ type snapshotState struct {
 	Status *string `pulumi:"status"`
 	// Specifies the storage type associated with DB snapshot.
 	StorageType *string `pulumi:"storageType"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// Specifies the storage type associated with DB snapshot.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -163,8 +202,8 @@ type SnapshotState struct {
 	Status pulumi.StringPtrInput
 	// Specifies the storage type associated with DB snapshot.
 	StorageType pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 	// Specifies the storage type associated with DB snapshot.
 	VpcId pulumi.StringPtrInput
 }
@@ -178,8 +217,8 @@ type snapshotArgs struct {
 	DbInstanceIdentifier string `pulumi:"dbInstanceIdentifier"`
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier string `pulumi:"dbSnapshotIdentifier"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
@@ -188,8 +227,8 @@ type SnapshotArgs struct {
 	DbInstanceIdentifier pulumi.StringInput
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier pulumi.StringInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (SnapshotArgs) ElementType() reflect.Type {

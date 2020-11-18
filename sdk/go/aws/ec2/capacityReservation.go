@@ -7,13 +7,41 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewCapacityReservation(ctx, "_default", &ec2.CapacityReservationArgs{
+// 			AvailabilityZone: pulumi.String("eu-west-1a"),
+// 			InstanceCount:    pulumi.Int(1),
+// 			InstancePlatform: pulumi.String("Linux/UNIX"),
+// 			InstanceType:     pulumi.String("t2.micro"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type CapacityReservation struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Capacity Reservation.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Availability Zone in which to create the Capacity Reservation.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
@@ -32,8 +60,8 @@ type CapacityReservation struct {
 	InstancePlatform pulumi.StringOutput `pulumi:"instancePlatform"`
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrOutput `pulumi:"tenancy"`
 }
@@ -78,6 +106,8 @@ func GetCapacityReservation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CapacityReservation resources.
 type capacityReservationState struct {
+	// The ARN of the Capacity Reservation.
+	Arn *string `pulumi:"arn"`
 	// The Availability Zone in which to create the Capacity Reservation.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
@@ -96,13 +126,15 @@ type capacityReservationState struct {
 	InstancePlatform *string `pulumi:"instancePlatform"`
 	// The instance type for which to reserve capacity.
 	InstanceType *string `pulumi:"instanceType"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy *string `pulumi:"tenancy"`
 }
 
 type CapacityReservationState struct {
+	// The ARN of the Capacity Reservation.
+	Arn pulumi.StringPtrInput
 	// The Availability Zone in which to create the Capacity Reservation.
 	AvailabilityZone pulumi.StringPtrInput
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
@@ -121,8 +153,8 @@ type CapacityReservationState struct {
 	InstancePlatform pulumi.StringPtrInput
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrInput
 }
@@ -150,8 +182,8 @@ type capacityReservationArgs struct {
 	InstancePlatform string `pulumi:"instancePlatform"`
 	// The instance type for which to reserve capacity.
 	InstanceType string `pulumi:"instanceType"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy *string `pulumi:"tenancy"`
 }
@@ -176,8 +208,8 @@ type CapacityReservationArgs struct {
 	InstancePlatform pulumi.StringInput
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrInput
 }

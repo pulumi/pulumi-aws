@@ -7,10 +7,164 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Route53 record resource.
+//
+// ## Example Usage
+// ### Weighted routing policy
+// Other routing policies are configured similarly. See [AWS Route53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := route53.NewRecord(ctx, "www_dev", &route53.RecordArgs{
+// 			ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
+// 			Name:   pulumi.String("www"),
+// 			Type:   pulumi.String("CNAME"),
+// 			Ttl:    pulumi.Int(5),
+// 			WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
+// 				&route53.RecordWeightedRoutingPolicyArgs{
+// 					Weight: pulumi.Int(10),
+// 				},
+// 			},
+// 			SetIdentifier: pulumi.String("dev"),
+// 			Records: pulumi.StringArray{
+// 				pulumi.String("dev.example.com"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "www_live", &route53.RecordArgs{
+// 			ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
+// 			Name:   pulumi.String("www"),
+// 			Type:   pulumi.String("CNAME"),
+// 			Ttl:    pulumi.Int(5),
+// 			WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
+// 				&route53.RecordWeightedRoutingPolicyArgs{
+// 					Weight: pulumi.Int(90),
+// 				},
+// 			},
+// 			SetIdentifier: pulumi.String("live"),
+// 			Records: pulumi.StringArray{
+// 				pulumi.String("live.example.com"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Alias record
+// See [related part of AWS Route53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
+// to understand differences between alias and non-alias records.
+//
+// TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
+// you cannot change this, therefore `ttl` has to be omitted in alias records.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elb"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		main, err := elb.NewLoadBalancer(ctx, "main", &elb.LoadBalancerArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-east-1c"),
+// 			},
+// 			Listeners: elb.LoadBalancerListenerArray{
+// 				&elb.LoadBalancerListenerArgs{
+// 					InstancePort:     pulumi.Int(80),
+// 					InstanceProtocol: pulumi.String("http"),
+// 					LbPort:           pulumi.Int(80),
+// 					LbProtocol:       pulumi.String("http"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
+// 			ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
+// 			Name:   pulumi.String("example.com"),
+// 			Type:   pulumi.String("A"),
+// 			Aliases: route53.RecordAliasArray{
+// 				&route53.RecordAliasArgs{
+// 					Name:                 main.DnsName,
+// 					ZoneId:               main.ZoneId,
+// 					EvaluateTargetHealth: pulumi.Bool(true),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### NS and SOA Record Management
+//
+// When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allowOverwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleZone, err := route53.NewZone(ctx, "exampleZone", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
+// 			AllowOverwrite: pulumi.Bool(true),
+// 			Name:           pulumi.String("test.example.com"),
+// 			Ttl:            pulumi.Int(30),
+// 			Type:           pulumi.String("NS"),
+// 			ZoneId:         exampleZone.ZoneId,
+// 			Records: pulumi.StringArray{
+// 				exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
+// 					return nameServers[0], nil
+// 				}).(pulumi.StringOutput),
+// 				exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
+// 					return nameServers[1], nil
+// 				}).(pulumi.StringOutput),
+// 				exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
+// 					return nameServers[2], nil
+// 				}).(pulumi.StringOutput),
+// 				exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
+// 					return nameServers[3], nil
+// 				}).(pulumi.StringOutput),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Record struct {
 	pulumi.CustomResourceState
 
@@ -43,7 +197,7 @@ type Record struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
 	WeightedRoutingPolicies RecordWeightedRoutingPolicyArrayOutput `pulumi:"weightedRoutingPolicies"`
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
 
@@ -113,7 +267,7 @@ type recordState struct {
 	Type *string `pulumi:"type"`
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
 	WeightedRoutingPolicies []RecordWeightedRoutingPolicy `pulumi:"weightedRoutingPolicies"`
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId *string `pulumi:"zoneId"`
 }
 
@@ -147,7 +301,7 @@ type RecordState struct {
 	Type pulumi.StringPtrInput
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
 	WeightedRoutingPolicies RecordWeightedRoutingPolicyArrayInput
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId pulumi.StringPtrInput
 }
 
@@ -183,7 +337,7 @@ type recordArgs struct {
 	Type interface{} `pulumi:"type"`
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
 	WeightedRoutingPolicies []RecordWeightedRoutingPolicy `pulumi:"weightedRoutingPolicies"`
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId string `pulumi:"zoneId"`
 }
 
@@ -216,7 +370,7 @@ type RecordArgs struct {
 	Type pulumi.Input
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
 	WeightedRoutingPolicies RecordWeightedRoutingPolicyArrayInput
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId pulumi.StringInput
 }
 

@@ -6,15 +6,74 @@ package cloudfront
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates an Amazon CloudFront origin access identity.
 //
 // For information about CloudFront distributions, see the
-// [Amazon CloudFront Developer Guide][1]. For more information on generating
+// [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For more information on generating
 // origin access identities, see
 // [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
+//
+// ## Example Usage
+//
+// The following example below creates a CloudFront origin access identity.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudfront"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cloudfront.NewOriginAccessIdentity(ctx, "originAccessIdentity", &cloudfront.OriginAccessIdentityArgs{
+// 			Comment: pulumi.String("Some comment"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Using With CloudFront
+//
+// Normally, when referencing an origin access identity in CloudFront, you need to
+// prefix the ID with the `origin-access-identity/cloudfront/` special path.
+// The `cloudfrontAccessIdentityPath` allows this to be circumvented.
+// The below snippet demonstrates use with the `s3OriginConfig` structure for the
+// [`cloudfront.Distribution`][3] resource:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudfront"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cloudfront.NewDistribution(ctx, "example", &cloudfront.DistributionArgs{
+// 			Origins: cloudfront.DistributionOriginArray{
+// 				&cloudfront.DistributionOriginArgs{
+// 					S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
+// 						OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Example.Cloudfront_access_identity_path),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type OriginAccessIdentity struct {
 	pulumi.CustomResourceState
 

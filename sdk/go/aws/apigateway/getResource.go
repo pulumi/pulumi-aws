@@ -4,11 +4,41 @@
 package apigateway
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get the id of a Resource in API Gateway.
 // To fetch the Resource, you must provide the REST API id as well as the full path.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		myRestApi, err := apigateway.LookupRestApi(ctx, &apigateway.LookupRestApiArgs{
+// 			Name: "my-rest-api",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apigateway.LookupResource(ctx, &apigateway.LookupResourceArgs{
+// 			RestApiId: myRestApi.Id,
+// 			Path:      "/endpoint/path",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	var rv LookupResourceResult
 	err := ctx.Invoke("aws:apigateway/getResource:getResource", args, &rv, opts...)
@@ -28,7 +58,7 @@ type LookupResourceArgs struct {
 
 // A collection of values returned by getResource.
 type LookupResourceResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set to the ID of the parent Resource.
 	ParentId string `pulumi:"parentId"`

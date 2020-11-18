@@ -2,27 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Pinpoint SMS Channel resource.
- * 
+ * Provides a Pinpoint Email Channel resource.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const app = new aws.pinpoint.App("app", {});
- * const identity = new aws.ses.DomainIdentity("identity", {
- *     domain: "example.com",
- * });
- * const role = new aws.iam.Role("role", {
- *     assumeRolePolicy: `{
+ * const identity = new aws.ses.DomainIdentity("identity", {domain: "example.com"});
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -35,8 +28,7 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
+ * `});
  * const email = new aws.pinpoint.EmailChannel("email", {
  *     applicationId: app.applicationId,
  *     fromAddress: "user@example.com",
@@ -44,6 +36,7 @@ import * as utilities from "../utilities";
  *     roleArn: role.arn,
  * });
  * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
+ *     role: role.id,
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": {
@@ -58,11 +51,8 @@ import * as utilities from "../utilities";
  *   }
  * }
  * `,
- *     role: role.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_email_channel.markdown.
  */
 export class EmailChannel extends pulumi.CustomResource {
     /**
@@ -72,6 +62,7 @@ export class EmailChannel extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EmailChannelState, opts?: pulumi.CustomResourceOptions): EmailChannel {
         return new EmailChannel(name, <any>state, { ...opts, id: id });

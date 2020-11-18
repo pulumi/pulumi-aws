@@ -12,12 +12,33 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_database.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var awsGlueCatalogDatabase = new Aws.Glue.CatalogDatabase("awsGlueCatalogDatabase", new Aws.Glue.CatalogDatabaseArgs
+    ///         {
+    ///             Name = "MyCatalogDatabase",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class CatalogDatabase : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the Glue Catalog Database.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         /// </summary>
@@ -57,7 +78,7 @@ namespace Pulumi.Aws.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CatalogDatabase(string name, CatalogDatabaseArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:glue/catalogDatabase:CatalogDatabase", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:glue/catalogDatabase:CatalogDatabase", name, args ?? new CatalogDatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -137,6 +158,12 @@ namespace Pulumi.Aws.Glue
 
     public sealed class CatalogDatabaseState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Glue Catalog Database.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         /// </summary>

@@ -12,9 +12,27 @@ namespace Pulumi.Aws.Iot
     /// <summary>
     /// Creates and manages an AWS IoT Thing.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Iot.Thing("example", new Aws.Iot.ThingArgs
+    ///         {
+    ///             Attributes = 
+    ///             {
+    ///                 { "First", "examplevalue" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Thing : Pulumi.CustomResource
     {
@@ -28,7 +46,7 @@ namespace Pulumi.Aws.Iot
         /// Map of attributes of the thing.
         /// </summary>
         [Output("attributes")]
-        public Output<ImmutableDictionary<string, object>?> Attributes { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Attributes { get; private set; } = null!;
 
         /// <summary>
         /// The default client ID.
@@ -63,7 +81,7 @@ namespace Pulumi.Aws.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Thing(string name, ThingArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:iot/thing:Thing", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iot/thing:Thing", name, args ?? new ThingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -101,14 +119,14 @@ namespace Pulumi.Aws.Iot
     public sealed class ThingArgs : Pulumi.ResourceArgs
     {
         [Input("attributes")]
-        private InputMap<object>? _attributes;
+        private InputMap<string>? _attributes;
 
         /// <summary>
         /// Map of attributes of the thing.
         /// </summary>
-        public InputMap<object> Attributes
+        public InputMap<string> Attributes
         {
-            get => _attributes ?? (_attributes = new InputMap<object>());
+            get => _attributes ?? (_attributes = new InputMap<string>());
             set => _attributes = value;
         }
 
@@ -138,14 +156,14 @@ namespace Pulumi.Aws.Iot
         public Input<string>? Arn { get; set; }
 
         [Input("attributes")]
-        private InputMap<object>? _attributes;
+        private InputMap<string>? _attributes;
 
         /// <summary>
         /// Map of attributes of the thing.
         /// </summary>
-        public InputMap<object> Attributes
+        public InputMap<string> Attributes
         {
-            get => _attributes ?? (_attributes = new InputMap<object>());
+            get => _attributes ?? (_attributes = new InputMap<string>());
             set => _attributes = value;
         }
 

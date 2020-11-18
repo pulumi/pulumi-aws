@@ -10,13 +10,96 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
-    /// Manages a RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
+    /// Manages an RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
     /// 
     /// More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
     /// 
+    /// ## Example Usage
+    /// ### New Global Cluster
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_global_cluster.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var primary = new Aws.Provider("primary", new Aws.ProviderArgs
+    ///         {
+    ///             Region = "us-east-2",
+    ///         });
+    ///         var secondary = new Aws.Provider("secondary", new Aws.ProviderArgs
+    ///         {
+    ///             Region = "us-west-2",
+    ///         });
+    ///         var example = new Aws.Rds.GlobalCluster("example", new Aws.Rds.GlobalClusterArgs
+    ///         {
+    ///             GlobalClusterIdentifier = "example",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Primary,
+    ///         });
+    ///         var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new Aws.Rds.ClusterArgs
+    ///         {
+    ///             GlobalClusterIdentifier = example.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Primary,
+    ///         });
+    ///         var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
+    ///         {
+    ///             ClusterIdentifier = primaryCluster.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Primary,
+    ///         });
+    ///         var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new Aws.Rds.ClusterArgs
+    ///         {
+    ///             GlobalClusterIdentifier = example.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Secondary,
+    ///             DependsOn = 
+    ///             {
+    ///                 primaryClusterInstance,
+    ///             },
+    ///         });
+    ///         var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
+    ///         {
+    ///             ClusterIdentifier = secondaryCluster.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Secondary,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### New Global Cluster From Existing DB Cluster
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ... other configuration ...
+    ///         var exampleCluster = new Aws.Rds.Cluster("exampleCluster", new Aws.Rds.ClusterArgs
+    ///         {
+    ///         });
+    ///         var exampleGlobalCluster = new Aws.Rds.GlobalCluster("exampleGlobalCluster", new Aws.Rds.GlobalClusterArgs
+    ///         {
+    ///             ForceDestroy = true,
+    ///             GlobalClusterIdentifier = "example",
+    ///             SourceDbClusterIdentifier = exampleCluster.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GlobalCluster : Pulumi.CustomResource
     {
@@ -38,11 +121,8 @@ namespace Pulumi.Aws.Rds
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
-        /// </summary>
         [Output("engine")]
-        public Output<string?> Engine { get; private set; } = null!;
+        public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
         /// Engine version of the Aurora global database.
@@ -52,10 +132,22 @@ namespace Pulumi.Aws.Rds
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
+        /// </summary>
+        [Output("forceDestroy")]
+        public Output<bool?> ForceDestroy { get; private set; } = null!;
+
+        /// <summary>
         /// The global cluster identifier.
         /// </summary>
         [Output("globalClusterIdentifier")]
         public Output<string> GlobalClusterIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// Set of objects containing Global Cluster members.
+        /// </summary>
+        [Output("globalClusterMembers")]
+        public Output<ImmutableArray<Outputs.GlobalClusterGlobalClusterMember>> GlobalClusterMembers { get; private set; } = null!;
 
         /// <summary>
         /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
@@ -63,11 +155,11 @@ namespace Pulumi.Aws.Rds
         [Output("globalClusterResourceId")]
         public Output<string> GlobalClusterResourceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false`.
-        /// </summary>
+        [Output("sourceDbClusterIdentifier")]
+        public Output<string> SourceDbClusterIdentifier { get; private set; } = null!;
+
         [Output("storageEncrypted")]
-        public Output<bool?> StorageEncrypted { get; private set; } = null!;
+        public Output<bool> StorageEncrypted { get; private set; } = null!;
 
 
         /// <summary>
@@ -78,7 +170,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GlobalCluster(string name, GlobalClusterArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/globalCluster:GlobalCluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:rds/globalCluster:GlobalCluster", name, args ?? new GlobalClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -127,9 +219,6 @@ namespace Pulumi.Aws.Rds
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
-        /// <summary>
-        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
-        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
@@ -141,14 +230,20 @@ namespace Pulumi.Aws.Rds
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
+        /// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
+
+        /// <summary>
         /// The global cluster identifier.
         /// </summary>
         [Input("globalClusterIdentifier", required: true)]
         public Input<string> GlobalClusterIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false`.
-        /// </summary>
+        [Input("sourceDbClusterIdentifier")]
+        public Input<string>? SourceDbClusterIdentifier { get; set; }
+
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
@@ -177,9 +272,6 @@ namespace Pulumi.Aws.Rds
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
-        /// <summary>
-        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
-        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
@@ -191,10 +283,28 @@ namespace Pulumi.Aws.Rds
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
+        /// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
+
+        /// <summary>
         /// The global cluster identifier.
         /// </summary>
         [Input("globalClusterIdentifier")]
         public Input<string>? GlobalClusterIdentifier { get; set; }
+
+        [Input("globalClusterMembers")]
+        private InputList<Inputs.GlobalClusterGlobalClusterMemberGetArgs>? _globalClusterMembers;
+
+        /// <summary>
+        /// Set of objects containing Global Cluster members.
+        /// </summary>
+        public InputList<Inputs.GlobalClusterGlobalClusterMemberGetArgs> GlobalClusterMembers
+        {
+            get => _globalClusterMembers ?? (_globalClusterMembers = new InputList<Inputs.GlobalClusterGlobalClusterMemberGetArgs>());
+            set => _globalClusterMembers = value;
+        }
 
         /// <summary>
         /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
@@ -202,9 +312,9 @@ namespace Pulumi.Aws.Rds
         [Input("globalClusterResourceId")]
         public Input<string>? GlobalClusterResourceId { get; set; }
 
-        /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false`.
-        /// </summary>
+        [Input("sourceDbClusterIdentifier")]
+        public Input<string>? SourceDbClusterIdentifier { get; set; }
+
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 

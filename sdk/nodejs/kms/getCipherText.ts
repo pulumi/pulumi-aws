@@ -4,22 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
  * by using an AWS KMS customer master key. The value returned by this data source
- * changes every apply. For a stable ciphertext value, see the [`aws.kms.Ciphertext`
- * resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
- * 
+ * changes every apply. For a stable ciphertext value, see the `aws.kms.Ciphertext`
+ * resource.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const oauthConfig = new aws.kms.Key("oauthConfig", {
  *     description: "oauth config",
  *     isEnabled: true,
@@ -27,16 +26,14 @@ import * as utilities from "../utilities";
  * const oauth = oauthConfig.keyId.apply(keyId => aws.kms.getCipherText({
  *     keyId: keyId,
  *     plaintext: `{
- *   "clientId": "e587dbae22222f55da22",
- *   "clientSecret": "8289575d00000ace55e1815ec13673955721b8a5"
+ *   "client_id": "e587dbae22222f55da22",
+ *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
  * }
  * `,
  * }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
  */
-export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> & GetCipherTextResult {
+export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> {
     if (!opts) {
         opts = {}
     }
@@ -44,13 +41,11 @@ export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetCipherTextResult> = pulumi.runtime.invoke("aws:kms/getCipherText:getCipherText", {
+    return pulumi.runtime.invoke("aws:kms/getCipherText:getCipherText", {
         "context": args.context,
         "keyId": args.keyId,
         "plaintext": args.plaintext,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -80,10 +75,10 @@ export interface GetCipherTextResult {
      */
     readonly ciphertextBlob: string;
     readonly context?: {[key: string]: string};
-    readonly keyId: string;
-    readonly plaintext: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly keyId: string;
+    readonly plaintext: string;
 }

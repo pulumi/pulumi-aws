@@ -4,57 +4,56 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a Default VPC Routing Table.
- * 
+ *
  * Each VPC created in AWS comes with a Default Route Table that can be managed, but not
  * destroyed. **This is an advanced resource**, and has special caveats to be aware
  * of when using it. Please read this document in its entirety before using this
  * resource. It is recommended you **do not** use both `aws.ec2.DefaultRouteTable` to
  * manage the default route table **and** use the `aws.ec2.MainRouteTableAssociation`,
  * due to possible conflict in routes.
- * 
+ *
  * The `aws.ec2.DefaultRouteTable` behaves differently from normal resources, in that
  * this provider does not _create_ this resource, but instead attempts to "adopt" it
  * into management. We can do this because each VPC created has a Default Route
  * Table that cannot be destroyed, and is created with a single route.
- * 
+ *
  * When this provider first adopts the Default Route Table, it **immediately removes all
  * defined routes**. It then proceeds to create any routes specified in the
  * configuration. This step is required so that only the routes specified in the
  * configuration present in the Default Route Table.
- * 
+ *
  * For more information about Route Tables, see the AWS Documentation on
  * [Route Tables][aws-route-tables].
- * 
+ *
  * For more information about managing normal Route Tables in this provider, see our
  * documentation on [aws.ec2.RouteTable][tf-route-tables].
- * 
+ *
  * > **NOTE on Route Tables and Routes:** This provider currently
  * provides both a standalone Route resource and a Route Table resource with routes
  * defined in-line. At this time you cannot use a Route Table with in-line routes
  * in conjunction with any Route resources. Doing so will cause
  * a conflict of rule settings and will overwrite routes.
- * 
- * 
- * ## Example usage with tags
- * 
+ *
+ * ## Example Usage
+ * ### With Tags
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const defaultRouteTable = new aws.ec2.DefaultRouteTable("r", {
- *     defaultRouteTableId: aws_vpc_foo.defaultRouteTableId,
+ *
+ * const defaultRouteTable = new aws.ec2.DefaultRouteTable("defaultRouteTable", {
+ *     defaultRouteTableId: aws_vpc.foo.default_route_table_id,
  *     routes: [{}],
  *     tags: {
  *         Name: "default table",
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_route_table.html.markdown.
  */
 export class DefaultRouteTable extends pulumi.CustomResource {
     /**
@@ -64,6 +63,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultRouteTableState, opts?: pulumi.CustomResourceOptions): DefaultRouteTable {
         return new DefaultRouteTable(name, <any>state, { ...opts, id: id });
@@ -102,7 +102,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -169,7 +169,7 @@ export interface DefaultRouteTableState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly vpcId?: pulumi.Input<string>;
 }
 
@@ -192,5 +192,5 @@ export interface DefaultRouteTableArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -12,9 +12,39 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a SageMaker endpoint configuration resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// Basic usage:
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint_configuration.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ec = new Aws.Sagemaker.EndpointConfiguration("ec", new Aws.Sagemaker.EndpointConfigurationArgs
+    ///         {
+    ///             ProductionVariants = 
+    ///             {
+    ///                 new Aws.Sagemaker.Inputs.EndpointConfigurationProductionVariantArgs
+    ///                 {
+    ///                     VariantName = "variant-1",
+    ///                     ModelName = aws_sagemaker_model.M.Name,
+    ///                     InitialInstanceCount = 1,
+    ///                     InstanceType = "ml.t2.medium",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "foo" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EndpointConfiguration : Pulumi.CustomResource
     {
@@ -23,6 +53,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+        /// </summary>
+        [Output("dataCaptureConfig")]
+        public Output<Outputs.EndpointConfigurationDataCaptureConfig?> DataCaptureConfig { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
@@ -40,13 +76,13 @@ namespace Pulumi.Aws.Sagemaker
         /// Fields are documented below.
         /// </summary>
         [Output("productionVariants")]
-        public Output<ImmutableArray<Outputs.EndpointConfigurationProductionVariants>> ProductionVariants { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EndpointConfigurationProductionVariant>> ProductionVariants { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -57,7 +93,7 @@ namespace Pulumi.Aws.Sagemaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EndpointConfiguration(string name, EndpointConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws:sagemaker/endpointConfiguration:EndpointConfiguration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:sagemaker/endpointConfiguration:EndpointConfiguration", name, args ?? new EndpointConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -95,6 +131,12 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class EndpointConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+        /// </summary>
+        [Input("dataCaptureConfig")]
+        public Input<Inputs.EndpointConfigurationDataCaptureConfigArgs>? DataCaptureConfig { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         /// </summary>
         [Input("kmsKeyArn")]
@@ -107,26 +149,26 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Name { get; set; }
 
         [Input("productionVariants", required: true)]
-        private InputList<Inputs.EndpointConfigurationProductionVariantsArgs>? _productionVariants;
+        private InputList<Inputs.EndpointConfigurationProductionVariantArgs>? _productionVariants;
 
         /// <summary>
         /// Fields are documented below.
         /// </summary>
-        public InputList<Inputs.EndpointConfigurationProductionVariantsArgs> ProductionVariants
+        public InputList<Inputs.EndpointConfigurationProductionVariantArgs> ProductionVariants
         {
-            get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigurationProductionVariantsArgs>());
+            get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigurationProductionVariantArgs>());
             set => _productionVariants = value;
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -144,6 +186,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+        /// </summary>
+        [Input("dataCaptureConfig")]
+        public Input<Inputs.EndpointConfigurationDataCaptureConfigGetArgs>? DataCaptureConfig { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         /// </summary>
         [Input("kmsKeyArn")]
@@ -156,171 +204,31 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Name { get; set; }
 
         [Input("productionVariants")]
-        private InputList<Inputs.EndpointConfigurationProductionVariantsGetArgs>? _productionVariants;
+        private InputList<Inputs.EndpointConfigurationProductionVariantGetArgs>? _productionVariants;
 
         /// <summary>
         /// Fields are documented below.
         /// </summary>
-        public InputList<Inputs.EndpointConfigurationProductionVariantsGetArgs> ProductionVariants
+        public InputList<Inputs.EndpointConfigurationProductionVariantGetArgs> ProductionVariants
         {
-            get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigurationProductionVariantsGetArgs>());
+            get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigurationProductionVariantGetArgs>());
             set => _productionVariants = value;
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public EndpointConfigurationState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class EndpointConfigurationProductionVariantsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The size of the Elastic Inference (EI) instance to use for the production variant.
-        /// </summary>
-        [Input("acceleratorType")]
-        public Input<string>? AcceleratorType { get; set; }
-
-        /// <summary>
-        /// Initial number of instances used for auto-scaling.
-        /// </summary>
-        [Input("initialInstanceCount", required: true)]
-        public Input<int> InitialInstanceCount { get; set; } = null!;
-
-        /// <summary>
-        /// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
-        /// </summary>
-        [Input("initialVariantWeight")]
-        public Input<double>? InitialVariantWeight { get; set; }
-
-        /// <summary>
-        /// The type of instance to start.
-        /// </summary>
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the model to use.
-        /// </summary>
-        [Input("modelName", required: true)]
-        public Input<string> ModelName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the variant. If omitted, this provider will assign a random, unique name.
-        /// </summary>
-        [Input("variantName")]
-        public Input<string>? VariantName { get; set; }
-
-        public EndpointConfigurationProductionVariantsArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointConfigurationProductionVariantsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The size of the Elastic Inference (EI) instance to use for the production variant.
-        /// </summary>
-        [Input("acceleratorType")]
-        public Input<string>? AcceleratorType { get; set; }
-
-        /// <summary>
-        /// Initial number of instances used for auto-scaling.
-        /// </summary>
-        [Input("initialInstanceCount", required: true)]
-        public Input<int> InitialInstanceCount { get; set; } = null!;
-
-        /// <summary>
-        /// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
-        /// </summary>
-        [Input("initialVariantWeight")]
-        public Input<double>? InitialVariantWeight { get; set; }
-
-        /// <summary>
-        /// The type of instance to start.
-        /// </summary>
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the model to use.
-        /// </summary>
-        [Input("modelName", required: true)]
-        public Input<string> ModelName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the variant. If omitted, this provider will assign a random, unique name.
-        /// </summary>
-        [Input("variantName")]
-        public Input<string>? VariantName { get; set; }
-
-        public EndpointConfigurationProductionVariantsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class EndpointConfigurationProductionVariants
-    {
-        /// <summary>
-        /// The size of the Elastic Inference (EI) instance to use for the production variant.
-        /// </summary>
-        public readonly string? AcceleratorType;
-        /// <summary>
-        /// Initial number of instances used for auto-scaling.
-        /// </summary>
-        public readonly int InitialInstanceCount;
-        /// <summary>
-        /// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
-        /// </summary>
-        public readonly double? InitialVariantWeight;
-        /// <summary>
-        /// The type of instance to start.
-        /// </summary>
-        public readonly string InstanceType;
-        /// <summary>
-        /// The name of the model to use.
-        /// </summary>
-        public readonly string ModelName;
-        /// <summary>
-        /// The name of the variant. If omitted, this provider will assign a random, unique name.
-        /// </summary>
-        public readonly string VariantName;
-
-        [OutputConstructor]
-        private EndpointConfigurationProductionVariants(
-            string? acceleratorType,
-            int initialInstanceCount,
-            double? initialVariantWeight,
-            string instanceType,
-            string modelName,
-            string variantName)
-        {
-            AcceleratorType = acceleratorType;
-            InitialInstanceCount = initialInstanceCount;
-            InitialVariantWeight = initialVariantWeight;
-            InstanceType = instanceType;
-            ModelName = modelName;
-            VariantName = variantName;
-        }
-    }
     }
 }

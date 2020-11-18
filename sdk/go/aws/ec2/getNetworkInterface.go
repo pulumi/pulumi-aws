@@ -4,10 +4,34 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get information about a Network Interface.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "eni-01234567"
+// 		_, err := ec2.LookupNetworkInterface(ctx, &ec2.LookupNetworkInterfaceArgs{
+// 			Id: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceResult, error) {
 	var rv LookupNetworkInterfaceResult
 	err := ctx.Invoke("aws:ec2/getNetworkInterface:getNetworkInterface", args, &rv, opts...)
@@ -24,7 +48,7 @@ type LookupNetworkInterfaceArgs struct {
 	// The identifier for the network interface.
 	Id *string `pulumi:"id"`
 	// Any tags assigned to the network interface.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getNetworkInterface.
@@ -44,6 +68,8 @@ type LookupNetworkInterfaceResult struct {
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The MAC address.
 	MacAddress string `pulumi:"macAddress"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn string `pulumi:"outpostArn"`
 	// The AWS account ID of the owner of the network interface.
 	OwnerId string `pulumi:"ownerId"`
 	// The private DNS name.
@@ -59,7 +85,7 @@ type LookupNetworkInterfaceResult struct {
 	// The ID of the subnet.
 	SubnetId string `pulumi:"subnetId"`
 	// Any tags assigned to the network interface.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
 }

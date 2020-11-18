@@ -9,51 +9,81 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to lookup current AWS partition in which this provider is working
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetPartition.InvokeAsync() instead")]
-        public static Task<GetPartitionResult> GetPartition(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws:index/getPartition:getPartition", InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPartition
     {
         /// <summary>
         /// Use this data source to lookup current AWS partition in which this provider is working
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Aws.GetPartition.InvokeAsync());
+        ///         var s3Policy = current.Apply(current =&gt; Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         {
+        ///             Statements = 
+        ///             {
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Actions = 
+        ///                     {
+        ///                         "s3:ListBucket",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         $"arn:{current.Partition}:s3:::my-bucket",
+        ///                     },
+        ///                     Sid = "1",
+        ///                 },
+        ///             },
+        ///         })));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPartitionResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws:index/getPartition:getPartition", InvokeArgs.Empty, options.WithVersion());
     }
 
+
     [OutputType]
     public sealed class GetPartitionResult
     {
-        public readonly string DnsSuffix;
-        public readonly string Partition;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// Base DNS domain name for the current partition (e.g. `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
+        /// </summary>
+        public readonly string DnsSuffix;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Identifier of the current partition (e.g. `aws` in AWS Commercial, `aws-cn` in AWS China).
+        /// </summary>
+        public readonly string Partition;
 
         [OutputConstructor]
         private GetPartitionResult(
             string dnsSuffix,
-            string partition,
-            string id)
+
+            string id,
+
+            string partition)
         {
             DnsSuffix = dnsSuffix;
-            Partition = partition;
             Id = id;
+            Partition = partition;
         }
     }
 }

@@ -4,52 +4,48 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an MQ Broker Resource. This resources also manages users for the broker.
- * 
+ *
  * For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
- * 
+ *
  * Changes to an MQ Broker can occur when you change a
  * parameter, such as `configuration` or `user`, and are reflected in the next maintenance
  * window. Because of this, this provider may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
  * `applyImmediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
- * 
+ *
  * > **Note:** using `applyImmediately` can result in a
  * brief downtime as the broker reboots.
- * 
+ *
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.mq.Broker("example", {
  *     brokerName: "example",
  *     configuration: {
- *         id: aws_mq_configuration_test.id,
- *         revision: aws_mq_configuration_test.latestRevision,
+ *         id: aws_mq_configuration.test.id,
+ *         revision: aws_mq_configuration.test.latest_revision,
  *     },
  *     engineType: "ActiveMQ",
  *     engineVersion: "5.15.0",
  *     hostInstanceType: "mq.t2.micro",
- *     securityGroups: [aws_security_group_test.id],
+ *     securityGroups: [aws_security_group.test.id],
  *     users: [{
- *         password: "MindTheGap",
  *         username: "ExampleUser",
+ *         password: "MindTheGap",
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_broker.html.markdown.
  */
 export class Broker extends pulumi.CustomResource {
     /**
@@ -59,6 +55,7 @@ export class Broker extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BrokerState, opts?: pulumi.CustomResourceOptions): Broker {
         return new Broker(name, <any>state, { ...opts, id: id });
@@ -152,9 +149,9 @@ export class Broker extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */
@@ -318,9 +315,9 @@ export interface BrokerState {
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */
@@ -389,9 +386,9 @@ export interface BrokerArgs {
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */

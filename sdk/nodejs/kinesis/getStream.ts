@@ -4,30 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a Kinesis Stream for use in other
  * resources.
- * 
- * For more details, see the [Amazon Kinesis Documentation][1].
- * 
+ *
+ * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const stream = aws.kinesis.getStream({
- *     name: "stream-name",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
+ * const stream = pulumi.output(aws.kinesis.getStream({
+ *     name: "stream-name",
+ * }, { async: true }));
+ * ```
  */
-export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> & GetStreamResult {
+export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
     if (!opts) {
         opts = {}
     }
@@ -35,12 +32,10 @@ export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetStreamResult> = pulumi.runtime.invoke("aws:kinesis/getStream:getStream", {
+    return pulumi.runtime.invoke("aws:kinesis/getStream:getStream", {
         "name": args.name,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -52,9 +47,9 @@ export interface GetStreamArgs {
      */
     readonly name: string;
     /**
-     * A mapping of tags to assigned to the stream.
+     * A map of tags to assigned to the stream.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -66,7 +61,7 @@ export interface GetStreamResult {
      */
     readonly arn: string;
     /**
-     * The list of shard ids in the CLOSED state. See [Shard State][2] for more.
+     * The list of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      */
     readonly closedShards: string[];
     /**
@@ -74,11 +69,15 @@ export interface GetStreamResult {
      */
     readonly creationTimestamp: number;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the Kinesis Stream.
      */
     readonly name: string;
     /**
-     * The list of shard ids in the OPEN state. See [Shard State][2] for more.
+     * The list of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      */
     readonly openShards: string[];
     /**
@@ -86,7 +85,7 @@ export interface GetStreamResult {
      */
     readonly retentionPeriod: number;
     /**
-     * A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch][3] for more.
+     * A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
      */
     readonly shardLevelMetrics: string[];
     /**
@@ -94,11 +93,7 @@ export interface GetStreamResult {
      */
     readonly status: string;
     /**
-     * A mapping of tags to assigned to the stream.
+     * A map of tags to assigned to the stream.
      */
-    readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
+    readonly tags: {[key: string]: string};
 }

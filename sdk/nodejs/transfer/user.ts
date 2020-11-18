@@ -4,24 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the [`aws.transfer.SshKey` resource](https://www.terraform.io/docs/providers/aws/r/transfer_ssh_key.html).
- * 
- * 
+ * Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `aws.transfer.SshKey` resource.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const fooServer = new aws.transfer.Server("foo", {
+ *
+ * const fooServer = new aws.transfer.Server("fooServer", {
  *     identityProviderType: "SERVICE_MANAGED",
  *     tags: {
  *         NAME: "tf-acc-test-transfer-server",
  *     },
  * });
- * const fooRole = new aws.iam.Role("foo", {
- *     assumeRolePolicy: `{
+ * const fooRole = new aws.iam.Role("fooRole", {assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -33,9 +32,9 @@ import * as utilities from "../utilities";
  * 		}
  * 	]
  * }
- * `,
- * });
- * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
+ * `});
+ * const fooRolePolicy = new aws.iam.RolePolicy("fooRolePolicy", {
+ *     role: fooRole.id,
  *     policy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
@@ -50,16 +49,13 @@ import * as utilities from "../utilities";
  * 	]
  * }
  * `,
- *     role: fooRole.id,
  * });
- * const fooUser = new aws.transfer.User("foo", {
- *     role: fooRole.arn,
+ * const fooUser = new aws.transfer.User("fooUser", {
  *     serverId: fooServer.id,
  *     userName: "tftestuser",
+ *     role: fooRole.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_user.html.markdown.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -69,6 +65,7 @@ export class User extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserState, opts?: pulumi.CustomResourceOptions): User {
         return new User(name, <any>state, { ...opts, id: id });
@@ -97,6 +94,14 @@ export class User extends pulumi.CustomResource {
      */
     public readonly homeDirectory!: pulumi.Output<string | undefined>;
     /**
+     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+     */
+    public readonly homeDirectoryMappings!: pulumi.Output<outputs.transfer.UserHomeDirectoryMapping[] | undefined>;
+    /**
+     * The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+     */
+    public readonly homeDirectoryType!: pulumi.Output<string | undefined>;
+    /**
      * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
      */
     public readonly policy!: pulumi.Output<string | undefined>;
@@ -109,9 +114,9 @@ export class User extends pulumi.CustomResource {
      */
     public readonly serverId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name used for log in to your SFTP server.
      */
@@ -131,6 +136,8 @@ export class User extends pulumi.CustomResource {
             const state = argsOrState as UserState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["homeDirectory"] = state ? state.homeDirectory : undefined;
+            inputs["homeDirectoryMappings"] = state ? state.homeDirectoryMappings : undefined;
+            inputs["homeDirectoryType"] = state ? state.homeDirectoryType : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["role"] = state ? state.role : undefined;
             inputs["serverId"] = state ? state.serverId : undefined;
@@ -148,6 +155,8 @@ export class User extends pulumi.CustomResource {
                 throw new Error("Missing required property 'userName'");
             }
             inputs["homeDirectory"] = args ? args.homeDirectory : undefined;
+            inputs["homeDirectoryMappings"] = args ? args.homeDirectoryMappings : undefined;
+            inputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["role"] = args ? args.role : undefined;
             inputs["serverId"] = args ? args.serverId : undefined;
@@ -179,6 +188,14 @@ export interface UserState {
      */
     readonly homeDirectory?: pulumi.Input<string>;
     /**
+     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+     */
+    readonly homeDirectoryMappings?: pulumi.Input<pulumi.Input<inputs.transfer.UserHomeDirectoryMapping>[]>;
+    /**
+     * The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+     */
+    readonly homeDirectoryType?: pulumi.Input<string>;
+    /**
      * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
      */
     readonly policy?: pulumi.Input<string>;
@@ -191,9 +208,9 @@ export interface UserState {
      */
     readonly serverId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name used for log in to your SFTP server.
      */
@@ -209,6 +226,14 @@ export interface UserArgs {
      */
     readonly homeDirectory?: pulumi.Input<string>;
     /**
+     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+     */
+    readonly homeDirectoryMappings?: pulumi.Input<pulumi.Input<inputs.transfer.UserHomeDirectoryMapping>[]>;
+    /**
+     * The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+     */
+    readonly homeDirectoryType?: pulumi.Input<string>;
+    /**
      * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
      */
     readonly policy?: pulumi.Input<string>;
@@ -221,9 +246,9 @@ export interface UserArgs {
      */
     readonly serverId: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name used for log in to your SFTP server.
      */

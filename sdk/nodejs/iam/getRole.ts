@@ -4,29 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * This data source can be used to fetch information about a specific
  * IAM role. By using this data source, you can reference IAM role
  * properties without having to hard code ARNs as input.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.iam.getRole({
- *     name: "anExampleRoleName",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
+ * const example = pulumi.output(aws.iam.getRole({
+ *     name: "an_example_role_name",
+ * }, { async: true }));
+ * ```
  */
-export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> & GetRoleResult {
+export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
     if (!opts) {
         opts = {}
     }
@@ -34,12 +31,10 @@ export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRoleResult> = pulumi.runtime.invoke("aws:iam/getRole:getRole", {
+    return pulumi.runtime.invoke("aws:iam/getRole:getRole", {
         "name": args.name,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -53,7 +48,7 @@ export interface GetRoleArgs {
     /**
      * The tags attached to the role.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -77,6 +72,10 @@ export interface GetRoleResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Maximum session duration.
      */
     readonly maxSessionDuration: number;
@@ -92,13 +91,9 @@ export interface GetRoleResult {
     /**
      * The tags attached to the role.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The stable and unique string identifying the role.
      */
     readonly uniqueId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

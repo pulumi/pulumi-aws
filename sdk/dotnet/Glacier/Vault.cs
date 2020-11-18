@@ -14,9 +14,58 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// &gt; **NOTE:** When removing a Glacier Vault, the Vault must be empty.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glacier_vault.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var awsSnsTopic = new Aws.Sns.Topic("awsSnsTopic", new Aws.Sns.TopicArgs
+    ///         {
+    ///         });
+    ///         var myArchive = new Aws.Glacier.Vault("myArchive", new Aws.Glacier.VaultArgs
+    ///         {
+    ///             Notifications = 
+    ///             {
+    ///                 new Aws.Glacier.Inputs.VaultNotificationArgs
+    ///                 {
+    ///                     SnsTopic = awsSnsTopic.Arn,
+    ///                     Events = 
+    ///                     {
+    ///                         "ArchiveRetrievalCompleted",
+    ///                         "InventoryRetrievalCompleted",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AccessPolicy = @"{
+    ///     ""Version"":""2012-10-17"",
+    ///     ""Statement"":[
+    ///        {
+    ///           ""Sid"": ""add-read-only-perm"",
+    ///           ""Principal"": ""*"",
+    ///           ""Effect"": ""Allow"",
+    ///           ""Action"": [
+    ///              ""glacier:InitiateJob"",
+    ///              ""glacier:GetJobOutput""
+    ///           ],
+    ///           ""Resource"": ""arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive""
+    ///        }
+    ///     ]
+    /// }
+    /// ",
+    ///             Tags = 
+    ///             {
+    ///                 { "Test", "MyArchive" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Vault : Pulumi.CustomResource
     {
@@ -49,13 +98,13 @@ namespace Pulumi.Aws.Glacier
         /// The notifications for the Vault. Fields documented below.
         /// </summary>
         [Output("notifications")]
-        public Output<ImmutableArray<Outputs.VaultNotifications>> Notifications { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VaultNotification>> Notifications { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -66,7 +115,7 @@ namespace Pulumi.Aws.Glacier
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Vault(string name, VaultArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:glacier/vault:Vault", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:glacier/vault:Vault", name, args ?? new VaultArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -117,26 +166,26 @@ namespace Pulumi.Aws.Glacier
         public Input<string>? Name { get; set; }
 
         [Input("notifications")]
-        private InputList<Inputs.VaultNotificationsArgs>? _notifications;
+        private InputList<Inputs.VaultNotificationArgs>? _notifications;
 
         /// <summary>
         /// The notifications for the Vault. Fields documented below.
         /// </summary>
-        public InputList<Inputs.VaultNotificationsArgs> Notifications
+        public InputList<Inputs.VaultNotificationArgs> Notifications
         {
-            get => _notifications ?? (_notifications = new InputList<Inputs.VaultNotificationsArgs>());
+            get => _notifications ?? (_notifications = new InputList<Inputs.VaultNotificationArgs>());
             set => _notifications = value;
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -173,111 +222,31 @@ namespace Pulumi.Aws.Glacier
         public Input<string>? Name { get; set; }
 
         [Input("notifications")]
-        private InputList<Inputs.VaultNotificationsGetArgs>? _notifications;
+        private InputList<Inputs.VaultNotificationGetArgs>? _notifications;
 
         /// <summary>
         /// The notifications for the Vault. Fields documented below.
         /// </summary>
-        public InputList<Inputs.VaultNotificationsGetArgs> Notifications
+        public InputList<Inputs.VaultNotificationGetArgs> Notifications
         {
-            get => _notifications ?? (_notifications = new InputList<Inputs.VaultNotificationsGetArgs>());
+            get => _notifications ?? (_notifications = new InputList<Inputs.VaultNotificationGetArgs>());
             set => _notifications = value;
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public VaultState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VaultNotificationsArgs : Pulumi.ResourceArgs
-    {
-        [Input("events", required: true)]
-        private InputList<string>? _events;
-
-        /// <summary>
-        /// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-        /// </summary>
-        public InputList<string> Events
-        {
-            get => _events ?? (_events = new InputList<string>());
-            set => _events = value;
-        }
-
-        /// <summary>
-        /// The SNS Topic ARN.
-        /// </summary>
-        [Input("snsTopic", required: true)]
-        public Input<string> SnsTopic { get; set; } = null!;
-
-        public VaultNotificationsArgs()
-        {
-        }
-    }
-
-    public sealed class VaultNotificationsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("events", required: true)]
-        private InputList<string>? _events;
-
-        /// <summary>
-        /// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-        /// </summary>
-        public InputList<string> Events
-        {
-            get => _events ?? (_events = new InputList<string>());
-            set => _events = value;
-        }
-
-        /// <summary>
-        /// The SNS Topic ARN.
-        /// </summary>
-        [Input("snsTopic", required: true)]
-        public Input<string> SnsTopic { get; set; } = null!;
-
-        public VaultNotificationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VaultNotifications
-    {
-        /// <summary>
-        /// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-        /// </summary>
-        public readonly ImmutableArray<string> Events;
-        /// <summary>
-        /// The SNS Topic ARN.
-        /// </summary>
-        public readonly string SnsTopic;
-
-        [OutputConstructor]
-        private VaultNotifications(
-            ImmutableArray<string> events,
-            string snsTopic)
-        {
-            Events = events;
-            SnsTopic = snsTopic;
-        }
-    }
     }
 }

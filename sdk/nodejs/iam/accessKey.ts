@@ -6,9 +6,45 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
- * 
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_access_key.html.markdown.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const lbUser = new aws.iam.User("lbUser", {path: "/system/"});
+ * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {
+ *     user: lbUser.name,
+ *     pgpKey: "keybase:some_person_that_exists",
+ * });
+ * const lbRo = new aws.iam.UserPolicy("lbRo", {
+ *     user: lbUser.name,
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "ec2:Describe*"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * export const secret = lbAccessKey.encryptedSecret;
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testUser = new aws.iam.User("testUser", {path: "/test/"});
+ * const testAccessKey = new aws.iam.AccessKey("testAccessKey", {user: testUser.name});
+ * export const awsIamSmtpPasswordV4 = testAccessKey.sesSmtpPasswordV4;
+ * ```
  */
 export class AccessKey extends pulumi.CustomResource {
     /**
@@ -18,6 +54,7 @@ export class AccessKey extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AccessKeyState, opts?: pulumi.CustomResourceOptions): AccessKey {
         return new AccessKey(name, <any>state, { ...opts, id: id });
@@ -37,10 +74,6 @@ export class AccessKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessKey.__pulumiType;
     }
 
-    /**
-     * The encrypted secret, base64 encoded, if `pgpKey` was specified.
-     * > **NOTE:** The encrypted secret may be decrypted using the command line,
-     */
     public /*out*/ readonly encryptedSecret!: pulumi.Output<string>;
     /**
      * The fingerprint of the PGP key used to encrypt
@@ -61,11 +94,6 @@ export class AccessKey extends pulumi.CustomResource {
      * the use of the secret key in automation.
      */
     public /*out*/ readonly secret!: pulumi.Output<string>;
-    /**
-     * **DEPRECATED** The secret access key converted into an SES SMTP
-     * password by applying [AWS's documented conversion
-     */
-    public /*out*/ readonly sesSmtpPassword!: pulumi.Output<string>;
     /**
      * The secret access key converted into an SES SMTP
      * password by applying [AWS's documented Sigv4 conversion
@@ -99,7 +127,6 @@ export class AccessKey extends pulumi.CustomResource {
             inputs["keyFingerprint"] = state ? state.keyFingerprint : undefined;
             inputs["pgpKey"] = state ? state.pgpKey : undefined;
             inputs["secret"] = state ? state.secret : undefined;
-            inputs["sesSmtpPassword"] = state ? state.sesSmtpPassword : undefined;
             inputs["sesSmtpPasswordV4"] = state ? state.sesSmtpPasswordV4 : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["user"] = state ? state.user : undefined;
@@ -114,7 +141,6 @@ export class AccessKey extends pulumi.CustomResource {
             inputs["encryptedSecret"] = undefined /*out*/;
             inputs["keyFingerprint"] = undefined /*out*/;
             inputs["secret"] = undefined /*out*/;
-            inputs["sesSmtpPassword"] = undefined /*out*/;
             inputs["sesSmtpPasswordV4"] = undefined /*out*/;
         }
         if (!opts) {
@@ -132,10 +158,6 @@ export class AccessKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccessKey resources.
  */
 export interface AccessKeyState {
-    /**
-     * The encrypted secret, base64 encoded, if `pgpKey` was specified.
-     * > **NOTE:** The encrypted secret may be decrypted using the command line,
-     */
     readonly encryptedSecret?: pulumi.Input<string>;
     /**
      * The fingerprint of the PGP key used to encrypt
@@ -156,14 +178,6 @@ export interface AccessKeyState {
      * the use of the secret key in automation.
      */
     readonly secret?: pulumi.Input<string>;
-    /**
-     * **DEPRECATED** The secret access key converted into an SES SMTP
-     * password by applying [AWS's documented conversion
-     * 
-     * @deprecated AWS SigV2 for SES SMTP passwords isy deprecated.
-Use 'ses_smtp_password_v4' for region-specific AWS SigV4 signed SES SMTP password instead.
-     */
-    readonly sesSmtpPassword?: pulumi.Input<string>;
     /**
      * The secret access key converted into an SES SMTP
      * password by applying [AWS's documented Sigv4 conversion

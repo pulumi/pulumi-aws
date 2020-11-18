@@ -4,40 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a SageMaker model resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * Basic usage:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const model = new aws.sagemaker.Model("m", {
- *     executionRoleArn: aws_iam_role_foo.arn,
- *     primaryContainer: {
- *         image: "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
- *     },
- * });
+ *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
- *             identifiers: ["sagemaker.amazonaws.com"],
  *             type: "Service",
+ *             identifiers: ["sagemaker.amazonaws.com"],
  *         }],
  *     }],
  * });
- * const role = new aws.iam.Role("r", {
- *     assumeRolePolicy: assumeRole.json,
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const exampleModel = new aws.sagemaker.Model("exampleModel", {
+ *     executionRoleArn: exampleRole.arn,
+ *     primaryContainer: {
+ *         image: "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
+ *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_model.html.markdown.
  */
 export class Model extends pulumi.CustomResource {
     /**
@@ -47,6 +44,7 @@ export class Model extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ModelState, opts?: pulumi.CustomResourceOptions): Model {
         return new Model(name, <any>state, { ...opts, id: id });
@@ -91,9 +89,9 @@ export class Model extends pulumi.CustomResource {
      */
     public readonly primaryContainer!: pulumi.Output<outputs.sagemaker.ModelPrimaryContainer | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
@@ -173,9 +171,9 @@ export interface ModelState {
      */
     readonly primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
@@ -207,9 +205,9 @@ export interface ModelArgs {
      */
     readonly primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */

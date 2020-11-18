@@ -12,9 +12,32 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_delegation_set.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Route53.DelegationSet("main", new Aws.Route53.DelegationSetArgs
+    ///         {
+    ///             ReferenceName = "DynDNS",
+    ///         });
+    ///         var primary = new Aws.Route53.Zone("primary", new Aws.Route53.ZoneArgs
+    ///         {
+    ///             DelegationSetId = main.Id,
+    ///         });
+    ///         var secondary = new Aws.Route53.Zone("secondary", new Aws.Route53.ZoneArgs
+    ///         {
+    ///             DelegationSetId = main.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DelegationSet : Pulumi.CustomResource
     {
@@ -41,7 +64,7 @@ namespace Pulumi.Aws.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DelegationSet(string name, DelegationSetArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:route53/delegationSet:DelegationSet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:route53/delegationSet:DelegationSet", name, args ?? new DelegationSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 

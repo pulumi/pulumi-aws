@@ -2,9 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {Region} from "../region";
+import {Region} from "..";
 
 let __config = new pulumi.Config("aws");
 
@@ -13,17 +16,13 @@ let __config = new pulumi.Config("aws");
  */
 export let accessKey: string | undefined = __config.get("accessKey");
 export let allowedAccountIds: string[] | undefined = __config.getObject<string[]>("allowedAccountIds");
-export let assumeRole: { externalId?: string, policy?: string, roleArn?: string, sessionName?: string } | undefined = __config.getObject<{ externalId?: string, policy?: string, roleArn?: string, sessionName?: string }>("assumeRole");
-export let endpoints: { accessanalyzer?: string, acm?: string, acmpca?: string, amplify?: string, apigateway?: string, applicationautoscaling?: string, applicationinsights?: string, appmesh?: string, appstream?: string, appsync?: string, athena?: string, autoscaling?: string, autoscalingplans?: string, backup?: string, batch?: string, budgets?: string, cloud9?: string, cloudformation?: string, cloudfront?: string, cloudhsm?: string, cloudsearch?: string, cloudtrail?: string, cloudwatch?: string, cloudwatchevents?: string, cloudwatchlogs?: string, codebuild?: string, codecommit?: string, codedeploy?: string, codepipeline?: string, cognitoidentity?: string, cognitoidp?: string, configservice?: string, cur?: string, dataexchange?: string, datapipeline?: string, datasync?: string, dax?: string, devicefarm?: string, directconnect?: string, dlm?: string, dms?: string, docdb?: string, ds?: string, dynamodb?: string, ec2?: string, ecr?: string, ecs?: string, efs?: string, eks?: string, elasticache?: string, elasticbeanstalk?: string, elastictranscoder?: string, elb?: string, emr?: string, es?: string, firehose?: string, fms?: string, forecast?: string, fsx?: string, gamelift?: string, glacier?: string, globalaccelerator?: string, glue?: string, greengrass?: string, guardduty?: string, iam?: string, imagebuilder?: string, inspector?: string, iot?: string, iotanalytics?: string, iotevents?: string, kafka?: string, kinesis?: string, kinesisAnalytics?: string, kinesisanalytics?: string, kinesisvideo?: string, kms?: string, lakeformation?: string, lambda?: string, lexmodels?: string, licensemanager?: string, lightsail?: string, macie?: string, managedblockchain?: string, marketplacecatalog?: string, mediaconnect?: string, mediaconvert?: string, medialive?: string, mediapackage?: string, mediastore?: string, mediastoredata?: string, mq?: string, neptune?: string, opsworks?: string, organizations?: string, personalize?: string, pinpoint?: string, pricing?: string, qldb?: string, quicksight?: string, r53?: string, ram?: string, rds?: string, redshift?: string, resourcegroups?: string, route53?: string, route53resolver?: string, s3?: string, s3control?: string, sagemaker?: string, sdb?: string, secretsmanager?: string, securityhub?: string, serverlessrepo?: string, servicecatalog?: string, servicediscovery?: string, servicequotas?: string, ses?: string, shield?: string, sns?: string, sqs?: string, ssm?: string, stepfunctions?: string, storagegateway?: string, sts?: string, swf?: string, transfer?: string, waf?: string, wafregional?: string, wafv2?: string, worklink?: string, workmail?: string, workspaces?: string, xray?: string }[] | undefined = __config.getObject<{ accessanalyzer?: string, acm?: string, acmpca?: string, amplify?: string, apigateway?: string, applicationautoscaling?: string, applicationinsights?: string, appmesh?: string, appstream?: string, appsync?: string, athena?: string, autoscaling?: string, autoscalingplans?: string, backup?: string, batch?: string, budgets?: string, cloud9?: string, cloudformation?: string, cloudfront?: string, cloudhsm?: string, cloudsearch?: string, cloudtrail?: string, cloudwatch?: string, cloudwatchevents?: string, cloudwatchlogs?: string, codebuild?: string, codecommit?: string, codedeploy?: string, codepipeline?: string, cognitoidentity?: string, cognitoidp?: string, configservice?: string, cur?: string, dataexchange?: string, datapipeline?: string, datasync?: string, dax?: string, devicefarm?: string, directconnect?: string, dlm?: string, dms?: string, docdb?: string, ds?: string, dynamodb?: string, ec2?: string, ecr?: string, ecs?: string, efs?: string, eks?: string, elasticache?: string, elasticbeanstalk?: string, elastictranscoder?: string, elb?: string, emr?: string, es?: string, firehose?: string, fms?: string, forecast?: string, fsx?: string, gamelift?: string, glacier?: string, globalaccelerator?: string, glue?: string, greengrass?: string, guardduty?: string, iam?: string, imagebuilder?: string, inspector?: string, iot?: string, iotanalytics?: string, iotevents?: string, kafka?: string, kinesis?: string, kinesisAnalytics?: string, kinesisanalytics?: string, kinesisvideo?: string, kms?: string, lakeformation?: string, lambda?: string, lexmodels?: string, licensemanager?: string, lightsail?: string, macie?: string, managedblockchain?: string, marketplacecatalog?: string, mediaconnect?: string, mediaconvert?: string, medialive?: string, mediapackage?: string, mediastore?: string, mediastoredata?: string, mq?: string, neptune?: string, opsworks?: string, organizations?: string, personalize?: string, pinpoint?: string, pricing?: string, qldb?: string, quicksight?: string, r53?: string, ram?: string, rds?: string, redshift?: string, resourcegroups?: string, route53?: string, route53resolver?: string, s3?: string, s3control?: string, sagemaker?: string, sdb?: string, secretsmanager?: string, securityhub?: string, serverlessrepo?: string, servicecatalog?: string, servicediscovery?: string, servicequotas?: string, ses?: string, shield?: string, sns?: string, sqs?: string, ssm?: string, stepfunctions?: string, storagegateway?: string, sts?: string, swf?: string, transfer?: string, waf?: string, wafregional?: string, wafv2?: string, worklink?: string, workmail?: string, workspaces?: string, xray?: string }[]>("endpoints");
+export let assumeRole: outputs.config.AssumeRole | undefined = __config.getObject<outputs.config.AssumeRole>("assumeRole");
+export let endpoints: outputs.config.Endpoints[] | undefined = __config.getObject<outputs.config.Endpoints[]>("endpoints");
 export let forbiddenAccountIds: string[] | undefined = __config.getObject<string[]>("forbiddenAccountIds");
 /**
- * Resource tag key prefixes to ignore across all resources.
+ * Configuration block with settings to ignore resource tags across all resources.
  */
-export let ignoreTagPrefixes: string[] | undefined = __config.getObject<string[]>("ignoreTagPrefixes");
-/**
- * Resource tag keys to ignore across all resources.
- */
-export let ignoreTags: string[] | undefined = __config.getObject<string[]>("ignoreTags");
+export let ignoreTags: outputs.config.IgnoreTags | undefined = __config.getObject<outputs.config.IgnoreTags>("ignoreTags");
 /**
  * Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
  */
@@ -39,7 +38,7 @@ export let profile: string | undefined = __config.get("profile") || utilities.ge
 /**
  * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
  */
-export let region: Region | undefined = <any>__config.get("region") || utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+export let region: Region | undefined = <Region>__config.get("region") || <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
 /**
  * Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
  * default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).

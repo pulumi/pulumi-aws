@@ -4,40 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Global Accelerator listener.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleAccelerator = new aws.globalaccelerator.Accelerator("example", {
+ *
+ * const exampleAccelerator = new aws.globalaccelerator.Accelerator("exampleAccelerator", {
+ *     ipAddressType: "IPV4",
+ *     enabled: true,
  *     attributes: {
  *         flowLogsEnabled: true,
  *         flowLogsS3Bucket: "example-bucket",
  *         flowLogsS3Prefix: "flow-logs/",
  *     },
- *     enabled: true,
- *     ipAddressType: "IPV4",
  * });
- * const exampleListener = new aws.globalaccelerator.Listener("example", {
+ * const exampleListener = new aws.globalaccelerator.Listener("exampleListener", {
  *     acceleratorArn: exampleAccelerator.id,
  *     clientAffinity: "SOURCE_IP",
+ *     protocol: "TCP",
  *     portRanges: [{
  *         fromPort: 80,
  *         toPort: 80,
  *     }],
- *     protocol: "TCP",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_listener.markdown.
  */
 export class Listener extends pulumi.CustomResource {
     /**
@@ -47,6 +44,7 @@ export class Listener extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ListenerState, opts?: pulumi.CustomResourceOptions): Listener {
         return new Listener(name, <any>state, { ...opts, id: id });

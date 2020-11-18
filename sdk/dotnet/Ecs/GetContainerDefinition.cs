@@ -9,33 +9,40 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecs
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The ECS container definition data source allows access to details of
-        /// a specific container within an AWS ECS service.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetContainerDefinition.InvokeAsync() instead")]
-        public static Task<GetContainerDefinitionResult> GetContainerDefinition(GetContainerDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetContainerDefinition
     {
         /// <summary>
         /// The ECS container definition data source allows access to details of
         /// a specific container within an AWS ECS service.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var ecs_mongo = Output.Create(Aws.Ecs.GetContainerDefinition.InvokeAsync(new Aws.Ecs.GetContainerDefinitionArgs
+        ///         {
+        ///             TaskDefinition = aws_ecs_task_definition.Mongo.Id,
+        ///             ContainerName = "mongodb",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetContainerDefinitionResult> InvokeAsync(GetContainerDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args ?? new GetContainerDefinitionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetContainerDefinitionArgs : Pulumi.InvokeArgs
     {
@@ -55,6 +62,7 @@ namespace Pulumi.Aws.Ecs
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetContainerDefinitionResult
@@ -77,6 +85,10 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Environment;
         /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The docker image in use, including the digest
         /// </summary>
         public readonly string Image;
@@ -93,36 +105,42 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly int MemoryReservation;
         public readonly string TaskDefinition;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetContainerDefinitionResult(
             string containerName,
+
             int cpu,
+
             bool disableNetworking,
+
             ImmutableDictionary<string, string> dockerLabels,
+
             ImmutableDictionary<string, string> environment,
+
+            string id,
+
             string image,
+
             string imageDigest,
+
             int memory,
+
             int memoryReservation,
-            string taskDefinition,
-            string id)
+
+            string taskDefinition)
         {
             ContainerName = containerName;
             Cpu = cpu;
             DisableNetworking = disableNetworking;
             DockerLabels = dockerLabels;
             Environment = environment;
+            Id = id;
             Image = image;
             ImageDigest = imageDigest;
             Memory = memory;
             MemoryReservation = memoryReservation;
             TaskDefinition = taskDefinition;
-            Id = id;
         }
     }
 }

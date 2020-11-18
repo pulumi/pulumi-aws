@@ -7,10 +7,53 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a WAF Rule Resource
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/waf"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		ipset, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
+// 			IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
+// 				&waf.IpSetIpSetDescriptorArgs{
+// 					Type:  pulumi.String("IPV4"),
+// 					Value: pulumi.String("192.0.7.0/24"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = waf.NewRule(ctx, "wafrule", &waf.RuleArgs{
+// 			MetricName: pulumi.String("tfWAFRule"),
+// 			Predicates: waf.RulePredicateArray{
+// 				&waf.RulePredicateArgs{
+// 					DataId:  ipset.ID(),
+// 					Negated: pulumi.Bool(false),
+// 					Type:    pulumi.String("IPMatch"),
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			ipset,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Rule struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +65,8 @@ type Rule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayOutput `pulumi:"predicates"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewRule registers a new resource with the given unique name, arguments, and options.
@@ -65,8 +108,8 @@ type ruleState struct {
 	Name *string `pulumi:"name"`
 	// The objects to include in a rule (documented below).
 	Predicates []RulePredicate `pulumi:"predicates"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type RuleState struct {
@@ -78,8 +121,8 @@ type RuleState struct {
 	Name pulumi.StringPtrInput
 	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (RuleState) ElementType() reflect.Type {
@@ -93,8 +136,8 @@ type ruleArgs struct {
 	Name *string `pulumi:"name"`
 	// The objects to include in a rule (documented below).
 	Predicates []RulePredicate `pulumi:"predicates"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Rule resource.
@@ -105,8 +148,8 @@ type RuleArgs struct {
 	Name pulumi.StringPtrInput
 	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (RuleArgs) ElementType() reflect.Type {

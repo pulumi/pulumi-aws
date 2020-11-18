@@ -7,13 +7,40 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an RDS security group resource. This is only for DB instances in the
 // EC2-Classic Platform. For instances inside a VPC, use the
-// [`aws_db_instance.vpc_security_group_ids`](https://www.terraform.io/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
+// `aws_db_instance.vpc_security_group_ids`
 // attribute instead.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := rds.NewSecurityGroup(ctx, "_default", &rds.SecurityGroupArgs{
+// 			Ingress: rds.SecurityGroupIngressArray{
+// 				&rds.SecurityGroupIngressArgs{
+// 					Cidr: pulumi.String("10.0.0.0/24"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SecurityGroup struct {
 	pulumi.CustomResourceState
 
@@ -25,8 +52,8 @@ type SecurityGroup struct {
 	Ingress SecurityGroupIngressArrayOutput `pulumi:"ingress"`
 	// The name of the DB security group.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewSecurityGroup registers a new resource with the given unique name, arguments, and options.
@@ -71,8 +98,8 @@ type securityGroupState struct {
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
 	// The name of the DB security group.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type SecurityGroupState struct {
@@ -84,8 +111,8 @@ type SecurityGroupState struct {
 	Ingress SecurityGroupIngressArrayInput
 	// The name of the DB security group.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (SecurityGroupState) ElementType() reflect.Type {
@@ -99,8 +126,8 @@ type securityGroupArgs struct {
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
 	// The name of the DB security group.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SecurityGroup resource.
@@ -111,8 +138,8 @@ type SecurityGroupArgs struct {
 	Ingress SecurityGroupIngressArrayInput
 	// The name of the DB security group.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (SecurityGroupArgs) ElementType() reflect.Type {

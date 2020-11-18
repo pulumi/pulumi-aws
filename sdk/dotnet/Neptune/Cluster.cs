@@ -20,9 +20,33 @@ namespace Pulumi.Aws.Neptune
     /// `apply_immediately` flag to instruct the service to apply the change immediately
     /// (see documentation below).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Neptune.Cluster("default", new Aws.Neptune.ClusterArgs
+    ///         {
+    ///             ApplyImmediately = true,
+    ///             BackupRetentionPeriod = 5,
+    ///             ClusterIdentifier = "neptune-cluster-demo",
+    ///             Engine = "neptune",
+    ///             IamDatabaseAuthenticationEnabled = true,
+    ///             PreferredBackupWindow = "07:00-09:00",
+    ///             SkipFinalSnapshot = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// &gt; **Note:** AWS Neptune does not support user name/password–based access control.
+    /// See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -74,6 +98,9 @@ namespace Pulumi.Aws.Neptune
         [Output("clusterResourceId")]
         public Output<string> ClusterResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
@@ -192,10 +219,10 @@ namespace Pulumi.Aws.Neptune
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the Neptune cluster.
+        /// A map of tags to assign to the Neptune cluster.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// List of VPC security groups to associate with the Cluster
@@ -212,7 +239,7 @@ namespace Pulumi.Aws.Neptune
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:neptune/cluster:Cluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:neptune/cluster:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -285,6 +312,9 @@ namespace Pulumi.Aws.Neptune
         [Input("clusterIdentifierPrefix")]
         public Input<string>? ClusterIdentifierPrefix { get; set; }
 
+        /// <summary>
+        /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
@@ -397,14 +427,14 @@ namespace Pulumi.Aws.Neptune
         public Input<bool>? StorageEncrypted { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the Neptune cluster.
+        /// A map of tags to assign to the Neptune cluster.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -487,6 +517,9 @@ namespace Pulumi.Aws.Neptune
         [Input("clusterResourceId")]
         public Input<string>? ClusterResourceId { get; set; }
 
+        /// <summary>
+        /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
@@ -617,14 +650,14 @@ namespace Pulumi.Aws.Neptune
         public Input<bool>? StorageEncrypted { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the Neptune cluster.
+        /// A map of tags to assign to the Neptune cluster.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

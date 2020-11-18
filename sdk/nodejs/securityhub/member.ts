@@ -6,24 +6,22 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Security Hub member resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleAccount = new aws.securityhub.Account("example", {});
- * const exampleMember = new aws.securityhub.Member("example", {
+ *
+ * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
+ * const exampleMember = new aws.securityhub.Member("exampleMember", {
  *     accountId: "123456789012",
  *     email: "example@example.com",
  *     invite: true,
- * }, {dependsOn: [exampleAccount]});
+ * }, {
+ *     dependsOn: [exampleAccount],
+ * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_member.markdown.
  */
 export class Member extends pulumi.CustomResource {
     /**
@@ -33,6 +31,7 @@ export class Member extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MemberState, opts?: pulumi.CustomResourceOptions): Member {
         return new Member(name, <any>state, { ...opts, id: id });
@@ -69,7 +68,7 @@ export class Member extends pulumi.CustomResource {
      */
     public /*out*/ readonly masterId!: pulumi.Output<string>;
     /**
-     * The status of the relationship between the member account and its master account.
+     * The status of the member account relationship.
      */
     public /*out*/ readonly memberStatus!: pulumi.Output<string>;
 
@@ -136,7 +135,7 @@ export interface MemberState {
      */
     readonly masterId?: pulumi.Input<string>;
     /**
-     * The status of the relationship between the member account and its master account.
+     * The status of the member account relationship.
      */
     readonly memberStatus?: pulumi.Input<string>;
 }

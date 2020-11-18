@@ -18,9 +18,45 @@ namespace Pulumi.Aws.Ses
     /// 
     /// &gt; **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity_verification.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ses.DomainIdentity("example", new Aws.Ses.DomainIdentityArgs
+    ///         {
+    ///             Domain = "example.com",
+    ///         });
+    ///         var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("exampleAmazonsesVerificationRecord", new Aws.Route53.RecordArgs
+    ///         {
+    ///             ZoneId = aws_route53_zone.Example.Zone_id,
+    ///             Name = example.Id.Apply(id =&gt; $"_amazonses.{id}"),
+    ///             Type = "TXT",
+    ///             Ttl = 600,
+    ///             Records = 
+    ///             {
+    ///                 example.VerificationToken,
+    ///             },
+    ///         });
+    ///         var exampleVerification = new Aws.Ses.DomainIdentityVerification("exampleVerification", new Aws.Ses.DomainIdentityVerificationArgs
+    ///         {
+    ///             Domain = example.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleAmazonsesVerificationRecord,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DomainIdentityVerification : Pulumi.CustomResource
     {
@@ -45,7 +81,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DomainIdentityVerification(string name, DomainIdentityVerificationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/domainIdentityVerification:DomainIdentityVerification", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/domainIdentityVerification:DomainIdentityVerification", name, args ?? new DomainIdentityVerificationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

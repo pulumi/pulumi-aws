@@ -4,7 +4,7 @@
 package ecr
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 func GetCredentials(ctx *pulumi.Context, args *GetCredentialsArgs, opts ...pulumi.InvokeOption) (*GetCredentialsResult, error) {
@@ -25,7 +25,7 @@ type GetCredentialsArgs struct {
 type GetCredentialsResult struct {
 	AuthorizationToken string `pulumi:"authorizationToken"`
 	ExpiresAt          string `pulumi:"expiresAt"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
 	ProxyEndpoint string `pulumi:"proxyEndpoint"`
 	RegistryId    string `pulumi:"registryId"`

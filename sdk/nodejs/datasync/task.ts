@@ -4,31 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
+import {ARN} from "..";
 
 /**
  * Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
- * 
- * ## Example Usage
- * 
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.datasync.Task("example", {
- *     destinationLocationArn: aws_datasync_location_s3_destination.arn,
- *     options: {
- *         bytesPerSecond: -1,
- *     },
- *     sourceLocationArn: aws_datasync_location_nfs_source.arn,
- * });
- * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_task.html.markdown.
  */
 export class Task extends pulumi.CustomResource {
     /**
@@ -38,6 +20,7 @@ export class Task extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TaskState, opts?: pulumi.CustomResourceOptions): Task {
         return new Task(name, <any>state, { ...opts, id: id });
@@ -84,7 +67,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Task resource with the given unique name, arguments, and options.
@@ -163,7 +146,7 @@ export interface TaskState {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -193,5 +176,5 @@ export interface TaskArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

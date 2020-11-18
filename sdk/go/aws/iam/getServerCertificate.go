@@ -4,16 +4,51 @@
 package iam
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to lookup information about IAM Server Certificates.
 //
+// ## Example Usage
 //
-// ## Import
+// ```go
+// package main
 //
-// The import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn.
-// It will not retrieve the private key which is not available through the AWS API.
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elb"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "my-domain.org"
+// 		opt1 := true
+// 		my_domain, err := iam.LookupServerCertificate(ctx, &iam.LookupServerCertificateArgs{
+// 			NamePrefix: &opt0,
+// 			Latest:     &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = elb.NewLoadBalancer(ctx, "elb", &elb.LoadBalancerArgs{
+// 			Listeners: elb.LoadBalancerListenerArray{
+// 				&elb.LoadBalancerListenerArgs{
+// 					InstancePort:     pulumi.Int(8000),
+// 					InstanceProtocol: pulumi.String("https"),
+// 					LbPort:           pulumi.Int(443),
+// 					LbProtocol:       pulumi.String("https"),
+// 					SslCertificateId: pulumi.String(my_domain.Arn),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupServerCertificate(ctx *pulumi.Context, args *LookupServerCertificateArgs, opts ...pulumi.InvokeOption) (*LookupServerCertificateResult, error) {
 	var rv LookupServerCertificateResult
 	err := ctx.Invoke("aws:iam/getServerCertificate:getServerCertificate", args, &rv, opts...)
@@ -41,7 +76,7 @@ type LookupServerCertificateResult struct {
 	CertificateBody  string `pulumi:"certificateBody"`
 	CertificateChain string `pulumi:"certificateChain"`
 	ExpirationDate   string `pulumi:"expirationDate"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id         string  `pulumi:"id"`
 	Latest     *bool   `pulumi:"latest"`
 	Name       string  `pulumi:"name"`

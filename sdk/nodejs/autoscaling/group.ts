@@ -4,225 +4,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {LaunchConfiguration} from "../ec2/launchConfiguration";
-import {PlacementGroup} from "../ec2/placementGroup";
-import {Metric, MetricsGranularity} from "./metrics";
+import {LaunchConfiguration, PlacementGroup} from "../ec2";
+import {Metric, MetricsGranularity} from "./index";
 
-/**
- * Provides an AutoScaling Group resource.
- * 
- * > **Note:** You must specify either `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
- * 
- * ## Example Usage
- * 
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const test = new aws.ec2.PlacementGroup("test", {
- *     strategy: "cluster",
- * });
- * const bar = new aws.autoscaling.Group("bar", {
- *     desiredCapacity: 4,
- *     forceDelete: true,
- *     healthCheckGracePeriod: 300,
- *     healthCheckType: "ELB",
- *     initialLifecycleHooks: [{
- *         defaultResult: "CONTINUE",
- *         heartbeatTimeout: 2000,
- *         lifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING",
- *         name: "foobar",
- *         notificationMetadata: `{
- *   "foo": "bar"
- * }
- * `,
- *         notificationTargetArn: "arn:aws:sqs:us-east-1:444455556666:queue1*",
- *         roleArn: "arn:aws:iam::123456789012:role/S3Access",
- *     }],
- *     launchConfiguration: aws_launch_configuration_foobar.name,
- *     maxSize: 5,
- *     minSize: 2,
- *     placementGroup: test.id,
- *     tags: [
- *         {
- *             key: "foo",
- *             propagateAtLaunch: true,
- *             value: "bar",
- *         },
- *         {
- *             key: "lorem",
- *             propagateAtLaunch: false,
- *             value: "ipsum",
- *         },
- *     ],
- *     vpcZoneIdentifiers: [
- *         aws_subnet_example1.id,
- *         aws_subnet_example2.id,
- *     ],
- * }, {timeouts: {
- *     delete: "15m",
- * }});
- * ```
- * 
- * ### With Latest Version Of Launch Template
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const foobar = new aws.ec2.LaunchTemplate("foobar", {
- *     imageId: "ami-1a2b3c",
- *     instanceType: "t2.micro",
- *     namePrefix: "foobar",
- * });
- * const bar = new aws.autoscaling.Group("bar", {
- *     availabilityZones: ["us-east-1a"],
- *     desiredCapacity: 1,
- *     launchTemplate: {
- *         id: foobar.id,
- *         version: "$Latest",
- *     },
- *     maxSize: 1,
- *     minSize: 1,
- * });
- * ```
- * 
- * ### Mixed Instances Policy
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("example", {
- *     imageId: aws_ami_example.id,
- *     instanceType: "c5.large",
- *     namePrefix: "example",
- * });
- * const exampleGroup = new aws.autoscaling.Group("example", {
- *     availabilityZones: ["us-east-1a"],
- *     desiredCapacity: 1,
- *     maxSize: 1,
- *     minSize: 1,
- *     mixedInstancesPolicy: {
- *         launchTemplate: {
- *             launchTemplateSpecification: {
- *                 launchTemplateId: exampleLaunchTemplate.id,
- *             },
- *             overrides: [
- *                 {
- *                     instanceType: "c4.large",
- *                     weightedCapacity: "3",
- *                 },
- *                 {
- *                     instanceType: "c3.large",
- *                     weightedCapacity: "2",
- *                 },
- *             ],
- *         },
- *     },
- * });
- * ```
- * 
- * ## Interpolated tags
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const extraTags = config.get("extraTags") || [
- *     {
- *         key: "Foo",
- *         propagateAtLaunch: true,
- *         value: "Bar",
- *     },
- *     {
- *         key: "Baz",
- *         propagateAtLaunch: true,
- *         value: "Bam",
- *     },
- * ];
- * 
- * const bar = new aws.autoscaling.Group("bar", {
- *     launchConfiguration: aws_launch_configuration_foobar.name,
- *     maxSize: 5,
- *     minSize: 2,
- *     tagsCollection: [{"key": "interpolation1", "value": "value3", "propagateAtLaunch": true}, {"key": "interpolation2", "value": "value4", "propagateAtLaunch": true}].concat(extraTags),
- *     vpcZoneIdentifiers: [
- *         aws_subnet_example1.id,
- *         aws_subnet_example2.id,
- *     ],
- * });
- * ```
- * 
- * ## Waiting for Capacity
- * 
- * A newly-created ASG is initially empty and begins to scale to `minSize` (or
- * `desiredCapacity`, if specified) by launching instances using the provided
- * Launch Configuration. These instances take time to launch and boot.
- * 
- * On ASG Update, changes to these values also take time to result in the target
- * number of instances providing service.
- * 
- * This provider provides two mechanisms to help consistently manage ASG scale up
- * time across dependent resources.
- * 
- * #### Waiting for ASG Capacity
- * 
- * The first is default behavior. This provider waits after ASG creation for
- * `minSize` (or `desiredCapacity`, if specified) healthy instances to show up
- * in the ASG before continuing.
- * 
- * If `minSize` or `desiredCapacity` are changed in a subsequent update,
- * this provider will also wait for the correct number of healthy instances before
- * continuing.
- * 
- * This provider considers an instance "healthy" when the ASG reports `HealthStatus:
- * "Healthy"` and `LifecycleState: "InService"`. See the [AWS AutoScaling
- * Docs](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html)
- * for more information on an ASG's lifecycle.
- * 
- * This provider will wait for healthy instances for up to
- * `waitForCapacityTimeout`. If ASG creation is taking more than a few minutes,
- * it's worth investigating for scaling activity errors, which can be caused by
- * problems with the selected Launch Configuration.
- * 
- * Setting `waitForCapacityTimeout` to `"0"` disables ASG Capacity waiting.
- * 
- * #### Waiting for ELB Capacity
- * 
- * The second mechanism is optional, and affects ASGs with attached ELBs specified
- * via the `loadBalancers` attribute or with ALBs specified with `targetGroupArns`.
- * 
- * The `minElbCapacity` parameter causes this provider to wait for at least the
- * requested number of instances to show up `"InService"` in all attached ELBs
- * during ASG creation.  It has no effect on ASG updates.
- * 
- * If `waitForElbCapacity` is set, this provider will wait for exactly that number
- * of Instances to be `"InService"` in all attached ELBs on both creation and
- * updates.
- * 
- * These parameters can be used to ensure that service is being provided before
- * this provider moves on. If new instances don't pass the ELB's health checks for any
- * reason, the deployment will time out, and the ASG will be marked as
- * tainted (i.e. marked to be destroyed in a follow up run).
- * 
- * As with ASG Capacity, this provider will wait for up to `waitForCapacityTimeout`
- * for the proper number of instances to be healthy.
- * 
- * #### Troubleshooting Capacity Waiting Timeouts
- * 
- * If ASG creation takes more than a few minutes, this could indicate one of a
- * number of configuration problems. See the [AWS Docs on Load Balancer
- * Troubleshooting](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-troubleshooting.html)
- * for more information.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_group.html.markdown.
- */
 export class Group extends pulumi.CustomResource {
     /**
      * Get an existing Group resource's state with the given name, ID, and optional extra
@@ -231,6 +18,7 @@ export class Group extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GroupState, opts?: pulumi.CustomResourceOptions): Group {
         return new Group(name, <any>state, { ...opts, id: id });
@@ -255,7 +43,7 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A list of one or more availability zones for the group. This parameter should not be specified when using `vpcZoneIdentifier`.
+     * A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
      */
     public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
@@ -270,11 +58,6 @@ export class Group extends pulumi.CustomResource {
     public readonly desiredCapacity!: pulumi.Output<number>;
     /**
      * A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-     * * `waitForCapacityTimeout` (Default: "10m") A maximum
-     * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-     * wait for ASG instances to be healthy before timing out.  (See also Waiting
-     * for Capacity below.) Setting this to "0" causes
-     * this provider to skip all Capacity Waiting behavior.
      */
     public readonly enabledMetrics!: pulumi.Output<Metric[] | undefined>;
     /**
@@ -298,7 +81,7 @@ export class Group extends pulumi.CustomResource {
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
      * to attach to the autoscaling group **before** instances are launched. The
      * syntax is exactly the same as the separate
-     * [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
+     * `aws.autoscaling.LifecycleHook`
      * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
      * a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
@@ -315,7 +98,7 @@ export class Group extends pulumi.CustomResource {
      * A list of elastic load balancer names to add to the autoscaling
      * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
      */
-    public readonly loadBalancers!: pulumi.Output<string[]>;
+    public readonly loadBalancers!: pulumi.Output<string[] | undefined>;
     /**
      * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
      */
@@ -359,7 +142,7 @@ export class Group extends pulumi.CustomResource {
     public readonly placementGroup!: pulumi.Output<string | undefined>;
     /**
      * Allows setting instance protection. The
-     * autoscaling group will not select instances with this setting for terminination
+     * autoscaling group will not select instances with this setting for termination
      * during scale in events.
      */
     public readonly protectFromScaleIn!: pulumi.Output<boolean | undefined>;
@@ -373,25 +156,32 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly suspendedProcesses!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of tag blocks. Tags documented below.
+     * Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
      */
     public readonly tags!: pulumi.Output<outputs.autoscaling.GroupTag[] | undefined>;
     /**
-     * A list of tag blocks (maps). Tags documented below.
+     * Set of maps containing resource tags. Conflicts with `tag`. Documented below.
      */
-    public readonly tagsCollection!: pulumi.Output<{[key: string]: any}[] | undefined>;
+    public readonly tagsCollection!: pulumi.Output<{[key: string]: string}[] | undefined>;
     /**
-     * A list of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+     * A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
      */
-    public readonly targetGroupArns!: pulumi.Output<string[]>;
+    public readonly targetGroupArns!: pulumi.Output<string[] | undefined>;
     /**
      * A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
      */
     public readonly terminationPolicies!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of subnet IDs to launch resources in.
+     * A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
      */
     public readonly vpcZoneIdentifiers!: pulumi.Output<string[]>;
+    /**
+     * A maximum
+     * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+     * wait for ASG instances to be healthy before timing out.  (See also Waiting
+     * for Capacity below.) Setting this to "0" causes
+     * this provider to skip all Capacity Waiting behavior.
+     */
     public readonly waitForCapacityTimeout!: pulumi.Output<string | undefined>;
     /**
      * Setting this will cause this provider to wait
@@ -505,7 +295,7 @@ export interface GroupState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * A list of one or more availability zones for the group. This parameter should not be specified when using `vpcZoneIdentifier`.
+     * A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -520,11 +310,6 @@ export interface GroupState {
     readonly desiredCapacity?: pulumi.Input<number>;
     /**
      * A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-     * * `waitForCapacityTimeout` (Default: "10m") A maximum
-     * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-     * wait for ASG instances to be healthy before timing out.  (See also Waiting
-     * for Capacity below.) Setting this to "0" causes
-     * this provider to skip all Capacity Waiting behavior.
      */
     readonly enabledMetrics?: pulumi.Input<pulumi.Input<Metric>[]>;
     /**
@@ -548,7 +333,7 @@ export interface GroupState {
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
      * to attach to the autoscaling group **before** instances are launched. The
      * syntax is exactly the same as the separate
-     * [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
+     * `aws.autoscaling.LifecycleHook`
      * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
      * a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
@@ -609,7 +394,7 @@ export interface GroupState {
     readonly placementGroup?: pulumi.Input<string | PlacementGroup>;
     /**
      * Allows setting instance protection. The
-     * autoscaling group will not select instances with this setting for terminination
+     * autoscaling group will not select instances with this setting for termination
      * during scale in events.
      */
     readonly protectFromScaleIn?: pulumi.Input<boolean>;
@@ -623,15 +408,15 @@ export interface GroupState {
      */
     readonly suspendedProcesses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of tag blocks. Tags documented below.
+     * Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
      */
     readonly tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupTag>[]>;
     /**
-     * A list of tag blocks (maps). Tags documented below.
+     * Set of maps containing resource tags. Conflicts with `tag`. Documented below.
      */
-    readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
     /**
-     * A list of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+     * A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
      */
     readonly targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -639,9 +424,16 @@ export interface GroupState {
      */
     readonly terminationPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of subnet IDs to launch resources in.
+     * A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
      */
     readonly vpcZoneIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A maximum
+     * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+     * wait for ASG instances to be healthy before timing out.  (See also Waiting
+     * for Capacity below.) Setting this to "0" causes
+     * this provider to skip all Capacity Waiting behavior.
+     */
     readonly waitForCapacityTimeout?: pulumi.Input<string>;
     /**
      * Setting this will cause this provider to wait
@@ -658,7 +450,7 @@ export interface GroupState {
  */
 export interface GroupArgs {
     /**
-     * A list of one or more availability zones for the group. This parameter should not be specified when using `vpcZoneIdentifier`.
+     * A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -673,11 +465,6 @@ export interface GroupArgs {
     readonly desiredCapacity?: pulumi.Input<number>;
     /**
      * A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-     * * `waitForCapacityTimeout` (Default: "10m") A maximum
-     * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-     * wait for ASG instances to be healthy before timing out.  (See also Waiting
-     * for Capacity below.) Setting this to "0" causes
-     * this provider to skip all Capacity Waiting behavior.
      */
     readonly enabledMetrics?: pulumi.Input<pulumi.Input<Metric>[]>;
     /**
@@ -701,7 +488,7 @@ export interface GroupArgs {
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
      * to attach to the autoscaling group **before** instances are launched. The
      * syntax is exactly the same as the separate
-     * [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
+     * `aws.autoscaling.LifecycleHook`
      * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
      * a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
@@ -762,7 +549,7 @@ export interface GroupArgs {
     readonly placementGroup?: pulumi.Input<string | PlacementGroup>;
     /**
      * Allows setting instance protection. The
-     * autoscaling group will not select instances with this setting for terminination
+     * autoscaling group will not select instances with this setting for termination
      * during scale in events.
      */
     readonly protectFromScaleIn?: pulumi.Input<boolean>;
@@ -776,15 +563,15 @@ export interface GroupArgs {
      */
     readonly suspendedProcesses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of tag blocks. Tags documented below.
+     * Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
      */
     readonly tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupTag>[]>;
     /**
-     * A list of tag blocks (maps). Tags documented below.
+     * Set of maps containing resource tags. Conflicts with `tag`. Documented below.
      */
-    readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
     /**
-     * A list of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+     * A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
      */
     readonly targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -792,9 +579,16 @@ export interface GroupArgs {
      */
     readonly terminationPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of subnet IDs to launch resources in.
+     * A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
      */
     readonly vpcZoneIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A maximum
+     * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+     * wait for ASG instances to be healthy before timing out.  (See also Waiting
+     * for Capacity below.) Setting this to "0" causes
+     * this provider to skip all Capacity Waiting behavior.
+     */
     readonly waitForCapacityTimeout?: pulumi.Input<string>;
     /**
      * Setting this will cause this provider to wait

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type CertificateAuthorityCertificateAuthorityConfiguration struct {
@@ -19,6 +19,10 @@ type CertificateAuthorityCertificateAuthorityConfiguration struct {
 	Subject CertificateAuthorityCertificateAuthorityConfigurationSubject `pulumi:"subject"`
 }
 
+// CertificateAuthorityCertificateAuthorityConfigurationInput is an input type that accepts CertificateAuthorityCertificateAuthorityConfigurationArgs and CertificateAuthorityCertificateAuthorityConfigurationOutput values.
+// You can construct a concrete instance of `CertificateAuthorityCertificateAuthorityConfigurationInput` via:
+//
+//          CertificateAuthorityCertificateAuthorityConfigurationArgs{...}
 type CertificateAuthorityCertificateAuthorityConfigurationInput interface {
 	pulumi.Input
 
@@ -55,6 +59,14 @@ func (i CertificateAuthorityCertificateAuthorityConfigurationArgs) ToCertificate
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateAuthorityConfigurationOutput).ToCertificateAuthorityCertificateAuthorityConfigurationPtrOutputWithContext(ctx)
 }
 
+// CertificateAuthorityCertificateAuthorityConfigurationPtrInput is an input type that accepts CertificateAuthorityCertificateAuthorityConfigurationArgs, CertificateAuthorityCertificateAuthorityConfigurationPtr and CertificateAuthorityCertificateAuthorityConfigurationPtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityCertificateAuthorityConfigurationPtrInput` via:
+//
+//          CertificateAuthorityCertificateAuthorityConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type CertificateAuthorityCertificateAuthorityConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -142,51 +154,68 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) Elem() C
 }
 
 // Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) KeyAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfiguration) string { return v.KeyAlgorithm }).(pulumi.StringOutput)
+func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) KeyAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyAlgorithm
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) SigningAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfiguration) string { return v.SigningAlgorithm }).(pulumi.StringOutput)
+func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SigningAlgorithm
+	}).(pulumi.StringPtrOutput)
 }
 
 // Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
-func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) Subject() CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput {
-	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfiguration) CertificateAuthorityCertificateAuthorityConfigurationSubject {
-		return v.Subject
-	}).(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput)
+func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) Subject() CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfiguration) *CertificateAuthorityCertificateAuthorityConfigurationSubject {
+		if v == nil {
+			return nil
+		}
+		return &v.Subject
+	}).(CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput)
 }
 
 type CertificateAuthorityCertificateAuthorityConfigurationSubject struct {
-	// Fully qualified domain name (FQDN) associated with the certificate subject.
+	// Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
 	CommonName *string `pulumi:"commonName"`
-	// Two digit code that specifies the country in which the certificate subject located.
+	// Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
 	Country *string `pulumi:"country"`
-	// Disambiguating information for the certificate subject.
+	// Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
 	DistinguishedNameQualifier *string `pulumi:"distinguishedNameQualifier"`
-	// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+	// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
 	GenerationQualifier *string `pulumi:"generationQualifier"`
-	// First name.
+	// First name. Must be less than or equal to 16 characters in length.
 	GivenName *string `pulumi:"givenName"`
-	// Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`.
+	// Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
 	Initials *string `pulumi:"initials"`
-	// The locality (such as a city or town) in which the certificate subject is located.
+	// The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
 	Locality *string `pulumi:"locality"`
-	// Legal name of the organization with which the certificate subject is affiliated.
+	// Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
 	Organization *string `pulumi:"organization"`
-	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
 	OrganizationalUnit *string `pulumi:"organizationalUnit"`
-	// Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+	// Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
 	Pseudonym *string `pulumi:"pseudonym"`
-	// State in which the subject of the certificate is located.
+	// State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
 	State *string `pulumi:"state"`
-	// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+	// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
 	Surname *string `pulumi:"surname"`
-	// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
+	// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
 	Title *string `pulumi:"title"`
 }
 
+// CertificateAuthorityCertificateAuthorityConfigurationSubjectInput is an input type that accepts CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs and CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput values.
+// You can construct a concrete instance of `CertificateAuthorityCertificateAuthorityConfigurationSubjectInput` via:
+//
+//          CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{...}
 type CertificateAuthorityCertificateAuthorityConfigurationSubjectInput interface {
 	pulumi.Input
 
@@ -195,31 +224,31 @@ type CertificateAuthorityCertificateAuthorityConfigurationSubjectInput interface
 }
 
 type CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs struct {
-	// Fully qualified domain name (FQDN) associated with the certificate subject.
+	// Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
 	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
-	// Two digit code that specifies the country in which the certificate subject located.
+	// Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
 	Country pulumi.StringPtrInput `pulumi:"country"`
-	// Disambiguating information for the certificate subject.
+	// Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
 	DistinguishedNameQualifier pulumi.StringPtrInput `pulumi:"distinguishedNameQualifier"`
-	// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+	// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
 	GenerationQualifier pulumi.StringPtrInput `pulumi:"generationQualifier"`
-	// First name.
+	// First name. Must be less than or equal to 16 characters in length.
 	GivenName pulumi.StringPtrInput `pulumi:"givenName"`
-	// Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`.
+	// Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
 	Initials pulumi.StringPtrInput `pulumi:"initials"`
-	// The locality (such as a city or town) in which the certificate subject is located.
+	// The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
 	Locality pulumi.StringPtrInput `pulumi:"locality"`
-	// Legal name of the organization with which the certificate subject is affiliated.
+	// Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
 	Organization pulumi.StringPtrInput `pulumi:"organization"`
-	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
 	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
-	// Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+	// Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
 	Pseudonym pulumi.StringPtrInput `pulumi:"pseudonym"`
-	// State in which the subject of the certificate is located.
+	// State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
 	State pulumi.StringPtrInput `pulumi:"state"`
-	// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+	// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
 	Surname pulumi.StringPtrInput `pulumi:"surname"`
-	// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
+	// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
 	Title pulumi.StringPtrInput `pulumi:"title"`
 }
 
@@ -233,6 +262,47 @@ func (i CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs) ToCert
 
 func (i CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs) ToCertificateAuthorityCertificateAuthorityConfigurationSubjectOutputWithContext(ctx context.Context) CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput)
+}
+
+func (i CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs) ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput() CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput {
+	return i.ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs) ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutputWithContext(ctx context.Context) CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput).ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutputWithContext(ctx)
+}
+
+// CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrInput is an input type that accepts CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs, CertificateAuthorityCertificateAuthorityConfigurationSubjectPtr and CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrInput` via:
+//
+//          CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput() CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput
+	ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutputWithContext(context.Context) CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput
+}
+
+type certificateAuthorityCertificateAuthorityConfigurationSubjectPtrType CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
+
+func CertificateAuthorityCertificateAuthorityConfigurationSubjectPtr(v *CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs) CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrInput {
+	return (*certificateAuthorityCertificateAuthorityConfigurationSubjectPtrType)(v)
+}
+
+func (*certificateAuthorityCertificateAuthorityConfigurationSubjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityCertificateAuthorityConfigurationSubject)(nil)).Elem()
+}
+
+func (i *certificateAuthorityCertificateAuthorityConfigurationSubjectPtrType) ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput() CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput {
+	return i.ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateAuthorityCertificateAuthorityConfigurationSubjectPtrType) ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutputWithContext(ctx context.Context) CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput)
 }
 
 type CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput struct{ *pulumi.OutputState }
@@ -249,75 +319,235 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) ToCe
 	return o
 }
 
-// Fully qualified domain name (FQDN) associated with the certificate subject.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput() CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput {
+	return o.ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutputWithContext(ctx context.Context) CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *CertificateAuthorityCertificateAuthorityConfigurationSubject {
+		return &v
+	}).(CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput)
+}
+
+// Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) CommonName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.CommonName }).(pulumi.StringPtrOutput)
 }
 
-// Two digit code that specifies the country in which the certificate subject located.
+// Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-// Disambiguating information for the certificate subject.
+// Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) DistinguishedNameQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
 		return v.DistinguishedNameQualifier
 	}).(pulumi.StringPtrOutput)
 }
 
-// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) GenerationQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
 		return v.GenerationQualifier
 	}).(pulumi.StringPtrOutput)
 }
 
-// First name.
+// First name. Must be less than or equal to 16 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) GivenName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.GivenName }).(pulumi.StringPtrOutput)
 }
 
-// Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`.
+// Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Initials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Initials }).(pulumi.StringPtrOutput)
 }
 
-// The locality (such as a city or town) in which the certificate subject is located.
+// The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Locality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Locality }).(pulumi.StringPtrOutput)
 }
 
-// Legal name of the organization with which the certificate subject is affiliated.
+// Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Organization }).(pulumi.StringPtrOutput)
 }
 
-// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
 		return v.OrganizationalUnit
 	}).(pulumi.StringPtrOutput)
 }
 
-// Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+// Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Pseudonym() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Pseudonym }).(pulumi.StringPtrOutput)
 }
 
-// State in which the subject of the certificate is located.
+// State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Surname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Surname }).(pulumi.StringPtrOutput)
 }
 
-// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
+// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+type CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityCertificateAuthorityConfigurationSubject)(nil)).Elem()
+}
+
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput() CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutputWithContext(ctx context.Context) CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) Elem() CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) CertificateAuthorityCertificateAuthorityConfigurationSubject {
+		return *v
+	}).(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput)
+}
+
+// Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) CommonName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CommonName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Country
+	}).(pulumi.StringPtrOutput)
+}
+
+// Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) DistinguishedNameQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DistinguishedNameQualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) GenerationQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GenerationQualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// First name. Must be less than or equal to 16 characters in length.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) GivenName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GivenName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) Initials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Initials
+	}).(pulumi.StringPtrOutput)
+}
+
+// The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) Locality() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Locality
+	}).(pulumi.StringPtrOutput)
+}
+
+// Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) Organization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Organization
+	}).(pulumi.StringPtrOutput)
+}
+
+// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) OrganizationalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) Pseudonym() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Pseudonym
+	}).(pulumi.StringPtrOutput)
+}
+
+// State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) Surname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Surname
+	}).(pulumi.StringPtrOutput)
+}
+
+// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
 }
 
 type CertificateAuthorityRevocationConfiguration struct {
@@ -325,6 +555,10 @@ type CertificateAuthorityRevocationConfiguration struct {
 	CrlConfiguration *CertificateAuthorityRevocationConfigurationCrlConfiguration `pulumi:"crlConfiguration"`
 }
 
+// CertificateAuthorityRevocationConfigurationInput is an input type that accepts CertificateAuthorityRevocationConfigurationArgs and CertificateAuthorityRevocationConfigurationOutput values.
+// You can construct a concrete instance of `CertificateAuthorityRevocationConfigurationInput` via:
+//
+//          CertificateAuthorityRevocationConfigurationArgs{...}
 type CertificateAuthorityRevocationConfigurationInput interface {
 	pulumi.Input
 
@@ -357,6 +591,14 @@ func (i CertificateAuthorityRevocationConfigurationArgs) ToCertificateAuthorityR
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationOutput).ToCertificateAuthorityRevocationConfigurationPtrOutputWithContext(ctx)
 }
 
+// CertificateAuthorityRevocationConfigurationPtrInput is an input type that accepts CertificateAuthorityRevocationConfigurationArgs, CertificateAuthorityRevocationConfigurationPtr and CertificateAuthorityRevocationConfigurationPtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityRevocationConfigurationPtrInput` via:
+//
+//          CertificateAuthorityRevocationConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type CertificateAuthorityRevocationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -435,22 +677,29 @@ func (o CertificateAuthorityRevocationConfigurationPtrOutput) Elem() Certificate
 
 // Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
 func (o CertificateAuthorityRevocationConfigurationPtrOutput) CrlConfiguration() CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityRevocationConfiguration) *CertificateAuthorityRevocationConfigurationCrlConfiguration {
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfiguration) *CertificateAuthorityRevocationConfigurationCrlConfiguration {
+		if v == nil {
+			return nil
+		}
 		return v.CrlConfiguration
 	}).(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput)
 }
 
 type CertificateAuthorityRevocationConfigurationCrlConfiguration struct {
-	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
 	CustomCname *string `pulumi:"customCname"`
 	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
 	// Number of days until a certificate expires. Must be between 1 and 5000.
 	ExpirationInDays int `pulumi:"expirationInDays"`
-	// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
+	// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
 	S3BucketName *string `pulumi:"s3BucketName"`
 }
 
+// CertificateAuthorityRevocationConfigurationCrlConfigurationInput is an input type that accepts CertificateAuthorityRevocationConfigurationCrlConfigurationArgs and CertificateAuthorityRevocationConfigurationCrlConfigurationOutput values.
+// You can construct a concrete instance of `CertificateAuthorityRevocationConfigurationCrlConfigurationInput` via:
+//
+//          CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{...}
 type CertificateAuthorityRevocationConfigurationCrlConfigurationInput interface {
 	pulumi.Input
 
@@ -459,13 +708,13 @@ type CertificateAuthorityRevocationConfigurationCrlConfigurationInput interface 
 }
 
 type CertificateAuthorityRevocationConfigurationCrlConfigurationArgs struct {
-	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
 	CustomCname pulumi.StringPtrInput `pulumi:"customCname"`
 	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Number of days until a certificate expires. Must be between 1 and 5000.
 	ExpirationInDays pulumi.IntInput `pulumi:"expirationInDays"`
-	// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
+	// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
 	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
 }
 
@@ -489,6 +738,14 @@ func (i CertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ToCerti
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationCrlConfigurationOutput).ToCertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutputWithContext(ctx)
 }
 
+// CertificateAuthorityRevocationConfigurationCrlConfigurationPtrInput is an input type that accepts CertificateAuthorityRevocationConfigurationCrlConfigurationArgs, CertificateAuthorityRevocationConfigurationCrlConfigurationPtr and CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityRevocationConfigurationCrlConfigurationPtrInput` via:
+//
+//          CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type CertificateAuthorityRevocationConfigurationCrlConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -538,7 +795,7 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ToCer
 	}).(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput)
 }
 
-// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) CustomCname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
 }
@@ -553,7 +810,7 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Expir
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) int { return v.ExpirationInDays }).(pulumi.IntOutput)
 }
 
-// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
+// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
@@ -578,30 +835,54 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) El
 	}).(CertificateAuthorityRevocationConfigurationCrlConfigurationOutput)
 }
 
-// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) CustomCname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationCrlConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomCname
+	}).(pulumi.StringPtrOutput)
 }
 
 // Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationCrlConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Number of days until a certificate expires. Must be between 1 and 5000.
-func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) ExpirationInDays() pulumi.IntOutput {
-	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) int { return v.ExpirationInDays }).(pulumi.IntOutput)
+func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) ExpirationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationCrlConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ExpirationInDays
+	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
+// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) S3BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationCrlConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketName
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetCertificateAuthorityRevocationConfiguration struct {
 	CrlConfigurations []GetCertificateAuthorityRevocationConfigurationCrlConfiguration `pulumi:"crlConfigurations"`
 }
 
+// GetCertificateAuthorityRevocationConfigurationInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationArgs and GetCertificateAuthorityRevocationConfigurationOutput values.
+// You can construct a concrete instance of `GetCertificateAuthorityRevocationConfigurationInput` via:
+//
+//          GetCertificateAuthorityRevocationConfigurationArgs{...}
 type GetCertificateAuthorityRevocationConfigurationInput interface {
 	pulumi.Input
 
@@ -625,6 +906,10 @@ func (i GetCertificateAuthorityRevocationConfigurationArgs) ToGetCertificateAuth
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationOutput)
 }
 
+// GetCertificateAuthorityRevocationConfigurationArrayInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationArray and GetCertificateAuthorityRevocationConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetCertificateAuthorityRevocationConfigurationArrayInput` via:
+//
+//          GetCertificateAuthorityRevocationConfigurationArray{ GetCertificateAuthorityRevocationConfigurationArgs{...} }
 type GetCertificateAuthorityRevocationConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -693,6 +978,10 @@ type GetCertificateAuthorityRevocationConfigurationCrlConfiguration struct {
 	S3BucketName     string `pulumi:"s3BucketName"`
 }
 
+// GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs and GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput values.
+// You can construct a concrete instance of `GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput` via:
+//
+//          GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs{...}
 type GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput interface {
 	pulumi.Input
 
@@ -719,6 +1008,10 @@ func (i GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ToGe
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput)
 }
 
+// GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationCrlConfigurationArray and GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput` via:
+//
+//          GetCertificateAuthorityRevocationConfigurationCrlConfigurationArray{ GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs{...} }
 type GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -794,6 +1087,7 @@ func init() {
 	pulumi.RegisterOutputType(CertificateAuthorityCertificateAuthorityConfigurationOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCertificateAuthorityConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationCrlConfigurationOutput{})

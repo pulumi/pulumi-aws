@@ -15,15 +15,47 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE on EBS block devices:** If you use `ebs_block_device` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `aws.ebs.Volume` + `aws_ebs_volume_attachment` resources for a given instance.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/volume_attachment.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
+    ///         {
+    ///             Ami = "ami-21f78e11",
+    ///             AvailabilityZone = "us-west-2a",
+    ///             InstanceType = "t2.micro",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "HelloWorld" },
+    ///             },
+    ///         });
+    ///         var example = new Aws.Ebs.Volume("example", new Aws.Ebs.VolumeArgs
+    ///         {
+    ///             AvailabilityZone = "us-west-2a",
+    ///             Size = 1,
+    ///         });
+    ///         var ebsAtt = new Aws.Ec2.VolumeAttachment("ebsAtt", new Aws.Ec2.VolumeAttachmentArgs
+    ///         {
+    ///             DeviceName = "/dev/sdh",
+    ///             VolumeId = example.Id,
+    ///             InstanceId = web.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VolumeAttachment : Pulumi.CustomResource
     {
         /// <summary>
         /// The device name to expose to the instance (for
-        /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+        /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         /// </summary>
         [Output("deviceName")]
         public Output<string> DeviceName { get; private set; } = null!;
@@ -32,7 +64,7 @@ namespace Pulumi.Aws.Ec2
         /// Set to `true` if you want to force the
         /// volume to detach. Useful if previous attempts failed, but use this option only
         /// as a last resort, as this can result in **data loss**. See
-        /// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+        /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         /// </summary>
         [Output("forceDetach")]
         public Output<bool?> ForceDetach { get; private set; } = null!;
@@ -68,7 +100,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VolumeAttachment(string name, VolumeAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/volumeAttachment:VolumeAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/volumeAttachment:VolumeAttachment", name, args ?? new VolumeAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -107,7 +139,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// The device name to expose to the instance (for
-        /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+        /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
@@ -116,7 +148,7 @@ namespace Pulumi.Aws.Ec2
         /// Set to `true` if you want to force the
         /// volume to detach. Useful if previous attempts failed, but use this option only
         /// as a last resort, as this can result in **data loss**. See
-        /// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+        /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         /// </summary>
         [Input("forceDetach")]
         public Input<bool>? ForceDetach { get; set; }
@@ -152,7 +184,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// The device name to expose to the instance (for
-        /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+        /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
@@ -161,7 +193,7 @@ namespace Pulumi.Aws.Ec2
         /// Set to `true` if you want to force the
         /// volume to detach. Useful if previous attempts failed, but use this option only
         /// as a last resort, as this can result in **data loss**. See
-        /// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+        /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         /// </summary>
         [Input("forceDetach")]
         public Input<bool>? ForceDetach { get; set; }

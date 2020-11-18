@@ -4,21 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {Topic} from "../sns/topic";
+import {Topic} from "../sns";
 
 /**
  * Provides a CloudWatch Metric Alarm resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
@@ -31,41 +30,40 @@ import {Topic} from "../sns/topic";
  *     threshold: 80,
  * });
  * ```
- * 
  * ## Example in Conjunction with Scaling Policies
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const batPolicy = new aws.autoscaling.Policy("bat", {
- *     adjustmentType: "ChangeInCapacity",
- *     autoscalingGroupName: aws_autoscaling_group_bar.name,
- *     cooldown: 300,
+ *
+ * const batPolicy = new aws.autoscaling.Policy("batPolicy", {
  *     scalingAdjustment: 4,
+ *     adjustmentType: "ChangeInCapacity",
+ *     cooldown: 300,
+ *     autoscalingGroupName: aws_autoscaling_group.bar.name,
  * });
- * const batMetricAlarm = new aws.cloudwatch.MetricAlarm("bat", {
- *     alarmActions: [batPolicy.arn],
- *     alarmDescription: "This metric monitors ec2 cpu utilization",
+ * const batMetricAlarm = new aws.cloudwatch.MetricAlarm("batMetricAlarm", {
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
- *     dimensions: {
- *         AutoScalingGroupName: aws_autoscaling_group_bar.name,
- *     },
- *     evaluationPeriods: 2,
+ *     evaluationPeriods: "2",
  *     metricName: "CPUUtilization",
  *     namespace: "AWS/EC2",
- *     period: 120,
+ *     period: "120",
  *     statistic: "Average",
- *     threshold: 80,
+ *     threshold: "80",
+ *     dimensions: {
+ *         AutoScalingGroupName: aws_autoscaling_group.bar.name,
+ *     },
+ *     alarmDescription: "This metric monitors ec2 cpu utilization",
+ *     alarmActions: [batPolicy.arn],
  * });
  * ```
- * 
+ *
  * ## Example with an Expression
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
  *     alarmDescription: "Request error rate has exceeded 10%",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
@@ -108,12 +106,12 @@ import {Topic} from "../sns/topic";
  *     threshold: 10,
  * });
  * ```
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const xxAnomalyDetection = new aws.cloudwatch.MetricAlarm("xxAnomalyDetection", {
+ *
+ * const xxAnomalyDetection = new aws.cloudwatch.MetricAlarm("xx_anomaly_detection", {
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     comparisonOperator: "GreaterThanUpperThreshold",
  *     evaluationPeriods: 2,
@@ -144,7 +142,33 @@ import {Topic} from "../sns/topic";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_metric_alarm.html.markdown.
+ * ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const nlbHealthyhosts = new aws.cloudwatch.MetricAlarm("nlbHealthyhosts", {
+ *     comparisonOperator: "LessThanThreshold",
+ *     evaluationPeriods: "1",
+ *     metricName: "HealthyHostCount",
+ *     namespace: "AWS/NetworkELB",
+ *     period: "60",
+ *     statistic: "Average",
+ *     threshold: _var.logstash_servers_count,
+ *     alarmDescription: "Number of healthy nodes in Target Group",
+ *     actionsEnabled: "true",
+ *     alarmActions: [aws_sns_topic.sns.arn],
+ *     okActions: [aws_sns_topic.sns.arn],
+ *     dimensions: {
+ *         TargetGroup: aws_lb_target_group["lb-tg"].arn_suffix,
+ *         LoadBalancer: aws_lb.lb.arn_suffix,
+ *     },
+ * });
+ * ```
+ *
+ * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
+ * You must choose one or the other
  */
 export class MetricAlarm extends pulumi.CustomResource {
     /**
@@ -154,6 +178,7 @@ export class MetricAlarm extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MetricAlarmState, opts?: pulumi.CustomResourceOptions): MetricAlarm {
         return new MetricAlarm(name, <any>state, { ...opts, id: id });
@@ -186,10 +211,6 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly alarmDescription!: pulumi.Output<string | undefined>;
     /**
-     * The descriptive name for the alarm. This name must be unique within the user's AWS account
-     */
-    public readonly name!: pulumi.Output<string>;
-    /**
      * The ARN of the cloudwatch metric alarm.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -204,7 +225,7 @@ export class MetricAlarm extends pulumi.CustomResource {
     /**
      * The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    public readonly dimensions!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly dimensions!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Used only for alarms
      * based on percentiles. If you specify `ignore`, the alarm state will not
@@ -236,6 +257,10 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly metricQueries!: pulumi.Output<outputs.cloudwatch.MetricAlarmMetricQuery[] | undefined>;
     /**
+     * The descriptive name for the alarm. This name must be unique within the user's AWS account
+     */
+    public readonly name!: pulumi.Output<string>;
+    /**
      * The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
@@ -254,9 +279,9 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly statistic!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      */
@@ -289,7 +314,6 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["actionsEnabled"] = state ? state.actionsEnabled : undefined;
             inputs["alarmActions"] = state ? state.alarmActions : undefined;
             inputs["alarmDescription"] = state ? state.alarmDescription : undefined;
-            inputs["name"] = state ? state.name : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["comparisonOperator"] = state ? state.comparisonOperator : undefined;
             inputs["datapointsToAlarm"] = state ? state.datapointsToAlarm : undefined;
@@ -300,6 +324,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["insufficientDataActions"] = state ? state.insufficientDataActions : undefined;
             inputs["metricName"] = state ? state.metricName : undefined;
             inputs["metricQueries"] = state ? state.metricQueries : undefined;
+            inputs["name"] = state ? state.name : undefined;
             inputs["namespace"] = state ? state.namespace : undefined;
             inputs["okActions"] = state ? state.okActions : undefined;
             inputs["period"] = state ? state.period : undefined;
@@ -320,7 +345,6 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
             inputs["alarmActions"] = args ? args.alarmActions : undefined;
             inputs["alarmDescription"] = args ? args.alarmDescription : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["comparisonOperator"] = args ? args.comparisonOperator : undefined;
             inputs["datapointsToAlarm"] = args ? args.datapointsToAlarm : undefined;
             inputs["dimensions"] = args ? args.dimensions : undefined;
@@ -330,6 +354,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
             inputs["metricName"] = args ? args.metricName : undefined;
             inputs["metricQueries"] = args ? args.metricQueries : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["namespace"] = args ? args.namespace : undefined;
             inputs["okActions"] = args ? args.okActions : undefined;
             inputs["period"] = args ? args.period : undefined;
@@ -369,10 +394,6 @@ export interface MetricAlarmState {
      */
     readonly alarmDescription?: pulumi.Input<string>;
     /**
-     * The descriptive name for the alarm. This name must be unique within the user's AWS account
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
      * The ARN of the cloudwatch metric alarm.
      */
     readonly arn?: pulumi.Input<string>;
@@ -387,7 +408,7 @@ export interface MetricAlarmState {
     /**
      * The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    readonly dimensions?: pulumi.Input<{[key: string]: any}>;
+    readonly dimensions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Used only for alarms
      * based on percentiles. If you specify `ignore`, the alarm state will not
@@ -419,6 +440,10 @@ export interface MetricAlarmState {
      */
     readonly metricQueries?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricAlarmMetricQuery>[]>;
     /**
+     * The descriptive name for the alarm. This name must be unique within the user's AWS account
+     */
+    readonly name?: pulumi.Input<string>;
+    /**
      * The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
@@ -437,9 +462,9 @@ export interface MetricAlarmState {
      */
     readonly statistic?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      */
@@ -475,10 +500,6 @@ export interface MetricAlarmArgs {
      */
     readonly alarmDescription?: pulumi.Input<string>;
     /**
-     * The descriptive name for the alarm. This name must be unique within the user's AWS account
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      */
     readonly comparisonOperator: pulumi.Input<string>;
@@ -489,7 +510,7 @@ export interface MetricAlarmArgs {
     /**
      * The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    readonly dimensions?: pulumi.Input<{[key: string]: any}>;
+    readonly dimensions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Used only for alarms
      * based on percentiles. If you specify `ignore`, the alarm state will not
@@ -521,6 +542,10 @@ export interface MetricAlarmArgs {
      */
     readonly metricQueries?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricAlarmMetricQuery>[]>;
     /**
+     * The descriptive name for the alarm. This name must be unique within the user's AWS account
+     */
+    readonly name?: pulumi.Input<string>;
+    /**
      * The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
@@ -539,9 +564,9 @@ export interface MetricAlarmArgs {
      */
     readonly statistic?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      */

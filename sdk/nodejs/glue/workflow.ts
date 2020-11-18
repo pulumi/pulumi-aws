@@ -2,47 +2,41 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Workflow resource.
- * The workflow graph (DAG) can be build using the `aws.glue.Trigger` resource. 
- * See the example below for creating a graph with four nodes (two triggers and two jobs). 
- * 
+ * The workflow graph (DAG) can be build using the `aws.glue.Trigger` resource.
+ * See the example below for creating a graph with four nodes (two triggers and two jobs).
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Workflow("example", {});
- * const exampleStart = new aws.glue.Trigger("example-start", {
+ * const example_start = new aws.glue.Trigger("example-start", {
+ *     type: "ON_DEMAND",
+ *     workflowName: example.name,
  *     actions: [{
  *         jobName: "example-job",
  *     }],
- *     type: "ON_DEMAND",
- *     workflowName: example.name,
  * });
- * const exampleInner = new aws.glue.Trigger("example-inner", {
- *     actions: [{
- *         jobName: "another-example-job",
- *     }],
+ * const example_inner = new aws.glue.Trigger("example-inner", {
+ *     type: "CONDITIONAL",
+ *     workflowName: example.name,
  *     predicate: {
  *         conditions: [{
  *             jobName: "example-job",
  *             state: "SUCCEEDED",
  *         }],
  *     },
- *     type: "CONDITIONAL",
- *     workflowName: example.name,
+ *     actions: [{
+ *         jobName: "another-example-job",
+ *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_workflow.html.markdown.
  */
 export class Workflow extends pulumi.CustomResource {
     /**
@@ -52,6 +46,7 @@ export class Workflow extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WorkflowState, opts?: pulumi.CustomResourceOptions): Workflow {
         return new Workflow(name, <any>state, { ...opts, id: id });
@@ -72,6 +67,10 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of Glue Workflow
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */
     public readonly defaultRunProperties!: pulumi.Output<{[key: string]: any} | undefined>;
@@ -80,9 +79,17 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+     */
+    public readonly maxConcurrentRuns!: pulumi.Output<number | undefined>;
+    /**
      * The name you assign to this workflow.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -96,14 +103,20 @@ export class Workflow extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as WorkflowState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["defaultRunProperties"] = state ? state.defaultRunProperties : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["maxConcurrentRuns"] = state ? state.maxConcurrentRuns : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as WorkflowArgs | undefined;
             inputs["defaultRunProperties"] = args ? args.defaultRunProperties : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["maxConcurrentRuns"] = args ? args.maxConcurrentRuns : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -121,6 +134,10 @@ export class Workflow extends pulumi.CustomResource {
  */
 export interface WorkflowState {
     /**
+     * Amazon Resource Name (ARN) of Glue Workflow
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */
     readonly defaultRunProperties?: pulumi.Input<{[key: string]: any}>;
@@ -129,9 +146,17 @@ export interface WorkflowState {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+     */
+    readonly maxConcurrentRuns?: pulumi.Input<number>;
+    /**
      * The name you assign to this workflow.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -147,7 +172,15 @@ export interface WorkflowArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+     */
+    readonly maxConcurrentRuns?: pulumi.Input<number>;
+    /**
      * The name you assign to this workflow.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

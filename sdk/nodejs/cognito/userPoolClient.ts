@@ -4,50 +4,45 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool Client resource.
- * 
+ *
  * ## Example Usage
- * 
  * ### Create a basic user pool client
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const pool = new aws.cognito.UserPool("pool", {});
- * const client = new aws.cognito.UserPoolClient("client", {
- *     userPoolId: pool.id,
- * });
+ * const client = new aws.cognito.UserPoolClient("client", {userPoolId: pool.id});
  * ```
- * 
  * ### Create a user pool client with no SRP authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const pool = new aws.cognito.UserPool("pool", {});
  * const client = new aws.cognito.UserPoolClient("client", {
- *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
- *     generateSecret: true,
  *     userPoolId: pool.id,
+ *     generateSecret: true,
+ *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
  * });
  * ```
- * 
  * ### Create a user pool client with pinpoint analytics
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const current = aws.getCallerIdentity();
- * const testUserPool = new aws.cognito.UserPool("test", {});
- * const testApp = new aws.pinpoint.App("test", {});
- * const testRole = new aws.iam.Role("test", {
- *     assumeRolePolicy: `{
+ *
+ * const current = aws.getCallerIdentity({});
+ * const testUserPool = new aws.cognito.UserPool("testUserPool", {});
+ * const testApp = new aws.pinpoint.App("testApp", {});
+ * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -60,10 +55,10 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const testRolePolicy = new aws.iam.RolePolicy("test", {
- *     policy: pulumi.interpolate`{
+ * `});
+ * const testRolePolicy = new aws.iam.RolePolicy("testRolePolicy", {
+ *     role: testRole.id,
+ *     policy: pulumi.all([current, testApp.applicationId]).apply(([current, applicationId]) => `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -72,25 +67,22 @@ import * as utilities from "../utilities";
  *         "mobiletargeting:PutItems"
  *       ],
  *       "Effect": "Allow",
- *       "Resource": "arn:aws:mobiletargeting:*:${current.accountId}:apps/${testApp.applicationId}*"
+ *       "Resource": "arn:aws:mobiletargeting:*:${current.accountId}:apps/${applicationId}*"
  *     }
  *   ]
  * }
- * `,
- *     role: testRole.id,
+ * `),
  * });
- * const testUserPoolClient = new aws.cognito.UserPoolClient("test", {
+ * const testUserPoolClient = new aws.cognito.UserPoolClient("testUserPoolClient", {
+ *     userPoolId: testUserPool.id,
  *     analyticsConfiguration: {
  *         applicationId: testApp.applicationId,
- *         externalId: "someId",
+ *         externalId: "some_id",
  *         roleArn: testRole.arn,
  *         userDataShared: true,
  *     },
- *     userPoolId: testUserPool.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_client.markdown.
  */
 export class UserPoolClient extends pulumi.CustomResource {
     /**
@@ -100,6 +92,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserPoolClientState, opts?: pulumi.CustomResourceOptions): UserPoolClient {
         return new UserPoolClient(name, <any>state, { ...opts, id: id });

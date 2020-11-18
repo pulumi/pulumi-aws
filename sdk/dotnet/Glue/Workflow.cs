@@ -11,15 +11,70 @@ namespace Pulumi.Aws.Glue
 {
     /// <summary>
     /// Provides a Glue Workflow resource.
-    /// The workflow graph (DAG) can be build using the `aws.glue.Trigger` resource. 
-    /// See the example below for creating a graph with four nodes (two triggers and two jobs). 
+    /// The workflow graph (DAG) can be build using the `aws.glue.Trigger` resource.
+    /// See the example below for creating a graph with four nodes (two triggers and two jobs).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_workflow.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Workflow("example", new Aws.Glue.WorkflowArgs
+    ///         {
+    ///         });
+    ///         var example_start = new Aws.Glue.Trigger("example-start", new Aws.Glue.TriggerArgs
+    ///         {
+    ///             Type = "ON_DEMAND",
+    ///             WorkflowName = example.Name,
+    ///             Actions = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.TriggerActionArgs
+    ///                 {
+    ///                     JobName = "example-job",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var example_inner = new Aws.Glue.Trigger("example-inner", new Aws.Glue.TriggerArgs
+    ///         {
+    ///             Type = "CONDITIONAL",
+    ///             WorkflowName = example.Name,
+    ///             Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
+    ///             {
+    ///                 Conditions = 
+    ///                 {
+    ///                     new Aws.Glue.Inputs.TriggerPredicateConditionArgs
+    ///                     {
+    ///                         JobName = "example-job",
+    ///                         State = "SUCCEEDED",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Actions = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.TriggerActionArgs
+    ///                 {
+    ///                     JobName = "another-example-job",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Workflow : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of Glue Workflow
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         /// </summary>
@@ -33,10 +88,22 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+        /// </summary>
+        [Output("maxConcurrentRuns")]
+        public Output<int?> MaxConcurrentRuns { get; private set; } = null!;
+
+        /// <summary>
         /// The name you assign to this workflow.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -47,7 +114,7 @@ namespace Pulumi.Aws.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workflow(string name, WorkflowArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:glue/workflow:Workflow", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:glue/workflow:Workflow", name, args ?? new WorkflowArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -103,10 +170,28 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+        /// </summary>
+        [Input("maxConcurrentRuns")]
+        public Input<int>? MaxConcurrentRuns { get; set; }
+
+        /// <summary>
         /// The name you assign to this workflow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public WorkflowArgs()
         {
@@ -115,6 +200,12 @@ namespace Pulumi.Aws.Glue
 
     public sealed class WorkflowState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of Glue Workflow
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("defaultRunProperties")]
         private InputMap<object>? _defaultRunProperties;
 
@@ -134,10 +225,28 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+        /// </summary>
+        [Input("maxConcurrentRuns")]
+        public Input<int>? MaxConcurrentRuns { get; set; }
+
+        /// <summary>
         /// The name you assign to this workflow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public WorkflowState()
         {

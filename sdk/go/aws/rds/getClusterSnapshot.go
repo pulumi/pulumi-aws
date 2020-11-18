@@ -4,13 +4,54 @@
 package rds
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
 //
 // > **NOTE:** This data source does not apply to snapshots created on DB Instances.
-// See the [`rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
+// See the `rds.Snapshot` data source for DB Instance snapshots.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "development_cluster"
+// 		opt1 := true
+// 		developmentFinalSnapshot, err := rds.LookupClusterSnapshot(ctx, &rds.LookupClusterSnapshotArgs{
+// 			DbClusterIdentifier: &opt0,
+// 			MostRecent:          &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		auroraCluster, err := rds.NewCluster(ctx, "auroraCluster", &rds.ClusterArgs{
+// 			SnapshotIdentifier: pulumi.String(developmentFinalSnapshot.Id),
+// 			DbSubnetGroupName:  pulumi.String("my_db_subnet_group"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = rds.NewClusterInstance(ctx, "auroraClusterInstance", &rds.ClusterInstanceArgs{
+// 			ClusterIdentifier: auroraCluster.ID(),
+// 			InstanceClass:     pulumi.String("db.t2.small"),
+// 			DbSubnetGroupName: pulumi.String("my_db_subnet_group"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupClusterSnapshot(ctx *pulumi.Context, args *LookupClusterSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupClusterSnapshotResult, error) {
 	var rv LookupClusterSnapshotResult
 	err := ctx.Invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", args, &rv, opts...)
@@ -39,8 +80,8 @@ type LookupClusterSnapshotArgs struct {
 	// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared` and `public`.
 	SnapshotType *string `pulumi:"snapshotType"`
-	// A mapping of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getClusterSnapshot.
@@ -58,7 +99,7 @@ type LookupClusterSnapshotResult struct {
 	Engine string `pulumi:"engine"`
 	// Version of the database engine for this DB cluster snapshot.
 	EngineVersion string `pulumi:"engineVersion"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
 	IncludePublic *bool  `pulumi:"includePublic"`
 	IncludeShared *bool  `pulumi:"includeShared"`
@@ -77,8 +118,8 @@ type LookupClusterSnapshotResult struct {
 	Status string `pulumi:"status"`
 	// Specifies whether the DB cluster snapshot is encrypted.
 	StorageEncrypted bool `pulumi:"storageEncrypted"`
-	// A mapping of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId string `pulumi:"vpcId"`
 }

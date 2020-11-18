@@ -7,11 +7,100 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a RDS Aurora Cluster Endpoint.
-// You can refer to the [User Guide][1].
+// Manages an RDS Aurora Cluster Endpoint.
+// You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := rds.NewCluster(ctx, "_default", &rds.ClusterArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-west-2a"),
+// 				pulumi.String("us-west-2b"),
+// 				pulumi.String("us-west-2c"),
+// 			},
+// 			DatabaseName:          pulumi.String("mydb"),
+// 			MasterUsername:        pulumi.String("foo"),
+// 			MasterPassword:        pulumi.String("bar"),
+// 			BackupRetentionPeriod: pulumi.Int(5),
+// 			PreferredBackupWindow: pulumi.String("07:00-09:00"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		test1, err := rds.NewClusterInstance(ctx, "test1", &rds.ClusterInstanceArgs{
+// 			ApplyImmediately:  pulumi.Bool(true),
+// 			ClusterIdentifier: _default.ID(),
+// 			Identifier:        pulumi.String("test1"),
+// 			InstanceClass:     pulumi.String("db.t2.small"),
+// 			Engine:            _default.Engine,
+// 			EngineVersion:     _default.EngineVersion,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		test2, err := rds.NewClusterInstance(ctx, "test2", &rds.ClusterInstanceArgs{
+// 			ApplyImmediately:  pulumi.Bool(true),
+// 			ClusterIdentifier: _default.ID(),
+// 			Identifier:        pulumi.String("test2"),
+// 			InstanceClass:     pulumi.String("db.t2.small"),
+// 			Engine:            _default.Engine,
+// 			EngineVersion:     _default.EngineVersion,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		test3, err := rds.NewClusterInstance(ctx, "test3", &rds.ClusterInstanceArgs{
+// 			ApplyImmediately:  pulumi.Bool(true),
+// 			ClusterIdentifier: _default.ID(),
+// 			Identifier:        pulumi.String("test3"),
+// 			InstanceClass:     pulumi.String("db.t2.small"),
+// 			Engine:            _default.Engine,
+// 			EngineVersion:     _default.EngineVersion,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = rds.NewClusterEndpoint(ctx, "eligible", &rds.ClusterEndpointArgs{
+// 			ClusterIdentifier:         _default.ID(),
+// 			ClusterEndpointIdentifier: pulumi.String("reader"),
+// 			CustomEndpointType:        pulumi.String("READER"),
+// 			ExcludedMembers: pulumi.StringArray{
+// 				test1.ID(),
+// 				test2.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = rds.NewClusterEndpoint(ctx, "static", &rds.ClusterEndpointArgs{
+// 			ClusterIdentifier:         _default.ID(),
+// 			ClusterEndpointIdentifier: pulumi.String("static"),
+// 			CustomEndpointType:        pulumi.String("READER"),
+// 			StaticMembers: pulumi.StringArray{
+// 				test1.ID(),
+// 				test3.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ClusterEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -29,8 +118,8 @@ type ClusterEndpoint struct {
 	ExcludedMembers pulumi.StringArrayOutput `pulumi:"excludedMembers"`
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayOutput `pulumi:"staticMembers"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewClusterEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -84,8 +173,8 @@ type clusterEndpointState struct {
 	ExcludedMembers []string `pulumi:"excludedMembers"`
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers []string `pulumi:"staticMembers"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ClusterEndpointState struct {
@@ -103,8 +192,8 @@ type ClusterEndpointState struct {
 	ExcludedMembers pulumi.StringArrayInput
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterEndpointState) ElementType() reflect.Type {
@@ -122,8 +211,8 @@ type clusterEndpointArgs struct {
 	ExcludedMembers []string `pulumi:"excludedMembers"`
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers []string `pulumi:"staticMembers"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterEndpoint resource.
@@ -138,8 +227,8 @@ type ClusterEndpointArgs struct {
 	ExcludedMembers pulumi.StringArrayInput
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterEndpointArgs) ElementType() reflect.Type {

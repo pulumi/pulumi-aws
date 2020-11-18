@@ -6,10 +6,39 @@ package pinpoint
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Pinpoint App resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/pinpoint"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := pinpoint.NewApp(ctx, "example", &pinpoint.AppArgs{
+// 			Limits: &pinpoint.AppLimitsArgs{
+// 				MaximumDuration: pulumi.Int(600),
+// 			},
+// 			QuietTime: &pinpoint.AppQuietTimeArgs{
+// 				End:   pulumi.String("06:00"),
+// 				Start: pulumi.String("00:00"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type App struct {
 	pulumi.CustomResourceState
 
@@ -27,8 +56,8 @@ type App struct {
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime AppQuietTimePtrOutput `pulumi:"quietTime"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewApp registers a new resource with the given unique name, arguments, and options.
@@ -73,8 +102,8 @@ type appState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime *AppQuietTime `pulumi:"quietTime"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AppState struct {
@@ -92,8 +121,8 @@ type AppState struct {
 	NamePrefix pulumi.StringPtrInput
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime AppQuietTimePtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (AppState) ElementType() reflect.Type {
@@ -111,8 +140,8 @@ type appArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime *AppQuietTime `pulumi:"quietTime"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a App resource.
@@ -127,8 +156,8 @@ type AppArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime AppQuietTimePtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (AppArgs) ElementType() reflect.Type {

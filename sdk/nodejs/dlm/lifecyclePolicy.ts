@@ -4,21 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const dlmLifecycleRole = new aws.iam.Role("dlmLifecycleRole", {
- *     assumeRolePolicy: `{
+ *
+ * const dlmLifecycleRole = new aws.iam.Role("dlmLifecycleRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -31,9 +29,9 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
+ * `});
  * const dlmLifecycle = new aws.iam.RolePolicy("dlmLifecycle", {
+ *     role: dlmLifecycleRole.id,
  *     policy: `{
  *    "Version": "2012-10-17",
  *    "Statement": [
@@ -57,37 +55,34 @@ import * as utilities from "../utilities";
  *    ]
  * }
  * `,
- *     role: dlmLifecycleRole.id,
  * });
  * const example = new aws.dlm.LifecyclePolicy("example", {
  *     description: "example DLM lifecycle policy",
  *     executionRoleArn: dlmLifecycleRole.arn,
+ *     state: "ENABLED",
  *     policyDetails: {
  *         resourceTypes: ["VOLUME"],
  *         schedules: [{
- *             copyTags: false,
+ *             name: "2 weeks of daily snapshots",
  *             createRule: {
  *                 interval: 24,
  *                 intervalUnit: "HOURS",
- *                 times: "23:45",
+ *                 times: ["23:45"],
  *             },
- *             name: "2 weeks of daily snapshots",
  *             retainRule: {
  *                 count: 14,
  *             },
  *             tagsToAdd: {
  *                 SnapshotCreator: "DLM",
  *             },
+ *             copyTags: false,
  *         }],
  *         targetTags: {
  *             Snapshot: "true",
  *         },
  *     },
- *     state: "ENABLED",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dlm_lifecycle_policy.markdown.
  */
 export class LifecyclePolicy extends pulumi.CustomResource {
     /**
@@ -97,6 +92,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LifecyclePolicyState, opts?: pulumi.CustomResourceOptions): LifecyclePolicy {
         return new LifecyclePolicy(name, <any>state, { ...opts, id: id });
@@ -137,9 +133,9 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LifecyclePolicy resource with the given unique name, arguments, and options.
@@ -213,9 +209,9 @@ export interface LifecyclePolicyState {
      */
     readonly state?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -239,7 +235,7 @@ export interface LifecyclePolicyArgs {
      */
     readonly state?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

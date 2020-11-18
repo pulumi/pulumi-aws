@@ -4,28 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Cognito Identity Pool Roles Attachment.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const mainIdentityPool = new aws.cognito.IdentityPool("main", {
- *     allowUnauthenticatedIdentities: false,
+ *
+ * const mainIdentityPool = new aws.cognito.IdentityPool("mainIdentityPool", {
  *     identityPoolName: "identity pool",
+ *     allowUnauthenticatedIdentities: false,
  *     supportedLoginProviders: {
  *         "graph.facebook.com": "7346241598935555",
  *     },
  * });
- * const authenticatedRole = new aws.iam.Role("authenticated", {
- *     assumeRolePolicy: pulumi.interpolate`{
+ * const authenticatedRole = new aws.iam.Role("authenticatedRole", {assumeRolePolicy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -45,9 +43,9 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const authenticatedRolePolicy = new aws.iam.RolePolicy("authenticated", {
+ * `});
+ * const authenticatedRolePolicy = new aws.iam.RolePolicy("authenticatedRolePolicy", {
+ *     role: authenticatedRole.id,
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -65,28 +63,25 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     role: authenticatedRole.id,
  * });
- * const mainIdentityPoolRoleAttachment = new aws.cognito.IdentityPoolRoleAttachment("main", {
+ * const mainIdentityPoolRoleAttachment = new aws.cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment", {
  *     identityPoolId: mainIdentityPool.id,
  *     roleMappings: [{
- *         ambiguousRoleResolution: "AuthenticatedRole",
  *         identityProvider: "graph.facebook.com",
+ *         ambiguousRoleResolution: "AuthenticatedRole",
+ *         type: "Rules",
  *         mappingRules: [{
  *             claim: "isAdmin",
  *             matchType: "Equals",
  *             roleArn: authenticatedRole.arn,
  *             value: "paid",
  *         }],
- *         type: "Rules",
  *     }],
  *     roles: {
  *         authenticated: authenticatedRole.arn,
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool_roles_attachment.markdown.
  */
 export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     /**
@@ -96,6 +91,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IdentityPoolRoleAttachmentState, opts?: pulumi.CustomResourceOptions): IdentityPoolRoleAttachment {
         return new IdentityPoolRoleAttachment(name, <any>state, { ...opts, id: id });
@@ -126,7 +122,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    public readonly roles!: pulumi.Output<outputs.cognito.IdentityPoolRoleAttachmentRoles>;
+    public readonly roles!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a IdentityPoolRoleAttachment resource with the given unique name, arguments, and options.
@@ -181,7 +177,7 @@ export interface IdentityPoolRoleAttachmentState {
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    readonly roles?: pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoles>;
+    readonly roles?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -199,5 +195,5 @@ export interface IdentityPoolRoleAttachmentArgs {
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    readonly roles: pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoles>;
+    readonly roles: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

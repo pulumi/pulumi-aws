@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type BudgetCostTypes struct {
@@ -35,6 +35,10 @@ type BudgetCostTypes struct {
 	UseBlended *bool `pulumi:"useBlended"`
 }
 
+// BudgetCostTypesInput is an input type that accepts BudgetCostTypesArgs and BudgetCostTypesOutput values.
+// You can construct a concrete instance of `BudgetCostTypesInput` via:
+//
+//          BudgetCostTypesArgs{...}
 type BudgetCostTypesInput interface {
 	pulumi.Input
 
@@ -87,6 +91,14 @@ func (i BudgetCostTypesArgs) ToBudgetCostTypesPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostTypesOutput).ToBudgetCostTypesPtrOutputWithContext(ctx)
 }
 
+// BudgetCostTypesPtrInput is an input type that accepts BudgetCostTypesArgs, BudgetCostTypesPtr and BudgetCostTypesPtrOutput values.
+// You can construct a concrete instance of `BudgetCostTypesPtrInput` via:
+//
+//          BudgetCostTypesArgs{...}
+//
+//  or:
+//
+//          nil
 type BudgetCostTypesPtrInput interface {
 	pulumi.Input
 
@@ -211,57 +223,112 @@ func (o BudgetCostTypesPtrOutput) Elem() BudgetCostTypesOutput {
 
 // A boolean value whether to include credits in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeCredit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeCredit }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeCredit
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether a budget includes discounts. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeDiscount() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeDiscount }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeDiscount
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeOtherSubscription() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeOtherSubscription }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeOtherSubscription
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeRecurring() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeRecurring }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeRecurring
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include refunds in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeRefund() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeRefund }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeRefund
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeSubscription() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeSubscription }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSubscription
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include support costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeSupport() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeSupport }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSupport
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include tax in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeTax() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeTax }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTax
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeUpfront() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeUpfront }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeUpfront
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether a budget uses the amortized rate. Defaults to `false`
 func (o BudgetCostTypesPtrOutput) UseAmortized() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.UseAmortized }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseAmortized
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to use blended costs in the cost budget. Defaults to `false`
 func (o BudgetCostTypesPtrOutput) UseBlended() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.UseBlended }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseBlended
+	}).(pulumi.BoolPtrOutput)
 }
 
 type BudgetNotification struct {
@@ -279,6 +346,10 @@ type BudgetNotification struct {
 	ThresholdType string `pulumi:"thresholdType"`
 }
 
+// BudgetNotificationInput is an input type that accepts BudgetNotificationArgs and BudgetNotificationOutput values.
+// You can construct a concrete instance of `BudgetNotificationInput` via:
+//
+//          BudgetNotificationArgs{...}
 type BudgetNotificationInput interface {
 	pulumi.Input
 
@@ -313,6 +384,10 @@ func (i BudgetNotificationArgs) ToBudgetNotificationOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetNotificationOutput)
 }
 
+// BudgetNotificationArrayInput is an input type that accepts BudgetNotificationArray and BudgetNotificationArrayOutput values.
+// You can construct a concrete instance of `BudgetNotificationArrayInput` via:
+//
+//          BudgetNotificationArray{ BudgetNotificationArgs{...} }
 type BudgetNotificationArrayInput interface {
 	pulumi.Input
 

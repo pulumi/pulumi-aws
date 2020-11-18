@@ -4,23 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a SSM resource data sync.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const hogeBucket = new aws.s3.Bucket("hoge", {
- *     region: "us-east-1",
- * });
- * const hogeBucketPolicy = new aws.s3.BucketPolicy("hoge", {
+ *
+ * const hogeBucket = new aws.s3.Bucket("hogeBucket", {});
+ * const hogeBucketPolicy = new aws.s3.BucketPolicy("hogeBucketPolicy", {
  *     bucket: hogeBucket.bucket,
  *     policy: `{
  *     "Version": "2012-10-17",
@@ -52,25 +49,11 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const foo = new aws.ssm.ResourceDataSync("foo", {
- *     s3Destination: {
- *         bucketName: hogeBucket.bucket,
- *         region: hogeBucket.region,
- *     },
- * });
+ * const foo = new aws.ssm.ResourceDataSync("foo", {s3Destination: {
+ *     bucketName: hogeBucket.bucket,
+ *     region: hogeBucket.region,
+ * }});
  * ```
- * 
- * ## s3Destination
- * 
- * `s3Destination` supports the following:
- * 
- * * `bucketName` - (Required) Name of S3 bucket where the aggregated data is stored.
- * * `region` - (Required) Region with the bucket targeted by the Resource Data Sync.
- * * `kmsKeyArn` - (Optional) ARN of an encryption key for a destination in Amazon S3.
- * * `prefix` - (Optional) Prefix for the bucket.
- * * `syncFormat` - (Optional) A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_resource_data_sync.html.markdown.
  */
 export class ResourceDataSync extends pulumi.CustomResource {
     /**
@@ -80,6 +63,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ResourceDataSyncState, opts?: pulumi.CustomResourceOptions): ResourceDataSync {
         return new ResourceDataSync(name, <any>state, { ...opts, id: id });

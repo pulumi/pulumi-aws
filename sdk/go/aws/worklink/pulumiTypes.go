@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type FleetIdentityProvider struct {
@@ -17,6 +17,10 @@ type FleetIdentityProvider struct {
 	Type string `pulumi:"type"`
 }
 
+// FleetIdentityProviderInput is an input type that accepts FleetIdentityProviderArgs and FleetIdentityProviderOutput values.
+// You can construct a concrete instance of `FleetIdentityProviderInput` via:
+//
+//          FleetIdentityProviderArgs{...}
 type FleetIdentityProviderInput interface {
 	pulumi.Input
 
@@ -51,6 +55,14 @@ func (i FleetIdentityProviderArgs) ToFleetIdentityProviderPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FleetIdentityProviderOutput).ToFleetIdentityProviderPtrOutputWithContext(ctx)
 }
 
+// FleetIdentityProviderPtrInput is an input type that accepts FleetIdentityProviderArgs, FleetIdentityProviderPtr and FleetIdentityProviderPtrOutput values.
+// You can construct a concrete instance of `FleetIdentityProviderPtrInput` via:
+//
+//          FleetIdentityProviderArgs{...}
+//
+//  or:
+//
+//          nil
 type FleetIdentityProviderPtrInput interface {
 	pulumi.Input
 
@@ -129,13 +141,23 @@ func (o FleetIdentityProviderPtrOutput) Elem() FleetIdentityProviderOutput {
 }
 
 // The SAML metadata document provided by the customer’s identity provider.
-func (o FleetIdentityProviderPtrOutput) SamlMetadata() pulumi.StringOutput {
-	return o.ApplyT(func(v FleetIdentityProvider) string { return v.SamlMetadata }).(pulumi.StringOutput)
+func (o FleetIdentityProviderPtrOutput) SamlMetadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetIdentityProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SamlMetadata
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of identity provider.
-func (o FleetIdentityProviderPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FleetIdentityProvider) string { return v.Type }).(pulumi.StringOutput)
+func (o FleetIdentityProviderPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetIdentityProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type FleetNetwork struct {
@@ -147,6 +169,10 @@ type FleetNetwork struct {
 	VpcId string `pulumi:"vpcId"`
 }
 
+// FleetNetworkInput is an input type that accepts FleetNetworkArgs and FleetNetworkOutput values.
+// You can construct a concrete instance of `FleetNetworkInput` via:
+//
+//          FleetNetworkArgs{...}
 type FleetNetworkInput interface {
 	pulumi.Input
 
@@ -183,6 +209,14 @@ func (i FleetNetworkArgs) ToFleetNetworkPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FleetNetworkOutput).ToFleetNetworkPtrOutputWithContext(ctx)
 }
 
+// FleetNetworkPtrInput is an input type that accepts FleetNetworkArgs, FleetNetworkPtr and FleetNetworkPtrOutput values.
+// You can construct a concrete instance of `FleetNetworkPtrInput` via:
+//
+//          FleetNetworkArgs{...}
+//
+//  or:
+//
+//          nil
 type FleetNetworkPtrInput interface {
 	pulumi.Input
 
@@ -267,17 +301,32 @@ func (o FleetNetworkPtrOutput) Elem() FleetNetworkOutput {
 
 // A list of security group IDs associated with access to the provided subnets.
 func (o FleetNetworkPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FleetNetwork) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *FleetNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
 func (o FleetNetworkPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FleetNetwork) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *FleetNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The VPC ID with connectivity to associated websites.
-func (o FleetNetworkPtrOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v FleetNetwork) string { return v.VpcId }).(pulumi.StringOutput)
+func (o FleetNetworkPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

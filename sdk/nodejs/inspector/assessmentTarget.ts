@@ -6,27 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Inspector assessment target
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const bar = new aws.inspector.ResourceGroup("bar", {
- *     tags: {
- *         Env: "bar",
- *         Name: "foo",
- *     },
- * });
- * const foo = new aws.inspector.AssessmentTarget("foo", {
- *     resourceGroupArn: bar.arn,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_assessment_target.html.markdown.
+ * const bar = new aws.inspector.ResourceGroup("bar", {tags: {
+ *     Name: "foo",
+ *     Env: "bar",
+ * }});
+ * const foo = new aws.inspector.AssessmentTarget("foo", {resourceGroupArn: bar.arn});
+ * ```
  */
 export class AssessmentTarget extends pulumi.CustomResource {
     /**
@@ -36,6 +28,7 @@ export class AssessmentTarget extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AssessmentTargetState, opts?: pulumi.CustomResourceOptions): AssessmentTarget {
         return new AssessmentTarget(name, <any>state, { ...opts, id: id });

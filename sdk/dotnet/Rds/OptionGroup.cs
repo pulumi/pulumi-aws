@@ -17,9 +17,59 @@ namespace Pulumi.Aws.Rds
     /// * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
     /// * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_option_group.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Rds.OptionGroup("example", new Aws.Rds.OptionGroupArgs
+    ///         {
+    ///             OptionGroupDescription = "Option Group",
+    ///             EngineName = "sqlserver-ee",
+    ///             MajorEngineVersion = "11.00",
+    ///             Options = 
+    ///             {
+    ///                 new Aws.Rds.Inputs.OptionGroupOptionArgs
+    ///                 {
+    ///                     OptionName = "Timezone",
+    ///                     OptionSettings = 
+    ///                     {
+    ///                         new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
+    ///                         {
+    ///                             Name = "TIME_ZONE",
+    ///                             Value = "UTC",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.Rds.Inputs.OptionGroupOptionArgs
+    ///                 {
+    ///                     OptionName = "SQLSERVER_BACKUP_RESTORE",
+    ///                     OptionSettings = 
+    ///                     {
+    ///                         new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
+    ///                         {
+    ///                             Name = "IAM_ROLE_ARN",
+    ///                             Value = aws_iam_role.Example.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.Rds.Inputs.OptionGroupOptionArgs
+    ///                 {
+    ///                     OptionName = "TDE",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// &gt; **Note**: Any modifications to the `db_option_group` are set to happen immediately as we default to applying immediately.
     /// </summary>
     public partial class OptionGroup : Pulumi.CustomResource
     {
@@ -54,22 +104,22 @@ namespace Pulumi.Aws.Rds
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Options to apply.
-        /// </summary>
-        [Output("options")]
-        public Output<ImmutableArray<Outputs.OptionGroupOptions>> Options { get; private set; } = null!;
-
-        /// <summary>
         /// The description of the option group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Output("optionGroupDescription")]
         public Output<string> OptionGroupDescription { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A list of Options to apply.
+        /// </summary>
+        [Output("options")]
+        public Output<ImmutableArray<Outputs.OptionGroupOption>> Options { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -80,7 +130,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OptionGroup(string name, OptionGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/optionGroup:OptionGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:rds/optionGroup:OptionGroup", name, args ?? new OptionGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -141,33 +191,33 @@ namespace Pulumi.Aws.Rds
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        [Input("options")]
-        private InputList<Inputs.OptionGroupOptionsArgs>? _options;
-
-        /// <summary>
-        /// A list of Options to apply.
-        /// </summary>
-        public InputList<Inputs.OptionGroupOptionsArgs> Options
-        {
-            get => _options ?? (_options = new InputList<Inputs.OptionGroupOptionsArgs>());
-            set => _options = value;
-        }
-
         /// <summary>
         /// The description of the option group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("optionGroupDescription")]
         public Input<string>? OptionGroupDescription { get; set; }
 
-        [Input("tags")]
-        private InputMap<object>? _tags;
+        [Input("options")]
+        private InputList<Inputs.OptionGroupOptionArgs>? _options;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A list of Options to apply.
         /// </summary>
-        public InputMap<object> Tags
+        public InputList<Inputs.OptionGroupOptionArgs> Options
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _options ?? (_options = new InputList<Inputs.OptionGroupOptionArgs>());
+            set => _options = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -209,33 +259,33 @@ namespace Pulumi.Aws.Rds
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        [Input("options")]
-        private InputList<Inputs.OptionGroupOptionsGetArgs>? _options;
-
-        /// <summary>
-        /// A list of Options to apply.
-        /// </summary>
-        public InputList<Inputs.OptionGroupOptionsGetArgs> Options
-        {
-            get => _options ?? (_options = new InputList<Inputs.OptionGroupOptionsGetArgs>());
-            set => _options = value;
-        }
-
         /// <summary>
         /// The description of the option group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("optionGroupDescription")]
         public Input<string>? OptionGroupDescription { get; set; }
 
-        [Input("tags")]
-        private InputMap<object>? _tags;
+        [Input("options")]
+        private InputList<Inputs.OptionGroupOptionGetArgs>? _options;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A list of Options to apply.
         /// </summary>
-        public InputMap<object> Tags
+        public InputList<Inputs.OptionGroupOptionGetArgs> Options
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _options ?? (_options = new InputList<Inputs.OptionGroupOptionGetArgs>());
+            set => _options = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -243,241 +293,5 @@ namespace Pulumi.Aws.Rds
         {
             OptionGroupDescription = "Managed by Pulumi";
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class OptionGroupOptionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("dbSecurityGroupMemberships")]
-        private InputList<string>? _dbSecurityGroupMemberships;
-
-        /// <summary>
-        /// A list of DB Security Groups for which the option is enabled.
-        /// </summary>
-        public InputList<string> DbSecurityGroupMemberships
-        {
-            get => _dbSecurityGroupMemberships ?? (_dbSecurityGroupMemberships = new InputList<string>());
-            set => _dbSecurityGroupMemberships = value;
-        }
-
-        /// <summary>
-        /// The Name of the Option (e.g. MEMCACHED).
-        /// </summary>
-        [Input("optionName", required: true)]
-        public Input<string> OptionName { get; set; } = null!;
-
-        [Input("optionSettings")]
-        private InputList<OptionGroupOptionsOptionSettingsArgs>? _optionSettings;
-
-        /// <summary>
-        /// A list of option settings to apply.
-        /// </summary>
-        public InputList<OptionGroupOptionsOptionSettingsArgs> OptionSettings
-        {
-            get => _optionSettings ?? (_optionSettings = new InputList<OptionGroupOptionsOptionSettingsArgs>());
-            set => _optionSettings = value;
-        }
-
-        /// <summary>
-        /// The Port number when connecting to the Option (e.g. 11211).
-        /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        /// <summary>
-        /// The version of the option (e.g. 13.1.0.0).
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
-
-        [Input("vpcSecurityGroupMemberships")]
-        private InputList<string>? _vpcSecurityGroupMemberships;
-
-        /// <summary>
-        /// A list of VPC Security Groups for which the option is enabled.
-        /// </summary>
-        public InputList<string> VpcSecurityGroupMemberships
-        {
-            get => _vpcSecurityGroupMemberships ?? (_vpcSecurityGroupMemberships = new InputList<string>());
-            set => _vpcSecurityGroupMemberships = value;
-        }
-
-        public OptionGroupOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class OptionGroupOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("dbSecurityGroupMemberships")]
-        private InputList<string>? _dbSecurityGroupMemberships;
-
-        /// <summary>
-        /// A list of DB Security Groups for which the option is enabled.
-        /// </summary>
-        public InputList<string> DbSecurityGroupMemberships
-        {
-            get => _dbSecurityGroupMemberships ?? (_dbSecurityGroupMemberships = new InputList<string>());
-            set => _dbSecurityGroupMemberships = value;
-        }
-
-        /// <summary>
-        /// The Name of the Option (e.g. MEMCACHED).
-        /// </summary>
-        [Input("optionName", required: true)]
-        public Input<string> OptionName { get; set; } = null!;
-
-        [Input("optionSettings")]
-        private InputList<OptionGroupOptionsOptionSettingsGetArgs>? _optionSettings;
-
-        /// <summary>
-        /// A list of option settings to apply.
-        /// </summary>
-        public InputList<OptionGroupOptionsOptionSettingsGetArgs> OptionSettings
-        {
-            get => _optionSettings ?? (_optionSettings = new InputList<OptionGroupOptionsOptionSettingsGetArgs>());
-            set => _optionSettings = value;
-        }
-
-        /// <summary>
-        /// The Port number when connecting to the Option (e.g. 11211).
-        /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        /// <summary>
-        /// The version of the option (e.g. 13.1.0.0).
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
-
-        [Input("vpcSecurityGroupMemberships")]
-        private InputList<string>? _vpcSecurityGroupMemberships;
-
-        /// <summary>
-        /// A list of VPC Security Groups for which the option is enabled.
-        /// </summary>
-        public InputList<string> VpcSecurityGroupMemberships
-        {
-            get => _vpcSecurityGroupMemberships ?? (_vpcSecurityGroupMemberships = new InputList<string>());
-            set => _vpcSecurityGroupMemberships = value;
-        }
-
-        public OptionGroupOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class OptionGroupOptionsOptionSettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Name of the setting.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Value of the setting.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public OptionGroupOptionsOptionSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class OptionGroupOptionsOptionSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Name of the setting.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Value of the setting.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public OptionGroupOptionsOptionSettingsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class OptionGroupOptions
-    {
-        /// <summary>
-        /// A list of DB Security Groups for which the option is enabled.
-        /// </summary>
-        public readonly ImmutableArray<string> DbSecurityGroupMemberships;
-        /// <summary>
-        /// The Name of the Option (e.g. MEMCACHED).
-        /// </summary>
-        public readonly string OptionName;
-        /// <summary>
-        /// A list of option settings to apply.
-        /// </summary>
-        public readonly ImmutableArray<OptionGroupOptionsOptionSettings> OptionSettings;
-        /// <summary>
-        /// The Port number when connecting to the Option (e.g. 11211).
-        /// </summary>
-        public readonly int? Port;
-        /// <summary>
-        /// The version of the option (e.g. 13.1.0.0).
-        /// </summary>
-        public readonly string? Version;
-        /// <summary>
-        /// A list of VPC Security Groups for which the option is enabled.
-        /// </summary>
-        public readonly ImmutableArray<string> VpcSecurityGroupMemberships;
-
-        [OutputConstructor]
-        private OptionGroupOptions(
-            ImmutableArray<string> dbSecurityGroupMemberships,
-            string optionName,
-            ImmutableArray<OptionGroupOptionsOptionSettings> optionSettings,
-            int? port,
-            string? version,
-            ImmutableArray<string> vpcSecurityGroupMemberships)
-        {
-            DbSecurityGroupMemberships = dbSecurityGroupMemberships;
-            OptionName = optionName;
-            OptionSettings = optionSettings;
-            Port = port;
-            Version = version;
-            VpcSecurityGroupMemberships = vpcSecurityGroupMemberships;
-        }
-    }
-
-    [OutputType]
-    public sealed class OptionGroupOptionsOptionSettings
-    {
-        /// <summary>
-        /// The Name of the setting.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Value of the setting.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private OptionGroupOptionsOptionSettings(
-            string name,
-            string value)
-        {
-            Name = name;
-            Value = value;
-        }
-    }
     }
 }

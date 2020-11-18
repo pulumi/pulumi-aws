@@ -12,7 +12,57 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// Provides a DB event subscription resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var defaultInstance = new Aws.Rds.Instance("defaultInstance", new Aws.Rds.InstanceArgs
+    ///         {
+    ///             AllocatedStorage = 10,
+    ///             Engine = "mysql",
+    ///             EngineVersion = "5.6.17",
+    ///             InstanceClass = "db.t2.micro",
+    ///             Name = "mydb",
+    ///             Username = "foo",
+    ///             Password = "bar",
+    ///             DbSubnetGroupName = "my_database_subnet_group",
+    ///             ParameterGroupName = "default.mysql5.6",
+    ///         });
+    ///         var defaultTopic = new Aws.Sns.Topic("defaultTopic", new Aws.Sns.TopicArgs
+    ///         {
+    ///         });
+    ///         var defaultEventSubscription = new Aws.Rds.EventSubscription("defaultEventSubscription", new Aws.Rds.EventSubscriptionArgs
+    ///         {
+    ///             SnsTopic = defaultTopic.Arn,
+    ///             SourceType = "db-instance",
+    ///             SourceIds = 
+    ///             {
+    ///                 defaultInstance.Id,
+    ///             },
+    ///             EventCategories = 
+    ///             {
+    ///                 "availability",
+    ///                 "deletion",
+    ///                 "failover",
+    ///                 "failure",
+    ///                 "low storage",
+    ///                 "maintenance",
+    ///                 "notification",
+    ///                 "read replica",
+    ///                 "recovery",
+    ///                 "restoration",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Attributes
     /// 
     /// The following additional atttributes are provided:
@@ -20,8 +70,6 @@ namespace Pulumi.Aws.Rds
     /// * `id` - The name of the RDS event notification subscription
     /// * `arn` - The Amazon Resource Name of the RDS event notification subscription
     /// * `customer_aws_id` - The AWS customer account associated with the RDS event notification subscription
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_event_subscription.html.markdown.
     /// </summary>
     public partial class EventSubscription : Pulumi.CustomResource
     {
@@ -74,10 +122,10 @@ namespace Pulumi.Aws.Rds
         public Output<string?> SourceType { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -88,7 +136,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventSubscription(string name, EventSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/eventSubscription:EventSubscription", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:rds/eventSubscription:EventSubscription", name, args ?? new EventSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -180,14 +228,14 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceType { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -259,14 +307,14 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceType { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

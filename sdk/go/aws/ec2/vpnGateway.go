@@ -6,19 +6,47 @@ package ec2
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a resource to create a VPC VPN Gateway.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewVpnGateway(ctx, "vpnGw", &ec2.VpnGatewayArgs{
+// 			VpcId: pulumi.Any(aws_vpc.Main.Id),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("main"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VpnGateway struct {
 	pulumi.CustomResourceState
 
 	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
 	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
+	// Amazon Resource Name (ARN) of the VPN Gateway.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The VPC ID to create in.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -53,10 +81,12 @@ func GetVpnGateway(ctx *pulumi.Context,
 type vpnGatewayState struct {
 	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
 	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
+	// Amazon Resource Name (ARN) of the VPN Gateway.
+	Arn *string `pulumi:"arn"`
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID to create in.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -64,10 +94,12 @@ type vpnGatewayState struct {
 type VpnGatewayState struct {
 	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
 	AmazonSideAsn pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the VPN Gateway.
+	Arn pulumi.StringPtrInput
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The VPC ID to create in.
 	VpcId pulumi.StringPtrInput
 }
@@ -81,8 +113,8 @@ type vpnGatewayArgs struct {
 	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID to create in.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -93,8 +125,8 @@ type VpnGatewayArgs struct {
 	AmazonSideAsn pulumi.StringPtrInput
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The VPC ID to create in.
 	VpcId pulumi.StringPtrInput
 }

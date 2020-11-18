@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a resource to manage a Default VPC Routing Table.
@@ -40,6 +40,36 @@ import (
 // defined in-line. At this time you cannot use a Route Table with in-line routes
 // in conjunction with any Route resources. Doing so will cause
 // a conflict of rule settings and will overwrite routes.
+//
+// ## Example Usage
+// ### With Tags
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewDefaultRouteTable(ctx, "defaultRouteTable", &ec2.DefaultRouteTableArgs{
+// 			DefaultRouteTableId: pulumi.Any(aws_vpc.Foo.Default_route_table_id),
+// 			Routes: ec2.DefaultRouteTableRouteArray{
+// 				nil,
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("default table"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DefaultRouteTable struct {
 	pulumi.CustomResourceState
 
@@ -52,8 +82,8 @@ type DefaultRouteTable struct {
 	// A list of route objects. Their keys are documented below.
 	Routes DefaultRouteTableRouteArrayOutput `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags  pulumi.MapOutput    `pulumi:"tags"`
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Tags  pulumi.StringMapOutput `pulumi:"tags"`
+	VpcId pulumi.StringOutput    `pulumi:"vpcId"`
 }
 
 // NewDefaultRouteTable registers a new resource with the given unique name, arguments, and options.
@@ -96,8 +126,8 @@ type defaultRouteTableState struct {
 	// A list of route objects. Their keys are documented below.
 	Routes []DefaultRouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags  map[string]interface{} `pulumi:"tags"`
-	VpcId *string                `pulumi:"vpcId"`
+	Tags  map[string]string `pulumi:"tags"`
+	VpcId *string           `pulumi:"vpcId"`
 }
 
 type DefaultRouteTableState struct {
@@ -110,7 +140,7 @@ type DefaultRouteTableState struct {
 	// A list of route objects. Their keys are documented below.
 	Routes DefaultRouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
-	Tags  pulumi.MapInput
+	Tags  pulumi.StringMapInput
 	VpcId pulumi.StringPtrInput
 }
 
@@ -126,7 +156,7 @@ type defaultRouteTableArgs struct {
 	// A list of route objects. Their keys are documented below.
 	Routes []DefaultRouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DefaultRouteTable resource.
@@ -138,7 +168,7 @@ type DefaultRouteTableArgs struct {
 	// A list of route objects. Their keys are documented below.
 	Routes DefaultRouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (DefaultRouteTableArgs) ElementType() reflect.Type {

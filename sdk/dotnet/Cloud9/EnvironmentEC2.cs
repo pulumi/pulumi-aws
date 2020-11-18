@@ -12,9 +12,24 @@ namespace Pulumi.Aws.Cloud9
     /// <summary>
     /// Provides a Cloud9 EC2 Development Environment.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloud9_environment_ec2.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Cloud9.EnvironmentEC2("example", new Aws.Cloud9.EnvironmentEC2Args
+    ///         {
+    ///             InstanceType = "t2.micro",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EnvironmentEC2 : Pulumi.CustomResource
     {
@@ -61,10 +76,10 @@ namespace Pulumi.Aws.Cloud9
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the environment (e.g. `ssh` or `ec2`)
@@ -81,7 +96,7 @@ namespace Pulumi.Aws.Cloud9
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EnvironmentEC2(string name, EnvironmentEC2Args args, CustomResourceOptions? options = null)
-            : base("aws:cloud9/environmentEC2:EnvironmentEC2", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cloud9/environmentEC2:EnvironmentEC2", name, args ?? new EnvironmentEC2Args(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -155,14 +170,14 @@ namespace Pulumi.Aws.Cloud9
         public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -216,14 +231,14 @@ namespace Pulumi.Aws.Cloud9
         public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

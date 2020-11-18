@@ -4,42 +4,43 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Storage Gateway SMB File Share.
- * 
+ *
  * ## Example Usage
- * 
  * ### Active Directory Authentication
- * 
+ *
+ * > **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creation. e.g. via "SMB Settings" in the AWS Storage Gateway console or `smbActiveDirectorySettings` in the `aws.storagegateway.Gateway` resource.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.storagegateway.SmbFileShare("example", {
  *     authentication: "ActiveDirectory",
- *     gatewayArn: aws_storagegateway_gateway_example.arn,
- *     locationArn: aws_s3_bucket_example.arn,
- *     roleArn: aws_iam_role_example.arn,
+ *     gatewayArn: aws_storagegateway_gateway.example.arn,
+ *     locationArn: aws_s3_bucket.example.arn,
+ *     roleArn: aws_iam_role.example.arn,
  * });
  * ```
- * 
  * ### Guest Authentication
- * 
+ *
+ * > **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creation. e.g. via "SMB Settings" in the AWS Storage Gateway console or `smbGuestPassword` in the `aws.storagegateway.Gateway` resource.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.storagegateway.SmbFileShare("example", {
  *     authentication: "GuestAccess",
- *     gatewayArn: aws_storagegateway_gateway_example.arn,
- *     locationArn: aws_s3_bucket_example.arn,
- *     roleArn: aws_iam_role_example.arn,
+ *     gatewayArn: aws_storagegateway_gateway.example.arn,
+ *     locationArn: aws_s3_bucket.example.arn,
+ *     roleArn: aws_iam_role.example.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_smb_file_share.html.markdown.
  */
 export class SmbFileShare extends pulumi.CustomResource {
     /**
@@ -49,6 +50,7 @@ export class SmbFileShare extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SmbFileShareState, opts?: pulumi.CustomResourceOptions): SmbFileShare {
         return new SmbFileShare(name, <any>state, { ...opts, id: id });
@@ -69,13 +71,29 @@ export class SmbFileShare extends pulumi.CustomResource {
     }
 
     /**
+     * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+     */
+    public readonly adminUserLists!: pulumi.Output<string[] | undefined>;
+    /**
      * Amazon Resource Name (ARN) of the SMB File Share.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+     */
+    public readonly auditDestinationArn!: pulumi.Output<string | undefined>;
+    /**
      * The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
      */
     public readonly authentication!: pulumi.Output<string | undefined>;
+    /**
+     * Refresh cache information. see Cache Attributes for more details.
+     */
+    public readonly cacheAttributes!: pulumi.Output<outputs.storagegateway.SmbFileShareCacheAttributes | undefined>;
+    /**
+     * The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+     */
+    public readonly caseSensitivity!: pulumi.Output<string | undefined>;
     /**
      * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
      */
@@ -113,6 +131,10 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public readonly objectAcl!: pulumi.Output<string | undefined>;
     /**
+     * File share path used by the NFS client to identify the mount point.
+     */
+    public /*out*/ readonly path!: pulumi.Output<string>;
+    /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
     public readonly readOnly!: pulumi.Output<boolean | undefined>;
@@ -125,9 +147,13 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags
+     * Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly smbAclEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Key-value map of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
@@ -145,8 +171,12 @@ export class SmbFileShare extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SmbFileShareState | undefined;
+            inputs["adminUserLists"] = state ? state.adminUserLists : undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
             inputs["authentication"] = state ? state.authentication : undefined;
+            inputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
+            inputs["caseSensitivity"] = state ? state.caseSensitivity : undefined;
             inputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
             inputs["fileshareId"] = state ? state.fileshareId : undefined;
             inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
@@ -156,9 +186,11 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             inputs["locationArn"] = state ? state.locationArn : undefined;
             inputs["objectAcl"] = state ? state.objectAcl : undefined;
+            inputs["path"] = state ? state.path : undefined;
             inputs["readOnly"] = state ? state.readOnly : undefined;
             inputs["requesterPays"] = state ? state.requesterPays : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
+            inputs["smbAclEnabled"] = state ? state.smbAclEnabled : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["validUserLists"] = state ? state.validUserLists : undefined;
         } else {
@@ -172,7 +204,11 @@ export class SmbFileShare extends pulumi.CustomResource {
             if (!args || args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            inputs["adminUserLists"] = args ? args.adminUserLists : undefined;
+            inputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
             inputs["authentication"] = args ? args.authentication : undefined;
+            inputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
+            inputs["caseSensitivity"] = args ? args.caseSensitivity : undefined;
             inputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
             inputs["guessMimeTypeEnabled"] = args ? args.guessMimeTypeEnabled : undefined;
@@ -184,10 +220,12 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["readOnly"] = args ? args.readOnly : undefined;
             inputs["requesterPays"] = args ? args.requesterPays : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["smbAclEnabled"] = args ? args.smbAclEnabled : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["validUserLists"] = args ? args.validUserLists : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["fileshareId"] = undefined /*out*/;
+            inputs["path"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -205,13 +243,29 @@ export class SmbFileShare extends pulumi.CustomResource {
  */
 export interface SmbFileShareState {
     /**
+     * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+     */
+    readonly adminUserLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Amazon Resource Name (ARN) of the SMB File Share.
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+     */
+    readonly auditDestinationArn?: pulumi.Input<string>;
+    /**
      * The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
      */
     readonly authentication?: pulumi.Input<string>;
+    /**
+     * Refresh cache information. see Cache Attributes for more details.
+     */
+    readonly cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
+    /**
+     * The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+     */
+    readonly caseSensitivity?: pulumi.Input<string>;
     /**
      * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
      */
@@ -249,6 +303,10 @@ export interface SmbFileShareState {
      */
     readonly objectAcl?: pulumi.Input<string>;
     /**
+     * File share path used by the NFS client to identify the mount point.
+     */
+    readonly path?: pulumi.Input<string>;
+    /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
     readonly readOnly?: pulumi.Input<boolean>;
@@ -261,9 +319,13 @@ export interface SmbFileShareState {
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly smbAclEnabled?: pulumi.Input<boolean>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
@@ -275,9 +337,25 @@ export interface SmbFileShareState {
  */
 export interface SmbFileShareArgs {
     /**
+     * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+     */
+    readonly adminUserLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+     */
+    readonly auditDestinationArn?: pulumi.Input<string>;
+    /**
      * The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
      */
     readonly authentication?: pulumi.Input<string>;
+    /**
+     * Refresh cache information. see Cache Attributes for more details.
+     */
+    readonly cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
+    /**
+     * The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+     */
+    readonly caseSensitivity?: pulumi.Input<string>;
     /**
      * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
      */
@@ -323,9 +401,13 @@ export interface SmbFileShareArgs {
      */
     readonly roleArn: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly smbAclEnabled?: pulumi.Input<boolean>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */

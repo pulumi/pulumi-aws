@@ -2,24 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a VPC Endpoint connection notification resource.
  * Connection notifications notify subscribers of VPC Endpoint events.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const topic = new aws.sns.Topic("topic", {
- *     policy: `{
+ *
+ * const topic = new aws.sns.Topic("topic", {policy: `{
  *     "Version":"2012-10-17",
  *     "Statement":[{
  *         "Effect": "Allow",
@@ -30,23 +25,20 @@ import * as utilities from "../utilities";
  *         "Resource": "arn:aws:sns:*:*:vpce-notification-topic"
  *     }]
  * }
- * `,
- * });
- * const fooVpcEndpointService = new aws.ec2.VpcEndpointService("foo", {
+ * `});
+ * const fooVpcEndpointService = new aws.ec2.VpcEndpointService("fooVpcEndpointService", {
  *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [aws_lb_test.arn],
+ *     networkLoadBalancerArns: [aws_lb.test.arn],
  * });
- * const fooVpcEndpointConnectionNotification = new aws.ec2.VpcEndpointConnectionNotification("foo", {
+ * const fooVpcEndpointConnectionNotification = new aws.ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", {
+ *     vpcEndpointServiceId: fooVpcEndpointService.id,
+ *     connectionNotificationArn: topic.arn,
  *     connectionEvents: [
  *         "Accept",
  *         "Reject",
  *     ],
- *     connectionNotificationArn: topic.arn,
- *     vpcEndpointServiceId: fooVpcEndpointService.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_connection_notification.html.markdown.
  */
 export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
     /**
@@ -56,6 +48,7 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcEndpointConnectionNotificationState, opts?: pulumi.CustomResourceOptions): VpcEndpointConnectionNotification {
         return new VpcEndpointConnectionNotification(name, <any>state, { ...opts, id: id });

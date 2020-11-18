@@ -12,9 +12,97 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides an SES event destination
     /// 
+    /// ## Example Usage
+    /// ### CloudWatch Destination
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_event_destination.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cloudwatch = new Aws.Ses.EventDestination("cloudwatch", new Aws.Ses.EventDestinationArgs
+    ///         {
+    ///             ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///             Enabled = true,
+    ///             MatchingTypes = 
+    ///             {
+    ///                 "bounce",
+    ///                 "send",
+    ///             },
+    ///             CloudwatchDestinations = 
+    ///             {
+    ///                 new Aws.Ses.Inputs.EventDestinationCloudwatchDestinationArgs
+    ///                 {
+    ///                     DefaultValue = "default",
+    ///                     DimensionName = "dimension",
+    ///                     ValueSource = "emailHeader",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Kinesis Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var kinesis = new Aws.Ses.EventDestination("kinesis", new Aws.Ses.EventDestinationArgs
+    ///         {
+    ///             ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///             Enabled = true,
+    ///             MatchingTypes = 
+    ///             {
+    ///                 "bounce",
+    ///                 "send",
+    ///             },
+    ///             KinesisDestination = new Aws.Ses.Inputs.EventDestinationKinesisDestinationArgs
+    ///             {
+    ///                 StreamArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///                 RoleArn = aws_iam_role.Example.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### SNS Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sns = new Aws.Ses.EventDestination("sns", new Aws.Ses.EventDestinationArgs
+    ///         {
+    ///             ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///             Enabled = true,
+    ///             MatchingTypes = 
+    ///             {
+    ///                 "bounce",
+    ///                 "send",
+    ///             },
+    ///             SnsDestination = new Aws.Ses.Inputs.EventDestinationSnsDestinationArgs
+    ///             {
+    ///                 TopicArn = aws_sns_topic.Example.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EventDestination : Pulumi.CustomResource
     {
@@ -22,7 +110,7 @@ namespace Pulumi.Aws.Ses
         /// CloudWatch destination for the events
         /// </summary>
         [Output("cloudwatchDestinations")]
-        public Output<ImmutableArray<Outputs.EventDestinationCloudwatchDestinations>> CloudwatchDestinations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EventDestinationCloudwatchDestination>> CloudwatchDestinations { get; private set; } = null!;
 
         /// <summary>
         /// The name of the configuration set
@@ -69,7 +157,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventDestination(string name, EventDestinationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/eventDestination:EventDestination", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/eventDestination:EventDestination", name, args ?? new EventDestinationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -107,14 +195,14 @@ namespace Pulumi.Aws.Ses
     public sealed class EventDestinationArgs : Pulumi.ResourceArgs
     {
         [Input("cloudwatchDestinations")]
-        private InputList<Inputs.EventDestinationCloudwatchDestinationsArgs>? _cloudwatchDestinations;
+        private InputList<Inputs.EventDestinationCloudwatchDestinationArgs>? _cloudwatchDestinations;
 
         /// <summary>
         /// CloudWatch destination for the events
         /// </summary>
-        public InputList<Inputs.EventDestinationCloudwatchDestinationsArgs> CloudwatchDestinations
+        public InputList<Inputs.EventDestinationCloudwatchDestinationArgs> CloudwatchDestinations
         {
-            get => _cloudwatchDestinations ?? (_cloudwatchDestinations = new InputList<Inputs.EventDestinationCloudwatchDestinationsArgs>());
+            get => _cloudwatchDestinations ?? (_cloudwatchDestinations = new InputList<Inputs.EventDestinationCloudwatchDestinationArgs>());
             set => _cloudwatchDestinations = value;
         }
 
@@ -168,14 +256,14 @@ namespace Pulumi.Aws.Ses
     public sealed class EventDestinationState : Pulumi.ResourceArgs
     {
         [Input("cloudwatchDestinations")]
-        private InputList<Inputs.EventDestinationCloudwatchDestinationsGetArgs>? _cloudwatchDestinations;
+        private InputList<Inputs.EventDestinationCloudwatchDestinationGetArgs>? _cloudwatchDestinations;
 
         /// <summary>
         /// CloudWatch destination for the events
         /// </summary>
-        public InputList<Inputs.EventDestinationCloudwatchDestinationsGetArgs> CloudwatchDestinations
+        public InputList<Inputs.EventDestinationCloudwatchDestinationGetArgs> CloudwatchDestinations
         {
-            get => _cloudwatchDestinations ?? (_cloudwatchDestinations = new InputList<Inputs.EventDestinationCloudwatchDestinationsGetArgs>());
+            get => _cloudwatchDestinations ?? (_cloudwatchDestinations = new InputList<Inputs.EventDestinationCloudwatchDestinationGetArgs>());
             set => _cloudwatchDestinations = value;
         }
 
@@ -224,192 +312,5 @@ namespace Pulumi.Aws.Ses
         public EventDestinationState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class EventDestinationCloudwatchDestinationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The default value for the event
-        /// </summary>
-        [Input("defaultValue", required: true)]
-        public Input<string> DefaultValue { get; set; } = null!;
-
-        /// <summary>
-        /// The name for the dimension
-        /// </summary>
-        [Input("dimensionName", required: true)]
-        public Input<string> DimensionName { get; set; } = null!;
-
-        /// <summary>
-        /// The source for the value. It can be either `"messageTag"` or `"emailHeader"`
-        /// </summary>
-        [Input("valueSource", required: true)]
-        public Input<string> ValueSource { get; set; } = null!;
-
-        public EventDestinationCloudwatchDestinationsArgs()
-        {
-        }
-    }
-
-    public sealed class EventDestinationCloudwatchDestinationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The default value for the event
-        /// </summary>
-        [Input("defaultValue", required: true)]
-        public Input<string> DefaultValue { get; set; } = null!;
-
-        /// <summary>
-        /// The name for the dimension
-        /// </summary>
-        [Input("dimensionName", required: true)]
-        public Input<string> DimensionName { get; set; } = null!;
-
-        /// <summary>
-        /// The source for the value. It can be either `"messageTag"` or `"emailHeader"`
-        /// </summary>
-        [Input("valueSource", required: true)]
-        public Input<string> ValueSource { get; set; } = null!;
-
-        public EventDestinationCloudwatchDestinationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class EventDestinationKinesisDestinationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the role that has permissions to access the Kinesis Stream
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The ARN of the Kinesis Stream
-        /// </summary>
-        [Input("streamArn", required: true)]
-        public Input<string> StreamArn { get; set; } = null!;
-
-        public EventDestinationKinesisDestinationArgs()
-        {
-        }
-    }
-
-    public sealed class EventDestinationKinesisDestinationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the role that has permissions to access the Kinesis Stream
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The ARN of the Kinesis Stream
-        /// </summary>
-        [Input("streamArn", required: true)]
-        public Input<string> StreamArn { get; set; } = null!;
-
-        public EventDestinationKinesisDestinationGetArgs()
-        {
-        }
-    }
-
-    public sealed class EventDestinationSnsDestinationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the SNS topic
-        /// </summary>
-        [Input("topicArn", required: true)]
-        public Input<string> TopicArn { get; set; } = null!;
-
-        public EventDestinationSnsDestinationArgs()
-        {
-        }
-    }
-
-    public sealed class EventDestinationSnsDestinationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the SNS topic
-        /// </summary>
-        [Input("topicArn", required: true)]
-        public Input<string> TopicArn { get; set; } = null!;
-
-        public EventDestinationSnsDestinationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class EventDestinationCloudwatchDestinations
-    {
-        /// <summary>
-        /// The default value for the event
-        /// </summary>
-        public readonly string DefaultValue;
-        /// <summary>
-        /// The name for the dimension
-        /// </summary>
-        public readonly string DimensionName;
-        /// <summary>
-        /// The source for the value. It can be either `"messageTag"` or `"emailHeader"`
-        /// </summary>
-        public readonly string ValueSource;
-
-        [OutputConstructor]
-        private EventDestinationCloudwatchDestinations(
-            string defaultValue,
-            string dimensionName,
-            string valueSource)
-        {
-            DefaultValue = defaultValue;
-            DimensionName = dimensionName;
-            ValueSource = valueSource;
-        }
-    }
-
-    [OutputType]
-    public sealed class EventDestinationKinesisDestination
-    {
-        /// <summary>
-        /// The ARN of the role that has permissions to access the Kinesis Stream
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// The ARN of the Kinesis Stream
-        /// </summary>
-        public readonly string StreamArn;
-
-        [OutputConstructor]
-        private EventDestinationKinesisDestination(
-            string roleArn,
-            string streamArn)
-        {
-            RoleArn = roleArn;
-            StreamArn = streamArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class EventDestinationSnsDestination
-    {
-        /// <summary>
-        /// The ARN of the SNS topic
-        /// </summary>
-        public readonly string TopicArn;
-
-        [OutputConstructor]
-        private EventDestinationSnsDestination(string topicArn)
-        {
-            TopicArn = topicArn;
-        }
-    }
     }
 }

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type TriggerTrigger struct {
@@ -23,6 +23,10 @@ type TriggerTrigger struct {
 	Name string `pulumi:"name"`
 }
 
+// TriggerTriggerInput is an input type that accepts TriggerTriggerArgs and TriggerTriggerOutput values.
+// You can construct a concrete instance of `TriggerTriggerInput` via:
+//
+//          TriggerTriggerArgs{...}
 type TriggerTriggerInput interface {
 	pulumi.Input
 
@@ -55,6 +59,10 @@ func (i TriggerTriggerArgs) ToTriggerTriggerOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerTriggerOutput)
 }
 
+// TriggerTriggerArrayInput is an input type that accepts TriggerTriggerArray and TriggerTriggerArrayOutput values.
+// You can construct a concrete instance of `TriggerTriggerArrayInput` via:
+//
+//          TriggerTriggerArray{ TriggerTriggerArgs{...} }
 type TriggerTriggerArrayInput interface {
 	pulumi.Input
 

@@ -4,64 +4,56 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
- * 
+ *
  * > **Note:** All arguments including `tunnel1PresharedKey` and `tunnel2PresharedKey` will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * > **Note:** The CIDR blocks in the arguments `tunnel1InsideCidr` and `tunnel2InsideCidr` must have a prefix of /30 and be a part of a specific range.
  * [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
- * 
+ *
  * ## Example Usage
- * 
  * ### EC2 Transit Gateway
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {});
- * const exampleCustomerGateway = new aws.ec2.CustomerGateway("example", {
+ *
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
+ * const exampleCustomerGateway = new aws.ec2.CustomerGateway("exampleCustomerGateway", {
  *     bgpAsn: 65000,
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });
- * const exampleVpnConnection = new aws.ec2.VpnConnection("example", {
+ * const exampleVpnConnection = new aws.ec2.VpnConnection("exampleVpnConnection", {
  *     customerGatewayId: exampleCustomerGateway.id,
  *     transitGatewayId: exampleTransitGateway.id,
  *     type: exampleCustomerGateway.type,
  * });
  * ```
- * 
  * ### Virtual Private Gateway
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const vpc = new aws.ec2.Vpc("vpc", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const vpnGateway = new aws.ec2.VpnGateway("vpnGateway", {
- *     vpcId: vpc.id,
- * });
+ *
+ * const vpc = new aws.ec2.Vpc("vpc", {cidrBlock: "10.0.0.0/16"});
+ * const vpnGateway = new aws.ec2.VpnGateway("vpnGateway", {vpcId: vpc.id});
  * const customerGateway = new aws.ec2.CustomerGateway("customerGateway", {
  *     bgpAsn: 65000,
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });
  * const main = new aws.ec2.VpnConnection("main", {
- *     customerGatewayId: customerGateway.id,
- *     staticRoutesOnly: true,
- *     type: "ipsec.1",
  *     vpnGatewayId: vpnGateway.id,
+ *     customerGatewayId: customerGateway.id,
+ *     type: "ipsec.1",
+ *     staticRoutesOnly: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection.html.markdown.
  */
 export class VpnConnection extends pulumi.CustomResource {
     /**
@@ -71,6 +63,7 @@ export class VpnConnection extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpnConnectionState, opts?: pulumi.CustomResourceOptions): VpnConnection {
         return new VpnConnection(name, <any>state, { ...opts, id: id });
@@ -91,6 +84,10 @@ export class VpnConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the VPN Connection.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The configuration information for the VPN connection's customer gateway (in the native XML format).
      */
     public /*out*/ readonly customerGatewayConfiguration!: pulumi.Output<string>;
@@ -106,7 +103,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * Tags to apply to the connection.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
      */
@@ -193,6 +190,7 @@ export class VpnConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as VpnConnectionState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["customerGatewayConfiguration"] = state ? state.customerGatewayConfiguration : undefined;
             inputs["customerGatewayId"] = state ? state.customerGatewayId : undefined;
             inputs["routes"] = state ? state.routes : undefined;
@@ -235,6 +233,7 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["tunnel2PresharedKey"] = args ? args.tunnel2PresharedKey : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["customerGatewayConfiguration"] = undefined /*out*/;
             inputs["routes"] = undefined /*out*/;
             inputs["transitGatewayAttachmentId"] = undefined /*out*/;
@@ -266,6 +265,10 @@ export class VpnConnection extends pulumi.CustomResource {
  */
 export interface VpnConnectionState {
     /**
+     * Amazon Resource Name (ARN) of the VPN Connection.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The configuration information for the VPN connection's customer gateway (in the native XML format).
      */
     readonly customerGatewayConfiguration?: pulumi.Input<string>;
@@ -281,7 +284,7 @@ export interface VpnConnectionState {
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
      */
@@ -372,7 +375,7 @@ export interface VpnConnectionArgs {
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway.
      */

@@ -10,18 +10,28 @@ export * from "./clusterSnapshot";
 export * from "./engineMode";
 export * from "./engineType";
 export * from "./eventSubscription";
+export * from "./getCertificate";
 export * from "./getCluster";
 export * from "./getClusterSnapshot";
+export * from "./getEngineVersion";
 export * from "./getEventCategories";
 export * from "./getInstance";
+export * from "./getOrderableDbInstance";
 export * from "./getSnapshot";
+export * from "./getSubnetGroup";
 export * from "./globalCluster";
 export * from "./instance";
 export * from "./instanceType";
 export * from "./optionGroup";
 export * from "./parameterGroup";
+export * from "./proxy";
+export * from "./proxyDefaultTargetGroup";
+export * from "./proxyTarget";
 export * from "./roleAssociation";
 export * from "./securityGroup";
 export * from "./snapshot";
 export * from "./storageType";
 export * from "./subnetGroup";
+
+// Export enums:
+export * from "../types/enums/rds";

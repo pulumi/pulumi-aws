@@ -6,26 +6,23 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a DocDB Cluster.
- * 
+ *
  * Changes to a DocDB Cluster can occur when you manually change a
  * parameter, such as `port`, and are reflected in the next maintenance
  * window. Because of this, this provider may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
  * `applyImmediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
- * 
+ *
  * > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
- * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ * **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const docdb = new aws.docdb.Cluster("docdb", {
  *     backupRetentionPeriod: 5,
  *     clusterIdentifier: "my-docdb-cluster",
@@ -36,8 +33,6 @@ import * as utilities from "../utilities";
  *     skipFinalSnapshot: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -47,6 +42,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterState, opts?: pulumi.CustomResourceOptions): Cluster {
         return new Cluster(name, <any>state, { ...opts, id: id });
@@ -110,6 +106,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
+     * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     */
+    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
      */
@@ -146,7 +146,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly masterPassword!: pulumi.Output<string | undefined>;
     /**
-     * Username for the master DB user. 
+     * Username for the master DB user.
      */
     public readonly masterUsername!: pulumi.Output<string>;
     /**
@@ -176,9 +176,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
-     * A mapping of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of VPC security groups to associate
      * with the Cluster
@@ -207,6 +207,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
             inputs["dbClusterParameterGroupName"] = state ? state.dbClusterParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
+            inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             inputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["engine"] = state ? state.engine : undefined;
@@ -235,6 +236,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterMembers"] = args ? args.clusterMembers : undefined;
             inputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
+            inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             inputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
@@ -315,6 +317,10 @@ export interface ClusterState {
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
+     * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     */
+    readonly deletionProtection?: pulumi.Input<boolean>;
+    /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
      */
@@ -351,7 +357,7 @@ export interface ClusterState {
      */
     readonly masterPassword?: pulumi.Input<string>;
     /**
-     * Username for the master DB user. 
+     * Username for the master DB user.
      */
     readonly masterUsername?: pulumi.Input<string>;
     /**
@@ -381,9 +387,9 @@ export interface ClusterState {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of VPC security groups to associate
      * with the Cluster
@@ -431,6 +437,10 @@ export interface ClusterArgs {
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
+     * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     */
+    readonly deletionProtection?: pulumi.Input<boolean>;
+    /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
      */
@@ -459,7 +469,7 @@ export interface ClusterArgs {
      */
     readonly masterPassword?: pulumi.Input<string>;
     /**
-     * Username for the master DB user. 
+     * Username for the master DB user.
      */
     readonly masterUsername?: pulumi.Input<string>;
     /**
@@ -485,9 +495,9 @@ export interface ClusterArgs {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of VPC security groups to associate
      * with the Cluster

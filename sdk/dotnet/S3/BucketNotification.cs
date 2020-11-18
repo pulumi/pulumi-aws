@@ -14,9 +14,333 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `aws.s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. See the example "Trigger multiple Lambda functions" for an option.
     /// 
+    /// ## Example Usage
+    /// ### Add notification configuration to SNS Topic
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_notification.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var topic = new Aws.Sns.Topic("topic", new Aws.Sns.TopicArgs
+    ///         {
+    ///             Policy = bucket.Arn.Apply(arn =&gt; @$"{{
+    ///     ""Version"":""2012-10-17"",
+    ///     ""Statement"":[{{
+    ///         ""Effect"": ""Allow"",
+    ///         ""Principal"": {{""AWS"":""*""}},
+    ///         ""Action"": ""SNS:Publish"",
+    ///         ""Resource"": ""arn:aws:sns:*:*:s3-event-notification-topic"",
+    ///         ""Condition"":{{
+    ///             ""ArnLike"":{{""aws:SourceArn"":""{arn}""}}
+    ///         }}
+    ///     }}]
+    /// }}
+    /// "),
+    ///         });
+    ///         var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new Aws.S3.BucketNotificationArgs
+    ///         {
+    ///             Bucket = bucket.Id,
+    ///             Topics = 
+    ///             {
+    ///                 new Aws.S3.Inputs.BucketNotificationTopicArgs
+    ///                 {
+    ///                     TopicArn = topic.Arn,
+    ///                     Events = 
+    ///                     {
+    ///                         "s3:ObjectCreated:*",
+    ///                     },
+    ///                     FilterSuffix = ".log",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Add notification configuration to SQS Queue
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var queue = new Aws.Sqs.Queue("queue", new Aws.Sqs.QueueArgs
+    ///         {
+    ///             Policy = bucket.Arn.Apply(arn =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": ""*"",
+    ///       ""Action"": ""sqs:SendMessage"",
+    /// 	  ""Resource"": ""arn:aws:sqs:*:*:s3-event-notification-queue"",
+    ///       ""Condition"": {{
+    ///         ""ArnEquals"": {{ ""aws:SourceArn"": ""{arn}"" }}
+    ///       }}
+    ///     }}
+    ///   ]
+    /// }}
+    /// "),
+    ///         });
+    ///         var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new Aws.S3.BucketNotificationArgs
+    ///         {
+    ///             Bucket = bucket.Id,
+    ///             Queues = 
+    ///             {
+    ///                 new Aws.S3.Inputs.BucketNotificationQueueArgs
+    ///                 {
+    ///                     QueueArn = queue.Arn,
+    ///                     Events = 
+    ///                     {
+    ///                         "s3:ObjectCreated:*",
+    ///                     },
+    ///                     FilterSuffix = ".log",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Add notification configuration to Lambda Function
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iamForLambda = new Aws.Iam.Role("iamForLambda", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var func = new Aws.Lambda.Function("func", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("your-function.zip"),
+    ///             Role = iamForLambda.Arn,
+    ///             Handler = "exports.example",
+    ///             Runtime = "go1.x",
+    ///         });
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var allowBucket = new Aws.Lambda.Permission("allowBucket", new Aws.Lambda.PermissionArgs
+    ///         {
+    ///             Action = "lambda:InvokeFunction",
+    ///             Function = func.Arn,
+    ///             Principal = "s3.amazonaws.com",
+    ///             SourceArn = bucket.Arn,
+    ///         });
+    ///         var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new Aws.S3.BucketNotificationArgs
+    ///         {
+    ///             Bucket = bucket.Id,
+    ///             LambdaFunctions = 
+    ///             {
+    ///                 new Aws.S3.Inputs.BucketNotificationLambdaFunctionArgs
+    ///                 {
+    ///                     LambdaFunctionArn = func.Arn,
+    ///                     Events = 
+    ///                     {
+    ///                         "s3:ObjectCreated:*",
+    ///                     },
+    ///                     FilterPrefix = "AWSLogs/",
+    ///                     FilterSuffix = ".log",
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 allowBucket,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Trigger multiple Lambda functions
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iamForLambda = new Aws.Iam.Role("iamForLambda", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var func1 = new Aws.Lambda.Function("func1", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("your-function1.zip"),
+    ///             Role = iamForLambda.Arn,
+    ///             Handler = "exports.example",
+    ///             Runtime = "go1.x",
+    ///         });
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var allowBucket1 = new Aws.Lambda.Permission("allowBucket1", new Aws.Lambda.PermissionArgs
+    ///         {
+    ///             Action = "lambda:InvokeFunction",
+    ///             Function = func1.Arn,
+    ///             Principal = "s3.amazonaws.com",
+    ///             SourceArn = bucket.Arn,
+    ///         });
+    ///         var func2 = new Aws.Lambda.Function("func2", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("your-function2.zip"),
+    ///             Role = iamForLambda.Arn,
+    ///             Handler = "exports.example",
+    ///         });
+    ///         var allowBucket2 = new Aws.Lambda.Permission("allowBucket2", new Aws.Lambda.PermissionArgs
+    ///         {
+    ///             Action = "lambda:InvokeFunction",
+    ///             Function = func2.Arn,
+    ///             Principal = "s3.amazonaws.com",
+    ///             SourceArn = bucket.Arn,
+    ///         });
+    ///         var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new Aws.S3.BucketNotificationArgs
+    ///         {
+    ///             Bucket = bucket.Id,
+    ///             LambdaFunctions = 
+    ///             {
+    ///                 new Aws.S3.Inputs.BucketNotificationLambdaFunctionArgs
+    ///                 {
+    ///                     LambdaFunctionArn = func1.Arn,
+    ///                     Events = 
+    ///                     {
+    ///                         "s3:ObjectCreated:*",
+    ///                     },
+    ///                     FilterPrefix = "AWSLogs/",
+    ///                     FilterSuffix = ".log",
+    ///                 },
+    ///                 new Aws.S3.Inputs.BucketNotificationLambdaFunctionArgs
+    ///                 {
+    ///                     LambdaFunctionArn = func2.Arn,
+    ///                     Events = 
+    ///                     {
+    ///                         "s3:ObjectCreated:*",
+    ///                     },
+    ///                     FilterPrefix = "OtherLogs/",
+    ///                     FilterSuffix = ".log",
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 allowBucket1,
+    ///                 allowBucket2,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Add multiple notification configurations to SQS Queue
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var queue = new Aws.Sqs.Queue("queue", new Aws.Sqs.QueueArgs
+    ///         {
+    ///             Policy = bucket.Arn.Apply(arn =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": ""*"",
+    ///       ""Action"": ""sqs:SendMessage"",
+    /// 	  ""Resource"": ""arn:aws:sqs:*:*:s3-event-notification-queue"",
+    ///       ""Condition"": {{
+    ///         ""ArnEquals"": {{ ""aws:SourceArn"": ""{arn}"" }}
+    ///       }}
+    ///     }}
+    ///   ]
+    /// }}
+    /// "),
+    ///         });
+    ///         var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new Aws.S3.BucketNotificationArgs
+    ///         {
+    ///             Bucket = bucket.Id,
+    ///             Queues = 
+    ///             {
+    ///                 new Aws.S3.Inputs.BucketNotificationQueueArgs
+    ///                 {
+    ///                     Id = "image-upload-event",
+    ///                     QueueArn = queue.Arn,
+    ///                     Events = 
+    ///                     {
+    ///                         "s3:ObjectCreated:*",
+    ///                     },
+    ///                     FilterPrefix = "images/",
+    ///                 },
+    ///                 new Aws.S3.Inputs.BucketNotificationQueueArgs
+    ///                 {
+    ///                     Id = "video-upload-event",
+    ///                     QueueArn = queue.Arn,
+    ///                     Events = 
+    ///                     {
+    ///                         "s3:ObjectCreated:*",
+    ///                     },
+    ///                     FilterPrefix = "videos/",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class BucketNotification : Pulumi.CustomResource
     {
@@ -30,19 +354,19 @@ namespace Pulumi.Aws.S3
         /// Used to configure notifications to a Lambda Function (documented below).
         /// </summary>
         [Output("lambdaFunctions")]
-        public Output<ImmutableArray<Outputs.BucketNotificationLambdaFunctions>> LambdaFunctions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BucketNotificationLambdaFunction>> LambdaFunctions { get; private set; } = null!;
 
         /// <summary>
         /// The notification configuration to SQS Queue (documented below).
         /// </summary>
         [Output("queues")]
-        public Output<ImmutableArray<Outputs.BucketNotificationQueues>> Queues { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BucketNotificationQueue>> Queues { get; private set; } = null!;
 
         /// <summary>
         /// The notification configuration to SNS Topic (documented below).
         /// </summary>
         [Output("topics")]
-        public Output<ImmutableArray<Outputs.BucketNotificationTopics>> Topics { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BucketNotificationTopic>> Topics { get; private set; } = null!;
 
 
         /// <summary>
@@ -53,7 +377,7 @@ namespace Pulumi.Aws.S3
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BucketNotification(string name, BucketNotificationArgs args, CustomResourceOptions? options = null)
-            : base("aws:s3/bucketNotification:BucketNotification", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:s3/bucketNotification:BucketNotification", name, args ?? new BucketNotificationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -97,38 +421,38 @@ namespace Pulumi.Aws.S3
         public Input<string> Bucket { get; set; } = null!;
 
         [Input("lambdaFunctions")]
-        private InputList<Inputs.BucketNotificationLambdaFunctionsArgs>? _lambdaFunctions;
+        private InputList<Inputs.BucketNotificationLambdaFunctionArgs>? _lambdaFunctions;
 
         /// <summary>
         /// Used to configure notifications to a Lambda Function (documented below).
         /// </summary>
-        public InputList<Inputs.BucketNotificationLambdaFunctionsArgs> LambdaFunctions
+        public InputList<Inputs.BucketNotificationLambdaFunctionArgs> LambdaFunctions
         {
-            get => _lambdaFunctions ?? (_lambdaFunctions = new InputList<Inputs.BucketNotificationLambdaFunctionsArgs>());
+            get => _lambdaFunctions ?? (_lambdaFunctions = new InputList<Inputs.BucketNotificationLambdaFunctionArgs>());
             set => _lambdaFunctions = value;
         }
 
         [Input("queues")]
-        private InputList<Inputs.BucketNotificationQueuesArgs>? _queues;
+        private InputList<Inputs.BucketNotificationQueueArgs>? _queues;
 
         /// <summary>
         /// The notification configuration to SQS Queue (documented below).
         /// </summary>
-        public InputList<Inputs.BucketNotificationQueuesArgs> Queues
+        public InputList<Inputs.BucketNotificationQueueArgs> Queues
         {
-            get => _queues ?? (_queues = new InputList<Inputs.BucketNotificationQueuesArgs>());
+            get => _queues ?? (_queues = new InputList<Inputs.BucketNotificationQueueArgs>());
             set => _queues = value;
         }
 
         [Input("topics")]
-        private InputList<Inputs.BucketNotificationTopicsArgs>? _topics;
+        private InputList<Inputs.BucketNotificationTopicArgs>? _topics;
 
         /// <summary>
         /// The notification configuration to SNS Topic (documented below).
         /// </summary>
-        public InputList<Inputs.BucketNotificationTopicsArgs> Topics
+        public InputList<Inputs.BucketNotificationTopicArgs> Topics
         {
-            get => _topics ?? (_topics = new InputList<Inputs.BucketNotificationTopicsArgs>());
+            get => _topics ?? (_topics = new InputList<Inputs.BucketNotificationTopicArgs>());
             set => _topics = value;
         }
 
@@ -146,429 +470,43 @@ namespace Pulumi.Aws.S3
         public Input<string>? Bucket { get; set; }
 
         [Input("lambdaFunctions")]
-        private InputList<Inputs.BucketNotificationLambdaFunctionsGetArgs>? _lambdaFunctions;
+        private InputList<Inputs.BucketNotificationLambdaFunctionGetArgs>? _lambdaFunctions;
 
         /// <summary>
         /// Used to configure notifications to a Lambda Function (documented below).
         /// </summary>
-        public InputList<Inputs.BucketNotificationLambdaFunctionsGetArgs> LambdaFunctions
+        public InputList<Inputs.BucketNotificationLambdaFunctionGetArgs> LambdaFunctions
         {
-            get => _lambdaFunctions ?? (_lambdaFunctions = new InputList<Inputs.BucketNotificationLambdaFunctionsGetArgs>());
+            get => _lambdaFunctions ?? (_lambdaFunctions = new InputList<Inputs.BucketNotificationLambdaFunctionGetArgs>());
             set => _lambdaFunctions = value;
         }
 
         [Input("queues")]
-        private InputList<Inputs.BucketNotificationQueuesGetArgs>? _queues;
+        private InputList<Inputs.BucketNotificationQueueGetArgs>? _queues;
 
         /// <summary>
         /// The notification configuration to SQS Queue (documented below).
         /// </summary>
-        public InputList<Inputs.BucketNotificationQueuesGetArgs> Queues
+        public InputList<Inputs.BucketNotificationQueueGetArgs> Queues
         {
-            get => _queues ?? (_queues = new InputList<Inputs.BucketNotificationQueuesGetArgs>());
+            get => _queues ?? (_queues = new InputList<Inputs.BucketNotificationQueueGetArgs>());
             set => _queues = value;
         }
 
         [Input("topics")]
-        private InputList<Inputs.BucketNotificationTopicsGetArgs>? _topics;
+        private InputList<Inputs.BucketNotificationTopicGetArgs>? _topics;
 
         /// <summary>
         /// The notification configuration to SNS Topic (documented below).
         /// </summary>
-        public InputList<Inputs.BucketNotificationTopicsGetArgs> Topics
+        public InputList<Inputs.BucketNotificationTopicGetArgs> Topics
         {
-            get => _topics ?? (_topics = new InputList<Inputs.BucketNotificationTopicsGetArgs>());
+            get => _topics ?? (_topics = new InputList<Inputs.BucketNotificationTopicGetArgs>());
             set => _topics = value;
         }
 
         public BucketNotificationState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class BucketNotificationLambdaFunctionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("events", required: true)]
-        private InputList<string>? _events;
-
-        /// <summary>
-        /// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        /// </summary>
-        public InputList<string> Events
-        {
-            get => _events ?? (_events = new InputList<string>());
-            set => _events = value;
-        }
-
-        /// <summary>
-        /// Specifies object key name prefix.
-        /// </summary>
-        [Input("filterPrefix")]
-        public Input<string>? FilterPrefix { get; set; }
-
-        /// <summary>
-        /// Specifies object key name suffix.
-        /// </summary>
-        [Input("filterSuffix")]
-        public Input<string>? FilterSuffix { get; set; }
-
-        /// <summary>
-        /// Specifies unique identifier for each of the notification configurations.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Specifies Amazon Lambda function ARN.
-        /// </summary>
-        [Input("lambdaFunctionArn")]
-        public Input<string>? LambdaFunctionArn { get; set; }
-
-        public BucketNotificationLambdaFunctionsArgs()
-        {
-        }
-    }
-
-    public sealed class BucketNotificationLambdaFunctionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("events", required: true)]
-        private InputList<string>? _events;
-
-        /// <summary>
-        /// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        /// </summary>
-        public InputList<string> Events
-        {
-            get => _events ?? (_events = new InputList<string>());
-            set => _events = value;
-        }
-
-        /// <summary>
-        /// Specifies object key name prefix.
-        /// </summary>
-        [Input("filterPrefix")]
-        public Input<string>? FilterPrefix { get; set; }
-
-        /// <summary>
-        /// Specifies object key name suffix.
-        /// </summary>
-        [Input("filterSuffix")]
-        public Input<string>? FilterSuffix { get; set; }
-
-        /// <summary>
-        /// Specifies unique identifier for each of the notification configurations.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Specifies Amazon Lambda function ARN.
-        /// </summary>
-        [Input("lambdaFunctionArn")]
-        public Input<string>? LambdaFunctionArn { get; set; }
-
-        public BucketNotificationLambdaFunctionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class BucketNotificationQueuesArgs : Pulumi.ResourceArgs
-    {
-        [Input("events", required: true)]
-        private InputList<string>? _events;
-
-        /// <summary>
-        /// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        /// </summary>
-        public InputList<string> Events
-        {
-            get => _events ?? (_events = new InputList<string>());
-            set => _events = value;
-        }
-
-        /// <summary>
-        /// Specifies object key name prefix.
-        /// </summary>
-        [Input("filterPrefix")]
-        public Input<string>? FilterPrefix { get; set; }
-
-        /// <summary>
-        /// Specifies object key name suffix.
-        /// </summary>
-        [Input("filterSuffix")]
-        public Input<string>? FilterSuffix { get; set; }
-
-        /// <summary>
-        /// Specifies unique identifier for each of the notification configurations.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Specifies Amazon SQS queue ARN.
-        /// </summary>
-        [Input("queueArn", required: true)]
-        public Input<string> QueueArn { get; set; } = null!;
-
-        public BucketNotificationQueuesArgs()
-        {
-        }
-    }
-
-    public sealed class BucketNotificationQueuesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("events", required: true)]
-        private InputList<string>? _events;
-
-        /// <summary>
-        /// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        /// </summary>
-        public InputList<string> Events
-        {
-            get => _events ?? (_events = new InputList<string>());
-            set => _events = value;
-        }
-
-        /// <summary>
-        /// Specifies object key name prefix.
-        /// </summary>
-        [Input("filterPrefix")]
-        public Input<string>? FilterPrefix { get; set; }
-
-        /// <summary>
-        /// Specifies object key name suffix.
-        /// </summary>
-        [Input("filterSuffix")]
-        public Input<string>? FilterSuffix { get; set; }
-
-        /// <summary>
-        /// Specifies unique identifier for each of the notification configurations.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Specifies Amazon SQS queue ARN.
-        /// </summary>
-        [Input("queueArn", required: true)]
-        public Input<string> QueueArn { get; set; } = null!;
-
-        public BucketNotificationQueuesGetArgs()
-        {
-        }
-    }
-
-    public sealed class BucketNotificationTopicsArgs : Pulumi.ResourceArgs
-    {
-        [Input("events", required: true)]
-        private InputList<string>? _events;
-
-        /// <summary>
-        /// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        /// </summary>
-        public InputList<string> Events
-        {
-            get => _events ?? (_events = new InputList<string>());
-            set => _events = value;
-        }
-
-        /// <summary>
-        /// Specifies object key name prefix.
-        /// </summary>
-        [Input("filterPrefix")]
-        public Input<string>? FilterPrefix { get; set; }
-
-        /// <summary>
-        /// Specifies object key name suffix.
-        /// </summary>
-        [Input("filterSuffix")]
-        public Input<string>? FilterSuffix { get; set; }
-
-        /// <summary>
-        /// Specifies unique identifier for each of the notification configurations.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Specifies Amazon SNS topic ARN.
-        /// </summary>
-        [Input("topicArn", required: true)]
-        public Input<string> TopicArn { get; set; } = null!;
-
-        public BucketNotificationTopicsArgs()
-        {
-        }
-    }
-
-    public sealed class BucketNotificationTopicsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("events", required: true)]
-        private InputList<string>? _events;
-
-        /// <summary>
-        /// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        /// </summary>
-        public InputList<string> Events
-        {
-            get => _events ?? (_events = new InputList<string>());
-            set => _events = value;
-        }
-
-        /// <summary>
-        /// Specifies object key name prefix.
-        /// </summary>
-        [Input("filterPrefix")]
-        public Input<string>? FilterPrefix { get; set; }
-
-        /// <summary>
-        /// Specifies object key name suffix.
-        /// </summary>
-        [Input("filterSuffix")]
-        public Input<string>? FilterSuffix { get; set; }
-
-        /// <summary>
-        /// Specifies unique identifier for each of the notification configurations.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Specifies Amazon SNS topic ARN.
-        /// </summary>
-        [Input("topicArn", required: true)]
-        public Input<string> TopicArn { get; set; } = null!;
-
-        public BucketNotificationTopicsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class BucketNotificationLambdaFunctions
-    {
-        /// <summary>
-        /// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        /// </summary>
-        public readonly ImmutableArray<string> Events;
-        /// <summary>
-        /// Specifies object key name prefix.
-        /// </summary>
-        public readonly string? FilterPrefix;
-        /// <summary>
-        /// Specifies object key name suffix.
-        /// </summary>
-        public readonly string? FilterSuffix;
-        /// <summary>
-        /// Specifies unique identifier for each of the notification configurations.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Specifies Amazon Lambda function ARN.
-        /// </summary>
-        public readonly string? LambdaFunctionArn;
-
-        [OutputConstructor]
-        private BucketNotificationLambdaFunctions(
-            ImmutableArray<string> events,
-            string? filterPrefix,
-            string? filterSuffix,
-            string id,
-            string? lambdaFunctionArn)
-        {
-            Events = events;
-            FilterPrefix = filterPrefix;
-            FilterSuffix = filterSuffix;
-            Id = id;
-            LambdaFunctionArn = lambdaFunctionArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class BucketNotificationQueues
-    {
-        /// <summary>
-        /// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        /// </summary>
-        public readonly ImmutableArray<string> Events;
-        /// <summary>
-        /// Specifies object key name prefix.
-        /// </summary>
-        public readonly string? FilterPrefix;
-        /// <summary>
-        /// Specifies object key name suffix.
-        /// </summary>
-        public readonly string? FilterSuffix;
-        /// <summary>
-        /// Specifies unique identifier for each of the notification configurations.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Specifies Amazon SQS queue ARN.
-        /// </summary>
-        public readonly string QueueArn;
-
-        [OutputConstructor]
-        private BucketNotificationQueues(
-            ImmutableArray<string> events,
-            string? filterPrefix,
-            string? filterSuffix,
-            string id,
-            string queueArn)
-        {
-            Events = events;
-            FilterPrefix = filterPrefix;
-            FilterSuffix = filterSuffix;
-            Id = id;
-            QueueArn = queueArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class BucketNotificationTopics
-    {
-        /// <summary>
-        /// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        /// </summary>
-        public readonly ImmutableArray<string> Events;
-        /// <summary>
-        /// Specifies object key name prefix.
-        /// </summary>
-        public readonly string? FilterPrefix;
-        /// <summary>
-        /// Specifies object key name suffix.
-        /// </summary>
-        public readonly string? FilterSuffix;
-        /// <summary>
-        /// Specifies unique identifier for each of the notification configurations.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Specifies Amazon SNS topic ARN.
-        /// </summary>
-        public readonly string TopicArn;
-
-        [OutputConstructor]
-        private BucketNotificationTopics(
-            ImmutableArray<string> events,
-            string? filterPrefix,
-            string? filterSuffix,
-            string id,
-            string topicArn)
-        {
-            Events = events;
-            FilterPrefix = filterPrefix;
-            FilterSuffix = filterSuffix;
-            Id = id;
-            TopicArn = topicArn;
-        }
-    }
     }
 }

@@ -7,10 +7,34 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages an AWS Config Aggregate Authorization
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cfg"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cfg.NewAggregateAuthorization(ctx, "example", &cfg.AggregateAuthorizationArgs{
+// 			AccountId: pulumi.String("123456789012"),
+// 			Region:    pulumi.String("eu-west-2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type AggregateAuthorization struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +44,8 @@ type AggregateAuthorization struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Region
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAggregateAuthorization registers a new resource with the given unique name, arguments, and options.
@@ -64,8 +88,8 @@ type aggregateAuthorizationState struct {
 	Arn *string `pulumi:"arn"`
 	// Region
 	Region *string `pulumi:"region"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AggregateAuthorizationState struct {
@@ -75,8 +99,8 @@ type AggregateAuthorizationState struct {
 	Arn pulumi.StringPtrInput
 	// Region
 	Region pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (AggregateAuthorizationState) ElementType() reflect.Type {
@@ -88,8 +112,8 @@ type aggregateAuthorizationArgs struct {
 	AccountId string `pulumi:"accountId"`
 	// Region
 	Region string `pulumi:"region"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AggregateAuthorization resource.
@@ -98,8 +122,8 @@ type AggregateAuthorizationArgs struct {
 	AccountId pulumi.StringInput
 	// Region
 	Region pulumi.StringInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (AggregateAuthorizationArgs) ElementType() reflect.Type {

@@ -4,13 +4,87 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a CodePipeline Webhook.
- * 
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline_webhook.markdown.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as github from "@pulumi/github";
+ *
+ * const barPipeline = new aws.codepipeline.Pipeline("barPipeline", {
+ *     roleArn: aws_iam_role.bar.arn,
+ *     artifactStore: {
+ *         location: aws_s3_bucket.bar.bucket,
+ *         type: "S3",
+ *         encryptionKey: {
+ *             id: data.aws_kms_alias.s3kmskey.arn,
+ *             type: "KMS",
+ *         },
+ *     },
+ *     stages: [
+ *         {
+ *             name: "Source",
+ *             actions: [{
+ *                 name: "Source",
+ *                 category: "Source",
+ *                 owner: "ThirdParty",
+ *                 provider: "GitHub",
+ *                 version: "1",
+ *                 outputArtifacts: ["test"],
+ *                 configuration: {
+ *                     Owner: "my-organization",
+ *                     Repo: "test",
+ *                     Branch: "master",
+ *                 },
+ *             }],
+ *         },
+ *         {
+ *             name: "Build",
+ *             actions: [{
+ *                 name: "Build",
+ *                 category: "Build",
+ *                 owner: "AWS",
+ *                 provider: "CodeBuild",
+ *                 inputArtifacts: ["test"],
+ *                 version: "1",
+ *                 configuration: {
+ *                     ProjectName: "test",
+ *                 },
+ *             }],
+ *         },
+ *     ],
+ * });
+ * const webhookSecret = "super-secret";
+ * const barWebhook = new aws.codepipeline.Webhook("barWebhook", {
+ *     authentication: "GITHUB_HMAC",
+ *     targetAction: "Source",
+ *     targetPipeline: barPipeline.name,
+ *     authenticationConfiguration: {
+ *         secretToken: webhookSecret,
+ *     },
+ *     filters: [{
+ *         jsonPath: `$.ref`,
+ *         matchEquals: "refs/heads/{Branch}",
+ *     }],
+ * });
+ * // Wire the CodePipeline webhook into a GitHub repository.
+ * const barRepositoryWebhook = new github.RepositoryWebhook("barRepositoryWebhook", {
+ *     repository: github_repository.repo.name,
+ *     configuration: {
+ *         url: barWebhook.url,
+ *         contentType: "json",
+ *         insecureSsl: true,
+ *         secret: webhookSecret,
+ *     },
+ *     events: ["push"],
+ * });
+ * ```
  */
 export class Webhook extends pulumi.CustomResource {
     /**
@@ -20,6 +94,7 @@ export class Webhook extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WebhookState, opts?: pulumi.CustomResourceOptions): Webhook {
         return new Webhook(name, <any>state, { ...opts, id: id });
@@ -56,9 +131,9 @@ export class Webhook extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */
@@ -147,9 +222,9 @@ export interface WebhookState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */
@@ -185,9 +260,9 @@ export interface WebhookArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */

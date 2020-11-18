@@ -4,36 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides information about a "classic" Elastic Load Balancer (ELB).
- * See [LB Data Source](https://www.terraform.io/docs/providers/aws/d/lb.html) if you are looking for "v2"
+ * See `LB` Data Source if you are looking for "v2"
  * Application Load Balancer (ALB) or Network Load Balancer (NLB).
- * 
+ *
  * This data source can prove useful when a module accepts an LB as an input
  * variable and needs to, for example, determine the security groups associated
  * with it, etc.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const lbName = config.get("lbName") || "";
- * 
  * const test = aws.elb.getLoadBalancer({
  *     name: lbName,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb.html.markdown.
  */
-export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> & GetLoadBalancerResult {
+export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
     if (!opts) {
         opts = {}
     }
@@ -41,12 +37,10 @@ export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetLoadBalancerResult> = pulumi.runtime.invoke("aws:elb/getLoadBalancer:getLoadBalancer", {
+    return pulumi.runtime.invoke("aws:elb/getLoadBalancer:getLoadBalancer", {
         "name": args.name,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -57,7 +51,7 @@ export interface GetLoadBalancerArgs {
      * The unique name of the load balancer.
      */
     readonly name: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -72,6 +66,10 @@ export interface GetLoadBalancerResult {
     readonly crossZoneLoadBalancing: boolean;
     readonly dnsName: string;
     readonly healthCheck: outputs.elb.GetLoadBalancerHealthCheck;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly idleTimeout: number;
     readonly instances: string[];
     readonly internal: boolean;
@@ -81,10 +79,6 @@ export interface GetLoadBalancerResult {
     readonly sourceSecurityGroup: string;
     readonly sourceSecurityGroupId: string;
     readonly subnets: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly zoneId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

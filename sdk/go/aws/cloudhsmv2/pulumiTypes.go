@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type ClusterClusterCertificate struct {
@@ -18,6 +18,10 @@ type ClusterClusterCertificate struct {
 	ManufacturerHardwareCertificate *string `pulumi:"manufacturerHardwareCertificate"`
 }
 
+// ClusterClusterCertificateInput is an input type that accepts ClusterClusterCertificateArgs and ClusterClusterCertificateOutput values.
+// You can construct a concrete instance of `ClusterClusterCertificateInput` via:
+//
+//          ClusterClusterCertificateArgs{...}
 type ClusterClusterCertificateInput interface {
 	pulumi.Input
 
@@ -45,6 +49,10 @@ func (i ClusterClusterCertificateArgs) ToClusterClusterCertificateOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterCertificateOutput)
 }
 
+// ClusterClusterCertificateArrayInput is an input type that accepts ClusterClusterCertificateArray and ClusterClusterCertificateArrayOutput values.
+// You can construct a concrete instance of `ClusterClusterCertificateArrayInput` via:
+//
+//          ClusterClusterCertificateArray{ ClusterClusterCertificateArgs{...} }
 type ClusterClusterCertificateArrayInput interface {
 	pulumi.Input
 
@@ -128,6 +136,10 @@ type GetClusterClusterCertificates struct {
 	ManufacturerHardwareCertificate string `pulumi:"manufacturerHardwareCertificate"`
 }
 
+// GetClusterClusterCertificatesInput is an input type that accepts GetClusterClusterCertificatesArgs and GetClusterClusterCertificatesOutput values.
+// You can construct a concrete instance of `GetClusterClusterCertificatesInput` via:
+//
+//          GetClusterClusterCertificatesArgs{...}
 type GetClusterClusterCertificatesInput interface {
 	pulumi.Input
 

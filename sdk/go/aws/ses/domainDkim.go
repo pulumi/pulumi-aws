@@ -7,12 +7,12 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an SES domain DKIM generation resource.
 //
-// Domain ownership needs to be confirmed first using [sesDomainIdentity Resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html)
+// Domain ownership needs to be confirmed first using `ses.DomainIdentity` resource.
 type DomainDkim struct {
 	pulumi.CustomResourceState
 

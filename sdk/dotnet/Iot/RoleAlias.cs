@@ -12,9 +12,39 @@ namespace Pulumi.Aws.Iot
     /// <summary>
     /// Provides an IoT role alias.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_role_alias.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {""Service"": ""credentials.iot.amazonaws.com"",
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var @alias = new Aws.Iot.RoleAlias("alias", new Aws.Iot.RoleAliasArgs
+    ///         {
+    ///             Alias = "Thermostat-dynamodb-access-role-alias",
+    ///             RoleArn = role.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RoleAlias : Pulumi.CustomResource
     {
@@ -51,7 +81,7 @@ namespace Pulumi.Aws.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RoleAlias(string name, RoleAliasArgs args, CustomResourceOptions? options = null)
-            : base("aws:iot/roleAlias:RoleAlias", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iot/roleAlias:RoleAlias", name, args ?? new RoleAliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 

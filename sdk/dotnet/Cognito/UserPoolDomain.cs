@@ -12,9 +12,71 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides a Cognito User Pool Domain resource.
     /// 
+    /// ## Example Usage
+    /// ### Amazon Cognito domain
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_domain.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Cognito.UserPool("example", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///         });
+    ///         var main = new Aws.Cognito.UserPoolDomain("main", new Aws.Cognito.UserPoolDomainArgs
+    ///         {
+    ///             Domain = "example-domain",
+    ///             UserPoolId = example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Custom Cognito domain
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///         });
+    ///         var main = new Aws.Cognito.UserPoolDomain("main", new Aws.Cognito.UserPoolDomainArgs
+    ///         {
+    ///             Domain = "example-domain.example.com",
+    ///             CertificateArn = aws_acm_certificate.Cert.Arn,
+    ///             UserPoolId = exampleUserPool.Id,
+    ///         });
+    ///         var exampleZone = Output.Create(Aws.Route53.GetZone.InvokeAsync(new Aws.Route53.GetZoneArgs
+    ///         {
+    ///             Name = "example.com",
+    ///         }));
+    ///         var auth_cognito_A = new Aws.Route53.Record("auth-cognito-A", new Aws.Route53.RecordArgs
+    ///         {
+    ///             Name = main.Domain,
+    ///             Type = "A",
+    ///             ZoneId = exampleZone.Apply(exampleZone =&gt; exampleZone.ZoneId),
+    ///             Aliases = 
+    ///             {
+    ///                 new Aws.Route53.Inputs.RecordAliasArgs
+    ///                 {
+    ///                     EvaluateTargetHealth = false,
+    ///                     Name = main.CloudfrontDistributionArn,
+    ///                     ZoneId = "Z2FDTNDATAQYW2",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class UserPoolDomain : Pulumi.CustomResource
     {
@@ -31,7 +93,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string?> CertificateArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the CloudFront distribution.
+        /// The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
         /// </summary>
         [Output("cloudfrontDistributionArn")]
         public Output<string> CloudfrontDistributionArn { get; private set; } = null!;
@@ -69,7 +131,7 @@ namespace Pulumi.Aws.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserPoolDomain(string name, UserPoolDomainArgs args, CustomResourceOptions? options = null)
-            : base("aws:cognito/userPoolDomain:UserPoolDomain", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cognito/userPoolDomain:UserPoolDomain", name, args ?? new UserPoolDomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -144,7 +206,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? CertificateArn { get; set; }
 
         /// <summary>
-        /// The ARN of the CloudFront distribution.
+        /// The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
         /// </summary>
         [Input("cloudfrontDistributionArn")]
         public Input<string>? CloudfrontDistributionArn { get; set; }

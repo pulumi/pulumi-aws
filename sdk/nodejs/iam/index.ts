@@ -36,3 +36,6 @@ export * from "./userGroupMembership";
 export * from "./userLoginProfile";
 export * from "./userPolicy";
 export * from "./userPolicyAttachment";
+
+// Export enums:
+export * from "../types/enums/iam";

@@ -7,10 +7,49 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Route 53 Resolver endpoint resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := route53.NewResolverEndpoint(ctx, "foo", &route53.ResolverEndpointArgs{
+// 			Direction: pulumi.String("INBOUND"),
+// 			SecurityGroupIds: pulumi.StringArray{
+// 				pulumi.Any(aws_security_group.Sg1.Id),
+// 				pulumi.Any(aws_security_group.Sg2.Id),
+// 			},
+// 			IpAddresses: route53.ResolverEndpointIpAddressArray{
+// 				&route53.ResolverEndpointIpAddressArgs{
+// 					SubnetId: pulumi.Any(aws_subnet.Sn1.Id),
+// 				},
+// 				&route53.ResolverEndpointIpAddressArgs{
+// 					SubnetId: pulumi.Any(aws_subnet.Sn2.Id),
+// 					Ip:       pulumi.String("10.0.64.4"),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("Prod"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ResolverEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -29,8 +68,8 @@ type ResolverEndpoint struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewResolverEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -85,8 +124,8 @@ type resolverEndpointState struct {
 	Name *string `pulumi:"name"`
 	// The ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ResolverEndpointState struct {
@@ -105,8 +144,8 @@ type ResolverEndpointState struct {
 	Name pulumi.StringPtrInput
 	// The ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ResolverEndpointState) ElementType() reflect.Type {
@@ -125,8 +164,8 @@ type resolverEndpointArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResolverEndpoint resource.
@@ -142,8 +181,8 @@ type ResolverEndpointArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ResolverEndpointArgs) ElementType() reflect.Type {

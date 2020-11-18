@@ -4,38 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an ECS cluster.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ecs.Cluster("foo", {});
  * ```
- * 
- * ## setting
- * 
- * The `setting` configuration block supports the following:
- * 
- * * `name` - (Required) Name of the setting to manage. Valid values: `containerInsights`.
- * * `value` -  (Required) The value to assign to the setting. Value values are `enabled` and `disabled`.
- * 
- * ## defaultCapacityProviderStrategy
- * 
- * The `defaultCapacityProviderStrategy` configuration block supports the following:
- * 
- * * `capacityProvider` - (Required) The short name of the capacity provider.
- * * `weight` - (Optional) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
- * * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -45,6 +27,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterState, opts?: pulumi.CustomResourceOptions): Cluster {
         return new Cluster(name, <any>state, { ...opts, id: id });
@@ -85,9 +68,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly settings!: pulumi.Output<outputs.ecs.ClusterSetting[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -152,9 +135,9 @@ export interface ClusterState {
      */
     readonly settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -178,7 +161,7 @@ export interface ClusterArgs {
      */
     readonly settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

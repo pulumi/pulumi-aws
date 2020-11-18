@@ -4,7 +4,7 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulumi.InvokeOption) (*GetNetworkAclsResult, error) {
@@ -20,9 +20,9 @@ func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulum
 type GetNetworkAclsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired network ACLs.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID that you want to filter from.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -30,10 +30,10 @@ type GetNetworkAclsArgs struct {
 // A collection of values returned by getNetworkAcls.
 type GetNetworkAclsResult struct {
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of all the network ACL ids found. This data source will fail if none are found.
-	Ids   []string               `pulumi:"ids"`
-	Tags  map[string]interface{} `pulumi:"tags"`
-	VpcId *string                `pulumi:"vpcId"`
+	Ids   []string          `pulumi:"ids"`
+	Tags  map[string]string `pulumi:"tags"`
+	VpcId *string           `pulumi:"vpcId"`
 }

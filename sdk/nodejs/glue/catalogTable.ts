@@ -4,32 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
- * 
+ *
  * ## Example Usage
- * 
  * ### Basic Table
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws.glue.CatalogTable", {
+ *
+ * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
  *     databaseName: "MyCatalogDatabase",
  *     name: "MyCatalogTable",
  * });
  * ```
- * 
  * ### Parquet Table for Athena
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws.glue.CatalogTable", {
+ *
+ * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
  *     databaseName: "MyCatalogDatabase",
  *     name: "MyCatalogTable",
  *     parameters: {
@@ -39,26 +38,26 @@ import * as utilities from "../utilities";
  *     storageDescriptor: {
  *         columns: [
  *             {
- *                 name: "myString",
+ *                 name: "my_string",
  *                 type: "string",
  *             },
  *             {
- *                 name: "myDouble",
+ *                 name: "my_double",
  *                 type: "double",
  *             },
  *             {
  *                 comment: "",
- *                 name: "myDate",
+ *                 name: "my_date",
  *                 type: "date",
  *             },
  *             {
  *                 comment: "",
- *                 name: "myBigint",
+ *                 name: "my_bigint",
  *                 type: "bigint",
  *             },
  *             {
  *                 comment: "",
- *                 name: "myStruct",
+ *                 name: "my_struct",
  *                 type: "struct<my_nested_string:string>",
  *             },
  *         ],
@@ -76,8 +75,6 @@ import * as utilities from "../utilities";
  *     tableType: "EXTERNAL_TABLE",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_table.html.markdown.
  */
 export class CatalogTable extends pulumi.CustomResource {
     /**
@@ -87,6 +84,7 @@ export class CatalogTable extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CatalogTableState, opts?: pulumi.CustomResourceOptions): CatalogTable {
         return new CatalogTable(name, <any>state, { ...opts, id: id });
@@ -106,6 +104,10 @@ export class CatalogTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === CatalogTable.__pulumiType;
     }
 
+    /**
+     * The ARN of the Glue Table.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
@@ -143,7 +145,7 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     public readonly storageDescriptor!: pulumi.Output<outputs.glue.CatalogTableStorageDescriptor | undefined>;
     /**
-     * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+     * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
     public readonly tableType!: pulumi.Output<string | undefined>;
     /**
@@ -167,6 +169,7 @@ export class CatalogTable extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as CatalogTableState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -196,6 +199,7 @@ export class CatalogTable extends pulumi.CustomResource {
             inputs["tableType"] = args ? args.tableType : undefined;
             inputs["viewExpandedText"] = args ? args.viewExpandedText : undefined;
             inputs["viewOriginalText"] = args ? args.viewOriginalText : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -212,6 +216,10 @@ export class CatalogTable extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CatalogTable resources.
  */
 export interface CatalogTableState {
+    /**
+     * The ARN of the Glue Table.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
@@ -249,7 +257,7 @@ export interface CatalogTableState {
      */
     readonly storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor>;
     /**
-     * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+     * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
     readonly tableType?: pulumi.Input<string>;
     /**
@@ -303,7 +311,7 @@ export interface CatalogTableArgs {
      */
     readonly storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor>;
     /**
-     * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+     * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
     readonly tableType?: pulumi.Input<string>;
     /**

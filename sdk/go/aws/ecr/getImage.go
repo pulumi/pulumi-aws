@@ -4,10 +4,35 @@
 package ecr
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ecr"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "latest"
+// 		_, err := ecr.GetImage(ctx, &ecr.GetImageArgs{
+// 			ImageTag:       &opt0,
+// 			RepositoryName: "my/service",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOption) (*GetImageResult, error) {
 	var rv GetImageResult
 	err := ctx.Invoke("aws:ecr/getImage:getImage", args, &rv, opts...)
@@ -31,7 +56,7 @@ type GetImageArgs struct {
 
 // A collection of values returned by getImage.
 type GetImageResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id          string `pulumi:"id"`
 	ImageDigest string `pulumi:"imageDigest"`
 	// The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.

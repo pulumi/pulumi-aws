@@ -19,12 +19,120 @@ namespace Pulumi.Aws.Ec2
     /// Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
     /// Doing so will cause a conflict of associations and will overwrite the association.
     /// 
+    /// ## Example Usage
+    /// ### Basic
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var s3 = new Aws.Ec2.VpcEndpoint("s3", new Aws.Ec2.VpcEndpointArgs
+    ///         {
+    ///             VpcId = aws_vpc.Main.Id,
+    ///             ServiceName = "com.amazonaws.us-west-2.s3",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Basic w/ Tags
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var s3 = new Aws.Ec2.VpcEndpoint("s3", new Aws.Ec2.VpcEndpointArgs
+    ///         {
+    ///             VpcId = aws_vpc.Main.Id,
+    ///             ServiceName = "com.amazonaws.us-west-2.s3",
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "test" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Interface Endpoint Type
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ec2 = new Aws.Ec2.VpcEndpoint("ec2", new Aws.Ec2.VpcEndpointArgs
+    ///         {
+    ///             VpcId = aws_vpc.Main.Id,
+    ///             ServiceName = "com.amazonaws.us-west-2.ec2",
+    ///             VpcEndpointType = "Interface",
+    ///             SecurityGroupIds = 
+    ///             {
+    ///                 aws_security_group.Sg1.Id,
+    ///             },
+    ///             PrivateDnsEnabled = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Gateway Load Balancer Endpoint Type
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+    ///         var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService("exampleVpcEndpointService", new Aws.Ec2.VpcEndpointServiceArgs
+    ///         {
+    ///             AcceptanceRequired = false,
+    ///             AllowedPrincipals = 
+    ///             {
+    ///                 current.Apply(current =&gt; current.Arn),
+    ///             },
+    ///             GatewayLoadBalancerArns = 
+    ///             {
+    ///                 aws_lb.Example.Arn,
+    ///             },
+    ///         });
+    ///         var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new Aws.Ec2.VpcEndpointArgs
+    ///         {
+    ///             ServiceName = exampleVpcEndpointService.ServiceName,
+    ///             SubnetIds = 
+    ///             {
+    ///                 aws_subnet.Example.Id,
+    ///             },
+    ///             VpcEndpointType = exampleVpcEndpointService.ServiceType,
+    ///             VpcId = aws_vpc.Example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VpcEndpoint : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         /// </summary>
@@ -41,7 +149,7 @@ namespace Pulumi.Aws.Ec2
         /// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         /// </summary>
         [Output("dnsEntries")]
-        public Output<ImmutableArray<Outputs.VpcEndpointDnsEntries>> DnsEntries { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VpcEndpointDnsEntry>> DnsEntries { get; private set; } = null!;
 
         /// <summary>
         /// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
@@ -105,19 +213,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+        /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
         /// </summary>
         [Output("vpcEndpointType")]
         public Output<string?> VpcEndpointType { get; private set; } = null!;
@@ -137,7 +245,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcEndpoint(string name, VpcEndpointArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpcEndpoint:VpcEndpoint", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpcEndpoint:VpcEndpoint", name, args ?? new VpcEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -227,7 +335,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -236,19 +344,19 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+        /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
         /// </summary>
         [Input("vpcEndpointType")]
         public Input<string>? VpcEndpointType { get; set; }
@@ -266,6 +374,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         /// </summary>
@@ -285,14 +399,14 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("dnsEntries")]
-        private InputList<Inputs.VpcEndpointDnsEntriesGetArgs>? _dnsEntries;
+        private InputList<Inputs.VpcEndpointDnsEntryGetArgs>? _dnsEntries;
 
         /// <summary>
         /// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         /// </summary>
-        public InputList<Inputs.VpcEndpointDnsEntriesGetArgs> DnsEntries
+        public InputList<Inputs.VpcEndpointDnsEntryGetArgs> DnsEntries
         {
-            get => _dnsEntries ?? (_dnsEntries = new InputList<Inputs.VpcEndpointDnsEntriesGetArgs>());
+            get => _dnsEntries ?? (_dnsEntries = new InputList<Inputs.VpcEndpointDnsEntryGetArgs>());
             set => _dnsEntries = value;
         }
 
@@ -379,7 +493,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -388,19 +502,19 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+        /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
         /// </summary>
         [Input("vpcEndpointType")]
         public Input<string>? VpcEndpointType { get; set; }
@@ -414,54 +528,5 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VpcEndpointDnsEntriesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The DNS name.
-        /// </summary>
-        [Input("dnsName")]
-        public Input<string>? DnsName { get; set; }
-
-        /// <summary>
-        /// The ID of the private hosted zone.
-        /// </summary>
-        [Input("hostedZoneId")]
-        public Input<string>? HostedZoneId { get; set; }
-
-        public VpcEndpointDnsEntriesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VpcEndpointDnsEntries
-    {
-        /// <summary>
-        /// The DNS name.
-        /// </summary>
-        public readonly string DnsName;
-        /// <summary>
-        /// The ID of the private hosted zone.
-        /// </summary>
-        public readonly string HostedZoneId;
-
-        [OutputConstructor]
-        private VpcEndpointDnsEntries(
-            string dnsName,
-            string hostedZoneId)
-        {
-            DnsName = dnsName;
-            HostedZoneId = hostedZoneId;
-        }
-    }
     }
 }

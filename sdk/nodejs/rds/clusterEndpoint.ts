@@ -2,57 +2,57 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a RDS Aurora Cluster Endpoint.
- * You can refer to the [User Guide][1].
- * 
- * 
+ * Manages an RDS Aurora Cluster Endpoint.
+ * You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const defaultCluster = new aws.rds.Cluster("default", {
+ *
+ * const _default = new aws.rds.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
- *     masterPassword: "bar",
  *     masterUsername: "foo",
+ *     masterPassword: "bar",
+ *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * const test1 = new aws.rds.ClusterInstance("test1", {
  *     applyImmediately: true,
- *     clusterIdentifier: defaultCluster.id,
+ *     clusterIdentifier: _default.id,
  *     identifier: "test1",
  *     instanceClass: "db.t2.small",
+ *     engine: _default.engine,
+ *     engineVersion: _default.engineVersion,
  * });
  * const test2 = new aws.rds.ClusterInstance("test2", {
  *     applyImmediately: true,
- *     clusterIdentifier: defaultCluster.id,
+ *     clusterIdentifier: _default.id,
  *     identifier: "test2",
  *     instanceClass: "db.t2.small",
+ *     engine: _default.engine,
+ *     engineVersion: _default.engineVersion,
  * });
  * const test3 = new aws.rds.ClusterInstance("test3", {
  *     applyImmediately: true,
- *     clusterIdentifier: defaultCluster.id,
+ *     clusterIdentifier: _default.id,
  *     identifier: "test3",
  *     instanceClass: "db.t2.small",
+ *     engine: _default.engine,
+ *     engineVersion: _default.engineVersion,
  * });
  * const eligible = new aws.rds.ClusterEndpoint("eligible", {
+ *     clusterIdentifier: _default.id,
  *     clusterEndpointIdentifier: "reader",
- *     clusterIdentifier: defaultCluster.id,
  *     customEndpointType: "READER",
  *     excludedMembers: [
  *         test1.id,
@@ -60,8 +60,8 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const static = new aws.rds.ClusterEndpoint("static", {
+ *     clusterIdentifier: _default.id,
  *     clusterEndpointIdentifier: "static",
- *     clusterIdentifier: defaultCluster.id,
  *     customEndpointType: "READER",
  *     staticMembers: [
  *         test1.id,
@@ -69,8 +69,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_endpoint.html.markdown.
  */
 export class ClusterEndpoint extends pulumi.CustomResource {
     /**
@@ -80,6 +78,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterEndpointState, opts?: pulumi.CustomResourceOptions): ClusterEndpoint {
         return new ClusterEndpoint(name, <any>state, { ...opts, id: id });
@@ -128,9 +127,9 @@ export class ClusterEndpoint extends pulumi.CustomResource {
      */
     public readonly staticMembers!: pulumi.Output<string[] | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ClusterEndpoint resource with the given unique name, arguments, and options.
@@ -216,9 +215,9 @@ export interface ClusterEndpointState {
      */
     readonly staticMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -246,7 +245,7 @@ export interface ClusterEndpointArgs {
      */
     readonly staticMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

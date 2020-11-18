@@ -7,10 +7,53 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v", "  {\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\"Service\": \"ssm.amazonaws.com\"},\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  }\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testAttach, err := iam.NewRolePolicyAttachment(ctx, "testAttach", &iam.RolePolicyAttachmentArgs{
+// 			Role:      testRole.Name,
+// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ssm.NewActivation(ctx, "foo", &ssm.ActivationArgs{
+// 			Description:       pulumi.String("Test"),
+// 			IamRole:           testRole.ID(),
+// 			RegistrationLimit: pulumi.Int(5),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			testAttach,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Activation struct {
 	pulumi.CustomResourceState
 
@@ -21,7 +64,7 @@ type Activation struct {
 	// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
 	// If the current activation has expired.
-	Expired pulumi.StringOutput `pulumi:"expired"`
+	Expired pulumi.BoolOutput `pulumi:"expired"`
 	// The IAM Role to attach to the managed instance.
 	IamRole pulumi.StringOutput `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
@@ -30,8 +73,8 @@ type Activation struct {
 	RegistrationCount pulumi.IntOutput `pulumi:"registrationCount"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrOutput `pulumi:"registrationLimit"`
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewActivation registers a new resource with the given unique name, arguments, and options.
@@ -72,7 +115,7 @@ type activationState struct {
 	// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// If the current activation has expired.
-	Expired *string `pulumi:"expired"`
+	Expired *bool `pulumi:"expired"`
 	// The IAM Role to attach to the managed instance.
 	IamRole *string `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
@@ -81,8 +124,8 @@ type activationState struct {
 	RegistrationCount *int `pulumi:"registrationCount"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit *int `pulumi:"registrationLimit"`
-	// A mapping of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ActivationState struct {
@@ -93,7 +136,7 @@ type ActivationState struct {
 	// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
 	ExpirationDate pulumi.StringPtrInput
 	// If the current activation has expired.
-	Expired pulumi.StringPtrInput
+	Expired pulumi.BoolPtrInput
 	// The IAM Role to attach to the managed instance.
 	IamRole pulumi.StringPtrInput
 	// The default name of the registered managed instance.
@@ -102,8 +145,8 @@ type ActivationState struct {
 	RegistrationCount pulumi.IntPtrInput
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrInput
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapInput
 }
 
 func (ActivationState) ElementType() reflect.Type {
@@ -121,8 +164,8 @@ type activationArgs struct {
 	Name *string `pulumi:"name"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit *int `pulumi:"registrationLimit"`
-	// A mapping of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Activation resource.
@@ -137,8 +180,8 @@ type ActivationArgs struct {
 	Name pulumi.StringPtrInput
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrInput
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapInput
 }
 
 func (ActivationArgs) ElementType() reflect.Type {

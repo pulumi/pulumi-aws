@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Registers a custom domain name for use with AWS API Gateway. Additional information about this functionality
@@ -29,7 +29,7 @@ import (
 // given domain name which is an alias (either Route53 alias or traditional CNAME) to the regional domain name exported in
 // the `regionalDomainName` attribute.
 //
-// > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the [`acm.Certificate` resource](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html).
+// > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the `acm.Certificate` resource.
 //
 // > **Note:** The `apigateway.DomainName` resource expects dependency on the `acm.CertificateValidation` as
 // only verified certificates can be used. This can be made either explicitly by adding the
@@ -38,7 +38,91 @@ import (
 // `regionalCertificateArn = aws_acm_certificate_validation.cert.certificate_arn`.
 //
 // > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
+// ## Example Usage
+// ### Edge Optimized (ACM Certificate)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
+// 			CertificateArn: pulumi.Any(aws_acm_certificate_validation.Example.Certificate_arn),
+// 			DomainName:     pulumi.String("api.example.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
+// 			Name:   exampleDomainName.DomainName,
+// 			Type:   pulumi.String("A"),
+// 			ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
+// 			Aliases: route53.RecordAliasArray{
+// 				&route53.RecordAliasArgs{
+// 					EvaluateTargetHealth: pulumi.Bool(true),
+// 					Name:                 exampleDomainName.CloudfrontDomainName,
+// 					ZoneId:               exampleDomainName.CloudfrontZoneId,
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Regional (ACM Certificate)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
+// 			DomainName:             pulumi.String("api.example.com"),
+// 			RegionalCertificateArn: pulumi.Any(aws_acm_certificate_validation.Example.Certificate_arn),
+// 			EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
+// 				Types: pulumi.String(pulumi.String{
+// 					pulumi.String("REGIONAL"),
+// 				}),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
+// 			Name:   exampleDomainName.DomainName,
+// 			Type:   pulumi.String("A"),
+// 			ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
+// 			Aliases: route53.RecordAliasArray{
+// 				&route53.RecordAliasArgs{
+// 					EvaluateTargetHealth: pulumi.Bool(true),
+// 					Name:                 exampleDomainName.RegionalDomainName,
+// 					ZoneId:               exampleDomainName.RegionalZoneId,
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DomainName struct {
 	pulumi.CustomResourceState
 
@@ -85,8 +169,8 @@ type DomainName struct {
 	RegionalZoneId pulumi.StringOutput `pulumi:"regionalZoneId"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy pulumi.StringOutput `pulumi:"securityPolicy"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
@@ -163,8 +247,8 @@ type domainNameState struct {
 	RegionalZoneId *string `pulumi:"regionalZoneId"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type DomainNameState struct {
@@ -211,8 +295,8 @@ type DomainNameState struct {
 	RegionalZoneId pulumi.StringPtrInput
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (DomainNameState) ElementType() reflect.Type {
@@ -249,8 +333,8 @@ type domainNameArgs struct {
 	RegionalCertificateName *string `pulumi:"regionalCertificateName"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainName resource.
@@ -284,8 +368,8 @@ type DomainNameArgs struct {
 	RegionalCertificateName pulumi.StringPtrInput
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (DomainNameArgs) ElementType() reflect.Type {

@@ -7,10 +7,82 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an SSM Parameter resource.
+//
+// ## Example Usage
+//
+// To store a basic string parameter:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ssm.NewParameter(ctx, "foo", &ssm.ParameterArgs{
+// 			Type:  pulumi.String("String"),
+// 			Value: pulumi.String("bar"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// To store an encrypted string using the default SSM KMS key:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/rds"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := rds.NewInstance(ctx, "_default", &rds.InstanceArgs{
+// 			AllocatedStorage:   pulumi.Int(10),
+// 			StorageType:        pulumi.String("gp2"),
+// 			Engine:             pulumi.String("mysql"),
+// 			EngineVersion:      pulumi.String("5.7.16"),
+// 			InstanceClass:      pulumi.String("db.t2.micro"),
+// 			Name:               pulumi.String("mydb"),
+// 			Username:           pulumi.String("foo"),
+// 			Password:           pulumi.Any(_var.Database_master_password),
+// 			DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
+// 			ParameterGroupName: pulumi.String("default.mysql5.7"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ssm.NewParameter(ctx, "secret", &ssm.ParameterArgs{
+// 			Description: pulumi.String("The parameter description"),
+// 			Type:        pulumi.String("SecureString"),
+// 			Value:       pulumi.Any(_var.Database_master_password),
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 type Parameter struct {
 	pulumi.CustomResourceState
 
@@ -18,6 +90,9 @@ type Parameter struct {
 	AllowedPattern pulumi.StringPtrOutput `pulumi:"allowedPattern"`
 	// The ARN of the parameter.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The dataType of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+	// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+	DataType pulumi.StringOutput `pulumi:"dataType"`
 	// The description of the parameter.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The KMS key id or arn for encrypting a SecureString.
@@ -26,8 +101,8 @@ type Parameter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite pulumi.BoolPtrOutput `pulumi:"overwrite"`
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier pulumi.StringPtrOutput `pulumi:"tier"`
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
@@ -76,6 +151,9 @@ type parameterState struct {
 	AllowedPattern *string `pulumi:"allowedPattern"`
 	// The ARN of the parameter.
 	Arn *string `pulumi:"arn"`
+	// The dataType of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+	// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+	DataType *string `pulumi:"dataType"`
 	// The description of the parameter.
 	Description *string `pulumi:"description"`
 	// The KMS key id or arn for encrypting a SecureString.
@@ -84,8 +162,8 @@ type parameterState struct {
 	Name *string `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite *bool `pulumi:"overwrite"`
-	// A mapping of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags map[string]string `pulumi:"tags"`
 	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier *string `pulumi:"tier"`
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
@@ -101,6 +179,9 @@ type ParameterState struct {
 	AllowedPattern pulumi.StringPtrInput
 	// The ARN of the parameter.
 	Arn pulumi.StringPtrInput
+	// The dataType of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+	// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+	DataType pulumi.StringPtrInput
 	// The description of the parameter.
 	Description pulumi.StringPtrInput
 	// The KMS key id or arn for encrypting a SecureString.
@@ -109,8 +190,8 @@ type ParameterState struct {
 	Name pulumi.StringPtrInput
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite pulumi.BoolPtrInput
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapInput
 	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier pulumi.StringPtrInput
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
@@ -130,6 +211,9 @@ type parameterArgs struct {
 	AllowedPattern *string `pulumi:"allowedPattern"`
 	// The ARN of the parameter.
 	Arn *string `pulumi:"arn"`
+	// The dataType of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+	// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+	DataType *string `pulumi:"dataType"`
 	// The description of the parameter.
 	Description *string `pulumi:"description"`
 	// The KMS key id or arn for encrypting a SecureString.
@@ -138,8 +222,8 @@ type parameterArgs struct {
 	Name *string `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite *bool `pulumi:"overwrite"`
-	// A mapping of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags map[string]string `pulumi:"tags"`
 	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier *string `pulumi:"tier"`
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
@@ -154,6 +238,9 @@ type ParameterArgs struct {
 	AllowedPattern pulumi.StringPtrInput
 	// The ARN of the parameter.
 	Arn pulumi.StringPtrInput
+	// The dataType of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+	// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+	DataType pulumi.StringPtrInput
 	// The description of the parameter.
 	Description pulumi.StringPtrInput
 	// The KMS key id or arn for encrypting a SecureString.
@@ -162,8 +249,8 @@ type ParameterArgs struct {
 	Name pulumi.StringPtrInput
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite pulumi.BoolPtrInput
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapInput
 	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier pulumi.StringPtrInput
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.

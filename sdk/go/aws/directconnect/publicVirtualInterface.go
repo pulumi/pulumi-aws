@@ -7,14 +7,46 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Direct Connect public virtual interface resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/directconnect"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := directconnect.NewPublicVirtualInterface(ctx, "foo", &directconnect.PublicVirtualInterfaceArgs{
+// 			AddressFamily:   pulumi.String("ipv4"),
+// 			AmazonAddress:   pulumi.String("175.45.176.2/30"),
+// 			BgpAsn:          pulumi.Int(65352),
+// 			ConnectionId:    pulumi.String("dxcon-zzzzzzzz"),
+// 			CustomerAddress: pulumi.String("175.45.176.1/30"),
+// 			RouteFilterPrefixes: pulumi.StringArray{
+// 				pulumi.String("210.52.109.0/24"),
+// 				pulumi.String("175.45.176.0/22"),
+// 			},
+// 			Vlan: pulumi.Int(4094),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type PublicVirtualInterface struct {
 	pulumi.CustomResourceState
 
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress pulumi.StringOutput `pulumi:"amazonAddress"`
@@ -35,8 +67,8 @@ type PublicVirtualInterface struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayOutput `pulumi:"routeFilterPrefixes"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The VLAN ID.
 	Vlan pulumi.IntOutput `pulumi:"vlan"`
 }
@@ -84,7 +116,7 @@ func GetPublicVirtualInterface(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PublicVirtualInterface resources.
 type publicVirtualInterfaceState struct {
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily *string `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress *string `pulumi:"amazonAddress"`
@@ -105,14 +137,14 @@ type publicVirtualInterfaceState struct {
 	Name *string `pulumi:"name"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The VLAN ID.
 	Vlan *int `pulumi:"vlan"`
 }
 
 type PublicVirtualInterfaceState struct {
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily pulumi.StringPtrInput
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress pulumi.StringPtrInput
@@ -133,8 +165,8 @@ type PublicVirtualInterfaceState struct {
 	Name pulumi.StringPtrInput
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The VLAN ID.
 	Vlan pulumi.IntPtrInput
 }
@@ -144,7 +176,7 @@ func (PublicVirtualInterfaceState) ElementType() reflect.Type {
 }
 
 type publicVirtualInterfaceArgs struct {
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily string `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress *string `pulumi:"amazonAddress"`
@@ -160,15 +192,15 @@ type publicVirtualInterfaceArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The VLAN ID.
 	Vlan int `pulumi:"vlan"`
 }
 
 // The set of arguments for constructing a PublicVirtualInterface resource.
 type PublicVirtualInterfaceArgs struct {
-	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily pulumi.StringInput
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress pulumi.StringPtrInput
@@ -184,8 +216,8 @@ type PublicVirtualInterfaceArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The VLAN ID.
 	Vlan pulumi.IntInput
 }

@@ -13,11 +13,41 @@ namespace Pulumi.Aws.Dms
     /// Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
     /// 
     /// &gt; **Note:** All arguments including the password will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_endpoint.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new endpoint
+    ///         var test = new Aws.Dms.Endpoint("test", new Aws.Dms.EndpointArgs
+    ///         {
+    ///             CertificateArn = "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
+    ///             DatabaseName = "test",
+    ///             EndpointId = "test-dms-endpoint-tf",
+    ///             EndpointType = "source",
+    ///             EngineName = "aurora",
+    ///             ExtraConnectionAttributes = "",
+    ///             KmsKeyArn = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
+    ///             Password = "test",
+    ///             Port = 3306,
+    ///             ServerName = "test",
+    ///             SslMode = "none",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "test" },
+    ///             },
+    ///             Username = "test",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Endpoint : Pulumi.CustomResource
     {
@@ -32,6 +62,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Output("databaseName")]
         public Output<string?> DatabaseName { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block with Elasticsearch settings. Detailed below.
+        /// </summary>
+        [Output("elasticsearchSettings")]
+        public Output<Outputs.EndpointElasticsearchSettings?> ElasticsearchSettings { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the endpoint.
@@ -52,7 +88,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> EndpointType { get; private set; } = null!;
 
         /// <summary>
-        /// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        /// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         /// </summary>
         [Output("engineName")]
         public Output<string> EngineName { get; private set; } = null!;
@@ -64,13 +100,25 @@ namespace Pulumi.Aws.Dms
         public Output<string> ExtraConnectionAttributes { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block with Kafka settings. Detailed below.
+        /// </summary>
+        [Output("kafkaSettings")]
+        public Output<Outputs.EndpointKafkaSettings?> KafkaSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block with Kinesis settings. Detailed below.
+        /// </summary>
+        [Output("kinesisSettings")]
+        public Output<Outputs.EndpointKinesisSettings?> KinesisSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+        /// Configuration block with MongoDB settings. Detailed below.
         /// </summary>
         [Output("mongodbSettings")]
         public Output<Outputs.EndpointMongodbSettings?> MongodbSettings { get; private set; } = null!;
@@ -88,7 +136,7 @@ namespace Pulumi.Aws.Dms
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+        /// Configuration block with S3 settings. Detailed below.
         /// </summary>
         [Output("s3Settings")]
         public Output<Outputs.EndpointS3Settings?> S3Settings { get; private set; } = null!;
@@ -112,10 +160,10 @@ namespace Pulumi.Aws.Dms
         public Output<string> SslMode { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The user name to be used to login to the endpoint database.
@@ -132,7 +180,7 @@ namespace Pulumi.Aws.Dms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Endpoint(string name, EndpointArgs args, CustomResourceOptions? options = null)
-            : base("aws:dms/endpoint:Endpoint", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:dms/endpoint:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -182,6 +230,12 @@ namespace Pulumi.Aws.Dms
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
+        /// Configuration block with Elasticsearch settings. Detailed below.
+        /// </summary>
+        [Input("elasticsearchSettings")]
+        public Input<Inputs.EndpointElasticsearchSettingsArgs>? ElasticsearchSettings { get; set; }
+
+        /// <summary>
         /// The database endpoint identifier.
         /// </summary>
         [Input("endpointId", required: true)]
@@ -194,7 +248,7 @@ namespace Pulumi.Aws.Dms
         public Input<string> EndpointType { get; set; } = null!;
 
         /// <summary>
-        /// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        /// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         /// </summary>
         [Input("engineName", required: true)]
         public Input<string> EngineName { get; set; } = null!;
@@ -206,13 +260,25 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ExtraConnectionAttributes { get; set; }
 
         /// <summary>
+        /// Configuration block with Kafka settings. Detailed below.
+        /// </summary>
+        [Input("kafkaSettings")]
+        public Input<Inputs.EndpointKafkaSettingsArgs>? KafkaSettings { get; set; }
+
+        /// <summary>
+        /// Configuration block with Kinesis settings. Detailed below.
+        /// </summary>
+        [Input("kinesisSettings")]
+        public Input<Inputs.EndpointKinesisSettingsArgs>? KinesisSettings { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+        /// Configuration block with MongoDB settings. Detailed below.
         /// </summary>
         [Input("mongodbSettings")]
         public Input<Inputs.EndpointMongodbSettingsArgs>? MongodbSettings { get; set; }
@@ -230,7 +296,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+        /// Configuration block with S3 settings. Detailed below.
         /// </summary>
         [Input("s3Settings")]
         public Input<Inputs.EndpointS3SettingsArgs>? S3Settings { get; set; }
@@ -254,14 +320,14 @@ namespace Pulumi.Aws.Dms
         public Input<string>? SslMode { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -291,6 +357,12 @@ namespace Pulumi.Aws.Dms
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
+        /// Configuration block with Elasticsearch settings. Detailed below.
+        /// </summary>
+        [Input("elasticsearchSettings")]
+        public Input<Inputs.EndpointElasticsearchSettingsGetArgs>? ElasticsearchSettings { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the endpoint.
         /// </summary>
         [Input("endpointArn")]
@@ -309,7 +381,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        /// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         /// </summary>
         [Input("engineName")]
         public Input<string>? EngineName { get; set; }
@@ -321,13 +393,25 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ExtraConnectionAttributes { get; set; }
 
         /// <summary>
+        /// Configuration block with Kafka settings. Detailed below.
+        /// </summary>
+        [Input("kafkaSettings")]
+        public Input<Inputs.EndpointKafkaSettingsGetArgs>? KafkaSettings { get; set; }
+
+        /// <summary>
+        /// Configuration block with Kinesis settings. Detailed below.
+        /// </summary>
+        [Input("kinesisSettings")]
+        public Input<Inputs.EndpointKinesisSettingsGetArgs>? KinesisSettings { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+        /// Configuration block with MongoDB settings. Detailed below.
         /// </summary>
         [Input("mongodbSettings")]
         public Input<Inputs.EndpointMongodbSettingsGetArgs>? MongodbSettings { get; set; }
@@ -345,7 +429,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+        /// Configuration block with S3 settings. Detailed below.
         /// </summary>
         [Input("s3Settings")]
         public Input<Inputs.EndpointS3SettingsGetArgs>? S3Settings { get; set; }
@@ -369,14 +453,14 @@ namespace Pulumi.Aws.Dms
         public Input<string>? SslMode { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -389,178 +473,5 @@ namespace Pulumi.Aws.Dms
         public EndpointState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class EndpointMongodbSettingsArgs : Pulumi.ResourceArgs
-    {
-        [Input("authMechanism")]
-        public Input<string>? AuthMechanism { get; set; }
-
-        [Input("authSource")]
-        public Input<string>? AuthSource { get; set; }
-
-        [Input("authType")]
-        public Input<string>? AuthType { get; set; }
-
-        [Input("docsToInvestigate")]
-        public Input<string>? DocsToInvestigate { get; set; }
-
-        [Input("extractDocId")]
-        public Input<string>? ExtractDocId { get; set; }
-
-        [Input("nestingLevel")]
-        public Input<string>? NestingLevel { get; set; }
-
-        public EndpointMongodbSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointMongodbSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("authMechanism")]
-        public Input<string>? AuthMechanism { get; set; }
-
-        [Input("authSource")]
-        public Input<string>? AuthSource { get; set; }
-
-        [Input("authType")]
-        public Input<string>? AuthType { get; set; }
-
-        [Input("docsToInvestigate")]
-        public Input<string>? DocsToInvestigate { get; set; }
-
-        [Input("extractDocId")]
-        public Input<string>? ExtractDocId { get; set; }
-
-        [Input("nestingLevel")]
-        public Input<string>? NestingLevel { get; set; }
-
-        public EndpointMongodbSettingsGetArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointS3SettingsArgs : Pulumi.ResourceArgs
-    {
-        [Input("bucketFolder")]
-        public Input<string>? BucketFolder { get; set; }
-
-        [Input("bucketName")]
-        public Input<string>? BucketName { get; set; }
-
-        [Input("compressionType")]
-        public Input<string>? CompressionType { get; set; }
-
-        [Input("csvDelimiter")]
-        public Input<string>? CsvDelimiter { get; set; }
-
-        [Input("csvRowDelimiter")]
-        public Input<string>? CsvRowDelimiter { get; set; }
-
-        [Input("externalTableDefinition")]
-        public Input<string>? ExternalTableDefinition { get; set; }
-
-        [Input("serviceAccessRoleArn")]
-        public Input<string>? ServiceAccessRoleArn { get; set; }
-
-        public EndpointS3SettingsArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointS3SettingsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("bucketFolder")]
-        public Input<string>? BucketFolder { get; set; }
-
-        [Input("bucketName")]
-        public Input<string>? BucketName { get; set; }
-
-        [Input("compressionType")]
-        public Input<string>? CompressionType { get; set; }
-
-        [Input("csvDelimiter")]
-        public Input<string>? CsvDelimiter { get; set; }
-
-        [Input("csvRowDelimiter")]
-        public Input<string>? CsvRowDelimiter { get; set; }
-
-        [Input("externalTableDefinition")]
-        public Input<string>? ExternalTableDefinition { get; set; }
-
-        [Input("serviceAccessRoleArn")]
-        public Input<string>? ServiceAccessRoleArn { get; set; }
-
-        public EndpointS3SettingsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class EndpointMongodbSettings
-    {
-        public readonly string? AuthMechanism;
-        public readonly string? AuthSource;
-        public readonly string? AuthType;
-        public readonly string? DocsToInvestigate;
-        public readonly string? ExtractDocId;
-        public readonly string? NestingLevel;
-
-        [OutputConstructor]
-        private EndpointMongodbSettings(
-            string? authMechanism,
-            string? authSource,
-            string? authType,
-            string? docsToInvestigate,
-            string? extractDocId,
-            string? nestingLevel)
-        {
-            AuthMechanism = authMechanism;
-            AuthSource = authSource;
-            AuthType = authType;
-            DocsToInvestigate = docsToInvestigate;
-            ExtractDocId = extractDocId;
-            NestingLevel = nestingLevel;
-        }
-    }
-
-    [OutputType]
-    public sealed class EndpointS3Settings
-    {
-        public readonly string? BucketFolder;
-        public readonly string? BucketName;
-        public readonly string? CompressionType;
-        public readonly string? CsvDelimiter;
-        public readonly string? CsvRowDelimiter;
-        public readonly string? ExternalTableDefinition;
-        public readonly string? ServiceAccessRoleArn;
-
-        [OutputConstructor]
-        private EndpointS3Settings(
-            string? bucketFolder,
-            string? bucketName,
-            string? compressionType,
-            string? csvDelimiter,
-            string? csvRowDelimiter,
-            string? externalTableDefinition,
-            string? serviceAccessRoleArn)
-        {
-            BucketFolder = bucketFolder;
-            BucketName = bucketName;
-            CompressionType = compressionType;
-            CsvDelimiter = csvDelimiter;
-            CsvRowDelimiter = csvRowDelimiter;
-            ExternalTableDefinition = externalTableDefinition;
-            ServiceAccessRoleArn = serviceAccessRoleArn;
-        }
-    }
     }
 }

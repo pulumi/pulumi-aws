@@ -12,9 +12,31 @@ namespace Pulumi.Aws.Ebs
     /// <summary>
     /// Manages a single EBS volume.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_volume.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ebs.Volume("example", new Aws.Ebs.VolumeArgs
+    ///         {
+    ///             AvailabilityZone = "us-west-2a",
+    ///             Size = 40,
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "HelloWorld" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// &gt; **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume
     /// </summary>
     public partial class Volume : Pulumi.CustomResource
     {
@@ -37,7 +59,7 @@ namespace Pulumi.Aws.Ebs
         public Output<bool> Encrypted { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of IOPS to provision for the disk.
+        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
         /// </summary>
         [Output("iops")]
         public Output<int> Iops { get; private set; } = null!;
@@ -47,6 +69,18 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+        /// </summary>
+        [Output("multiAttachEnabled")]
+        public Output<bool?> MultiAttachEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        [Output("outpostArn")]
+        public Output<string?> OutpostArn { get; private set; } = null!;
 
         /// <summary>
         /// The size of the drive in GiBs.
@@ -61,13 +95,13 @@ namespace Pulumi.Aws.Ebs
         public Output<string> SnapshotId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
+        /// The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -81,7 +115,7 @@ namespace Pulumi.Aws.Ebs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Volume(string name, VolumeArgs args, CustomResourceOptions? options = null)
-            : base("aws:ebs/volume:Volume", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ebs/volume:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -131,7 +165,7 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// The amount of IOPS to provision for the disk.
+        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -141,6 +175,18 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+        /// </summary>
+        [Input("multiAttachEnabled")]
+        public Input<bool>? MultiAttachEnabled { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
         /// The size of the drive in GiBs.
@@ -155,19 +201,19 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? SnapshotId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
+        /// The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -198,7 +244,7 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// The amount of IOPS to provision for the disk.
+        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -208,6 +254,18 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+        /// </summary>
+        [Input("multiAttachEnabled")]
+        public Input<bool>? MultiAttachEnabled { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
         /// The size of the drive in GiBs.
@@ -222,19 +280,19 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? SnapshotId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
+        /// The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

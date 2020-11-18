@@ -12,9 +12,168 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Provides an SSM Maintenance Window Task resource
     /// 
+    /// ## Example Usage
+    /// ### Automation Tasks
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_task.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ssm.MaintenanceWindowTask("example", new Aws.Ssm.MaintenanceWindowTaskArgs
+    ///         {
+    ///             MaxConcurrency = "2",
+    ///             MaxErrors = "1",
+    ///             Priority = 1,
+    ///             ServiceRoleArn = aws_iam_role.Example.Arn,
+    ///             TaskArn = "AWS-RestartEC2Instance",
+    ///             TaskType = "AUTOMATION",
+    ///             WindowId = aws_ssm_maintenance_window.Example.Id,
+    ///             Targets = 
+    ///             {
+    ///                 new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
+    ///                 {
+    ///                     Key = "InstanceIds",
+    ///                     Values = 
+    ///                     {
+    ///                         aws_instance.Example.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
+    ///             {
+    ///                 AutomationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs
+    ///                 {
+    ///                     DocumentVersion = "$LATEST",
+    ///                     Parameters = 
+    ///                     {
+    ///                         new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs
+    ///                         {
+    ///                             Name = "InstanceId",
+    ///                             Values = 
+    ///                             {
+    ///                                 aws_instance.Example.Id,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Run Command Tasks
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ssm.MaintenanceWindowTask("example", new Aws.Ssm.MaintenanceWindowTaskArgs
+    ///         {
+    ///             MaxConcurrency = "2",
+    ///             MaxErrors = "1",
+    ///             Priority = 1,
+    ///             ServiceRoleArn = aws_iam_role.Example.Arn,
+    ///             TaskArn = "AWS-RunShellScript",
+    ///             TaskType = "RUN_COMMAND",
+    ///             WindowId = aws_ssm_maintenance_window.Example.Id,
+    ///             Targets = 
+    ///             {
+    ///                 new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
+    ///                 {
+    ///                     Key = "InstanceIds",
+    ///                     Values = 
+    ///                     {
+    ///                         aws_instance.Example.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
+    ///             {
+    ///                 RunCommandParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs
+    ///                 {
+    ///                     OutputS3Bucket = aws_s3_bucket.Example.Bucket,
+    ///                     OutputS3KeyPrefix = "output",
+    ///                     ServiceRoleArn = aws_iam_role.Example.Arn,
+    ///                     TimeoutSeconds = 600,
+    ///                     NotificationConfig = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs
+    ///                     {
+    ///                         NotificationArn = aws_sns_topic.Example.Arn,
+    ///                         NotificationEvents = 
+    ///                         {
+    ///                             "All",
+    ///                         },
+    ///                         NotificationType = "Command",
+    ///                     },
+    ///                     Parameters = 
+    ///                     {
+    ///                         new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs
+    ///                         {
+    ///                             Name = "commands",
+    ///                             Values = 
+    ///                             {
+    ///                                 "date",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Step Function Tasks
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ssm.MaintenanceWindowTask("example", new Aws.Ssm.MaintenanceWindowTaskArgs
+    ///         {
+    ///             MaxConcurrency = "2",
+    ///             MaxErrors = "1",
+    ///             Priority = 1,
+    ///             ServiceRoleArn = aws_iam_role.Example.Arn,
+    ///             TaskArn = aws_sfn_activity.Example.Id,
+    ///             TaskType = "STEP_FUNCTIONS",
+    ///             WindowId = aws_ssm_maintenance_window.Example.Id,
+    ///             Targets = 
+    ///             {
+    ///                 new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
+    ///                 {
+    ///                     Key = "InstanceIds",
+    ///                     Values = 
+    ///                     {
+    ///                         aws_instance.Example.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
+    ///             {
+    ///                 StepFunctionsParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs
+    ///                 {
+    ///                     Input = "{\"key1\":\"value1\"}",
+    ///                     Name = "example",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class MaintenanceWindowTask : Pulumi.CustomResource
     {
@@ -23,12 +182,6 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
-        /// </summary>
-        [Output("loggingInfo")]
-        public Output<Outputs.MaintenanceWindowTaskLoggingInfo?> LoggingInfo { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of targets this task can be run for in parallel.
@@ -64,7 +217,7 @@ namespace Pulumi.Aws.Ssm
         /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         /// </summary>
         [Output("targets")]
-        public Output<ImmutableArray<Outputs.MaintenanceWindowTaskTargets>> Targets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MaintenanceWindowTaskTarget>> Targets { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the task to execute.
@@ -73,16 +226,10 @@ namespace Pulumi.Aws.Ssm
         public Output<string> TaskArn { get; private set; } = null!;
 
         /// <summary>
-        /// The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+        /// Configuration block with parameters for task execution.
         /// </summary>
         [Output("taskInvocationParameters")]
         public Output<Outputs.MaintenanceWindowTaskTaskInvocationParameters?> TaskInvocationParameters { get; private set; } = null!;
-
-        /// <summary>
-        /// A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
-        /// </summary>
-        [Output("taskParameters")]
-        public Output<ImmutableArray<Outputs.MaintenanceWindowTaskTaskParameters>> TaskParameters { get; private set; } = null!;
 
         /// <summary>
         /// The type of task being registered. The only allowed value is `RUN_COMMAND`.
@@ -105,7 +252,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MaintenanceWindowTask(string name, MaintenanceWindowTaskArgs args, CustomResourceOptions? options = null)
-            : base("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask", name, args ?? new MaintenanceWindowTaskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -149,12 +296,6 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
-        /// </summary>
-        [Input("loggingInfo")]
-        public Input<Inputs.MaintenanceWindowTaskLoggingInfoArgs>? LoggingInfo { get; set; }
-
-        /// <summary>
         /// The maximum number of targets this task can be run for in parallel.
         /// </summary>
         [Input("maxConcurrency", required: true)]
@@ -185,14 +326,14 @@ namespace Pulumi.Aws.Ssm
         public Input<string> ServiceRoleArn { get; set; } = null!;
 
         [Input("targets", required: true)]
-        private InputList<Inputs.MaintenanceWindowTaskTargetsArgs>? _targets;
+        private InputList<Inputs.MaintenanceWindowTaskTargetArgs>? _targets;
 
         /// <summary>
         /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         /// </summary>
-        public InputList<Inputs.MaintenanceWindowTaskTargetsArgs> Targets
+        public InputList<Inputs.MaintenanceWindowTaskTargetArgs> Targets
         {
-            get => _targets ?? (_targets = new InputList<Inputs.MaintenanceWindowTaskTargetsArgs>());
+            get => _targets ?? (_targets = new InputList<Inputs.MaintenanceWindowTaskTargetArgs>());
             set => _targets = value;
         }
 
@@ -203,23 +344,10 @@ namespace Pulumi.Aws.Ssm
         public Input<string> TaskArn { get; set; } = null!;
 
         /// <summary>
-        /// The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+        /// Configuration block with parameters for task execution.
         /// </summary>
         [Input("taskInvocationParameters")]
         public Input<Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs>? TaskInvocationParameters { get; set; }
-
-        [Input("taskParameters")]
-        private InputList<Inputs.MaintenanceWindowTaskTaskParametersArgs>? _taskParameters;
-
-        /// <summary>
-        /// A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
-        /// </summary>
-        [Obsolete(@"use 'task_invocation_parameters' argument instead")]
-        public InputList<Inputs.MaintenanceWindowTaskTaskParametersArgs> TaskParameters
-        {
-            get => _taskParameters ?? (_taskParameters = new InputList<Inputs.MaintenanceWindowTaskTaskParametersArgs>());
-            set => _taskParameters = value;
-        }
 
         /// <summary>
         /// The type of task being registered. The only allowed value is `RUN_COMMAND`.
@@ -245,12 +373,6 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
-        /// </summary>
-        [Input("loggingInfo")]
-        public Input<Inputs.MaintenanceWindowTaskLoggingInfoGetArgs>? LoggingInfo { get; set; }
 
         /// <summary>
         /// The maximum number of targets this task can be run for in parallel.
@@ -283,14 +405,14 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? ServiceRoleArn { get; set; }
 
         [Input("targets")]
-        private InputList<Inputs.MaintenanceWindowTaskTargetsGetArgs>? _targets;
+        private InputList<Inputs.MaintenanceWindowTaskTargetGetArgs>? _targets;
 
         /// <summary>
         /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         /// </summary>
-        public InputList<Inputs.MaintenanceWindowTaskTargetsGetArgs> Targets
+        public InputList<Inputs.MaintenanceWindowTaskTargetGetArgs> Targets
         {
-            get => _targets ?? (_targets = new InputList<Inputs.MaintenanceWindowTaskTargetsGetArgs>());
+            get => _targets ?? (_targets = new InputList<Inputs.MaintenanceWindowTaskTargetGetArgs>());
             set => _targets = value;
         }
 
@@ -301,23 +423,10 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? TaskArn { get; set; }
 
         /// <summary>
-        /// The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+        /// Configuration block with parameters for task execution.
         /// </summary>
         [Input("taskInvocationParameters")]
         public Input<Inputs.MaintenanceWindowTaskTaskInvocationParametersGetArgs>? TaskInvocationParameters { get; set; }
-
-        [Input("taskParameters")]
-        private InputList<Inputs.MaintenanceWindowTaskTaskParametersGetArgs>? _taskParameters;
-
-        /// <summary>
-        /// A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
-        /// </summary>
-        [Obsolete(@"use 'task_invocation_parameters' argument instead")]
-        public InputList<Inputs.MaintenanceWindowTaskTaskParametersGetArgs> TaskParameters
-        {
-            get => _taskParameters ?? (_taskParameters = new InputList<Inputs.MaintenanceWindowTaskTaskParametersGetArgs>());
-            set => _taskParameters = value;
-        }
 
         /// <summary>
         /// The type of task being registered. The only allowed value is `RUN_COMMAND`.
@@ -334,915 +443,5 @@ namespace Pulumi.Aws.Ssm
         public MaintenanceWindowTaskState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class MaintenanceWindowTaskLoggingInfoArgs : Pulumi.ResourceArgs
-    {
-        [Input("s3BucketName", required: true)]
-        public Input<string> S3BucketName { get; set; } = null!;
-
-        [Input("s3BucketPrefix")]
-        public Input<string>? S3BucketPrefix { get; set; }
-
-        [Input("s3Region", required: true)]
-        public Input<string> S3Region { get; set; } = null!;
-
-        public MaintenanceWindowTaskLoggingInfoArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskLoggingInfoGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("s3BucketName", required: true)]
-        public Input<string> S3BucketName { get; set; } = null!;
-
-        [Input("s3BucketPrefix")]
-        public Input<string>? S3BucketPrefix { get; set; }
-
-        [Input("s3Region", required: true)]
-        public Input<string> S3Region { get; set; } = null!;
-
-        public MaintenanceWindowTaskLoggingInfoGetArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTargetsArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MaintenanceWindowTaskTargetsArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTargetsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MaintenanceWindowTaskTargetsGetArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The parameters for an AUTOMATION task type. Documented below.
-        /// </summary>
-        [Input("automationParameters")]
-        public Input<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs>? AutomationParameters { get; set; }
-
-        /// <summary>
-        /// The parameters for a LAMBDA task type. Documented below.
-        /// </summary>
-        [Input("lambdaParameters")]
-        public Input<MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs>? LambdaParameters { get; set; }
-
-        /// <summary>
-        /// The parameters for a RUN_COMMAND task type. Documented below.
-        /// </summary>
-        [Input("runCommandParameters")]
-        public Input<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs>? RunCommandParameters { get; set; }
-
-        /// <summary>
-        /// The parameters for a STEP_FUNCTIONS task type. Documented below.
-        /// </summary>
-        [Input("stepFunctionsParameters")]
-        public Input<MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs>? StepFunctionsParameters { get; set; }
-
-        public MaintenanceWindowTaskTaskInvocationParametersArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The version of an Automation document to use during task execution.
-        /// </summary>
-        [Input("documentVersion")]
-        public Input<string>? DocumentVersion { get; set; }
-
-        [Input("parameters")]
-        private InputList<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArgs>? _parameters;
-
-        /// <summary>
-        /// The parameters for the RUN_COMMAND task execution. Documented below.
-        /// </summary>
-        public InputList<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArgs>());
-            set => _parameters = value;
-        }
-
-        public MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The version of an Automation document to use during task execution.
-        /// </summary>
-        [Input("documentVersion")]
-        public Input<string>? DocumentVersion { get; set; }
-
-        [Input("parameters")]
-        private InputList<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersGetArgs>? _parameters;
-
-        /// <summary>
-        /// The parameters for the RUN_COMMAND task execution. Documented below.
-        /// </summary>
-        public InputList<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersGetArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersGetArgs>());
-            set => _parameters = value;
-        }
-
-        public MaintenanceWindowTaskTaskInvocationParametersAutomationParametersGetArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The parameter name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// The array of strings.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The parameter name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// The array of strings.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersGetArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The parameters for an AUTOMATION task type. Documented below.
-        /// </summary>
-        [Input("automationParameters")]
-        public Input<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersGetArgs>? AutomationParameters { get; set; }
-
-        /// <summary>
-        /// The parameters for a LAMBDA task type. Documented below.
-        /// </summary>
-        [Input("lambdaParameters")]
-        public Input<MaintenanceWindowTaskTaskInvocationParametersLambdaParametersGetArgs>? LambdaParameters { get; set; }
-
-        /// <summary>
-        /// The parameters for a RUN_COMMAND task type. Documented below.
-        /// </summary>
-        [Input("runCommandParameters")]
-        public Input<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersGetArgs>? RunCommandParameters { get; set; }
-
-        /// <summary>
-        /// The parameters for a STEP_FUNCTIONS task type. Documented below.
-        /// </summary>
-        [Input("stepFunctionsParameters")]
-        public Input<MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersGetArgs>? StepFunctionsParameters { get; set; }
-
-        public MaintenanceWindowTaskTaskInvocationParametersGetArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Pass client-specific information to the Lambda function that you are invoking.
-        /// </summary>
-        [Input("clientContext")]
-        public Input<string>? ClientContext { get; set; }
-
-        /// <summary>
-        /// JSON to provide to your Lambda function as input.
-        /// </summary>
-        [Input("payload")]
-        public Input<string>? Payload { get; set; }
-
-        /// <summary>
-        /// Specify a Lambda function version or alias name.
-        /// </summary>
-        [Input("qualifier")]
-        public Input<string>? Qualifier { get; set; }
-
-        public MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Pass client-specific information to the Lambda function that you are invoking.
-        /// </summary>
-        [Input("clientContext")]
-        public Input<string>? ClientContext { get; set; }
-
-        /// <summary>
-        /// JSON to provide to your Lambda function as input.
-        /// </summary>
-        [Input("payload")]
-        public Input<string>? Payload { get; set; }
-
-        /// <summary>
-        /// Specify a Lambda function version or alias name.
-        /// </summary>
-        [Input("qualifier")]
-        public Input<string>? Qualifier { get; set; }
-
-        public MaintenanceWindowTaskTaskInvocationParametersLambdaParametersGetArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Information about the command(s) to execute.
-        /// </summary>
-        [Input("comment")]
-        public Input<string>? Comment { get; set; }
-
-        /// <summary>
-        /// The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
-        /// </summary>
-        [Input("documentHash")]
-        public Input<string>? DocumentHash { get; set; }
-
-        /// <summary>
-        /// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
-        /// </summary>
-        [Input("documentHashType")]
-        public Input<string>? DocumentHashType { get; set; }
-
-        /// <summary>
-        /// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
-        /// </summary>
-        [Input("notificationConfig")]
-        public Input<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs>? NotificationConfig { get; set; }
-
-        /// <summary>
-        /// The name of the Amazon S3 bucket.
-        /// </summary>
-        [Input("outputS3Bucket")]
-        public Input<string>? OutputS3Bucket { get; set; }
-
-        /// <summary>
-        /// The Amazon S3 bucket subfolder.
-        /// </summary>
-        [Input("outputS3KeyPrefix")]
-        public Input<string>? OutputS3KeyPrefix { get; set; }
-
-        [Input("parameters")]
-        private InputList<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArgs>? _parameters;
-
-        /// <summary>
-        /// The parameters for the RUN_COMMAND task execution. Documented below.
-        /// </summary>
-        public InputList<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArgs>());
-            set => _parameters = value;
-        }
-
-        /// <summary>
-        /// The IAM service role to assume during task execution.
-        /// </summary>
-        [Input("serviceRoleArn")]
-        public Input<string>? ServiceRoleArn { get; set; }
-
-        /// <summary>
-        /// If this time is reached and the command has not already started executing, it doesn't run.
-        /// </summary>
-        [Input("timeoutSeconds")]
-        public Input<int>? TimeoutSeconds { get; set; }
-
-        public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Information about the command(s) to execute.
-        /// </summary>
-        [Input("comment")]
-        public Input<string>? Comment { get; set; }
-
-        /// <summary>
-        /// The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
-        /// </summary>
-        [Input("documentHash")]
-        public Input<string>? DocumentHash { get; set; }
-
-        /// <summary>
-        /// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
-        /// </summary>
-        [Input("documentHashType")]
-        public Input<string>? DocumentHashType { get; set; }
-
-        /// <summary>
-        /// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
-        /// </summary>
-        [Input("notificationConfig")]
-        public Input<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigGetArgs>? NotificationConfig { get; set; }
-
-        /// <summary>
-        /// The name of the Amazon S3 bucket.
-        /// </summary>
-        [Input("outputS3Bucket")]
-        public Input<string>? OutputS3Bucket { get; set; }
-
-        /// <summary>
-        /// The Amazon S3 bucket subfolder.
-        /// </summary>
-        [Input("outputS3KeyPrefix")]
-        public Input<string>? OutputS3KeyPrefix { get; set; }
-
-        [Input("parameters")]
-        private InputList<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersGetArgs>? _parameters;
-
-        /// <summary>
-        /// The parameters for the RUN_COMMAND task execution. Documented below.
-        /// </summary>
-        public InputList<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersGetArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersGetArgs>());
-            set => _parameters = value;
-        }
-
-        /// <summary>
-        /// The IAM service role to assume during task execution.
-        /// </summary>
-        [Input("serviceRoleArn")]
-        public Input<string>? ServiceRoleArn { get; set; }
-
-        /// <summary>
-        /// If this time is reached and the command has not already started executing, it doesn't run.
-        /// </summary>
-        [Input("timeoutSeconds")]
-        public Input<int>? TimeoutSeconds { get; set; }
-
-        public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersGetArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
-        /// </summary>
-        [Input("notificationArn")]
-        public Input<string>? NotificationArn { get; set; }
-
-        [Input("notificationEvents")]
-        private InputList<string>? _notificationEvents;
-
-        /// <summary>
-        /// The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-        /// </summary>
-        public InputList<string> NotificationEvents
-        {
-            get => _notificationEvents ?? (_notificationEvents = new InputList<string>());
-            set => _notificationEvents = value;
-        }
-
-        /// <summary>
-        /// When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-        /// </summary>
-        [Input("notificationType")]
-        public Input<string>? NotificationType { get; set; }
-
-        public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
-        /// </summary>
-        [Input("notificationArn")]
-        public Input<string>? NotificationArn { get; set; }
-
-        [Input("notificationEvents")]
-        private InputList<string>? _notificationEvents;
-
-        /// <summary>
-        /// The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-        /// </summary>
-        public InputList<string> NotificationEvents
-        {
-            get => _notificationEvents ?? (_notificationEvents = new InputList<string>());
-            set => _notificationEvents = value;
-        }
-
-        /// <summary>
-        /// When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-        /// </summary>
-        [Input("notificationType")]
-        public Input<string>? NotificationType { get; set; }
-
-        public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The parameter name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// The array of strings.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The parameter name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// The array of strings.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersGetArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The inputs for the STEP_FUNCTION task.
-        /// </summary>
-        [Input("input")]
-        public Input<string>? Input { get; set; }
-
-        /// <summary>
-        /// The name of the STEP_FUNCTION task.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The inputs for the STEP_FUNCTION task.
-        /// </summary>
-        [Input("input")]
-        public Input<string>? Input { get; set; }
-
-        /// <summary>
-        /// The name of the STEP_FUNCTION task.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersGetArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the maintenance window task.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MaintenanceWindowTaskTaskParametersArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTaskTaskParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the maintenance window task.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MaintenanceWindowTaskTaskParametersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class MaintenanceWindowTaskLoggingInfo
-    {
-        public readonly string S3BucketName;
-        public readonly string? S3BucketPrefix;
-        public readonly string S3Region;
-
-        [OutputConstructor]
-        private MaintenanceWindowTaskLoggingInfo(
-            string s3BucketName,
-            string? s3BucketPrefix,
-            string s3Region)
-        {
-            S3BucketName = s3BucketName;
-            S3BucketPrefix = s3BucketPrefix;
-            S3Region = s3Region;
-        }
-    }
-
-    [OutputType]
-    public sealed class MaintenanceWindowTaskTargets
-    {
-        public readonly string Key;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private MaintenanceWindowTaskTargets(
-            string key,
-            ImmutableArray<string> values)
-        {
-            Key = key;
-            Values = values;
-        }
-    }
-
-    [OutputType]
-    public sealed class MaintenanceWindowTaskTaskInvocationParameters
-    {
-        /// <summary>
-        /// The parameters for an AUTOMATION task type. Documented below.
-        /// </summary>
-        public readonly MaintenanceWindowTaskTaskInvocationParametersAutomationParameters? AutomationParameters;
-        /// <summary>
-        /// The parameters for a LAMBDA task type. Documented below.
-        /// </summary>
-        public readonly MaintenanceWindowTaskTaskInvocationParametersLambdaParameters? LambdaParameters;
-        /// <summary>
-        /// The parameters for a RUN_COMMAND task type. Documented below.
-        /// </summary>
-        public readonly MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters? RunCommandParameters;
-        /// <summary>
-        /// The parameters for a STEP_FUNCTIONS task type. Documented below.
-        /// </summary>
-        public readonly MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters? StepFunctionsParameters;
-
-        [OutputConstructor]
-        private MaintenanceWindowTaskTaskInvocationParameters(
-            MaintenanceWindowTaskTaskInvocationParametersAutomationParameters? automationParameters,
-            MaintenanceWindowTaskTaskInvocationParametersLambdaParameters? lambdaParameters,
-            MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters? runCommandParameters,
-            MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters? stepFunctionsParameters)
-        {
-            AutomationParameters = automationParameters;
-            LambdaParameters = lambdaParameters;
-            RunCommandParameters = runCommandParameters;
-            StepFunctionsParameters = stepFunctionsParameters;
-        }
-    }
-
-    [OutputType]
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersAutomationParameters
-    {
-        /// <summary>
-        /// The version of an Automation document to use during task execution.
-        /// </summary>
-        public readonly string? DocumentVersion;
-        /// <summary>
-        /// The parameters for the RUN_COMMAND task execution. Documented below.
-        /// </summary>
-        public readonly ImmutableArray<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters> Parameters;
-
-        [OutputConstructor]
-        private MaintenanceWindowTaskTaskInvocationParametersAutomationParameters(
-            string? documentVersion,
-            ImmutableArray<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters> parameters)
-        {
-            DocumentVersion = documentVersion;
-            Parameters = parameters;
-        }
-    }
-
-    [OutputType]
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters
-    {
-        /// <summary>
-        /// The parameter name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The array of strings.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
-
-    [OutputType]
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters
-    {
-        /// <summary>
-        /// Pass client-specific information to the Lambda function that you are invoking.
-        /// </summary>
-        public readonly string? ClientContext;
-        /// <summary>
-        /// JSON to provide to your Lambda function as input.
-        /// </summary>
-        public readonly string? Payload;
-        /// <summary>
-        /// Specify a Lambda function version or alias name.
-        /// </summary>
-        public readonly string? Qualifier;
-
-        [OutputConstructor]
-        private MaintenanceWindowTaskTaskInvocationParametersLambdaParameters(
-            string? clientContext,
-            string? payload,
-            string? qualifier)
-        {
-            ClientContext = clientContext;
-            Payload = payload;
-            Qualifier = qualifier;
-        }
-    }
-
-    [OutputType]
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters
-    {
-        /// <summary>
-        /// Information about the command(s) to execute.
-        /// </summary>
-        public readonly string? Comment;
-        /// <summary>
-        /// The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
-        /// </summary>
-        public readonly string? DocumentHash;
-        /// <summary>
-        /// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
-        /// </summary>
-        public readonly string? DocumentHashType;
-        /// <summary>
-        /// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
-        /// </summary>
-        public readonly MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig? NotificationConfig;
-        /// <summary>
-        /// The name of the Amazon S3 bucket.
-        /// </summary>
-        public readonly string? OutputS3Bucket;
-        /// <summary>
-        /// The Amazon S3 bucket subfolder.
-        /// </summary>
-        public readonly string? OutputS3KeyPrefix;
-        /// <summary>
-        /// The parameters for the RUN_COMMAND task execution. Documented below.
-        /// </summary>
-        public readonly ImmutableArray<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters> Parameters;
-        /// <summary>
-        /// The IAM service role to assume during task execution.
-        /// </summary>
-        public readonly string? ServiceRoleArn;
-        /// <summary>
-        /// If this time is reached and the command has not already started executing, it doesn't run.
-        /// </summary>
-        public readonly int? TimeoutSeconds;
-
-        [OutputConstructor]
-        private MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(
-            string? comment,
-            string? documentHash,
-            string? documentHashType,
-            MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig? notificationConfig,
-            string? outputS3Bucket,
-            string? outputS3KeyPrefix,
-            ImmutableArray<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters> parameters,
-            string? serviceRoleArn,
-            int? timeoutSeconds)
-        {
-            Comment = comment;
-            DocumentHash = documentHash;
-            DocumentHashType = documentHashType;
-            NotificationConfig = notificationConfig;
-            OutputS3Bucket = outputS3Bucket;
-            OutputS3KeyPrefix = outputS3KeyPrefix;
-            Parameters = parameters;
-            ServiceRoleArn = serviceRoleArn;
-            TimeoutSeconds = timeoutSeconds;
-        }
-    }
-
-    [OutputType]
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig
-    {
-        /// <summary>
-        /// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
-        /// </summary>
-        public readonly string? NotificationArn;
-        /// <summary>
-        /// The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-        /// </summary>
-        public readonly ImmutableArray<string> NotificationEvents;
-        /// <summary>
-        /// When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-        /// </summary>
-        public readonly string? NotificationType;
-
-        [OutputConstructor]
-        private MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig(
-            string? notificationArn,
-            ImmutableArray<string> notificationEvents,
-            string? notificationType)
-        {
-            NotificationArn = notificationArn;
-            NotificationEvents = notificationEvents;
-            NotificationType = notificationType;
-        }
-    }
-
-    [OutputType]
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters
-    {
-        /// <summary>
-        /// The parameter name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The array of strings.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
-
-    [OutputType]
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters
-    {
-        /// <summary>
-        /// The inputs for the STEP_FUNCTION task.
-        /// </summary>
-        public readonly string? Input;
-        /// <summary>
-        /// The name of the STEP_FUNCTION task.
-        /// </summary>
-        public readonly string? Name;
-
-        [OutputConstructor]
-        private MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters(
-            string? input,
-            string? name)
-        {
-            Input = input;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class MaintenanceWindowTaskTaskParameters
-    {
-        /// <summary>
-        /// The name of the maintenance window task.
-        /// </summary>
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private MaintenanceWindowTaskTaskParameters(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

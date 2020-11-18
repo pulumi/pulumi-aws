@@ -12,489 +12,349 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// This file contains two categories of exports:
+// This file contains individual constants for each EC2 Instance type.
 //
-//     1) A union type, InstanceType, that accepts any valid EC2 instance type.
-//     2) Individual constants for each such EC2 instance type.
-//
-// These just give a better developer experience and are just sugared strings.
+// These constants will not be updated with new values.
+// It is recommended to use InstanceType.[Value] instead.
 
 /* tslint:disable:max-line-length ordered-imports variable-name */
 
+import { InstanceType } from ".";
+
+/** Use InstanceType instead. */
 export module InstanceTypes {
+    /** Use InstanceType.A1_2XLarge instead. */
     export const A1_2XLarge: InstanceType = "a1.2xlarge";
+    /** Use InstanceType.A1_4XLarge instead. */
     export const A1_4XLarge: InstanceType = "a1.4xlarge";
+    /** Use InstanceType.A1_Large instead. */
     export const A1_Large: InstanceType = "a1.large";
+    /** Use InstanceType.A1_Medium instead. */
     export const A1_Medium: InstanceType = "a1.medium";
+    /** Use InstanceType.A1_XLarge instead. */
     export const A1_XLarge: InstanceType = "a1.xlarge";
+    /** Use InstanceType.C3_2XLarge instead. */
     export const C3_2XLarge: InstanceType = "c3.2xlarge";
+    /** Use InstanceType.C3_4XLarge instead. */
     export const C3_4XLarge: InstanceType = "c3.4xlarge";
+    /** Use InstanceType.C3_8XLarge instead. */
     export const C3_8XLarge: InstanceType = "c3.8xlarge";
+    /** Use InstanceType.C3_Large instead. */
     export const C3_Large: InstanceType = "c3.large";
+    /** Use InstanceType.C3_XLarge instead. */
     export const C3_XLarge: InstanceType = "c3.xlarge";
+    ///** Use InstanceType.C4_2XLarge instead. */
     export const C4_2XLarge: InstanceType = "c4.2xlarge";
+    /** Use InstanceType.C4_4XLarge instead. */
     export const C4_4XLarge: InstanceType = "c4.4xlarge";
+    /** Use InstanceType.C4_8XLarge instead. */
     export const C4_8XLarge: InstanceType = "c4.8xlarge";
+    /** Use InstanceType.C4_Large instead. */
     export const C4_Large: InstanceType = "c4.large";
+    /** Use InstanceType.C4_XLarge instead. */
     export const C4_XLarge: InstanceType = "c4.xlarge";
+    /** Use InstanceType.C5_18XLarge instead. */
     export const C5_18XLarge: InstanceType = "c5.18xlarge";
+    /** Use InstanceType.C5_2XLarge instead. */
     export const C5_2XLarge: InstanceType = "c5.2xlarge";
+    /** Use InstanceType.C5_4XLarge instead. */
     export const C5_4XLarge: InstanceType = "c5.4xlarge";
+    /** Use InstanceType.C5_9XLarge instead. */
     export const C5_9XLarge: InstanceType = "c5.9xlarge";
+    /** Use InstanceType.C5_Large instead. */
     export const C5_Large: InstanceType = "c5.large";
+    /** Use InstanceType.C5_XLarge instead. */
     export const C5_XLarge: InstanceType = "c5.xlarge";
+    /** Use InstanceType.C5a_12XLarge instead. */
+    export const C5a_12XLarge: InstanceType = "c5a.12xlarge";
+    /** Use InstanceType.C5a_16XLarge instead. */
+    export const C5a_16XLarge: InstanceType = "c5a.16xlarge";
+    /** Use InstanceType.C5a_2XLarge instead. */
+    export const C5a_2XLarge: InstanceType = "c5a.2xlarge";
+    /** Use InstanceType.C5a_24XLarge instead. */
+    export const C5a_24XLarge: InstanceType = "c5a.24xlarge";
+    /** Use InstanceType.C5a_4XLarge instead. */
+    export const C5a_4XLarge: InstanceType = "c5a.4xlarge";
+    /** Use InstanceType.C5a_8XLarge instead. */
+    export const C5a_8XLarge: InstanceType = "c5a.8xlarge";
+    /** Use InstanceType.C5a_Large instead. */
+    export const C5a_Large: InstanceType = "c5a.large";
+    /** Use InstanceType.C5a_XLarge instead. */
+    export const C5a_XLarge: InstanceType = "c5a.xlarge";
+    /** Use InstanceType.C5d_18XLarge instead. */
     export const C5d_18XLarge: InstanceType = "c5d.18xlarge";
+    /** Use InstanceType.C5d_2XLarge instead. */
     export const C5d_2XLarge: InstanceType = "c5d.2xlarge";
+    /** Use InstanceType.C5d_4XLarge instead. */
     export const C5d_4XLarge: InstanceType = "c5d.4xlarge";
+    /** Use InstanceType.C5d_9XLarge instead. */
     export const C5d_9XLarge: InstanceType = "c5d.9xlarge";
+    /** Use InstanceType.C5d_Large instead. */
     export const C5d_Large: InstanceType = "c5d.large";
+    /** Use InstanceType.C5d_XLarge instead. */
     export const C5d_XLarge: InstanceType = "c5d.xlarge";
+    /** Use InstanceType.C5n_18XLarge instead. */
     export const C5n_18XLarge: InstanceType = "c5n.18xlarge";
+    /** Use InstanceType.C5n_2XLarge instead. */
     export const C5n_2XLarge: InstanceType = "c5n.2xlarge";
+    /** Use InstanceType.C5n_4XLarge instead. */
     export const C5n_4XLarge: InstanceType = "c5n.4xlarge";
+    /** Use InstanceType.C5n_9XLarge instead. */
     export const C5n_9XLarge: InstanceType = "c5n.9xlarge";
+    /** Use InstanceType.C5n_Large instead. */
     export const C5n_Large: InstanceType = "c5n.large";
+    /** Use InstanceType.C5n_XLarge instead. */
     export const C5n_XLarge: InstanceType = "c5n.xlarge";
+    /** Use InstanceType.D2_2XLarge instead. */
     export const D2_2XLarge: InstanceType = "d2.2xlarge";
+    /** Use InstanceType.D2_4XLarge instead. */
     export const D2_4XLarge: InstanceType = "d2.4xlarge";
+    /** Use InstanceType.D2_8XLarge instead. */
     export const D2_8XLarge: InstanceType = "d2.8xlarge";
+    /** Use InstanceType.D2_XLarge instead. */
     export const D2_XLarge: InstanceType = "d2.xlarge";
+    /** Use InstanceType.F1_16XLarge instead. */
     export const F1_16XLarge: InstanceType = "f1.16xlarge";
+    /** Use InstanceType.F1_2XLarge instead. */
     export const F1_2XLarge: InstanceType = "f1.2xlarge";
+    /** Use InstanceType.G2_2XLarge instead. */
     export const G2_2XLarge: InstanceType = "g2.2xlarge";
+    /** Use InstanceType.G2_8XLarge instead. */
     export const G2_8XLarge: InstanceType = "g2.8xlarge";
+    /** Use InstanceType.G3_16XLarge instead. */
     export const G3_16XLarge: InstanceType = "g3.16xlarge";
+    /** Use InstanceType.G3_4XLarge instead. */
     export const G3_4XLarge: InstanceType = "g3.4xlarge";
+    /** Use InstanceType.G3_8XLarge instead. */
     export const G3_8XLarge: InstanceType = "g3.8xlarge";
+    /** Use InstanceType.G3s_XLarge instead. */
     export const G3s_XLarge: InstanceType = "g3s.xlarge";
+    /** Use InstanceType.H1_16XLarge instead. */
     export const H1_16XLarge: InstanceType = "h1.16xlarge";
+    /** Use InstanceType.H1_2XLarge instead. */
     export const H1_2XLarge: InstanceType = "h1.2xlarge";
+    /** Use InstanceType.H1_4XLarge instead. */
     export const H1_4XLarge: InstanceType = "h1.4xlarge";
+    /** Use InstanceType.H1_8XLarge instead. */
     export const H1_8XLarge: InstanceType = "h1.8xlarge";
+    /** Use InstanceType.Hs1_8XLarge instead. */
     export const Hs1_8XLarge: InstanceType = "hs1.8xlarge";
+    /** Use InstanceType.I3_16XLarge instead. */
     export const I3_16XLarge: InstanceType = "i3.16xlarge";
+    /** Use InstanceType.I3_2XLarge instead. */
     export const I3_2XLarge: InstanceType = "i3.2xlarge";
+    /** Use InstanceType.I3_4XLarge instead. */
     export const I3_4XLarge: InstanceType = "i3.4xlarge";
+    /** Use InstanceType.I3_8XLarge instead. */
     export const I3_8XLarge: InstanceType = "i3.8xlarge";
+    /** Use InstanceType.I3_Large instead. */
     export const I3_Large: InstanceType = "i3.large";
+    /** Use InstanceType.I3_XLarge instead. */
     export const I3_XLarge: InstanceType = "i3.xlarge";
+    /** Use InstanceType.I3_Metal instead. */
     export const I3_Metal: InstanceType = "i3.metal";
+    /** Use InstanceType.M3_2XLarge instead. */
     export const M3_2XLarge: InstanceType = "m3.2xlarge";
+    /** Use InstanceType.M3_Large instead. */
     export const M3_Large: InstanceType = "m3.large";
+    /** Use InstanceType.M3_Medium instead. */
     export const M3_Medium: InstanceType = "m3.medium";
+    /** Use InstanceType.M3_XLarge instead. */
     export const M3_XLarge: InstanceType = "m3.xlarge";
+    /** Use InstanceType.M4_10XLarge instead. */
     export const M4_10XLarge: InstanceType = "m4.10xlarge";
+    /** Use InstanceType.M4_16XLarge instead. */
     export const M4_16XLarge: InstanceType = "m4.16xlarge";
+    /** Use InstanceType.M4_2XLarge instead. */
     export const M4_2XLarge: InstanceType = "m4.2xlarge";
+    /** Use InstanceType.M4_4XLarge instead. */
     export const M4_4XLarge: InstanceType = "m4.4xlarge";
+    /** Use InstanceType.M4_Large instead. */
     export const M4_Large: InstanceType = "m4.large";
+    /** Use InstanceType.M4_XLarge instead. */
     export const M4_XLarge: InstanceType = "m4.xlarge";
+    /** Use InstanceType.M5_Large instead. */
     export const M5_Large: InstanceType = "m5.large";
+    /** Use InstanceType.M5_XLarge instead. */
     export const M5_XLarge: InstanceType = "m5.xlarge";
+    /** Use InstanceType.M5_2XLarge instead. */
     export const M5_2XLarge: InstanceType = "m5.2xlarge";
+    /** Use InstanceType.M5_4XLarge instead. */
     export const M5_4XLarge: InstanceType = "m5.4xlarge";
+    /** Use InstanceType.M5_12XLarge instead. */
     export const M5_12XLarge: InstanceType = "m5.12xlarge";
+    /** Use InstanceType.M5_24XLarge instead. */
     export const M5_24XLarge: InstanceType = "m5.24xlarge";
+    /** Use InstanceType.M5d_Large instead. */
     export const M5d_Large: InstanceType = "m5d.large";
+    /** Use InstanceType.M5d_XLarge instead. */
     export const M5d_XLarge: InstanceType = "m5d.xlarge";
+    /** Use InstanceType.M5d_2XLarge instead. */
     export const M5d_2XLarge: InstanceType = "m5d.2xlarge";
+    /** Use InstanceType.M5d_4XLarge instead. */
     export const M5d_4XLarge: InstanceType = "m5d.4xlarge";
+    /** Use InstanceType.M5d_12XLarge instead. */
     export const M5d_12XLarge: InstanceType = "m5d.12xlarge";
+    /** Use InstanceType.M5d_24XLarge instead. */
     export const M5d_24XLarge: InstanceType = "m5d.24xlarge";
+    /** Use InstanceType.M5a_12XLarge instead. */
     export const M5a_12XLarge: InstanceType = "m5a.12xlarge";
+    /** Use InstanceType.M5a_24XLarge instead. */
     export const M5a_24XLarge: InstanceType = "m5a.24xlarge";
+    /** Use InstanceType.M5a_2XLarge instead. */
     export const M5a_2XLarge: InstanceType = "m5a.2xlarge";
+    /** Use InstanceType.M5a_4XLarge instead. */
     export const M5a_4XLarge: InstanceType = "m5a.4xlarge";
+    /** Use InstanceType.M5a_Large instead. */
     export const M5a_Large: InstanceType = "m5a.large";
+    /** Use InstanceType.M5a_XLarge instead. */
     export const M5a_XLarge: InstanceType = "m5a.xlarge";
+    /** Use InstanceType.P2_16XLarge instead. */
     export const P2_16XLarge: InstanceType = "p2.16xlarge";
+    /** Use InstanceType.P2_8XLarge instead. */
     export const P2_8XLarge: InstanceType = "p2.8xlarge";
+    /** Use InstanceType.P2_XLarge instead. */
     export const P2_XLarge: InstanceType = "p2.xlarge";
+    /** Use InstanceType.P3_16XLarge instead. */
     export const P3_16XLarge: InstanceType = "p3.16xlarge";
+    /** Use InstanceType.P3_2XLarge instead. */
     export const P3_2XLarge: InstanceType = "p3.2xlarge";
+    /** Use InstanceType.P3_8XLarge instead. */
     export const P3_8XLarge: InstanceType = "p3.8xlarge";
+    /** Use InstanceType.P3dn_24XLarge instead. */
     export const P3dn_24XLarge: InstanceType = "p3dn.24xlarge";
+    /** Use InstanceType.R3_2XLarge instead. */
     export const R3_2XLarge: InstanceType = "r3.2xlarge";
+    /** Use InstanceType.R3_4XLarge instead. */
     export const R3_4XLarge: InstanceType = "r3.4xlarge";
+    /** Use InstanceType.R3_8XLarge instead. */
     export const R3_8XLarge: InstanceType = "r3.8xlarge";
+    /** Use InstanceType.R3_Large instead. */
     export const R3_Large: InstanceType = "r3.large";
+    /** Use InstanceType.R3_XLarge instead. */
     export const R3_XLarge: InstanceType = "r3.xlarge";
+    /** Use InstanceType.R4_16XLarge instead. */
     export const R4_16XLarge: InstanceType = "r4.16xlarge";
+    /** Use InstanceType.R4_2XLarge instead. */
     export const R4_2XLarge: InstanceType = "r4.2xlarge";
+    /** Use InstanceType.R4_4XLarge instead. */
     export const R4_4XLarge: InstanceType = "r4.4xlarge";
+    /** Use InstanceType.R4_8XLarge instead. */
     export const R4_8XLarge: InstanceType = "r4.8xlarge";
+    /** Use InstanceType.R4_Large instead. */
     export const R4_Large: InstanceType = "r4.large";
+    /** Use InstanceType.R4_XLarge instead. */
     export const R4_XLarge: InstanceType = "r4.xlarge";
+    /** Use InstanceType.R5_12XLarge instead. */
     export const R5_12XLarge: InstanceType = "r5.12xlarge";
+    /** Use InstanceType.R5_24XLarge instead. */
     export const R5_24XLarge: InstanceType = "r5.24xlarge";
+    /** Use InstanceType.R5_2XLarge instead. */
     export const R5_2XLarge: InstanceType = "r5.2xlarge";
+    /** Use InstanceType.R5_4XLarge instead. */
     export const R5_4XLarge: InstanceType = "r5.4xlarge";
+    /** Use InstanceType.R5_Large instead. */
     export const R5_Large: InstanceType = "r5.large";
+    /** Use InstanceType.R5_XLarge instead. */
     export const R5_XLarge: InstanceType = "r5.xlarge";
+    /** Use InstanceType.R5a_12XLarge instead. */
     export const R5a_12XLarge: InstanceType = "r5a.12xlarge";
+    /** Use InstanceType.R5a_24XLarge instead. */
     export const R5a_24XLarge: InstanceType = "r5a.24xlarge";
+    /** Use InstanceType.R5a_2XLarge instead. */
     export const R5a_2XLarge: InstanceType = "r5a.2xlarge";
+    /** Use InstanceType.R5a_4XLarge instead. */
     export const R5a_4XLarge: InstanceType = "r5a.4xlarge";
+    /** Use InstanceType.R5a_Large instead. */
     export const R5a_Large: InstanceType = "r5a.large";
+    /** Use InstanceType.R5a_XLarge instead. */
     export const R5a_XLarge: InstanceType = "r5a.xlarge";
+    /** Use InstanceType.R5d_12XLarge instead. */
     export const R5d_12XLarge: InstanceType = "r5d.12xlarge";
+    /** Use InstanceType.R5d_24XLarge instead. */
     export const R5d_24XLarge: InstanceType = "r5d.24xlarge";
+    /** Use InstanceType.R5d_2XLarge instead. */
     export const R5d_2XLarge: InstanceType = "r5d.2xlarge";
+    /** Use InstanceType.R5d_4XLarge instead. */
     export const R5d_4XLarge: InstanceType = "r5d.4xlarge";
+    /** Use InstanceType.R5d_Large instead. */
     export const R5d_Large: InstanceType = "r5d.large";
+    /** Use InstanceType.R5d_XLarge instead. */
     export const R5d_XLarge: InstanceType = "r5d.xlarge";
+    /** Use InstanceType.T2_2XLarge instead. */
     export const T2_2XLarge: InstanceType = "t2.2xlarge";
+    /** Use InstanceType.T2_Large instead. */
     export const T2_Large: InstanceType = "t2.large";
+    /** Use InstanceType.T2_Medium instead. */
     export const T2_Medium: InstanceType = "t2.medium";
+    /** Use InstanceType.T2_Micro instead. */
     export const T2_Micro: InstanceType = "t2.micro";
+    /** Use InstanceType.T2_Nano instead. */
     export const T2_Nano: InstanceType = "t2.nano";
+    /** Use InstanceType.T2_Small instead. */
     export const T2_Small: InstanceType = "t2.small";
+    /** Use InstanceType.T2_XLarge instead. */
     export const T2_XLarge: InstanceType = "t2.xlarge";
+    /** Use InstanceType.T3_2XLarge instead. */
     export const T3_2XLarge: InstanceType = "t3.2xlarge";
+    /** Use InstanceType.T3_Large instead. */
     export const T3_Large: InstanceType = "t3.large";
+    /** Use InstanceType.T3_Medium instead. */
     export const T3_Medium: InstanceType = "t3.medium";
+    /** Use InstanceType.T3_Micro instead. */
     export const T3_Micro: InstanceType = "t3.micro";
+    /** Use InstanceType.T3_Nano instead. */
     export const T3_Nano: InstanceType = "t3.nano";
+    /** Use InstanceType.T3_Small instead. */
     export const T3_Small: InstanceType = "t3.small";
+    /** Use InstanceType.T3_XLarge instead. */
     export const T3_XLarge: InstanceType = "t3.xlarge";
+    /** Use InstanceType.T3a_2XLarge instead. */
     export const T3a_2XLarge: InstanceType = "t3a.2xlarge";
+    /** Use InstanceType.T3a_Large instead. */
     export const T3a_Large: InstanceType = "t3a.large";
+    /** Use InstanceType.T3a_Medium instead. */
     export const T3a_Medium: InstanceType = "t3a.medium";
+    /** Use InstanceType.T3a_Micro instead. */
     export const T3a_Micro: InstanceType = "t3a.micro";
+    /** Use InstanceType.T3a_Nano instead. */
     export const T3a_Nano: InstanceType = "t3a.nano";
+    /** Use InstanceType.T3a_Small instead. */
     export const T3a_Small: InstanceType = "t3a.small";
+    /** Use InstanceType.T3a_XLarge instead. */
     export const T3a_XLarge: InstanceType = "t3a.xlarge";
+    /** Use InstanceType.U_12tb1Metal instead. */
     export const U_12tb1Metal: InstanceType = "u-12tb1.metal";
+    /** Use InstanceType.U_6tb1Metal instead. */
     export const U_6tb1Metal: InstanceType = "u-6tb1.metal";
+    /** Use InstanceType.U_9tb1Metal instead. */
     export const U_9tb1Metal: InstanceType = "u-9tb1.metal";
+    /** Use InstanceType.X1_16XLarge instead. */
     export const X1_16XLarge: InstanceType = "x1.16xlarge";
+    /** Use InstanceType.X1_32XLarge instead. */
     export const X1_32XLarge: InstanceType = "x1.32xlarge";
+    /** Use InstanceType.X1e_16XLarge instead. */
     export const X1e_16XLarge: InstanceType = "x1e.16xlarge";
+    /** Use InstanceType.X1e_2XLarge instead. */
     export const X1e_2XLarge: InstanceType = "x1e.2xlarge";
+    /** Use InstanceType.X1e_32XLarge instead. */
     export const X1e_32XLarge: InstanceType = "x1e.32xlarge";
+    /** Use InstanceType.X1e_4XLarge instead. */
     export const X1e_4XLarge: InstanceType = "x1e.4xlarge";
+    /** Use InstanceType.X1e_8XLarge instead. */
     export const X1e_8XLarge: InstanceType = "x1e.8xlarge";
+    /** Use InstanceType.X1e_XLarge instead. */
     export const X1e_XLarge: InstanceType = "x1e.xlarge";
+    /** Use InstanceType.Z1d_12XLarge instead. */
     export const Z1d_12XLarge: InstanceType = "z1d.12xlarge";
+    /** Use InstanceType.Z1d_2XLarge instead. */
     export const Z1d_2XLarge: InstanceType = "z1d.2xlarge";
+    /** Use InstanceType.Z1d_3XLarge instead. */
     export const Z1d_3XLarge: InstanceType = "z1d.3xlarge";
+    /** Use InstanceType.Z1d_6XLarge instead. */
     export const Z1d_6XLarge: InstanceType = "z1d.6xlarge";
+    /** Use InstanceType.Z1d_Large instead. */
     export const Z1d_Large: InstanceType = "z1d.large";
+    /** Use InstanceType.Z1d_XLarge instead. */
     export const Z1d_XLarge: InstanceType = "z1d.xlarge";
 }
-
-export type InstanceType =
-    "a1.2xlarge" |
-    "a1.4xlarge" |
-    "a1.large" |
-    "a1.medium" |
-    "a1.xlarge" |
-    "c3.2xlarge" |
-    "c3.4xlarge" |
-    "c3.8xlarge" |
-    "c3.large" |
-    "c3.xlarge" |
-    "c4.2xlarge" |
-    "c4.4xlarge" |
-    "c4.8xlarge" |
-    "c4.large" |
-    "c4.xlarge" |
-    "c5.18xlarge" |
-    "c5.4xlarge" |
-    "c5.2xlarge" |
-    "c5.large" |
-    "c5.9xlarge" |
-    "c5d.18xlarge" |
-    "c5.xlarge" |
-    "c5d.4xlarge" |
-    "c5d.2xlarge" |
-    "c5d.large" |
-    "c5d.9xlarge" |
-    "c5n.18xlarge" |
-    "c5d.xlarge" |
-    "c5n.4xlarge" |
-    "c5n.2xlarge" |
-    "c5n.9xlarge" |
-    "c5n.large" |
-    "c5n.xlarge" |
-    "d2.2xlarge" |
-    "d2.4xlarge" |
-    "d2.8xlarge" |
-    "d2.xlarge" |
-    "f1.16xlarge" |
-    "f1.2xlarge" |
-    "g2.2xlarge" |
-    "g2.8xlarge" |
-    "g3.16xlarge" |
-    "g3.4xlarge" |
-    "g3.8xlarge" |
-    "g3s.xlarge" |
-    "h1.16xlarge" |
-    "h1.2xlarge" |
-    "h1.4xlarge" |
-    "h1.8xlarge" |
-    "hs1.8xlarge" |
-    "i3.16xlarge" |
-    "i3.2xlarge" |
-    "i3.4xlarge" |
-    "i3.8xlarge" |
-    "i3.large" |
-    "i3.xlarge" |
-    "i3.metal" |
-    "m3.2xlarge" |
-    "m3.large" |
-    "m3.medium" |
-    "m3.xlarge" |
-    "m4.10xlarge" |
-    "m4.16xlarge" |
-    "m4.2xlarge" |
-    "m4.4xlarge" |
-    "m4.large" |
-    "m4.xlarge" |
-    "m5.large" |
-    "m5.xlarge" |
-    "m5.2xlarge" |
-    "m5.4xlarge" |
-    "m5.12xlarge" |
-    "m5.24xlarge" |
-    "m5d.large" |
-    "m5d.xlarge" |
-    "m5d.2xlarge" |
-    "m5d.4xlarge" |
-    "m5d.12xlarge" |
-    "m5d.24xlarge" |
-    "m5a.12xlarge" |
-    "m5a.24xlarge" |
-    "m5a.2xlarge" |
-    "m5a.4xlarge" |
-    "m5a.large" |
-    "m5a.xlarge" |
-    "p2.16xlarge" |
-    "p2.8xlarge" |
-    "p2.xlarge" |
-    "p3.16xlarge" |
-    "p3.8xlarge" |
-    "p3.2xlarge" |
-    "p3dn.24xlarge" |
-    "r3.2xlarge" |
-    "r3.4xlarge" |
-    "r3.8xlarge" |
-    "r3.large" |
-    "r3.xlarge" |
-    "r4.16xlarge" |
-    "r4.2xlarge" |
-    "r4.4xlarge" |
-    "r4.8xlarge" |
-    "r4.large" |
-    "r4.xlarge" |
-    "r5.12xlarge" |
-    "r5.24xlarge" |
-    "r5.2xlarge" |
-    "r5.4xlarge" |
-    "r5.large" |
-    "r5.xlarge" |
-    "r5a.12xlarge" |
-    "r5a.24xlarge" |
-    "r5a.2xlarge" |
-    "r5a.4xlarge" |
-    "r5a.large" |
-    "r5a.xlarge" |
-    "r5d.12xlarge" |
-    "r5d.24xlarge" |
-    "r5d.2xlarge" |
-    "r5d.4xlarge" |
-    "r5d.large" |
-    "r5d.xlarge" |
-    "t2.2xlarge" |
-    "t2.large" |
-    "t2.medium" |
-    "t2.micro" |
-    "t2.nano" |
-    "t2.small" |
-    "t2.xlarge" |
-    "t3.2xlarge" |
-    "t3.large" |
-    "t3.medium" |
-    "t3.micro" |
-    "t3.nano" |
-    "t3.small" |
-    "t3.xlarge" |
-    "t3a.2xlarge" |
-    "t3a.large" |
-    "t3a.medium" |
-    "t3a.micro" |
-    "t3a.nano" |
-    "t3a.small" |
-    "t3a.xlarge" |
-    "u-12tb1.metal" |
-    "u-6tb1.metal" |
-    "u-9tb1.metal" |
-    "x1.16xlarge" |
-    "x1.32xlarge" |
-    "x1e.16xlarge" |
-    "x1e.2xlarge" |
-    "x1e.32xlarge" |
-    "x1e.4xlarge" |
-    "x1e.8xlarge" |
-    "x1e.xlarge" |
-    "z1d.12xlarge" |
-    "z1d.2xlarge" |
-    "z1d.3xlarge" |
-    "z1d.6xlarge" |
-    "z1d.large" |
-    "z1d.xlarge";
-
-
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const A1Instance2XLarge: InstanceType = "a1.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const A1Instance4XLarge: InstanceType = "a1.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const A1InstanceLarge: InstanceType = "a1.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const A1InstanceMedium: InstanceType = "a1.medium";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const A1InstanceXLarge: InstanceType = "a1.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C3Instance2XLarge: InstanceType = "c3.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C3Instance4XLarge: InstanceType = "c3.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C3Instance8XLarge: InstanceType = "c3.8xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C3InstanceLarge: InstanceType = "c3.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C3InstanceXLarge: InstanceType = "c3.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C4Instance2XLarge: InstanceType = "c4.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C4Instance4XLarge: InstanceType = "c4.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C4Instance8XLarge: InstanceType = "c4.8xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C4InstanceLarge: InstanceType = "c4.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C4InstanceXLarge: InstanceType = "c4.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5Instance18XLarge: InstanceType = "c5.18xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5Instance2XLarge: InstanceType = "c5.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5Instance4XLarge: InstanceType = "c5.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5Instance9XLarge: InstanceType = "c5.9xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5InstanceLarge: InstanceType = "c5.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5InstanceXLarge: InstanceType = "c5.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5dInstance18XLarge: InstanceType = "c5d.18xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5dInstance2XLarge: InstanceType = "c5d.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5dInstance4XLarge: InstanceType = "c5d.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5dInstance9XLarge: InstanceType = "c5d.9xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5dInstanceLarge: InstanceType = "c5d.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5dInstanceXLarge: InstanceType = "c5d.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5nInstance18XLarge: InstanceType = "c5n.18xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5nInstance2XLarge: InstanceType = "c5n.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5nInstance4XLarge: InstanceType = "c5n.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5nInstance9XLarge: InstanceType = "c5n.9xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5nInstanceLarge: InstanceType = "c5n.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const C5nInstanceXLarge: InstanceType = "c5n.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const D2Instance2XLarge: InstanceType = "d2.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const D2Instance4XLarge: InstanceType = "d2.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const D2Instance8XLarge: InstanceType = "d2.8xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const D2InstanceXLarge: InstanceType = "d2.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const F1Instance16XLarge: InstanceType = "f1.16xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const F1Instance2XLarge: InstanceType = "f1.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const G2Instance2XLarge: InstanceType = "g2.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const G2Instance8XLarge: InstanceType = "g2.8xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const G3Instance16XLarge: InstanceType = "g3.16xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const G3Instance4XLarge: InstanceType = "g3.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const G3Instance8XLarge: InstanceType = "g3.8xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const G3sInstanceXLarge: InstanceType = "g3s.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const H1Instance16XLarge: InstanceType = "h1.16xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const H1Instance2XLarge: InstanceType = "h1.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const H1Instance4XLarge: InstanceType = "h1.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const H1Instance8XLarge: InstanceType = "h1.8xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const Hs1Instance8XLarge: InstanceType = "hs1.8xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const I3Instance16XLarge: InstanceType = "i3.16xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const I3Instance2XLarge: InstanceType = "i3.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const I3Instance4XLarge: InstanceType = "i3.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const I3Instance8XLarge: InstanceType = "i3.8xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const I3InstanceLarge: InstanceType = "i3.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const I3InstanceXLarge: InstanceType = "i3.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const I3InstanceMetal: InstanceType = "i3.metal";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M3Instance2XLarge: InstanceType = "m3.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M3InstanceLarge: InstanceType = "m3.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M3InstanceMedium: InstanceType = "m3.medium";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M3InstanceXLarge: InstanceType = "m3.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M4Instance10XLarge: InstanceType = "m4.10xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M4Instance16XLarge: InstanceType = "m4.16xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M4Instance2XLarge: InstanceType = "m4.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M4Instance4XLarge: InstanceType = "m4.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M4InstanceLarge: InstanceType = "m4.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M4InstanceXLarge: InstanceType = "m4.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5InstanceLarge: InstanceType = "m5.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5InstanceXLarge: InstanceType = "m5.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5Instance2XLarge: InstanceType = "m5.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5Instance4XLarge: InstanceType = "m5.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5Instance12XLarge: InstanceType = "m5.12xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5Instance24XLarge: InstanceType = "m5.24xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5dInstanceLarge: InstanceType = "m5d.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5dInstanceXLarge: InstanceType = "m5d.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5dInstance2XLarge: InstanceType = "m5d.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5dInstance4XLarge: InstanceType = "m5d.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5dInstance12XLarge: InstanceType = "m5d.12xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5dInstance24XLarge: InstanceType = "m5d.24xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5aInstance12XLarge: InstanceType = "m5a.12xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5aInstance24XLarge: InstanceType = "m5a.24xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5aInstance2XLarge: InstanceType = "m5a.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5aInstance4XLarge: InstanceType = "m5a.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5aInstanceLarge: InstanceType = "m5a.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const M5aInstanceXLarge: InstanceType = "m5a.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const P2Instance16XLarge: InstanceType = "p2.16xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const P2Instance8XLarge: InstanceType = "p2.8xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const P2InstanceXLarge: InstanceType = "p2.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const P3Instance16XLarge: InstanceType = "p3.16xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const P3Instance2XLarge: InstanceType = "p3.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const P3Instance8XLarge: InstanceType = "p3.8xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const P3dnInstance24XLarge: InstanceType = "p3dn.24xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R3Instance2XLarge: InstanceType = "r3.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R3Instance4XLarge: InstanceType = "r3.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R3Instance8XLarge: InstanceType = "r3.8xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R3InstanceLarge: InstanceType = "r3.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R3InstanceXLarge: InstanceType = "r3.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R4Instance16XLarge: InstanceType = "r4.16xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R4Instance2XLarge: InstanceType = "r4.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R4Instance4XLarge: InstanceType = "r4.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R4Instance8XLarge: InstanceType = "r4.8xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R4InstanceLarge: InstanceType = "r4.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R4InstanceXLarge: InstanceType = "r4.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5Instance12XLarge: InstanceType = "r5.12xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5Instance24XLarge: InstanceType = "r5.24xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5Instance2XLarge: InstanceType = "r5.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5Instance4XLarge: InstanceType = "r5.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5InstanceLarge: InstanceType = "r5.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5InstanceXLarge: InstanceType = "r5.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5aInstance12XLarge: InstanceType = "r5a.12xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5aInstance24XLarge: InstanceType = "r5a.24xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5aInstance2XLarge: InstanceType = "r5a.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5aInstance4XLarge: InstanceType = "r5a.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5aInstanceLarge: InstanceType = "r5a.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5aInstanceXLarge: InstanceType = "r5a.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5dInstance12XLarge: InstanceType = "r5d.12xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5dInstance24XLarge: InstanceType = "r5d.24xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5dInstance2XLarge: InstanceType = "r5d.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5dInstance4XLarge: InstanceType = "r5d.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5dInstanceLarge: InstanceType = "r5d.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const R5dInstanceXLarge: InstanceType = "r5d.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T2Instance2XLarge: InstanceType = "t2.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T2InstanceLarge: InstanceType = "t2.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T2InstanceMedium: InstanceType = "t2.medium";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T2InstanceMicro: InstanceType = "t2.micro";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T2InstanceNano: InstanceType = "t2.nano";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T2InstanceSmall: InstanceType = "t2.small";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T2InstanceXLarge: InstanceType = "t2.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T3Instance2XLarge: InstanceType = "t3.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T3InstanceLarge: InstanceType = "t3.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T3InstanceMedium: InstanceType = "t3.medium";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T3InstanceMicro: InstanceType = "t3.micro";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T3InstanceNano: InstanceType = "t3.nano";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T3InstanceSmall: InstanceType = "t3.small";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const T3InstanceXLarge: InstanceType = "t3.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const UInstance12tb1Metal: InstanceType = "u-12tb1.metal";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const UInstance6tb1Metal: InstanceType = "u-6tb1.metal";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const UInstance9tb1Metal: InstanceType = "u-9tb1.metal";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const X1Instance16XLarge: InstanceType = "x1.16xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const X1Instance32XLarge: InstanceType = "x1.32xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const X1eInstance16XLarge: InstanceType = "x1e.16xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const X1eInstance2XLarge: InstanceType = "x1e.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const X1eInstance32XLarge: InstanceType = "x1e.32xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const X1eInstance4XLarge: InstanceType = "x1e.4xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const X1eInstance8XLarge: InstanceType = "x1e.8xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const X1eInstanceXLarge: InstanceType = "x1e.xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const Z1dInstance12XLarge: InstanceType = "z1d.12xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const Z1dInstance2XLarge: InstanceType = "z1d.2xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const Z1dInstance3XLarge: InstanceType = "z1d.3xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const Z1dInstance6XLarge: InstanceType = "z1d.6xlarge";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const Z1dInstanceLarge: InstanceType = "z1d.large";
-/** @deprecated Use the equivalent constant in module `InstanceTypes` instead */ export const Z1dInstanceXLarge: InstanceType = "z1d.xlarge";
-

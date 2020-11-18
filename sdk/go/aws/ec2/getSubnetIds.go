@@ -4,7 +4,7 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `ec2.getSubnetIds` provides a set of ids for a vpcId
@@ -23,9 +23,9 @@ func GetSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs, opts ...pulumi.In
 type GetSubnetIdsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetSubnetIdsFilter `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired subnets.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID that you want to filter from.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -33,10 +33,10 @@ type GetSubnetIdsArgs struct {
 // A collection of values returned by getSubnetIds.
 type GetSubnetIdsResult struct {
 	Filters []GetSubnetIdsFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A set of all the subnet ids found. This data source will fail if none are found.
-	Ids   []string               `pulumi:"ids"`
-	Tags  map[string]interface{} `pulumi:"tags"`
-	VpcId string                 `pulumi:"vpcId"`
+	Ids   []string          `pulumi:"ids"`
+	Tags  map[string]string `pulumi:"tags"`
+	VpcId string            `pulumi:"vpcId"`
 }

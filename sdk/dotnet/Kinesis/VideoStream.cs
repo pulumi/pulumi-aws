@@ -12,11 +12,32 @@ namespace Pulumi.Aws.Kinesis
     /// <summary>
     /// Provides a Kinesis Video Stream resource. Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing.
     /// 
-    /// For more details, see the [Amazon Kinesis Documentation][1].
+    /// For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_video_stream.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Kinesis.VideoStream("default", new Aws.Kinesis.VideoStreamArgs
+    ///         {
+    ///             DataRetentionInHours = 1,
+    ///             DeviceName = "kinesis-video-device-name",
+    ///             MediaType = "video/h264",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "kinesis-video-stream" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VideoStream : Pulumi.CustomResource
     {
@@ -51,7 +72,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+        /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
         /// </summary>
         [Output("mediaType")]
         public Output<string?> MediaType { get; private set; } = null!;
@@ -64,10 +85,10 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The version of the stream.
@@ -84,7 +105,7 @@ namespace Pulumi.Aws.Kinesis
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VideoStream(string name, VideoStreamArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:kinesis/videoStream:VideoStream", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:kinesis/videoStream:VideoStream", name, args ?? new VideoStreamArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -140,7 +161,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+        /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
         /// </summary>
         [Input("mediaType")]
         public Input<string>? MediaType { get; set; }
@@ -153,14 +174,14 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -202,7 +223,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+        /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
         /// </summary>
         [Input("mediaType")]
         public Input<string>? MediaType { get; set; }
@@ -215,14 +236,14 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

@@ -2,24 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Group resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const mainUserPool = new aws.cognito.UserPool("main", {});
- * const groupRole = new aws.iam.Role("groupRole", {
- *     assumeRolePolicy: `{
+ *
+ * const mainUserPool = new aws.cognito.UserPool("mainUserPool", {});
+ * const groupRole = new aws.iam.Role("groupRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -40,17 +35,14 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const mainUserGroup = new aws.cognito.UserGroup("main", {
+ * `});
+ * const mainUserGroup = new aws.cognito.UserGroup("mainUserGroup", {
+ *     userPoolId: mainUserPool.id,
  *     description: "Managed by Pulumi",
  *     precedence: 42,
  *     roleArn: groupRole.arn,
- *     userPoolId: mainUserPool.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_group.html.markdown.
  */
 export class UserGroup extends pulumi.CustomResource {
     /**
@@ -60,6 +52,7 @@ export class UserGroup extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserGroupState, opts?: pulumi.CustomResourceOptions): UserGroup {
         return new UserGroup(name, <any>state, { ...opts, id: id });

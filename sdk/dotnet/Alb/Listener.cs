@@ -14,20 +14,237 @@ namespace Pulumi.Aws.Alb
     /// 
     /// &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
     /// 
+    /// ## Example Usage
+    /// ### Forward Action
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var frontEndTargetGroup = new Aws.LB.TargetGroup("frontEndTargetGroup", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var frontEndListener = new Aws.LB.Listener("frontEndListener", new Aws.LB.ListenerArgs
+    ///         {
+    ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///             Port = 443,
+    ///             Protocol = "HTTPS",
+    ///             SslPolicy = "ELBSecurityPolicy-2016-08",
+    ///             CertificateArn = "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+    ///             DefaultActions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     Type = "forward",
+    ///                     TargetGroupArn = frontEndTargetGroup.Arn,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Redirect Action
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var frontEndListener = new Aws.LB.Listener("frontEndListener", new Aws.LB.ListenerArgs
+    ///         {
+    ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///             DefaultActions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     Type = "redirect",
+    ///                     Redirect = new Aws.LB.Inputs.ListenerDefaultActionRedirectArgs
+    ///                     {
+    ///                         Port = "443",
+    ///                         Protocol = "HTTPS",
+    ///                         StatusCode = "HTTP_301",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Fixed-response Action
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var frontEndListener = new Aws.LB.Listener("frontEndListener", new Aws.LB.ListenerArgs
+    ///         {
+    ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///             DefaultActions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     Type = "fixed-response",
+    ///                     FixedResponse = new Aws.LB.Inputs.ListenerDefaultActionFixedResponseArgs
+    ///                     {
+    ///                         ContentType = "text/plain",
+    ///                         MessageBody = "Fixed response content",
+    ///                         StatusCode = "200",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Authenticate-cognito Action
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var frontEndTargetGroup = new Aws.LB.TargetGroup("frontEndTargetGroup", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var pool = new Aws.Cognito.UserPool("pool", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var client = new Aws.Cognito.UserPoolClient("client", new Aws.Cognito.UserPoolClientArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var domain = new Aws.Cognito.UserPoolDomain("domain", new Aws.Cognito.UserPoolDomainArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var frontEndListener = new Aws.LB.Listener("frontEndListener", new Aws.LB.ListenerArgs
+    ///         {
+    ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///             DefaultActions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     Type = "authenticate-cognito",
+    ///                     AuthenticateCognito = new Aws.LB.Inputs.ListenerDefaultActionAuthenticateCognitoArgs
+    ///                     {
+    ///                         UserPoolArn = pool.Arn,
+    ///                         UserPoolClientId = client.Id,
+    ///                         UserPoolDomain = domain.Domain,
+    ///                     },
+    ///                 },
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     Type = "forward",
+    ///                     TargetGroupArn = frontEndTargetGroup.Arn,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Authenticate-oidc Action
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var frontEndTargetGroup = new Aws.LB.TargetGroup("frontEndTargetGroup", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var frontEndListener = new Aws.LB.Listener("frontEndListener", new Aws.LB.ListenerArgs
+    ///         {
+    ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///             DefaultActions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     Type = "authenticate-oidc",
+    ///                     AuthenticateOidc = new Aws.LB.Inputs.ListenerDefaultActionAuthenticateOidcArgs
+    ///                     {
+    ///                         AuthorizationEndpoint = "https://example.com/authorization_endpoint",
+    ///                         ClientId = "client_id",
+    ///                         ClientSecret = "client_secret",
+    ///                         Issuer = "https://example.com",
+    ///                         TokenEndpoint = "https://example.com/token_endpoint",
+    ///                         UserInfoEndpoint = "https://example.com/user_info_endpoint",
+    ///                     },
+    ///                 },
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     Type = "forward",
+    ///                     TargetGroupArn = frontEndTargetGroup.Arn,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Listener : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the listener (matches `id`)
+        /// The Amazon Resource Name (ARN) of the target group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws.lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
         /// </summary>
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
@@ -36,7 +253,7 @@ namespace Pulumi.Aws.Alb
         /// An Action block. Action blocks are documented below.
         /// </summary>
         [Output("defaultActions")]
-        public Output<ImmutableArray<Outputs.ListenerDefaultActions>> DefaultActions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ListenerDefaultAction>> DefaultActions { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the load balancer.
@@ -71,7 +288,7 @@ namespace Pulumi.Aws.Alb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Listener(string name, ListenerArgs args, CustomResourceOptions? options = null)
-            : base("aws:alb/listener:Listener", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:alb/listener:Listener", name, args ?? new ListenerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -84,7 +301,11 @@ namespace Pulumi.Aws.Alb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:applicationloadbalancing/listener:Listener" } },
+                Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "aws:applicationloadbalancing/listener:Listener"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -109,20 +330,20 @@ namespace Pulumi.Aws.Alb
     public sealed class ListenerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws.lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
         [Input("defaultActions", required: true)]
-        private InputList<Inputs.ListenerDefaultActionsArgs>? _defaultActions;
+        private InputList<Inputs.ListenerDefaultActionArgs>? _defaultActions;
 
         /// <summary>
         /// An Action block. Action blocks are documented below.
         /// </summary>
-        public InputList<Inputs.ListenerDefaultActionsArgs> DefaultActions
+        public InputList<Inputs.ListenerDefaultActionArgs> DefaultActions
         {
-            get => _defaultActions ?? (_defaultActions = new InputList<Inputs.ListenerDefaultActionsArgs>());
+            get => _defaultActions ?? (_defaultActions = new InputList<Inputs.ListenerDefaultActionArgs>());
             set => _defaultActions = value;
         }
 
@@ -158,26 +379,26 @@ namespace Pulumi.Aws.Alb
     public sealed class ListenerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the listener (matches `id`)
+        /// The Amazon Resource Name (ARN) of the target group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws.lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
         [Input("defaultActions")]
-        private InputList<Inputs.ListenerDefaultActionsGetArgs>? _defaultActions;
+        private InputList<Inputs.ListenerDefaultActionGetArgs>? _defaultActions;
 
         /// <summary>
         /// An Action block. Action blocks are documented below.
         /// </summary>
-        public InputList<Inputs.ListenerDefaultActionsGetArgs> DefaultActions
+        public InputList<Inputs.ListenerDefaultActionGetArgs> DefaultActions
         {
-            get => _defaultActions ?? (_defaultActions = new InputList<Inputs.ListenerDefaultActionsGetArgs>());
+            get => _defaultActions ?? (_defaultActions = new InputList<Inputs.ListenerDefaultActionGetArgs>());
             set => _defaultActions = value;
         }
 
@@ -208,760 +429,5 @@ namespace Pulumi.Aws.Alb
         public ListenerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ListenerDefaultActionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("authenticateCognito")]
-        public Input<ListenerDefaultActionsAuthenticateCognitoArgs>? AuthenticateCognito { get; set; }
-
-        [Input("authenticateOidc")]
-        public Input<ListenerDefaultActionsAuthenticateOidcArgs>? AuthenticateOidc { get; set; }
-
-        /// <summary>
-        /// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        /// </summary>
-        [Input("fixedResponse")]
-        public Input<ListenerDefaultActionsFixedResponseArgs>? FixedResponse { get; set; }
-
-        [Input("order")]
-        public Input<int>? Order { get; set; }
-
-        /// <summary>
-        /// Information for creating a redirect action. Required if `type` is `redirect`.
-        /// </summary>
-        [Input("redirect")]
-        public Input<ListenerDefaultActionsRedirectArgs>? Redirect { get; set; }
-
-        /// <summary>
-        /// The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
-        /// </summary>
-        [Input("targetGroupArn")]
-        public Input<string>? TargetGroupArn { get; set; }
-
-        /// <summary>
-        /// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ListenerDefaultActionsArgs()
-        {
-        }
-    }
-
-    public sealed class ListenerDefaultActionsAuthenticateCognitoArgs : Pulumi.ResourceArgs
-    {
-        [Input("authenticationRequestExtraParams")]
-        private InputMap<object>? _authenticationRequestExtraParams;
-
-        /// <summary>
-        /// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-        /// </summary>
-        public InputMap<object> AuthenticationRequestExtraParams
-        {
-            get => _authenticationRequestExtraParams ?? (_authenticationRequestExtraParams = new InputMap<object>());
-            set => _authenticationRequestExtraParams = value;
-        }
-
-        /// <summary>
-        /// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
-        /// </summary>
-        [Input("onUnauthenticatedRequest")]
-        public Input<string>? OnUnauthenticatedRequest { get; set; }
-
-        /// <summary>
-        /// The set of user claims to be requested from the IdP.
-        /// </summary>
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        /// <summary>
-        /// The name of the cookie used to maintain session information.
-        /// </summary>
-        [Input("sessionCookieName")]
-        public Input<string>? SessionCookieName { get; set; }
-
-        /// <summary>
-        /// The maximum duration of the authentication session, in seconds.
-        /// </summary>
-        [Input("sessionTimeout")]
-        public Input<int>? SessionTimeout { get; set; }
-
-        /// <summary>
-        /// The ARN of the Cognito user pool.
-        /// </summary>
-        [Input("userPoolArn", required: true)]
-        public Input<string> UserPoolArn { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Cognito user pool client.
-        /// </summary>
-        [Input("userPoolClientId", required: true)]
-        public Input<string> UserPoolClientId { get; set; } = null!;
-
-        /// <summary>
-        /// The domain prefix or fully-qualified domain name of the Cognito user pool.
-        /// </summary>
-        [Input("userPoolDomain", required: true)]
-        public Input<string> UserPoolDomain { get; set; } = null!;
-
-        public ListenerDefaultActionsAuthenticateCognitoArgs()
-        {
-        }
-    }
-
-    public sealed class ListenerDefaultActionsAuthenticateCognitoGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("authenticationRequestExtraParams")]
-        private InputMap<object>? _authenticationRequestExtraParams;
-
-        /// <summary>
-        /// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-        /// </summary>
-        public InputMap<object> AuthenticationRequestExtraParams
-        {
-            get => _authenticationRequestExtraParams ?? (_authenticationRequestExtraParams = new InputMap<object>());
-            set => _authenticationRequestExtraParams = value;
-        }
-
-        /// <summary>
-        /// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
-        /// </summary>
-        [Input("onUnauthenticatedRequest")]
-        public Input<string>? OnUnauthenticatedRequest { get; set; }
-
-        /// <summary>
-        /// The set of user claims to be requested from the IdP.
-        /// </summary>
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        /// <summary>
-        /// The name of the cookie used to maintain session information.
-        /// </summary>
-        [Input("sessionCookieName")]
-        public Input<string>? SessionCookieName { get; set; }
-
-        /// <summary>
-        /// The maximum duration of the authentication session, in seconds.
-        /// </summary>
-        [Input("sessionTimeout")]
-        public Input<int>? SessionTimeout { get; set; }
-
-        /// <summary>
-        /// The ARN of the Cognito user pool.
-        /// </summary>
-        [Input("userPoolArn", required: true)]
-        public Input<string> UserPoolArn { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Cognito user pool client.
-        /// </summary>
-        [Input("userPoolClientId", required: true)]
-        public Input<string> UserPoolClientId { get; set; } = null!;
-
-        /// <summary>
-        /// The domain prefix or fully-qualified domain name of the Cognito user pool.
-        /// </summary>
-        [Input("userPoolDomain", required: true)]
-        public Input<string> UserPoolDomain { get; set; } = null!;
-
-        public ListenerDefaultActionsAuthenticateCognitoGetArgs()
-        {
-        }
-    }
-
-    public sealed class ListenerDefaultActionsAuthenticateOidcArgs : Pulumi.ResourceArgs
-    {
-        [Input("authenticationRequestExtraParams")]
-        private InputMap<object>? _authenticationRequestExtraParams;
-
-        /// <summary>
-        /// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-        /// </summary>
-        public InputMap<object> AuthenticationRequestExtraParams
-        {
-            get => _authenticationRequestExtraParams ?? (_authenticationRequestExtraParams = new InputMap<object>());
-            set => _authenticationRequestExtraParams = value;
-        }
-
-        /// <summary>
-        /// The authorization endpoint of the IdP.
-        /// </summary>
-        [Input("authorizationEndpoint", required: true)]
-        public Input<string> AuthorizationEndpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The OAuth 2.0 client identifier.
-        /// </summary>
-        [Input("clientId", required: true)]
-        public Input<string> ClientId { get; set; } = null!;
-
-        /// <summary>
-        /// The OAuth 2.0 client secret.
-        /// </summary>
-        [Input("clientSecret", required: true)]
-        public Input<string> ClientSecret { get; set; } = null!;
-
-        /// <summary>
-        /// The OIDC issuer identifier of the IdP.
-        /// </summary>
-        [Input("issuer", required: true)]
-        public Input<string> Issuer { get; set; } = null!;
-
-        /// <summary>
-        /// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
-        /// </summary>
-        [Input("onUnauthenticatedRequest")]
-        public Input<string>? OnUnauthenticatedRequest { get; set; }
-
-        /// <summary>
-        /// The set of user claims to be requested from the IdP.
-        /// </summary>
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        /// <summary>
-        /// The name of the cookie used to maintain session information.
-        /// </summary>
-        [Input("sessionCookieName")]
-        public Input<string>? SessionCookieName { get; set; }
-
-        /// <summary>
-        /// The maximum duration of the authentication session, in seconds.
-        /// </summary>
-        [Input("sessionTimeout")]
-        public Input<int>? SessionTimeout { get; set; }
-
-        /// <summary>
-        /// The token endpoint of the IdP.
-        /// </summary>
-        [Input("tokenEndpoint", required: true)]
-        public Input<string> TokenEndpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The user info endpoint of the IdP.
-        /// </summary>
-        [Input("userInfoEndpoint", required: true)]
-        public Input<string> UserInfoEndpoint { get; set; } = null!;
-
-        public ListenerDefaultActionsAuthenticateOidcArgs()
-        {
-        }
-    }
-
-    public sealed class ListenerDefaultActionsAuthenticateOidcGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("authenticationRequestExtraParams")]
-        private InputMap<object>? _authenticationRequestExtraParams;
-
-        /// <summary>
-        /// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-        /// </summary>
-        public InputMap<object> AuthenticationRequestExtraParams
-        {
-            get => _authenticationRequestExtraParams ?? (_authenticationRequestExtraParams = new InputMap<object>());
-            set => _authenticationRequestExtraParams = value;
-        }
-
-        /// <summary>
-        /// The authorization endpoint of the IdP.
-        /// </summary>
-        [Input("authorizationEndpoint", required: true)]
-        public Input<string> AuthorizationEndpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The OAuth 2.0 client identifier.
-        /// </summary>
-        [Input("clientId", required: true)]
-        public Input<string> ClientId { get; set; } = null!;
-
-        /// <summary>
-        /// The OAuth 2.0 client secret.
-        /// </summary>
-        [Input("clientSecret", required: true)]
-        public Input<string> ClientSecret { get; set; } = null!;
-
-        /// <summary>
-        /// The OIDC issuer identifier of the IdP.
-        /// </summary>
-        [Input("issuer", required: true)]
-        public Input<string> Issuer { get; set; } = null!;
-
-        /// <summary>
-        /// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
-        /// </summary>
-        [Input("onUnauthenticatedRequest")]
-        public Input<string>? OnUnauthenticatedRequest { get; set; }
-
-        /// <summary>
-        /// The set of user claims to be requested from the IdP.
-        /// </summary>
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        /// <summary>
-        /// The name of the cookie used to maintain session information.
-        /// </summary>
-        [Input("sessionCookieName")]
-        public Input<string>? SessionCookieName { get; set; }
-
-        /// <summary>
-        /// The maximum duration of the authentication session, in seconds.
-        /// </summary>
-        [Input("sessionTimeout")]
-        public Input<int>? SessionTimeout { get; set; }
-
-        /// <summary>
-        /// The token endpoint of the IdP.
-        /// </summary>
-        [Input("tokenEndpoint", required: true)]
-        public Input<string> TokenEndpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The user info endpoint of the IdP.
-        /// </summary>
-        [Input("userInfoEndpoint", required: true)]
-        public Input<string> UserInfoEndpoint { get; set; } = null!;
-
-        public ListenerDefaultActionsAuthenticateOidcGetArgs()
-        {
-        }
-    }
-
-    public sealed class ListenerDefaultActionsFixedResponseArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
-        /// </summary>
-        [Input("contentType", required: true)]
-        public Input<string> ContentType { get; set; } = null!;
-
-        /// <summary>
-        /// The message body.
-        /// </summary>
-        [Input("messageBody")]
-        public Input<string>? MessageBody { get; set; }
-
-        /// <summary>
-        /// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
-        /// </summary>
-        [Input("statusCode")]
-        public Input<string>? StatusCode { get; set; }
-
-        public ListenerDefaultActionsFixedResponseArgs()
-        {
-        }
-    }
-
-    public sealed class ListenerDefaultActionsFixedResponseGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
-        /// </summary>
-        [Input("contentType", required: true)]
-        public Input<string> ContentType { get; set; } = null!;
-
-        /// <summary>
-        /// The message body.
-        /// </summary>
-        [Input("messageBody")]
-        public Input<string>? MessageBody { get; set; }
-
-        /// <summary>
-        /// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
-        /// </summary>
-        [Input("statusCode")]
-        public Input<string>? StatusCode { get; set; }
-
-        public ListenerDefaultActionsFixedResponseGetArgs()
-        {
-        }
-    }
-
-    public sealed class ListenerDefaultActionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("authenticateCognito")]
-        public Input<ListenerDefaultActionsAuthenticateCognitoGetArgs>? AuthenticateCognito { get; set; }
-
-        [Input("authenticateOidc")]
-        public Input<ListenerDefaultActionsAuthenticateOidcGetArgs>? AuthenticateOidc { get; set; }
-
-        /// <summary>
-        /// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        /// </summary>
-        [Input("fixedResponse")]
-        public Input<ListenerDefaultActionsFixedResponseGetArgs>? FixedResponse { get; set; }
-
-        [Input("order")]
-        public Input<int>? Order { get; set; }
-
-        /// <summary>
-        /// Information for creating a redirect action. Required if `type` is `redirect`.
-        /// </summary>
-        [Input("redirect")]
-        public Input<ListenerDefaultActionsRedirectGetArgs>? Redirect { get; set; }
-
-        /// <summary>
-        /// The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
-        /// </summary>
-        [Input("targetGroupArn")]
-        public Input<string>? TargetGroupArn { get; set; }
-
-        /// <summary>
-        /// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ListenerDefaultActionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ListenerDefaultActionsRedirectArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
-        /// </summary>
-        [Input("host")]
-        public Input<string>? Host { get; set; }
-
-        /// <summary>
-        /// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
-        /// </summary>
-        [Input("path")]
-        public Input<string>? Path { get; set; }
-
-        /// <summary>
-        /// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
-        /// </summary>
-        [Input("port")]
-        public Input<string>? Port { get; set; }
-
-        /// <summary>
-        /// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
-        /// </summary>
-        [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
-
-        /// <summary>
-        /// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
-        /// </summary>
-        [Input("query")]
-        public Input<string>? Query { get; set; }
-
-        /// <summary>
-        /// The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
-        /// </summary>
-        [Input("statusCode", required: true)]
-        public Input<string> StatusCode { get; set; } = null!;
-
-        public ListenerDefaultActionsRedirectArgs()
-        {
-        }
-    }
-
-    public sealed class ListenerDefaultActionsRedirectGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
-        /// </summary>
-        [Input("host")]
-        public Input<string>? Host { get; set; }
-
-        /// <summary>
-        /// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
-        /// </summary>
-        [Input("path")]
-        public Input<string>? Path { get; set; }
-
-        /// <summary>
-        /// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
-        /// </summary>
-        [Input("port")]
-        public Input<string>? Port { get; set; }
-
-        /// <summary>
-        /// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
-        /// </summary>
-        [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
-
-        /// <summary>
-        /// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
-        /// </summary>
-        [Input("query")]
-        public Input<string>? Query { get; set; }
-
-        /// <summary>
-        /// The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
-        /// </summary>
-        [Input("statusCode", required: true)]
-        public Input<string> StatusCode { get; set; } = null!;
-
-        public ListenerDefaultActionsRedirectGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ListenerDefaultActions
-    {
-        public readonly ListenerDefaultActionsAuthenticateCognito? AuthenticateCognito;
-        public readonly ListenerDefaultActionsAuthenticateOidc? AuthenticateOidc;
-        /// <summary>
-        /// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        /// </summary>
-        public readonly ListenerDefaultActionsFixedResponse? FixedResponse;
-        public readonly int Order;
-        /// <summary>
-        /// Information for creating a redirect action. Required if `type` is `redirect`.
-        /// </summary>
-        public readonly ListenerDefaultActionsRedirect? Redirect;
-        /// <summary>
-        /// The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
-        /// </summary>
-        public readonly string? TargetGroupArn;
-        /// <summary>
-        /// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private ListenerDefaultActions(
-            ListenerDefaultActionsAuthenticateCognito? authenticateCognito,
-            ListenerDefaultActionsAuthenticateOidc? authenticateOidc,
-            ListenerDefaultActionsFixedResponse? fixedResponse,
-            int order,
-            ListenerDefaultActionsRedirect? redirect,
-            string? targetGroupArn,
-            string type)
-        {
-            AuthenticateCognito = authenticateCognito;
-            AuthenticateOidc = authenticateOidc;
-            FixedResponse = fixedResponse;
-            Order = order;
-            Redirect = redirect;
-            TargetGroupArn = targetGroupArn;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class ListenerDefaultActionsAuthenticateCognito
-    {
-        /// <summary>
-        /// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? AuthenticationRequestExtraParams;
-        /// <summary>
-        /// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
-        /// </summary>
-        public readonly string OnUnauthenticatedRequest;
-        /// <summary>
-        /// The set of user claims to be requested from the IdP.
-        /// </summary>
-        public readonly string Scope;
-        /// <summary>
-        /// The name of the cookie used to maintain session information.
-        /// </summary>
-        public readonly string SessionCookieName;
-        /// <summary>
-        /// The maximum duration of the authentication session, in seconds.
-        /// </summary>
-        public readonly int SessionTimeout;
-        /// <summary>
-        /// The ARN of the Cognito user pool.
-        /// </summary>
-        public readonly string UserPoolArn;
-        /// <summary>
-        /// The ID of the Cognito user pool client.
-        /// </summary>
-        public readonly string UserPoolClientId;
-        /// <summary>
-        /// The domain prefix or fully-qualified domain name of the Cognito user pool.
-        /// </summary>
-        public readonly string UserPoolDomain;
-
-        [OutputConstructor]
-        private ListenerDefaultActionsAuthenticateCognito(
-            ImmutableDictionary<string, object>? authenticationRequestExtraParams,
-            string onUnauthenticatedRequest,
-            string scope,
-            string sessionCookieName,
-            int sessionTimeout,
-            string userPoolArn,
-            string userPoolClientId,
-            string userPoolDomain)
-        {
-            AuthenticationRequestExtraParams = authenticationRequestExtraParams;
-            OnUnauthenticatedRequest = onUnauthenticatedRequest;
-            Scope = scope;
-            SessionCookieName = sessionCookieName;
-            SessionTimeout = sessionTimeout;
-            UserPoolArn = userPoolArn;
-            UserPoolClientId = userPoolClientId;
-            UserPoolDomain = userPoolDomain;
-        }
-    }
-
-    [OutputType]
-    public sealed class ListenerDefaultActionsAuthenticateOidc
-    {
-        /// <summary>
-        /// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? AuthenticationRequestExtraParams;
-        /// <summary>
-        /// The authorization endpoint of the IdP.
-        /// </summary>
-        public readonly string AuthorizationEndpoint;
-        /// <summary>
-        /// The OAuth 2.0 client identifier.
-        /// </summary>
-        public readonly string ClientId;
-        /// <summary>
-        /// The OAuth 2.0 client secret.
-        /// </summary>
-        public readonly string ClientSecret;
-        /// <summary>
-        /// The OIDC issuer identifier of the IdP.
-        /// </summary>
-        public readonly string Issuer;
-        /// <summary>
-        /// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
-        /// </summary>
-        public readonly string OnUnauthenticatedRequest;
-        /// <summary>
-        /// The set of user claims to be requested from the IdP.
-        /// </summary>
-        public readonly string Scope;
-        /// <summary>
-        /// The name of the cookie used to maintain session information.
-        /// </summary>
-        public readonly string SessionCookieName;
-        /// <summary>
-        /// The maximum duration of the authentication session, in seconds.
-        /// </summary>
-        public readonly int SessionTimeout;
-        /// <summary>
-        /// The token endpoint of the IdP.
-        /// </summary>
-        public readonly string TokenEndpoint;
-        /// <summary>
-        /// The user info endpoint of the IdP.
-        /// </summary>
-        public readonly string UserInfoEndpoint;
-
-        [OutputConstructor]
-        private ListenerDefaultActionsAuthenticateOidc(
-            ImmutableDictionary<string, object>? authenticationRequestExtraParams,
-            string authorizationEndpoint,
-            string clientId,
-            string clientSecret,
-            string issuer,
-            string onUnauthenticatedRequest,
-            string scope,
-            string sessionCookieName,
-            int sessionTimeout,
-            string tokenEndpoint,
-            string userInfoEndpoint)
-        {
-            AuthenticationRequestExtraParams = authenticationRequestExtraParams;
-            AuthorizationEndpoint = authorizationEndpoint;
-            ClientId = clientId;
-            ClientSecret = clientSecret;
-            Issuer = issuer;
-            OnUnauthenticatedRequest = onUnauthenticatedRequest;
-            Scope = scope;
-            SessionCookieName = sessionCookieName;
-            SessionTimeout = sessionTimeout;
-            TokenEndpoint = tokenEndpoint;
-            UserInfoEndpoint = userInfoEndpoint;
-        }
-    }
-
-    [OutputType]
-    public sealed class ListenerDefaultActionsFixedResponse
-    {
-        /// <summary>
-        /// The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
-        /// </summary>
-        public readonly string ContentType;
-        /// <summary>
-        /// The message body.
-        /// </summary>
-        public readonly string? MessageBody;
-        /// <summary>
-        /// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
-        /// </summary>
-        public readonly string StatusCode;
-
-        [OutputConstructor]
-        private ListenerDefaultActionsFixedResponse(
-            string contentType,
-            string? messageBody,
-            string statusCode)
-        {
-            ContentType = contentType;
-            MessageBody = messageBody;
-            StatusCode = statusCode;
-        }
-    }
-
-    [OutputType]
-    public sealed class ListenerDefaultActionsRedirect
-    {
-        /// <summary>
-        /// The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
-        /// </summary>
-        public readonly string? Host;
-        /// <summary>
-        /// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
-        /// </summary>
-        public readonly string? Path;
-        /// <summary>
-        /// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
-        /// </summary>
-        public readonly string? Port;
-        /// <summary>
-        /// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
-        /// </summary>
-        public readonly string? Protocol;
-        /// <summary>
-        /// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
-        /// </summary>
-        public readonly string? Query;
-        /// <summary>
-        /// The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
-        /// </summary>
-        public readonly string StatusCode;
-
-        [OutputConstructor]
-        private ListenerDefaultActionsRedirect(
-            string? host,
-            string? path,
-            string? port,
-            string? protocol,
-            string? query,
-            string statusCode)
-        {
-            Host = host;
-            Path = path;
-            Port = port;
-            Protocol = protocol;
-            Query = query;
-            StatusCode = statusCode;
-        }
-    }
     }
 }

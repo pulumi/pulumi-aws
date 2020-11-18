@@ -16,9 +16,80 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// !&gt; **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from this provider will return an error. Set the `ignore_deletion_error` argument to `true` and apply this configuration before attempting to delete this resource via this provider or remove this resource from this provider's management.
     /// 
+    /// ## Example Usage
+    /// ### Testing Glacier Vault Lock Policy
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glacier_vault_lock.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleVault = new Aws.Glacier.Vault("exampleVault", new Aws.Glacier.VaultArgs
+    ///         {
+    ///         });
+    ///         var examplePolicyDocument = exampleVault.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         {
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "glacier:DeleteArchive",
+    ///                     },
+    ///                     Effect = "Deny",
+    ///                     Resources = 
+    ///                     {
+    ///                         arn,
+    ///                     },
+    ///                     Conditions = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
+    ///                         {
+    ///                             Test = "NumericLessThanEquals",
+    ///                             Variable = "glacier:ArchiveAgeinDays",
+    ///                             Values = 
+    ///                             {
+    ///                                 "365",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var exampleVaultLock = new Aws.Glacier.VaultLock("exampleVaultLock", new Aws.Glacier.VaultLockArgs
+    ///         {
+    ///             CompleteLock = false,
+    ///             Policy = examplePolicyDocument.Apply(examplePolicyDocument =&gt; examplePolicyDocument.Json),
+    ///             VaultName = exampleVault.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Permanently Applying Glacier Vault Lock Policy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glacier.VaultLock("example", new Aws.Glacier.VaultLockArgs
+    ///         {
+    ///             CompleteLock = true,
+    ///             Policy = data.Aws_iam_policy_document.Example.Json,
+    ///             VaultName = aws_glacier_vault.Example.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VaultLock : Pulumi.CustomResource
     {
@@ -55,7 +126,7 @@ namespace Pulumi.Aws.Glacier
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VaultLock(string name, VaultLockArgs args, CustomResourceOptions? options = null)
-            : base("aws:glacier/vaultLock:VaultLock", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:glacier/vaultLock:VaultLock", name, args ?? new VaultLockArgs(), MakeResourceOptions(options, ""))
         {
         }
 

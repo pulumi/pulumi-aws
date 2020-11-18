@@ -12,9 +12,89 @@ namespace Pulumi.Aws.Eks
     /// <summary>
     /// Manages an EKS Cluster.
     /// 
+    /// ## Example Usage
+    /// ### Example IAM Role for EKS Cluster
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_cluster.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Iam.Role("example", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""eks.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var example_AmazonEKSClusterPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+    ///             Role = example.Name,
+    ///         });
+    ///         // Optionally, enable Security Groups for Pods
+    ///         // Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
+    ///         var example_AmazonEKSVPCResourceController = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
+    ///             Role = example.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Enabling Control Plane Logging
+    /// 
+    /// [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabled_cluster_log_types` argument. To manage the CloudWatch Log Group retention period, the `aws.cloudwatch.LogGroup` resource can be used.
+    /// 
+    /// &gt; The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var config = new Config();
+    ///         var clusterName = config.Get("clusterName") ?? "example";
+    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///             RetentionInDays = 7,
+    ///         });
+    ///         // ... potentially other configuration ...
+    ///         var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new Aws.Eks.ClusterArgs
+    ///         {
+    ///             EnabledClusterLogTypes = 
+    ///             {
+    ///                 "api",
+    ///                 "audit",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleLogGroup,
+    ///             },
+    ///         });
+    ///         // ... other configuration ...
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -55,7 +135,7 @@ namespace Pulumi.Aws.Eks
         /// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
         /// </summary>
         [Output("identities")]
-        public Output<ImmutableArray<Outputs.ClusterIdentities>> Identities { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterIdentity>> Identities { get; private set; } = null!;
 
         /// <summary>
         /// Name of the cluster.
@@ -70,22 +150,22 @@ namespace Pulumi.Aws.Eks
         public Output<string> PlatformVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) if using the [`aws.iam.RolePolicy` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html) or [`aws.iam.RolePolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html), otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+        /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) if using the `aws.iam.RolePolicy` resource) or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+        /// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
@@ -108,7 +188,7 @@ namespace Pulumi.Aws.Eks
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("aws:eks/cluster:Cluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:eks/cluster:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -170,20 +250,20 @@ namespace Pulumi.Aws.Eks
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) if using the [`aws.iam.RolePolicy` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html) or [`aws.iam.RolePolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html), otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+        /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) if using the `aws.iam.RolePolicy` resource) or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -246,14 +326,14 @@ namespace Pulumi.Aws.Eks
         public Input<string>? Endpoint { get; set; }
 
         [Input("identities")]
-        private InputList<Inputs.ClusterIdentitiesGetArgs>? _identities;
+        private InputList<Inputs.ClusterIdentityGetArgs>? _identities;
 
         /// <summary>
         /// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
         /// </summary>
-        public InputList<Inputs.ClusterIdentitiesGetArgs> Identities
+        public InputList<Inputs.ClusterIdentityGetArgs> Identities
         {
-            get => _identities ?? (_identities = new InputList<Inputs.ClusterIdentitiesGetArgs>());
+            get => _identities ?? (_identities = new InputList<Inputs.ClusterIdentityGetArgs>());
             set => _identities = value;
         }
 
@@ -270,26 +350,26 @@ namespace Pulumi.Aws.Eks
         public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) if using the [`aws.iam.RolePolicy` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html) or [`aws.iam.RolePolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html), otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+        /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) if using the `aws.iam.RolePolicy` resource) or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+        /// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -308,402 +388,5 @@ namespace Pulumi.Aws.Eks
         public ClusterState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ClusterCertificateAuthorityGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-        /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
-
-        public ClusterCertificateAuthorityGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterEncryptionConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Configuration block with provider for encryption. Detailed below.
-        /// </summary>
-        [Input("provider", required: true)]
-        public Input<ClusterEncryptionConfigProviderArgs> Provider { get; set; } = null!;
-
-        [Input("resources", required: true)]
-        private InputList<string>? _resources;
-
-        /// <summary>
-        /// List of strings with resources to be encrypted. Valid values: `secrets`
-        /// </summary>
-        public InputList<string> Resources
-        {
-            get => _resources ?? (_resources = new InputList<string>());
-            set => _resources = value;
-        }
-
-        public ClusterEncryptionConfigArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterEncryptionConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Configuration block with provider for encryption. Detailed below.
-        /// </summary>
-        [Input("provider", required: true)]
-        public Input<ClusterEncryptionConfigProviderGetArgs> Provider { get; set; } = null!;
-
-        [Input("resources", required: true)]
-        private InputList<string>? _resources;
-
-        /// <summary>
-        /// List of strings with resources to be encrypted. Valid values: `secrets`
-        /// </summary>
-        public InputList<string> Resources
-        {
-            get => _resources ?? (_resources = new InputList<string>());
-            set => _resources = value;
-        }
-
-        public ClusterEncryptionConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterEncryptionConfigProviderArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
-        /// </summary>
-        [Input("keyArn", required: true)]
-        public Input<string> KeyArn { get; set; } = null!;
-
-        public ClusterEncryptionConfigProviderArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterEncryptionConfigProviderGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
-        /// </summary>
-        [Input("keyArn", required: true)]
-        public Input<string> KeyArn { get; set; } = null!;
-
-        public ClusterEncryptionConfigProviderGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterIdentitiesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("oidcs")]
-        private InputList<ClusterIdentitiesOidcsGetArgs>? _oidcs;
-
-        /// <summary>
-        /// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
-        /// </summary>
-        public InputList<ClusterIdentitiesOidcsGetArgs> Oidcs
-        {
-            get => _oidcs ?? (_oidcs = new InputList<ClusterIdentitiesOidcsGetArgs>());
-            set => _oidcs = value;
-        }
-
-        public ClusterIdentitiesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterIdentitiesOidcsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Issuer URL for the OpenID Connect identity provider.
-        /// </summary>
-        [Input("issuer")]
-        public Input<string>? Issuer { get; set; }
-
-        public ClusterIdentitiesOidcsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterVpcConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The cluster security group that was created by Amazon EKS for the cluster.
-        /// </summary>
-        [Input("clusterSecurityGroupId")]
-        public Input<string>? ClusterSecurityGroupId { get; set; }
-
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
-        /// </summary>
-        [Input("endpointPrivateAccess")]
-        public Input<bool>? EndpointPrivateAccess { get; set; }
-
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
-        /// </summary>
-        [Input("endpointPublicAccess")]
-        public Input<bool>? EndpointPublicAccess { get; set; }
-
-        [Input("publicAccessCidrs")]
-        private InputList<string>? _publicAccessCidrs;
-
-        /// <summary>
-        /// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
-        /// </summary>
-        public InputList<string> PublicAccessCidrs
-        {
-            get => _publicAccessCidrs ?? (_publicAccessCidrs = new InputList<string>());
-            set => _publicAccessCidrs = value;
-        }
-
-        [Input("securityGroupIds")]
-        private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
-        /// </summary>
-        public InputList<string> SecurityGroupIds
-        {
-            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
-            set => _securityGroupIds = value;
-        }
-
-        [Input("subnetIds", required: true)]
-        private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-        /// </summary>
-        public InputList<string> SubnetIds
-        {
-            get => _subnetIds ?? (_subnetIds = new InputList<string>());
-            set => _subnetIds = value;
-        }
-
-        /// <summary>
-        /// The VPC associated with your cluster.
-        /// </summary>
-        [Input("vpcId")]
-        public Input<string>? VpcId { get; set; }
-
-        public ClusterVpcConfigArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterVpcConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The cluster security group that was created by Amazon EKS for the cluster.
-        /// </summary>
-        [Input("clusterSecurityGroupId")]
-        public Input<string>? ClusterSecurityGroupId { get; set; }
-
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
-        /// </summary>
-        [Input("endpointPrivateAccess")]
-        public Input<bool>? EndpointPrivateAccess { get; set; }
-
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
-        /// </summary>
-        [Input("endpointPublicAccess")]
-        public Input<bool>? EndpointPublicAccess { get; set; }
-
-        [Input("publicAccessCidrs")]
-        private InputList<string>? _publicAccessCidrs;
-
-        /// <summary>
-        /// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
-        /// </summary>
-        public InputList<string> PublicAccessCidrs
-        {
-            get => _publicAccessCidrs ?? (_publicAccessCidrs = new InputList<string>());
-            set => _publicAccessCidrs = value;
-        }
-
-        [Input("securityGroupIds")]
-        private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
-        /// </summary>
-        public InputList<string> SecurityGroupIds
-        {
-            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
-            set => _securityGroupIds = value;
-        }
-
-        [Input("subnetIds", required: true)]
-        private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-        /// </summary>
-        public InputList<string> SubnetIds
-        {
-            get => _subnetIds ?? (_subnetIds = new InputList<string>());
-            set => _subnetIds = value;
-        }
-
-        /// <summary>
-        /// The VPC associated with your cluster.
-        /// </summary>
-        [Input("vpcId")]
-        public Input<string>? VpcId { get; set; }
-
-        public ClusterVpcConfigGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ClusterCertificateAuthority
-    {
-        /// <summary>
-        /// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-        /// </summary>
-        public readonly string Data;
-
-        [OutputConstructor]
-        private ClusterCertificateAuthority(string data)
-        {
-            Data = data;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterEncryptionConfig
-    {
-        /// <summary>
-        /// Configuration block with provider for encryption. Detailed below.
-        /// </summary>
-        public readonly ClusterEncryptionConfigProvider Provider;
-        /// <summary>
-        /// List of strings with resources to be encrypted. Valid values: `secrets`
-        /// </summary>
-        public readonly ImmutableArray<string> Resources;
-
-        [OutputConstructor]
-        private ClusterEncryptionConfig(
-            ClusterEncryptionConfigProvider provider,
-            ImmutableArray<string> resources)
-        {
-            Provider = provider;
-            Resources = resources;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterEncryptionConfigProvider
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
-        /// </summary>
-        public readonly string KeyArn;
-
-        [OutputConstructor]
-        private ClusterEncryptionConfigProvider(string keyArn)
-        {
-            KeyArn = keyArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterIdentities
-    {
-        /// <summary>
-        /// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
-        /// </summary>
-        public readonly ImmutableArray<ClusterIdentitiesOidcs> Oidcs;
-
-        [OutputConstructor]
-        private ClusterIdentities(ImmutableArray<ClusterIdentitiesOidcs> oidcs)
-        {
-            Oidcs = oidcs;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterIdentitiesOidcs
-    {
-        /// <summary>
-        /// Issuer URL for the OpenID Connect identity provider.
-        /// </summary>
-        public readonly string Issuer;
-
-        [OutputConstructor]
-        private ClusterIdentitiesOidcs(string issuer)
-        {
-            Issuer = issuer;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterVpcConfig
-    {
-        /// <summary>
-        /// The cluster security group that was created by Amazon EKS for the cluster.
-        /// </summary>
-        public readonly string ClusterSecurityGroupId;
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
-        /// </summary>
-        public readonly bool? EndpointPrivateAccess;
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
-        /// </summary>
-        public readonly bool? EndpointPublicAccess;
-        /// <summary>
-        /// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
-        /// </summary>
-        public readonly ImmutableArray<string> PublicAccessCidrs;
-        /// <summary>
-        /// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
-        /// </summary>
-        public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-        /// </summary>
-        public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// The VPC associated with your cluster.
-        /// </summary>
-        public readonly string VpcId;
-
-        [OutputConstructor]
-        private ClusterVpcConfig(
-            string clusterSecurityGroupId,
-            bool? endpointPrivateAccess,
-            bool? endpointPublicAccess,
-            ImmutableArray<string> publicAccessCidrs,
-            ImmutableArray<string> securityGroupIds,
-            ImmutableArray<string> subnetIds,
-            string vpcId)
-        {
-            ClusterSecurityGroupId = clusterSecurityGroupId;
-            EndpointPrivateAccess = endpointPrivateAccess;
-            EndpointPublicAccess = endpointPublicAccess;
-            PublicAccessCidrs = publicAccessCidrs;
-            SecurityGroupIds = securityGroupIds;
-            SubnetIds = subnetIds;
-            VpcId = vpcId;
-        }
-    }
     }
 }

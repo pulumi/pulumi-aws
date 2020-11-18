@@ -4,77 +4,93 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Load Balancer resource.
- * 
+ *
  * > **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
  * ### Application Load Balancer
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.lb.LoadBalancer("test", {
- *     accessLogs: {
- *         bucket: aws_s3_bucket_lb_logs.bucket,
- *         enabled: true,
- *         prefix: "test-lb",
- *     },
- *     enableDeletionProtection: true,
  *     internal: false,
  *     loadBalancerType: "application",
- *     securityGroups: [aws_security_group_lb_sg.id],
- *     subnets: [aws_subnet_public.map(v => v.id)],
+ *     securityGroups: [aws_security_group.lb_sg.id],
+ *     subnets: aws_subnet["public"].map(__item => __item.id),
+ *     enableDeletionProtection: true,
+ *     accessLogs: {
+ *         bucket: aws_s3_bucket.lb_logs.bucket,
+ *         prefix: "test-lb",
+ *         enabled: true,
+ *     },
  *     tags: {
  *         Environment: "production",
  *     },
  * });
  * ```
- * 
  * ### Network Load Balancer
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.lb.LoadBalancer("test", {
- *     enableDeletionProtection: true,
  *     internal: false,
  *     loadBalancerType: "network",
- *     subnets: [aws_subnet_public.map(v => v.id)],
+ *     subnets: aws_subnet["public"].map(__item => __item.id),
+ *     enableDeletionProtection: true,
  *     tags: {
  *         Environment: "production",
  *     },
  * });
  * ```
- * 
  * ### Specifying Elastic IPs
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.lb.LoadBalancer("example", {
  *     loadBalancerType: "network",
  *     subnetMappings: [
  *         {
- *             allocationId: aws_eip_example1.id,
- *             subnetId: aws_subnet_example1.id,
+ *             subnetId: aws_subnet.example1.id,
+ *             allocationId: aws_eip.example1.id,
  *         },
  *         {
- *             allocationId: aws_eip_example2.id,
- *             subnetId: aws_subnet_example2.id,
+ *             subnetId: aws_subnet.example2.id,
+ *             allocationId: aws_eip.example2.id,
  *         },
  *     ],
  * });
  * ```
+ * ### Specifying private IP addresses for an internal-facing load balancer
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb.html.markdown.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lb.LoadBalancer("example", {
+ *     loadBalancerType: "network",
+ *     subnetMappings: [
+ *         {
+ *             subnetId: aws_subnet.example1.id,
+ *             privateIpv4Address: "10.0.1.15",
+ *         },
+ *         {
+ *             subnetId: aws_subnet.example2.id,
+ *             privateIpv4Address: "10.0.2.15",
+ *         },
+ *     ],
+ * });
+ * ```
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
@@ -84,6 +100,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LoadBalancerState, opts?: pulumi.CustomResourceOptions): LoadBalancer {
         return new LoadBalancer(name, <any>state, { ...opts, id: id });
@@ -115,6 +132,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      * The ARN suffix for use with CloudWatch Metrics.
      */
     public /*out*/ readonly arnSuffix!: pulumi.Output<string>;
+    /**
+     * The ID of the customer owned ipv4 pool to use for this load balancer.
+     */
+    public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     /**
      * The DNS name of the load balancer.
      */
@@ -150,7 +171,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly ipAddressType!: pulumi.Output<string>;
     /**
-     * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+     * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
     public readonly loadBalancerType!: pulumi.Output<string | undefined>;
     /**
@@ -178,12 +199,13 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly subnets!: pulumi.Output<string[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      */
     public /*out*/ readonly zoneId!: pulumi.Output<string>;
 
@@ -202,6 +224,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["accessLogs"] = state ? state.accessLogs : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
+            inputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["dropInvalidHeaderFields"] = state ? state.dropInvalidHeaderFields : undefined;
             inputs["enableCrossZoneLoadBalancing"] = state ? state.enableCrossZoneLoadBalancing : undefined;
@@ -222,6 +245,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
             inputs["accessLogs"] = args ? args.accessLogs : undefined;
+            inputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
             inputs["dropInvalidHeaderFields"] = args ? args.dropInvalidHeaderFields : undefined;
             inputs["enableCrossZoneLoadBalancing"] = args ? args.enableCrossZoneLoadBalancing : undefined;
             inputs["enableDeletionProtection"] = args ? args.enableDeletionProtection : undefined;
@@ -272,6 +296,10 @@ export interface LoadBalancerState {
      */
     readonly arnSuffix?: pulumi.Input<string>;
     /**
+     * The ID of the customer owned ipv4 pool to use for this load balancer.
+     */
+    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
+    /**
      * The DNS name of the load balancer.
      */
     readonly dnsName?: pulumi.Input<string>;
@@ -306,7 +334,7 @@ export interface LoadBalancerState {
      */
     readonly ipAddressType?: pulumi.Input<string>;
     /**
-     * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+     * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
     readonly loadBalancerType?: pulumi.Input<string>;
     /**
@@ -334,12 +362,13 @@ export interface LoadBalancerState {
      */
     readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly vpcId?: pulumi.Input<string>;
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      */
     readonly zoneId?: pulumi.Input<string>;
 }
@@ -352,6 +381,10 @@ export interface LoadBalancerArgs {
      * An Access Logs block. Access Logs documented below.
      */
     readonly accessLogs?: pulumi.Input<inputs.lb.LoadBalancerAccessLogs>;
+    /**
+     * The ID of the customer owned ipv4 pool to use for this load balancer.
+     */
+    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
      * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      */
@@ -383,7 +416,7 @@ export interface LoadBalancerArgs {
      */
     readonly ipAddressType?: pulumi.Input<string>;
     /**
-     * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+     * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
     readonly loadBalancerType?: pulumi.Input<string>;
     /**
@@ -411,7 +444,7 @@ export interface LoadBalancerArgs {
      */
     readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

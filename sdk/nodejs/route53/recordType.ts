@@ -12,31 +12,37 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// This file contains individual constants for each Route53 Record Type.
+//
+// These constants will not be updated with new values.
+// It is recommended to use RecordType.[Value] instead.
+
+import {RecordType} from ".";
+
+/** Use RecordType instead. */
 export module RecordTypes {
+    /** Use RecordType.A instead. */
     export const A:     RecordType = "A";
+    /** Use RecordType.AAAA instead. */
     export const AAAA:  RecordType = "AAAA";
+    /** Use RecordType.CNAME instead. */
     export const CNAME: RecordType = "CNAME";
+    /** Use RecordType.CAA instead. */
     export const CAA:   RecordType = "CAA";
+    /** Use RecordType.MX instead. */
     export const MX:    RecordType = "MX";
+    /** Use RecordType.NAPTR instead. */
     export const NAPTR: RecordType = "NAPTR";
+    /** Use RecordType.NS instead. */
     export const NS:    RecordType = "NS";
+    /** Use RecordType.PTR instead. */
     export const PTR:   RecordType = "PTR";
+    /** Use RecordType.SOA instead. */
     export const SOA:   RecordType = "SOA";
+    /** Use RecordType.SPF instead. */
     export const SPF:   RecordType = "SPF";
+    /** Use RecordType.SRV instead. */
     export const SRV:   RecordType = "SRV";
+    /** Use RecordType.TXT instead. */
     export const TXT:   RecordType = "TXT";
 }
-
-export type RecordType =
-    "A"     |
-    "AAAA"  |
-    "CNAME" |
-    "CAA"   |
-    "MX"    |
-    "NAPTR" |
-    "NS"    |
-    "PTR"   |
-    "SOA"   |
-    "SPF"   |
-    "SRV"   |
-    "TXT"   ;

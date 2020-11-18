@@ -2,67 +2,61 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a CloudWatch log resource policy.
- * 
+ *
  * ## Example Usage
- * 
  * ### Elasticsearch Log Publishing
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const elasticsearch_log_publishing_policyPolicyDocument = aws.iam.getPolicyDocument({
+ *
+ * const elasticsearch-log-publishing-policyPolicyDocument = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "logs:CreateLogStream",
  *             "logs:PutLogEvents",
  *             "logs:PutLogEventsBatch",
  *         ],
+ *         resources: ["arn:aws:logs:*"],
  *         principals: [{
  *             identifiers: ["es.amazonaws.com"],
  *             type: "Service",
  *         }],
- *         resources: ["arn:aws:logs:*"],
  *     }],
  * });
- * const elasticsearch_log_publishing_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policy", {
- *     policyDocument: elasticsearch_log_publishing_policyPolicyDocument.json,
+ * const elasticsearch_log_publishing_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy", {
+ *     policyDocument: elasticsearch_log_publishing_policyPolicyDocument.then(elasticsearch_log_publishing_policyPolicyDocument => elasticsearch_log_publishing_policyPolicyDocument.json),
  *     policyName: "elasticsearch-log-publishing-policy",
  * });
  * ```
- * 
  * ### Route53 Query Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const route53_query_logging_policyPolicyDocument = aws.iam.getPolicyDocument({
+ *
+ * const route53-query-logging-policyPolicyDocument = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "logs:CreateLogStream",
  *             "logs:PutLogEvents",
  *         ],
+ *         resources: ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
  *         principals: [{
  *             identifiers: ["route53.amazonaws.com"],
  *             type: "Service",
  *         }],
- *         resources: ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
  *     }],
  * });
- * const route53_query_logging_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy", {
- *     policyDocument: route53_query_logging_policyPolicyDocument.json,
+ * const route53_query_logging_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", {
+ *     policyDocument: route53_query_logging_policyPolicyDocument.then(route53_query_logging_policyPolicyDocument => route53_query_logging_policyPolicyDocument.json),
  *     policyName: "route53-query-logging-policy",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_resource_policy.html.markdown.
  */
 export class LogResourcePolicy extends pulumi.CustomResource {
     /**
@@ -72,6 +66,7 @@ export class LogResourcePolicy extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LogResourcePolicyState, opts?: pulumi.CustomResourceOptions): LogResourcePolicy {
         return new LogResourcePolicy(name, <any>state, { ...opts, id: id });

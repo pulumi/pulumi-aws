@@ -2,45 +2,37 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an ElastiCache Subnet Group resource.
- * 
+ *
  * > **NOTE:** ElastiCache Subnet Groups are only for use when working with an
  * ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
  * ElastiCache Security Group resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const fooVpc = new aws.ec2.Vpc("foo", {
+ *
+ * const fooVpc = new aws.ec2.Vpc("fooVpc", {
  *     cidrBlock: "10.0.0.0/16",
  *     tags: {
  *         Name: "tf-test",
  *     },
  * });
- * const fooSubnet = new aws.ec2.Subnet("foo", {
- *     availabilityZone: "us-west-2a",
+ * const fooSubnet = new aws.ec2.Subnet("fooSubnet", {
+ *     vpcId: fooVpc.id,
  *     cidrBlock: "10.0.0.0/24",
+ *     availabilityZone: "us-west-2a",
  *     tags: {
  *         Name: "tf-test",
  *     },
- *     vpcId: fooVpc.id,
  * });
- * const bar = new aws.elasticache.SubnetGroup("bar", {
- *     subnetIds: [fooSubnet.id],
- * });
+ * const bar = new aws.elasticache.SubnetGroup("bar", {subnetIds: [fooSubnet.id]});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_subnet_group.html.markdown.
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
@@ -50,6 +42,7 @@ export class SubnetGroup extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SubnetGroupState, opts?: pulumi.CustomResourceOptions): SubnetGroup {
         return new SubnetGroup(name, <any>state, { ...opts, id: id });

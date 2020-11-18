@@ -12,9 +12,52 @@ namespace Pulumi.Aws.Waf
     /// <summary>
     /// Provides a WAF Rate Based Rule Resource
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rate_based_rule.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ipset = new Aws.Waf.IpSet("ipset", new Aws.Waf.IpSetArgs
+    ///         {
+    ///             IpSetDescriptors = 
+    ///             {
+    ///                 new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
+    ///                 {
+    ///                     Type = "IPV4",
+    ///                     Value = "192.0.7.0/24",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var wafrule = new Aws.Waf.RateBasedRule("wafrule", new Aws.Waf.RateBasedRuleArgs
+    ///         {
+    ///             MetricName = "tfWAFRule",
+    ///             RateKey = "IP",
+    ///             RateLimit = 100,
+    ///             Predicates = 
+    ///             {
+    ///                 new Aws.Waf.Inputs.RateBasedRulePredicateArgs
+    ///                 {
+    ///                     DataId = ipset.Id,
+    ///                     Negated = false,
+    ///                     Type = "IPMatch",
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 ipset,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RateBasedRule : Pulumi.CustomResource
     {
@@ -40,7 +83,7 @@ namespace Pulumi.Aws.Waf
         /// The objects to include in a rule (documented below).
         /// </summary>
         [Output("predicates")]
-        public Output<ImmutableArray<Outputs.RateBasedRulePredicates>> Predicates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RateBasedRulePredicate>> Predicates { get; private set; } = null!;
 
         /// <summary>
         /// Valid value is IP.
@@ -55,10 +98,10 @@ namespace Pulumi.Aws.Waf
         public Output<int> RateLimit { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -69,7 +112,7 @@ namespace Pulumi.Aws.Waf
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RateBasedRule(string name, RateBasedRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:waf/rateBasedRule:RateBasedRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:waf/rateBasedRule:RateBasedRule", name, args ?? new RateBasedRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -119,14 +162,14 @@ namespace Pulumi.Aws.Waf
         public Input<string>? Name { get; set; }
 
         [Input("predicates")]
-        private InputList<Inputs.RateBasedRulePredicatesArgs>? _predicates;
+        private InputList<Inputs.RateBasedRulePredicateArgs>? _predicates;
 
         /// <summary>
         /// The objects to include in a rule (documented below).
         /// </summary>
-        public InputList<Inputs.RateBasedRulePredicatesArgs> Predicates
+        public InputList<Inputs.RateBasedRulePredicateArgs> Predicates
         {
-            get => _predicates ?? (_predicates = new InputList<Inputs.RateBasedRulePredicatesArgs>());
+            get => _predicates ?? (_predicates = new InputList<Inputs.RateBasedRulePredicateArgs>());
             set => _predicates = value;
         }
 
@@ -143,14 +186,14 @@ namespace Pulumi.Aws.Waf
         public Input<int> RateLimit { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -180,14 +223,14 @@ namespace Pulumi.Aws.Waf
         public Input<string>? Name { get; set; }
 
         [Input("predicates")]
-        private InputList<Inputs.RateBasedRulePredicatesGetArgs>? _predicates;
+        private InputList<Inputs.RateBasedRulePredicateGetArgs>? _predicates;
 
         /// <summary>
         /// The objects to include in a rule (documented below).
         /// </summary>
-        public InputList<Inputs.RateBasedRulePredicatesGetArgs> Predicates
+        public InputList<Inputs.RateBasedRulePredicateGetArgs> Predicates
         {
-            get => _predicates ?? (_predicates = new InputList<Inputs.RateBasedRulePredicatesGetArgs>());
+            get => _predicates ?? (_predicates = new InputList<Inputs.RateBasedRulePredicateGetArgs>());
             set => _predicates = value;
         }
 
@@ -204,114 +247,19 @@ namespace Pulumi.Aws.Waf
         public Input<int>? RateLimit { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public RateBasedRuleState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class RateBasedRulePredicatesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
-        /// </summary>
-        [Input("dataId", required: true)]
-        public Input<string> DataId { get; set; } = null!;
-
-        /// <summary>
-        /// Set this to `false` if you want to allow, block, or count requests
-        /// based on the settings in the specified `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, or `SizeConstraintSet`.
-        /// For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-        /// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
-        /// </summary>
-        [Input("negated", required: true)]
-        public Input<bool> Negated { get; set; } = null!;
-
-        /// <summary>
-        /// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public RateBasedRulePredicatesArgs()
-        {
-        }
-    }
-
-    public sealed class RateBasedRulePredicatesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
-        /// </summary>
-        [Input("dataId", required: true)]
-        public Input<string> DataId { get; set; } = null!;
-
-        /// <summary>
-        /// Set this to `false` if you want to allow, block, or count requests
-        /// based on the settings in the specified `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, or `SizeConstraintSet`.
-        /// For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-        /// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
-        /// </summary>
-        [Input("negated", required: true)]
-        public Input<bool> Negated { get; set; } = null!;
-
-        /// <summary>
-        /// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public RateBasedRulePredicatesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class RateBasedRulePredicates
-    {
-        /// <summary>
-        /// A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
-        /// </summary>
-        public readonly string DataId;
-        /// <summary>
-        /// Set this to `false` if you want to allow, block, or count requests
-        /// based on the settings in the specified `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, or `SizeConstraintSet`.
-        /// For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-        /// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
-        /// </summary>
-        public readonly bool Negated;
-        /// <summary>
-        /// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private RateBasedRulePredicates(
-            string dataId,
-            bool negated,
-            string type)
-        {
-            DataId = dataId;
-            Negated = negated;
-            Type = type;
-        }
-    }
     }
 }

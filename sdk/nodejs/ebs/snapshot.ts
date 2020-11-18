@@ -6,15 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a Snapshot of an EBS Volume.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     size: 40,
@@ -23,14 +21,12 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleSnapshot = new aws.ebs.Snapshot("exampleSnapshot", {
+ *     volumeId: example.id,
  *     tags: {
  *         Name: "HelloWorld_snap",
  *     },
- *     volumeId: example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot.html.markdown.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**
@@ -40,6 +36,7 @@ export class Snapshot extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SnapshotState, opts?: pulumi.CustomResourceOptions): Snapshot {
         return new Snapshot(name, <any>state, { ...opts, id: id });
@@ -59,6 +56,10 @@ export class Snapshot extends pulumi.CustomResource {
         return obj['__pulumiType'] === Snapshot.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The data encryption key identifier for the snapshot.
      */
@@ -84,9 +85,9 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the snapshot
+     * A map of tags to assign to the snapshot
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Volume ID of which to make a snapshot.
      */
@@ -108,6 +109,7 @@ export class Snapshot extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SnapshotState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;
@@ -125,6 +127,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["volumeId"] = args ? args.volumeId : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["dataEncryptionKeyId"] = undefined /*out*/;
             inputs["encrypted"] = undefined /*out*/;
             inputs["kmsKeyId"] = undefined /*out*/;
@@ -147,6 +150,10 @@ export class Snapshot extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Snapshot resources.
  */
 export interface SnapshotState {
+    /**
+     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The data encryption key identifier for the snapshot.
      */
@@ -172,9 +179,9 @@ export interface SnapshotState {
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the snapshot
+     * A map of tags to assign to the snapshot
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Volume ID of which to make a snapshot.
      */
@@ -194,9 +201,9 @@ export interface SnapshotArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the snapshot
+     * A map of tags to assign to the snapshot
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Volume ID of which to make a snapshot.
      */

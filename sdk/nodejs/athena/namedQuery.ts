@@ -2,48 +2,40 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an Athena Named Query resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const hogeBucket = new aws.s3.Bucket("hoge", {});
- * const testKey = new aws.kms.Key("test", {
+ *
+ * const hogeBucket = new aws.s3.Bucket("hogeBucket", {});
+ * const testKey = new aws.kms.Key("testKey", {
  *     deletionWindowInDays: 7,
  *     description: "Athena KMS Key",
  * });
- * const testWorkgroup = new aws.athena.Workgroup("test", {
- *     configuration: {
- *         resultConfiguration: {
- *             encryptionConfiguration: {
- *                 encryptionOption: "SSE_KMS",
- *                 kmsKeyArn: testKey.arn,
- *             },
+ * const testWorkgroup = new aws.athena.Workgroup("testWorkgroup", {configuration: {
+ *     resultConfiguration: {
+ *         encryptionConfiguration: {
+ *             encryptionOption: "SSE_KMS",
+ *             kmsKeyArn: testKey.arn,
  *         },
  *     },
- * });
- * const hogeDatabase = new aws.athena.Database("hoge", {
- *     bucket: hogeBucket.id,
+ * }});
+ * const hogeDatabase = new aws.athena.Database("hogeDatabase", {
  *     name: "users",
+ *     bucket: hogeBucket.id,
  * });
  * const foo = new aws.athena.NamedQuery("foo", {
+ *     workgroup: testWorkgroup.id,
  *     database: hogeDatabase.name,
  *     query: pulumi.interpolate`SELECT * FROM ${hogeDatabase.name} limit 10;`,
- *     workgroup: testWorkgroup.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_named_query.html.markdown.
  */
 export class NamedQuery extends pulumi.CustomResource {
     /**
@@ -53,6 +45,7 @@ export class NamedQuery extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NamedQueryState, opts?: pulumi.CustomResourceOptions): NamedQuery {
         return new NamedQuery(name, <any>state, { ...opts, id: id });

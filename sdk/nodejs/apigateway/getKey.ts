@@ -4,28 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the name and value of a pre-existing API Key, for
  * example to supply credentials for a dependency microservice.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const myApiKey = aws.apigateway.getKey({
- *     id: "ru3mpjgse6",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_api_key.html.markdown.
+ * const myApiKey = pulumi.output(aws.apigateway.getKey({
+ *     id: "ru3mpjgse6",
+ * }, { async: true }));
+ * ```
  */
-export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> & GetKeyResult {
+export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,12 +30,10 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetKeyResult> = pulumi.runtime.invoke("aws:apigateway/getKey:getKey", {
+    return pulumi.runtime.invoke("aws:apigateway/getKey:getKey", {
         "id": args.id,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -50,9 +45,9 @@ export interface GetKeyArgs {
      */
     readonly id: string;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -84,9 +79,9 @@ export interface GetKeyResult {
      */
     readonly name: string;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * Set to the value of the API Key.
      */

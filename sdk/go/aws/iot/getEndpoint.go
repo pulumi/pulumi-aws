@@ -4,7 +4,7 @@
 package iot
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Returns a unique endpoint specific to the AWS account making the call.
@@ -33,6 +33,6 @@ type GetEndpointResult struct {
 	// * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
 	EndpointAddress string  `pulumi:"endpointAddress"`
 	EndpointType    *string `pulumi:"endpointType"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }

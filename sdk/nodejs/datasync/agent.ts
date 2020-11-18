@@ -6,23 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AWS DataSync Agent deployed on premises.
- * 
+ *
  * > **NOTE:** One of `activationKey` or `ipAddress` must be provided for resource creation (agent activation). Neither is required for resource import. If using `ipAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running. The agent will turn off that HTTP server after activation.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.datasync.Agent("example", {
  *     ipAddress: "1.2.3.4",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_agent.html.markdown.
  */
 export class Agent extends pulumi.CustomResource {
     /**
@@ -32,6 +28,7 @@ export class Agent extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AgentState, opts?: pulumi.CustomResourceOptions): Agent {
         return new Agent(name, <any>state, { ...opts, id: id });
@@ -70,7 +67,7 @@ export class Agent extends pulumi.CustomResource {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Agent resource with the given unique name, arguments, and options.
@@ -131,7 +128,7 @@ export interface AgentState {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -153,5 +150,5 @@ export interface AgentArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

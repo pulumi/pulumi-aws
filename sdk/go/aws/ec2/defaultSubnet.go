@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics)
@@ -16,6 +16,34 @@ import (
 // The `ec2.DefaultSubnet` behaves differently from normal resources, in that
 // this provider does not _create_ this resource, but instead "adopts" it
 // into management.
+//
+// ## Example Usage
+//
+// Basic usage with tags:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewDefaultSubnet(ctx, "defaultAz1", &ec2.DefaultSubnetArgs{
+// 			AvailabilityZone: pulumi.String("us-west-2a"),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("Default subnet for us-west-2a"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DefaultSubnet struct {
 	pulumi.CustomResourceState
 
@@ -31,11 +59,12 @@ type DefaultSubnet struct {
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
-	MapPublicIpOnLaunch pulumi.BoolOutput `pulumi:"mapPublicIpOnLaunch"`
+	MapPublicIpOnLaunch pulumi.BoolOutput      `pulumi:"mapPublicIpOnLaunch"`
+	OutpostArn          pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The VPC ID.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -83,11 +112,12 @@ type defaultSubnetState struct {
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
-	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
+	MapPublicIpOnLaunch *bool   `pulumi:"mapPublicIpOnLaunch"`
+	OutpostArn          *string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
 	OwnerId *string `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -106,10 +136,11 @@ type DefaultSubnetState struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
+	OutpostArn          pulumi.StringPtrInput
 	// The ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringPtrInput
 }
@@ -123,9 +154,10 @@ type defaultSubnetArgs struct {
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
-	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	MapPublicIpOnLaunch *bool   `pulumi:"mapPublicIpOnLaunch"`
+	OutpostArn          *string `pulumi:"outpostArn"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DefaultSubnet resource.
@@ -135,8 +167,9 @@ type DefaultSubnetArgs struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	OutpostArn          pulumi.StringPtrInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (DefaultSubnetArgs) ElementType() reflect.Type {

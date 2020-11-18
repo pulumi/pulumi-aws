@@ -7,21 +7,73 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a resource for adding an [IAM User][2] to [IAM Groups][1]. This
+// Provides a resource for adding an [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html). This
 // resource can be used multiple times with the same user for non-overlapping
 // groups.
 //
 // To exclusively manage the users in a group, see the
 // [`iam.GroupMembership` resource][3].
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		user1, err := iam.NewUser(ctx, "user1", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		group1, err := iam.NewGroup(ctx, "group1", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		group2, err := iam.NewGroup(ctx, "group2", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewUserGroupMembership(ctx, "example1", &iam.UserGroupMembershipArgs{
+// 			User: user1.Name,
+// 			Groups: pulumi.StringArray{
+// 				group1.Name,
+// 				group2.Name,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		group3, err := iam.NewGroup(ctx, "group3", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewUserGroupMembership(ctx, "example2", &iam.UserGroupMembershipArgs{
+// 			User: user1.Name,
+// 			Groups: pulumi.StringArray{
+// 				group3.Name,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type UserGroupMembership struct {
 	pulumi.CustomResourceState
 
-	// A list of [IAM Groups][1] to add the user to
+	// A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
-	// The name of the [IAM User][2] to add to groups
+	// The name of the [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to add to groups
 	User pulumi.StringOutput `pulumi:"user"`
 }
 
@@ -59,16 +111,16 @@ func GetUserGroupMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserGroupMembership resources.
 type userGroupMembershipState struct {
-	// A list of [IAM Groups][1] to add the user to
+	// A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
 	Groups []string `pulumi:"groups"`
-	// The name of the [IAM User][2] to add to groups
+	// The name of the [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to add to groups
 	User *string `pulumi:"user"`
 }
 
 type UserGroupMembershipState struct {
-	// A list of [IAM Groups][1] to add the user to
+	// A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
 	Groups pulumi.StringArrayInput
-	// The name of the [IAM User][2] to add to groups
+	// The name of the [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to add to groups
 	User pulumi.StringPtrInput
 }
 
@@ -77,17 +129,17 @@ func (UserGroupMembershipState) ElementType() reflect.Type {
 }
 
 type userGroupMembershipArgs struct {
-	// A list of [IAM Groups][1] to add the user to
+	// A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
 	Groups []string `pulumi:"groups"`
-	// The name of the [IAM User][2] to add to groups
+	// The name of the [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to add to groups
 	User string `pulumi:"user"`
 }
 
 // The set of arguments for constructing a UserGroupMembership resource.
 type UserGroupMembershipArgs struct {
-	// A list of [IAM Groups][1] to add the user to
+	// A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
 	Groups pulumi.StringArrayInput
-	// The name of the [IAM User][2] to add to groups
+	// The name of the [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to add to groups
 	User pulumi.StringInput
 }
 

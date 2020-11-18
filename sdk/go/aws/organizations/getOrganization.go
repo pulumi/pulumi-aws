@@ -4,10 +4,70 @@
 package organizations
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Get information about the organization that the user's account belongs to
+//
+// ## Example Usage
+// ### List all account IDs for the organization
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/organizations"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := organizations.LookupOrganization(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		var splat0 []string
+// 		for _, val0 := range example.Accounts {
+// 			splat0 = append(splat0, val0.Id)
+// 		}
+// 		ctx.Export("accountIds", splat0)
+// 		return nil
+// 	})
+// }
+// ```
+// ### SNS topic that can be interacted by the organization only
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/organizations"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := organizations.LookupOrganization(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		snsTopic, err := sns.NewTopic(ctx, "snsTopic", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = sns.NewTopicPolicy(ctx, "snsTopicPolicyTopicPolicy", &sns.TopicPolicyArgs{
+// 			Arn:    snsTopic.Arn,
+// 			Policy: pulumi.String(snsTopicPolicyPolicyDocument.Json),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupOrganization(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
 	var rv LookupOrganizationResult
 	err := ctx.Invoke("aws:organizations/getOrganization:getOrganization", nil, &rv, opts...)
@@ -29,7 +89,7 @@ type LookupOrganizationResult struct {
 	EnabledPolicyTypes []string `pulumi:"enabledPolicyTypes"`
 	// The FeatureSet of the organization.
 	FeatureSet string `pulumi:"featureSet"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
 	MasterAccountArn string `pulumi:"masterAccountArn"`

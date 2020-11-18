@@ -4,13 +4,54 @@
 package rds
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get information about a DB Snapshot for use when provisioning DB instances
 //
 // > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
-// See the [`rds.ClusterSnapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
+// See the `rds.ClusterSnapshot` data source for DB Cluster snapshots.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		prod, err := rds.NewInstance(ctx, "prod", &rds.InstanceArgs{
+// 			AllocatedStorage:   pulumi.Int(10),
+// 			Engine:             pulumi.String("mysql"),
+// 			EngineVersion:      pulumi.String("5.6.17"),
+// 			InstanceClass:      pulumi.String("db.t2.micro"),
+// 			Name:               pulumi.String("mydb"),
+// 			Username:           pulumi.String("foo"),
+// 			Password:           pulumi.String("bar"),
+// 			DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
+// 			ParameterGroupName: pulumi.String("default.mysql5.6"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = rds.NewInstance(ctx, "dev", &rds.InstanceArgs{
+// 			InstanceClass: pulumi.String("db.t2.micro"),
+// 			Name:          pulumi.String("mydbdev"),
+// 			SnapshotIdentifier: latestProdSnapshot.ApplyT(func(latestProdSnapshot rds.LookupSnapshotResult) (string, error) {
+// 				return latestProdSnapshot.Id, nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
 	err := ctx.Invoke("aws:rds/getSnapshot:getSnapshot", args, &rv, opts...)
@@ -58,7 +99,7 @@ type LookupSnapshotResult struct {
 	Engine string `pulumi:"engine"`
 	// Specifies the version of the database engine.
 	EngineVersion string `pulumi:"engineVersion"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
 	IncludePublic *bool  `pulumi:"includePublic"`
 	IncludeShared *bool  `pulumi:"includeShared"`

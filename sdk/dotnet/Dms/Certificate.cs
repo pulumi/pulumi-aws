@@ -13,11 +13,27 @@ namespace Pulumi.Aws.Dms
     /// Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
     /// 
     /// &gt; **Note:** All arguments including the PEM encoded certificate will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_certificate.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new certificate
+    ///         var test = new Aws.Dms.Certificate("test", new Aws.Dms.CertificateArgs
+    ///         {
+    ///             CertificateId = "test-dms-certificate-tf",
+    ///             CertificatePem = "...",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {
@@ -54,7 +70,7 @@ namespace Pulumi.Aws.Dms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("aws:dms/certificate:Certificate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:dms/certificate:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 

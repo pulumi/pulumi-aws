@@ -6,23 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an individual Service Quota.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.servicequotas.ServiceQuota("example", {
  *     quotaCode: "L-F678F1CE",
  *     serviceCode: "vpc",
  *     value: 75,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/servicequotas_service_quota.html.markdown.
  */
 export class ServiceQuota extends pulumi.CustomResource {
     /**
@@ -32,6 +28,7 @@ export class ServiceQuota extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServiceQuotaState, opts?: pulumi.CustomResourceOptions): ServiceQuota {
         return new ServiceQuota(name, <any>state, { ...opts, id: id });

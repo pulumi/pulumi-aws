@@ -12,9 +12,53 @@ namespace Pulumi.Aws.Athena
     /// <summary>
     /// Provides an Athena Named Query resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_named_query.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var hogeBucket = new Aws.S3.Bucket("hogeBucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var testKey = new Aws.Kms.Key("testKey", new Aws.Kms.KeyArgs
+    ///         {
+    ///             DeletionWindowInDays = 7,
+    ///             Description = "Athena KMS Key",
+    ///         });
+    ///         var testWorkgroup = new Aws.Athena.Workgroup("testWorkgroup", new Aws.Athena.WorkgroupArgs
+    ///         {
+    ///             Configuration = new Aws.Athena.Inputs.WorkgroupConfigurationArgs
+    ///             {
+    ///                 ResultConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationArgs
+    ///                 {
+    ///                     EncryptionConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs
+    ///                     {
+    ///                         EncryptionOption = "SSE_KMS",
+    ///                         KmsKeyArn = testKey.Arn,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var hogeDatabase = new Aws.Athena.Database("hogeDatabase", new Aws.Athena.DatabaseArgs
+    ///         {
+    ///             Name = "users",
+    ///             Bucket = hogeBucket.Id,
+    ///         });
+    ///         var foo = new Aws.Athena.NamedQuery("foo", new Aws.Athena.NamedQueryArgs
+    ///         {
+    ///             Workgroup = testWorkgroup.Id,
+    ///             Database = hogeDatabase.Name,
+    ///             Query = hogeDatabase.Name.Apply(name =&gt; $"SELECT * FROM {name} limit 10;"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class NamedQuery : Pulumi.CustomResource
     {
@@ -57,7 +101,7 @@ namespace Pulumi.Aws.Athena
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamedQuery(string name, NamedQueryArgs args, CustomResourceOptions? options = null)
-            : base("aws:athena/namedQuery:NamedQuery", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:athena/namedQuery:NamedQuery", name, args ?? new NamedQueryArgs(), MakeResourceOptions(options, ""))
         {
         }
 

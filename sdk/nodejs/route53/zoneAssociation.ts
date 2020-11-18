@@ -2,52 +2,39 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones.
- * 
- * > **NOTE:** Unless explicit association ordering is required (e.g. a separate cross-account association authorization), usage of this resource is not recommended. Use the `vpc` configuration blocks available within the [`aws.route53.Zone` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone.html) instead.
- * 
- * > **NOTE:** This provider provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the [`aws.route53.Zone` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone.html) via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) in the `aws.route53.Zone` resource to manage additional associations via this resource.
- * 
+ * Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones. See the `aws.route53.VpcAssociationAuthorization` resource for setting up cross-account associations.
+ *
+ * > **NOTE:** Unless explicit association ordering is required (e.g. a separate cross-account association authorization), usage of this resource is not recommended. Use the `vpc` configuration blocks available within the `aws.route53.Zone` resource instead.
+ *
+ * > **NOTE:** This provider provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the `aws.route53.Zone` resource via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) in the `aws.route53.Zone` resource to manage additional associations via this resource.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const primary = new aws.ec2.Vpc("primary", {
  *     cidrBlock: "10.6.0.0/16",
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
  * });
- * const secondaryVpc = new aws.ec2.Vpc("secondary", {
+ * const secondaryVpc = new aws.ec2.Vpc("secondaryVpc", {
  *     cidrBlock: "10.7.0.0/16",
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
  * });
- * const example = new aws.route53.Zone("example", {
- *     // NOTE: The aws.route53.Zone vpc argument accepts multiple configuration
- *     //       blocks. The below usage of the single vpc configuration, the
- *     //       lifecycle configuration, and the aws.route53.ZoneAssociation
- *     //       resource is for illustrative purposes (e.g. for a separate
- *     //       cross-account authorization process, which is not shown here).
- *     vpcs: [{
- *         vpcId: primary.id,
- *     }],
- * }, {ignoreChanges: ["vpcId", "vpcRegion", "vpcs"]});
- * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondary", {
- *     vpcId: secondaryVpc.id,
+ * const example = new aws.route53.Zone("example", {vpcs: [{
+ *     vpcId: primary.id,
+ * }]});
+ * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondaryZoneAssociation", {
  *     zoneId: example.zoneId,
+ *     vpcId: secondaryVpc.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone_association.html.markdown.
  */
 export class ZoneAssociation extends pulumi.CustomResource {
     /**
@@ -57,6 +44,7 @@ export class ZoneAssociation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ZoneAssociationState, opts?: pulumi.CustomResourceOptions): ZoneAssociation {
         return new ZoneAssociation(name, <any>state, { ...opts, id: id });
@@ -76,6 +64,10 @@ export class ZoneAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ZoneAssociation.__pulumiType;
     }
 
+    /**
+     * The account ID of the account that created the hosted zone.
+     */
+    public /*out*/ readonly owningAccount!: pulumi.Output<string>;
     /**
      * The VPC to associate with the private hosted zone.
      */
@@ -101,6 +93,7 @@ export class ZoneAssociation extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ZoneAssociationState | undefined;
+            inputs["owningAccount"] = state ? state.owningAccount : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
             inputs["vpcRegion"] = state ? state.vpcRegion : undefined;
             inputs["zoneId"] = state ? state.zoneId : undefined;
@@ -115,6 +108,7 @@ export class ZoneAssociation extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["vpcRegion"] = args ? args.vpcRegion : undefined;
             inputs["zoneId"] = args ? args.zoneId : undefined;
+            inputs["owningAccount"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -131,6 +125,10 @@ export class ZoneAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ZoneAssociation resources.
  */
 export interface ZoneAssociationState {
+    /**
+     * The account ID of the account that created the hosted zone.
+     */
+    readonly owningAccount?: pulumi.Input<string>;
     /**
      * The VPC to associate with the private hosted zone.
      */

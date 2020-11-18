@@ -4,29 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Backup plan resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.backup.Plan("example", {
  *     rules: [{
- *         ruleName: "tfExampleBackupRule",
+ *         ruleName: "tf_example_backup_rule",
+ *         targetVaultName: aws_backup_vault.test.name,
  *         schedule: "cron(0 12 * * ? *)",
- *         targetVaultName: aws_backup_vault_test.name,
+ *     }],
+ *     advancedBackupSettings: [{
+ *         backupOptions: {
+ *             WindowsVSS: "enabled",
+ *         },
+ *         resourceType: "EC2",
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_plan.html.markdown.
  */
 export class Plan extends pulumi.CustomResource {
     /**
@@ -36,6 +39,7 @@ export class Plan extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PlanState, opts?: pulumi.CustomResourceOptions): Plan {
         return new Plan(name, <any>state, { ...opts, id: id });
@@ -56,6 +60,10 @@ export class Plan extends pulumi.CustomResource {
     }
 
     /**
+     * An object that specifies backup options for each resource type.
+     */
+    public readonly advancedBackupSettings!: pulumi.Output<outputs.backup.PlanAdvancedBackupSetting[] | undefined>;
+    /**
      * The ARN of the backup plan.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -70,7 +78,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * Metadata that you can assign to help organize the plans you create.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */
@@ -88,6 +96,7 @@ export class Plan extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as PlanState | undefined;
+            inputs["advancedBackupSettings"] = state ? state.advancedBackupSettings : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["rules"] = state ? state.rules : undefined;
@@ -98,6 +107,7 @@ export class Plan extends pulumi.CustomResource {
             if (!args || args.rules === undefined) {
                 throw new Error("Missing required property 'rules'");
             }
+            inputs["advancedBackupSettings"] = args ? args.advancedBackupSettings : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["rules"] = args ? args.rules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -120,6 +130,10 @@ export class Plan extends pulumi.CustomResource {
  */
 export interface PlanState {
     /**
+     * An object that specifies backup options for each resource type.
+     */
+    readonly advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
+    /**
      * The ARN of the backup plan.
      */
     readonly arn?: pulumi.Input<string>;
@@ -134,7 +148,7 @@ export interface PlanState {
     /**
      * Metadata that you can assign to help organize the plans you create.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */
@@ -146,6 +160,10 @@ export interface PlanState {
  */
 export interface PlanArgs {
     /**
+     * An object that specifies backup options for each resource type.
+     */
+    readonly advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
+    /**
      * The display name of a backup plan.
      */
     readonly name?: pulumi.Input<string>;
@@ -156,5 +174,5 @@ export interface PlanArgs {
     /**
      * Metadata that you can assign to help organize the plans you create.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

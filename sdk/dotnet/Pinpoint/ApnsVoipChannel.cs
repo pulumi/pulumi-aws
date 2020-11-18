@@ -13,11 +13,31 @@ namespace Pulumi.Aws.Pinpoint
     /// Provides a Pinpoint APNs VoIP Channel resource.
     /// 
     /// &gt; **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_apns_voip_channel.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
+    ///         {
+    ///         });
+    ///         var apnsVoip = new Aws.Pinpoint.ApnsVoipChannel("apnsVoip", new Aws.Pinpoint.ApnsVoipChannelArgs
+    ///         {
+    ///             ApplicationId = app.ApplicationId,
+    ///             Certificate = File.ReadAllText("./certificate.pem"),
+    ///             PrivateKey = File.ReadAllText("./private_key.key"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ApnsVoipChannel : Pulumi.CustomResource
     {
@@ -40,7 +60,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string?> Certificate { get; private set; } = null!;
 
         /// <summary>
-        /// The default authentication method used for APNs. 
+        /// The default authentication method used for APNs.
         /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
         /// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -67,7 +87,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string?> TeamId { get; private set; } = null!;
 
         /// <summary>
-        /// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+        /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
         /// </summary>
         [Output("tokenKey")]
         public Output<string?> TokenKey { get; private set; } = null!;
@@ -87,7 +107,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApnsVoipChannel(string name, ApnsVoipChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel", name, args ?? new ApnsVoipChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -143,7 +163,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? Certificate { get; set; }
 
         /// <summary>
-        /// The default authentication method used for APNs. 
+        /// The default authentication method used for APNs.
         /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
         /// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -170,7 +190,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? TeamId { get; set; }
 
         /// <summary>
-        /// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+        /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
         /// </summary>
         [Input("tokenKey")]
         public Input<string>? TokenKey { get; set; }
@@ -207,7 +227,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? Certificate { get; set; }
 
         /// <summary>
-        /// The default authentication method used for APNs. 
+        /// The default authentication method used for APNs.
         /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
         /// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -234,7 +254,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? TeamId { get; set; }
 
         /// <summary>
-        /// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+        /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
         /// </summary>
         [Input("tokenKey")]
         public Input<string>? TokenKey { get; set; }

@@ -4,12 +4,54 @@
 package route53
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `route53.Zone` provides details about a specific Route 53 Hosted Zone.
 //
 // This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
+//
+// ## Example Usage
+//
+// The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "test.com."
+// 		opt1 := true
+// 		selected, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
+// 			Name:        &opt0,
+// 			PrivateZone: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
+// 			ZoneId: pulumi.String(selected.ZoneId),
+// 			Name:   pulumi.String(fmt.Sprintf("%v%v", "www.", selected.Name)),
+// 			Type:   pulumi.String("A"),
+// 			Ttl:    pulumi.Int(300),
+// 			Records: pulumi.StringArray{
+// 				pulumi.String("10.0.0.1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.InvokeOption) (*LookupZoneResult, error) {
 	var rv LookupZoneResult
 	err := ctx.Invoke("aws:route53/getZone:getZone", args, &rv, opts...)
@@ -27,8 +69,8 @@ type LookupZoneArgs struct {
 	PrivateZone *bool `pulumi:"privateZone"`
 	// The number of Record Set in the Hosted Zone.
 	ResourceRecordSetCount *int `pulumi:"resourceRecordSetCount"`
-	// Used with `name` field. A mapping of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+	Tags map[string]string `pulumi:"tags"`
 	// Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
 	VpcId *string `pulumi:"vpcId"`
 	// The Hosted Zone id of the desired Hosted Zone.
@@ -41,7 +83,7 @@ type LookupZoneResult struct {
 	CallerReference string `pulumi:"callerReference"`
 	// The comment field of the Hosted Zone.
 	Comment string `pulumi:"comment"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
 	LinkedServiceDescription string `pulumi:"linkedServiceDescription"`
@@ -52,8 +94,8 @@ type LookupZoneResult struct {
 	NameServers []string `pulumi:"nameServers"`
 	PrivateZone *bool    `pulumi:"privateZone"`
 	// The number of Record Set in the Hosted Zone.
-	ResourceRecordSetCount int                    `pulumi:"resourceRecordSetCount"`
-	Tags                   map[string]interface{} `pulumi:"tags"`
-	VpcId                  string                 `pulumi:"vpcId"`
-	ZoneId                 string                 `pulumi:"zoneId"`
+	ResourceRecordSetCount int               `pulumi:"resourceRecordSetCount"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VpcId                  string            `pulumi:"vpcId"`
+	ZoneId                 string            `pulumi:"zoneId"`
 }

@@ -4,25 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Web ACL Resource
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const ipset = new aws.waf.IpSet("ipset", {
- *     ipSetDescriptors: [{
- *         type: "IPV4",
- *         value: "192.0.7.0/24",
- *     }],
- * });
+ *
+ * const ipset = new aws.waf.IpSet("ipset", {ipSetDescriptors: [{
+ *     type: "IPV4",
+ *     value: "192.0.7.0/24",
+ * }]});
  * const wafrule = new aws.waf.Rule("wafrule", {
  *     metricName: "tfWAFRule",
  *     predicates: [{
@@ -30,12 +27,14 @@ import * as utilities from "../utilities";
  *         negated: false,
  *         type: "IPMatch",
  *     }],
- * }, {dependsOn: [ipset]});
+ * }, {
+ *     dependsOn: [ipset],
+ * });
  * const wafAcl = new aws.waf.WebAcl("wafAcl", {
+ *     metricName: "tfWebACL",
  *     defaultAction: {
  *         type: "ALLOW",
  *     },
- *     metricName: "tfWebACL",
  *     rules: [{
  *         action: {
  *             type: "BLOCK",
@@ -44,35 +43,36 @@ import * as utilities from "../utilities";
  *         ruleId: wafrule.id,
  *         type: "REGULAR",
  *     }],
- * }, {dependsOn: [ipset, wafrule]});
+ * }, {
+ *     dependsOn: [
+ *         ipset,
+ *         wafrule,
+ *     ],
+ * });
  * ```
- * 
  * ### Logging
- * 
+ *
+ * > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.waf.WebAcl("example", {
- *     // ... other configuration ...
- *     loggingConfiguration: {
- *         logDestination: aws_kinesis_firehose_delivery_stream_example.arn,
- *         redactedFields: {
- *             fieldToMatches: [
- *                 {
- *                     type: "URI",
- *                 },
- *                 {
- *                     data: "referer",
- *                     type: "HEADER",
- *                 },
- *             ],
- *         },
- *     },
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_web_acl.html.markdown.
+ * const example = new aws.waf.WebAcl("example", {loggingConfiguration: {
+ *     logDestination: aws_kinesis_firehose_delivery_stream.example.arn,
+ *     redactedFields: {
+ *         fieldToMatches: [
+ *             {
+ *                 type: "URI",
+ *             },
+ *             {
+ *                 data: "referer",
+ *                 type: "HEADER",
+ *             },
+ *         ],
+ *     },
+ * }});
+ * ```
  */
 export class WebAcl extends pulumi.CustomResource {
     /**
@@ -82,6 +82,7 @@ export class WebAcl extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WebAclState, opts?: pulumi.CustomResourceOptions): WebAcl {
         return new WebAcl(name, <any>state, { ...opts, id: id });
@@ -126,9 +127,9 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly rules!: pulumi.Output<outputs.waf.WebAclRule[] | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a WebAcl resource with the given unique name, arguments, and options.
@@ -205,9 +206,9 @@ export interface WebAclState {
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.waf.WebAclRule>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -235,7 +236,7 @@ export interface WebAclArgs {
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.waf.WebAclRule>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

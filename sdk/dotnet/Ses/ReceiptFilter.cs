@@ -12,12 +12,34 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides an SES receipt filter resource
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_receipt_filter.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var filter = new Aws.Ses.ReceiptFilter("filter", new Aws.Ses.ReceiptFilterArgs
+    ///         {
+    ///             Cidr = "10.10.10.10",
+    ///             Policy = "Block",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ReceiptFilter : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The SES receipt filter ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// The IP address or address range to filter, in CIDR notation
         /// </summary>
@@ -45,7 +67,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReceiptFilter(string name, ReceiptFilterArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/receiptFilter:ReceiptFilter", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/receiptFilter:ReceiptFilter", name, args ?? new ReceiptFilterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -107,6 +129,12 @@ namespace Pulumi.Aws.Ses
 
     public sealed class ReceiptFilterState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The SES receipt filter ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The IP address or address range to filter, in CIDR notation
         /// </summary>

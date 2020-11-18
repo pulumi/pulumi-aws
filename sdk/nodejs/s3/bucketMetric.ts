@@ -4,45 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
- * 
+ *
  * ## Example Usage
- * 
  * ### Add metrics configuration for entire S3 bucket
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.s3.Bucket("example", {});
- * const exampleEntireBucket = new aws.s3.BucketMetric("example-entire-bucket", {
- *     bucket: example.bucket,
- * });
+ * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {bucket: example.bucket});
  * ```
- * 
  * ### Add metrics configuration with S3 bucket object filter
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.s3.Bucket("example", {});
- * const exampleFiltered = new aws.s3.BucketMetric("example-filtered", {
+ * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
  *     bucket: example.bucket,
  *     filter: {
  *         prefix: "documents/",
  *         tags: {
- *             class: "blue",
  *             priority: "high",
+ *             "class": "blue",
  *         },
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_metric.html.markdown.
  */
 export class BucketMetric extends pulumi.CustomResource {
     /**
@@ -52,6 +47,7 @@ export class BucketMetric extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BucketMetricState, opts?: pulumi.CustomResourceOptions): BucketMetric {
         return new BucketMetric(name, <any>state, { ...opts, id: id });

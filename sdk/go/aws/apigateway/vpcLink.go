@@ -7,10 +7,52 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an API Gateway VPC Link.
+//
+// > **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
+// To enable private integration for HTTP APIs, use the `Amazon API Gateway Version 2 VPC Link` resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/lb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
+// 			Internal:         pulumi.Bool(true),
+// 			LoadBalancerType: pulumi.String("network"),
+// 			SubnetMappings: lb.LoadBalancerSubnetMappingArray{
+// 				&lb.LoadBalancerSubnetMappingArgs{
+// 					SubnetId: pulumi.String("12345"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apigateway.NewVpcLink(ctx, "exampleVpcLink", &apigateway.VpcLinkArgs{
+// 			Description: pulumi.String("example description"),
+// 			TargetArn: pulumi.String(pulumi.String{
+// 				exampleLoadBalancer.Arn,
+// 			}),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VpcLink struct {
 	pulumi.CustomResourceState
 
@@ -19,8 +61,8 @@ type VpcLink struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name used to label and identify the VPC link.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
@@ -61,8 +103,8 @@ type vpcLinkState struct {
 	Description *string `pulumi:"description"`
 	// The name used to label and identify the VPC link.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn *string `pulumi:"targetArn"`
 }
@@ -73,8 +115,8 @@ type VpcLinkState struct {
 	Description pulumi.StringPtrInput
 	// The name used to label and identify the VPC link.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn pulumi.StringPtrInput
 }
@@ -88,8 +130,8 @@ type vpcLinkArgs struct {
 	Description *string `pulumi:"description"`
 	// The name used to label and identify the VPC link.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn string `pulumi:"targetArn"`
 }
@@ -100,8 +142,8 @@ type VpcLinkArgs struct {
 	Description pulumi.StringPtrInput
 	// The name used to label and identify the VPC link.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn pulumi.StringInput
 }

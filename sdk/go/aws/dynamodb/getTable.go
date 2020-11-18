@@ -4,10 +4,33 @@
 package dynamodb
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides information about a DynamoDB table.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/dynamodb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dynamodb.LookupTable(ctx, &dynamodb.LookupTableArgs{
+// 			Name: "tableName",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
 	var rv LookupTableResult
 	err := ctx.Invoke("aws:dynamodb/getTable:getTable", args, &rv, opts...)
@@ -22,7 +45,7 @@ type LookupTableArgs struct {
 	// The name of the DynamoDB table.
 	Name                 string                        `pulumi:"name"`
 	ServerSideEncryption *GetTableServerSideEncryption `pulumi:"serverSideEncryption"`
-	Tags                 map[string]interface{}        `pulumi:"tags"`
+	Tags                 map[string]string             `pulumi:"tags"`
 }
 
 // A collection of values returned by getTable.
@@ -32,19 +55,20 @@ type LookupTableResult struct {
 	BillingMode            string                         `pulumi:"billingMode"`
 	GlobalSecondaryIndexes []GetTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
 	HashKey                string                         `pulumi:"hashKey"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                    string                        `pulumi:"id"`
 	LocalSecondaryIndexes []GetTableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	Name                  string                        `pulumi:"name"`
 	PointInTimeRecovery   GetTablePointInTimeRecovery   `pulumi:"pointInTimeRecovery"`
 	RangeKey              string                        `pulumi:"rangeKey"`
 	ReadCapacity          int                           `pulumi:"readCapacity"`
+	Replicas              []GetTableReplica             `pulumi:"replicas"`
 	ServerSideEncryption  GetTableServerSideEncryption  `pulumi:"serverSideEncryption"`
 	StreamArn             string                        `pulumi:"streamArn"`
 	StreamEnabled         bool                          `pulumi:"streamEnabled"`
 	StreamLabel           string                        `pulumi:"streamLabel"`
 	StreamViewType        string                        `pulumi:"streamViewType"`
-	Tags                  map[string]interface{}        `pulumi:"tags"`
+	Tags                  map[string]string             `pulumi:"tags"`
 	Ttl                   GetTableTtl                   `pulumi:"ttl"`
 	WriteCapacity         int                           `pulumi:"writeCapacity"`
 }

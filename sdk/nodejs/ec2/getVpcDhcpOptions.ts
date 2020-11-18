@@ -4,31 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Retrieve information about an EC2 DHCP Options configuration.
- * 
+ *
  * ## Example Usage
- * 
  * ### Lookup by DHCP Options ID
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ec2.getVpcDhcpOptions({
+ *
+ * const example = pulumi.output(aws.ec2.getVpcDhcpOptions({
  *     dhcpOptionsId: "dopts-12345678",
- * });
+ * }, { async: true }));
  * ```
- * 
  * ### Lookup by Filter
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ec2.getVpcDhcpOptions({
+ *
+ * const example = pulumi.output(aws.ec2.getVpcDhcpOptions({
  *     filters: [
  *         {
  *             name: "key",
@@ -39,12 +38,10 @@ import * as utilities from "../utilities";
  *             values: ["example.com"],
  *         },
  *     ],
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
  */
-export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcDhcpOptionsResult> & GetVpcDhcpOptionsResult {
+export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcDhcpOptionsResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -53,13 +50,11 @@ export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.In
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetVpcDhcpOptionsResult> = pulumi.runtime.invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", {
+    return pulumi.runtime.invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", {
         "dhcpOptionsId": args.dhcpOptionsId,
         "filters": args.filters,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -75,15 +70,19 @@ export interface GetVpcDhcpOptionsArgs {
      */
     readonly filters?: inputs.ec2.GetVpcDhcpOptionsFilter[];
     /**
-     * A mapping of tags assigned to the resource.
+     * A map of tags assigned to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
  * A collection of values returned by getVpcDhcpOptions.
  */
 export interface GetVpcDhcpOptionsResult {
+    /**
+     * The ARN of the DHCP Options Set.
+     */
+    readonly arn: string;
     /**
      * EC2 DHCP Options ID
      */
@@ -97,6 +96,10 @@ export interface GetVpcDhcpOptionsResult {
      */
     readonly domainNameServers: string[];
     readonly filters?: outputs.ec2.GetVpcDhcpOptionsFilter[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     /**
      * List of NETBIOS name servers.
      */
@@ -114,11 +117,7 @@ export interface GetVpcDhcpOptionsResult {
      */
     readonly ownerId: string;
     /**
-     * A mapping of tags assigned to the resource.
+     * A map of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
+    readonly tags: {[key: string]: string};
 }

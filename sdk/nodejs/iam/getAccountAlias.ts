@@ -2,28 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The IAM Account Alias data source allows access to the account alias
  * for the effective account in which this provider is working.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const current = aws.iam.getAccountAlias();
- * 
- * export const accountId = current.accountAlias;
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_account_alias.html.markdown.
+ * const current = aws.iam.getAccountAlias({});
+ * export const accountId = current.then(current => current.accountAlias);
+ * ```
  */
-export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccountAliasResult> & GetAccountAliasResult {
+export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccountAliasResult> {
     if (!opts) {
         opts = {}
     }
@@ -31,10 +29,8 @@ export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccount
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAccountAliasResult> = pulumi.runtime.invoke("aws:iam/getAccountAlias:getAccountAlias", {
+    return pulumi.runtime.invoke("aws:iam/getAccountAlias:getAccountAlias", {
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -46,7 +42,7 @@ export interface GetAccountAliasResult {
      */
     readonly accountAlias: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

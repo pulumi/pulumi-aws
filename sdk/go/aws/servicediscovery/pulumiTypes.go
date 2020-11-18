@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type ServiceDnsConfig struct {
@@ -19,6 +19,10 @@ type ServiceDnsConfig struct {
 	RoutingPolicy *string `pulumi:"routingPolicy"`
 }
 
+// ServiceDnsConfigInput is an input type that accepts ServiceDnsConfigArgs and ServiceDnsConfigOutput values.
+// You can construct a concrete instance of `ServiceDnsConfigInput` via:
+//
+//          ServiceDnsConfigArgs{...}
 type ServiceDnsConfigInput interface {
 	pulumi.Input
 
@@ -55,6 +59,14 @@ func (i ServiceDnsConfigArgs) ToServiceDnsConfigPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsConfigOutput).ToServiceDnsConfigPtrOutputWithContext(ctx)
 }
 
+// ServiceDnsConfigPtrInput is an input type that accepts ServiceDnsConfigArgs, ServiceDnsConfigPtr and ServiceDnsConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceDnsConfigPtrInput` via:
+//
+//          ServiceDnsConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type ServiceDnsConfigPtrInput interface {
 	pulumi.Input
 
@@ -139,17 +151,32 @@ func (o ServiceDnsConfigPtrOutput) Elem() ServiceDnsConfigOutput {
 
 // An array that contains one DnsRecord object for each resource record set.
 func (o ServiceDnsConfigPtrOutput) DnsRecords() ServiceDnsConfigDnsRecordArrayOutput {
-	return o.ApplyT(func(v ServiceDnsConfig) []ServiceDnsConfigDnsRecord { return v.DnsRecords }).(ServiceDnsConfigDnsRecordArrayOutput)
+	return o.ApplyT(func(v *ServiceDnsConfig) []ServiceDnsConfigDnsRecord {
+		if v == nil {
+			return nil
+		}
+		return v.DnsRecords
+	}).(ServiceDnsConfigDnsRecordArrayOutput)
 }
 
 // The ID of the namespace to use for DNS configuration.
-func (o ServiceDnsConfigPtrOutput) NamespaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceDnsConfig) string { return v.NamespaceId }).(pulumi.StringOutput)
+func (o ServiceDnsConfigPtrOutput) NamespaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDnsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NamespaceId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
 func (o ServiceDnsConfigPtrOutput) RoutingPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceDnsConfig) *string { return v.RoutingPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceDnsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingPolicy
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceDnsConfigDnsRecord struct {
@@ -159,6 +186,10 @@ type ServiceDnsConfigDnsRecord struct {
 	Type string `pulumi:"type"`
 }
 
+// ServiceDnsConfigDnsRecordInput is an input type that accepts ServiceDnsConfigDnsRecordArgs and ServiceDnsConfigDnsRecordOutput values.
+// You can construct a concrete instance of `ServiceDnsConfigDnsRecordInput` via:
+//
+//          ServiceDnsConfigDnsRecordArgs{...}
 type ServiceDnsConfigDnsRecordInput interface {
 	pulumi.Input
 
@@ -185,6 +216,10 @@ func (i ServiceDnsConfigDnsRecordArgs) ToServiceDnsConfigDnsRecordOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsConfigDnsRecordOutput)
 }
 
+// ServiceDnsConfigDnsRecordArrayInput is an input type that accepts ServiceDnsConfigDnsRecordArray and ServiceDnsConfigDnsRecordArrayOutput values.
+// You can construct a concrete instance of `ServiceDnsConfigDnsRecordArrayInput` via:
+//
+//          ServiceDnsConfigDnsRecordArray{ ServiceDnsConfigDnsRecordArgs{...} }
 type ServiceDnsConfigDnsRecordArrayInput interface {
 	pulumi.Input
 
@@ -259,6 +294,10 @@ type ServiceHealthCheckConfig struct {
 	Type *string `pulumi:"type"`
 }
 
+// ServiceHealthCheckConfigInput is an input type that accepts ServiceHealthCheckConfigArgs and ServiceHealthCheckConfigOutput values.
+// You can construct a concrete instance of `ServiceHealthCheckConfigInput` via:
+//
+//          ServiceHealthCheckConfigArgs{...}
 type ServiceHealthCheckConfigInput interface {
 	pulumi.Input
 
@@ -295,6 +334,14 @@ func (i ServiceHealthCheckConfigArgs) ToServiceHealthCheckConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHealthCheckConfigOutput).ToServiceHealthCheckConfigPtrOutputWithContext(ctx)
 }
 
+// ServiceHealthCheckConfigPtrInput is an input type that accepts ServiceHealthCheckConfigArgs, ServiceHealthCheckConfigPtr and ServiceHealthCheckConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceHealthCheckConfigPtrInput` via:
+//
+//          ServiceHealthCheckConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type ServiceHealthCheckConfigPtrInput interface {
 	pulumi.Input
 
@@ -379,17 +426,32 @@ func (o ServiceHealthCheckConfigPtrOutput) Elem() ServiceHealthCheckConfigOutput
 
 // The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
 func (o ServiceHealthCheckConfigPtrOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceHealthCheckConfig) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ServiceHealthCheckConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureThreshold
+	}).(pulumi.IntPtrOutput)
 }
 
 // The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
 func (o ServiceHealthCheckConfigPtrOutput) ResourcePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceHealthCheckConfig) *string { return v.ResourcePath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceHealthCheckConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourcePath
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
 func (o ServiceHealthCheckConfigPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceHealthCheckConfig) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceHealthCheckConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceHealthCheckCustomConfig struct {
@@ -397,6 +459,10 @@ type ServiceHealthCheckCustomConfig struct {
 	FailureThreshold *int `pulumi:"failureThreshold"`
 }
 
+// ServiceHealthCheckCustomConfigInput is an input type that accepts ServiceHealthCheckCustomConfigArgs and ServiceHealthCheckCustomConfigOutput values.
+// You can construct a concrete instance of `ServiceHealthCheckCustomConfigInput` via:
+//
+//          ServiceHealthCheckCustomConfigArgs{...}
 type ServiceHealthCheckCustomConfigInput interface {
 	pulumi.Input
 
@@ -429,6 +495,14 @@ func (i ServiceHealthCheckCustomConfigArgs) ToServiceHealthCheckCustomConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHealthCheckCustomConfigOutput).ToServiceHealthCheckCustomConfigPtrOutputWithContext(ctx)
 }
 
+// ServiceHealthCheckCustomConfigPtrInput is an input type that accepts ServiceHealthCheckCustomConfigArgs, ServiceHealthCheckCustomConfigPtr and ServiceHealthCheckCustomConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceHealthCheckCustomConfigPtrInput` via:
+//
+//          ServiceHealthCheckCustomConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type ServiceHealthCheckCustomConfigPtrInput interface {
 	pulumi.Input
 
@@ -503,7 +577,12 @@ func (o ServiceHealthCheckCustomConfigPtrOutput) Elem() ServiceHealthCheckCustom
 
 // The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
 func (o ServiceHealthCheckCustomConfigPtrOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceHealthCheckCustomConfig) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ServiceHealthCheckCustomConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureThreshold
+	}).(pulumi.IntPtrOutput)
 }
 
 func init() {

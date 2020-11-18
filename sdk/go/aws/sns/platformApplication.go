@@ -7,10 +7,59 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an SNS platform application resource
+//
+// ## Example Usage
+// ### Apple Push Notification Service (APNS)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sns.NewPlatformApplication(ctx, "apnsApplication", &sns.PlatformApplicationArgs{
+// 			Platform:           pulumi.String("APNS"),
+// 			PlatformCredential: pulumi.String("<APNS PRIVATE KEY>"),
+// 			PlatformPrincipal:  pulumi.String("<APNS CERTIFICATE>"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Google Cloud Messaging (GCM)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sns.NewPlatformApplication(ctx, "gcmApplication", &sns.PlatformApplicationArgs{
+// 			Platform:           pulumi.String("GCM"),
+// 			PlatformCredential: pulumi.String("<GCM API KEY>"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type PlatformApplication struct {
 	pulumi.CustomResourceState
 
@@ -28,11 +77,11 @@ type PlatformApplication struct {
 	FailureFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"failureFeedbackRoleArn"`
 	// The friendly name for the SNS platform application
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The platform that the app is registered with. See [Platform][1] for supported platforms.
+	// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
 	Platform pulumi.StringOutput `pulumi:"platform"`
-	// Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+	// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformCredential pulumi.StringOutput `pulumi:"platformCredential"`
-	// Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal pulumi.StringPtrOutput `pulumi:"platformPrincipal"`
 	// The IAM role permitted to receive success feedback for this application.
 	SuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"successFeedbackRoleArn"`
@@ -88,11 +137,11 @@ type platformApplicationState struct {
 	FailureFeedbackRoleArn *string `pulumi:"failureFeedbackRoleArn"`
 	// The friendly name for the SNS platform application
 	Name *string `pulumi:"name"`
-	// The platform that the app is registered with. See [Platform][1] for supported platforms.
+	// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
 	Platform *string `pulumi:"platform"`
-	// Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+	// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformCredential *string `pulumi:"platformCredential"`
-	// Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal *string `pulumi:"platformPrincipal"`
 	// The IAM role permitted to receive success feedback for this application.
 	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
@@ -115,11 +164,11 @@ type PlatformApplicationState struct {
 	FailureFeedbackRoleArn pulumi.StringPtrInput
 	// The friendly name for the SNS platform application
 	Name pulumi.StringPtrInput
-	// The platform that the app is registered with. See [Platform][1] for supported platforms.
+	// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
 	Platform pulumi.StringPtrInput
-	// Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+	// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformCredential pulumi.StringPtrInput
-	// Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal pulumi.StringPtrInput
 	// The IAM role permitted to receive success feedback for this application.
 	SuccessFeedbackRoleArn pulumi.StringPtrInput
@@ -144,11 +193,11 @@ type platformApplicationArgs struct {
 	FailureFeedbackRoleArn *string `pulumi:"failureFeedbackRoleArn"`
 	// The friendly name for the SNS platform application
 	Name *string `pulumi:"name"`
-	// The platform that the app is registered with. See [Platform][1] for supported platforms.
+	// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
 	Platform string `pulumi:"platform"`
-	// Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+	// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformCredential string `pulumi:"platformCredential"`
-	// Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal *string `pulumi:"platformPrincipal"`
 	// The IAM role permitted to receive success feedback for this application.
 	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
@@ -170,11 +219,11 @@ type PlatformApplicationArgs struct {
 	FailureFeedbackRoleArn pulumi.StringPtrInput
 	// The friendly name for the SNS platform application
 	Name pulumi.StringPtrInput
-	// The platform that the app is registered with. See [Platform][1] for supported platforms.
+	// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
 	Platform pulumi.StringInput
-	// Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+	// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformCredential pulumi.StringInput
-	// Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal pulumi.StringPtrInput
 	// The IAM role permitted to receive success feedback for this application.
 	SuccessFeedbackRoleArn pulumi.StringPtrInput

@@ -7,14 +7,100 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
+//
+// ## Example Usage
+// ### Add inventory configuration
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testBucket, err := s3.NewBucket(ctx, "testBucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		inventory, err := s3.NewBucket(ctx, "inventory", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewInventory(ctx, "testInventory", &s3.InventoryArgs{
+// 			Bucket:                 testBucket.ID(),
+// 			IncludedObjectVersions: pulumi.String("All"),
+// 			Schedule: &s3.InventoryScheduleArgs{
+// 				Frequency: pulumi.String("Daily"),
+// 			},
+// 			Destination: &s3.InventoryDestinationArgs{
+// 				Bucket: &s3.InventoryDestinationBucketArgs{
+// 					Format:    pulumi.String("ORC"),
+// 					BucketArn: inventory.Arn,
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Add inventory configuration with S3 bucket object prefix
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		test, err := s3.NewBucket(ctx, "test", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		inventory, err := s3.NewBucket(ctx, "inventory", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewInventory(ctx, "test_prefix", &s3.InventoryArgs{
+// 			Bucket:                 test.ID(),
+// 			IncludedObjectVersions: pulumi.String("All"),
+// 			Schedule: &s3.InventoryScheduleArgs{
+// 				Frequency: pulumi.String("Daily"),
+// 			},
+// 			Filter: &s3.InventoryFilterArgs{
+// 				Prefix: pulumi.String("documents/"),
+// 			},
+// 			Destination: &s3.InventoryDestinationArgs{
+// 				Bucket: &s3.InventoryDestinationBucketArgs{
+// 					Format:    pulumi.String("ORC"),
+// 					BucketArn: inventory.Arn,
+// 					Prefix:    pulumi.String("inventory"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Inventory struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket where the inventory configuration will be stored.
+	// The name of the source bucket that inventory lists the objects for.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestinationOutput `pulumi:"destination"`
@@ -73,7 +159,7 @@ func GetInventory(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Inventory resources.
 type inventoryState struct {
-	// The name of the bucket where the inventory configuration will be stored.
+	// The name of the source bucket that inventory lists the objects for.
 	Bucket *string `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
 	Destination *InventoryDestination `pulumi:"destination"`
@@ -93,7 +179,7 @@ type inventoryState struct {
 }
 
 type InventoryState struct {
-	// The name of the bucket where the inventory configuration will be stored.
+	// The name of the source bucket that inventory lists the objects for.
 	Bucket pulumi.StringPtrInput
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestinationPtrInput
@@ -117,7 +203,7 @@ func (InventoryState) ElementType() reflect.Type {
 }
 
 type inventoryArgs struct {
-	// The name of the bucket where the inventory configuration will be stored.
+	// The name of the source bucket that inventory lists the objects for.
 	Bucket string `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestination `pulumi:"destination"`
@@ -138,7 +224,7 @@ type inventoryArgs struct {
 
 // The set of arguments for constructing a Inventory resource.
 type InventoryArgs struct {
-	// The name of the bucket where the inventory configuration will be stored.
+	// The name of the source bucket that inventory lists the objects for.
 	Bucket pulumi.StringInput
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestinationInput

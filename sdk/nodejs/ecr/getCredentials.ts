@@ -4,9 +4,10 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialsResult> & GetCredentialsResult {
+export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialsResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,11 +15,9 @@ export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetCredentialsResult> = pulumi.runtime.invoke("aws:ecr/getCredentials:getCredentials", {
+    return pulumi.runtime.invoke("aws:ecr/getCredentials:getCredentials", {
         "registryId": args.registryId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -34,10 +33,10 @@ export interface GetCredentialsArgs {
 export interface GetCredentialsResult {
     readonly authorizationToken: string;
     readonly expiresAt: string;
-    readonly proxyEndpoint: string;
-    readonly registryId: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly proxyEndpoint: string;
+    readonly registryId: string;
 }

@@ -7,10 +7,37 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an OpsWorks permission resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/opsworks"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := opsworks.NewPermission(ctx, "myStackPermission", &opsworks.PermissionArgs{
+// 			AllowSsh:  pulumi.Bool(true),
+// 			AllowSudo: pulumi.Bool(true),
+// 			Level:     pulumi.String("iam_only"),
+// 			UserArn:   pulumi.Any(aws_iam_user.User.Arn),
+// 			StackId:   pulumi.Any(aws_opsworks_stack.Stack.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Permission struct {
 	pulumi.CustomResourceState
 

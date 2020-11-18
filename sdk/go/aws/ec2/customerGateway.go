@@ -7,19 +7,49 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewCustomerGateway(ctx, "main", &ec2.CustomerGatewayArgs{
+// 			BgpAsn:    pulumi.String("65000"),
+// 			IpAddress: pulumi.String("172.83.124.10"),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("main-customer-gateway"),
+// 			},
+// 			Type: pulumi.String("ipsec.1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type CustomerGateway struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the customer gateway.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
+	BgpAsn pulumi.StringOutput `pulumi:"bgpAsn"`
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -62,24 +92,28 @@ func GetCustomerGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomerGateway resources.
 type customerGatewayState struct {
+	// The ARN of the customer gateway.
+	Arn *string `pulumi:"arn"`
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn *int `pulumi:"bgpAsn"`
+	BgpAsn *string `pulumi:"bgpAsn"`
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
 	Type *string `pulumi:"type"`
 }
 
 type CustomerGatewayState struct {
+	// The ARN of the customer gateway.
+	Arn pulumi.StringPtrInput
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn pulumi.IntPtrInput
+	BgpAsn pulumi.StringPtrInput
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress pulumi.StringPtrInput
 	// Tags to apply to the gateway.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
 	Type pulumi.StringPtrInput
@@ -91,11 +125,11 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 
 type customerGatewayArgs struct {
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn int `pulumi:"bgpAsn"`
+	BgpAsn string `pulumi:"bgpAsn"`
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress string `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
 	Type string `pulumi:"type"`
@@ -104,11 +138,11 @@ type customerGatewayArgs struct {
 // The set of arguments for constructing a CustomerGateway resource.
 type CustomerGatewayArgs struct {
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn pulumi.IntInput
+	BgpAsn pulumi.StringInput
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress pulumi.StringInput
 	// Tags to apply to the gateway.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
 	Type pulumi.StringInput

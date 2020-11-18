@@ -4,28 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The Batch Job Queue data source allows access to details of a specific
  * job queue within AWS Batch.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testQueue = aws.batch.getJobQueue({
- *     name: "tf-test-batch-job-queue",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_job_queue.html.markdown.
+ * const test_queue = pulumi.output(aws.batch.getJobQueue({
+ *     name: "tf-test-batch-job-queue",
+ * }, { async: true }));
+ * ```
  */
-export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetJobQueueResult> & GetJobQueueResult {
+export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetJobQueueResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,11 +30,10 @@ export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetJobQueueResult> = pulumi.runtime.invoke("aws:batch/getJobQueue:getJobQueue", {
+    return pulumi.runtime.invoke("aws:batch/getJobQueue:getJobQueue", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -48,6 +44,10 @@ export interface GetJobQueueArgs {
      * The name of the job queue.
      */
     readonly name: string;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -65,6 +65,10 @@ export interface GetJobQueueResult {
      * * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
      */
     readonly computeEnvironmentOrders: outputs.batch.GetJobQueueComputeEnvironmentOrder[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The priority of the job queue. Job queues with a higher priority are evaluated first when
@@ -85,7 +89,7 @@ export interface GetJobQueueResult {
      */
     readonly statusReason: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * Key-value map of resource tags
      */
-    readonly id: string;
+    readonly tags: {[key: string]: string};
 }

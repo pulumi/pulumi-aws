@@ -4,51 +4,48 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an network ACL resource. You might set up network ACLs with rules similar
  * to your security groups in order to add an additional layer of security to your VPC.
- * 
+ *
  * > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
  * provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
  * defined in-line. At this time you cannot use a Network ACL with in-line rules
  * in conjunction with any Network ACL Rule resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ec2.NetworkAcl("main", {
+ *     vpcId: aws_vpc.main.id,
  *     egress: [{
+ *         protocol: "tcp",
+ *         ruleNo: 200,
  *         action: "allow",
  *         cidrBlock: "10.3.0.0/18",
  *         fromPort: 443,
- *         protocol: "tcp",
- *         ruleNo: 200,
  *         toPort: 443,
  *     }],
  *     ingress: [{
+ *         protocol: "tcp",
+ *         ruleNo: 100,
  *         action: "allow",
  *         cidrBlock: "10.3.0.0/18",
  *         fromPort: 80,
- *         protocol: "tcp",
- *         ruleNo: 100,
  *         toPort: 80,
  *     }],
  *     tags: {
  *         Name: "main",
  *     },
- *     vpcId: aws_vpc_main.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl.html.markdown.
  */
 export class NetworkAcl extends pulumi.CustomResource {
     /**
@@ -58,6 +55,7 @@ export class NetworkAcl extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NetworkAclState, opts?: pulumi.CustomResourceOptions): NetworkAcl {
         return new NetworkAcl(name, <any>state, { ...opts, id: id });
@@ -78,6 +76,10 @@ export class NetworkAcl extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the network ACL
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Specifies an egress rule. Parameters defined below.
      */
     public readonly egress!: pulumi.Output<outputs.ec2.NetworkAclEgress[]>;
@@ -96,7 +98,7 @@ export class NetworkAcl extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the associated VPC.
      */
@@ -114,6 +116,7 @@ export class NetworkAcl extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as NetworkAclState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["egress"] = state ? state.egress : undefined;
             inputs["ingress"] = state ? state.ingress : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
@@ -130,6 +133,7 @@ export class NetworkAcl extends pulumi.CustomResource {
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
         if (!opts) {
@@ -147,6 +151,10 @@ export class NetworkAcl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetworkAcl resources.
  */
 export interface NetworkAclState {
+    /**
+     * The ARN of the network ACL
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Specifies an egress rule. Parameters defined below.
      */
@@ -166,7 +174,7 @@ export interface NetworkAclState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the associated VPC.
      */
@@ -192,7 +200,7 @@ export interface NetworkAclArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the associated VPC.
      */

@@ -4,37 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the [`aws.secretsmanager.SecretVersion` resource](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret_version.html).
- * 
+ * Provides a resource to manage AWS Secrets Manager secret metadata. To manage secret rotation, see the `aws.secretsmanager.SecretRotation` resource. To manage a secret value, see the `aws.secretsmanager.SecretVersion` resource.
+ *
  * ## Example Usage
- * 
  * ### Basic
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.secretsmanager.Secret("example", {});
  * ```
- * 
  * ### Rotation Configuration
- * 
+ *
+ * To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g. RDS) or deploying a custom Lambda function.
+ *
+ * > **NOTE:** Configuring rotation causes the secret to rotate once as soon as you store the secret. Before you do this, you must ensure that all of your applications that use the credentials stored in the secret are updated to retrieve the secret from AWS Secrets Manager. The old credentials might no longer be usable after the initial rotation and any applications that you fail to update will break as soon as the old credentials are no longer valid.
+ *
+ * > **NOTE:** If you cancel a rotation that is in progress (by removing the `rotation` configuration), it can leave the VersionStage labels in an unexpected state. Depending on what step of the rotation was in progress, you might need to remove the staging label AWSPENDING from the partially created version, specified by the SecretVersionId response value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can do by removing all staging labels from the new version's VersionStage field.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const rotationExample = new aws.secretsmanager.Secret("rotation-example", {
- *     rotationLambdaArn: aws_lambda_function_example.arn,
+ *
+ * const rotation_example = new aws.secretsmanager.Secret("rotation-example", {
+ *     rotationLambdaArn: aws_lambda_function.example.arn,
  *     rotationRules: {
  *         automaticallyAfterDays: 7,
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/secretsmanager_secret.html.markdown.
  */
 export class Secret extends pulumi.CustomResource {
     /**
@@ -44,6 +47,7 @@ export class Secret extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SecretState, opts?: pulumi.CustomResourceOptions): Secret {
         return new Secret(name, <any>state, { ...opts, id: id });
@@ -72,7 +76,7 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the ARN or alias of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+     * Specifies the ARN or Id of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
@@ -86,27 +90,33 @@ export class Secret extends pulumi.CustomResource {
     /**
      * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
      */
-    public readonly policy!: pulumi.Output<string | undefined>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
      */
     public readonly recoveryWindowInDays!: pulumi.Output<number | undefined>;
     /**
      * Specifies whether automatic rotation is enabled for this secret.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
     public /*out*/ readonly rotationEnabled!: pulumi.Output<boolean>;
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret.
+     * Specifies the ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
-    public readonly rotationLambdaArn!: pulumi.Output<string | undefined>;
+    public readonly rotationLambdaArn!: pulumi.Output<string>;
     /**
-     * A structure that defines the rotation configuration for this secret. Defined below.
+     * A structure that defines the rotation configuration for this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
-    public readonly rotationRules!: pulumi.Output<outputs.secretsmanager.SecretRotationRules | undefined>;
+    public readonly rotationRules!: pulumi.Output<outputs.secretsmanager.SecretRotationRules>;
     /**
      * Specifies a key-value map of user-defined tags that are attached to the secret.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Secret resource with the given unique name, arguments, and options.
@@ -169,7 +179,7 @@ export interface SecretState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Specifies the ARN or alias of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+     * Specifies the ARN or Id of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
@@ -190,20 +200,26 @@ export interface SecretState {
     readonly recoveryWindowInDays?: pulumi.Input<number>;
     /**
      * Specifies whether automatic rotation is enabled for this secret.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
     readonly rotationEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret.
+     * Specifies the ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
     readonly rotationLambdaArn?: pulumi.Input<string>;
     /**
-     * A structure that defines the rotation configuration for this secret. Defined below.
+     * A structure that defines the rotation configuration for this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
     readonly rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRules>;
     /**
      * Specifies a key-value map of user-defined tags that are attached to the secret.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -215,7 +231,7 @@ export interface SecretArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Specifies the ARN or alias of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+     * Specifies the ARN or Id of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
@@ -235,15 +251,19 @@ export interface SecretArgs {
      */
     readonly recoveryWindowInDays?: pulumi.Input<number>;
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret.
+     * Specifies the ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
     readonly rotationLambdaArn?: pulumi.Input<string>;
     /**
-     * A structure that defines the rotation configuration for this secret. Defined below.
+     * A structure that defines the rotation configuration for this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
     readonly rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRules>;
     /**
      * Specifies a key-value map of user-defined tags that are attached to the secret.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

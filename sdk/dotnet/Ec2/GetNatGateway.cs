@@ -9,43 +9,75 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Provides details about a specific Nat Gateway.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/nat_gateway.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetNatGateway.InvokeAsync() instead")]
-        public static Task<GetNatGatewayResult> GetNatGateway(GetNatGatewayArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("aws:ec2/getNatGateway:getNatGateway", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetNatGateway
     {
         /// <summary>
         /// Provides details about a specific Nat Gateway.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/nat_gateway.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+        ///         var @default = Output.Create(Aws.Ec2.GetNatGateway.InvokeAsync(new Aws.Ec2.GetNatGatewayArgs
+        ///         {
+        ///             SubnetId = aws_subnet.Public.Id,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// Usage with tags:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var @default = Output.Create(Aws.Ec2.GetNatGateway.InvokeAsync(new Aws.Ec2.GetNatGatewayArgs
+        ///         {
+        ///             SubnetId = aws_subnet.Public.Id,
+        ///             Tags = 
+        ///             {
+        ///                 { "Name", "gw NAT" },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("aws:ec2/getNatGateway:getNatGateway", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("aws:ec2/getNatGateway:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithVersion());
     }
+
 
     public sealed class GetNatGatewayArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetNatGatewayFiltersArgs>? _filters;
+        private List<Inputs.GetNatGatewayFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetNatGatewayFiltersArgs> Filters
+        public List<Inputs.GetNatGatewayFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetNatGatewayFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetNatGatewayFilterArgs>());
             set => _filters = value;
         }
 
@@ -68,15 +100,15 @@ namespace Pulumi.Aws.Ec2
         public string? SubnetId { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// A map of tags, each pair of which must exactly match
         /// a pair on the desired Nat Gateway.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -91,6 +123,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetNatGatewayResult
     {
@@ -98,7 +131,7 @@ namespace Pulumi.Aws.Ec2
         /// The Id of the EIP allocated to the selected Nat Gateway.
         /// </summary>
         public readonly string AllocationId;
-        public readonly ImmutableArray<Outputs.GetNatGatewayFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetNatGatewayFilterResult> Filters;
         public readonly string Id;
         /// <summary>
         /// The Id of the ENI allocated to the selected Nat Gateway.
@@ -114,20 +147,29 @@ namespace Pulumi.Aws.Ec2
         public readonly string PublicIp;
         public readonly string State;
         public readonly string SubnetId;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VpcId;
 
         [OutputConstructor]
         private GetNatGatewayResult(
             string allocationId,
-            ImmutableArray<Outputs.GetNatGatewayFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetNatGatewayFilterResult> filters,
+
             string id,
+
             string networkInterfaceId,
+
             string privateIp,
+
             string publicIp,
+
             string state,
+
             string subnetId,
-            ImmutableDictionary<string, object> tags,
+
+            ImmutableDictionary<string, string> tags,
+
             string vpcId)
         {
             AllocationId = allocationId;
@@ -141,64 +183,5 @@ namespace Pulumi.Aws.Ec2
             Tags = tags;
             VpcId = vpcId;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetNatGatewayFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// An Nat Gateway will be selected if any one of the given values matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetNatGatewayFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetNatGatewayFiltersResult
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// An Nat Gateway will be selected if any one of the given values matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetNatGatewayFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

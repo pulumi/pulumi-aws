@@ -4,22 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "./documents";
+import {PolicyDocument} from "./index";
 
 /**
  * Provides an IAM role.
- * 
- * > *NOTE:* If policies are attached to the role via the [`aws.iam.PolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the role `name` or `path`, the `forceDetachPolicies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`aws.iam.RolePolicyAttachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html) does not have this requirement.
- * 
+ *
+ * > *NOTE:* If policies are attached to the role via the `aws.iam.PolicyAttachment` resource and you are modifying the role `name` or `path`, the `forceDetachPolicies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.RolePolicyAttachment` resource (recommended) does not have this requirement.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testRole = new aws.iam.Role("testRole", {
+ *
+ * const testRole = new aws.iam.Role("test_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -39,29 +37,26 @@ import {PolicyDocument} from "./documents";
  *     },
  * });
  * ```
- * 
  * ## Example of Using Data Source for Assume Role Policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const instanceAssumeRolePolicy = aws.iam.getPolicyDocument({
+ *
+ * const instance-assume-role-policy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
- *             identifiers: ["ec2.amazonaws.com"],
  *             type: "Service",
+ *             identifiers: ["ec2.amazonaws.com"],
  *         }],
  *     }],
  * });
  * const instance = new aws.iam.Role("instance", {
- *     assumeRolePolicy: instance_assume_role_policy.json,
  *     path: "/system/",
+ *     assumeRolePolicy: instance_assume_role_policy.then(instance_assume_role_policy => instance_assume_role_policy.json),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role.html.markdown.
  */
 export class Role extends pulumi.CustomResource {
     /**
@@ -71,6 +66,7 @@ export class Role extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RoleState, opts?: pulumi.CustomResourceOptions): Role {
         return new Role(name, <any>state, { ...opts, id: id });
@@ -132,9 +128,9 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly permissionsBoundary!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of tags for the IAM role
+     * Key-value map of tags for the IAM role
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The stable and unique string identifying the role.
      */
@@ -239,9 +235,9 @@ export interface RoleState {
      */
     readonly permissionsBoundary?: pulumi.Input<string>;
     /**
-     * Key-value mapping of tags for the IAM role
+     * Key-value map of tags for the IAM role
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The stable and unique string identifying the role.
      */
@@ -286,7 +282,7 @@ export interface RoleArgs {
      */
     readonly permissionsBoundary?: pulumi.Input<string>;
     /**
-     * Key-value mapping of tags for the IAM role
+     * Key-value map of tags for the IAM role
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

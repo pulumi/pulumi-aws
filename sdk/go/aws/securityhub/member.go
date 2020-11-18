@@ -7,10 +7,41 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Security Hub member resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/securityhub"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = securityhub.NewMember(ctx, "exampleMember", &securityhub.MemberArgs{
+// 			AccountId: pulumi.String("123456789012"),
+// 			Email:     pulumi.String("example@example.com"),
+// 			Invite:    pulumi.Bool(true),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			exampleAccount,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Member struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +53,7 @@ type Member struct {
 	Invite pulumi.BoolPtrOutput `pulumi:"invite"`
 	// The ID of the master Security Hub AWS account.
 	MasterId pulumi.StringOutput `pulumi:"masterId"`
-	// The status of the relationship between the member account and its master account.
+	// The status of the member account relationship.
 	MemberStatus pulumi.StringOutput `pulumi:"memberStatus"`
 }
 
@@ -68,7 +99,7 @@ type memberState struct {
 	Invite *bool `pulumi:"invite"`
 	// The ID of the master Security Hub AWS account.
 	MasterId *string `pulumi:"masterId"`
-	// The status of the relationship between the member account and its master account.
+	// The status of the member account relationship.
 	MemberStatus *string `pulumi:"memberStatus"`
 }
 
@@ -81,7 +112,7 @@ type MemberState struct {
 	Invite pulumi.BoolPtrInput
 	// The ID of the master Security Hub AWS account.
 	MasterId pulumi.StringPtrInput
-	// The status of the relationship between the member account and its master account.
+	// The status of the member account relationship.
 	MemberStatus pulumi.StringPtrInput
 }
 

@@ -9,17 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecr
 {
-    public static partial class Invokes
-    {
-        [Obsolete("Use GetCredentials.InvokeAsync() instead")]
-        public static Task<GetCredentialsResult> GetCredentials(GetCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialsResult>("aws:ecr/getCredentials:getCredentials", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCredentials
     {
         public static Task<GetCredentialsResult> InvokeAsync(GetCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialsResult>("aws:ecr/getCredentials:getCredentials", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialsResult>("aws:ecr/getCredentials:getCredentials", args ?? new GetCredentialsArgs(), options.WithVersion());
     }
+
 
     public sealed class GetCredentialsArgs : Pulumi.InvokeArgs
     {
@@ -31,31 +26,36 @@ namespace Pulumi.Aws.Ecr
         }
     }
 
+
     [OutputType]
     public sealed class GetCredentialsResult
     {
         public readonly string AuthorizationToken;
         public readonly string ExpiresAt;
-        public readonly string ProxyEndpoint;
-        public readonly string RegistryId;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string ProxyEndpoint;
+        public readonly string RegistryId;
 
         [OutputConstructor]
         private GetCredentialsResult(
             string authorizationToken,
+
             string expiresAt,
+
+            string id,
+
             string proxyEndpoint,
-            string registryId,
-            string id)
+
+            string registryId)
         {
             AuthorizationToken = authorizationToken;
             ExpiresAt = expiresAt;
+            Id = id;
             ProxyEndpoint = proxyEndpoint;
             RegistryId = registryId;
-            Id = id;
         }
     }
 }

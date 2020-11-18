@@ -4,13 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages a revision of an ECS task definition to be used in `aws.ecs.Service`.
- * 
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_task_definition.html.markdown.
+ * ## Example Usage
+ * ### With AppMesh Proxy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * from "fs";
+ *
+ * const service = new aws.ecs.TaskDefinition("service", {
+ *     family: "service",
+ *     containerDefinitions: fs.readFileSync("task-definitions/service.json"),
+ *     proxyConfiguration: {
+ *         type: "APPMESH",
+ *         containerName: "applicationContainerName",
+ *         properties: {
+ *             AppPorts: "8080",
+ *             EgressIgnoredIPs: "169.254.170.2,169.254.169.254",
+ *             IgnoredUID: "1337",
+ *             ProxyEgressPort: 15001,
+ *             ProxyIngressPort: 15000,
+ *         },
+ *     },
+ * });
+ * ```
  */
 export class TaskDefinition extends pulumi.CustomResource {
     /**
@@ -20,6 +43,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TaskDefinitionState, opts?: pulumi.CustomResourceOptions): TaskDefinition {
         return new TaskDefinition(name, <any>state, { ...opts, id: id });
@@ -44,12 +68,13 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A list of valid [container definitions]
-     * (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-     * single valid JSON document. Please note that you should only provide values that are part of the container
-     * definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-     * (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-     * official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * A list of valid [container
+     * definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+     * provided as a single valid JSON document. Please note that you should only
+     * provide values that are part of the container definition document. For a
+     * detailed description of what parameters are available, see the [Task Definition
+     * Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+     * section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */
     public readonly containerDefinitions!: pulumi.Output<string>;
     /**
@@ -101,9 +126,9 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public /*out*/ readonly revision!: pulumi.Output<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
@@ -188,12 +213,13 @@ export interface TaskDefinitionState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * A list of valid [container definitions]
-     * (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-     * single valid JSON document. Please note that you should only provide values that are part of the container
-     * definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-     * (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-     * official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * A list of valid [container
+     * definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+     * provided as a single valid JSON document. Please note that you should only
+     * provide values that are part of the container definition document. For a
+     * detailed description of what parameters are available, see the [Task Definition
+     * Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+     * section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */
     readonly containerDefinitions?: pulumi.Input<string>;
     /**
@@ -245,9 +271,9 @@ export interface TaskDefinitionState {
      */
     readonly revision?: pulumi.Input<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
@@ -263,12 +289,13 @@ export interface TaskDefinitionState {
  */
 export interface TaskDefinitionArgs {
     /**
-     * A list of valid [container definitions]
-     * (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-     * single valid JSON document. Please note that you should only provide values that are part of the container
-     * definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-     * (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-     * official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * A list of valid [container
+     * definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+     * provided as a single valid JSON document. Please note that you should only
+     * provide values that are part of the container definition document. For a
+     * detailed description of what parameters are available, see the [Task Definition
+     * Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+     * section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */
     readonly containerDefinitions: pulumi.Input<string>;
     /**
@@ -316,9 +343,9 @@ export interface TaskDefinitionArgs {
      */
     readonly requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */

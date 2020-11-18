@@ -2,35 +2,29 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an [EC2 key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) resource. A key pair is used to control login access to EC2 instances.
- * 
+ *
  * Currently this resource requires an existing user-supplied key pair. This key pair's public key will be registered with AWS to allow logging-in to EC2 instances.
- * 
+ *
  * When importing an existing key pair the public key material may be in any format supported by AWS. Supported formats (per the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws)) are:
- * 
+ *
  * * OpenSSH public key format (the format in ~/.ssh/authorized_keys)
  * * Base64 encoded DER format
  * * SSH public key file format as specified in RFC4716
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const deployer = new aws.ec2.KeyPair("deployer", {
  *     publicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 email@example.com",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/key_pair.html.markdown.
  */
 export class KeyPair extends pulumi.CustomResource {
     /**
@@ -40,6 +34,7 @@ export class KeyPair extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: KeyPairState, opts?: pulumi.CustomResourceOptions): KeyPair {
         return new KeyPair(name, <any>state, { ...opts, id: id });
@@ -59,6 +54,10 @@ export class KeyPair extends pulumi.CustomResource {
         return obj['__pulumiType'] === KeyPair.__pulumiType;
     }
 
+    /**
+     * The key pair ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      */
@@ -80,9 +79,9 @@ export class KeyPair extends pulumi.CustomResource {
      */
     public readonly publicKey!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a KeyPair resource with the given unique name, arguments, and options.
@@ -96,6 +95,7 @@ export class KeyPair extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as KeyPairState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["fingerprint"] = state ? state.fingerprint : undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["keyNamePrefix"] = state ? state.keyNamePrefix : undefined;
@@ -111,6 +111,7 @@ export class KeyPair extends pulumi.CustomResource {
             inputs["keyNamePrefix"] = args ? args.keyNamePrefix : undefined;
             inputs["publicKey"] = args ? args.publicKey : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["fingerprint"] = undefined /*out*/;
             inputs["keyPairId"] = undefined /*out*/;
         }
@@ -129,6 +130,10 @@ export class KeyPair extends pulumi.CustomResource {
  * Input properties used for looking up and filtering KeyPair resources.
  */
 export interface KeyPairState {
+    /**
+     * The key pair ARN.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      */
@@ -150,9 +155,9 @@ export interface KeyPairState {
      */
     readonly publicKey?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -172,7 +177,7 @@ export interface KeyPairArgs {
      */
     readonly publicKey: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

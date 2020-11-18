@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type AppCampaignHook struct {
@@ -19,6 +19,10 @@ type AppCampaignHook struct {
 	WebUrl *string `pulumi:"webUrl"`
 }
 
+// AppCampaignHookInput is an input type that accepts AppCampaignHookArgs and AppCampaignHookOutput values.
+// You can construct a concrete instance of `AppCampaignHookInput` via:
+//
+//          AppCampaignHookArgs{...}
 type AppCampaignHookInput interface {
 	pulumi.Input
 
@@ -55,6 +59,14 @@ func (i AppCampaignHookArgs) ToAppCampaignHookPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AppCampaignHookOutput).ToAppCampaignHookPtrOutputWithContext(ctx)
 }
 
+// AppCampaignHookPtrInput is an input type that accepts AppCampaignHookArgs, AppCampaignHookPtr and AppCampaignHookPtrOutput values.
+// You can construct a concrete instance of `AppCampaignHookPtrInput` via:
+//
+//          AppCampaignHookArgs{...}
+//
+//  or:
+//
+//          nil
 type AppCampaignHookPtrInput interface {
 	pulumi.Input
 
@@ -139,17 +151,32 @@ func (o AppCampaignHookPtrOutput) Elem() AppCampaignHookOutput {
 
 // Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
 func (o AppCampaignHookPtrOutput) LambdaFunctionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppCampaignHook) *string { return v.LambdaFunctionName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AppCampaignHook) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunctionName
+	}).(pulumi.StringPtrOutput)
 }
 
 // What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
 func (o AppCampaignHookPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppCampaignHook) *string { return v.Mode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AppCampaignHook) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
 }
 
 // Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
 func (o AppCampaignHookPtrOutput) WebUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppCampaignHook) *string { return v.WebUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AppCampaignHook) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebUrl
+	}).(pulumi.StringPtrOutput)
 }
 
 type AppLimits struct {
@@ -163,6 +190,10 @@ type AppLimits struct {
 	Total *int `pulumi:"total"`
 }
 
+// AppLimitsInput is an input type that accepts AppLimitsArgs and AppLimitsOutput values.
+// You can construct a concrete instance of `AppLimitsInput` via:
+//
+//          AppLimitsArgs{...}
 type AppLimitsInput interface {
 	pulumi.Input
 
@@ -201,6 +232,14 @@ func (i AppLimitsArgs) ToAppLimitsPtrOutputWithContext(ctx context.Context) AppL
 	return pulumi.ToOutputWithContext(ctx, i).(AppLimitsOutput).ToAppLimitsPtrOutputWithContext(ctx)
 }
 
+// AppLimitsPtrInput is an input type that accepts AppLimitsArgs, AppLimitsPtr and AppLimitsPtrOutput values.
+// You can construct a concrete instance of `AppLimitsPtrInput` via:
+//
+//          AppLimitsArgs{...}
+//
+//  or:
+//
+//          nil
 type AppLimitsPtrInput interface {
 	pulumi.Input
 
@@ -290,22 +329,42 @@ func (o AppLimitsPtrOutput) Elem() AppLimitsOutput {
 
 // The maximum number of messages that the campaign can send daily.
 func (o AppLimitsPtrOutput) Daily() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AppLimits) *int { return v.Daily }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *AppLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Daily
+	}).(pulumi.IntPtrOutput)
 }
 
 // The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
 func (o AppLimitsPtrOutput) MaximumDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AppLimits) *int { return v.MaximumDuration }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *AppLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumDuration
+	}).(pulumi.IntPtrOutput)
 }
 
 // The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
 func (o AppLimitsPtrOutput) MessagesPerSecond() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AppLimits) *int { return v.MessagesPerSecond }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *AppLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MessagesPerSecond
+	}).(pulumi.IntPtrOutput)
 }
 
 // The maximum total number of messages that the campaign can send.
 func (o AppLimitsPtrOutput) Total() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AppLimits) *int { return v.Total }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *AppLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Total
+	}).(pulumi.IntPtrOutput)
 }
 
 type AppQuietTime struct {
@@ -315,6 +374,10 @@ type AppQuietTime struct {
 	Start *string `pulumi:"start"`
 }
 
+// AppQuietTimeInput is an input type that accepts AppQuietTimeArgs and AppQuietTimeOutput values.
+// You can construct a concrete instance of `AppQuietTimeInput` via:
+//
+//          AppQuietTimeArgs{...}
 type AppQuietTimeInput interface {
 	pulumi.Input
 
@@ -349,6 +412,14 @@ func (i AppQuietTimeArgs) ToAppQuietTimePtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AppQuietTimeOutput).ToAppQuietTimePtrOutputWithContext(ctx)
 }
 
+// AppQuietTimePtrInput is an input type that accepts AppQuietTimeArgs, AppQuietTimePtr and AppQuietTimePtrOutput values.
+// You can construct a concrete instance of `AppQuietTimePtrInput` via:
+//
+//          AppQuietTimeArgs{...}
+//
+//  or:
+//
+//          nil
 type AppQuietTimePtrInput interface {
 	pulumi.Input
 
@@ -428,12 +499,22 @@ func (o AppQuietTimePtrOutput) Elem() AppQuietTimeOutput {
 
 // The default end time for quiet time in ISO 8601 format. Required if `start` is set
 func (o AppQuietTimePtrOutput) End() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppQuietTime) *string { return v.End }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AppQuietTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.End
+	}).(pulumi.StringPtrOutput)
 }
 
 // The default start time for quiet time in ISO 8601 format. Required if `end` is set
 func (o AppQuietTimePtrOutput) Start() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppQuietTime) *string { return v.Start }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AppQuietTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

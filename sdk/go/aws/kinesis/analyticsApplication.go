@@ -6,13 +6,72 @@ package kinesis
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Kinesis Analytics Application resource. Kinesis Analytics is a managed service that
 // allows processing and analyzing streaming data using standard SQL.
 //
-// For more details, see the [Amazon Kinesis Analytics Documentation][1].
+// For more details, see the [Amazon Kinesis Analytics Documentation](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/what-is.html).
+//
+// > **Note:** To manage Amazon Kinesis Data Analytics for Apache Flink applications, use the [`kinesisanalyticsv2.Application`](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html) resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/kinesis"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testStream, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
+// 			ShardCount: pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = kinesis.NewAnalyticsApplication(ctx, "testApplication", &kinesis.AnalyticsApplicationArgs{
+// 			Inputs: &kinesis.AnalyticsApplicationInputsArgs{
+// 				NamePrefix: pulumi.String("test_prefix"),
+// 				KinesisStream: &kinesis.AnalyticsApplicationInputsKinesisStreamArgs{
+// 					ResourceArn: testStream.Arn,
+// 					RoleArn:     pulumi.Any(aws_iam_role.Test.Arn),
+// 				},
+// 				Parallelism: &kinesis.AnalyticsApplicationInputsParallelismArgs{
+// 					Count: pulumi.Int(1),
+// 				},
+// 				Schema: &kinesis.AnalyticsApplicationInputsSchemaArgs{
+// 					RecordColumns: kinesis.AnalyticsApplicationInputsSchemaRecordColumnArray{
+// 						&kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs{
+// 							Mapping: pulumi.String(fmt.Sprintf("%v%v", "$", ".test")),
+// 							Name:    pulumi.String("test"),
+// 							SqlType: pulumi.String("VARCHAR(8)"),
+// 						},
+// 					},
+// 					RecordEncoding: pulumi.String("UTF-8"),
+// 					RecordFormat: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs{
+// 						MappingParameters: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs{
+// 							Json: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs{
+// 								RecordRowPath: pulumi.String("$"),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type AnalyticsApplication struct {
 	pulumi.CustomResourceState
 
@@ -40,8 +99,8 @@ type AnalyticsApplication struct {
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrOutput `pulumi:"referenceDataSources"`
 	// The Status of the application.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value mapping of tags for the Kinesis Analytics Application.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of tags for the Kinesis Analytics Application.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Version of the application.
 	Version pulumi.IntOutput `pulumi:"version"`
 }
@@ -98,8 +157,8 @@ type analyticsApplicationState struct {
 	ReferenceDataSources *AnalyticsApplicationReferenceDataSources `pulumi:"referenceDataSources"`
 	// The Status of the application.
 	Status *string `pulumi:"status"`
-	// Key-value mapping of tags for the Kinesis Analytics Application.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of tags for the Kinesis Analytics Application.
+	Tags map[string]string `pulumi:"tags"`
 	// The Version of the application.
 	Version *int `pulumi:"version"`
 }
@@ -129,8 +188,8 @@ type AnalyticsApplicationState struct {
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrInput
 	// The Status of the application.
 	Status pulumi.StringPtrInput
-	// Key-value mapping of tags for the Kinesis Analytics Application.
-	Tags pulumi.MapInput
+	// Key-value map of tags for the Kinesis Analytics Application.
+	Tags pulumi.StringMapInput
 	// The Version of the application.
 	Version pulumi.IntPtrInput
 }
@@ -156,8 +215,8 @@ type analyticsApplicationArgs struct {
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources *AnalyticsApplicationReferenceDataSources `pulumi:"referenceDataSources"`
-	// Key-value mapping of tags for the Kinesis Analytics Application.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of tags for the Kinesis Analytics Application.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AnalyticsApplication resource.
@@ -178,8 +237,8 @@ type AnalyticsApplicationArgs struct {
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrInput
-	// Key-value mapping of tags for the Kinesis Analytics Application.
-	Tags pulumi.MapInput
+	// Key-value map of tags for the Kinesis Analytics Application.
+	Tags pulumi.StringMapInput
 }
 
 func (AnalyticsApplicationArgs) ElementType() reflect.Type {

@@ -18,9 +18,37 @@ namespace Pulumi.Aws.Ec2
     /// in conjunction with any Network ACL Rule resources. Doing so will cause
     /// a conflict of rule settings and will overwrite rules.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl_rule.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var barNetworkAcl = new Aws.Ec2.NetworkAcl("barNetworkAcl", new Aws.Ec2.NetworkAclArgs
+    ///         {
+    ///             VpcId = aws_vpc.Foo.Id,
+    ///         });
+    ///         var barNetworkAclRule = new Aws.Ec2.NetworkAclRule("barNetworkAclRule", new Aws.Ec2.NetworkAclRuleArgs
+    ///         {
+    ///             NetworkAclId = barNetworkAcl.Id,
+    ///             RuleNumber = 200,
+    ///             Egress = false,
+    ///             Protocol = "tcp",
+    ///             RuleAction = "allow",
+    ///             CidrBlock = aws_vpc.Foo.Cidr_block,
+    ///             FromPort = 22,
+    ///             ToPort = 22,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// &gt; **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
     /// </summary>
     public partial class NetworkAclRule : Pulumi.CustomResource
     {
@@ -99,7 +127,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkAclRule(string name, NetworkAclRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/networkAclRule:NetworkAclRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/networkAclRule:NetworkAclRule", name, args ?? new NetworkAclRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

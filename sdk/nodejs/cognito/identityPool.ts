@@ -4,24 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Cognito Identity Pool.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
- * const defaultSamlProvider = new aws.iam.SamlProvider("default", {
- *     samlMetadataDocument: fs.readFileSync("saml-metadata.xml", "utf-8"),
- * });
+ * import * from "fs";
+ *
+ * const _default = new aws.iam.SamlProvider("default", {samlMetadataDocument: fs.readFileSync("saml-metadata.xml")});
  * const main = new aws.cognito.IdentityPool("main", {
+ *     identityPoolName: "identity pool",
  *     allowUnauthenticatedIdentities: false,
  *     cognitoIdentityProviders: [
  *         {
@@ -35,17 +33,14 @@ import * as utilities from "../utilities";
  *             serverSideTokenCheck: false,
  *         },
  *     ],
- *     identityPoolName: "identity pool",
- *     openidConnectProviderArns: ["arn:aws:iam::123456789012:oidc-provider/foo.example.com"],
- *     samlProviderArns: [defaultSamlProvider.arn],
  *     supportedLoginProviders: {
- *         "accounts.google.com": "123456789012.apps.googleusercontent.com",
  *         "graph.facebook.com": "7346241598935552",
+ *         "accounts.google.com": "123456789012.apps.googleusercontent.com",
  *     },
+ *     samlProviderArns: [_default.arn],
+ *     openidConnectProviderArns: ["arn:aws:iam::123456789012:oidc-provider/id.example.com"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool.markdown.
  */
 export class IdentityPool extends pulumi.CustomResource {
     /**
@@ -55,6 +50,7 @@ export class IdentityPool extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IdentityPoolState, opts?: pulumi.CustomResourceOptions): IdentityPool {
         return new IdentityPool(name, <any>state, { ...opts, id: id });
@@ -96,7 +92,7 @@ export class IdentityPool extends pulumi.CustomResource {
      */
     public readonly identityPoolName!: pulumi.Output<string>;
     /**
-     * A list of OpendID Connect provider ARNs.
+     * Set of OpendID Connect provider ARNs.
      */
     public readonly openidConnectProviderArns!: pulumi.Output<string[] | undefined>;
     /**
@@ -108,9 +104,9 @@ export class IdentityPool extends pulumi.CustomResource {
      */
     public readonly supportedLoginProviders!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A mapping of tags to assign to the Identity Pool.
+     * A map of tags to assign to the Identity Pool.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a IdentityPool resource with the given unique name, arguments, and options.
@@ -185,7 +181,7 @@ export interface IdentityPoolState {
      */
     readonly identityPoolName?: pulumi.Input<string>;
     /**
-     * A list of OpendID Connect provider ARNs.
+     * Set of OpendID Connect provider ARNs.
      */
     readonly openidConnectProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -197,9 +193,9 @@ export interface IdentityPoolState {
      */
     readonly supportedLoginProviders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A mapping of tags to assign to the Identity Pool.
+     * A map of tags to assign to the Identity Pool.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -224,7 +220,7 @@ export interface IdentityPoolArgs {
      */
     readonly identityPoolName: pulumi.Input<string>;
     /**
-     * A list of OpendID Connect provider ARNs.
+     * Set of OpendID Connect provider ARNs.
      */
     readonly openidConnectProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -236,7 +232,7 @@ export interface IdentityPoolArgs {
      */
     readonly supportedLoginProviders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A mapping of tags to assign to the Identity Pool.
+     * A map of tags to assign to the Identity Pool.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

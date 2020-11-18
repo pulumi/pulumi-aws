@@ -6,4 +6,6 @@ export * from "./cluster";
 export * from "./clusterInstance";
 export * from "./clusterParameterGroup";
 export * from "./clusterSnapshot";
+export * from "./getEngineVersion";
+export * from "./getOrderableDbInstance";
 export * from "./subnetGroup";

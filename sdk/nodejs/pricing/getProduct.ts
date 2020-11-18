@@ -4,21 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the pricing information of all products in AWS.
  * This data source is only available in a us-east-1 or ap-south-1 provider.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.pricing.getProduct({
+ *
+ * const example = pulumi.output(aws.pricing.getProduct({
  *     filters: [
  *         {
  *             field: "instanceType",
@@ -50,12 +49,29 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     serviceCode: "AmazonEC2",
- * });
+ * }, { async: true }));
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = pulumi.output(aws.pricing.getProduct({
+ *     filters: [
+ *         {
+ *             field: "instanceType",
+ *             value: "ds1.xlarge",
+ *         },
+ *         {
+ *             field: "location",
+ *             value: "US East (N. Virginia)",
+ *         },
+ *     ],
+ *     serviceCode: "AmazonRedshift",
+ * }, { async: true }));
+ * ```
  */
-export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> & GetProductResult {
+export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
     if (!opts) {
         opts = {}
     }
@@ -63,12 +79,10 @@ export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetProductResult> = pulumi.runtime.invoke("aws:pricing/getProduct:getProduct", {
+    return pulumi.runtime.invoke("aws:pricing/getProduct:getProduct", {
         "filters": args.filters,
         "serviceCode": args.serviceCode,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -91,12 +105,12 @@ export interface GetProductArgs {
 export interface GetProductResult {
     readonly filters: outputs.pricing.GetProductFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Set to the product returned from the API.
      */
     readonly result: string;
     readonly serviceCode: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

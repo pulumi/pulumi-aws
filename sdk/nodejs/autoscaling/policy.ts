@@ -4,43 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AutoScaling Scaling Policy resource.
- * 
+ *
  * > **NOTE:** You may want to omit `desiredCapacity` attribute from attached `aws.autoscaling.Group`
  * when using autoscaling policies. It's good practice to pick either
  * [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
  * or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
  * (policy-based) scaling.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.autoscaling.Group("bar", {
  *     availabilityZones: ["us-east-1a"],
- *     forceDelete: true,
- *     healthCheckGracePeriod: 300,
- *     healthCheckType: "ELB",
- *     launchConfiguration: aws_launch_configuration_foo.name,
  *     maxSize: 5,
  *     minSize: 2,
+ *     healthCheckGracePeriod: 300,
+ *     healthCheckType: "ELB",
+ *     forceDelete: true,
+ *     launchConfiguration: aws_launch_configuration.foo.name,
  * });
  * const bat = new aws.autoscaling.Policy("bat", {
- *     adjustmentType: "ChangeInCapacity",
- *     autoscalingGroupName: bar.name,
- *     cooldown: 300,
  *     scalingAdjustment: 4,
+ *     adjustmentType: "ChangeInCapacity",
+ *     cooldown: 300,
+ *     autoscalingGroupName: bar.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_policy.html.markdown.
  */
 export class Policy extends pulumi.CustomResource {
     /**
@@ -50,6 +47,7 @@ export class Policy extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PolicyState, opts?: pulumi.CustomResourceOptions): Policy {
         return new Policy(name, <any>state, { ...opts, id: id });
@@ -93,6 +91,9 @@ export class Policy extends pulumi.CustomResource {
      * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
     public readonly metricAggregationType!: pulumi.Output<string>;
+    /**
+     * Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+     */
     public readonly minAdjustmentMagnitude!: pulumi.Output<number | undefined>;
     /**
      * The name of the dimension.
@@ -199,6 +200,9 @@ export interface PolicyState {
      * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
     readonly metricAggregationType?: pulumi.Input<string>;
+    /**
+     * Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+     */
     readonly minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
      * The name of the dimension.
@@ -249,6 +253,9 @@ export interface PolicyArgs {
      * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
     readonly metricAggregationType?: pulumi.Input<string>;
+    /**
+     * Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+     */
     readonly minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
      * The name of the dimension.

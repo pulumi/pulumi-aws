@@ -7,13 +7,41 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Step Function State Machine resource
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sfn"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
+// 			RoleArn:    pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
+// 			Definition: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",\n", "  \"StartAt\": \"HelloWorld\",\n", "  \"States\": {\n", "    \"HelloWorld\": {\n", "      \"Type\": \"Task\",\n", "      \"Resource\": \"", aws_lambda_function.Lambda.Arn, "\",\n", "      \"End\": true\n", "    }\n", "  }\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type StateMachine struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the state machine.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The date the state machine was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The Amazon States Language definition of the state machine.
@@ -24,8 +52,8 @@ type StateMachine struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The current status of the state machine. Either "ACTIVE" or "DELETING".
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewStateMachine registers a new resource with the given unique name, arguments, and options.
@@ -62,6 +90,8 @@ func GetStateMachine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StateMachine resources.
 type stateMachineState struct {
+	// The ARN of the state machine.
+	Arn *string `pulumi:"arn"`
 	// The date the state machine was created.
 	CreationDate *string `pulumi:"creationDate"`
 	// The Amazon States Language definition of the state machine.
@@ -72,11 +102,13 @@ type stateMachineState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The current status of the state machine. Either "ACTIVE" or "DELETING".
 	Status *string `pulumi:"status"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type StateMachineState struct {
+	// The ARN of the state machine.
+	Arn pulumi.StringPtrInput
 	// The date the state machine was created.
 	CreationDate pulumi.StringPtrInput
 	// The Amazon States Language definition of the state machine.
@@ -87,8 +119,8 @@ type StateMachineState struct {
 	RoleArn pulumi.StringPtrInput
 	// The current status of the state machine. Either "ACTIVE" or "DELETING".
 	Status pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (StateMachineState) ElementType() reflect.Type {
@@ -102,8 +134,8 @@ type stateMachineArgs struct {
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn string `pulumi:"roleArn"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StateMachine resource.
@@ -114,8 +146,8 @@ type StateMachineArgs struct {
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn pulumi.StringInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (StateMachineArgs) ElementType() reflect.Type {

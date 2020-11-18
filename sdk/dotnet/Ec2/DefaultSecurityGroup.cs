@@ -36,10 +36,96 @@ namespace Pulumi.Aws.Ec2
     /// For more information about Default Security Groups, see the AWS Documentation on
     /// [Default Security Groups][aws-default-security-groups].
     /// 
+    /// ## Basic Example Usage, with default rules
+    /// 
+    /// The following config gives the Default Security Group the same rules that AWS
+    /// provides by default, but pulls the resource under management by this provider. This means that
+    /// any ingress or egress rules added or changed will be detected as drift.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainvpc = new Aws.Ec2.Vpc("mainvpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var @default = new Aws.Ec2.DefaultSecurityGroup("default", new Aws.Ec2.DefaultSecurityGroupArgs
+    ///         {
+    ///             VpcId = mainvpc.Id,
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
+    ///                 {
+    ///                     Protocol = "-1",
+    ///                     Self = true,
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                 },
+    ///             },
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupEgressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
+    ///                     CidrBlocks = 
+    ///                     {
+    ///                         "0.0.0.0/0",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example config to deny all Egress traffic, allowing Ingress
+    /// 
+    /// The following denies all Egress traffic by omitting any `egress` rules, while
+    /// including the default `ingress` rule to allow all traffic.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainvpc = new Aws.Ec2.Vpc("mainvpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var @default = new Aws.Ec2.DefaultSecurityGroup("default", new Aws.Ec2.DefaultSecurityGroupArgs
+    ///         {
+    ///             VpcId = mainvpc.Id,
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
+    ///                 {
+    ///                     Protocol = "-1",
+    ///                     Self = true,
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Usage
     /// 
     /// With the exceptions mentioned above, `aws.ec2.DefaultSecurityGroup` should
-    /// identical behavior to `aws.ec2.SecurityGroup`. Please consult [AWS_SECURITY_GROUP](https://www.terraform.io/docs/providers/aws/r/security_group.html)
+    /// identical behavior to `aws.ec2.SecurityGroup`. Please consult `AWS_SECURITY_GROUP`
     /// for further usage documentation.
     /// 
     /// ### Removing `aws.ec2.DefaultSecurityGroup` from your configuration
@@ -50,30 +136,29 @@ namespace Pulumi.Aws.Ec2
     /// from your configuration will remove it from your statefile and management, but
     /// will not destroy the Security Group. All ingress or egress rules will be left as
     /// they are at the time of removal. You can resume managing them via the AWS Console.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_security_group.html.markdown.
     /// </summary>
     public partial class DefaultSecurityGroup : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the security group
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the security group
+        /// Description of this egress rule.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// egress rule. Each egress block supports fields documented below.
+        /// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
         /// </summary>
         [Output("egress")]
         public Output<ImmutableArray<Outputs.DefaultSecurityGroupEgress>> Egress { get; private set; } = null!;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// ingress rule. Each ingress block supports fields documented below.
+        /// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
         /// </summary>
         [Output("ingress")]
         public Output<ImmutableArray<Outputs.DefaultSecurityGroupIngress>> Ingress { get; private set; } = null!;
@@ -94,15 +179,13 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> RevokeRulesOnDelete { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC ID. **Note that changing
-        /// the `vpc_id` will _not_ restore any default security group rules that were
-        /// modified, added, or removed.** It will be left in its current state
+        /// The VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -116,7 +199,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DefaultSecurityGroup(string name, DefaultSecurityGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup", name, args ?? new DefaultSecurityGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -157,8 +240,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.DefaultSecurityGroupEgressArgs>? _egress;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// egress rule. Each egress block supports fields documented below.
+        /// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
         /// </summary>
         public InputList<Inputs.DefaultSecurityGroupEgressArgs> Egress
         {
@@ -170,8 +252,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.DefaultSecurityGroupIngressArgs>? _ingress;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// ingress rule. Each ingress block supports fields documented below.
+        /// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
         /// </summary>
         public InputList<Inputs.DefaultSecurityGroupIngressArgs> Ingress
         {
@@ -183,21 +264,19 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? RevokeRulesOnDelete { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// The VPC ID. **Note that changing
-        /// the `vpc_id` will _not_ restore any default security group rules that were
-        /// modified, added, or removed.** It will be left in its current state
+        /// The VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -209,11 +288,14 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultSecurityGroupState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the security group
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The description of the security group
+        /// Description of this egress rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -222,8 +304,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.DefaultSecurityGroupEgressGetArgs>? _egress;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// egress rule. Each egress block supports fields documented below.
+        /// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
         /// </summary>
         public InputList<Inputs.DefaultSecurityGroupEgressGetArgs> Egress
         {
@@ -235,8 +316,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.DefaultSecurityGroupIngressGetArgs>? _ingress;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// ingress rule. Each ingress block supports fields documented below.
+        /// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
         /// </summary>
         public InputList<Inputs.DefaultSecurityGroupIngressGetArgs> Ingress
         {
@@ -260,21 +340,19 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? RevokeRulesOnDelete { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// The VPC ID. **Note that changing
-        /// the `vpc_id` will _not_ restore any default security group rules that were
-        /// modified, added, or removed.** It will be left in its current state
+        /// The VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -282,321 +360,5 @@ namespace Pulumi.Aws.Ec2
         public DefaultSecurityGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DefaultSecurityGroupEgressArgs : Pulumi.ResourceArgs
-    {
-        [Input("cidrBlocks")]
-        private InputList<string>? _cidrBlocks;
-        public InputList<string> CidrBlocks
-        {
-            get => _cidrBlocks ?? (_cidrBlocks = new InputList<string>());
-            set => _cidrBlocks = value;
-        }
-
-        /// <summary>
-        /// The description of the security group
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        [Input("ipv6CidrBlocks")]
-        private InputList<string>? _ipv6CidrBlocks;
-        public InputList<string> Ipv6CidrBlocks
-        {
-            get => _ipv6CidrBlocks ?? (_ipv6CidrBlocks = new InputList<string>());
-            set => _ipv6CidrBlocks = value;
-        }
-
-        [Input("prefixListIds")]
-        private InputList<string>? _prefixListIds;
-        public InputList<string> PrefixListIds
-        {
-            get => _prefixListIds ?? (_prefixListIds = new InputList<string>());
-            set => _prefixListIds = value;
-        }
-
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        [Input("self")]
-        public Input<bool>? Self { get; set; }
-
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public DefaultSecurityGroupEgressArgs()
-        {
-        }
-    }
-
-    public sealed class DefaultSecurityGroupEgressGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("cidrBlocks")]
-        private InputList<string>? _cidrBlocks;
-        public InputList<string> CidrBlocks
-        {
-            get => _cidrBlocks ?? (_cidrBlocks = new InputList<string>());
-            set => _cidrBlocks = value;
-        }
-
-        /// <summary>
-        /// The description of the security group
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        [Input("ipv6CidrBlocks")]
-        private InputList<string>? _ipv6CidrBlocks;
-        public InputList<string> Ipv6CidrBlocks
-        {
-            get => _ipv6CidrBlocks ?? (_ipv6CidrBlocks = new InputList<string>());
-            set => _ipv6CidrBlocks = value;
-        }
-
-        [Input("prefixListIds")]
-        private InputList<string>? _prefixListIds;
-        public InputList<string> PrefixListIds
-        {
-            get => _prefixListIds ?? (_prefixListIds = new InputList<string>());
-            set => _prefixListIds = value;
-        }
-
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        [Input("self")]
-        public Input<bool>? Self { get; set; }
-
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public DefaultSecurityGroupEgressGetArgs()
-        {
-        }
-    }
-
-    public sealed class DefaultSecurityGroupIngressArgs : Pulumi.ResourceArgs
-    {
-        [Input("cidrBlocks")]
-        private InputList<string>? _cidrBlocks;
-        public InputList<string> CidrBlocks
-        {
-            get => _cidrBlocks ?? (_cidrBlocks = new InputList<string>());
-            set => _cidrBlocks = value;
-        }
-
-        /// <summary>
-        /// The description of the security group
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        [Input("ipv6CidrBlocks")]
-        private InputList<string>? _ipv6CidrBlocks;
-        public InputList<string> Ipv6CidrBlocks
-        {
-            get => _ipv6CidrBlocks ?? (_ipv6CidrBlocks = new InputList<string>());
-            set => _ipv6CidrBlocks = value;
-        }
-
-        [Input("prefixListIds")]
-        private InputList<string>? _prefixListIds;
-        public InputList<string> PrefixListIds
-        {
-            get => _prefixListIds ?? (_prefixListIds = new InputList<string>());
-            set => _prefixListIds = value;
-        }
-
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        [Input("self")]
-        public Input<bool>? Self { get; set; }
-
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public DefaultSecurityGroupIngressArgs()
-        {
-        }
-    }
-
-    public sealed class DefaultSecurityGroupIngressGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("cidrBlocks")]
-        private InputList<string>? _cidrBlocks;
-        public InputList<string> CidrBlocks
-        {
-            get => _cidrBlocks ?? (_cidrBlocks = new InputList<string>());
-            set => _cidrBlocks = value;
-        }
-
-        /// <summary>
-        /// The description of the security group
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        [Input("ipv6CidrBlocks")]
-        private InputList<string>? _ipv6CidrBlocks;
-        public InputList<string> Ipv6CidrBlocks
-        {
-            get => _ipv6CidrBlocks ?? (_ipv6CidrBlocks = new InputList<string>());
-            set => _ipv6CidrBlocks = value;
-        }
-
-        [Input("prefixListIds")]
-        private InputList<string>? _prefixListIds;
-        public InputList<string> PrefixListIds
-        {
-            get => _prefixListIds ?? (_prefixListIds = new InputList<string>());
-            set => _prefixListIds = value;
-        }
-
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        [Input("self")]
-        public Input<bool>? Self { get; set; }
-
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public DefaultSecurityGroupIngressGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DefaultSecurityGroupEgress
-    {
-        public readonly ImmutableArray<string> CidrBlocks;
-        /// <summary>
-        /// The description of the security group
-        /// </summary>
-        public readonly string? Description;
-        public readonly int FromPort;
-        public readonly ImmutableArray<string> Ipv6CidrBlocks;
-        public readonly ImmutableArray<string> PrefixListIds;
-        public readonly string Protocol;
-        public readonly ImmutableArray<string> SecurityGroups;
-        public readonly bool? Self;
-        public readonly int ToPort;
-
-        [OutputConstructor]
-        private DefaultSecurityGroupEgress(
-            ImmutableArray<string> cidrBlocks,
-            string? description,
-            int fromPort,
-            ImmutableArray<string> ipv6CidrBlocks,
-            ImmutableArray<string> prefixListIds,
-            string protocol,
-            ImmutableArray<string> securityGroups,
-            bool? self,
-            int toPort)
-        {
-            CidrBlocks = cidrBlocks;
-            Description = description;
-            FromPort = fromPort;
-            Ipv6CidrBlocks = ipv6CidrBlocks;
-            PrefixListIds = prefixListIds;
-            Protocol = protocol;
-            SecurityGroups = securityGroups;
-            Self = self;
-            ToPort = toPort;
-        }
-    }
-
-    [OutputType]
-    public sealed class DefaultSecurityGroupIngress
-    {
-        public readonly ImmutableArray<string> CidrBlocks;
-        /// <summary>
-        /// The description of the security group
-        /// </summary>
-        public readonly string? Description;
-        public readonly int FromPort;
-        public readonly ImmutableArray<string> Ipv6CidrBlocks;
-        public readonly ImmutableArray<string> PrefixListIds;
-        public readonly string Protocol;
-        public readonly ImmutableArray<string> SecurityGroups;
-        public readonly bool? Self;
-        public readonly int ToPort;
-
-        [OutputConstructor]
-        private DefaultSecurityGroupIngress(
-            ImmutableArray<string> cidrBlocks,
-            string? description,
-            int fromPort,
-            ImmutableArray<string> ipv6CidrBlocks,
-            ImmutableArray<string> prefixListIds,
-            string protocol,
-            ImmutableArray<string> securityGroups,
-            bool? self,
-            int toPort)
-        {
-            CidrBlocks = cidrBlocks;
-            Description = description;
-            FromPort = fromPort;
-            Ipv6CidrBlocks = ipv6CidrBlocks;
-            PrefixListIds = prefixListIds;
-            Protocol = protocol;
-            SecurityGroups = securityGroups;
-            Self = self;
-            ToPort = toPort;
-        }
-    }
     }
 }

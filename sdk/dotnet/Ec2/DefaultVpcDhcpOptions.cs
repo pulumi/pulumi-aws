@@ -21,12 +21,38 @@ namespace Pulumi.Aws.Ec2
     /// this provider does not _create_ this resource, but instead "adopts" it
     /// into management.
     /// 
+    /// ## Example Usage
     /// 
+    /// Basic usage with tags:
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc_dhcp_options.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Ec2.DefaultVpcDhcpOptions("default", new Aws.Ec2.DefaultVpcDhcpOptionsArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "Default DHCP Option Set" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DefaultVpcDhcpOptions : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the DHCP Options Set.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
@@ -55,10 +81,10 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -69,7 +95,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DefaultVpcDhcpOptions(string name, DefaultVpcDhcpOptionsArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, args ?? new DefaultVpcDhcpOptionsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -125,14 +151,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetbiosNodeType { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -143,6 +169,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultVpcDhcpOptionsState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the DHCP Options Set.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
@@ -177,14 +209,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

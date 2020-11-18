@@ -12,9 +12,32 @@ namespace Pulumi.Aws.Pinpoint
     /// <summary>
     /// Provides a Pinpoint App resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_app.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Pinpoint.App("example", new Aws.Pinpoint.AppArgs
+    ///         {
+    ///             Limits = new Aws.Pinpoint.Inputs.AppLimitsArgs
+    ///             {
+    ///                 MaximumDuration = 600,
+    ///             },
+    ///             QuietTime = new Aws.Pinpoint.Inputs.AppQuietTimeArgs
+    ///             {
+    ///                 End = "06:00",
+    ///                 Start = "00:00",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class App : Pulumi.CustomResource
     {
@@ -61,10 +84,10 @@ namespace Pulumi.Aws.Pinpoint
         public Output<Outputs.AppQuietTime?> QuietTime { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -75,7 +98,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public App(string name, AppArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:pinpoint/app:App", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:pinpoint/app:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -143,14 +166,14 @@ namespace Pulumi.Aws.Pinpoint
         public Input<Inputs.AppQuietTimeArgs>? QuietTime { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -204,261 +227,19 @@ namespace Pulumi.Aws.Pinpoint
         public Input<Inputs.AppQuietTimeGetArgs>? QuietTime { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public AppState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AppCampaignHookArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
-        /// </summary>
-        [Input("lambdaFunctionName")]
-        public Input<string>? LambdaFunctionName { get; set; }
-
-        /// <summary>
-        /// What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.  
-        /// </summary>
-        [Input("mode")]
-        public Input<string>? Mode { get; set; }
-
-        /// <summary>
-        /// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
-        /// </summary>
-        [Input("webUrl")]
-        public Input<string>? WebUrl { get; set; }
-
-        public AppCampaignHookArgs()
-        {
-        }
-    }
-
-    public sealed class AppCampaignHookGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
-        /// </summary>
-        [Input("lambdaFunctionName")]
-        public Input<string>? LambdaFunctionName { get; set; }
-
-        /// <summary>
-        /// What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.  
-        /// </summary>
-        [Input("mode")]
-        public Input<string>? Mode { get; set; }
-
-        /// <summary>
-        /// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
-        /// </summary>
-        [Input("webUrl")]
-        public Input<string>? WebUrl { get; set; }
-
-        public AppCampaignHookGetArgs()
-        {
-        }
-    }
-
-    public sealed class AppLimitsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum number of messages that the campaign can send daily. 
-        /// </summary>
-        [Input("daily")]
-        public Input<int>? Daily { get; set; }
-
-        /// <summary>
-        /// The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-        /// </summary>
-        [Input("maximumDuration")]
-        public Input<int>? MaximumDuration { get; set; }
-
-        /// <summary>
-        /// The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-        /// </summary>
-        [Input("messagesPerSecond")]
-        public Input<int>? MessagesPerSecond { get; set; }
-
-        /// <summary>
-        /// The maximum total number of messages that the campaign can send.
-        /// </summary>
-        [Input("total")]
-        public Input<int>? Total { get; set; }
-
-        public AppLimitsArgs()
-        {
-        }
-    }
-
-    public sealed class AppLimitsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum number of messages that the campaign can send daily. 
-        /// </summary>
-        [Input("daily")]
-        public Input<int>? Daily { get; set; }
-
-        /// <summary>
-        /// The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-        /// </summary>
-        [Input("maximumDuration")]
-        public Input<int>? MaximumDuration { get; set; }
-
-        /// <summary>
-        /// The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-        /// </summary>
-        [Input("messagesPerSecond")]
-        public Input<int>? MessagesPerSecond { get; set; }
-
-        /// <summary>
-        /// The maximum total number of messages that the campaign can send.
-        /// </summary>
-        [Input("total")]
-        public Input<int>? Total { get; set; }
-
-        public AppLimitsGetArgs()
-        {
-        }
-    }
-
-    public sealed class AppQuietTimeArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The default end time for quiet time in ISO 8601 format. Required if `start` is set
-        /// </summary>
-        [Input("end")]
-        public Input<string>? End { get; set; }
-
-        /// <summary>
-        /// The default start time for quiet time in ISO 8601 format. Required if `end` is set
-        /// </summary>
-        [Input("start")]
-        public Input<string>? Start { get; set; }
-
-        public AppQuietTimeArgs()
-        {
-        }
-    }
-
-    public sealed class AppQuietTimeGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The default end time for quiet time in ISO 8601 format. Required if `start` is set
-        /// </summary>
-        [Input("end")]
-        public Input<string>? End { get; set; }
-
-        /// <summary>
-        /// The default start time for quiet time in ISO 8601 format. Required if `end` is set
-        /// </summary>
-        [Input("start")]
-        public Input<string>? Start { get; set; }
-
-        public AppQuietTimeGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AppCampaignHook
-    {
-        /// <summary>
-        /// Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
-        /// </summary>
-        public readonly string? LambdaFunctionName;
-        /// <summary>
-        /// What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.  
-        /// </summary>
-        public readonly string? Mode;
-        /// <summary>
-        /// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
-        /// </summary>
-        public readonly string? WebUrl;
-
-        [OutputConstructor]
-        private AppCampaignHook(
-            string? lambdaFunctionName,
-            string? mode,
-            string? webUrl)
-        {
-            LambdaFunctionName = lambdaFunctionName;
-            Mode = mode;
-            WebUrl = webUrl;
-        }
-    }
-
-    [OutputType]
-    public sealed class AppLimits
-    {
-        /// <summary>
-        /// The maximum number of messages that the campaign can send daily. 
-        /// </summary>
-        public readonly int? Daily;
-        /// <summary>
-        /// The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-        /// </summary>
-        public readonly int? MaximumDuration;
-        /// <summary>
-        /// The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-        /// </summary>
-        public readonly int? MessagesPerSecond;
-        /// <summary>
-        /// The maximum total number of messages that the campaign can send.
-        /// </summary>
-        public readonly int? Total;
-
-        [OutputConstructor]
-        private AppLimits(
-            int? daily,
-            int? maximumDuration,
-            int? messagesPerSecond,
-            int? total)
-        {
-            Daily = daily;
-            MaximumDuration = maximumDuration;
-            MessagesPerSecond = messagesPerSecond;
-            Total = total;
-        }
-    }
-
-    [OutputType]
-    public sealed class AppQuietTime
-    {
-        /// <summary>
-        /// The default end time for quiet time in ISO 8601 format. Required if `start` is set
-        /// </summary>
-        public readonly string? End;
-        /// <summary>
-        /// The default start time for quiet time in ISO 8601 format. Required if `end` is set
-        /// </summary>
-        public readonly string? Start;
-
-        [OutputConstructor]
-        private AppQuietTime(
-            string? end,
-            string? start)
-        {
-            End = end;
-            Start = start;
-        }
-    }
     }
 }

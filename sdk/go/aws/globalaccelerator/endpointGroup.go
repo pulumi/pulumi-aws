@@ -7,10 +7,39 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Global Accelerator endpoint group.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/globalaccelerator"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := globalaccelerator.NewEndpointGroup(ctx, "example", &globalaccelerator.EndpointGroupArgs{
+// 			ListenerArn: pulumi.Any(aws_globalaccelerator_listener.Example.Id),
+// 			EndpointConfigurations: globalaccelerator.EndpointGroupEndpointConfigurationArray{
+// 				&globalaccelerator.EndpointGroupEndpointConfigurationArgs{
+// 					EndpointId: pulumi.Any(aws_lb.Example.Arn),
+// 					Weight:     pulumi.Int(100),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type EndpointGroup struct {
 	pulumi.CustomResourceState
 
@@ -20,10 +49,8 @@ type EndpointGroup struct {
 	EndpointGroupRegion pulumi.StringOutput `pulumi:"endpointGroupRegion"`
 	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 	HealthCheckIntervalSeconds pulumi.IntPtrOutput `pulumi:"healthCheckIntervalSeconds"`
-	// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).
-	HealthCheckPath pulumi.StringPtrOutput `pulumi:"healthCheckPath"`
-	// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-	HealthCheckPort pulumi.IntPtrOutput `pulumi:"healthCheckPort"`
+	HealthCheckPath            pulumi.StringOutput `pulumi:"healthCheckPath"`
+	HealthCheckPort            pulumi.IntOutput    `pulumi:"healthCheckPort"`
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol pulumi.StringPtrOutput `pulumi:"healthCheckProtocol"`
 	// The Amazon Resource Name (ARN) of the listener.
@@ -70,11 +97,9 @@ type endpointGroupState struct {
 	// The name of the AWS Region where the endpoint group is located.
 	EndpointGroupRegion *string `pulumi:"endpointGroupRegion"`
 	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
-	HealthCheckIntervalSeconds *int `pulumi:"healthCheckIntervalSeconds"`
-	// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).
-	HealthCheckPath *string `pulumi:"healthCheckPath"`
-	// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-	HealthCheckPort *int `pulumi:"healthCheckPort"`
+	HealthCheckIntervalSeconds *int    `pulumi:"healthCheckIntervalSeconds"`
+	HealthCheckPath            *string `pulumi:"healthCheckPath"`
+	HealthCheckPort            *int    `pulumi:"healthCheckPort"`
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol *string `pulumi:"healthCheckProtocol"`
 	// The Amazon Resource Name (ARN) of the listener.
@@ -92,10 +117,8 @@ type EndpointGroupState struct {
 	EndpointGroupRegion pulumi.StringPtrInput
 	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 	HealthCheckIntervalSeconds pulumi.IntPtrInput
-	// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).
-	HealthCheckPath pulumi.StringPtrInput
-	// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-	HealthCheckPort pulumi.IntPtrInput
+	HealthCheckPath            pulumi.StringPtrInput
+	HealthCheckPort            pulumi.IntPtrInput
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the listener.
@@ -116,11 +139,9 @@ type endpointGroupArgs struct {
 	// The name of the AWS Region where the endpoint group is located.
 	EndpointGroupRegion *string `pulumi:"endpointGroupRegion"`
 	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
-	HealthCheckIntervalSeconds *int `pulumi:"healthCheckIntervalSeconds"`
-	// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).
-	HealthCheckPath *string `pulumi:"healthCheckPath"`
-	// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-	HealthCheckPort *int `pulumi:"healthCheckPort"`
+	HealthCheckIntervalSeconds *int    `pulumi:"healthCheckIntervalSeconds"`
+	HealthCheckPath            *string `pulumi:"healthCheckPath"`
+	HealthCheckPort            *int    `pulumi:"healthCheckPort"`
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol *string `pulumi:"healthCheckProtocol"`
 	// The Amazon Resource Name (ARN) of the listener.
@@ -139,10 +160,8 @@ type EndpointGroupArgs struct {
 	EndpointGroupRegion pulumi.StringPtrInput
 	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 	HealthCheckIntervalSeconds pulumi.IntPtrInput
-	// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).
-	HealthCheckPath pulumi.StringPtrInput
-	// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-	HealthCheckPort pulumi.IntPtrInput
+	HealthCheckPath            pulumi.StringPtrInput
+	HealthCheckPort            pulumi.IntPtrInput
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the listener.

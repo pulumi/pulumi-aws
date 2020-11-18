@@ -10,11 +10,71 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pinpoint
 {
     /// <summary>
-    /// Provides a Pinpoint SMS Channel resource.
+    /// Provides a Pinpoint Email Channel resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_email_channel.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
+    ///         {
+    ///         });
+    ///         var identity = new Aws.Ses.DomainIdentity("identity", new Aws.Ses.DomainIdentityArgs
+    ///         {
+    ///             Domain = "example.com",
+    ///         });
+    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""pinpoint.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var email = new Aws.Pinpoint.EmailChannel("email", new Aws.Pinpoint.EmailChannelArgs
+    ///         {
+    ///             ApplicationId = app.ApplicationId,
+    ///             FromAddress = "user@example.com",
+    ///             Identity = identity.Arn,
+    ///             RoleArn = role.Arn,
+    ///         });
+    ///         var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = role.Id,
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": {
+    ///     ""Action"": [
+    ///       ""mobileanalytics:PutEvents"",
+    ///       ""mobileanalytics:PutItems""
+    ///     ],
+    ///     ""Effect"": ""Allow"",
+    ///     ""Resource"": [
+    ///       ""*""
+    ///     ]
+    ///   }
+    /// }
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EmailChannel : Pulumi.CustomResource
     {
@@ -63,7 +123,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EmailChannel(string name, EmailChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws:pinpoint/emailChannel:EmailChannel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:pinpoint/emailChannel:EmailChannel", name, args ?? new EmailChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 

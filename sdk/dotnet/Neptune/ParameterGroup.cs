@@ -12,9 +12,32 @@ namespace Pulumi.Aws.Neptune
     /// <summary>
     /// Manages a Neptune Parameter Group
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_parameter_group.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Neptune.ParameterGroup("example", new Aws.Neptune.ParameterGroupArgs
+    ///         {
+    ///             Family = "neptune1",
+    ///             Parameters = 
+    ///             {
+    ///                 new Aws.Neptune.Inputs.ParameterGroupParameterArgs
+    ///                 {
+    ///                     Name = "neptune_query_timeout",
+    ///                     Value = "25",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ParameterGroup : Pulumi.CustomResource
     {
@@ -46,13 +69,13 @@ namespace Pulumi.Aws.Neptune
         /// A list of Neptune parameters to apply.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableArray<Outputs.ParameterGroupParameters>> Parameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ParameterGroupParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -63,7 +86,7 @@ namespace Pulumi.Aws.Neptune
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ParameterGroup(string name, ParameterGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:neptune/parameterGroup:ParameterGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:neptune/parameterGroup:ParameterGroup", name, args ?? new ParameterGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -119,26 +142,26 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
-        private InputList<Inputs.ParameterGroupParametersArgs>? _parameters;
+        private InputList<Inputs.ParameterGroupParameterArgs>? _parameters;
 
         /// <summary>
         /// A list of Neptune parameters to apply.
         /// </summary>
-        public InputList<Inputs.ParameterGroupParametersArgs> Parameters
+        public InputList<Inputs.ParameterGroupParameterArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParametersArgs>());
+            get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParameterArgs>());
             set => _parameters = value;
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -174,117 +197,31 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
-        private InputList<Inputs.ParameterGroupParametersGetArgs>? _parameters;
+        private InputList<Inputs.ParameterGroupParameterGetArgs>? _parameters;
 
         /// <summary>
         /// A list of Neptune parameters to apply.
         /// </summary>
-        public InputList<Inputs.ParameterGroupParametersGetArgs> Parameters
+        public InputList<Inputs.ParameterGroupParameterGetArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParametersGetArgs>());
+            get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParameterGetArgs>());
             set => _parameters = value;
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public ParameterGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ParameterGroupParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        /// </summary>
-        [Input("applyMethod")]
-        public Input<string>? ApplyMethod { get; set; }
-
-        /// <summary>
-        /// The name of the Neptune parameter.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The value of the Neptune parameter.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ParameterGroupParametersArgs()
-        {
-        }
-    }
-
-    public sealed class ParameterGroupParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        /// </summary>
-        [Input("applyMethod")]
-        public Input<string>? ApplyMethod { get; set; }
-
-        /// <summary>
-        /// The name of the Neptune parameter.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The value of the Neptune parameter.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ParameterGroupParametersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ParameterGroupParameters
-    {
-        /// <summary>
-        /// The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        /// </summary>
-        public readonly string? ApplyMethod;
-        /// <summary>
-        /// The name of the Neptune parameter.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The value of the Neptune parameter.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private ParameterGroupParameters(
-            string? applyMethod,
-            string name,
-            string value)
-        {
-            ApplyMethod = applyMethod;
-            Name = name;
-            Value = value;
-        }
-    }
     }
 }

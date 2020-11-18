@@ -6,7 +6,7 @@ package worklink
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type Fleet struct {
@@ -14,7 +14,7 @@ type Fleet struct {
 
 	// The ARN of the created WorkLink Fleet.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the Amazon Kinesis data stream that receives the audit events.
+	// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
 	AuditStreamArn pulumi.StringPtrOutput `pulumi:"auditStreamArn"`
 	// The identifier used by users to sign in to the Amazon WorkLink app.
 	CompanyCode pulumi.StringOutput `pulumi:"companyCode"`
@@ -66,7 +66,7 @@ func GetFleet(ctx *pulumi.Context,
 type fleetState struct {
 	// The ARN of the created WorkLink Fleet.
 	Arn *string `pulumi:"arn"`
-	// The ARN of the Amazon Kinesis data stream that receives the audit events.
+	// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
 	AuditStreamArn *string `pulumi:"auditStreamArn"`
 	// The identifier used by users to sign in to the Amazon WorkLink app.
 	CompanyCode *string `pulumi:"companyCode"`
@@ -91,7 +91,7 @@ type fleetState struct {
 type FleetState struct {
 	// The ARN of the created WorkLink Fleet.
 	Arn pulumi.StringPtrInput
-	// The ARN of the Amazon Kinesis data stream that receives the audit events.
+	// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
 	AuditStreamArn pulumi.StringPtrInput
 	// The identifier used by users to sign in to the Amazon WorkLink app.
 	CompanyCode pulumi.StringPtrInput
@@ -118,7 +118,7 @@ func (FleetState) ElementType() reflect.Type {
 }
 
 type fleetArgs struct {
-	// The ARN of the Amazon Kinesis data stream that receives the audit events.
+	// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
 	AuditStreamArn *string `pulumi:"auditStreamArn"`
 	// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
 	DeviceCaCertificate *string `pulumi:"deviceCaCertificate"`
@@ -136,7 +136,7 @@ type fleetArgs struct {
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
-	// The ARN of the Amazon Kinesis data stream that receives the audit events.
+	// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
 	AuditStreamArn pulumi.StringPtrInput
 	// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
 	DeviceCaCertificate pulumi.StringPtrInput

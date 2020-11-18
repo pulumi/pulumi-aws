@@ -12,9 +12,67 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Provides an SSM Parameter resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// To store a basic string parameter:
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_parameter.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ssm.Parameter("foo", new Aws.Ssm.ParameterArgs
+    ///         {
+    ///             Type = "String",
+    ///             Value = "bar",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// To store an encrypted string using the default SSM KMS key:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Rds.Instance("default", new Aws.Rds.InstanceArgs
+    ///         {
+    ///             AllocatedStorage = 10,
+    ///             StorageType = "gp2",
+    ///             Engine = "mysql",
+    ///             EngineVersion = "5.7.16",
+    ///             InstanceClass = "db.t2.micro",
+    ///             Name = "mydb",
+    ///             Username = "foo",
+    ///             Password = @var.Database_master_password,
+    ///             DbSubnetGroupName = "my_database_subnet_group",
+    ///             ParameterGroupName = "default.mysql5.7",
+    ///         });
+    ///         var secret = new Aws.Ssm.Parameter("secret", new Aws.Ssm.ParameterArgs
+    ///         {
+    ///             Description = "The parameter description",
+    ///             Type = "SecureString",
+    ///             Value = @var.Database_master_password,
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
     /// </summary>
     public partial class Parameter : Pulumi.CustomResource
     {
@@ -29,6 +87,13 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+        /// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+        /// </summary>
+        [Output("dataType")]
+        public Output<string> DataType { get; private set; } = null!;
 
         /// <summary>
         /// The description of the parameter.
@@ -55,10 +120,10 @@ namespace Pulumi.Aws.Ssm
         public Output<bool?> Overwrite { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
@@ -93,7 +158,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Parameter(string name, ParameterArgs args, CustomResourceOptions? options = null)
-            : base("aws:ssm/parameter:Parameter", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ssm/parameter:Parameter", name, args ?? new ParameterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -143,6 +208,13 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+        /// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+        /// </summary>
+        [Input("dataType")]
+        public Input<string>? DataType { get; set; }
+
+        /// <summary>
         /// The description of the parameter.
         /// </summary>
         [Input("description")]
@@ -167,14 +239,14 @@ namespace Pulumi.Aws.Ssm
         public Input<bool>? Overwrite { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -216,6 +288,13 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+        /// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+        /// </summary>
+        [Input("dataType")]
+        public Input<string>? DataType { get; set; }
+
+        /// <summary>
         /// The description of the parameter.
         /// </summary>
         [Input("description")]
@@ -240,14 +319,14 @@ namespace Pulumi.Aws.Ssm
         public Input<bool>? Overwrite { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

@@ -4,7 +4,7 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // This resource can be useful for getting back a list of VPC Ids for a region.
@@ -23,17 +23,17 @@ func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption
 type GetVpcsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetVpcsFilter `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired vpcs.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcs.
 type GetVpcsResult struct {
 	Filters []GetVpcsFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of all the VPC Ids found. This data source will fail if none are found.
-	Ids  []string               `pulumi:"ids"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Ids  []string          `pulumi:"ids"`
+	Tags map[string]string `pulumi:"tags"`
 }

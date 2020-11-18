@@ -4,19 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Connection resource.
- * 
+ *
  * ## Example Usage
- * 
  * ### Non-VPC Connection
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Connection("example", {
  *     connectionProperties: {
  *         JDBC_CONNECTION_URL: "jdbc:mysql://example.com/exampledatabase",
@@ -25,28 +25,27 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
  * ### VPC Connection
- * 
+ *
+ * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Connection("example", {
  *     connectionProperties: {
- *         JDBC_CONNECTION_URL: pulumi.interpolate`jdbc:mysql://${aws_rds_cluster_example.endpoint}/exampledatabase`,
+ *         JDBC_CONNECTION_URL: `jdbc:mysql://${aws_rds_cluster.example.endpoint}/exampledatabase`,
  *         PASSWORD: "examplepassword",
  *         USERNAME: "exampleusername",
  *     },
  *     physicalConnectionRequirements: {
- *         availabilityZone: aws_subnet_example.availabilityZone,
- *         securityGroupIdLists: [aws_security_group_example.id],
- *         subnetId: aws_subnet_example.id,
+ *         availabilityZone: aws_subnet.example.availability_zone,
+ *         securityGroupIdLists: [aws_security_group.example.id],
+ *         subnetId: aws_subnet.example.id,
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_connection.html.markdown.
  */
 export class Connection extends pulumi.CustomResource {
     /**
@@ -56,6 +55,7 @@ export class Connection extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ConnectionState, opts?: pulumi.CustomResourceOptions): Connection {
         return new Connection(name, <any>state, { ...opts, id: id });
@@ -76,15 +76,19 @@ export class Connection extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the Glue Connection.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
     public readonly catalogId!: pulumi.Output<string>;
     /**
      * A map of key-value pairs used as parameters for this connection.
      */
-    public readonly connectionProperties!: pulumi.Output<{[key: string]: any}>;
+    public readonly connectionProperties!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of the connection. Defaults to `JBDC`.
+     * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
      */
     public readonly connectionType!: pulumi.Output<string | undefined>;
     /**
@@ -116,6 +120,7 @@ export class Connection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ConnectionState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
             inputs["connectionProperties"] = state ? state.connectionProperties : undefined;
             inputs["connectionType"] = state ? state.connectionType : undefined;
@@ -135,6 +140,7 @@ export class Connection extends pulumi.CustomResource {
             inputs["matchCriterias"] = args ? args.matchCriterias : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["physicalConnectionRequirements"] = args ? args.physicalConnectionRequirements : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -152,15 +158,19 @@ export class Connection extends pulumi.CustomResource {
  */
 export interface ConnectionState {
     /**
+     * The ARN of the Glue Connection.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
     readonly catalogId?: pulumi.Input<string>;
     /**
      * A map of key-value pairs used as parameters for this connection.
      */
-    readonly connectionProperties?: pulumi.Input<{[key: string]: any}>;
+    readonly connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the connection. Defaults to `JBDC`.
+     * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
      */
     readonly connectionType?: pulumi.Input<string>;
     /**
@@ -192,9 +202,9 @@ export interface ConnectionArgs {
     /**
      * A map of key-value pairs used as parameters for this connection.
      */
-    readonly connectionProperties: pulumi.Input<{[key: string]: any}>;
+    readonly connectionProperties: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the connection. Defaults to `JBDC`.
+     * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
      */
     readonly connectionType?: pulumi.Input<string>;
     /**

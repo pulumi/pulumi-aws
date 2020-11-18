@@ -12,11 +12,82 @@ namespace Pulumi.Aws.Cfg
     /// <summary>
     /// Provides an AWS Config Delivery Channel.
     /// 
-    /// &gt; **Note:** Delivery Channel requires a [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+    /// &gt; **Note:** Delivery Channel requires a `Configuration Recorder` to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_delivery_channel.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///             ForceDestroy = true,
+    ///         });
+    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""config.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var fooRecorder = new Aws.Cfg.Recorder("fooRecorder", new Aws.Cfg.RecorderArgs
+    ///         {
+    ///             RoleArn = role.Arn,
+    ///         });
+    ///         var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new Aws.Cfg.DeliveryChannelArgs
+    ///         {
+    ///             S3BucketName = bucket.BucketName,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 fooRecorder,
+    ///             },
+    ///         });
+    ///         var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = role.Id,
+    ///             Policy = Output.Tuple(bucket.Arn, bucket.Arn).Apply(values =&gt;
+    ///             {
+    ///                 var bucketArn = values.Item1;
+    ///                 var bucketArn1 = values.Item2;
+    ///                 return @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Action"": [
+    ///         ""s3:*""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": [
+    ///         ""{bucketArn}"",
+    ///         ""{bucketArn1}/*""
+    ///       ]
+    ///     }}
+    ///   ]
+    /// }}
+    /// ";
+    ///             }),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DeliveryChannel : Pulumi.CustomResource
     {
@@ -59,7 +130,7 @@ namespace Pulumi.Aws.Cfg
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeliveryChannel(string name, DeliveryChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws:cfg/deliveryChannel:DeliveryChannel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cfg/deliveryChannel:DeliveryChannel", name, args ?? new DeliveryChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -166,60 +237,5 @@ namespace Pulumi.Aws.Cfg
         public DeliveryChannelState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DeliveryChannelSnapshotDeliveryPropertiesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-        /// e.g. `One_Hour` or `Three_Hours`.
-        /// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
-        /// </summary>
-        [Input("deliveryFrequency")]
-        public Input<string>? DeliveryFrequency { get; set; }
-
-        public DeliveryChannelSnapshotDeliveryPropertiesArgs()
-        {
-        }
-    }
-
-    public sealed class DeliveryChannelSnapshotDeliveryPropertiesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-        /// e.g. `One_Hour` or `Three_Hours`.
-        /// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
-        /// </summary>
-        [Input("deliveryFrequency")]
-        public Input<string>? DeliveryFrequency { get; set; }
-
-        public DeliveryChannelSnapshotDeliveryPropertiesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DeliveryChannelSnapshotDeliveryProperties
-    {
-        /// <summary>
-        /// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-        /// e.g. `One_Hour` or `Three_Hours`.
-        /// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
-        /// </summary>
-        public readonly string? DeliveryFrequency;
-
-        [OutputConstructor]
-        private DeliveryChannelSnapshotDeliveryProperties(string? deliveryFrequency)
-        {
-            DeliveryFrequency = deliveryFrequency;
-        }
-    }
     }
 }

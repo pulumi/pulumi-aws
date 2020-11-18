@@ -12,9 +12,35 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides an SES domain identity resource
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ses.DomainIdentity("example", new Aws.Ses.DomainIdentityArgs
+    ///         {
+    ///             Domain = "example.com",
+    ///         });
+    ///         var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("exampleAmazonsesVerificationRecord", new Aws.Route53.RecordArgs
+    ///         {
+    ///             ZoneId = "ABCDEFGHIJ123",
+    ///             Name = "_amazonses.example.com",
+    ///             Type = "TXT",
+    ///             Ttl = 600,
+    ///             Records = 
+    ///             {
+    ///                 example.VerificationToken,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DomainIdentity : Pulumi.CustomResource
     {
@@ -51,7 +77,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DomainIdentity(string name, DomainIdentityArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/domainIdentity:DomainIdentity", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/domainIdentity:DomainIdentity", name, args ?? new DomainIdentityArgs(), MakeResourceOptions(options, ""))
         {
         }
 

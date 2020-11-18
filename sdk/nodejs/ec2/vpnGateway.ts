@@ -2,30 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a VPC VPN Gateway.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const vpnGw = new aws.ec2.VpnGateway("vpnGw", {
+ *     vpcId: aws_vpc.main.id,
  *     tags: {
  *         Name: "main",
  *     },
- *     vpcId: aws_vpc_main.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway.html.markdown.
  */
 export class VpnGateway extends pulumi.CustomResource {
     /**
@@ -35,6 +29,7 @@ export class VpnGateway extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpnGatewayState, opts?: pulumi.CustomResourceOptions): VpnGateway {
         return new VpnGateway(name, <any>state, { ...opts, id: id });
@@ -59,13 +54,17 @@ export class VpnGateway extends pulumi.CustomResource {
      */
     public readonly amazonSideAsn!: pulumi.Output<string>;
     /**
+     * Amazon Resource Name (ARN) of the VPN Gateway.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The Availability Zone for the virtual private gateway.
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The VPC ID to create in.
      */
@@ -84,6 +83,7 @@ export class VpnGateway extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as VpnGatewayState | undefined;
             inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
@@ -93,6 +93,7 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -114,13 +115,17 @@ export interface VpnGatewayState {
      */
     readonly amazonSideAsn?: pulumi.Input<string>;
     /**
+     * Amazon Resource Name (ARN) of the VPN Gateway.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The Availability Zone for the virtual private gateway.
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID to create in.
      */
@@ -140,9 +145,9 @@ export interface VpnGatewayArgs {
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID to create in.
      */

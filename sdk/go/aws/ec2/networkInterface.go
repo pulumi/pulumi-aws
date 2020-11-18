@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an Elastic network interface (ENI) resource.
@@ -18,8 +18,13 @@ type NetworkInterface struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayOutput `pulumi:"attachments"`
 	// A description for the network interface.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// The MAC address of the network interface.
 	MacAddress pulumi.StringOutput `pulumi:"macAddress"`
+	OutpostArn pulumi.StringOutput `pulumi:"outpostArn"`
 	// The private DNS name of the network interface (IPv4).
 	PrivateDnsName pulumi.StringOutput `pulumi:"privateDnsName"`
 	PrivateIp      pulumi.StringOutput `pulumi:"privateIp"`
@@ -33,8 +38,8 @@ type NetworkInterface struct {
 	SourceDestCheck pulumi.BoolPtrOutput `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewNetworkInterface registers a new resource with the given unique name, arguments, and options.
@@ -72,8 +77,13 @@ type networkInterfaceState struct {
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
+	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The MAC address of the network interface.
 	MacAddress *string `pulumi:"macAddress"`
+	OutpostArn *string `pulumi:"outpostArn"`
 	// The private DNS name of the network interface (IPv4).
 	PrivateDnsName *string `pulumi:"privateDnsName"`
 	PrivateIp      *string `pulumi:"privateIp"`
@@ -87,8 +97,8 @@ type networkInterfaceState struct {
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type NetworkInterfaceState struct {
@@ -96,8 +106,13 @@ type NetworkInterfaceState struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// A description for the network interface.
 	Description pulumi.StringPtrInput
+	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+	Ipv6AddressCount pulumi.IntPtrInput
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+	Ipv6Addresses pulumi.StringArrayInput
 	// The MAC address of the network interface.
 	MacAddress pulumi.StringPtrInput
+	OutpostArn pulumi.StringPtrInput
 	// The private DNS name of the network interface (IPv4).
 	PrivateDnsName pulumi.StringPtrInput
 	PrivateIp      pulumi.StringPtrInput
@@ -111,8 +126,8 @@ type NetworkInterfaceState struct {
 	SourceDestCheck pulumi.BoolPtrInput
 	// Subnet ID to create the ENI in.
 	SubnetId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (NetworkInterfaceState) ElementType() reflect.Type {
@@ -124,7 +139,11 @@ type networkInterfaceArgs struct {
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
-	PrivateIp   *string `pulumi:"privateIp"`
+	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
+	PrivateIp     *string  `pulumi:"privateIp"`
 	// List of private IPs to assign to the ENI.
 	PrivateIps []string `pulumi:"privateIps"`
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
@@ -135,8 +154,8 @@ type networkInterfaceArgs struct {
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
 	SubnetId string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInterface resource.
@@ -145,7 +164,11 @@ type NetworkInterfaceArgs struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// A description for the network interface.
 	Description pulumi.StringPtrInput
-	PrivateIp   pulumi.StringPtrInput
+	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+	Ipv6AddressCount pulumi.IntPtrInput
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+	Ipv6Addresses pulumi.StringArrayInput
+	PrivateIp     pulumi.StringPtrInput
 	// List of private IPs to assign to the ENI.
 	PrivateIps pulumi.StringArrayInput
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
@@ -156,8 +179,8 @@ type NetworkInterfaceArgs struct {
 	SourceDestCheck pulumi.BoolPtrInput
 	// Subnet ID to create the ENI in.
 	SubnetId pulumi.StringInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (NetworkInterfaceArgs) ElementType() reflect.Type {

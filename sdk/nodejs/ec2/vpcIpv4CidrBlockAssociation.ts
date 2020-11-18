@@ -2,34 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to associate additional IPv4 CIDR blocks with a VPC.
- * 
+ *
  * When a VPC is created, a primary IPv4 CIDR block for the VPC must be specified.
  * The `aws.ec2.VpcIpv4CidrBlockAssociation` resource allows further IPv4 CIDR blocks to be added to the VPC.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
+ *
+ * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
  * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", {
- *     cidrBlock: "172.2.0.0/16",
  *     vpcId: main.id,
+ *     cidrBlock: "172.2.0.0/16",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_ipv4_cidr_block_association.html.markdown.
  */
 export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
     /**
@@ -39,6 +31,7 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcIpv4CidrBlockAssociationState, opts?: pulumi.CustomResourceOptions): VpcIpv4CidrBlockAssociation {
         return new VpcIpv4CidrBlockAssociation(name, <any>state, { ...opts, id: id });

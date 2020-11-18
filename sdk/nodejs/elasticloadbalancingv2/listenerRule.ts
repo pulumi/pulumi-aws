@@ -4,27 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Load Balancer Listener Rule resource.
- * 
+ *
  * > **Note:** `aws.alb.ListenerRule` is known as `aws.lb.ListenerRule`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
- * const frontEndListener = new aws.lb.Listener("frontEnd", {});
+ *
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * // ...
+ * const frontEndListener = new aws.lb.Listener("frontEndListener", {});
+ * // Other parameters
  * const static = new aws.lb.ListenerRule("static", {
+ *     listenerArn: frontEndListener.arn,
+ *     priority: 100,
  *     actions: [{
- *         targetGroupArn: aws_lb_target_group_static.arn,
  *         type: "forward",
+ *         targetGroupArn: aws_lb_target_group.static.arn,
  *     }],
  *     conditions: [
  *         {
@@ -38,30 +41,60 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     ],
- *     listenerArn: frontEndListener.arn,
- *     priority: 100,
  * });
- * const hostBasedRouting = new aws.lb.ListenerRule("hostBasedRouting", {
+ * // Forward action
+ * const hostBasedWeightedRouting = new aws.lb.ListenerRule("hostBasedWeightedRouting", {
+ *     listenerArn: frontEndListener.arn,
+ *     priority: 99,
  *     actions: [{
- *         targetGroupArn: aws_lb_target_group_static.arn,
  *         type: "forward",
+ *         targetGroupArn: aws_lb_target_group.static.arn,
  *     }],
  *     conditions: [{
  *         hostHeader: {
- *             values: ["my-service.*.mydomain.io"],
+ *             values: ["my-service.*.mycompany.io"],
  *         },
  *     }],
+ * });
+ * // Weighted Forward action
+ * const hostBasedRouting = new aws.lb.ListenerRule("hostBasedRouting", {
  *     listenerArn: frontEndListener.arn,
  *     priority: 99,
- * });
- * const redirectHttpToHttps = new aws.lb.ListenerRule("redirectHttpToHttps", {
  *     actions: [{
+ *         type: "forward",
+ *         forward: {
+ *             targetGroups: [
+ *                 {
+ *                     arn: aws_lb_target_group.main.arn,
+ *                     weight: 80,
+ *                 },
+ *                 {
+ *                     arn: aws_lb_target_group.canary.arn,
+ *                     weight: 20,
+ *                 },
+ *             ],
+ *             stickiness: {
+ *                 enabled: true,
+ *                 duration: 600,
+ *             },
+ *         },
+ *     }],
+ *     conditions: [{
+ *         hostHeader: {
+ *             values: ["my-service.*.mycompany.io"],
+ *         },
+ *     }],
+ * });
+ * // Redirect action
+ * const redirectHttpToHttps = new aws.lb.ListenerRule("redirectHttpToHttps", {
+ *     listenerArn: frontEndListener.arn,
+ *     actions: [{
+ *         type: "redirect",
  *         redirect: {
  *             port: "443",
  *             protocol: "HTTPS",
  *             statusCode: "HTTP_301",
  *         },
- *         type: "redirect",
  *     }],
  *     conditions: [{
  *         httpHeader: {
@@ -69,16 +102,17 @@ import * as utilities from "../utilities";
  *             values: ["192.168.1.*"],
  *         },
  *     }],
- *     listenerArn: frontEndListener.arn,
  * });
+ * // Fixed-response action
  * const healthCheck = new aws.lb.ListenerRule("healthCheck", {
+ *     listenerArn: frontEndListener.arn,
  *     actions: [{
+ *         type: "fixed-response",
  *         fixedResponse: {
  *             contentType: "text/plain",
  *             messageBody: "HEALTHY",
  *             statusCode: "200",
  *         },
- *         type: "fixed-response",
  *     }],
  *     conditions: [{
  *         queryStrings: [
@@ -91,34 +125,55 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }],
- *     listenerArn: frontEndListener.arn,
  * });
+ * // Authenticate-cognito Action
  * const pool = new aws.cognito.UserPool("pool", {});
+ * // ...
  * const client = new aws.cognito.UserPoolClient("client", {});
+ * // ...
  * const domain = new aws.cognito.UserPoolDomain("domain", {});
+ * // ...
  * const admin = new aws.lb.ListenerRule("admin", {
+ *     listenerArn: frontEndListener.arn,
  *     actions: [
  *         {
+ *             type: "authenticate-cognito",
+ *             authenticateCognito: {
+ *                 userPoolArn: pool.arn,
+ *                 userPoolClientId: client.id,
+ *                 userPoolDomain: domain.domain,
+ *             },
+ *         },
+ *         {
+ *             type: "forward",
+ *             targetGroupArn: aws_lb_target_group.static.arn,
+ *         },
+ *     ],
+ * });
+ * // Authenticate-oidc Action
+ * const oidc = new aws.lb.ListenerRule("oidc", {
+ *     listenerArn: frontEndListener.arn,
+ *     actions: [
+ *         {
+ *             type: "authenticate-oidc",
  *             authenticateOidc: {
  *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
- *                 clientId: "clientId",
- *                 clientSecret: "clientSecret",
+ *                 clientId: "client_id",
+ *                 clientSecret: "client_secret",
  *                 issuer: "https://example.com",
  *                 tokenEndpoint: "https://example.com/token_endpoint",
  *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
  *             },
- *             type: "authenticate-oidc",
  *         },
  *         {
- *             targetGroupArn: aws_lb_target_group_static.arn,
  *             type: "forward",
+ *             targetGroupArn: aws_lb_target_group.static.arn,
  *         },
  *     ],
- *     listenerArn: frontEndListener.arn,
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener_rule.html.markdown.
+ * @deprecated aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule
  */
 export class ListenerRule extends pulumi.CustomResource {
     /**
@@ -128,8 +183,10 @@ export class ListenerRule extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ListenerRuleState, opts?: pulumi.CustomResourceOptions): ListenerRule {
+        pulumi.log.warn("ListenerRule is deprecated: aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule")
         return new ListenerRule(name, <any>state, { ...opts, id: id });
     }
 
@@ -152,7 +209,7 @@ export class ListenerRule extends pulumi.CustomResource {
      */
     public readonly actions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleAction[]>;
     /**
-     * The ARN of the rule (matches `id`)
+     * The Amazon Resource Name (ARN) of the target group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -175,8 +232,11 @@ export class ListenerRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule */
     constructor(name: string, args: ListenerRuleArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule */
     constructor(name: string, argsOrState?: ListenerRuleArgs | ListenerRuleState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ListenerRule is deprecated: aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ListenerRuleState | undefined;
@@ -222,7 +282,7 @@ export interface ListenerRuleState {
      */
     readonly actions?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleAction>[]>;
     /**
-     * The ARN of the rule (matches `id`)
+     * The Amazon Resource Name (ARN) of the target group.
      */
     readonly arn?: pulumi.Input<string>;
     /**

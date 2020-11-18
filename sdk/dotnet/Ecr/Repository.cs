@@ -12,9 +12,28 @@ namespace Pulumi.Aws.Ecr
     /// <summary>
     /// Provides an Elastic Container Registry Repository.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ecr.Repository("foo", new Aws.Ecr.RepositoryArgs
+    ///         {
+    ///             ImageScanningConfiguration = new Aws.Ecr.Inputs.RepositoryImageScanningConfigurationArgs
+    ///             {
+    ///                 ScanOnPush = true,
+    ///             },
+    ///             ImageTagMutability = "MUTABLE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Repository : Pulumi.CustomResource
     {
@@ -23,6 +42,12 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Encryption configuration for the repository. See below for schema.
+        /// </summary>
+        [Output("encryptionConfigurations")]
+        public Output<ImmutableArray<Outputs.RepositoryEncryptionConfiguration>> EncryptionConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
@@ -55,10 +80,10 @@ namespace Pulumi.Aws.Ecr
         public Output<string> RepositoryUrl { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -69,7 +94,7 @@ namespace Pulumi.Aws.Ecr
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Repository(string name, RepositoryArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ecr/repository:Repository", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ecr/repository:Repository", name, args ?? new RepositoryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -106,6 +131,18 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class RepositoryArgs : Pulumi.ResourceArgs
     {
+        [Input("encryptionConfigurations")]
+        private InputList<Inputs.RepositoryEncryptionConfigurationArgs>? _encryptionConfigurations;
+
+        /// <summary>
+        /// Encryption configuration for the repository. See below for schema.
+        /// </summary>
+        public InputList<Inputs.RepositoryEncryptionConfigurationArgs> EncryptionConfigurations
+        {
+            get => _encryptionConfigurations ?? (_encryptionConfigurations = new InputList<Inputs.RepositoryEncryptionConfigurationArgs>());
+            set => _encryptionConfigurations = value;
+        }
+
         /// <summary>
         /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         /// </summary>
@@ -125,14 +162,14 @@ namespace Pulumi.Aws.Ecr
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -148,6 +185,18 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        [Input("encryptionConfigurations")]
+        private InputList<Inputs.RepositoryEncryptionConfigurationGetArgs>? _encryptionConfigurations;
+
+        /// <summary>
+        /// Encryption configuration for the repository. See below for schema.
+        /// </summary>
+        public InputList<Inputs.RepositoryEncryptionConfigurationGetArgs> EncryptionConfigurations
+        {
+            get => _encryptionConfigurations ?? (_encryptionConfigurations = new InputList<Inputs.RepositoryEncryptionConfigurationGetArgs>());
+            set => _encryptionConfigurations = value;
+        }
 
         /// <summary>
         /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
@@ -180,68 +229,19 @@ namespace Pulumi.Aws.Ecr
         public Input<string>? RepositoryUrl { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public RepositoryState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class RepositoryImageScanningConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-        /// </summary>
-        [Input("scanOnPush", required: true)]
-        public Input<bool> ScanOnPush { get; set; } = null!;
-
-        public RepositoryImageScanningConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class RepositoryImageScanningConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-        /// </summary>
-        [Input("scanOnPush", required: true)]
-        public Input<bool> ScanOnPush { get; set; } = null!;
-
-        public RepositoryImageScanningConfigurationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class RepositoryImageScanningConfiguration
-    {
-        /// <summary>
-        /// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-        /// </summary>
-        public readonly bool ScanOnPush;
-
-        [OutputConstructor]
-        private RepositoryImageScanningConfiguration(bool scanOnPush)
-        {
-            ScanOnPush = scanOnPush;
-        }
-    }
     }
 }

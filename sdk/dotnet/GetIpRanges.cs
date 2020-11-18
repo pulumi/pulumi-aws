@@ -9,31 +9,65 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ip_ranges.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetIpRanges.InvokeAsync() instead")]
-        public static Task<GetIpRangesResult> GetIpRanges(GetIpRangesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetIpRanges
     {
         /// <summary>
-        /// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
+        /// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ip_ranges.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var europeanEc2 = Output.Create(Aws.GetIpRanges.InvokeAsync(new Aws.GetIpRangesArgs
+        ///         {
+        ///             Regions = 
+        ///             {
+        ///                 "eu-west-1",
+        ///                 "eu-central-1",
+        ///             },
+        ///             Services = 
+        ///             {
+        ///                 "ec2",
+        ///             },
+        ///         }));
+        ///         var fromEurope = new Aws.Ec2.SecurityGroup("fromEurope", new Aws.Ec2.SecurityGroupArgs
+        ///         {
+        ///             Ingress = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
+        ///                 {
+        ///                     FromPort = 443,
+        ///                     ToPort = 443,
+        ///                     Protocol = "tcp",
+        ///                     CidrBlocks = europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.CidrBlocks),
+        ///                     Ipv6CidrBlocks = europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.Ipv6CidrBlocks),
+        ///                 },
+        ///             },
+        ///             Tags = 
+        ///             {
+        ///                 { "CreateDate", europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.CreateDate) },
+        ///                 { "SyncToken", europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.SyncToken) },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetIpRangesResult> InvokeAsync(GetIpRangesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? new GetIpRangesArgs(), options.WithVersion());
     }
+
 
     public sealed class GetIpRangesArgs : Pulumi.InvokeArgs
     {
@@ -68,7 +102,7 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention][1]. Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
+        /// Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
         /// </summary>
         [Input("url")]
         public string? Url { get; set; }
@@ -77,6 +111,7 @@ namespace Pulumi.Aws
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetIpRangesResult
@@ -90,6 +125,10 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string CreateDate;
         /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The lexically ordered list of IPv6 CIDR blocks.
         /// </summary>
         public readonly ImmutableArray<string> Ipv6CidrBlocks;
@@ -101,30 +140,33 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly int SyncToken;
         public readonly string? Url;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetIpRangesResult(
             ImmutableArray<string> cidrBlocks,
+
             string createDate,
+
+            string id,
+
             ImmutableArray<string> ipv6CidrBlocks,
+
             ImmutableArray<string> regions,
+
             ImmutableArray<string> services,
+
             int syncToken,
-            string? url,
-            string id)
+
+            string? url)
         {
             CidrBlocks = cidrBlocks;
             CreateDate = createDate;
+            Id = id;
             Ipv6CidrBlocks = ipv6CidrBlocks;
             Regions = regions;
             Services = services;
             SyncToken = syncToken;
             Url = url;
-            Id = id;
         }
     }
 }

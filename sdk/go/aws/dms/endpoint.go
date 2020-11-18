@@ -7,13 +7,49 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
 //
 // > **Note:** All arguments including the password will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/dms"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dms.NewEndpoint(ctx, "test", &dms.EndpointArgs{
+// 			CertificateArn:            pulumi.String("arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"),
+// 			DatabaseName:              pulumi.String("test"),
+// 			EndpointId:                pulumi.String("test-dms-endpoint-tf"),
+// 			EndpointType:              pulumi.String("source"),
+// 			EngineName:                pulumi.String("aurora"),
+// 			ExtraConnectionAttributes: pulumi.String(""),
+// 			KmsKeyArn:                 pulumi.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"),
+// 			Password:                  pulumi.String("test"),
+// 			Port:                      pulumi.Int(3306),
+// 			ServerName:                pulumi.String("test"),
+// 			SslMode:                   pulumi.String("none"),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("test"),
+// 			},
+// 			Username: pulumi.String("test"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Endpoint struct {
 	pulumi.CustomResourceState
 
@@ -21,25 +57,31 @@ type Endpoint struct {
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
 	// The name of the endpoint database.
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
+	// Configuration block with Elasticsearch settings. Detailed below.
+	ElasticsearchSettings EndpointElasticsearchSettingsPtrOutput `pulumi:"elasticsearchSettings"`
 	// The Amazon Resource Name (ARN) for the endpoint.
 	EndpointArn pulumi.StringOutput `pulumi:"endpointArn"`
 	// The database endpoint identifier.
 	EndpointId pulumi.StringOutput `pulumi:"endpointId"`
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName pulumi.StringOutput `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes pulumi.StringOutput `pulumi:"extraConnectionAttributes"`
+	// Configuration block with Kafka settings. Detailed below.
+	KafkaSettings EndpointKafkaSettingsPtrOutput `pulumi:"kafkaSettings"`
+	// Configuration block with Kinesis settings. Detailed below.
+	KinesisSettings EndpointKinesisSettingsPtrOutput `pulumi:"kinesisSettings"`
 	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
-	// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+	// Configuration block with MongoDB settings. Detailed below.
 	MongodbSettings EndpointMongodbSettingsPtrOutput `pulumi:"mongodbSettings"`
 	// The password to be used to login to the endpoint database.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The port used by the endpoint database.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+	// Configuration block with S3 settings. Detailed below.
 	S3Settings EndpointS3SettingsPtrOutput `pulumi:"s3Settings"`
 	// The host name of the server.
 	ServerName pulumi.StringPtrOutput `pulumi:"serverName"`
@@ -47,8 +89,8 @@ type Endpoint struct {
 	ServiceAccessRole pulumi.StringPtrOutput `pulumi:"serviceAccessRole"`
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode pulumi.StringOutput `pulumi:"sslMode"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The user name to be used to login to the endpoint database.
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
@@ -94,25 +136,31 @@ type endpointState struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The name of the endpoint database.
 	DatabaseName *string `pulumi:"databaseName"`
+	// Configuration block with Elasticsearch settings. Detailed below.
+	ElasticsearchSettings *EndpointElasticsearchSettings `pulumi:"elasticsearchSettings"`
 	// The Amazon Resource Name (ARN) for the endpoint.
 	EndpointArn *string `pulumi:"endpointArn"`
 	// The database endpoint identifier.
 	EndpointId *string `pulumi:"endpointId"`
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType *string `pulumi:"endpointType"`
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName *string `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes *string `pulumi:"extraConnectionAttributes"`
+	// Configuration block with Kafka settings. Detailed below.
+	KafkaSettings *EndpointKafkaSettings `pulumi:"kafkaSettings"`
+	// Configuration block with Kinesis settings. Detailed below.
+	KinesisSettings *EndpointKinesisSettings `pulumi:"kinesisSettings"`
 	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+	// Configuration block with MongoDB settings. Detailed below.
 	MongodbSettings *EndpointMongodbSettings `pulumi:"mongodbSettings"`
 	// The password to be used to login to the endpoint database.
 	Password *string `pulumi:"password"`
 	// The port used by the endpoint database.
 	Port *int `pulumi:"port"`
-	// Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+	// Configuration block with S3 settings. Detailed below.
 	S3Settings *EndpointS3Settings `pulumi:"s3Settings"`
 	// The host name of the server.
 	ServerName *string `pulumi:"serverName"`
@@ -120,8 +168,8 @@ type endpointState struct {
 	ServiceAccessRole *string `pulumi:"serviceAccessRole"`
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode *string `pulumi:"sslMode"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The user name to be used to login to the endpoint database.
 	Username *string `pulumi:"username"`
 }
@@ -131,25 +179,31 @@ type EndpointState struct {
 	CertificateArn pulumi.StringPtrInput
 	// The name of the endpoint database.
 	DatabaseName pulumi.StringPtrInput
+	// Configuration block with Elasticsearch settings. Detailed below.
+	ElasticsearchSettings EndpointElasticsearchSettingsPtrInput
 	// The Amazon Resource Name (ARN) for the endpoint.
 	EndpointArn pulumi.StringPtrInput
 	// The database endpoint identifier.
 	EndpointId pulumi.StringPtrInput
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType pulumi.StringPtrInput
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName pulumi.StringPtrInput
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes pulumi.StringPtrInput
+	// Configuration block with Kafka settings. Detailed below.
+	KafkaSettings EndpointKafkaSettingsPtrInput
+	// Configuration block with Kinesis settings. Detailed below.
+	KinesisSettings EndpointKinesisSettingsPtrInput
 	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn pulumi.StringPtrInput
-	// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+	// Configuration block with MongoDB settings. Detailed below.
 	MongodbSettings EndpointMongodbSettingsPtrInput
 	// The password to be used to login to the endpoint database.
 	Password pulumi.StringPtrInput
 	// The port used by the endpoint database.
 	Port pulumi.IntPtrInput
-	// Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+	// Configuration block with S3 settings. Detailed below.
 	S3Settings EndpointS3SettingsPtrInput
 	// The host name of the server.
 	ServerName pulumi.StringPtrInput
@@ -157,8 +211,8 @@ type EndpointState struct {
 	ServiceAccessRole pulumi.StringPtrInput
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The user name to be used to login to the endpoint database.
 	Username pulumi.StringPtrInput
 }
@@ -172,23 +226,29 @@ type endpointArgs struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The name of the endpoint database.
 	DatabaseName *string `pulumi:"databaseName"`
+	// Configuration block with Elasticsearch settings. Detailed below.
+	ElasticsearchSettings *EndpointElasticsearchSettings `pulumi:"elasticsearchSettings"`
 	// The database endpoint identifier.
 	EndpointId string `pulumi:"endpointId"`
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType string `pulumi:"endpointType"`
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName string `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes *string `pulumi:"extraConnectionAttributes"`
+	// Configuration block with Kafka settings. Detailed below.
+	KafkaSettings *EndpointKafkaSettings `pulumi:"kafkaSettings"`
+	// Configuration block with Kinesis settings. Detailed below.
+	KinesisSettings *EndpointKinesisSettings `pulumi:"kinesisSettings"`
 	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+	// Configuration block with MongoDB settings. Detailed below.
 	MongodbSettings *EndpointMongodbSettings `pulumi:"mongodbSettings"`
 	// The password to be used to login to the endpoint database.
 	Password *string `pulumi:"password"`
 	// The port used by the endpoint database.
 	Port *int `pulumi:"port"`
-	// Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+	// Configuration block with S3 settings. Detailed below.
 	S3Settings *EndpointS3Settings `pulumi:"s3Settings"`
 	// The host name of the server.
 	ServerName *string `pulumi:"serverName"`
@@ -196,8 +256,8 @@ type endpointArgs struct {
 	ServiceAccessRole *string `pulumi:"serviceAccessRole"`
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode *string `pulumi:"sslMode"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The user name to be used to login to the endpoint database.
 	Username *string `pulumi:"username"`
 }
@@ -208,23 +268,29 @@ type EndpointArgs struct {
 	CertificateArn pulumi.StringPtrInput
 	// The name of the endpoint database.
 	DatabaseName pulumi.StringPtrInput
+	// Configuration block with Elasticsearch settings. Detailed below.
+	ElasticsearchSettings EndpointElasticsearchSettingsPtrInput
 	// The database endpoint identifier.
 	EndpointId pulumi.StringInput
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType pulumi.StringInput
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName pulumi.StringInput
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes pulumi.StringPtrInput
+	// Configuration block with Kafka settings. Detailed below.
+	KafkaSettings EndpointKafkaSettingsPtrInput
+	// Configuration block with Kinesis settings. Detailed below.
+	KinesisSettings EndpointKinesisSettingsPtrInput
 	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn pulumi.StringPtrInput
-	// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+	// Configuration block with MongoDB settings. Detailed below.
 	MongodbSettings EndpointMongodbSettingsPtrInput
 	// The password to be used to login to the endpoint database.
 	Password pulumi.StringPtrInput
 	// The port used by the endpoint database.
 	Port pulumi.IntPtrInput
-	// Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+	// Configuration block with S3 settings. Detailed below.
 	S3Settings EndpointS3SettingsPtrInput
 	// The host name of the server.
 	ServerName pulumi.StringPtrInput
@@ -232,8 +298,8 @@ type EndpointArgs struct {
 	ServiceAccessRole pulumi.StringPtrInput
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The user name to be used to login to the endpoint database.
 	Username pulumi.StringPtrInput
 }

@@ -4,107 +4,104 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Simple or Managed Microsoft directory in AWS Directory Service.
- * 
+ *
  * > **Note:** All arguments including the password and customer username will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
  * ### SimpleAD
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
+ *
+ * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
  * const foo = new aws.ec2.Subnet("foo", {
+ *     vpcId: main.id,
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.0.1.0/24",
- *     vpcId: main.id,
  * });
- * const barSubnet = new aws.ec2.Subnet("bar", {
+ * const barSubnet = new aws.ec2.Subnet("barSubnet", {
+ *     vpcId: main.id,
  *     availabilityZone: "us-west-2b",
  *     cidrBlock: "10.0.2.0/24",
- *     vpcId: main.id,
  * });
- * const barDirectory = new aws.directoryservice.Directory("bar", {
+ * const barDirectory = new aws.directoryservice.Directory("barDirectory", {
+ *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     size: "Small",
- *     tags: {
- *         Project: "foo",
- *     },
  *     vpcSettings: {
+ *         vpcId: main.id,
  *         subnetIds: [
  *             foo.id,
  *             barSubnet.id,
  *         ],
- *         vpcId: main.id,
  *     },
- * });
- * ```
- * 
- * ### Microsoft Active Directory (MicrosoftAD)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const foo = new aws.ec2.Subnet("foo", {
- *     availabilityZone: "us-west-2a",
- *     cidrBlock: "10.0.1.0/24",
- *     vpcId: main.id,
- * });
- * const barSubnet = new aws.ec2.Subnet("bar", {
- *     availabilityZone: "us-west-2b",
- *     cidrBlock: "10.0.2.0/24",
- *     vpcId: main.id,
- * });
- * const barDirectory = new aws.directoryservice.Directory("bar", {
- *     edition: "Standard",
- *     password: "SuperSecretPassw0rd",
  *     tags: {
  *         Project: "foo",
  *     },
+ * });
+ * ```
+ * ### Microsoft Active Directory (MicrosoftAD)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
+ * const foo = new aws.ec2.Subnet("foo", {
+ *     vpcId: main.id,
+ *     availabilityZone: "us-west-2a",
+ *     cidrBlock: "10.0.1.0/24",
+ * });
+ * const barSubnet = new aws.ec2.Subnet("barSubnet", {
+ *     vpcId: main.id,
+ *     availabilityZone: "us-west-2b",
+ *     cidrBlock: "10.0.2.0/24",
+ * });
+ * const barDirectory = new aws.directoryservice.Directory("barDirectory", {
+ *     name: "corp.notexample.com",
+ *     password: "SuperSecretPassw0rd",
+ *     edition: "Standard",
  *     type: "MicrosoftAD",
  *     vpcSettings: {
+ *         vpcId: main.id,
  *         subnetIds: [
  *             foo.id,
  *             barSubnet.id,
  *         ],
- *         vpcId: main.id,
+ *     },
+ *     tags: {
+ *         Project: "foo",
  *     },
  * });
  * ```
- * 
  * ### Microsoft Active Directory Connector (ADConnector)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
+ *
+ * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
  * const foo = new aws.ec2.Subnet("foo", {
+ *     vpcId: main.id,
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.0.1.0/24",
- *     vpcId: main.id,
  * });
  * const bar = new aws.ec2.Subnet("bar", {
+ *     vpcId: main.id,
  *     availabilityZone: "us-west-2b",
  *     cidrBlock: "10.0.2.0/24",
- *     vpcId: main.id,
  * });
  * const connector = new aws.directoryservice.Directory("connector", {
+ *     name: "corp.notexample.com",
+ *     password: "SuperSecretPassw0rd",
+ *     size: "Small",
+ *     type: "ADConnector",
  *     connectSettings: {
  *         customerDnsIps: ["A.B.C.D"],
  *         customerUsername: "Admin",
@@ -114,13 +111,8 @@ import * as utilities from "../utilities";
  *         ],
  *         vpcId: main.id,
  *     },
- *     password: "SuperSecretPassw0rd",
- *     size: "Small",
- *     type: "ADConnector",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_directory.html.markdown.
  */
 export class Directory extends pulumi.CustomResource {
     /**
@@ -130,6 +122,7 @@ export class Directory extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DirectoryState, opts?: pulumi.CustomResourceOptions): Directory {
         return new Directory(name, <any>state, { ...opts, id: id });
@@ -198,9 +191,9 @@ export class Directory extends pulumi.CustomResource {
      */
     public readonly size!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */
@@ -239,6 +232,9 @@ export class Directory extends pulumi.CustomResource {
             inputs["vpcSettings"] = state ? state.vpcSettings : undefined;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.password === undefined) {
                 throw new Error("Missing required property 'password'");
             }
@@ -322,9 +318,9 @@ export interface DirectoryState {
      */
     readonly size?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */
@@ -362,7 +358,7 @@ export interface DirectoryArgs {
     /**
      * The fully qualified name for the directory, such as `corp.example.com`
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The password for the directory administrator or connector user.
      */
@@ -376,9 +372,9 @@ export interface DirectoryArgs {
      */
     readonly size?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */

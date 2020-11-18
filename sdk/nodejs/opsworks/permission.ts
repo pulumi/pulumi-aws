@@ -2,31 +2,25 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks permission resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myStackPermission = new aws.opsworks.Permission("myStackPermission", {
  *     allowSsh: true,
  *     allowSudo: true,
- *     level: "iamOnly",
- *     stackId: aws_opsworks_stack_stack.id,
- *     userArn: aws_iam_user_user.arn,
+ *     level: "iam_only",
+ *     userArn: aws_iam_user.user.arn,
+ *     stackId: aws_opsworks_stack.stack.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_permission.html.markdown.
  */
 export class Permission extends pulumi.CustomResource {
     /**
@@ -36,6 +30,7 @@ export class Permission extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PermissionState, opts?: pulumi.CustomResourceOptions): Permission {
         return new Permission(name, <any>state, { ...opts, id: id });

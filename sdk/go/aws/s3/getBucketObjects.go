@@ -4,7 +4,7 @@
 package s3
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // > **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
@@ -45,7 +45,7 @@ type GetBucketObjectsResult struct {
 	Delimiter      *string  `pulumi:"delimiter"`
 	EncodingType   *string  `pulumi:"encodingType"`
 	FetchOwner     *bool    `pulumi:"fetchOwner"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of strings representing object keys
 	Keys    []string `pulumi:"keys"`

@@ -4,10 +4,43 @@
 package aws
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get a list of AMI IDs matching the specified criteria.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := aws.GetAmiIds(ctx, &aws.GetAmiIdsArgs{
+// 			Filters: []aws.GetAmiIdsFilter{
+// 				aws.GetAmiIdsFilter{
+// 					Name: "name",
+// 					Values: []string{
+// 						"ubuntu/images/ubuntu-*-*-amd64-server-*",
+// 					},
+// 				},
+// 			},
+// 			Owners: []string{
+// 				"099720109477",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOption) (*GetAmiIdsResult, error) {
 	var rv GetAmiIdsResult
 	err := ctx.Invoke("aws:index/getAmiIds:getAmiIds", args, &rv, opts...)
@@ -42,7 +75,7 @@ type GetAmiIdsArgs struct {
 type GetAmiIdsResult struct {
 	ExecutableUsers []string          `pulumi:"executableUsers"`
 	Filters         []GetAmiIdsFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id            string   `pulumi:"id"`
 	Ids           []string `pulumi:"ids"`
 	NameRegex     *string  `pulumi:"nameRegex"`

@@ -24,12 +24,102 @@ namespace Pulumi.Aws.Ec2
     /// [1]: https://www.terraform.io/docs/providers/aws/d/instance.html
     /// [2]: https://www.terraform.io/docs/providers/aws/r/network_interface.html
     /// 
+    /// ## Example Usage
     /// 
+    /// The following provides a very basic example of setting up an instance (provided
+    /// by `instance`) in the default security group, creating a security group
+    /// (provided by `sg`) and then attaching the security group to the instance's
+    /// primary network interface via the `aws.ec2.NetworkInterfaceSecurityGroupAttachment` resource,
+    /// named `sg_attachment`:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ami = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
+    ///         {
+    ///             MostRecent = true,
+    ///             Filters = 
+    ///             {
+    ///                 new Aws.Inputs.GetAmiFilterArgs
+    ///                 {
+    ///                     Name = "name",
+    ///                     Values = 
+    ///                     {
+    ///                         "amzn-ami-hvm-*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Owners = 
+    ///             {
+    ///                 "amazon",
+    ///             },
+    ///         }));
+    ///         var instance = new Aws.Ec2.Instance("instance", new Aws.Ec2.InstanceArgs
+    ///         {
+    ///             InstanceType = "t2.micro",
+    ///             Ami = ami.Apply(ami =&gt; ami.Id),
+    ///             Tags = 
+    ///             {
+    ///                 { "type", "test-instance" },
+    ///             },
+    ///         });
+    ///         var sg = new Aws.Ec2.SecurityGroup("sg", new Aws.Ec2.SecurityGroupArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "type", "test-security-group" },
+    ///             },
+    ///         });
+    ///         var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", new Aws.Ec2.NetworkInterfaceSecurityGroupAttachmentArgs
+    ///         {
+    ///             SecurityGroupId = sg.Id,
+    ///             NetworkInterfaceId = instance.PrimaryNetworkInterfaceId,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// In this example, `instance` is provided by the `aws.ec2.Instance` data source,
+    /// fetching an external instance, possibly not managed by this provider.
+    /// `sg_attachment` then attaches to the output instance's `network_interface_id`:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var instance = Output.Create(Aws.Ec2.GetInstance.InvokeAsync(new Aws.Ec2.GetInstanceArgs
+    ///         {
+    ///             InstanceId = "i-1234567890abcdef0",
+    ///         }));
+    ///         var sg = new Aws.Ec2.SecurityGroup("sg", new Aws.Ec2.SecurityGroupArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "type", "test-security-group" },
+    ///             },
+    ///         });
+    ///         var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", new Aws.Ec2.NetworkInterfaceSecurityGroupAttachmentArgs
+    ///         {
+    ///             SecurityGroupId = sg.Id,
+    ///             NetworkInterfaceId = instance.Apply(instance =&gt; instance.NetworkInterfaceId),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Output Reference
     /// 
     /// There are no outputs for this resource.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface_sg_attachment.html.markdown.
     /// </summary>
     public partial class NetworkInterfaceSecurityGroupAttachment : Pulumi.CustomResource
     {
@@ -54,7 +144,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkInterfaceSecurityGroupAttachment(string name, NetworkInterfaceSecurityGroupAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, args ?? new NetworkInterfaceSecurityGroupAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

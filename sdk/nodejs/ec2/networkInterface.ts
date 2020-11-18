@@ -4,31 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic network interface (ENI) resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.ec2.NetworkInterface("test", {
- *     attachments: [{
- *         deviceIndex: 1,
- *         instance: aws_instance_test.id,
- *     }],
+ *     subnetId: aws_subnet.public_a.id,
  *     privateIps: ["10.0.0.50"],
- *     securityGroups: [aws_security_group_web.id],
- *     subnetId: aws_subnet_public_a.id,
+ *     securityGroups: [aws_security_group.web.id],
+ *     attachments: [{
+ *         instance: aws_instance.test.id,
+ *         deviceIndex: 1,
+ *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface.markdown.
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**
@@ -38,6 +35,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NetworkInterfaceState, opts?: pulumi.CustomResourceOptions): NetworkInterface {
         return new NetworkInterface(name, <any>state, { ...opts, id: id });
@@ -66,9 +64,18 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+     */
+    public readonly ipv6AddressCount!: pulumi.Output<number>;
+    /**
+     * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+     */
+    public readonly ipv6Addresses!: pulumi.Output<string[]>;
+    /**
      * The MAC address of the network interface.
      */
     public /*out*/ readonly macAddress!: pulumi.Output<string>;
+    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
     /**
      * The private DNS name of the network interface (IPv4).
      */
@@ -79,7 +86,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly privateIps!: pulumi.Output<string[]>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
      */
     public readonly privateIpsCount!: pulumi.Output<number>;
     /**
@@ -95,9 +102,9 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -113,7 +120,10 @@ export class NetworkInterface extends pulumi.CustomResource {
             const state = argsOrState as NetworkInterfaceState | undefined;
             inputs["attachments"] = state ? state.attachments : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["ipv6AddressCount"] = state ? state.ipv6AddressCount : undefined;
+            inputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
             inputs["macAddress"] = state ? state.macAddress : undefined;
+            inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["privateDnsName"] = state ? state.privateDnsName : undefined;
             inputs["privateIp"] = state ? state.privateIp : undefined;
             inputs["privateIps"] = state ? state.privateIps : undefined;
@@ -129,6 +139,8 @@ export class NetworkInterface extends pulumi.CustomResource {
             }
             inputs["attachments"] = args ? args.attachments : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
+            inputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
             inputs["privateIp"] = args ? args.privateIp : undefined;
             inputs["privateIps"] = args ? args.privateIps : undefined;
             inputs["privateIpsCount"] = args ? args.privateIpsCount : undefined;
@@ -137,6 +149,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["macAddress"] = undefined /*out*/;
+            inputs["outpostArn"] = undefined /*out*/;
             inputs["privateDnsName"] = undefined /*out*/;
         }
         if (!opts) {
@@ -163,9 +176,18 @@ export interface NetworkInterfaceState {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+     */
+    readonly ipv6AddressCount?: pulumi.Input<number>;
+    /**
+     * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+     */
+    readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The MAC address of the network interface.
      */
     readonly macAddress?: pulumi.Input<string>;
+    readonly outpostArn?: pulumi.Input<string>;
     /**
      * The private DNS name of the network interface (IPv4).
      */
@@ -176,7 +198,7 @@ export interface NetworkInterfaceState {
      */
     readonly privateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
      */
     readonly privateIpsCount?: pulumi.Input<number>;
     /**
@@ -192,9 +214,9 @@ export interface NetworkInterfaceState {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -209,13 +231,21 @@ export interface NetworkInterfaceArgs {
      * A description for the network interface.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+     */
+    readonly ipv6AddressCount?: pulumi.Input<number>;
+    /**
+     * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+     */
+    readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     readonly privateIp?: pulumi.Input<string>;
     /**
      * List of private IPs to assign to the ENI.
      */
     readonly privateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
      */
     readonly privateIpsCount?: pulumi.Input<number>;
     /**
@@ -231,7 +261,7 @@ export interface NetworkInterfaceArgs {
      */
     readonly subnetId: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

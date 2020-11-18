@@ -6,9 +6,95 @@ package sqs
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/json"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sqs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 			"deadLetterTargetArn": aws_sqs_queue.Queue_deadletter.Arn,
+// 			"maxReceiveCount":     4,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json0 := string(tmpJSON0)
+// 		_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+// 			DelaySeconds:            pulumi.Int(90),
+// 			MaxMessageSize:          pulumi.Int(2048),
+// 			MessageRetentionSeconds: pulumi.Int(86400),
+// 			ReceiveWaitTimeSeconds:  pulumi.Int(10),
+// 			RedrivePolicy:           pulumi.String(json0),
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## FIFO queue
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sqs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+// 			ContentBasedDeduplication: pulumi.Bool(true),
+// 			FifoQueue:                 pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Server-side encryption (SSE)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sqs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+// 			KmsDataKeyReusePeriodSeconds: pulumi.Int(300),
+// 			KmsMasterKeyId:               pulumi.String("alias/aws/sqs"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Queue struct {
 	pulumi.CustomResourceState
 
@@ -38,8 +124,8 @@ type Queue struct {
 	ReceiveWaitTimeSeconds pulumi.IntPtrOutput `pulumi:"receiveWaitTimeSeconds"`
 	// The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
 	RedrivePolicy pulumi.StringPtrOutput `pulumi:"redrivePolicy"`
-	// A mapping of tags to assign to the queue.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the queue.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
 	VisibilityTimeoutSeconds pulumi.IntPtrOutput `pulumi:"visibilityTimeoutSeconds"`
 }
@@ -98,8 +184,8 @@ type queueState struct {
 	ReceiveWaitTimeSeconds *int `pulumi:"receiveWaitTimeSeconds"`
 	// The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
 	RedrivePolicy *string `pulumi:"redrivePolicy"`
-	// A mapping of tags to assign to the queue.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the queue.
+	Tags map[string]string `pulumi:"tags"`
 	// The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
 	VisibilityTimeoutSeconds *int `pulumi:"visibilityTimeoutSeconds"`
 }
@@ -131,8 +217,8 @@ type QueueState struct {
 	ReceiveWaitTimeSeconds pulumi.IntPtrInput
 	// The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
 	RedrivePolicy pulumi.StringPtrInput
-	// A mapping of tags to assign to the queue.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the queue.
+	Tags pulumi.StringMapInput
 	// The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
 	VisibilityTimeoutSeconds pulumi.IntPtrInput
 }
@@ -166,8 +252,8 @@ type queueArgs struct {
 	ReceiveWaitTimeSeconds *int `pulumi:"receiveWaitTimeSeconds"`
 	// The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
 	RedrivePolicy *string `pulumi:"redrivePolicy"`
-	// A mapping of tags to assign to the queue.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the queue.
+	Tags map[string]string `pulumi:"tags"`
 	// The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
 	VisibilityTimeoutSeconds *int `pulumi:"visibilityTimeoutSeconds"`
 }
@@ -198,8 +284,8 @@ type QueueArgs struct {
 	ReceiveWaitTimeSeconds pulumi.IntPtrInput
 	// The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
 	RedrivePolicy pulumi.StringPtrInput
-	// A mapping of tags to assign to the queue.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the queue.
+	Tags pulumi.StringMapInput
 	// The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
 	VisibilityTimeoutSeconds pulumi.IntPtrInput
 }

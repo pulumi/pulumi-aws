@@ -12,9 +12,53 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides a Cognito User Pool resource.
     /// 
+    /// ## Example Usage
+    /// ### Basic configuration
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pool = new Aws.Cognito.UserPool("pool", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Enabling SMS and Software Token Multi-Factor Authentication
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ... other configuration ...
+    ///         var example = new Aws.Cognito.UserPool("example", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///             MfaConfiguration = "ON",
+    ///             SmsAuthenticationMessage = "Your code is {####}",
+    ///             SmsConfiguration = new Aws.Cognito.Inputs.UserPoolSmsConfigurationArgs
+    ///             {
+    ///                 ExternalId = "example",
+    ///                 SnsCallerArn = aws_iam_role.Example.Arn,
+    ///             },
+    ///             SoftwareTokenMfaConfiguration = new Aws.Cognito.Inputs.UserPoolSoftwareTokenMfaConfigurationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class UserPool : Pulumi.CustomResource
     {
@@ -112,7 +156,7 @@ namespace Pulumi.Aws.Cognito
         /// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
         /// </summary>
         [Output("schemas")]
-        public Output<ImmutableArray<Outputs.UserPoolSchemas>> Schemas { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.UserPoolSchema>> Schemas { get; private set; } = null!;
 
         /// <summary>
         /// A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
@@ -139,10 +183,10 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.UserPoolSoftwareTokenMfaConfiguration?> SoftwareTokenMfaConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the User Pool.
+        /// A map of tags to assign to the User Pool.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for user pool add-ons to enable user pool advanced security mode features.
@@ -177,7 +221,7 @@ namespace Pulumi.Aws.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserPool(string name, UserPoolArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:cognito/userPool:UserPool", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cognito/userPool:UserPool", name, args ?? new UserPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -293,14 +337,14 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolPasswordPolicyArgs>? PasswordPolicy { get; set; }
 
         [Input("schemas")]
-        private InputList<Inputs.UserPoolSchemasArgs>? _schemas;
+        private InputList<Inputs.UserPoolSchemaArgs>? _schemas;
 
         /// <summary>
         /// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
         /// </summary>
-        public InputList<Inputs.UserPoolSchemasArgs> Schemas
+        public InputList<Inputs.UserPoolSchemaArgs> Schemas
         {
-            get => _schemas ?? (_schemas = new InputList<Inputs.UserPoolSchemasArgs>());
+            get => _schemas ?? (_schemas = new InputList<Inputs.UserPoolSchemaArgs>());
             set => _schemas = value;
         }
 
@@ -329,14 +373,14 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolSoftwareTokenMfaConfigurationArgs>? SoftwareTokenMfaConfiguration { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the User Pool.
+        /// A map of tags to assign to the User Pool.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -480,14 +524,14 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolPasswordPolicyGetArgs>? PasswordPolicy { get; set; }
 
         [Input("schemas")]
-        private InputList<Inputs.UserPoolSchemasGetArgs>? _schemas;
+        private InputList<Inputs.UserPoolSchemaGetArgs>? _schemas;
 
         /// <summary>
         /// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
         /// </summary>
-        public InputList<Inputs.UserPoolSchemasGetArgs> Schemas
+        public InputList<Inputs.UserPoolSchemaGetArgs> Schemas
         {
-            get => _schemas ?? (_schemas = new InputList<Inputs.UserPoolSchemasGetArgs>());
+            get => _schemas ?? (_schemas = new InputList<Inputs.UserPoolSchemaGetArgs>());
             set => _schemas = value;
         }
 
@@ -516,14 +560,14 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolSoftwareTokenMfaConfigurationGetArgs>? SoftwareTokenMfaConfiguration { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the User Pool.
+        /// A map of tags to assign to the User Pool.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -560,1246 +604,5 @@ namespace Pulumi.Aws.Cognito
         public UserPoolState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class UserPoolAdminCreateUserConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-        /// </summary>
-        [Input("allowAdminCreateUserOnly")]
-        public Input<bool>? AllowAdminCreateUserOnly { get; set; }
-
-        /// <summary>
-        /// The invite message template structure.
-        /// </summary>
-        [Input("inviteMessageTemplate")]
-        public Input<UserPoolAdminCreateUserConfigInviteMessageTemplateArgs>? InviteMessageTemplate { get; set; }
-
-        /// <summary>
-        /// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
-        /// </summary>
-        [Input("unusedAccountValidityDays")]
-        public Input<int>? UnusedAccountValidityDays { get; set; }
-
-        public UserPoolAdminCreateUserConfigArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolAdminCreateUserConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-        /// </summary>
-        [Input("allowAdminCreateUserOnly")]
-        public Input<bool>? AllowAdminCreateUserOnly { get; set; }
-
-        /// <summary>
-        /// The invite message template structure.
-        /// </summary>
-        [Input("inviteMessageTemplate")]
-        public Input<UserPoolAdminCreateUserConfigInviteMessageTemplateGetArgs>? InviteMessageTemplate { get; set; }
-
-        /// <summary>
-        /// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
-        /// </summary>
-        [Input("unusedAccountValidityDays")]
-        public Input<int>? UnusedAccountValidityDays { get; set; }
-
-        public UserPoolAdminCreateUserConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-        /// </summary>
-        [Input("emailMessage")]
-        public Input<string>? EmailMessage { get; set; }
-
-        /// <summary>
-        /// The subject line for the email message template. Conflicts with `email_verification_subject` argument.
-        /// </summary>
-        [Input("emailSubject")]
-        public Input<string>? EmailSubject { get; set; }
-
-        /// <summary>
-        /// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
-        /// </summary>
-        [Input("smsMessage")]
-        public Input<string>? SmsMessage { get; set; }
-
-        public UserPoolAdminCreateUserConfigInviteMessageTemplateArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolAdminCreateUserConfigInviteMessageTemplateGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-        /// </summary>
-        [Input("emailMessage")]
-        public Input<string>? EmailMessage { get; set; }
-
-        /// <summary>
-        /// The subject line for the email message template. Conflicts with `email_verification_subject` argument.
-        /// </summary>
-        [Input("emailSubject")]
-        public Input<string>? EmailSubject { get; set; }
-
-        /// <summary>
-        /// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
-        /// </summary>
-        [Input("smsMessage")]
-        public Input<string>? SmsMessage { get; set; }
-
-        public UserPoolAdminCreateUserConfigInviteMessageTemplateGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolDeviceConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether a challenge is required on a new device. Only applicable to a new device.
-        /// </summary>
-        [Input("challengeRequiredOnNewDevice")]
-        public Input<bool>? ChallengeRequiredOnNewDevice { get; set; }
-
-        /// <summary>
-        /// If true, a device is only remembered on user prompt.
-        /// </summary>
-        [Input("deviceOnlyRememberedOnUserPrompt")]
-        public Input<bool>? DeviceOnlyRememberedOnUserPrompt { get; set; }
-
-        public UserPoolDeviceConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolDeviceConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether a challenge is required on a new device. Only applicable to a new device.
-        /// </summary>
-        [Input("challengeRequiredOnNewDevice")]
-        public Input<bool>? ChallengeRequiredOnNewDevice { get; set; }
-
-        /// <summary>
-        /// If true, a device is only remembered on user prompt.
-        /// </summary>
-        [Input("deviceOnlyRememberedOnUserPrompt")]
-        public Input<bool>? DeviceOnlyRememberedOnUserPrompt { get; set; }
-
-        public UserPoolDeviceConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolEmailConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
-        /// </summary>
-        [Input("emailSendingAccount")]
-        public Input<string>? EmailSendingAccount { get; set; }
-
-        /// <summary>
-        /// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith &lt;john@smith.com&gt;")
-        /// </summary>
-        [Input("fromEmailAddress")]
-        public Input<string>? FromEmailAddress { get; set; }
-
-        /// <summary>
-        /// The REPLY-TO email address.
-        /// </summary>
-        [Input("replyToEmailAddress")]
-        public Input<string>? ReplyToEmailAddress { get; set; }
-
-        /// <summary>
-        /// The ARN of the email source.
-        /// </summary>
-        [Input("sourceArn")]
-        public Input<string>? SourceArn { get; set; }
-
-        public UserPoolEmailConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolEmailConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
-        /// </summary>
-        [Input("emailSendingAccount")]
-        public Input<string>? EmailSendingAccount { get; set; }
-
-        /// <summary>
-        /// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith &lt;john@smith.com&gt;")
-        /// </summary>
-        [Input("fromEmailAddress")]
-        public Input<string>? FromEmailAddress { get; set; }
-
-        /// <summary>
-        /// The REPLY-TO email address.
-        /// </summary>
-        [Input("replyToEmailAddress")]
-        public Input<string>? ReplyToEmailAddress { get; set; }
-
-        /// <summary>
-        /// The ARN of the email source.
-        /// </summary>
-        [Input("sourceArn")]
-        public Input<string>? SourceArn { get; set; }
-
-        public UserPoolEmailConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolLambdaConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the lambda creating an authentication challenge.
-        /// </summary>
-        [Input("createAuthChallenge")]
-        public Input<string>? CreateAuthChallenge { get; set; }
-
-        /// <summary>
-        /// A custom Message AWS Lambda trigger.
-        /// </summary>
-        [Input("customMessage")]
-        public Input<string>? CustomMessage { get; set; }
-
-        /// <summary>
-        /// Defines the authentication challenge.
-        /// </summary>
-        [Input("defineAuthChallenge")]
-        public Input<string>? DefineAuthChallenge { get; set; }
-
-        /// <summary>
-        /// A post-authentication AWS Lambda trigger.
-        /// </summary>
-        [Input("postAuthentication")]
-        public Input<string>? PostAuthentication { get; set; }
-
-        /// <summary>
-        /// A post-confirmation AWS Lambda trigger.
-        /// </summary>
-        [Input("postConfirmation")]
-        public Input<string>? PostConfirmation { get; set; }
-
-        /// <summary>
-        /// A pre-authentication AWS Lambda trigger.
-        /// </summary>
-        [Input("preAuthentication")]
-        public Input<string>? PreAuthentication { get; set; }
-
-        /// <summary>
-        /// A pre-registration AWS Lambda trigger.
-        /// </summary>
-        [Input("preSignUp")]
-        public Input<string>? PreSignUp { get; set; }
-
-        /// <summary>
-        /// Allow to customize identity token claims before token generation.
-        /// </summary>
-        [Input("preTokenGeneration")]
-        public Input<string>? PreTokenGeneration { get; set; }
-
-        /// <summary>
-        /// The user migration Lambda config type.
-        /// </summary>
-        [Input("userMigration")]
-        public Input<string>? UserMigration { get; set; }
-
-        /// <summary>
-        /// Verifies the authentication challenge response.
-        /// </summary>
-        [Input("verifyAuthChallengeResponse")]
-        public Input<string>? VerifyAuthChallengeResponse { get; set; }
-
-        public UserPoolLambdaConfigArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolLambdaConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the lambda creating an authentication challenge.
-        /// </summary>
-        [Input("createAuthChallenge")]
-        public Input<string>? CreateAuthChallenge { get; set; }
-
-        /// <summary>
-        /// A custom Message AWS Lambda trigger.
-        /// </summary>
-        [Input("customMessage")]
-        public Input<string>? CustomMessage { get; set; }
-
-        /// <summary>
-        /// Defines the authentication challenge.
-        /// </summary>
-        [Input("defineAuthChallenge")]
-        public Input<string>? DefineAuthChallenge { get; set; }
-
-        /// <summary>
-        /// A post-authentication AWS Lambda trigger.
-        /// </summary>
-        [Input("postAuthentication")]
-        public Input<string>? PostAuthentication { get; set; }
-
-        /// <summary>
-        /// A post-confirmation AWS Lambda trigger.
-        /// </summary>
-        [Input("postConfirmation")]
-        public Input<string>? PostConfirmation { get; set; }
-
-        /// <summary>
-        /// A pre-authentication AWS Lambda trigger.
-        /// </summary>
-        [Input("preAuthentication")]
-        public Input<string>? PreAuthentication { get; set; }
-
-        /// <summary>
-        /// A pre-registration AWS Lambda trigger.
-        /// </summary>
-        [Input("preSignUp")]
-        public Input<string>? PreSignUp { get; set; }
-
-        /// <summary>
-        /// Allow to customize identity token claims before token generation.
-        /// </summary>
-        [Input("preTokenGeneration")]
-        public Input<string>? PreTokenGeneration { get; set; }
-
-        /// <summary>
-        /// The user migration Lambda config type.
-        /// </summary>
-        [Input("userMigration")]
-        public Input<string>? UserMigration { get; set; }
-
-        /// <summary>
-        /// Verifies the authentication challenge response.
-        /// </summary>
-        [Input("verifyAuthChallengeResponse")]
-        public Input<string>? VerifyAuthChallengeResponse { get; set; }
-
-        public UserPoolLambdaConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolPasswordPolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The minimum length of the password policy that you have set.
-        /// </summary>
-        [Input("minimumLength")]
-        public Input<int>? MinimumLength { get; set; }
-
-        /// <summary>
-        /// Whether you have required users to use at least one lowercase letter in their password.
-        /// </summary>
-        [Input("requireLowercase")]
-        public Input<bool>? RequireLowercase { get; set; }
-
-        /// <summary>
-        /// Whether you have required users to use at least one number in their password.
-        /// </summary>
-        [Input("requireNumbers")]
-        public Input<bool>? RequireNumbers { get; set; }
-
-        /// <summary>
-        /// Whether you have required users to use at least one symbol in their password.
-        /// </summary>
-        [Input("requireSymbols")]
-        public Input<bool>? RequireSymbols { get; set; }
-
-        /// <summary>
-        /// Whether you have required users to use at least one uppercase letter in their password.
-        /// </summary>
-        [Input("requireUppercase")]
-        public Input<bool>? RequireUppercase { get; set; }
-
-        /// <summary>
-        /// In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
-        /// </summary>
-        [Input("temporaryPasswordValidityDays")]
-        public Input<int>? TemporaryPasswordValidityDays { get; set; }
-
-        public UserPoolPasswordPolicyArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolPasswordPolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The minimum length of the password policy that you have set.
-        /// </summary>
-        [Input("minimumLength")]
-        public Input<int>? MinimumLength { get; set; }
-
-        /// <summary>
-        /// Whether you have required users to use at least one lowercase letter in their password.
-        /// </summary>
-        [Input("requireLowercase")]
-        public Input<bool>? RequireLowercase { get; set; }
-
-        /// <summary>
-        /// Whether you have required users to use at least one number in their password.
-        /// </summary>
-        [Input("requireNumbers")]
-        public Input<bool>? RequireNumbers { get; set; }
-
-        /// <summary>
-        /// Whether you have required users to use at least one symbol in their password.
-        /// </summary>
-        [Input("requireSymbols")]
-        public Input<bool>? RequireSymbols { get; set; }
-
-        /// <summary>
-        /// Whether you have required users to use at least one uppercase letter in their password.
-        /// </summary>
-        [Input("requireUppercase")]
-        public Input<bool>? RequireUppercase { get; set; }
-
-        /// <summary>
-        /// In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
-        /// </summary>
-        [Input("temporaryPasswordValidityDays")]
-        public Input<int>? TemporaryPasswordValidityDays { get; set; }
-
-        public UserPoolPasswordPolicyGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolSchemasArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
-        /// </summary>
-        [Input("attributeDataType", required: true)]
-        public Input<string> AttributeDataType { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies whether the attribute type is developer only.
-        /// </summary>
-        [Input("developerOnlyAttribute")]
-        public Input<bool>? DeveloperOnlyAttribute { get; set; }
-
-        /// <summary>
-        /// Specifies whether the attribute can be changed once it has been created.
-        /// </summary>
-        [Input("mutable")]
-        public Input<bool>? Mutable { get; set; }
-
-        /// <summary>
-        /// The name of the attribute.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the constraints for an attribute of the number type.
-        /// </summary>
-        [Input("numberAttributeConstraints")]
-        public Input<UserPoolSchemasNumberAttributeConstraintsArgs>? NumberAttributeConstraints { get; set; }
-
-        /// <summary>
-        /// Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
-        /// </summary>
-        [Input("required")]
-        public Input<bool>? Required { get; set; }
-
-        /// <summary>
-        /// -Specifies the constraints for an attribute of the string type.
-        /// </summary>
-        [Input("stringAttributeConstraints")]
-        public Input<UserPoolSchemasStringAttributeConstraintsArgs>? StringAttributeConstraints { get; set; }
-
-        public UserPoolSchemasArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolSchemasGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
-        /// </summary>
-        [Input("attributeDataType", required: true)]
-        public Input<string> AttributeDataType { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies whether the attribute type is developer only.
-        /// </summary>
-        [Input("developerOnlyAttribute")]
-        public Input<bool>? DeveloperOnlyAttribute { get; set; }
-
-        /// <summary>
-        /// Specifies whether the attribute can be changed once it has been created.
-        /// </summary>
-        [Input("mutable")]
-        public Input<bool>? Mutable { get; set; }
-
-        /// <summary>
-        /// The name of the attribute.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the constraints for an attribute of the number type.
-        /// </summary>
-        [Input("numberAttributeConstraints")]
-        public Input<UserPoolSchemasNumberAttributeConstraintsGetArgs>? NumberAttributeConstraints { get; set; }
-
-        /// <summary>
-        /// Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
-        /// </summary>
-        [Input("required")]
-        public Input<bool>? Required { get; set; }
-
-        /// <summary>
-        /// -Specifies the constraints for an attribute of the string type.
-        /// </summary>
-        [Input("stringAttributeConstraints")]
-        public Input<UserPoolSchemasStringAttributeConstraintsGetArgs>? StringAttributeConstraints { get; set; }
-
-        public UserPoolSchemasGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolSchemasNumberAttributeConstraintsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum value of an attribute that is of the number data type.
-        /// </summary>
-        [Input("maxValue")]
-        public Input<string>? MaxValue { get; set; }
-
-        /// <summary>
-        /// The minimum value of an attribute that is of the number data type.
-        /// </summary>
-        [Input("minValue")]
-        public Input<string>? MinValue { get; set; }
-
-        public UserPoolSchemasNumberAttributeConstraintsArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolSchemasNumberAttributeConstraintsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum value of an attribute that is of the number data type.
-        /// </summary>
-        [Input("maxValue")]
-        public Input<string>? MaxValue { get; set; }
-
-        /// <summary>
-        /// The minimum value of an attribute that is of the number data type.
-        /// </summary>
-        [Input("minValue")]
-        public Input<string>? MinValue { get; set; }
-
-        public UserPoolSchemasNumberAttributeConstraintsGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolSchemasStringAttributeConstraintsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum length of an attribute value of the string type.
-        /// </summary>
-        [Input("maxLength")]
-        public Input<string>? MaxLength { get; set; }
-
-        /// <summary>
-        /// The minimum length of an attribute value of the string type.
-        /// </summary>
-        [Input("minLength")]
-        public Input<string>? MinLength { get; set; }
-
-        public UserPoolSchemasStringAttributeConstraintsArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolSchemasStringAttributeConstraintsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum length of an attribute value of the string type.
-        /// </summary>
-        [Input("maxLength")]
-        public Input<string>? MaxLength { get; set; }
-
-        /// <summary>
-        /// The minimum length of an attribute value of the string type.
-        /// </summary>
-        [Input("minLength")]
-        public Input<string>? MinLength { get; set; }
-
-        public UserPoolSchemasStringAttributeConstraintsGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolSmsConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
-        /// </summary>
-        [Input("externalId", required: true)]
-        public Input<string> ExternalId { get; set; } = null!;
-
-        /// <summary>
-        /// The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
-        /// </summary>
-        [Input("snsCallerArn", required: true)]
-        public Input<string> SnsCallerArn { get; set; } = null!;
-
-        public UserPoolSmsConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolSmsConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
-        /// </summary>
-        [Input("externalId", required: true)]
-        public Input<string> ExternalId { get; set; } = null!;
-
-        /// <summary>
-        /// The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
-        /// </summary>
-        [Input("snsCallerArn", required: true)]
-        public Input<string> SnsCallerArn { get; set; } = null!;
-
-        public UserPoolSmsConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolSoftwareTokenMfaConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public UserPoolSoftwareTokenMfaConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolSoftwareTokenMfaConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public UserPoolSoftwareTokenMfaConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolUserPoolAddOnsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
-        /// </summary>
-        [Input("advancedSecurityMode", required: true)]
-        public Input<string> AdvancedSecurityMode { get; set; } = null!;
-
-        public UserPoolUserPoolAddOnsArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolUserPoolAddOnsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
-        /// </summary>
-        [Input("advancedSecurityMode", required: true)]
-        public Input<string> AdvancedSecurityMode { get; set; } = null!;
-
-        public UserPoolUserPoolAddOnsGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolUsernameConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
-        /// </summary>
-        [Input("caseSensitive", required: true)]
-        public Input<bool> CaseSensitive { get; set; } = null!;
-
-        public UserPoolUsernameConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolUsernameConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
-        /// </summary>
-        [Input("caseSensitive", required: true)]
-        public Input<bool> CaseSensitive { get; set; } = null!;
-
-        public UserPoolUsernameConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolVerificationMessageTemplateArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
-        /// </summary>
-        [Input("defaultEmailOption")]
-        public Input<string>? DefaultEmailOption { get; set; }
-
-        /// <summary>
-        /// The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-        /// </summary>
-        [Input("emailMessage")]
-        public Input<string>? EmailMessage { get; set; }
-
-        /// <summary>
-        /// The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
-        /// </summary>
-        [Input("emailMessageByLink")]
-        public Input<string>? EmailMessageByLink { get; set; }
-
-        /// <summary>
-        /// The subject line for the email message template. Conflicts with `email_verification_subject` argument.
-        /// </summary>
-        [Input("emailSubject")]
-        public Input<string>? EmailSubject { get; set; }
-
-        /// <summary>
-        /// The subject line for the email message template for sending a confirmation link to the user.
-        /// </summary>
-        [Input("emailSubjectByLink")]
-        public Input<string>? EmailSubjectByLink { get; set; }
-
-        /// <summary>
-        /// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
-        /// </summary>
-        [Input("smsMessage")]
-        public Input<string>? SmsMessage { get; set; }
-
-        public UserPoolVerificationMessageTemplateArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolVerificationMessageTemplateGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
-        /// </summary>
-        [Input("defaultEmailOption")]
-        public Input<string>? DefaultEmailOption { get; set; }
-
-        /// <summary>
-        /// The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-        /// </summary>
-        [Input("emailMessage")]
-        public Input<string>? EmailMessage { get; set; }
-
-        /// <summary>
-        /// The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
-        /// </summary>
-        [Input("emailMessageByLink")]
-        public Input<string>? EmailMessageByLink { get; set; }
-
-        /// <summary>
-        /// The subject line for the email message template. Conflicts with `email_verification_subject` argument.
-        /// </summary>
-        [Input("emailSubject")]
-        public Input<string>? EmailSubject { get; set; }
-
-        /// <summary>
-        /// The subject line for the email message template for sending a confirmation link to the user.
-        /// </summary>
-        [Input("emailSubjectByLink")]
-        public Input<string>? EmailSubjectByLink { get; set; }
-
-        /// <summary>
-        /// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
-        /// </summary>
-        [Input("smsMessage")]
-        public Input<string>? SmsMessage { get; set; }
-
-        public UserPoolVerificationMessageTemplateGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class UserPoolAdminCreateUserConfig
-    {
-        /// <summary>
-        /// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-        /// </summary>
-        public readonly bool? AllowAdminCreateUserOnly;
-        /// <summary>
-        /// The invite message template structure.
-        /// </summary>
-        public readonly UserPoolAdminCreateUserConfigInviteMessageTemplate? InviteMessageTemplate;
-        /// <summary>
-        /// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
-        /// </summary>
-        public readonly int UnusedAccountValidityDays;
-
-        [OutputConstructor]
-        private UserPoolAdminCreateUserConfig(
-            bool? allowAdminCreateUserOnly,
-            UserPoolAdminCreateUserConfigInviteMessageTemplate? inviteMessageTemplate,
-            int unusedAccountValidityDays)
-        {
-            AllowAdminCreateUserOnly = allowAdminCreateUserOnly;
-            InviteMessageTemplate = inviteMessageTemplate;
-            UnusedAccountValidityDays = unusedAccountValidityDays;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserPoolAdminCreateUserConfigInviteMessageTemplate
-    {
-        /// <summary>
-        /// The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-        /// </summary>
-        public readonly string? EmailMessage;
-        /// <summary>
-        /// The subject line for the email message template. Conflicts with `email_verification_subject` argument.
-        /// </summary>
-        public readonly string? EmailSubject;
-        /// <summary>
-        /// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
-        /// </summary>
-        public readonly string? SmsMessage;
-
-        [OutputConstructor]
-        private UserPoolAdminCreateUserConfigInviteMessageTemplate(
-            string? emailMessage,
-            string? emailSubject,
-            string? smsMessage)
-        {
-            EmailMessage = emailMessage;
-            EmailSubject = emailSubject;
-            SmsMessage = smsMessage;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserPoolDeviceConfiguration
-    {
-        /// <summary>
-        /// Indicates whether a challenge is required on a new device. Only applicable to a new device.
-        /// </summary>
-        public readonly bool? ChallengeRequiredOnNewDevice;
-        /// <summary>
-        /// If true, a device is only remembered on user prompt.
-        /// </summary>
-        public readonly bool? DeviceOnlyRememberedOnUserPrompt;
-
-        [OutputConstructor]
-        private UserPoolDeviceConfiguration(
-            bool? challengeRequiredOnNewDevice,
-            bool? deviceOnlyRememberedOnUserPrompt)
-        {
-            ChallengeRequiredOnNewDevice = challengeRequiredOnNewDevice;
-            DeviceOnlyRememberedOnUserPrompt = deviceOnlyRememberedOnUserPrompt;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserPoolEmailConfiguration
-    {
-        /// <summary>
-        /// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
-        /// </summary>
-        public readonly string? EmailSendingAccount;
-        /// <summary>
-        /// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith &lt;john@smith.com&gt;")
-        /// </summary>
-        public readonly string? FromEmailAddress;
-        /// <summary>
-        /// The REPLY-TO email address.
-        /// </summary>
-        public readonly string? ReplyToEmailAddress;
-        /// <summary>
-        /// The ARN of the email source.
-        /// </summary>
-        public readonly string? SourceArn;
-
-        [OutputConstructor]
-        private UserPoolEmailConfiguration(
-            string? emailSendingAccount,
-            string? fromEmailAddress,
-            string? replyToEmailAddress,
-            string? sourceArn)
-        {
-            EmailSendingAccount = emailSendingAccount;
-            FromEmailAddress = fromEmailAddress;
-            ReplyToEmailAddress = replyToEmailAddress;
-            SourceArn = sourceArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserPoolLambdaConfig
-    {
-        /// <summary>
-        /// The ARN of the lambda creating an authentication challenge.
-        /// </summary>
-        public readonly string? CreateAuthChallenge;
-        /// <summary>
-        /// A custom Message AWS Lambda trigger.
-        /// </summary>
-        public readonly string? CustomMessage;
-        /// <summary>
-        /// Defines the authentication challenge.
-        /// </summary>
-        public readonly string? DefineAuthChallenge;
-        /// <summary>
-        /// A post-authentication AWS Lambda trigger.
-        /// </summary>
-        public readonly string? PostAuthentication;
-        /// <summary>
-        /// A post-confirmation AWS Lambda trigger.
-        /// </summary>
-        public readonly string? PostConfirmation;
-        /// <summary>
-        /// A pre-authentication AWS Lambda trigger.
-        /// </summary>
-        public readonly string? PreAuthentication;
-        /// <summary>
-        /// A pre-registration AWS Lambda trigger.
-        /// </summary>
-        public readonly string? PreSignUp;
-        /// <summary>
-        /// Allow to customize identity token claims before token generation.
-        /// </summary>
-        public readonly string? PreTokenGeneration;
-        /// <summary>
-        /// The user migration Lambda config type.
-        /// </summary>
-        public readonly string? UserMigration;
-        /// <summary>
-        /// Verifies the authentication challenge response.
-        /// </summary>
-        public readonly string? VerifyAuthChallengeResponse;
-
-        [OutputConstructor]
-        private UserPoolLambdaConfig(
-            string? createAuthChallenge,
-            string? customMessage,
-            string? defineAuthChallenge,
-            string? postAuthentication,
-            string? postConfirmation,
-            string? preAuthentication,
-            string? preSignUp,
-            string? preTokenGeneration,
-            string? userMigration,
-            string? verifyAuthChallengeResponse)
-        {
-            CreateAuthChallenge = createAuthChallenge;
-            CustomMessage = customMessage;
-            DefineAuthChallenge = defineAuthChallenge;
-            PostAuthentication = postAuthentication;
-            PostConfirmation = postConfirmation;
-            PreAuthentication = preAuthentication;
-            PreSignUp = preSignUp;
-            PreTokenGeneration = preTokenGeneration;
-            UserMigration = userMigration;
-            VerifyAuthChallengeResponse = verifyAuthChallengeResponse;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserPoolPasswordPolicy
-    {
-        /// <summary>
-        /// The minimum length of the password policy that you have set.
-        /// </summary>
-        public readonly int? MinimumLength;
-        /// <summary>
-        /// Whether you have required users to use at least one lowercase letter in their password.
-        /// </summary>
-        public readonly bool? RequireLowercase;
-        /// <summary>
-        /// Whether you have required users to use at least one number in their password.
-        /// </summary>
-        public readonly bool? RequireNumbers;
-        /// <summary>
-        /// Whether you have required users to use at least one symbol in their password.
-        /// </summary>
-        public readonly bool? RequireSymbols;
-        /// <summary>
-        /// Whether you have required users to use at least one uppercase letter in their password.
-        /// </summary>
-        public readonly bool? RequireUppercase;
-        /// <summary>
-        /// In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
-        /// </summary>
-        public readonly int? TemporaryPasswordValidityDays;
-
-        [OutputConstructor]
-        private UserPoolPasswordPolicy(
-            int? minimumLength,
-            bool? requireLowercase,
-            bool? requireNumbers,
-            bool? requireSymbols,
-            bool? requireUppercase,
-            int? temporaryPasswordValidityDays)
-        {
-            MinimumLength = minimumLength;
-            RequireLowercase = requireLowercase;
-            RequireNumbers = requireNumbers;
-            RequireSymbols = requireSymbols;
-            RequireUppercase = requireUppercase;
-            TemporaryPasswordValidityDays = temporaryPasswordValidityDays;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserPoolSchemas
-    {
-        /// <summary>
-        /// The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
-        /// </summary>
-        public readonly string AttributeDataType;
-        /// <summary>
-        /// Specifies whether the attribute type is developer only.
-        /// </summary>
-        public readonly bool? DeveloperOnlyAttribute;
-        /// <summary>
-        /// Specifies whether the attribute can be changed once it has been created.
-        /// </summary>
-        public readonly bool? Mutable;
-        /// <summary>
-        /// The name of the attribute.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Specifies the constraints for an attribute of the number type.
-        /// </summary>
-        public readonly UserPoolSchemasNumberAttributeConstraints? NumberAttributeConstraints;
-        /// <summary>
-        /// Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
-        /// </summary>
-        public readonly bool? Required;
-        /// <summary>
-        /// -Specifies the constraints for an attribute of the string type.
-        /// </summary>
-        public readonly UserPoolSchemasStringAttributeConstraints? StringAttributeConstraints;
-
-        [OutputConstructor]
-        private UserPoolSchemas(
-            string attributeDataType,
-            bool? developerOnlyAttribute,
-            bool? mutable,
-            string name,
-            UserPoolSchemasNumberAttributeConstraints? numberAttributeConstraints,
-            bool? required,
-            UserPoolSchemasStringAttributeConstraints? stringAttributeConstraints)
-        {
-            AttributeDataType = attributeDataType;
-            DeveloperOnlyAttribute = developerOnlyAttribute;
-            Mutable = mutable;
-            Name = name;
-            NumberAttributeConstraints = numberAttributeConstraints;
-            Required = required;
-            StringAttributeConstraints = stringAttributeConstraints;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserPoolSchemasNumberAttributeConstraints
-    {
-        /// <summary>
-        /// The maximum value of an attribute that is of the number data type.
-        /// </summary>
-        public readonly string? MaxValue;
-        /// <summary>
-        /// The minimum value of an attribute that is of the number data type.
-        /// </summary>
-        public readonly string? MinValue;
-
-        [OutputConstructor]
-        private UserPoolSchemasNumberAttributeConstraints(
-            string? maxValue,
-            string? minValue)
-        {
-            MaxValue = maxValue;
-            MinValue = minValue;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserPoolSchemasStringAttributeConstraints
-    {
-        /// <summary>
-        /// The maximum length of an attribute value of the string type.
-        /// </summary>
-        public readonly string? MaxLength;
-        /// <summary>
-        /// The minimum length of an attribute value of the string type.
-        /// </summary>
-        public readonly string? MinLength;
-
-        [OutputConstructor]
-        private UserPoolSchemasStringAttributeConstraints(
-            string? maxLength,
-            string? minLength)
-        {
-            MaxLength = maxLength;
-            MinLength = minLength;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserPoolSmsConfiguration
-    {
-        /// <summary>
-        /// The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
-        /// </summary>
-        public readonly string ExternalId;
-        /// <summary>
-        /// The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
-        /// </summary>
-        public readonly string SnsCallerArn;
-
-        [OutputConstructor]
-        private UserPoolSmsConfiguration(
-            string externalId,
-            string snsCallerArn)
-        {
-            ExternalId = externalId;
-            SnsCallerArn = snsCallerArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserPoolSoftwareTokenMfaConfiguration
-    {
-        /// <summary>
-        /// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private UserPoolSoftwareTokenMfaConfiguration(bool enabled)
-        {
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserPoolUserPoolAddOns
-    {
-        /// <summary>
-        /// The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
-        /// </summary>
-        public readonly string AdvancedSecurityMode;
-
-        [OutputConstructor]
-        private UserPoolUserPoolAddOns(string advancedSecurityMode)
-        {
-            AdvancedSecurityMode = advancedSecurityMode;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserPoolUsernameConfiguration
-    {
-        /// <summary>
-        /// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
-        /// </summary>
-        public readonly bool CaseSensitive;
-
-        [OutputConstructor]
-        private UserPoolUsernameConfiguration(bool caseSensitive)
-        {
-            CaseSensitive = caseSensitive;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserPoolVerificationMessageTemplate
-    {
-        /// <summary>
-        /// The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
-        /// </summary>
-        public readonly string? DefaultEmailOption;
-        /// <summary>
-        /// The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-        /// </summary>
-        public readonly string EmailMessage;
-        /// <summary>
-        /// The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
-        /// </summary>
-        public readonly string EmailMessageByLink;
-        /// <summary>
-        /// The subject line for the email message template. Conflicts with `email_verification_subject` argument.
-        /// </summary>
-        public readonly string EmailSubject;
-        /// <summary>
-        /// The subject line for the email message template for sending a confirmation link to the user.
-        /// </summary>
-        public readonly string EmailSubjectByLink;
-        /// <summary>
-        /// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
-        /// </summary>
-        public readonly string SmsMessage;
-
-        [OutputConstructor]
-        private UserPoolVerificationMessageTemplate(
-            string? defaultEmailOption,
-            string emailMessage,
-            string emailMessageByLink,
-            string emailSubject,
-            string emailSubjectByLink,
-            string smsMessage)
-        {
-            DefaultEmailOption = defaultEmailOption;
-            EmailMessage = emailMessage;
-            EmailMessageByLink = emailMessageByLink;
-            EmailSubject = emailSubject;
-            EmailSubjectByLink = emailSubjectByLink;
-            SmsMessage = smsMessage;
-        }
-    }
     }
 }

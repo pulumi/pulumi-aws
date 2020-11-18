@@ -4,23 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Config Rule.
- * 
- * > **Note:** Config Rule requires an existing [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `dependsOn` is recommended (as shown below) to avoid race conditions.
- * 
+ *
+ * > **Note:** Config Rule requires an existing `Configuration Recorder` to be present. Use of `dependsOn` is recommended (as shown below) to avoid race conditions.
+ *
  * ## Example Usage
- * 
  * ### AWS Managed Rules
- * 
+ *
+ * AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const role = new aws.iam.Role("r", {
- *     assumeRolePolicy: `{
+ *
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -33,18 +34,16 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
+ * `});
+ * const foo = new aws.cfg.Recorder("foo", {roleArn: role.arn});
+ * const rule = new aws.cfg.Rule("rule", {source: {
+ *     owner: "AWS",
+ *     sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
+ * }}, {
+ *     dependsOn: [foo],
  * });
- * const foo = new aws.cfg.Recorder("foo", {
- *     roleArn: role.arn,
- * });
- * const rule = new aws.cfg.Rule("r", {
- *     source: {
- *         owner: "AWS",
- *         sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
- *     },
- * }, {dependsOn: [foo]});
- * const rolePolicy = new aws.iam.RolePolicy("p", {
+ * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
+ *     role: role.id,
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -52,37 +51,41 @@ import * as utilities from "../utilities";
  *   		"Action": "config:Put*",
  *   		"Effect": "Allow",
  *   		"Resource": "*"
- * 
+ *
  *   	}
  *   ]
  * }
  * `,
- *     role: role.id,
  * });
  * ```
- * 
  * ### Custom Rules
- * 
+ *
+ * Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g. via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleRecorder = new aws.cfg.Recorder("example", {});
- * const exampleFunction = new aws.lambda.Function("example", {});
- * const examplePermission = new aws.lambda.Permission("example", {
+ *
+ * const exampleRecorder = new aws.cfg.Recorder("exampleRecorder", {});
+ * // ... other configuration ...
+ * const exampleFunction = new aws.lambda.Function("exampleFunction", {});
+ * // ... other configuration ...
+ * const examplePermission = new aws.lambda.Permission("examplePermission", {
  *     action: "lambda:InvokeFunction",
- *     function: exampleFunction.arn,
+ *     "function": exampleFunction.arn,
  *     principal: "config.amazonaws.com",
  * });
- * const exampleRule = new aws.cfg.Rule("example", {
- *     source: {
- *         owner: "CUSTOM_LAMBDA",
- *         sourceIdentifier: exampleFunction.arn,
- *     },
- * }, {dependsOn: [exampleRecorder, examplePermission]});
+ * // ... other configuration ...
+ * const exampleRule = new aws.cfg.Rule("exampleRule", {source: {
+ *     owner: "CUSTOM_LAMBDA",
+ *     sourceIdentifier: exampleFunction.arn,
+ * }}, {
+ *     dependsOn: [
+ *         exampleRecorder,
+ *         examplePermission,
+ *     ],
+ * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_config_rule.html.markdown.
  */
 export class Rule extends pulumi.CustomResource {
     /**
@@ -92,6 +95,7 @@ export class Rule extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RuleState, opts?: pulumi.CustomResourceOptions): Rule {
         return new Rule(name, <any>state, { ...opts, id: id });
@@ -146,9 +150,9 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.cfg.RuleSource>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -236,9 +240,9 @@ export interface RuleState {
      */
     readonly source?: pulumi.Input<inputs.cfg.RuleSource>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -272,7 +276,7 @@ export interface RuleArgs {
      */
     readonly source: pulumi.Input<inputs.cfg.RuleSource>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

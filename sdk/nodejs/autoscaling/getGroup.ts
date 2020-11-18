@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information on an existing autoscaling group.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const foo = aws.autoscaling.getGroup({
- *     name: "foo",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_group.html.markdown.
+ * const foo = pulumi.output(aws.autoscaling.getGroup({
+ *     name: "foo",
+ * }, { async: true }));
+ * ```
  */
-export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> & GetGroupResult {
+export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,11 +29,9 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetGroupResult> = pulumi.runtime.invoke("aws:autoscaling/getGroup:getGroup", {
+    return pulumi.runtime.invoke("aws:autoscaling/getGroup:getGroup", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -75,6 +70,10 @@ export interface GetGroupResult {
      */
     readonly healthCheckType: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the associated launch configuration.
      */
     readonly launchConfiguration: string;
@@ -91,7 +90,7 @@ export interface GetGroupResult {
      */
     readonly minSize: number;
     /**
-     * The name of the Auto Scaling group.
+     * Name of the Auto Scaling Group.
      */
     readonly name: string;
     readonly newInstancesProtectedFromScaleIn: boolean;
@@ -119,8 +118,4 @@ export interface GetGroupResult {
      * VPC ID for the group.
      */
     readonly vpcZoneIdentifier: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -7,14 +7,149 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
+
+type SecretRotationRotationRules struct {
+	// Specifies the number of days between automatic scheduled rotations of the secret.
+	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
+}
+
+// SecretRotationRotationRulesInput is an input type that accepts SecretRotationRotationRulesArgs and SecretRotationRotationRulesOutput values.
+// You can construct a concrete instance of `SecretRotationRotationRulesInput` via:
+//
+//          SecretRotationRotationRulesArgs{...}
+type SecretRotationRotationRulesInput interface {
+	pulumi.Input
+
+	ToSecretRotationRotationRulesOutput() SecretRotationRotationRulesOutput
+	ToSecretRotationRotationRulesOutputWithContext(context.Context) SecretRotationRotationRulesOutput
+}
+
+type SecretRotationRotationRulesArgs struct {
+	// Specifies the number of days between automatic scheduled rotations of the secret.
+	AutomaticallyAfterDays pulumi.IntInput `pulumi:"automaticallyAfterDays"`
+}
+
+func (SecretRotationRotationRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretRotationRotationRules)(nil)).Elem()
+}
+
+func (i SecretRotationRotationRulesArgs) ToSecretRotationRotationRulesOutput() SecretRotationRotationRulesOutput {
+	return i.ToSecretRotationRotationRulesOutputWithContext(context.Background())
+}
+
+func (i SecretRotationRotationRulesArgs) ToSecretRotationRotationRulesOutputWithContext(ctx context.Context) SecretRotationRotationRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationRotationRulesOutput)
+}
+
+func (i SecretRotationRotationRulesArgs) ToSecretRotationRotationRulesPtrOutput() SecretRotationRotationRulesPtrOutput {
+	return i.ToSecretRotationRotationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i SecretRotationRotationRulesArgs) ToSecretRotationRotationRulesPtrOutputWithContext(ctx context.Context) SecretRotationRotationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationRotationRulesOutput).ToSecretRotationRotationRulesPtrOutputWithContext(ctx)
+}
+
+// SecretRotationRotationRulesPtrInput is an input type that accepts SecretRotationRotationRulesArgs, SecretRotationRotationRulesPtr and SecretRotationRotationRulesPtrOutput values.
+// You can construct a concrete instance of `SecretRotationRotationRulesPtrInput` via:
+//
+//          SecretRotationRotationRulesArgs{...}
+//
+//  or:
+//
+//          nil
+type SecretRotationRotationRulesPtrInput interface {
+	pulumi.Input
+
+	ToSecretRotationRotationRulesPtrOutput() SecretRotationRotationRulesPtrOutput
+	ToSecretRotationRotationRulesPtrOutputWithContext(context.Context) SecretRotationRotationRulesPtrOutput
+}
+
+type secretRotationRotationRulesPtrType SecretRotationRotationRulesArgs
+
+func SecretRotationRotationRulesPtr(v *SecretRotationRotationRulesArgs) SecretRotationRotationRulesPtrInput {
+	return (*secretRotationRotationRulesPtrType)(v)
+}
+
+func (*secretRotationRotationRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretRotationRotationRules)(nil)).Elem()
+}
+
+func (i *secretRotationRotationRulesPtrType) ToSecretRotationRotationRulesPtrOutput() SecretRotationRotationRulesPtrOutput {
+	return i.ToSecretRotationRotationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *secretRotationRotationRulesPtrType) ToSecretRotationRotationRulesPtrOutputWithContext(ctx context.Context) SecretRotationRotationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationRotationRulesPtrOutput)
+}
+
+type SecretRotationRotationRulesOutput struct{ *pulumi.OutputState }
+
+func (SecretRotationRotationRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretRotationRotationRules)(nil)).Elem()
+}
+
+func (o SecretRotationRotationRulesOutput) ToSecretRotationRotationRulesOutput() SecretRotationRotationRulesOutput {
+	return o
+}
+
+func (o SecretRotationRotationRulesOutput) ToSecretRotationRotationRulesOutputWithContext(ctx context.Context) SecretRotationRotationRulesOutput {
+	return o
+}
+
+func (o SecretRotationRotationRulesOutput) ToSecretRotationRotationRulesPtrOutput() SecretRotationRotationRulesPtrOutput {
+	return o.ToSecretRotationRotationRulesPtrOutputWithContext(context.Background())
+}
+
+func (o SecretRotationRotationRulesOutput) ToSecretRotationRotationRulesPtrOutputWithContext(ctx context.Context) SecretRotationRotationRulesPtrOutput {
+	return o.ApplyT(func(v SecretRotationRotationRules) *SecretRotationRotationRules {
+		return &v
+	}).(SecretRotationRotationRulesPtrOutput)
+}
+
+// Specifies the number of days between automatic scheduled rotations of the secret.
+func (o SecretRotationRotationRulesOutput) AutomaticallyAfterDays() pulumi.IntOutput {
+	return o.ApplyT(func(v SecretRotationRotationRules) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
+}
+
+type SecretRotationRotationRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (SecretRotationRotationRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretRotationRotationRules)(nil)).Elem()
+}
+
+func (o SecretRotationRotationRulesPtrOutput) ToSecretRotationRotationRulesPtrOutput() SecretRotationRotationRulesPtrOutput {
+	return o
+}
+
+func (o SecretRotationRotationRulesPtrOutput) ToSecretRotationRotationRulesPtrOutputWithContext(ctx context.Context) SecretRotationRotationRulesPtrOutput {
+	return o
+}
+
+func (o SecretRotationRotationRulesPtrOutput) Elem() SecretRotationRotationRulesOutput {
+	return o.ApplyT(func(v *SecretRotationRotationRules) SecretRotationRotationRules { return *v }).(SecretRotationRotationRulesOutput)
+}
+
+// Specifies the number of days between automatic scheduled rotations of the secret.
+func (o SecretRotationRotationRulesPtrOutput) AutomaticallyAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecretRotationRotationRules) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AutomaticallyAfterDays
+	}).(pulumi.IntPtrOutput)
+}
 
 type SecretRotationRules struct {
 	// Specifies the number of days between automatic scheduled rotations of the secret.
 	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
 }
 
+// SecretRotationRulesInput is an input type that accepts SecretRotationRulesArgs and SecretRotationRulesOutput values.
+// You can construct a concrete instance of `SecretRotationRulesInput` via:
+//
+//          SecretRotationRulesArgs{...}
 type SecretRotationRulesInput interface {
 	pulumi.Input
 
@@ -47,6 +182,14 @@ func (i SecretRotationRulesArgs) ToSecretRotationRulesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationRulesOutput).ToSecretRotationRulesPtrOutputWithContext(ctx)
 }
 
+// SecretRotationRulesPtrInput is an input type that accepts SecretRotationRulesArgs, SecretRotationRulesPtr and SecretRotationRulesPtrOutput values.
+// You can construct a concrete instance of `SecretRotationRulesPtrInput` via:
+//
+//          SecretRotationRulesArgs{...}
+//
+//  or:
+//
+//          nil
 type SecretRotationRulesPtrInput interface {
 	pulumi.Input
 
@@ -120,14 +263,117 @@ func (o SecretRotationRulesPtrOutput) Elem() SecretRotationRulesOutput {
 }
 
 // Specifies the number of days between automatic scheduled rotations of the secret.
-func (o SecretRotationRulesPtrOutput) AutomaticallyAfterDays() pulumi.IntOutput {
-	return o.ApplyT(func(v SecretRotationRules) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
+func (o SecretRotationRulesPtrOutput) AutomaticallyAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecretRotationRules) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AutomaticallyAfterDays
+	}).(pulumi.IntPtrOutput)
+}
+
+type GetSecretRotationRotationRule struct {
+	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
+}
+
+// GetSecretRotationRotationRuleInput is an input type that accepts GetSecretRotationRotationRuleArgs and GetSecretRotationRotationRuleOutput values.
+// You can construct a concrete instance of `GetSecretRotationRotationRuleInput` via:
+//
+//          GetSecretRotationRotationRuleArgs{...}
+type GetSecretRotationRotationRuleInput interface {
+	pulumi.Input
+
+	ToGetSecretRotationRotationRuleOutput() GetSecretRotationRotationRuleOutput
+	ToGetSecretRotationRotationRuleOutputWithContext(context.Context) GetSecretRotationRotationRuleOutput
+}
+
+type GetSecretRotationRotationRuleArgs struct {
+	AutomaticallyAfterDays pulumi.IntInput `pulumi:"automaticallyAfterDays"`
+}
+
+func (GetSecretRotationRotationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretRotationRotationRule)(nil)).Elem()
+}
+
+func (i GetSecretRotationRotationRuleArgs) ToGetSecretRotationRotationRuleOutput() GetSecretRotationRotationRuleOutput {
+	return i.ToGetSecretRotationRotationRuleOutputWithContext(context.Background())
+}
+
+func (i GetSecretRotationRotationRuleArgs) ToGetSecretRotationRotationRuleOutputWithContext(ctx context.Context) GetSecretRotationRotationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecretRotationRotationRuleOutput)
+}
+
+// GetSecretRotationRotationRuleArrayInput is an input type that accepts GetSecretRotationRotationRuleArray and GetSecretRotationRotationRuleArrayOutput values.
+// You can construct a concrete instance of `GetSecretRotationRotationRuleArrayInput` via:
+//
+//          GetSecretRotationRotationRuleArray{ GetSecretRotationRotationRuleArgs{...} }
+type GetSecretRotationRotationRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetSecretRotationRotationRuleArrayOutput() GetSecretRotationRotationRuleArrayOutput
+	ToGetSecretRotationRotationRuleArrayOutputWithContext(context.Context) GetSecretRotationRotationRuleArrayOutput
+}
+
+type GetSecretRotationRotationRuleArray []GetSecretRotationRotationRuleInput
+
+func (GetSecretRotationRotationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecretRotationRotationRule)(nil)).Elem()
+}
+
+func (i GetSecretRotationRotationRuleArray) ToGetSecretRotationRotationRuleArrayOutput() GetSecretRotationRotationRuleArrayOutput {
+	return i.ToGetSecretRotationRotationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecretRotationRotationRuleArray) ToGetSecretRotationRotationRuleArrayOutputWithContext(ctx context.Context) GetSecretRotationRotationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecretRotationRotationRuleArrayOutput)
+}
+
+type GetSecretRotationRotationRuleOutput struct{ *pulumi.OutputState }
+
+func (GetSecretRotationRotationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretRotationRotationRule)(nil)).Elem()
+}
+
+func (o GetSecretRotationRotationRuleOutput) ToGetSecretRotationRotationRuleOutput() GetSecretRotationRotationRuleOutput {
+	return o
+}
+
+func (o GetSecretRotationRotationRuleOutput) ToGetSecretRotationRotationRuleOutputWithContext(ctx context.Context) GetSecretRotationRotationRuleOutput {
+	return o
+}
+
+func (o GetSecretRotationRotationRuleOutput) AutomaticallyAfterDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSecretRotationRotationRule) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
+}
+
+type GetSecretRotationRotationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecretRotationRotationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecretRotationRotationRule)(nil)).Elem()
+}
+
+func (o GetSecretRotationRotationRuleArrayOutput) ToGetSecretRotationRotationRuleArrayOutput() GetSecretRotationRotationRuleArrayOutput {
+	return o
+}
+
+func (o GetSecretRotationRotationRuleArrayOutput) ToGetSecretRotationRotationRuleArrayOutputWithContext(ctx context.Context) GetSecretRotationRotationRuleArrayOutput {
+	return o
+}
+
+func (o GetSecretRotationRotationRuleArrayOutput) Index(i pulumi.IntInput) GetSecretRotationRotationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecretRotationRotationRule {
+		return vs[0].([]GetSecretRotationRotationRule)[vs[1].(int)]
+	}).(GetSecretRotationRotationRuleOutput)
 }
 
 type GetSecretRotationRule struct {
 	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
 }
 
+// GetSecretRotationRuleInput is an input type that accepts GetSecretRotationRuleArgs and GetSecretRotationRuleOutput values.
+// You can construct a concrete instance of `GetSecretRotationRuleInput` via:
+//
+//          GetSecretRotationRuleArgs{...}
 type GetSecretRotationRuleInput interface {
 	pulumi.Input
 
@@ -151,6 +397,10 @@ func (i GetSecretRotationRuleArgs) ToGetSecretRotationRuleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretRotationRuleOutput)
 }
 
+// GetSecretRotationRuleArrayInput is an input type that accepts GetSecretRotationRuleArray and GetSecretRotationRuleArrayOutput values.
+// You can construct a concrete instance of `GetSecretRotationRuleArrayInput` via:
+//
+//          GetSecretRotationRuleArray{ GetSecretRotationRuleArgs{...} }
 type GetSecretRotationRuleArrayInput interface {
 	pulumi.Input
 
@@ -211,8 +461,12 @@ func (o GetSecretRotationRuleArrayOutput) Index(i pulumi.IntInput) GetSecretRota
 }
 
 func init() {
+	pulumi.RegisterOutputType(SecretRotationRotationRulesOutput{})
+	pulumi.RegisterOutputType(SecretRotationRotationRulesPtrOutput{})
 	pulumi.RegisterOutputType(SecretRotationRulesOutput{})
 	pulumi.RegisterOutputType(SecretRotationRulesPtrOutput{})
+	pulumi.RegisterOutputType(GetSecretRotationRotationRuleOutput{})
+	pulumi.RegisterOutputType(GetSecretRotationRotationRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetSecretRotationRuleOutput{})
 	pulumi.RegisterOutputType(GetSecretRotationRuleArrayOutput{})
 }

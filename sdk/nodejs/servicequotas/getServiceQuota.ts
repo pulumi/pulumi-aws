@@ -2,32 +2,31 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a Service Quota.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const byQuotaCode = aws.servicequotas.getServiceQuota({
+ *
+ * const byQuotaCode = pulumi.output(aws.servicequotas.getServiceQuota({
  *     quotaCode: "L-F678F1CE",
  *     serviceCode: "vpc",
- * });
- * const byQuotaName = aws.servicequotas.getServiceQuota({
+ * }, { async: true }));
+ * const byQuotaName = pulumi.output(aws.servicequotas.getServiceQuota({
  *     quotaName: "VPCs per Region",
  *     serviceCode: "vpc",
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service_quota.html.markdown.
  */
-export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceQuotaResult> & GetServiceQuotaResult {
+export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceQuotaResult> {
     if (!opts) {
         opts = {}
     }
@@ -35,13 +34,11 @@ export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetServiceQuotaResult> = pulumi.runtime.invoke("aws:servicequotas/getServiceQuota:getServiceQuota", {
+    return pulumi.runtime.invoke("aws:servicequotas/getServiceQuota:getServiceQuota", {
         "quotaCode": args.quotaCode,
         "quotaName": args.quotaName,
         "serviceCode": args.serviceCode,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -57,7 +54,7 @@ export interface GetServiceQuotaArgs {
      */
     readonly quotaName?: string;
     /**
-     * Service code for the quota. Available values can be found with the [`aws.servicequotas.getService` data source](https://www.terraform.io/docs/providers/aws/d/servicequotas_service.html) or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+     * Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */
     readonly serviceCode: string;
 }
@@ -82,6 +79,10 @@ export interface GetServiceQuotaResult {
      * Whether the service quota is global for the AWS account.
      */
     readonly globalQuota: boolean;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly quotaCode: string;
     readonly quotaName: string;
     readonly serviceCode: string;
@@ -93,8 +94,4 @@ export interface GetServiceQuotaResult {
      * Current value of the service quota.
      */
     readonly value: number;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

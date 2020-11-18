@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages a revision of an ECS task definition to be used in `ecs.Service`.
@@ -16,12 +16,13 @@ type TaskDefinition struct {
 
 	// Full ARN of the Task Definition (including both `family` and `revision`).
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A list of valid [container definitions]
-	// (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-	// single valid JSON document. Please note that you should only provide values that are part of the container
-	// definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-	// official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// A list of valid [container
+	// definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+	// provided as a single valid JSON document. Please note that you should only
+	// provide values that are part of the container definition document. For a
+	// detailed description of what parameters are available, see the [Task Definition
+	// Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+	// section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringOutput `pulumi:"containerDefinitions"`
 	// The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrOutput `pulumi:"cpu"`
@@ -47,8 +48,8 @@ type TaskDefinition struct {
 	RequiresCompatibilities pulumi.StringArrayOutput `pulumi:"requiresCompatibilities"`
 	// The revision of the task in a particular family.
 	Revision pulumi.IntOutput `pulumi:"revision"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrOutput `pulumi:"taskRoleArn"`
 	// A set of volume blocks that containers in your task may use.
@@ -91,12 +92,13 @@ func GetTaskDefinition(ctx *pulumi.Context,
 type taskDefinitionState struct {
 	// Full ARN of the Task Definition (including both `family` and `revision`).
 	Arn *string `pulumi:"arn"`
-	// A list of valid [container definitions]
-	// (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-	// single valid JSON document. Please note that you should only provide values that are part of the container
-	// definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-	// official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// A list of valid [container
+	// definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+	// provided as a single valid JSON document. Please note that you should only
+	// provide values that are part of the container definition document. For a
+	// detailed description of what parameters are available, see the [Task Definition
+	// Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+	// section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions *string `pulumi:"containerDefinitions"`
 	// The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu *string `pulumi:"cpu"`
@@ -122,8 +124,8 @@ type taskDefinitionState struct {
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// The revision of the task in a particular family.
 	Revision *int `pulumi:"revision"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
 	// A set of volume blocks that containers in your task may use.
@@ -133,12 +135,13 @@ type taskDefinitionState struct {
 type TaskDefinitionState struct {
 	// Full ARN of the Task Definition (including both `family` and `revision`).
 	Arn pulumi.StringPtrInput
-	// A list of valid [container definitions]
-	// (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-	// single valid JSON document. Please note that you should only provide values that are part of the container
-	// definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-	// official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// A list of valid [container
+	// definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+	// provided as a single valid JSON document. Please note that you should only
+	// provide values that are part of the container definition document. For a
+	// detailed description of what parameters are available, see the [Task Definition
+	// Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+	// section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringPtrInput
 	// The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrInput
@@ -164,8 +167,8 @@ type TaskDefinitionState struct {
 	RequiresCompatibilities pulumi.StringArrayInput
 	// The revision of the task in a particular family.
 	Revision pulumi.IntPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrInput
 	// A set of volume blocks that containers in your task may use.
@@ -177,12 +180,13 @@ func (TaskDefinitionState) ElementType() reflect.Type {
 }
 
 type taskDefinitionArgs struct {
-	// A list of valid [container definitions]
-	// (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-	// single valid JSON document. Please note that you should only provide values that are part of the container
-	// definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-	// official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// A list of valid [container
+	// definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+	// provided as a single valid JSON document. Please note that you should only
+	// provide values that are part of the container definition document. For a
+	// detailed description of what parameters are available, see the [Task Definition
+	// Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+	// section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions string `pulumi:"containerDefinitions"`
 	// The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu *string `pulumi:"cpu"`
@@ -206,8 +210,8 @@ type taskDefinitionArgs struct {
 	ProxyConfiguration *TaskDefinitionProxyConfiguration `pulumi:"proxyConfiguration"`
 	// A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
 	// A set of volume blocks that containers in your task may use.
@@ -216,12 +220,13 @@ type taskDefinitionArgs struct {
 
 // The set of arguments for constructing a TaskDefinition resource.
 type TaskDefinitionArgs struct {
-	// A list of valid [container definitions]
-	// (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-	// single valid JSON document. Please note that you should only provide values that are part of the container
-	// definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-	// official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// A list of valid [container
+	// definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+	// provided as a single valid JSON document. Please note that you should only
+	// provide values that are part of the container definition document. For a
+	// detailed description of what parameters are available, see the [Task Definition
+	// Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+	// section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringInput
 	// The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrInput
@@ -245,8 +250,8 @@ type TaskDefinitionArgs struct {
 	ProxyConfiguration TaskDefinitionProxyConfigurationPtrInput
 	// A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities pulumi.StringArrayInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrInput
 	// A set of volume blocks that containers in your task may use.

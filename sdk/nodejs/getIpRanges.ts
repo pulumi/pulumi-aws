@@ -4,15 +4,41 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
- * 
+ * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ip_ranges.html.markdown.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const europeanEc2 = aws.getIpRanges({
+ *     regions: [
+ *         "eu-west-1",
+ *         "eu-central-1",
+ *     ],
+ *     services: ["ec2"],
+ * });
+ * const fromEurope = new aws.ec2.SecurityGroup("fromEurope", {
+ *     ingress: [{
+ *         fromPort: "443",
+ *         toPort: "443",
+ *         protocol: "tcp",
+ *         cidrBlocks: europeanEc2.then(europeanEc2 => europeanEc2.cidrBlocks),
+ *         ipv6CidrBlocks: europeanEc2.then(europeanEc2 => europeanEc2.ipv6CidrBlocks),
+ *     }],
+ *     tags: {
+ *         CreateDate: europeanEc2.then(europeanEc2 => europeanEc2.createDate),
+ *         SyncToken: europeanEc2.then(europeanEc2 => europeanEc2.syncToken),
+ *     },
+ * });
+ * ```
  */
-export function getIpRanges(args: GetIpRangesArgs, opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> & GetIpRangesResult {
+export function getIpRanges(args: GetIpRangesArgs, opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,13 +46,11 @@ export function getIpRanges(args: GetIpRangesArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetIpRangesResult> = pulumi.runtime.invoke("aws:index/getIpRanges:getIpRanges", {
+    return pulumi.runtime.invoke("aws:index/getIpRanges:getIpRanges", {
         "regions": args.regions,
         "services": args.services,
         "url": args.url,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -48,7 +72,7 @@ export interface GetIpRangesArgs {
      */
     readonly services: string[];
     /**
-     * Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention][1]. Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
+     * Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
      */
     readonly url?: string;
 }
@@ -66,6 +90,10 @@ export interface GetIpRangesResult {
      */
     readonly createDate: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The lexically ordered list of IPv6 CIDR blocks.
      */
     readonly ipv6CidrBlocks: string[];
@@ -77,8 +105,4 @@ export interface GetIpRangesResult {
      */
     readonly syncToken: number;
     readonly url?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

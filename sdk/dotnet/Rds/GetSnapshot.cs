@@ -9,37 +9,61 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get information about a DB Snapshot for use when provisioning DB instances
-        /// 
-        /// &gt; **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
-        /// See the [`aws.rds.ClusterSnapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSnapshot.InvokeAsync() instead")]
-        public static Task<GetSnapshotResult> GetSnapshot(GetSnapshotArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSnapshot
     {
         /// <summary>
         /// Use this data source to get information about a DB Snapshot for use when provisioning DB instances
         /// 
         /// &gt; **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
-        /// See the [`aws.rds.ClusterSnapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
+        /// See the `aws.rds.ClusterSnapshot` data source for DB Cluster snapshots.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var prod = new Aws.Rds.Instance("prod", new Aws.Rds.InstanceArgs
+        ///         {
+        ///             AllocatedStorage = 10,
+        ///             Engine = "mysql",
+        ///             EngineVersion = "5.6.17",
+        ///             InstanceClass = "db.t2.micro",
+        ///             Name = "mydb",
+        ///             Username = "foo",
+        ///             Password = "bar",
+        ///             DbSubnetGroupName = "my_database_subnet_group",
+        ///             ParameterGroupName = "default.mysql5.6",
+        ///         });
+        ///         var latestProdSnapshot = prod.Id.Apply(id =&gt; Aws.Rds.GetSnapshot.InvokeAsync(new Aws.Rds.GetSnapshotArgs
+        ///         {
+        ///             DbInstanceIdentifier = id,
+        ///             MostRecent = true,
+        ///         }));
+        ///         // Use the latest production snapshot to create a dev instance.
+        ///         var dev = new Aws.Rds.Instance("dev", new Aws.Rds.InstanceArgs
+        ///         {
+        ///             InstanceClass = "db.t2.micro",
+        ///             Name = "mydbdev",
+        ///             SnapshotIdentifier = latestProdSnapshot.Apply(latestProdSnapshot =&gt; latestProdSnapshot.Id),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSnapshotArgs : Pulumi.InvokeArgs
     {
@@ -90,6 +114,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
+
     [OutputType]
     public sealed class GetSnapshotResult
     {
@@ -119,6 +144,10 @@ namespace Pulumi.Aws.Rds
         /// Specifies the version of the database engine.
         /// </summary>
         public readonly string EngineVersion;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly bool? IncludePublic;
         public readonly bool? IncludeShared;
         /// <summary>
@@ -164,37 +193,56 @@ namespace Pulumi.Aws.Rds
         /// Specifies the ID of the VPC associated with the DB snapshot.
         /// </summary>
         public readonly string VpcId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSnapshotResult(
             int allocatedStorage,
+
             string availabilityZone,
+
             string? dbInstanceIdentifier,
+
             string dbSnapshotArn,
+
             string? dbSnapshotIdentifier,
+
             bool encrypted,
+
             string engine,
+
             string engineVersion,
+
+            string id,
+
             bool? includePublic,
+
             bool? includeShared,
+
             int iops,
+
             string kmsKeyId,
+
             string licenseModel,
+
             bool? mostRecent,
+
             string optionGroupName,
+
             int port,
+
             string snapshotCreateTime,
+
             string? snapshotType,
+
             string sourceDbSnapshotIdentifier,
+
             string sourceRegion,
+
             string status,
+
             string storageType,
-            string vpcId,
-            string id)
+
+            string vpcId)
         {
             AllocatedStorage = allocatedStorage;
             AvailabilityZone = availabilityZone;
@@ -204,6 +252,7 @@ namespace Pulumi.Aws.Rds
             Encrypted = encrypted;
             Engine = engine;
             EngineVersion = engineVersion;
+            Id = id;
             IncludePublic = includePublic;
             IncludeShared = includeShared;
             Iops = iops;
@@ -219,7 +268,6 @@ namespace Pulumi.Aws.Rds
             Status = status;
             StorageType = storageType;
             VpcId = vpcId;
-            Id = id;
         }
     }
 }

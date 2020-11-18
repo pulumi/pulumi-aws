@@ -12,9 +12,46 @@ namespace Pulumi.Aws.Sns
     /// <summary>
     /// Provides an SNS platform application resource
     /// 
+    /// ## Example Usage
+    /// ### Apple Push Notification Service (APNS)
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_platform_application.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apnsApplication = new Aws.Sns.PlatformApplication("apnsApplication", new Aws.Sns.PlatformApplicationArgs
+    ///         {
+    ///             Platform = "APNS",
+    ///             PlatformCredential = "&lt;APNS PRIVATE KEY&gt;",
+    ///             PlatformPrincipal = "&lt;APNS CERTIFICATE&gt;",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Google Cloud Messaging (GCM)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var gcmApplication = new Aws.Sns.PlatformApplication("gcmApplication", new Aws.Sns.PlatformApplicationArgs
+    ///         {
+    ///             Platform = "GCM",
+    ///             PlatformCredential = "&lt;GCM API KEY&gt;",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PlatformApplication : Pulumi.CustomResource
     {
@@ -61,19 +98,19 @@ namespace Pulumi.Aws.Sns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The platform that the app is registered with. See [Platform][1] for supported platforms.
+        /// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         /// </summary>
         [Output("platform")]
         public Output<string> Platform { get; private set; } = null!;
 
         /// <summary>
-        /// Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        /// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
         [Output("platformCredential")]
         public Output<string> PlatformCredential { get; private set; } = null!;
 
         /// <summary>
-        /// Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        /// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
         [Output("platformPrincipal")]
         public Output<string?> PlatformPrincipal { get; private set; } = null!;
@@ -99,7 +136,7 @@ namespace Pulumi.Aws.Sns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PlatformApplication(string name, PlatformApplicationArgs args, CustomResourceOptions? options = null)
-            : base("aws:sns/platformApplication:PlatformApplication", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:sns/platformApplication:PlatformApplication", name, args ?? new PlatformApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -173,19 +210,19 @@ namespace Pulumi.Aws.Sns
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The platform that the app is registered with. See [Platform][1] for supported platforms.
+        /// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         /// </summary>
         [Input("platform", required: true)]
         public Input<string> Platform { get; set; } = null!;
 
         /// <summary>
-        /// Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        /// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
         [Input("platformCredential", required: true)]
         public Input<string> PlatformCredential { get; set; } = null!;
 
         /// <summary>
-        /// Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        /// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
         [Input("platformPrincipal")]
         public Input<string>? PlatformPrincipal { get; set; }
@@ -252,19 +289,19 @@ namespace Pulumi.Aws.Sns
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The platform that the app is registered with. See [Platform][1] for supported platforms.
+        /// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
 
         /// <summary>
-        /// Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        /// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
         [Input("platformCredential")]
         public Input<string>? PlatformCredential { get; set; }
 
         /// <summary>
-        /// Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        /// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
         [Input("platformPrincipal")]
         public Input<string>? PlatformPrincipal { get; set; }

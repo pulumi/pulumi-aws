@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type ClusterCertificateAuthority struct {
@@ -15,6 +15,10 @@ type ClusterCertificateAuthority struct {
 	Data *string `pulumi:"data"`
 }
 
+// ClusterCertificateAuthorityInput is an input type that accepts ClusterCertificateAuthorityArgs and ClusterCertificateAuthorityOutput values.
+// You can construct a concrete instance of `ClusterCertificateAuthorityInput` via:
+//
+//          ClusterCertificateAuthorityArgs{...}
 type ClusterCertificateAuthorityInput interface {
 	pulumi.Input
 
@@ -47,6 +51,14 @@ func (i ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateAuthorityOutput).ToClusterCertificateAuthorityPtrOutputWithContext(ctx)
 }
 
+// ClusterCertificateAuthorityPtrInput is an input type that accepts ClusterCertificateAuthorityArgs, ClusterCertificateAuthorityPtr and ClusterCertificateAuthorityPtrOutput values.
+// You can construct a concrete instance of `ClusterCertificateAuthorityPtrInput` via:
+//
+//          ClusterCertificateAuthorityArgs{...}
+//
+//  or:
+//
+//          nil
 type ClusterCertificateAuthorityPtrInput interface {
 	pulumi.Input
 
@@ -121,7 +133,12 @@ func (o ClusterCertificateAuthorityPtrOutput) Elem() ClusterCertificateAuthority
 
 // The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 func (o ClusterCertificateAuthorityPtrOutput) Data() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterCertificateAuthority) *string { return v.Data }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterCertificateAuthority) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Data
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterEncryptionConfig struct {
@@ -131,6 +148,10 @@ type ClusterEncryptionConfig struct {
 	Resources []string `pulumi:"resources"`
 }
 
+// ClusterEncryptionConfigInput is an input type that accepts ClusterEncryptionConfigArgs and ClusterEncryptionConfigOutput values.
+// You can construct a concrete instance of `ClusterEncryptionConfigInput` via:
+//
+//          ClusterEncryptionConfigArgs{...}
 type ClusterEncryptionConfigInput interface {
 	pulumi.Input
 
@@ -165,6 +186,14 @@ func (i ClusterEncryptionConfigArgs) ToClusterEncryptionConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigOutput).ToClusterEncryptionConfigPtrOutputWithContext(ctx)
 }
 
+// ClusterEncryptionConfigPtrInput is an input type that accepts ClusterEncryptionConfigArgs, ClusterEncryptionConfigPtr and ClusterEncryptionConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterEncryptionConfigPtrInput` via:
+//
+//          ClusterEncryptionConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type ClusterEncryptionConfigPtrInput interface {
 	pulumi.Input
 
@@ -243,13 +272,23 @@ func (o ClusterEncryptionConfigPtrOutput) Elem() ClusterEncryptionConfigOutput {
 }
 
 // Configuration block with provider for encryption. Detailed below.
-func (o ClusterEncryptionConfigPtrOutput) Provider() ClusterEncryptionConfigProviderOutput {
-	return o.ApplyT(func(v ClusterEncryptionConfig) ClusterEncryptionConfigProvider { return v.Provider }).(ClusterEncryptionConfigProviderOutput)
+func (o ClusterEncryptionConfigPtrOutput) Provider() ClusterEncryptionConfigProviderPtrOutput {
+	return o.ApplyT(func(v *ClusterEncryptionConfig) *ClusterEncryptionConfigProvider {
+		if v == nil {
+			return nil
+		}
+		return &v.Provider
+	}).(ClusterEncryptionConfigProviderPtrOutput)
 }
 
 // List of strings with resources to be encrypted. Valid values: `secrets`
 func (o ClusterEncryptionConfigPtrOutput) Resources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ClusterEncryptionConfig) []string { return v.Resources }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ClusterEncryptionConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(pulumi.StringArrayOutput)
 }
 
 type ClusterEncryptionConfigProvider struct {
@@ -257,6 +296,10 @@ type ClusterEncryptionConfigProvider struct {
 	KeyArn string `pulumi:"keyArn"`
 }
 
+// ClusterEncryptionConfigProviderInput is an input type that accepts ClusterEncryptionConfigProviderArgs and ClusterEncryptionConfigProviderOutput values.
+// You can construct a concrete instance of `ClusterEncryptionConfigProviderInput` via:
+//
+//          ClusterEncryptionConfigProviderArgs{...}
 type ClusterEncryptionConfigProviderInput interface {
 	pulumi.Input
 
@@ -281,6 +324,47 @@ func (i ClusterEncryptionConfigProviderArgs) ToClusterEncryptionConfigProviderOu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigProviderOutput)
 }
 
+func (i ClusterEncryptionConfigProviderArgs) ToClusterEncryptionConfigProviderPtrOutput() ClusterEncryptionConfigProviderPtrOutput {
+	return i.ToClusterEncryptionConfigProviderPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterEncryptionConfigProviderArgs) ToClusterEncryptionConfigProviderPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigProviderOutput).ToClusterEncryptionConfigProviderPtrOutputWithContext(ctx)
+}
+
+// ClusterEncryptionConfigProviderPtrInput is an input type that accepts ClusterEncryptionConfigProviderArgs, ClusterEncryptionConfigProviderPtr and ClusterEncryptionConfigProviderPtrOutput values.
+// You can construct a concrete instance of `ClusterEncryptionConfigProviderPtrInput` via:
+//
+//          ClusterEncryptionConfigProviderArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterEncryptionConfigProviderPtrInput interface {
+	pulumi.Input
+
+	ToClusterEncryptionConfigProviderPtrOutput() ClusterEncryptionConfigProviderPtrOutput
+	ToClusterEncryptionConfigProviderPtrOutputWithContext(context.Context) ClusterEncryptionConfigProviderPtrOutput
+}
+
+type clusterEncryptionConfigProviderPtrType ClusterEncryptionConfigProviderArgs
+
+func ClusterEncryptionConfigProviderPtr(v *ClusterEncryptionConfigProviderArgs) ClusterEncryptionConfigProviderPtrInput {
+	return (*clusterEncryptionConfigProviderPtrType)(v)
+}
+
+func (*clusterEncryptionConfigProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEncryptionConfigProvider)(nil)).Elem()
+}
+
+func (i *clusterEncryptionConfigProviderPtrType) ToClusterEncryptionConfigProviderPtrOutput() ClusterEncryptionConfigProviderPtrOutput {
+	return i.ToClusterEncryptionConfigProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterEncryptionConfigProviderPtrType) ToClusterEncryptionConfigProviderPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigProviderPtrOutput)
+}
+
 type ClusterEncryptionConfigProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterEncryptionConfigProviderOutput) ElementType() reflect.Type {
@@ -295,9 +379,47 @@ func (o ClusterEncryptionConfigProviderOutput) ToClusterEncryptionConfigProvider
 	return o
 }
 
+func (o ClusterEncryptionConfigProviderOutput) ToClusterEncryptionConfigProviderPtrOutput() ClusterEncryptionConfigProviderPtrOutput {
+	return o.ToClusterEncryptionConfigProviderPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterEncryptionConfigProviderOutput) ToClusterEncryptionConfigProviderPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPtrOutput {
+	return o.ApplyT(func(v ClusterEncryptionConfigProvider) *ClusterEncryptionConfigProvider {
+		return &v
+	}).(ClusterEncryptionConfigProviderPtrOutput)
+}
+
 // Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 func (o ClusterEncryptionConfigProviderOutput) KeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterEncryptionConfigProvider) string { return v.KeyArn }).(pulumi.StringOutput)
+}
+
+type ClusterEncryptionConfigProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterEncryptionConfigProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEncryptionConfigProvider)(nil)).Elem()
+}
+
+func (o ClusterEncryptionConfigProviderPtrOutput) ToClusterEncryptionConfigProviderPtrOutput() ClusterEncryptionConfigProviderPtrOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigProviderPtrOutput) ToClusterEncryptionConfigProviderPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPtrOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigProviderPtrOutput) Elem() ClusterEncryptionConfigProviderOutput {
+	return o.ApplyT(func(v *ClusterEncryptionConfigProvider) ClusterEncryptionConfigProvider { return *v }).(ClusterEncryptionConfigProviderOutput)
+}
+
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+func (o ClusterEncryptionConfigProviderPtrOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterEncryptionConfigProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterIdentity struct {
@@ -305,6 +427,10 @@ type ClusterIdentity struct {
 	Oidcs []ClusterIdentityOidc `pulumi:"oidcs"`
 }
 
+// ClusterIdentityInput is an input type that accepts ClusterIdentityArgs and ClusterIdentityOutput values.
+// You can construct a concrete instance of `ClusterIdentityInput` via:
+//
+//          ClusterIdentityArgs{...}
 type ClusterIdentityInput interface {
 	pulumi.Input
 
@@ -329,6 +455,10 @@ func (i ClusterIdentityArgs) ToClusterIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOutput)
 }
 
+// ClusterIdentityArrayInput is an input type that accepts ClusterIdentityArray and ClusterIdentityArrayOutput values.
+// You can construct a concrete instance of `ClusterIdentityArrayInput` via:
+//
+//          ClusterIdentityArray{ ClusterIdentityArgs{...} }
 type ClusterIdentityArrayInput interface {
 	pulumi.Input
 
@@ -394,6 +524,10 @@ type ClusterIdentityOidc struct {
 	Issuer *string `pulumi:"issuer"`
 }
 
+// ClusterIdentityOidcInput is an input type that accepts ClusterIdentityOidcArgs and ClusterIdentityOidcOutput values.
+// You can construct a concrete instance of `ClusterIdentityOidcInput` via:
+//
+//          ClusterIdentityOidcArgs{...}
 type ClusterIdentityOidcInput interface {
 	pulumi.Input
 
@@ -418,6 +552,10 @@ func (i ClusterIdentityOidcArgs) ToClusterIdentityOidcOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOidcOutput)
 }
 
+// ClusterIdentityOidcArrayInput is an input type that accepts ClusterIdentityOidcArray and ClusterIdentityOidcArrayOutput values.
+// You can construct a concrete instance of `ClusterIdentityOidcArrayInput` via:
+//
+//          ClusterIdentityOidcArray{ ClusterIdentityOidcArgs{...} }
 type ClusterIdentityOidcArrayInput interface {
 	pulumi.Input
 
@@ -495,6 +633,10 @@ type ClusterVpcConfig struct {
 	VpcId *string `pulumi:"vpcId"`
 }
 
+// ClusterVpcConfigInput is an input type that accepts ClusterVpcConfigArgs and ClusterVpcConfigOutput values.
+// You can construct a concrete instance of `ClusterVpcConfigInput` via:
+//
+//          ClusterVpcConfigArgs{...}
 type ClusterVpcConfigInput interface {
 	pulumi.Input
 
@@ -539,6 +681,14 @@ func (i ClusterVpcConfigArgs) ToClusterVpcConfigPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConfigOutput).ToClusterVpcConfigPtrOutputWithContext(ctx)
 }
 
+// ClusterVpcConfigPtrInput is an input type that accepts ClusterVpcConfigArgs, ClusterVpcConfigPtr and ClusterVpcConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterVpcConfigPtrInput` via:
+//
+//          ClusterVpcConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type ClusterVpcConfigPtrInput interface {
 	pulumi.Input
 
@@ -643,46 +793,85 @@ func (o ClusterVpcConfigPtrOutput) Elem() ClusterVpcConfigOutput {
 
 // The cluster security group that was created by Amazon EKS for the cluster.
 func (o ClusterVpcConfigPtrOutput) ClusterSecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) *string { return v.ClusterSecurityGroupId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterSecurityGroupId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
 func (o ClusterVpcConfigPtrOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) *bool { return v.EndpointPrivateAccess }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointPrivateAccess
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
 func (o ClusterVpcConfigPtrOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) *bool { return v.EndpointPublicAccess }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointPublicAccess
+	}).(pulumi.BoolPtrOutput)
 }
 
 // List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
 func (o ClusterVpcConfigPtrOutput) PublicAccessCidrs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.PublicAccessCidrs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicAccessCidrs
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
 func (o ClusterVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
 func (o ClusterVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The VPC associated with your cluster.
 func (o ClusterVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 type FargateProfileSelector struct {
-	// Key-value mapping of Kubernetes labels for selection.
+	// Key-value map of Kubernetes labels for selection.
 	Labels map[string]string `pulumi:"labels"`
 	// Kubernetes namespace for selection.
 	Namespace string `pulumi:"namespace"`
 }
 
+// FargateProfileSelectorInput is an input type that accepts FargateProfileSelectorArgs and FargateProfileSelectorOutput values.
+// You can construct a concrete instance of `FargateProfileSelectorInput` via:
+//
+//          FargateProfileSelectorArgs{...}
 type FargateProfileSelectorInput interface {
 	pulumi.Input
 
@@ -691,7 +880,7 @@ type FargateProfileSelectorInput interface {
 }
 
 type FargateProfileSelectorArgs struct {
-	// Key-value mapping of Kubernetes labels for selection.
+	// Key-value map of Kubernetes labels for selection.
 	Labels pulumi.StringMapInput `pulumi:"labels"`
 	// Kubernetes namespace for selection.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
@@ -709,6 +898,10 @@ func (i FargateProfileSelectorArgs) ToFargateProfileSelectorOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileSelectorOutput)
 }
 
+// FargateProfileSelectorArrayInput is an input type that accepts FargateProfileSelectorArray and FargateProfileSelectorArrayOutput values.
+// You can construct a concrete instance of `FargateProfileSelectorArrayInput` via:
+//
+//          FargateProfileSelectorArray{ FargateProfileSelectorArgs{...} }
 type FargateProfileSelectorArrayInput interface {
 	pulumi.Input
 
@@ -744,7 +937,7 @@ func (o FargateProfileSelectorOutput) ToFargateProfileSelectorOutputWithContext(
 	return o
 }
 
-// Key-value mapping of Kubernetes labels for selection.
+// Key-value map of Kubernetes labels for selection.
 func (o FargateProfileSelectorOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FargateProfileSelector) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
@@ -774,6 +967,171 @@ func (o FargateProfileSelectorArrayOutput) Index(i pulumi.IntInput) FargateProfi
 	}).(FargateProfileSelectorOutput)
 }
 
+type NodeGroupLaunchTemplate struct {
+	// Identifier of the EC2 Launch Template. Conflicts with `name`.
+	Id *string `pulumi:"id"`
+	// Name of the EC2 Launch Template. Conflicts with `id`.
+	Name    *string `pulumi:"name"`
+	Version string  `pulumi:"version"`
+}
+
+// NodeGroupLaunchTemplateInput is an input type that accepts NodeGroupLaunchTemplateArgs and NodeGroupLaunchTemplateOutput values.
+// You can construct a concrete instance of `NodeGroupLaunchTemplateInput` via:
+//
+//          NodeGroupLaunchTemplateArgs{...}
+type NodeGroupLaunchTemplateInput interface {
+	pulumi.Input
+
+	ToNodeGroupLaunchTemplateOutput() NodeGroupLaunchTemplateOutput
+	ToNodeGroupLaunchTemplateOutputWithContext(context.Context) NodeGroupLaunchTemplateOutput
+}
+
+type NodeGroupLaunchTemplateArgs struct {
+	// Identifier of the EC2 Launch Template. Conflicts with `name`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the EC2 Launch Template. Conflicts with `id`.
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Version pulumi.StringInput    `pulumi:"version"`
+}
+
+func (NodeGroupLaunchTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (i NodeGroupLaunchTemplateArgs) ToNodeGroupLaunchTemplateOutput() NodeGroupLaunchTemplateOutput {
+	return i.ToNodeGroupLaunchTemplateOutputWithContext(context.Background())
+}
+
+func (i NodeGroupLaunchTemplateArgs) ToNodeGroupLaunchTemplateOutputWithContext(ctx context.Context) NodeGroupLaunchTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupLaunchTemplateOutput)
+}
+
+func (i NodeGroupLaunchTemplateArgs) ToNodeGroupLaunchTemplatePtrOutput() NodeGroupLaunchTemplatePtrOutput {
+	return i.ToNodeGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i NodeGroupLaunchTemplateArgs) ToNodeGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) NodeGroupLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupLaunchTemplateOutput).ToNodeGroupLaunchTemplatePtrOutputWithContext(ctx)
+}
+
+// NodeGroupLaunchTemplatePtrInput is an input type that accepts NodeGroupLaunchTemplateArgs, NodeGroupLaunchTemplatePtr and NodeGroupLaunchTemplatePtrOutput values.
+// You can construct a concrete instance of `NodeGroupLaunchTemplatePtrInput` via:
+//
+//          NodeGroupLaunchTemplateArgs{...}
+//
+//  or:
+//
+//          nil
+type NodeGroupLaunchTemplatePtrInput interface {
+	pulumi.Input
+
+	ToNodeGroupLaunchTemplatePtrOutput() NodeGroupLaunchTemplatePtrOutput
+	ToNodeGroupLaunchTemplatePtrOutputWithContext(context.Context) NodeGroupLaunchTemplatePtrOutput
+}
+
+type nodeGroupLaunchTemplatePtrType NodeGroupLaunchTemplateArgs
+
+func NodeGroupLaunchTemplatePtr(v *NodeGroupLaunchTemplateArgs) NodeGroupLaunchTemplatePtrInput {
+	return (*nodeGroupLaunchTemplatePtrType)(v)
+}
+
+func (*nodeGroupLaunchTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (i *nodeGroupLaunchTemplatePtrType) ToNodeGroupLaunchTemplatePtrOutput() NodeGroupLaunchTemplatePtrOutput {
+	return i.ToNodeGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *nodeGroupLaunchTemplatePtrType) ToNodeGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) NodeGroupLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupLaunchTemplatePtrOutput)
+}
+
+type NodeGroupLaunchTemplateOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupLaunchTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (o NodeGroupLaunchTemplateOutput) ToNodeGroupLaunchTemplateOutput() NodeGroupLaunchTemplateOutput {
+	return o
+}
+
+func (o NodeGroupLaunchTemplateOutput) ToNodeGroupLaunchTemplateOutputWithContext(ctx context.Context) NodeGroupLaunchTemplateOutput {
+	return o
+}
+
+func (o NodeGroupLaunchTemplateOutput) ToNodeGroupLaunchTemplatePtrOutput() NodeGroupLaunchTemplatePtrOutput {
+	return o.ToNodeGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o NodeGroupLaunchTemplateOutput) ToNodeGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) NodeGroupLaunchTemplatePtrOutput {
+	return o.ApplyT(func(v NodeGroupLaunchTemplate) *NodeGroupLaunchTemplate {
+		return &v
+	}).(NodeGroupLaunchTemplatePtrOutput)
+}
+
+// Identifier of the EC2 Launch Template. Conflicts with `name`.
+func (o NodeGroupLaunchTemplateOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeGroupLaunchTemplate) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the EC2 Launch Template. Conflicts with `id`.
+func (o NodeGroupLaunchTemplateOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeGroupLaunchTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o NodeGroupLaunchTemplateOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v NodeGroupLaunchTemplate) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type NodeGroupLaunchTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupLaunchTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (o NodeGroupLaunchTemplatePtrOutput) ToNodeGroupLaunchTemplatePtrOutput() NodeGroupLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o NodeGroupLaunchTemplatePtrOutput) ToNodeGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) NodeGroupLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o NodeGroupLaunchTemplatePtrOutput) Elem() NodeGroupLaunchTemplateOutput {
+	return o.ApplyT(func(v *NodeGroupLaunchTemplate) NodeGroupLaunchTemplate { return *v }).(NodeGroupLaunchTemplateOutput)
+}
+
+// Identifier of the EC2 Launch Template. Conflicts with `name`.
+func (o NodeGroupLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the EC2 Launch Template. Conflicts with `id`.
+func (o NodeGroupLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NodeGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type NodeGroupRemoteAccess struct {
 	// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
 	Ec2SshKey *string `pulumi:"ec2SshKey"`
@@ -781,6 +1139,10 @@ type NodeGroupRemoteAccess struct {
 	SourceSecurityGroupIds []string `pulumi:"sourceSecurityGroupIds"`
 }
 
+// NodeGroupRemoteAccessInput is an input type that accepts NodeGroupRemoteAccessArgs and NodeGroupRemoteAccessOutput values.
+// You can construct a concrete instance of `NodeGroupRemoteAccessInput` via:
+//
+//          NodeGroupRemoteAccessArgs{...}
 type NodeGroupRemoteAccessInput interface {
 	pulumi.Input
 
@@ -815,6 +1177,14 @@ func (i NodeGroupRemoteAccessArgs) ToNodeGroupRemoteAccessPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupRemoteAccessOutput).ToNodeGroupRemoteAccessPtrOutputWithContext(ctx)
 }
 
+// NodeGroupRemoteAccessPtrInput is an input type that accepts NodeGroupRemoteAccessArgs, NodeGroupRemoteAccessPtr and NodeGroupRemoteAccessPtrOutput values.
+// You can construct a concrete instance of `NodeGroupRemoteAccessPtrInput` via:
+//
+//          NodeGroupRemoteAccessArgs{...}
+//
+//  or:
+//
+//          nil
 type NodeGroupRemoteAccessPtrInput interface {
 	pulumi.Input
 
@@ -894,12 +1264,22 @@ func (o NodeGroupRemoteAccessPtrOutput) Elem() NodeGroupRemoteAccessOutput {
 
 // EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
 func (o NodeGroupRemoteAccessPtrOutput) Ec2SshKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NodeGroupRemoteAccess) *string { return v.Ec2SshKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *NodeGroupRemoteAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2SshKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2SshKey`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
 func (o NodeGroupRemoteAccessPtrOutput) SourceSecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v NodeGroupRemoteAccess) []string { return v.SourceSecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *NodeGroupRemoteAccess) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 type NodeGroupResource struct {
@@ -909,6 +1289,10 @@ type NodeGroupResource struct {
 	RemoteAccessSecurityGroupId *string `pulumi:"remoteAccessSecurityGroupId"`
 }
 
+// NodeGroupResourceInput is an input type that accepts NodeGroupResourceArgs and NodeGroupResourceOutput values.
+// You can construct a concrete instance of `NodeGroupResourceInput` via:
+//
+//          NodeGroupResourceArgs{...}
 type NodeGroupResourceInput interface {
 	pulumi.Input
 
@@ -935,6 +1319,10 @@ func (i NodeGroupResourceArgs) ToNodeGroupResourceOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupResourceOutput)
 }
 
+// NodeGroupResourceArrayInput is an input type that accepts NodeGroupResourceArray and NodeGroupResourceArrayOutput values.
+// You can construct a concrete instance of `NodeGroupResourceArrayInput` via:
+//
+//          NodeGroupResourceArray{ NodeGroupResourceArgs{...} }
 type NodeGroupResourceArrayInput interface {
 	pulumi.Input
 
@@ -1001,10 +1389,14 @@ func (o NodeGroupResourceArrayOutput) Index(i pulumi.IntInput) NodeGroupResource
 }
 
 type NodeGroupResourceAutoscalingGroup struct {
-	// Name of the AutoScaling Group.
+	// Name of the EC2 Launch Template. Conflicts with `id`.
 	Name *string `pulumi:"name"`
 }
 
+// NodeGroupResourceAutoscalingGroupInput is an input type that accepts NodeGroupResourceAutoscalingGroupArgs and NodeGroupResourceAutoscalingGroupOutput values.
+// You can construct a concrete instance of `NodeGroupResourceAutoscalingGroupInput` via:
+//
+//          NodeGroupResourceAutoscalingGroupArgs{...}
 type NodeGroupResourceAutoscalingGroupInput interface {
 	pulumi.Input
 
@@ -1013,7 +1405,7 @@ type NodeGroupResourceAutoscalingGroupInput interface {
 }
 
 type NodeGroupResourceAutoscalingGroupArgs struct {
-	// Name of the AutoScaling Group.
+	// Name of the EC2 Launch Template. Conflicts with `id`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1029,6 +1421,10 @@ func (i NodeGroupResourceAutoscalingGroupArgs) ToNodeGroupResourceAutoscalingGro
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupResourceAutoscalingGroupOutput)
 }
 
+// NodeGroupResourceAutoscalingGroupArrayInput is an input type that accepts NodeGroupResourceAutoscalingGroupArray and NodeGroupResourceAutoscalingGroupArrayOutput values.
+// You can construct a concrete instance of `NodeGroupResourceAutoscalingGroupArrayInput` via:
+//
+//          NodeGroupResourceAutoscalingGroupArray{ NodeGroupResourceAutoscalingGroupArgs{...} }
 type NodeGroupResourceAutoscalingGroupArrayInput interface {
 	pulumi.Input
 
@@ -1064,7 +1460,7 @@ func (o NodeGroupResourceAutoscalingGroupOutput) ToNodeGroupResourceAutoscalingG
 	return o
 }
 
-// Name of the AutoScaling Group.
+// Name of the EC2 Launch Template. Conflicts with `id`.
 func (o NodeGroupResourceAutoscalingGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeGroupResourceAutoscalingGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1098,6 +1494,10 @@ type NodeGroupScalingConfig struct {
 	MinSize int `pulumi:"minSize"`
 }
 
+// NodeGroupScalingConfigInput is an input type that accepts NodeGroupScalingConfigArgs and NodeGroupScalingConfigOutput values.
+// You can construct a concrete instance of `NodeGroupScalingConfigInput` via:
+//
+//          NodeGroupScalingConfigArgs{...}
 type NodeGroupScalingConfigInput interface {
 	pulumi.Input
 
@@ -1134,6 +1534,14 @@ func (i NodeGroupScalingConfigArgs) ToNodeGroupScalingConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupScalingConfigOutput).ToNodeGroupScalingConfigPtrOutputWithContext(ctx)
 }
 
+// NodeGroupScalingConfigPtrInput is an input type that accepts NodeGroupScalingConfigArgs, NodeGroupScalingConfigPtr and NodeGroupScalingConfigPtrOutput values.
+// You can construct a concrete instance of `NodeGroupScalingConfigPtrInput` via:
+//
+//          NodeGroupScalingConfigArgs{...}
+//
+//  or:
+//
+//          nil
 type NodeGroupScalingConfigPtrInput interface {
 	pulumi.Input
 
@@ -1217,18 +1625,33 @@ func (o NodeGroupScalingConfigPtrOutput) Elem() NodeGroupScalingConfigOutput {
 }
 
 // Desired number of worker nodes.
-func (o NodeGroupScalingConfigPtrOutput) DesiredSize() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeGroupScalingConfig) int { return v.DesiredSize }).(pulumi.IntOutput)
+func (o NodeGroupScalingConfigPtrOutput) DesiredSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeGroupScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DesiredSize
+	}).(pulumi.IntPtrOutput)
 }
 
 // Maximum number of worker nodes.
-func (o NodeGroupScalingConfigPtrOutput) MaxSize() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeGroupScalingConfig) int { return v.MaxSize }).(pulumi.IntOutput)
+func (o NodeGroupScalingConfigPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeGroupScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxSize
+	}).(pulumi.IntPtrOutput)
 }
 
 // Minimum number of worker nodes.
-func (o NodeGroupScalingConfigPtrOutput) MinSize() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeGroupScalingConfig) int { return v.MinSize }).(pulumi.IntOutput)
+func (o NodeGroupScalingConfigPtrOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeGroupScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinSize
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetClusterCertificateAuthority struct {
@@ -1236,6 +1659,10 @@ type GetClusterCertificateAuthority struct {
 	Data string `pulumi:"data"`
 }
 
+// GetClusterCertificateAuthorityInput is an input type that accepts GetClusterCertificateAuthorityArgs and GetClusterCertificateAuthorityOutput values.
+// You can construct a concrete instance of `GetClusterCertificateAuthorityInput` via:
+//
+//          GetClusterCertificateAuthorityArgs{...}
 type GetClusterCertificateAuthorityInput interface {
 	pulumi.Input
 
@@ -1284,6 +1711,10 @@ type GetClusterIdentity struct {
 	Oidcs []GetClusterIdentityOidc `pulumi:"oidcs"`
 }
 
+// GetClusterIdentityInput is an input type that accepts GetClusterIdentityArgs and GetClusterIdentityOutput values.
+// You can construct a concrete instance of `GetClusterIdentityInput` via:
+//
+//          GetClusterIdentityArgs{...}
 type GetClusterIdentityInput interface {
 	pulumi.Input
 
@@ -1308,6 +1739,10 @@ func (i GetClusterIdentityArgs) ToGetClusterIdentityOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterIdentityOutput)
 }
 
+// GetClusterIdentityArrayInput is an input type that accepts GetClusterIdentityArray and GetClusterIdentityArrayOutput values.
+// You can construct a concrete instance of `GetClusterIdentityArrayInput` via:
+//
+//          GetClusterIdentityArray{ GetClusterIdentityArgs{...} }
 type GetClusterIdentityArrayInput interface {
 	pulumi.Input
 
@@ -1373,6 +1808,10 @@ type GetClusterIdentityOidc struct {
 	Issuer string `pulumi:"issuer"`
 }
 
+// GetClusterIdentityOidcInput is an input type that accepts GetClusterIdentityOidcArgs and GetClusterIdentityOidcOutput values.
+// You can construct a concrete instance of `GetClusterIdentityOidcInput` via:
+//
+//          GetClusterIdentityOidcArgs{...}
 type GetClusterIdentityOidcInput interface {
 	pulumi.Input
 
@@ -1397,6 +1836,10 @@ func (i GetClusterIdentityOidcArgs) ToGetClusterIdentityOidcOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterIdentityOidcOutput)
 }
 
+// GetClusterIdentityOidcArrayInput is an input type that accepts GetClusterIdentityOidcArray and GetClusterIdentityOidcArrayOutput values.
+// You can construct a concrete instance of `GetClusterIdentityOidcArrayInput` via:
+//
+//          GetClusterIdentityOidcArray{ GetClusterIdentityOidcArgs{...} }
 type GetClusterIdentityOidcArrayInput interface {
 	pulumi.Input
 
@@ -1474,6 +1917,10 @@ type GetClusterVpcConfig struct {
 	VpcId string `pulumi:"vpcId"`
 }
 
+// GetClusterVpcConfigInput is an input type that accepts GetClusterVpcConfigArgs and GetClusterVpcConfigOutput values.
+// You can construct a concrete instance of `GetClusterVpcConfigInput` via:
+//
+//          GetClusterVpcConfigArgs{...}
 type GetClusterVpcConfigInput interface {
 	pulumi.Input
 
@@ -1565,6 +2012,7 @@ func init() {
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigProviderOutput{})
+	pulumi.RegisterOutputType(ClusterEncryptionConfigProviderPtrOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityArrayOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOidcOutput{})
@@ -1573,6 +2021,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorArrayOutput{})
+	pulumi.RegisterOutputType(NodeGroupLaunchTemplateOutput{})
+	pulumi.RegisterOutputType(NodeGroupLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupRemoteAccessOutput{})
 	pulumi.RegisterOutputType(NodeGroupRemoteAccessPtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupResourceOutput{})

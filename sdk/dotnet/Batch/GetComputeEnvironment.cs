@@ -9,33 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Batch
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The Batch Compute Environment data source allows access to details of a specific
-        /// compute environment within AWS Batch.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetComputeEnvironment.InvokeAsync() instead")]
-        public static Task<GetComputeEnvironmentResult> GetComputeEnvironment(GetComputeEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetComputeEnvironment
     {
         /// <summary>
         /// The Batch Compute Environment data source allows access to details of a specific
         /// compute environment within AWS Batch.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var batch_mongo = Output.Create(Aws.Batch.GetComputeEnvironment.InvokeAsync(new Aws.Batch.GetComputeEnvironmentArgs
+        ///         {
+        ///             ComputeEnvironmentName = "batch-mongo-production",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetComputeEnvironmentResult> InvokeAsync(GetComputeEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args ?? new GetComputeEnvironmentArgs(), options.WithVersion());
     }
+
 
     public sealed class GetComputeEnvironmentArgs : Pulumi.InvokeArgs
     {
@@ -45,10 +51,23 @@ namespace Pulumi.Aws.Batch
         [Input("computeEnvironmentName", required: true)]
         public string ComputeEnvironmentName { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetComputeEnvironmentArgs()
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetComputeEnvironmentResult
@@ -62,6 +81,10 @@ namespace Pulumi.Aws.Batch
         /// The ARN of the underlying Amazon ECS cluster used by the compute environment.
         /// </summary>
         public readonly string EcsClusterArn;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
@@ -79,35 +102,46 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public readonly string StatusReason;
         /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
         /// The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetComputeEnvironmentResult(
             string arn,
+
             string computeEnvironmentName,
+
             string ecsClusterArn,
+
+            string id,
+
             string serviceRole,
+
             string state,
+
             string status,
+
             string statusReason,
-            string type,
-            string id)
+
+            ImmutableDictionary<string, string> tags,
+
+            string type)
         {
             Arn = arn;
             ComputeEnvironmentName = computeEnvironmentName;
             EcsClusterArn = ecsClusterArn;
+            Id = id;
             ServiceRole = serviceRole;
             State = state;
             Status = status;
             StatusReason = statusReason;
+            Tags = tags;
             Type = type;
-            Id = id;
         }
     }
 }

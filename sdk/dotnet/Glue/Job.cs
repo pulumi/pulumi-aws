@@ -14,18 +14,87 @@ namespace Pulumi.Aws.Glue
     /// 
     /// &gt; Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
     /// 
+    /// ## Example Usage
+    /// ### Python Job
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_job.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Job("example", new Aws.Glue.JobArgs
+    ///         {
+    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             Command = new Aws.Glue.Inputs.JobCommandArgs
+    ///             {
+    ///                 ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.py",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Scala Job
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Job("example", new Aws.Glue.JobArgs
+    ///         {
+    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             Command = new Aws.Glue.Inputs.JobCommandArgs
+    ///             {
+    ///                 ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.scala",
+    ///             },
+    ///             DefaultArguments = 
+    ///             {
+    ///                 { "--job-language", "scala" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Enabling CloudWatch Logs and Metrics
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///             RetentionInDays = 14,
+    ///         });
+    ///         // ... other configuration ...
+    ///         var exampleJob = new Aws.Glue.Job("exampleJob", new Aws.Glue.JobArgs
+    ///         {
+    ///             DefaultArguments = 
+    ///             {
+    ///                 { "--continuous-log-logGroup", exampleLogGroup.Name },
+    ///                 { "--enable-continuous-cloudwatch-log", "true" },
+    ///                 { "--enable-continuous-log-filter", "true" },
+    ///                 { "--enable-metrics", "" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Job : Pulumi.CustomResource
     {
-        /// <summary>
-        /// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-        /// </summary>
-        [Output("allocatedCapacity")]
-        public Output<int> AllocatedCapacity { get; private set; } = null!;
-
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Job
         /// </summary>
@@ -48,7 +117,7 @@ namespace Pulumi.Aws.Glue
         /// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         /// </summary>
         [Output("defaultArguments")]
-        public Output<ImmutableDictionary<string, object>?> DefaultArguments { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> DefaultArguments { get; private set; } = null!;
 
         /// <summary>
         /// Description of the job.
@@ -69,7 +138,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> GlueVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         /// </summary>
         [Output("maxCapacity")]
         public Output<double> MaxCapacity { get; private set; } = null!;
@@ -85,6 +154,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Non-overridable arguments for this job, specified as name-value pairs.
+        /// </summary>
+        [Output("nonOverridableArguments")]
+        public Output<ImmutableDictionary<string, string>?> NonOverridableArguments { get; private set; } = null!;
 
         /// <summary>
         /// Notification property of the job. Defined below.
@@ -111,10 +186,10 @@ namespace Pulumi.Aws.Glue
         public Output<string?> SecurityConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The job timeout in minutes. The default is 2880 minutes (48 hours).
@@ -137,7 +212,7 @@ namespace Pulumi.Aws.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("aws:glue/job:Job", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:glue/job:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -175,12 +250,6 @@ namespace Pulumi.Aws.Glue
     public sealed class JobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-        /// </summary>
-        [Input("allocatedCapacity")]
-        public Input<int>? AllocatedCapacity { get; set; }
-
-        /// <summary>
         /// The command of the job. Defined below.
         /// </summary>
         [Input("command", required: true)]
@@ -199,14 +268,14 @@ namespace Pulumi.Aws.Glue
         }
 
         [Input("defaultArguments")]
-        private InputMap<object>? _defaultArguments;
+        private InputMap<string>? _defaultArguments;
 
         /// <summary>
         /// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         /// </summary>
-        public InputMap<object> DefaultArguments
+        public InputMap<string> DefaultArguments
         {
-            get => _defaultArguments ?? (_defaultArguments = new InputMap<object>());
+            get => _defaultArguments ?? (_defaultArguments = new InputMap<string>());
             set => _defaultArguments = value;
         }
 
@@ -229,7 +298,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
-        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         /// </summary>
         [Input("maxCapacity")]
         public Input<double>? MaxCapacity { get; set; }
@@ -245,6 +314,18 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("nonOverridableArguments")]
+        private InputMap<string>? _nonOverridableArguments;
+
+        /// <summary>
+        /// Non-overridable arguments for this job, specified as name-value pairs.
+        /// </summary>
+        public InputMap<string> NonOverridableArguments
+        {
+            get => _nonOverridableArguments ?? (_nonOverridableArguments = new InputMap<string>());
+            set => _nonOverridableArguments = value;
+        }
 
         /// <summary>
         /// Notification property of the job. Defined below.
@@ -271,14 +352,14 @@ namespace Pulumi.Aws.Glue
         public Input<string>? SecurityConfiguration { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -301,12 +382,6 @@ namespace Pulumi.Aws.Glue
 
     public sealed class JobState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-        /// </summary>
-        [Input("allocatedCapacity")]
-        public Input<int>? AllocatedCapacity { get; set; }
-
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Job
         /// </summary>
@@ -332,14 +407,14 @@ namespace Pulumi.Aws.Glue
         }
 
         [Input("defaultArguments")]
-        private InputMap<object>? _defaultArguments;
+        private InputMap<string>? _defaultArguments;
 
         /// <summary>
         /// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         /// </summary>
-        public InputMap<object> DefaultArguments
+        public InputMap<string> DefaultArguments
         {
-            get => _defaultArguments ?? (_defaultArguments = new InputMap<object>());
+            get => _defaultArguments ?? (_defaultArguments = new InputMap<string>());
             set => _defaultArguments = value;
         }
 
@@ -362,7 +437,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
-        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         /// </summary>
         [Input("maxCapacity")]
         public Input<double>? MaxCapacity { get; set; }
@@ -378,6 +453,18 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("nonOverridableArguments")]
+        private InputMap<string>? _nonOverridableArguments;
+
+        /// <summary>
+        /// Non-overridable arguments for this job, specified as name-value pairs.
+        /// </summary>
+        public InputMap<string> NonOverridableArguments
+        {
+            get => _nonOverridableArguments ?? (_nonOverridableArguments = new InputMap<string>());
+            set => _nonOverridableArguments = value;
+        }
 
         /// <summary>
         /// Notification property of the job. Defined below.
@@ -404,14 +491,14 @@ namespace Pulumi.Aws.Glue
         public Input<string>? SecurityConfiguration { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -430,173 +517,5 @@ namespace Pulumi.Aws.Glue
         public JobState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class JobCommandArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
-        /// </summary>
-        [Input("pythonVersion")]
-        public Input<string>? PythonVersion { get; set; }
-
-        /// <summary>
-        /// Specifies the S3 path to a script that executes a job.
-        /// </summary>
-        [Input("scriptLocation", required: true)]
-        public Input<string> ScriptLocation { get; set; } = null!;
-
-        public JobCommandArgs()
-        {
-        }
-    }
-
-    public sealed class JobCommandGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
-        /// </summary>
-        [Input("pythonVersion")]
-        public Input<string>? PythonVersion { get; set; }
-
-        /// <summary>
-        /// Specifies the S3 path to a script that executes a job.
-        /// </summary>
-        [Input("scriptLocation", required: true)]
-        public Input<string> ScriptLocation { get; set; } = null!;
-
-        public JobCommandGetArgs()
-        {
-        }
-    }
-
-    public sealed class JobExecutionPropertyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum number of concurrent runs allowed for a job. The default is 1.
-        /// </summary>
-        [Input("maxConcurrentRuns")]
-        public Input<int>? MaxConcurrentRuns { get; set; }
-
-        public JobExecutionPropertyArgs()
-        {
-        }
-    }
-
-    public sealed class JobExecutionPropertyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum number of concurrent runs allowed for a job. The default is 1.
-        /// </summary>
-        [Input("maxConcurrentRuns")]
-        public Input<int>? MaxConcurrentRuns { get; set; }
-
-        public JobExecutionPropertyGetArgs()
-        {
-        }
-    }
-
-    public sealed class JobNotificationPropertyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// After a job run starts, the number of minutes to wait before sending a job run delay notification.
-        /// </summary>
-        [Input("notifyDelayAfter")]
-        public Input<int>? NotifyDelayAfter { get; set; }
-
-        public JobNotificationPropertyArgs()
-        {
-        }
-    }
-
-    public sealed class JobNotificationPropertyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// After a job run starts, the number of minutes to wait before sending a job run delay notification.
-        /// </summary>
-        [Input("notifyDelayAfter")]
-        public Input<int>? NotifyDelayAfter { get; set; }
-
-        public JobNotificationPropertyGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class JobCommand
-    {
-        /// <summary>
-        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
-        /// </summary>
-        public readonly string? Name;
-        /// <summary>
-        /// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
-        /// </summary>
-        public readonly string PythonVersion;
-        /// <summary>
-        /// Specifies the S3 path to a script that executes a job.
-        /// </summary>
-        public readonly string ScriptLocation;
-
-        [OutputConstructor]
-        private JobCommand(
-            string? name,
-            string pythonVersion,
-            string scriptLocation)
-        {
-            Name = name;
-            PythonVersion = pythonVersion;
-            ScriptLocation = scriptLocation;
-        }
-    }
-
-    [OutputType]
-    public sealed class JobExecutionProperty
-    {
-        /// <summary>
-        /// The maximum number of concurrent runs allowed for a job. The default is 1.
-        /// </summary>
-        public readonly int? MaxConcurrentRuns;
-
-        [OutputConstructor]
-        private JobExecutionProperty(int? maxConcurrentRuns)
-        {
-            MaxConcurrentRuns = maxConcurrentRuns;
-        }
-    }
-
-    [OutputType]
-    public sealed class JobNotificationProperty
-    {
-        /// <summary>
-        /// After a job run starts, the number of minutes to wait before sending a job run delay notification.
-        /// </summary>
-        public readonly int? NotifyDelayAfter;
-
-        [OutputConstructor]
-        private JobNotificationProperty(int? notifyDelayAfter)
-        {
-            NotifyDelayAfter = notifyDelayAfter;
-        }
-    }
     }
 }

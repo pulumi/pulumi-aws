@@ -12,16 +12,76 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_access_key.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var lbUser = new Aws.Iam.User("lbUser", new Aws.Iam.UserArgs
+    ///         {
+    ///             Path = "/system/",
+    ///         });
+    ///         var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new Aws.Iam.AccessKeyArgs
+    ///         {
+    ///             User = lbUser.Name,
+    ///             PgpKey = "keybase:some_person_that_exists",
+    ///         });
+    ///         var lbRo = new Aws.Iam.UserPolicy("lbRo", new Aws.Iam.UserPolicyArgs
+    ///         {
+    ///             User = lbUser.Name,
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": [
+    ///         ""ec2:Describe*""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": ""*""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         this.Secret = lbAccessKey.EncryptedSecret;
+    ///     }
+    /// 
+    ///     [Output("secret")]
+    ///     public Output&lt;string&gt; Secret { get; set; }
+    /// }
+    /// ```
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testUser = new Aws.Iam.User("testUser", new Aws.Iam.UserArgs
+    ///         {
+    ///             Path = "/test/",
+    ///         });
+    ///         var testAccessKey = new Aws.Iam.AccessKey("testAccessKey", new Aws.Iam.AccessKeyArgs
+    ///         {
+    ///             User = testUser.Name,
+    ///         });
+    ///         this.AwsIamSmtpPasswordV4 = testAccessKey.SesSmtpPasswordV4;
+    ///     }
+    /// 
+    ///     [Output("awsIamSmtpPasswordV4")]
+    ///     public Output&lt;string&gt; AwsIamSmtpPasswordV4 { get; set; }
+    /// }
+    /// ```
     /// </summary>
     public partial class AccessKey : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The encrypted secret, base64 encoded, if `pgp_key` was specified.
-        /// &gt; **NOTE:** The encrypted secret may be decrypted using the command line,
-        /// </summary>
         [Output("encryptedSecret")]
         public Output<string> EncryptedSecret { get; private set; } = null!;
 
@@ -49,13 +109,6 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Output("secret")]
         public Output<string> Secret { get; private set; } = null!;
-
-        /// <summary>
-        /// **DEPRECATED** The secret access key converted into an SES SMTP
-        /// password by applying [AWS's documented conversion
-        /// </summary>
-        [Output("sesSmtpPassword")]
-        public Output<string> SesSmtpPassword { get; private set; } = null!;
 
         /// <summary>
         /// The secret access key converted into an SES SMTP
@@ -88,7 +141,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessKey(string name, AccessKeyArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/accessKey:AccessKey", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/accessKey:AccessKey", name, args ?? new AccessKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -153,10 +206,6 @@ namespace Pulumi.Aws.Iam
 
     public sealed class AccessKeyState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The encrypted secret, base64 encoded, if `pgp_key` was specified.
-        /// &gt; **NOTE:** The encrypted secret may be decrypted using the command line,
-        /// </summary>
         [Input("encryptedSecret")]
         public Input<string>? EncryptedSecret { get; set; }
 
@@ -184,13 +233,6 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }
-
-        /// <summary>
-        /// **DEPRECATED** The secret access key converted into an SES SMTP
-        /// password by applying [AWS's documented conversion
-        /// </summary>
-        [Input("sesSmtpPassword")]
-        public Input<string>? SesSmtpPassword { get; set; }
 
         /// <summary>
         /// The secret access key converted into an SES SMTP

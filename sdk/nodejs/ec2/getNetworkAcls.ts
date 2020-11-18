@@ -4,27 +4,56 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * The following shows outputing all network ACL ids in a vpc.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleNetworkAcls = aws.ec2.getNetworkAcls({
- *     vpcId: var_vpc_id,
+ *     vpcId: _var.vpc_id,
  * });
- * 
- * export const example = exampleNetworkAcls.ids;
+ * export const example = exampleNetworkAcls.then(exampleNetworkAcls => exampleNetworkAcls.ids);
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_acls.html.markdown.
+ * The following example retrieves a list of all network ACL ids in a VPC with a custom
+ * tag of `Tier` set to a value of "Private".
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getNetworkAcls({
+ *     vpcId: _var.vpc_id,
+ *     tags: {
+ *         Tier: "Private",
+ *     },
+ * });
+ * ```
+ *
+ * The following example retrieves a network ACL id in a VPC which associated
+ * with specific subnet.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getNetworkAcls({
+ *     vpcId: _var.vpc_id,
+ *     filters: [{
+ *         name: "association.subnet-id",
+ *         values: [aws_subnet.test.id],
+ *     }],
+ * });
+ * ```
  */
-export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclsResult> & GetNetworkAclsResult {
+export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclsResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -33,13 +62,11 @@ export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetNetworkAclsResult> = pulumi.runtime.invoke("aws:ec2/getNetworkAcls:getNetworkAcls", {
+    return pulumi.runtime.invoke("aws:ec2/getNetworkAcls:getNetworkAcls", {
         "filters": args.filters,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -51,10 +78,10 @@ export interface GetNetworkAclsArgs {
      */
     readonly filters?: inputs.ec2.GetNetworkAclsFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired network ACLs.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The VPC ID that you want to filter from.
      */
@@ -67,13 +94,13 @@ export interface GetNetworkAclsArgs {
 export interface GetNetworkAclsResult {
     readonly filters?: outputs.ec2.GetNetworkAclsFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of all the network ACL ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vpcId?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

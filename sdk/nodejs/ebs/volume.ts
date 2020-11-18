@@ -6,15 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a single EBS volume.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     size: 40,
@@ -24,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_volume.html.markdown.
+ * > **NOTE**: One of `size` or `snapshotId` is required when specifying an EBS volume
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -34,6 +32,7 @@ export class Volume extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VolumeState, opts?: pulumi.CustomResourceOptions): Volume {
         return new Volume(name, <any>state, { ...opts, id: id });
@@ -66,13 +65,21 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly encrypted!: pulumi.Output<boolean>;
     /**
-     * The amount of IOPS to provision for the disk.
+     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
      */
     public readonly iops!: pulumi.Output<number>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
+    /**
+     * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+     */
+    public readonly multiAttachEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
+    public readonly outpostArn!: pulumi.Output<string | undefined>;
     /**
      * The size of the drive in GiBs.
      */
@@ -82,11 +89,11 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly snapshotId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
+     * The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -107,6 +114,8 @@ export class Volume extends pulumi.CustomResource {
             inputs["encrypted"] = state ? state.encrypted : undefined;
             inputs["iops"] = state ? state.iops : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            inputs["multiAttachEnabled"] = state ? state.multiAttachEnabled : undefined;
+            inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["size"] = state ? state.size : undefined;
             inputs["snapshotId"] = state ? state.snapshotId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -120,6 +129,8 @@ export class Volume extends pulumi.CustomResource {
             inputs["encrypted"] = args ? args.encrypted : undefined;
             inputs["iops"] = args ? args.iops : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            inputs["multiAttachEnabled"] = args ? args.multiAttachEnabled : undefined;
+            inputs["outpostArn"] = args ? args.outpostArn : undefined;
             inputs["size"] = args ? args.size : undefined;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -154,13 +165,21 @@ export interface VolumeState {
      */
     readonly encrypted?: pulumi.Input<boolean>;
     /**
-     * The amount of IOPS to provision for the disk.
+     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
      */
     readonly iops?: pulumi.Input<number>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+     */
+    readonly multiAttachEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
+    readonly outpostArn?: pulumi.Input<string>;
     /**
      * The size of the drive in GiBs.
      */
@@ -170,11 +189,11 @@ export interface VolumeState {
      */
     readonly snapshotId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
+     * The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -192,13 +211,21 @@ export interface VolumeArgs {
      */
     readonly encrypted?: pulumi.Input<boolean>;
     /**
-     * The amount of IOPS to provision for the disk.
+     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
      */
     readonly iops?: pulumi.Input<number>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+     */
+    readonly multiAttachEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
+    readonly outpostArn?: pulumi.Input<string>;
     /**
      * The size of the drive in GiBs.
      */
@@ -208,11 +235,11 @@ export interface VolumeArgs {
      */
     readonly snapshotId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
+     * The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
      */
     readonly type?: pulumi.Input<string>;
 }

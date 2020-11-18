@@ -2,38 +2,32 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const defaultCluster = new aws.redshift.Cluster("default", {
+ *
+ * const defaultCluster = new aws.redshift.Cluster("defaultCluster", {
  *     clusterIdentifier: "tf-redshift-cluster",
- *     clusterType: "single-node",
  *     databaseName: "mydb",
- *     masterPassword: "Mustbe8characters",
  *     masterUsername: "foo",
+ *     masterPassword: "Mustbe8characters",
  *     nodeType: "dc1.large",
+ *     clusterType: "single-node",
  * });
- * const defaultSnapshotSchedule = new aws.redshift.SnapshotSchedule("default", {
- *     definitions: ["rate(12 hours)"],
+ * const defaultSnapshotSchedule = new aws.redshift.SnapshotSchedule("defaultSnapshotSchedule", {
  *     identifier: "tf-redshift-snapshot-schedule",
+ *     definitions: ["rate(12 hours)"],
  * });
- * const defaultSnapshotScheduleAssociation = new aws.redshift.SnapshotScheduleAssociation("default", {
+ * const defaultSnapshotScheduleAssociation = new aws.redshift.SnapshotScheduleAssociation("defaultSnapshotScheduleAssociation", {
  *     clusterIdentifier: defaultCluster.id,
  *     scheduleIdentifier: defaultSnapshotSchedule.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_snapshot_schedule_association.html.markdown.
  */
 export class SnapshotScheduleAssociation extends pulumi.CustomResource {
     /**
@@ -43,6 +37,7 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SnapshotScheduleAssociationState, opts?: pulumi.CustomResourceOptions): SnapshotScheduleAssociation {
         return new SnapshotScheduleAssociation(name, <any>state, { ...opts, id: id });

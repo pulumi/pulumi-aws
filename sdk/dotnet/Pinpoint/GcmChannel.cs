@@ -13,11 +13,29 @@ namespace Pulumi.Aws.Pinpoint
     /// Provides a Pinpoint GCM Channel resource.
     /// 
     /// &gt; **Note:** Api Key argument will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_gcm_channel.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
+    ///         {
+    ///         });
+    ///         var gcm = new Aws.Pinpoint.GcmChannel("gcm", new Aws.Pinpoint.GcmChannelArgs
+    ///         {
+    ///             ApplicationId = app.ApplicationId,
+    ///             ApiKey = "api_key",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GcmChannel : Pulumi.CustomResource
     {
@@ -48,7 +66,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GcmChannel(string name, GcmChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws:pinpoint/gcmChannel:GcmChannel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:pinpoint/gcmChannel:GcmChannel", name, args ?? new GcmChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 

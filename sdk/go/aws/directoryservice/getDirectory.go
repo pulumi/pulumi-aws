@@ -4,10 +4,33 @@
 package directoryservice
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/directoryservice"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := directoryservice.LookupDirectory(ctx, &directoryservice.LookupDirectoryArgs{
+// 			DirectoryId: aws_directory_service_directory.Main.Id,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pulumi.InvokeOption) (*LookupDirectoryResult, error) {
 	var rv LookupDirectoryResult
 	err := ctx.Invoke("aws:directoryservice/getDirectory:getDirectory", args, &rv, opts...)
@@ -21,8 +44,8 @@ func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pul
 type LookupDirectoryArgs struct {
 	// The ID of the directory.
 	DirectoryId string `pulumi:"directoryId"`
-	// A mapping of tags assigned to the directory/connector.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags assigned to the directory/connector.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDirectory.
@@ -41,7 +64,7 @@ type LookupDirectoryResult struct {
 	Edition string `pulumi:"edition"`
 	// The directory/connector single-sign on status.
 	EnableSso bool `pulumi:"enableSso"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The fully qualified name for the directory/connector.
 	Name string `pulumi:"name"`
@@ -51,8 +74,8 @@ type LookupDirectoryResult struct {
 	ShortName string `pulumi:"shortName"`
 	// (for `SimpleAD` and `ADConnector`) The size of the directory/connector (`Small` or `Large`).
 	Size string `pulumi:"size"`
-	// A mapping of tags assigned to the directory/connector.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags assigned to the directory/connector.
+	Tags map[string]string `pulumi:"tags"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
 	Type        string                   `pulumi:"type"`
 	VpcSettings []GetDirectoryVpcSetting `pulumi:"vpcSettings"`

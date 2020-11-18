@@ -7,10 +7,34 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the [`rds.Snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_snapshot.html).
+// Manages an RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the `rds.Snapshot` resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := rds.NewClusterSnapshot(ctx, "example", &rds.ClusterSnapshotArgs{
+// 			DbClusterIdentifier:         pulumi.Any(aws_rds_cluster.Example.Id),
+// 			DbClusterSnapshotIdentifier: pulumi.String("resourcetestsnapshot1234"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
 
@@ -40,8 +64,8 @@ type ClusterSnapshot struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Specifies whether the DB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the DB cluster.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the DB cluster.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -106,8 +130,8 @@ type clusterSnapshotState struct {
 	Status *string `pulumi:"status"`
 	// Specifies whether the DB cluster snapshot is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the DB cluster.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the DB cluster.
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -139,8 +163,8 @@ type ClusterSnapshotState struct {
 	Status pulumi.StringPtrInput
 	// Specifies whether the DB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the DB cluster.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the DB cluster.
+	Tags pulumi.StringMapInput
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId pulumi.StringPtrInput
 }
@@ -154,8 +178,8 @@ type clusterSnapshotArgs struct {
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier string `pulumi:"dbClusterSnapshotIdentifier"`
-	// A mapping of tags to assign to the DB cluster.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the DB cluster.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterSnapshot resource.
@@ -164,8 +188,8 @@ type ClusterSnapshotArgs struct {
 	DbClusterIdentifier pulumi.StringInput
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringInput
-	// A mapping of tags to assign to the DB cluster.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the DB cluster.
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterSnapshotArgs) ElementType() reflect.Type {

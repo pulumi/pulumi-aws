@@ -4,17 +4,14 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The ECS task definition data source allows access to details of
  * a specific AWS ECS task definition.
- * 
- * 
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_task_definition.html.markdown.
  */
-export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> & GetTaskDefinitionResult {
+export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,11 +19,9 @@ export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetTaskDefinitionResult> = pulumi.runtime.invoke("aws:ecs/getTaskDefinition:getTaskDefinition", {
+    return pulumi.runtime.invoke("aws:ecs/getTaskDefinition:getTaskDefinition", {
         "taskDefinition": args.taskDefinition,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -48,6 +43,10 @@ export interface GetTaskDefinitionResult {
      */
     readonly family: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Docker networking mode to use for the containers in this task.
      */
     readonly networkMode: string;
@@ -64,8 +63,4 @@ export interface GetTaskDefinitionResult {
      * The ARN of the IAM role that containers in this task can assume
      */
     readonly taskRoleArn: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

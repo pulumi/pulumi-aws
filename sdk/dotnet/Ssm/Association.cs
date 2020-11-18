@@ -12,9 +12,34 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Associates an SSM Document to an instance or EC2 tag.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_association.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ssm.Association("example", new Aws.Ssm.AssociationArgs
+    ///         {
+    ///             Targets = 
+    ///             {
+    ///                 new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///                 {
+    ///                     Key = "InstanceIds",
+    ///                     Values = 
+    ///                     {
+    ///                         aws_instance.Example.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Association : Pulumi.CustomResource
     {
@@ -82,7 +107,7 @@ namespace Pulumi.Aws.Ssm
         /// A block of arbitrary string parameters to pass to the SSM document.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, object>> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// A cron expression when the association will be applied to the target(s).
@@ -94,7 +119,7 @@ namespace Pulumi.Aws.Ssm
         /// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         /// </summary>
         [Output("targets")]
-        public Output<ImmutableArray<Outputs.AssociationTargets>> Targets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AssociationTarget>> Targets { get; private set; } = null!;
 
 
         /// <summary>
@@ -105,7 +130,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Association(string name, AssociationArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ssm/association:Association", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ssm/association:Association", name, args ?? new AssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -197,14 +222,14 @@ namespace Pulumi.Aws.Ssm
         public Input<Inputs.AssociationOutputLocationArgs>? OutputLocation { get; set; }
 
         [Input("parameters")]
-        private InputMap<object>? _parameters;
+        private InputMap<string>? _parameters;
 
         /// <summary>
         /// A block of arbitrary string parameters to pass to the SSM document.
         /// </summary>
-        public InputMap<object> Parameters
+        public InputMap<string> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<object>());
+            get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
@@ -215,14 +240,14 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? ScheduleExpression { get; set; }
 
         [Input("targets")]
-        private InputList<Inputs.AssociationTargetsArgs>? _targets;
+        private InputList<Inputs.AssociationTargetArgs>? _targets;
 
         /// <summary>
         /// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         /// </summary>
-        public InputList<Inputs.AssociationTargetsArgs> Targets
+        public InputList<Inputs.AssociationTargetArgs> Targets
         {
-            get => _targets ?? (_targets = new InputList<Inputs.AssociationTargetsArgs>());
+            get => _targets ?? (_targets = new InputList<Inputs.AssociationTargetArgs>());
             set => _targets = value;
         }
 
@@ -294,14 +319,14 @@ namespace Pulumi.Aws.Ssm
         public Input<Inputs.AssociationOutputLocationGetArgs>? OutputLocation { get; set; }
 
         [Input("parameters")]
-        private InputMap<object>? _parameters;
+        private InputMap<string>? _parameters;
 
         /// <summary>
         /// A block of arbitrary string parameters to pass to the SSM document.
         /// </summary>
-        public InputMap<object> Parameters
+        public InputMap<string> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<object>());
+            get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
@@ -312,159 +337,19 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? ScheduleExpression { get; set; }
 
         [Input("targets")]
-        private InputList<Inputs.AssociationTargetsGetArgs>? _targets;
+        private InputList<Inputs.AssociationTargetGetArgs>? _targets;
 
         /// <summary>
         /// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         /// </summary>
-        public InputList<Inputs.AssociationTargetsGetArgs> Targets
+        public InputList<Inputs.AssociationTargetGetArgs> Targets
         {
-            get => _targets ?? (_targets = new InputList<Inputs.AssociationTargetsGetArgs>());
+            get => _targets ?? (_targets = new InputList<Inputs.AssociationTargetGetArgs>());
             set => _targets = value;
         }
 
         public AssociationState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AssociationOutputLocationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The S3 bucket name.
-        /// </summary>
-        [Input("s3BucketName", required: true)]
-        public Input<string> S3BucketName { get; set; } = null!;
-
-        /// <summary>
-        /// The S3 bucket prefix. Results stored in the root if not configured.
-        /// </summary>
-        [Input("s3KeyPrefix")]
-        public Input<string>? S3KeyPrefix { get; set; }
-
-        public AssociationOutputLocationArgs()
-        {
-        }
-    }
-
-    public sealed class AssociationOutputLocationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The S3 bucket name.
-        /// </summary>
-        [Input("s3BucketName", required: true)]
-        public Input<string> S3BucketName { get; set; } = null!;
-
-        /// <summary>
-        /// The S3 bucket prefix. Results stored in the root if not configured.
-        /// </summary>
-        [Input("s3KeyPrefix")]
-        public Input<string>? S3KeyPrefix { get; set; }
-
-        public AssociationOutputLocationGetArgs()
-        {
-        }
-    }
-
-    public sealed class AssociationTargetsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// A list of instance IDs or tag values. AWS currently limits this list size to one value.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public AssociationTargetsArgs()
-        {
-        }
-    }
-
-    public sealed class AssociationTargetsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// A list of instance IDs or tag values. AWS currently limits this list size to one value.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public AssociationTargetsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AssociationOutputLocation
-    {
-        /// <summary>
-        /// The S3 bucket name.
-        /// </summary>
-        public readonly string S3BucketName;
-        /// <summary>
-        /// The S3 bucket prefix. Results stored in the root if not configured.
-        /// </summary>
-        public readonly string? S3KeyPrefix;
-
-        [OutputConstructor]
-        private AssociationOutputLocation(
-            string s3BucketName,
-            string? s3KeyPrefix)
-        {
-            S3BucketName = s3BucketName;
-            S3KeyPrefix = s3KeyPrefix;
-        }
-    }
-
-    [OutputType]
-    public sealed class AssociationTargets
-    {
-        /// <summary>
-        /// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        /// </summary>
-        public readonly string Key;
-        /// <summary>
-        /// A list of instance IDs or tag values. AWS currently limits this list size to one value.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private AssociationTargets(
-            string key,
-            ImmutableArray<string> values)
-        {
-            Key = key;
-            Values = values;
-        }
-    }
     }
 }

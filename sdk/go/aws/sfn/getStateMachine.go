@@ -4,12 +4,35 @@
 package sfn
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get the ARN of a State Machine in AWS Step
 // Function (SFN). By using this data source, you can reference a
 // state machine without having to hard code the ARNs as input.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sfn"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sfn.LookupStateMachine(ctx, &sfn.LookupStateMachineArgs{
+// 			Name: "an_example_sfn_name",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupStateMachine(ctx *pulumi.Context, args *LookupStateMachineArgs, opts ...pulumi.InvokeOption) (*LookupStateMachineResult, error) {
 	var rv LookupStateMachineResult
 	err := ctx.Invoke("aws:sfn/getStateMachine:getStateMachine", args, &rv, opts...)
@@ -33,7 +56,7 @@ type LookupStateMachineResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// Set to the state machine definition.
 	Definition string `pulumi:"definition"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// Set to the roleArn used by the state function.

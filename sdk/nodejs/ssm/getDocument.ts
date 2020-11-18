@@ -4,30 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets the contents of the specified Systems Manager document.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * To get the contents of the document owned by AWS.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = aws.ssm.getDocument({
- *     documentFormat: "YAML",
  *     name: "AWS-GatherSoftwareInventory",
+ *     documentFormat: "YAML",
  * });
- * 
- * export const content = foo.content;
+ * export const content = foo.then(foo => foo.content);
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_document.html.markdown.
+ * To get the contents of the custom document.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.ssm.getDocument({
+ *     name: aws_ssm_document.test.name,
+ *     documentFormat: "JSON",
+ * });
+ * ```
  */
-export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentResult> & GetDocumentResult {
+export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentResult> {
     if (!opts) {
         opts = {}
     }
@@ -35,13 +45,11 @@ export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDocumentResult> = pulumi.runtime.invoke("aws:ssm/getDocument:getDocument", {
+    return pulumi.runtime.invoke("aws:ssm/getDocument:getDocument", {
         "documentFormat": args.documentFormat,
         "documentVersion": args.documentVersion,
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -80,9 +88,9 @@ export interface GetDocumentResult {
      */
     readonly documentType: string;
     readonly documentVersion?: string;
-    readonly name: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

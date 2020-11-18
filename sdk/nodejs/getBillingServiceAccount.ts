@@ -4,23 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of whitelisting in S3 bucket policy.
- * 
+ * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const main = aws.getBillingServiceAccount();
- * const billingLogs = new aws.s3.Bucket("billingLogs", {
+ *
+ * const main = pulumi.output(aws.getBillingServiceAccount({ async: true }));
+ * const billingLogs = new aws.s3.Bucket("billing_logs", {
  *     acl: "private",
- *     policy: `{
+ *     policy: pulumi.interpolate`{
  *   "Id": "Policy",
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -53,10 +52,8 @@ import * as utilities from "./utilities";
  * `,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/billing_service_account.html.markdown.
  */
-export function getBillingServiceAccount(opts?: pulumi.InvokeOptions): Promise<GetBillingServiceAccountResult> & GetBillingServiceAccountResult {
+export function getBillingServiceAccount(opts?: pulumi.InvokeOptions): Promise<GetBillingServiceAccountResult> {
     if (!opts) {
         opts = {}
     }
@@ -64,10 +61,8 @@ export function getBillingServiceAccount(opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetBillingServiceAccountResult> = pulumi.runtime.invoke("aws:index/getBillingServiceAccount:getBillingServiceAccount", {
+    return pulumi.runtime.invoke("aws:index/getBillingServiceAccount:getBillingServiceAccount", {
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -79,7 +74,7 @@ export interface GetBillingServiceAccountResult {
      */
     readonly arn: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

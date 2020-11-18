@@ -6,21 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cloud9 EC2 Development Environment.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.cloud9.EnvironmentEC2("example", {
  *     instanceType: "t2.micro",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloud9_environment_ec2.html.markdown.
  */
 export class EnvironmentEC2 extends pulumi.CustomResource {
     /**
@@ -30,6 +26,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EnvironmentEC2State, opts?: pulumi.CustomResourceOptions): EnvironmentEC2 {
         return new EnvironmentEC2(name, <any>state, { ...opts, id: id });
@@ -78,9 +75,9 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the environment (e.g. `ssh` or `ec2`)
      */
@@ -166,9 +163,9 @@ export interface EnvironmentEC2State {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the environment (e.g. `ssh` or `ec2`)
      */
@@ -204,7 +201,7 @@ export interface EnvironmentEC2Args {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

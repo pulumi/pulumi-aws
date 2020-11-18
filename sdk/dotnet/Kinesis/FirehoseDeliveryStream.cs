@@ -12,11 +12,457 @@ namespace Pulumi.Aws.Kinesis
     /// <summary>
     /// Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
     /// 
-    /// For more details, see the [Amazon Kinesis Firehose Documentation][1].
+    /// For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
     /// 
+    /// ## Example Usage
+    /// ### Extended S3 Destination
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_firehose_delivery_stream.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///             Acl = "private",
+    ///         });
+    ///         var firehoseRole = new Aws.Iam.Role("firehoseRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""firehose.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var lambdaIam = new Aws.Iam.Role("lambdaIam", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var lambdaProcessor = new Aws.Lambda.Function("lambdaProcessor", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("lambda.zip"),
+    ///             Role = lambdaIam.Arn,
+    ///             Handler = "exports.handler",
+    ///             Runtime = "nodejs12.x",
+    ///         });
+    ///         var extendedS3Stream = new Aws.Kinesis.FirehoseDeliveryStream("extendedS3Stream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "extended_s3",
+    ///             ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = firehoseRole.Arn,
+    ///                 BucketArn = bucket.Arn,
+    ///                 ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Processors = 
+    ///                     {
+    ///                         new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
+    ///                         {
+    ///                             Type = "Lambda",
+    ///                             Parameters = 
+    ///                             {
+    ///                                 new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                                 {
+    ///                                     ParameterName = "LambdaArn",
+    ///                                     ParameterValue = lambdaProcessor.Arn.Apply(arn =&gt; $"{arn}:$LATEST"),
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### S3 Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///             Acl = "private",
+    ///         });
+    ///         var firehoseRole = new Aws.Iam.Role("firehoseRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""firehose.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "s3",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = firehoseRole.Arn,
+    ///                 BucketArn = bucket.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Redshift Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testCluster = new Aws.RedShift.Cluster("testCluster", new Aws.RedShift.ClusterArgs
+    ///         {
+    ///             ClusterIdentifier = "tf-redshift-cluster",
+    ///             DatabaseName = "test",
+    ///             MasterUsername = "testuser",
+    ///             MasterPassword = "T3stPass",
+    ///             NodeType = "dc1.large",
+    ///             ClusterType = "single-node",
+    ///         });
+    ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "redshift",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 BufferSize = 10,
+    ///                 BufferInterval = 400,
+    ///                 CompressionFormat = "GZIP",
+    ///             },
+    ///             RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///                 ClusterJdbcurl = Output.Tuple(testCluster.Endpoint, testCluster.DatabaseName).Apply(values =&gt;
+    ///                 {
+    ///                     var endpoint = values.Item1;
+    ///                     var databaseName = values.Item2;
+    ///                     return $"jdbc:redshift://{endpoint}/{databaseName}";
+    ///                 }),
+    ///                 Username = "testuser",
+    ///                 Password = "T3stPass",
+    ///                 DataTableName = "test-table",
+    ///                 CopyOptions = "delimiter '|'",
+    ///                 DataTableColumns = "test-col",
+    ///                 S3BackupMode = "Enabled",
+    ///                 S3BackupConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs
+    ///                 {
+    ///                     RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///                     BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                     BufferSize = 15,
+    ///                     BufferInterval = 300,
+    ///                     CompressionFormat = "GZIP",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Elasticsearch Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testCluster = new Aws.ElasticSearch.Domain("testCluster", new Aws.ElasticSearch.DomainArgs
+    ///         {
+    ///         });
+    ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "elasticsearch",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 BufferSize = 10,
+    ///                 BufferInterval = 400,
+    ///                 CompressionFormat = "GZIP",
+    ///             },
+    ///             ElasticsearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs
+    ///             {
+    ///                 DomainArn = testCluster.Arn,
+    ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///                 IndexName = "test",
+    ///                 TypeName = "test",
+    ///                 ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Processors = 
+    ///                     {
+    ///                         new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs
+    ///                         {
+    ///                             Type = "Lambda",
+    ///                             Parameters = 
+    ///                             {
+    ///                                 new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                                 {
+    ///                                     ParameterName = "LambdaArn",
+    ///                                     ParameterValue = $"{aws_lambda_function.Lambda_processor.Arn}:$LATEST",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Elasticsearch Destination With VPC
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testCluster = new Aws.ElasticSearch.Domain("testCluster", new Aws.ElasticSearch.DomainArgs
+    ///         {
+    ///             ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
+    ///             {
+    ///                 InstanceCount = 2,
+    ///                 ZoneAwarenessEnabled = true,
+    ///                 InstanceType = "t2.small.elasticsearch",
+    ///             },
+    ///             EbsOptions = new Aws.ElasticSearch.Inputs.DomainEbsOptionsArgs
+    ///             {
+    ///                 EbsEnabled = true,
+    ///                 VolumeSize = 10,
+    ///             },
+    ///             VpcOptions = new Aws.ElasticSearch.Inputs.DomainVpcOptionsArgs
+    ///             {
+    ///                 SecurityGroupIds = 
+    ///                 {
+    ///                     aws_security_group.First.Id,
+    ///                 },
+    ///                 SubnetIds = 
+    ///                 {
+    ///                     aws_subnet.First.Id,
+    ///                     aws_subnet.Second.Id,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var firehose_elasticsearch = new Aws.Iam.RolePolicy("firehose-elasticsearch", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = aws_iam_role.Firehose.Id,
+    ///             Policy = Output.Tuple(testCluster.Arn, testCluster.Arn).Apply(values =&gt;
+    ///             {
+    ///                 var testClusterArn = values.Item1;
+    ///                 var testClusterArn1 = values.Item2;
+    ///                 return @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Effect"": ""Allow"",
+    ///       ""Action"": [
+    ///         ""es:*""
+    ///       ],
+    ///       ""Resource"": [
+    ///         ""{testClusterArn}"",
+    ///         ""{testClusterArn1}/*""
+    ///       ]
+    ///         }},
+    ///         {{
+    ///           ""Effect"": ""Allow"",
+    ///           ""Action"": [
+    ///             ""ec2:DescribeVpcs"",
+    ///             ""ec2:DescribeVpcAttribute"",
+    ///             ""ec2:DescribeSubnets"",
+    ///             ""ec2:DescribeSecurityGroups"",
+    ///             ""ec2:DescribeNetworkInterfaces"",
+    ///             ""ec2:CreateNetworkInterface"",
+    ///             ""ec2:CreateNetworkInterfacePermission"",
+    ///             ""ec2:DeleteNetworkInterface""
+    ///           ],
+    ///           ""Resource"": [
+    ///             ""*""
+    ///           ]
+    ///         }}
+    ///   ]
+    /// }}
+    /// ";
+    ///             }),
+    ///         });
+    ///         var test = new Aws.Kinesis.FirehoseDeliveryStream("test", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "elasticsearch",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///             },
+    ///             ElasticsearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs
+    ///             {
+    ///                 DomainArn = testCluster.Arn,
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 IndexName = "test",
+    ///                 TypeName = "test",
+    ///                 VpcConfig = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
+    ///                 {
+    ///                     SubnetIds = 
+    ///                     {
+    ///                         aws_subnet.First.Id,
+    ///                         aws_subnet.Second.Id,
+    ///                     },
+    ///                     SecurityGroupIds = 
+    ///                     {
+    ///                         aws_security_group.First.Id,
+    ///                     },
+    ///                     RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 firehose_elasticsearch,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Splunk Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "splunk",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 BufferSize = 10,
+    ///                 BufferInterval = 400,
+    ///                 CompressionFormat = "GZIP",
+    ///             },
+    ///             SplunkConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs
+    ///             {
+    ///                 HecEndpoint = "https://http-inputs-mydomain.splunkcloud.com:443",
+    ///                 HecToken = "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
+    ///                 HecAcknowledgmentTimeout = 600,
+    ///                 HecEndpointType = "Event",
+    ///                 S3BackupMode = "FailedEventsOnly",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### HTTP Endpoint (e.g. New Relic) Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "http_endpoint",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 BufferSize = 10,
+    ///                 BufferInterval = 400,
+    ///                 CompressionFormat = "GZIP",
+    ///             },
+    ///             HttpEndpointConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs
+    ///             {
+    ///                 Url = "https://aws-api.newrelic.com/firehose/v1",
+    ///                 Name = "New Relic",
+    ///                 AccessKey = "my-key",
+    ///                 BufferingSize = 15,
+    ///                 BufferingInterval = 600,
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 S3BackupMode = "FailedDataOnly",
+    ///                 RequestConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs
+    ///                 {
+    ///                     ContentEncoding = "GZIP",
+    ///                     CommonAttributes = 
+    ///                     {
+    ///                         new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs
+    ///                         {
+    ///                             Name = "testname",
+    ///                             Value = "testvalue",
+    ///                         },
+    ///                         new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs
+    ///                         {
+    ///                             Name = "testname2",
+    ///                             Value = "testvalue2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FirehoseDeliveryStream : Pulumi.CustomResource
     {
@@ -27,7 +473,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
+        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
         /// </summary>
         [Output("destination")]
         public Output<string> Destination { get; private set; } = null!;
@@ -46,6 +492,12 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Output("extendedS3Configuration")]
         public Output<Outputs.FirehoseDeliveryStreamExtendedS3Configuration?> ExtendedS3Configuration { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
+        /// </summary>
+        [Output("httpEndpointConfiguration")]
+        public Output<Outputs.FirehoseDeliveryStreamHttpEndpointConfiguration?> HttpEndpointConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
@@ -82,14 +534,17 @@ namespace Pulumi.Aws.Kinesis
         [Output("serverSideEncryption")]
         public Output<Outputs.FirehoseDeliveryStreamServerSideEncryption?> ServerSideEncryption { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration options if splunk is the destination. More details are given below.
+        /// </summary>
         [Output("splunkConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamSplunkConfiguration?> SplunkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the table version for the output data schema. Defaults to `LATEST`.
@@ -106,7 +561,7 @@ namespace Pulumi.Aws.Kinesis
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirehoseDeliveryStream(string name, FirehoseDeliveryStreamArgs args, CustomResourceOptions? options = null)
-            : base("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", name, args ?? new FirehoseDeliveryStreamArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -150,7 +605,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
+        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
         /// </summary>
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
@@ -169,6 +624,12 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Input("extendedS3Configuration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs>? ExtendedS3Configuration { get; set; }
+
+        /// <summary>
+        /// Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
+        /// </summary>
+        [Input("httpEndpointConfiguration")]
+        public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs>? HttpEndpointConfiguration { get; set; }
 
         /// <summary>
         /// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
@@ -205,18 +666,21 @@ namespace Pulumi.Aws.Kinesis
         [Input("serverSideEncryption")]
         public Input<Inputs.FirehoseDeliveryStreamServerSideEncryptionArgs>? ServerSideEncryption { get; set; }
 
+        /// <summary>
+        /// Configuration options if splunk is the destination. More details are given below.
+        /// </summary>
         [Input("splunkConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs>? SplunkConfiguration { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -240,7 +704,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
+        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -259,6 +723,12 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Input("extendedS3Configuration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationGetArgs>? ExtendedS3Configuration { get; set; }
+
+        /// <summary>
+        /// Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
+        /// </summary>
+        [Input("httpEndpointConfiguration")]
+        public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationGetArgs>? HttpEndpointConfiguration { get; set; }
 
         /// <summary>
         /// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
@@ -295,18 +765,21 @@ namespace Pulumi.Aws.Kinesis
         [Input("serverSideEncryption")]
         public Input<Inputs.FirehoseDeliveryStreamServerSideEncryptionGetArgs>? ServerSideEncryption { get; set; }
 
+        /// <summary>
+        /// Configuration options if splunk is the destination. More details are given below.
+        /// </summary>
         [Input("splunkConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationGetArgs>? SplunkConfiguration { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -319,3813 +792,5 @@ namespace Pulumi.Aws.Kinesis
         public FirehoseDeliveryStreamState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-        /// </summary>
-        [Input("bufferingInterval")]
-        public Input<int>? BufferingInterval { get; set; }
-
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-        /// </summary>
-        [Input("bufferingSize")]
-        public Input<int>? BufferingSize { get; set; }
-
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
-        /// </summary>
-        [Input("domainArn", required: true)]
-        public Input<string> DomainArn { get; set; } = null!;
-
-        /// <summary>
-        /// The Elasticsearch index name.
-        /// </summary>
-        [Input("indexName", required: true)]
-        public Input<string> IndexName { get; set; } = null!;
-
-        /// <summary>
-        /// The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
-        /// </summary>
-        [Input("indexRotationPeriod")]
-        public Input<string>? IndexRotationPeriod { get; set; }
-
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
-        [Input("processingConfiguration")]
-        public Input<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
-
-        /// <summary>
-        /// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-        /// </summary>
-        [Input("retryDuration")]
-        public Input<int>? RetryDuration { get; set; }
-
-        /// <summary>
-        /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
-        /// </summary>
-        [Input("s3BackupMode")]
-        public Input<string>? S3BackupMode { get; set; }
-
-        /// <summary>
-        /// The Elasticsearch type name with maximum length of 100 characters.
-        /// </summary>
-        [Input("typeName")]
-        public Input<string>? TypeName { get; set; }
-
-        public FirehoseDeliveryStreamElasticsearchConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-        /// </summary>
-        [Input("bufferingInterval")]
-        public Input<int>? BufferingInterval { get; set; }
-
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-        /// </summary>
-        [Input("bufferingSize")]
-        public Input<int>? BufferingSize { get; set; }
-
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
-        /// </summary>
-        [Input("domainArn", required: true)]
-        public Input<string> DomainArn { get; set; } = null!;
-
-        /// <summary>
-        /// The Elasticsearch index name.
-        /// </summary>
-        [Input("indexName", required: true)]
-        public Input<string> IndexName { get; set; } = null!;
-
-        /// <summary>
-        /// The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
-        /// </summary>
-        [Input("indexRotationPeriod")]
-        public Input<string>? IndexRotationPeriod { get; set; }
-
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
-        [Input("processingConfiguration")]
-        public Input<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
-
-        /// <summary>
-        /// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-        /// </summary>
-        [Input("retryDuration")]
-        public Input<int>? RetryDuration { get; set; }
-
-        /// <summary>
-        /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
-        /// </summary>
-        [Input("s3BackupMode")]
-        public Input<string>? S3BackupMode { get; set; }
-
-        /// <summary>
-        /// The Elasticsearch type name with maximum length of 100 characters.
-        /// </summary>
-        [Input("typeName")]
-        public Input<string>? TypeName { get; set; }
-
-        public FirehoseDeliveryStreamElasticsearchConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        [Input("processors")]
-        private InputList<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsArgs>? _processors;
-
-        /// <summary>
-        /// Array of data processors. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsArgs> Processors
-        {
-            get => _processors ?? (_processors = new InputList<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsArgs>());
-            set => _processors = value;
-        }
-
-        public FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        [Input("processors")]
-        private InputList<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsGetArgs>? _processors;
-
-        /// <summary>
-        /// Array of data processors. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsGetArgs> Processors
-        {
-            get => _processors ?? (_processors = new InputList<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsGetArgs>());
-            set => _processors = value;
-        }
-
-        public FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsArgs : Pulumi.ResourceArgs
-    {
-        [Input("parameters")]
-        private InputList<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParametersArgs>? _parameters;
-
-        /// <summary>
-        /// Array of processor parameters. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParametersArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParametersArgs>());
-            set => _parameters = value;
-        }
-
-        /// <summary>
-        /// The type of processor. Valid Values: `Lambda`
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("parameters")]
-        private InputList<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParametersGetArgs>? _parameters;
-
-        /// <summary>
-        /// Array of processor parameters. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParametersGetArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParametersGetArgs>());
-            set => _parameters = value;
-        }
-
-        /// <summary>
-        /// The type of processor. Valid Values: `Lambda`
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
-        /// </summary>
-        [Input("parameterName", required: true)]
-        public Input<string> ParameterName { get; set; } = null!;
-
-        /// <summary>
-        /// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-        /// </summary>
-        [Input("parameterValue", required: true)]
-        public Input<string> ParameterValue { get; set; } = null!;
-
-        public FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParametersArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
-        /// </summary>
-        [Input("parameterName", required: true)]
-        public Input<string> ParameterName { get; set; } = null!;
-
-        /// <summary>
-        /// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-        /// </summary>
-        [Input("parameterValue", required: true)]
-        public Input<string> ParameterValue { get; set; } = null!;
-
-        public FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParametersGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the S3 bucket
-        /// </summary>
-        [Input("bucketArn", required: true)]
-        public Input<string> BucketArn { get; set; } = null!;
-
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        /// </summary>
-        [Input("bufferInterval")]
-        public Input<int>? BufferInterval { get; set; }
-
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        /// </summary>
-        [Input("bufferSize")]
-        public Input<int>? BufferSize { get; set; }
-
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP &amp; Snappy. If the destination is redshift you cannot use ZIP or Snappy.
-        /// </summary>
-        [Input("compressionFormat")]
-        public Input<string>? CompressionFormat { get; set; }
-
-        /// <summary>
-        /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
-        /// </summary>
-        [Input("dataFormatConversionConfiguration")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs>? DataFormatConversionConfiguration { get; set; }
-
-        /// <summary>
-        /// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
-        /// </summary>
-        [Input("errorOutputPrefix")]
-        public Input<string>? ErrorOutputPrefix { get; set; }
-
-        /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
-        [Input("processingConfiguration")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
-
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-        /// </summary>
-        [Input("s3BackupConfiguration")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs>? S3BackupConfiguration { get; set; }
-
-        /// <summary>
-        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
-        /// </summary>
-        [Input("s3BackupMode")]
-        public Input<string>? S3BackupMode { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// Nested argument that specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. More details below.
-        /// </summary>
-        [Input("inputFormatConfiguration", required: true)]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs> InputFormatConfiguration { get; set; } = null!;
-
-        /// <summary>
-        /// Nested argument that specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. More details below.
-        /// </summary>
-        [Input("outputFormatConfiguration", required: true)]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs> OutputFormatConfiguration { get; set; } = null!;
-
-        /// <summary>
-        /// Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
-        /// </summary>
-        [Input("schemaConfiguration", required: true)]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs> SchemaConfiguration { get; set; } = null!;
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// Nested argument that specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. More details below.
-        /// </summary>
-        [Input("inputFormatConfiguration", required: true)]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationGetArgs> InputFormatConfiguration { get; set; } = null!;
-
-        /// <summary>
-        /// Nested argument that specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. More details below.
-        /// </summary>
-        [Input("outputFormatConfiguration", required: true)]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationGetArgs> OutputFormatConfiguration { get; set; } = null!;
-
-        /// <summary>
-        /// Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
-        /// </summary>
-        [Input("schemaConfiguration", required: true)]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationGetArgs> SchemaConfiguration { get; set; } = null!;
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
-        /// </summary>
-        [Input("deserializer", required: true)]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs> Deserializer { get; set; } = null!;
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
-        /// </summary>
-        [Input("hiveJsonSerDe")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs>? HiveJsonSerDe { get; set; }
-
-        /// <summary>
-        /// Nested argument that specifies the OpenX SerDe. More details below.
-        /// </summary>
-        [Input("openXJsonSerDe")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs>? OpenXJsonSerDe { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
-        /// </summary>
-        [Input("hiveJsonSerDe")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeGetArgs>? HiveJsonSerDe { get; set; }
-
-        /// <summary>
-        /// Nested argument that specifies the OpenX SerDe. More details below.
-        /// </summary>
-        [Input("openXJsonSerDe")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeGetArgs>? OpenXJsonSerDe { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs : Pulumi.ResourceArgs
-    {
-        [Input("timestampFormats")]
-        private InputList<string>? _timestampFormats;
-
-        /// <summary>
-        /// A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
-        /// </summary>
-        public InputList<string> TimestampFormats
-        {
-            get => _timestampFormats ?? (_timestampFormats = new InputList<string>());
-            set => _timestampFormats = value;
-        }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("timestampFormats")]
-        private InputList<string>? _timestampFormats;
-
-        /// <summary>
-        /// A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
-        /// </summary>
-        public InputList<string> TimestampFormats
-        {
-            get => _timestampFormats ?? (_timestampFormats = new InputList<string>());
-            set => _timestampFormats = value;
-        }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
-        /// </summary>
-        [Input("caseInsensitive")]
-        public Input<bool>? CaseInsensitive { get; set; }
-
-        [Input("columnToJsonKeyMappings")]
-        private InputMap<string>? _columnToJsonKeyMappings;
-
-        /// <summary>
-        /// A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
-        /// </summary>
-        public InputMap<string> ColumnToJsonKeyMappings
-        {
-            get => _columnToJsonKeyMappings ?? (_columnToJsonKeyMappings = new InputMap<string>());
-            set => _columnToJsonKeyMappings = value;
-        }
-
-        /// <summary>
-        /// When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option. Defaults to `false`.
-        /// </summary>
-        [Input("convertDotsInJsonKeysToUnderscores")]
-        public Input<bool>? ConvertDotsInJsonKeysToUnderscores { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
-        /// </summary>
-        [Input("caseInsensitive")]
-        public Input<bool>? CaseInsensitive { get; set; }
-
-        [Input("columnToJsonKeyMappings")]
-        private InputMap<string>? _columnToJsonKeyMappings;
-
-        /// <summary>
-        /// A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
-        /// </summary>
-        public InputMap<string> ColumnToJsonKeyMappings
-        {
-            get => _columnToJsonKeyMappings ?? (_columnToJsonKeyMappings = new InputMap<string>());
-            set => _columnToJsonKeyMappings = value;
-        }
-
-        /// <summary>
-        /// When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option. Defaults to `false`.
-        /// </summary>
-        [Input("convertDotsInJsonKeysToUnderscores")]
-        public Input<bool>? ConvertDotsInJsonKeysToUnderscores { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
-        /// </summary>
-        [Input("deserializer", required: true)]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerGetArgs> Deserializer { get; set; } = null!;
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument that specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. More details below.
-        /// </summary>
-        [Input("serializer", required: true)]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs> Serializer { get; set; } = null!;
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument that specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. More details below.
-        /// </summary>
-        [Input("serializer", required: true)]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerGetArgs> Serializer { get; set; } = null!;
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument that specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). More details below.
-        /// </summary>
-        [Input("orcSerDe")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs>? OrcSerDe { get; set; }
-
-        /// <summary>
-        /// Nested argument that specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/documentation/latest/). More details below.
-        /// </summary>
-        [Input("parquetSerDe")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs>? ParquetSerDe { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument that specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). More details below.
-        /// </summary>
-        [Input("orcSerDe")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeGetArgs>? OrcSerDe { get; set; }
-
-        /// <summary>
-        /// Nested argument that specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/documentation/latest/). More details below.
-        /// </summary>
-        [Input("parquetSerDe")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeGetArgs>? ParquetSerDe { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-        /// </summary>
-        [Input("blockSizeBytes")]
-        public Input<int>? BlockSizeBytes { get; set; }
-
-        [Input("bloomFilterColumns")]
-        private InputList<string>? _bloomFilterColumns;
-
-        /// <summary>
-        /// A list of column names for which you want Kinesis Data Firehose to create bloom filters.
-        /// </summary>
-        public InputList<string> BloomFilterColumns
-        {
-            get => _bloomFilterColumns ?? (_bloomFilterColumns = new InputList<string>());
-            set => _bloomFilterColumns = value;
-        }
-
-        /// <summary>
-        /// The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
-        /// </summary>
-        [Input("bloomFilterFalsePositiveProbability")]
-        public Input<double>? BloomFilterFalsePositiveProbability { get; set; }
-
-        /// <summary>
-        /// The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
-        /// </summary>
-        [Input("compression")]
-        public Input<string>? Compression { get; set; }
-
-        /// <summary>
-        /// A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
-        /// </summary>
-        [Input("dictionaryKeyThreshold")]
-        public Input<double>? DictionaryKeyThreshold { get; set; }
-
-        /// <summary>
-        /// Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
-        /// </summary>
-        [Input("enablePadding")]
-        public Input<bool>? EnablePadding { get; set; }
-
-        /// <summary>
-        /// The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
-        /// </summary>
-        [Input("formatVersion")]
-        public Input<string>? FormatVersion { get; set; }
-
-        /// <summary>
-        /// A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enable_padding` is `false`.
-        /// </summary>
-        [Input("paddingTolerance")]
-        public Input<double>? PaddingTolerance { get; set; }
-
-        /// <summary>
-        /// The number of rows between index entries. The default is `10000` and the minimum is `1000`.
-        /// </summary>
-        [Input("rowIndexStride")]
-        public Input<int>? RowIndexStride { get; set; }
-
-        /// <summary>
-        /// The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
-        /// </summary>
-        [Input("stripeSizeBytes")]
-        public Input<int>? StripeSizeBytes { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-        /// </summary>
-        [Input("blockSizeBytes")]
-        public Input<int>? BlockSizeBytes { get; set; }
-
-        [Input("bloomFilterColumns")]
-        private InputList<string>? _bloomFilterColumns;
-
-        /// <summary>
-        /// A list of column names for which you want Kinesis Data Firehose to create bloom filters.
-        /// </summary>
-        public InputList<string> BloomFilterColumns
-        {
-            get => _bloomFilterColumns ?? (_bloomFilterColumns = new InputList<string>());
-            set => _bloomFilterColumns = value;
-        }
-
-        /// <summary>
-        /// The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
-        /// </summary>
-        [Input("bloomFilterFalsePositiveProbability")]
-        public Input<double>? BloomFilterFalsePositiveProbability { get; set; }
-
-        /// <summary>
-        /// The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
-        /// </summary>
-        [Input("compression")]
-        public Input<string>? Compression { get; set; }
-
-        /// <summary>
-        /// A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
-        /// </summary>
-        [Input("dictionaryKeyThreshold")]
-        public Input<double>? DictionaryKeyThreshold { get; set; }
-
-        /// <summary>
-        /// Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
-        /// </summary>
-        [Input("enablePadding")]
-        public Input<bool>? EnablePadding { get; set; }
-
-        /// <summary>
-        /// The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
-        /// </summary>
-        [Input("formatVersion")]
-        public Input<string>? FormatVersion { get; set; }
-
-        /// <summary>
-        /// A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enable_padding` is `false`.
-        /// </summary>
-        [Input("paddingTolerance")]
-        public Input<double>? PaddingTolerance { get; set; }
-
-        /// <summary>
-        /// The number of rows between index entries. The default is `10000` and the minimum is `1000`.
-        /// </summary>
-        [Input("rowIndexStride")]
-        public Input<int>? RowIndexStride { get; set; }
-
-        /// <summary>
-        /// The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
-        /// </summary>
-        [Input("stripeSizeBytes")]
-        public Input<int>? StripeSizeBytes { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-        /// </summary>
-        [Input("blockSizeBytes")]
-        public Input<int>? BlockSizeBytes { get; set; }
-
-        /// <summary>
-        /// The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
-        /// </summary>
-        [Input("compression")]
-        public Input<string>? Compression { get; set; }
-
-        /// <summary>
-        /// Indicates whether to enable dictionary compression.
-        /// </summary>
-        [Input("enableDictionaryCompression")]
-        public Input<bool>? EnableDictionaryCompression { get; set; }
-
-        /// <summary>
-        /// The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
-        /// </summary>
-        [Input("maxPaddingBytes")]
-        public Input<int>? MaxPaddingBytes { get; set; }
-
-        /// <summary>
-        /// The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
-        /// </summary>
-        [Input("pageSizeBytes")]
-        public Input<int>? PageSizeBytes { get; set; }
-
-        /// <summary>
-        /// Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
-        /// </summary>
-        [Input("writerVersion")]
-        public Input<string>? WriterVersion { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-        /// </summary>
-        [Input("blockSizeBytes")]
-        public Input<int>? BlockSizeBytes { get; set; }
-
-        /// <summary>
-        /// The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
-        /// </summary>
-        [Input("compression")]
-        public Input<string>? Compression { get; set; }
-
-        /// <summary>
-        /// Indicates whether to enable dictionary compression.
-        /// </summary>
-        [Input("enableDictionaryCompression")]
-        public Input<bool>? EnableDictionaryCompression { get; set; }
-
-        /// <summary>
-        /// The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
-        /// </summary>
-        [Input("maxPaddingBytes")]
-        public Input<int>? MaxPaddingBytes { get; set; }
-
-        /// <summary>
-        /// The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
-        /// </summary>
-        [Input("pageSizeBytes")]
-        public Input<int>? PageSizeBytes { get; set; }
-
-        /// <summary>
-        /// Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
-        /// </summary>
-        [Input("writerVersion")]
-        public Input<string>? WriterVersion { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
-        /// </summary>
-        [Input("catalogId")]
-        public Input<string>? CatalogId { get; set; }
-
-        /// <summary>
-        /// Specifies the name of the AWS Glue database that contains the schema for the output data.
-        /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
-
-        /// <summary>
-        /// If you don't specify an AWS Region, the default is the current region.
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the AWS Glue table that contains the column information that constitutes your data schema.
-        /// </summary>
-        [Input("tableName", required: true)]
-        public Input<string> TableName { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the table version for the output data schema. Defaults to `LATEST`.
-        /// </summary>
-        [Input("versionId")]
-        public Input<string>? VersionId { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
-        /// </summary>
-        [Input("catalogId")]
-        public Input<string>? CatalogId { get; set; }
-
-        /// <summary>
-        /// Specifies the name of the AWS Glue database that contains the schema for the output data.
-        /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
-
-        /// <summary>
-        /// If you don't specify an AWS Region, the default is the current region.
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the AWS Glue table that contains the column information that constitutes your data schema.
-        /// </summary>
-        [Input("tableName", required: true)]
-        public Input<string> TableName { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the table version for the output data schema. Defaults to `LATEST`.
-        /// </summary>
-        [Input("versionId")]
-        public Input<string>? VersionId { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the S3 bucket
-        /// </summary>
-        [Input("bucketArn", required: true)]
-        public Input<string> BucketArn { get; set; } = null!;
-
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        /// </summary>
-        [Input("bufferInterval")]
-        public Input<int>? BufferInterval { get; set; }
-
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        /// </summary>
-        [Input("bufferSize")]
-        public Input<int>? BufferSize { get; set; }
-
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP &amp; Snappy. If the destination is redshift you cannot use ZIP or Snappy.
-        /// </summary>
-        [Input("compressionFormat")]
-        public Input<string>? CompressionFormat { get; set; }
-
-        /// <summary>
-        /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
-        /// </summary>
-        [Input("dataFormatConversionConfiguration")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationGetArgs>? DataFormatConversionConfiguration { get; set; }
-
-        /// <summary>
-        /// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
-        /// </summary>
-        [Input("errorOutputPrefix")]
-        public Input<string>? ErrorOutputPrefix { get; set; }
-
-        /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
-        [Input("processingConfiguration")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
-
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-        /// </summary>
-        [Input("s3BackupConfiguration")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationGetArgs>? S3BackupConfiguration { get; set; }
-
-        /// <summary>
-        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
-        /// </summary>
-        [Input("s3BackupMode")]
-        public Input<string>? S3BackupMode { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        [Input("processors")]
-        private InputList<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsArgs>? _processors;
-
-        /// <summary>
-        /// Array of data processors. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsArgs> Processors
-        {
-            get => _processors ?? (_processors = new InputList<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsArgs>());
-            set => _processors = value;
-        }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        [Input("processors")]
-        private InputList<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsGetArgs>? _processors;
-
-        /// <summary>
-        /// Array of data processors. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsGetArgs> Processors
-        {
-            get => _processors ?? (_processors = new InputList<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsGetArgs>());
-            set => _processors = value;
-        }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsArgs : Pulumi.ResourceArgs
-    {
-        [Input("parameters")]
-        private InputList<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParametersArgs>? _parameters;
-
-        /// <summary>
-        /// Array of processor parameters. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParametersArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParametersArgs>());
-            set => _parameters = value;
-        }
-
-        /// <summary>
-        /// The type of processor. Valid Values: `Lambda`
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("parameters")]
-        private InputList<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParametersGetArgs>? _parameters;
-
-        /// <summary>
-        /// Array of processor parameters. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParametersGetArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParametersGetArgs>());
-            set => _parameters = value;
-        }
-
-        /// <summary>
-        /// The type of processor. Valid Values: `Lambda`
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
-        /// </summary>
-        [Input("parameterName", required: true)]
-        public Input<string> ParameterName { get; set; } = null!;
-
-        /// <summary>
-        /// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-        /// </summary>
-        [Input("parameterValue", required: true)]
-        public Input<string> ParameterValue { get; set; } = null!;
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParametersArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
-        /// </summary>
-        [Input("parameterName", required: true)]
-        public Input<string> ParameterName { get; set; } = null!;
-
-        /// <summary>
-        /// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-        /// </summary>
-        [Input("parameterValue", required: true)]
-        public Input<string> ParameterValue { get; set; } = null!;
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParametersGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the S3 bucket
-        /// </summary>
-        [Input("bucketArn", required: true)]
-        public Input<string> BucketArn { get; set; } = null!;
-
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        /// </summary>
-        [Input("bufferInterval")]
-        public Input<int>? BufferInterval { get; set; }
-
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        /// </summary>
-        [Input("bufferSize")]
-        public Input<int>? BufferSize { get; set; }
-
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP &amp; Snappy. If the destination is redshift you cannot use ZIP or Snappy.
-        /// </summary>
-        [Input("compressionFormat")]
-        public Input<string>? CompressionFormat { get; set; }
-
-        /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the S3 bucket
-        /// </summary>
-        [Input("bucketArn", required: true)]
-        public Input<string> BucketArn { get; set; } = null!;
-
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        /// </summary>
-        [Input("bufferInterval")]
-        public Input<int>? BufferInterval { get; set; }
-
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        /// </summary>
-        [Input("bufferSize")]
-        public Input<int>? BufferSize { get; set; }
-
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP &amp; Snappy. If the destination is redshift you cannot use ZIP or Snappy.
-        /// </summary>
-        [Input("compressionFormat")]
-        public Input<string>? CompressionFormat { get; set; }
-
-        /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamKinesisSourceConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The kinesis stream used as the source of the firehose delivery stream.
-        /// </summary>
-        [Input("kinesisStreamArn", required: true)]
-        public Input<string> KinesisStreamArn { get; set; } = null!;
-
-        /// <summary>
-        /// The ARN of the role that provides access to the source Kinesis stream.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public FirehoseDeliveryStreamKinesisSourceConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamKinesisSourceConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The kinesis stream used as the source of the firehose delivery stream.
-        /// </summary>
-        [Input("kinesisStreamArn", required: true)]
-        public Input<string> KinesisStreamArn { get; set; } = null!;
-
-        /// <summary>
-        /// The ARN of the role that provides access to the source Kinesis stream.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public FirehoseDeliveryStreamKinesisSourceConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The jdbcurl of the redshift cluster.
-        /// </summary>
-        [Input("clusterJdbcurl", required: true)]
-        public Input<string> ClusterJdbcurl { get; set; } = null!;
-
-        /// <summary>
-        /// Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
-        /// </summary>
-        [Input("copyOptions")]
-        public Input<string>? CopyOptions { get; set; }
-
-        /// <summary>
-        /// The data table columns that will be targeted by the copy command.
-        /// </summary>
-        [Input("dataTableColumns")]
-        public Input<string>? DataTableColumns { get; set; }
-
-        /// <summary>
-        /// The name of the table in the redshift cluster that the s3 bucket will copy to.
-        /// </summary>
-        [Input("dataTableName", required: true)]
-        public Input<string> DataTableName { get; set; } = null!;
-
-        /// <summary>
-        /// The password for the username above.
-        /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
-
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
-        [Input("processingConfiguration")]
-        public Input<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
-
-        /// <summary>
-        /// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-        /// </summary>
-        [Input("retryDuration")]
-        public Input<int>? RetryDuration { get; set; }
-
-        /// <summary>
-        /// The arn of the role the stream assumes.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-        /// </summary>
-        [Input("s3BackupConfiguration")]
-        public Input<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs>? S3BackupConfiguration { get; set; }
-
-        /// <summary>
-        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
-        /// </summary>
-        [Input("s3BackupMode")]
-        public Input<string>? S3BackupMode { get; set; }
-
-        /// <summary>
-        /// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
-
-        public FirehoseDeliveryStreamRedshiftConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The jdbcurl of the redshift cluster.
-        /// </summary>
-        [Input("clusterJdbcurl", required: true)]
-        public Input<string> ClusterJdbcurl { get; set; } = null!;
-
-        /// <summary>
-        /// Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
-        /// </summary>
-        [Input("copyOptions")]
-        public Input<string>? CopyOptions { get; set; }
-
-        /// <summary>
-        /// The data table columns that will be targeted by the copy command.
-        /// </summary>
-        [Input("dataTableColumns")]
-        public Input<string>? DataTableColumns { get; set; }
-
-        /// <summary>
-        /// The name of the table in the redshift cluster that the s3 bucket will copy to.
-        /// </summary>
-        [Input("dataTableName", required: true)]
-        public Input<string> DataTableName { get; set; } = null!;
-
-        /// <summary>
-        /// The password for the username above.
-        /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
-
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
-        [Input("processingConfiguration")]
-        public Input<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
-
-        /// <summary>
-        /// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-        /// </summary>
-        [Input("retryDuration")]
-        public Input<int>? RetryDuration { get; set; }
-
-        /// <summary>
-        /// The arn of the role the stream assumes.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-        /// </summary>
-        [Input("s3BackupConfiguration")]
-        public Input<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationGetArgs>? S3BackupConfiguration { get; set; }
-
-        /// <summary>
-        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
-        /// </summary>
-        [Input("s3BackupMode")]
-        public Input<string>? S3BackupMode { get; set; }
-
-        /// <summary>
-        /// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
-
-        public FirehoseDeliveryStreamRedshiftConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        [Input("processors")]
-        private InputList<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsArgs>? _processors;
-
-        /// <summary>
-        /// Array of data processors. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsArgs> Processors
-        {
-            get => _processors ?? (_processors = new InputList<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsArgs>());
-            set => _processors = value;
-        }
-
-        public FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        [Input("processors")]
-        private InputList<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsGetArgs>? _processors;
-
-        /// <summary>
-        /// Array of data processors. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsGetArgs> Processors
-        {
-            get => _processors ?? (_processors = new InputList<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsGetArgs>());
-            set => _processors = value;
-        }
-
-        public FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsArgs : Pulumi.ResourceArgs
-    {
-        [Input("parameters")]
-        private InputList<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParametersArgs>? _parameters;
-
-        /// <summary>
-        /// Array of processor parameters. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParametersArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParametersArgs>());
-            set => _parameters = value;
-        }
-
-        /// <summary>
-        /// The type of processor. Valid Values: `Lambda`
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("parameters")]
-        private InputList<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParametersGetArgs>? _parameters;
-
-        /// <summary>
-        /// Array of processor parameters. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParametersGetArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParametersGetArgs>());
-            set => _parameters = value;
-        }
-
-        /// <summary>
-        /// The type of processor. Valid Values: `Lambda`
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
-        /// </summary>
-        [Input("parameterName", required: true)]
-        public Input<string> ParameterName { get; set; } = null!;
-
-        /// <summary>
-        /// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-        /// </summary>
-        [Input("parameterValue", required: true)]
-        public Input<string> ParameterValue { get; set; } = null!;
-
-        public FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParametersArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
-        /// </summary>
-        [Input("parameterName", required: true)]
-        public Input<string> ParameterName { get; set; } = null!;
-
-        /// <summary>
-        /// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-        /// </summary>
-        [Input("parameterValue", required: true)]
-        public Input<string> ParameterValue { get; set; } = null!;
-
-        public FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParametersGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the S3 bucket
-        /// </summary>
-        [Input("bucketArn", required: true)]
-        public Input<string> BucketArn { get; set; } = null!;
-
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        /// </summary>
-        [Input("bufferInterval")]
-        public Input<int>? BufferInterval { get; set; }
-
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        /// </summary>
-        [Input("bufferSize")]
-        public Input<int>? BufferSize { get; set; }
-
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP &amp; Snappy. If the destination is redshift you cannot use ZIP or Snappy.
-        /// </summary>
-        [Input("compressionFormat")]
-        public Input<string>? CompressionFormat { get; set; }
-
-        /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the S3 bucket
-        /// </summary>
-        [Input("bucketArn", required: true)]
-        public Input<string> BucketArn { get; set; } = null!;
-
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        /// </summary>
-        [Input("bufferInterval")]
-        public Input<int>? BufferInterval { get; set; }
-
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        /// </summary>
-        [Input("bufferSize")]
-        public Input<int>? BufferSize { get; set; }
-
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP &amp; Snappy. If the destination is redshift you cannot use ZIP or Snappy.
-        /// </summary>
-        [Input("compressionFormat")]
-        public Input<string>? CompressionFormat { get; set; }
-
-        /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamS3ConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the S3 bucket
-        /// </summary>
-        [Input("bucketArn", required: true)]
-        public Input<string> BucketArn { get; set; } = null!;
-
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        /// </summary>
-        [Input("bufferInterval")]
-        public Input<int>? BufferInterval { get; set; }
-
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        /// </summary>
-        [Input("bufferSize")]
-        public Input<int>? BufferSize { get; set; }
-
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP &amp; Snappy. If the destination is redshift you cannot use ZIP or Snappy.
-        /// </summary>
-        [Input("compressionFormat")]
-        public Input<string>? CompressionFormat { get; set; }
-
-        /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public FirehoseDeliveryStreamS3ConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamS3ConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of the S3 bucket
-        /// </summary>
-        [Input("bucketArn", required: true)]
-        public Input<string> BucketArn { get; set; } = null!;
-
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        /// </summary>
-        [Input("bufferInterval")]
-        public Input<int>? BufferInterval { get; set; }
-
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        /// </summary>
-        [Input("bufferSize")]
-        public Input<int>? BufferSize { get; set; }
-
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP &amp; Snappy. If the destination is redshift you cannot use ZIP or Snappy.
-        /// </summary>
-        [Input("compressionFormat")]
-        public Input<string>? CompressionFormat { get; set; }
-
-        /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        public FirehoseDeliveryStreamS3ConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamServerSideEncryptionArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether to enable encryption at rest. Default is `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public FirehoseDeliveryStreamServerSideEncryptionArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamServerSideEncryptionGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether to enable encryption at rest. Default is `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public FirehoseDeliveryStreamServerSideEncryptionGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
-        /// </summary>
-        [Input("hecAcknowledgmentTimeout")]
-        public Input<int>? HecAcknowledgmentTimeout { get; set; }
-
-        /// <summary>
-        /// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
-        /// </summary>
-        [Input("hecEndpoint", required: true)]
-        public Input<string> HecEndpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
-        /// </summary>
-        [Input("hecEndpointType")]
-        public Input<string>? HecEndpointType { get; set; }
-
-        /// <summary>
-        /// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-        /// </summary>
-        [Input("hecToken", required: true)]
-        public Input<string> HecToken { get; set; } = null!;
-
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
-        [Input("processingConfiguration")]
-        public Input<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
-
-        /// <summary>
-        /// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-        /// </summary>
-        [Input("retryDuration")]
-        public Input<int>? RetryDuration { get; set; }
-
-        /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-        /// </summary>
-        [Input("s3BackupMode")]
-        public Input<string>? S3BackupMode { get; set; }
-
-        public FirehoseDeliveryStreamSplunkConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logGroupName")]
-        public Input<string>? LogGroupName { get; set; }
-
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        [Input("logStreamName")]
-        public Input<string>? LogStreamName { get; set; }
-
-        public FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
-        /// </summary>
-        [Input("cloudwatchLoggingOptions")]
-        public Input<FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
-
-        /// <summary>
-        /// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
-        /// </summary>
-        [Input("hecAcknowledgmentTimeout")]
-        public Input<int>? HecAcknowledgmentTimeout { get; set; }
-
-        /// <summary>
-        /// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
-        /// </summary>
-        [Input("hecEndpoint", required: true)]
-        public Input<string> HecEndpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
-        /// </summary>
-        [Input("hecEndpointType")]
-        public Input<string>? HecEndpointType { get; set; }
-
-        /// <summary>
-        /// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-        /// </summary>
-        [Input("hecToken", required: true)]
-        public Input<string> HecToken { get; set; } = null!;
-
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
-        [Input("processingConfiguration")]
-        public Input<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
-
-        /// <summary>
-        /// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-        /// </summary>
-        [Input("retryDuration")]
-        public Input<int>? RetryDuration { get; set; }
-
-        /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-        /// </summary>
-        [Input("s3BackupMode")]
-        public Input<string>? S3BackupMode { get; set; }
-
-        public FirehoseDeliveryStreamSplunkConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        [Input("processors")]
-        private InputList<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsArgs>? _processors;
-
-        /// <summary>
-        /// Array of data processors. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsArgs> Processors
-        {
-            get => _processors ?? (_processors = new InputList<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsArgs>());
-            set => _processors = value;
-        }
-
-        public FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        [Input("processors")]
-        private InputList<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsGetArgs>? _processors;
-
-        /// <summary>
-        /// Array of data processors. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsGetArgs> Processors
-        {
-            get => _processors ?? (_processors = new InputList<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsGetArgs>());
-            set => _processors = value;
-        }
-
-        public FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsArgs : Pulumi.ResourceArgs
-    {
-        [Input("parameters")]
-        private InputList<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParametersArgs>? _parameters;
-
-        /// <summary>
-        /// Array of processor parameters. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParametersArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParametersArgs>());
-            set => _parameters = value;
-        }
-
-        /// <summary>
-        /// The type of processor. Valid Values: `Lambda`
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("parameters")]
-        private InputList<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParametersGetArgs>? _parameters;
-
-        /// <summary>
-        /// Array of processor parameters. More details are given below
-        /// </summary>
-        public InputList<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParametersGetArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParametersGetArgs>());
-            set => _parameters = value;
-        }
-
-        /// <summary>
-        /// The type of processor. Valid Values: `Lambda`
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
-        /// </summary>
-        [Input("parameterName", required: true)]
-        public Input<string> ParameterName { get; set; } = null!;
-
-        /// <summary>
-        /// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-        /// </summary>
-        [Input("parameterValue", required: true)]
-        public Input<string> ParameterValue { get; set; } = null!;
-
-        public FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParametersArgs()
-        {
-        }
-    }
-
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
-        /// </summary>
-        [Input("parameterName", required: true)]
-        public Input<string> ParameterName { get; set; } = null!;
-
-        /// <summary>
-        /// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-        /// </summary>
-        [Input("parameterValue", required: true)]
-        public Input<string> ParameterValue { get; set; } = null!;
-
-        public FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParametersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamElasticsearchConfiguration
-    {
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-        /// </summary>
-        public readonly int? BufferingInterval;
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-        /// </summary>
-        public readonly int? BufferingSize;
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        public readonly FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions CloudwatchLoggingOptions;
-        /// <summary>
-        /// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
-        /// </summary>
-        public readonly string DomainArn;
-        /// <summary>
-        /// The Elasticsearch index name.
-        /// </summary>
-        public readonly string IndexName;
-        /// <summary>
-        /// The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
-        /// </summary>
-        public readonly string? IndexRotationPeriod;
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration? ProcessingConfiguration;
-        /// <summary>
-        /// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-        /// </summary>
-        public readonly int? RetryDuration;
-        /// <summary>
-        /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
-        /// </summary>
-        public readonly string? S3BackupMode;
-        /// <summary>
-        /// The Elasticsearch type name with maximum length of 100 characters.
-        /// </summary>
-        public readonly string? TypeName;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamElasticsearchConfiguration(
-            int? bufferingInterval,
-            int? bufferingSize,
-            FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions,
-            string domainArn,
-            string indexName,
-            string? indexRotationPeriod,
-            FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration? processingConfiguration,
-            int? retryDuration,
-            string roleArn,
-            string? s3BackupMode,
-            string? typeName)
-        {
-            BufferingInterval = bufferingInterval;
-            BufferingSize = bufferingSize;
-            CloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            DomainArn = domainArn;
-            IndexName = indexName;
-            IndexRotationPeriod = indexRotationPeriod;
-            ProcessingConfiguration = processingConfiguration;
-            RetryDuration = retryDuration;
-            RoleArn = roleArn;
-            S3BackupMode = s3BackupMode;
-            TypeName = typeName;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogGroupName;
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogStreamName;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions(
-            bool? enabled,
-            string? logGroupName,
-            string? logStreamName)
-        {
-            Enabled = enabled;
-            LogGroupName = logGroupName;
-            LogStreamName = logStreamName;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration
-    {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// Array of data processors. More details are given below
-        /// </summary>
-        public readonly ImmutableArray<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessors> Processors;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration(
-            bool? enabled,
-            ImmutableArray<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessors> processors)
-        {
-            Enabled = enabled;
-            Processors = processors;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessors
-    {
-        /// <summary>
-        /// Array of processor parameters. More details are given below
-        /// </summary>
-        public readonly ImmutableArray<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParameters> Parameters;
-        /// <summary>
-        /// The type of processor. Valid Values: `Lambda`
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessors(
-            ImmutableArray<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParameters> parameters,
-            string type)
-        {
-            Parameters = parameters;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParameters
-    {
-        /// <summary>
-        /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
-        /// </summary>
-        public readonly string ParameterName;
-        /// <summary>
-        /// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-        /// </summary>
-        public readonly string ParameterValue;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParameters(
-            string parameterName,
-            string parameterValue)
-        {
-            ParameterName = parameterName;
-            ParameterValue = parameterValue;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3Configuration
-    {
-        /// <summary>
-        /// The ARN of the S3 bucket
-        /// </summary>
-        public readonly string BucketArn;
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        /// </summary>
-        public readonly int? BufferInterval;
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        /// </summary>
-        public readonly int? BufferSize;
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions CloudwatchLoggingOptions;
-        /// <summary>
-        /// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP &amp; Snappy. If the destination is redshift you cannot use ZIP or Snappy.
-        /// </summary>
-        public readonly string? CompressionFormat;
-        /// <summary>
-        /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration? DataFormatConversionConfiguration;
-        /// <summary>
-        /// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
-        /// </summary>
-        public readonly string? ErrorOutputPrefix;
-        /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
-        /// </summary>
-        public readonly string? KmsKeyArn;
-        /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        /// </summary>
-        public readonly string? Prefix;
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration? ProcessingConfiguration;
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration? S3BackupConfiguration;
-        /// <summary>
-        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
-        /// </summary>
-        public readonly string? S3BackupMode;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3Configuration(
-            string bucketArn,
-            int? bufferInterval,
-            int? bufferSize,
-            FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions,
-            string? compressionFormat,
-            FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration? dataFormatConversionConfiguration,
-            string? errorOutputPrefix,
-            string? kmsKeyArn,
-            string? prefix,
-            FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration? processingConfiguration,
-            string roleArn,
-            FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration? s3BackupConfiguration,
-            string? s3BackupMode)
-        {
-            BucketArn = bucketArn;
-            BufferInterval = bufferInterval;
-            BufferSize = bufferSize;
-            CloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            CompressionFormat = compressionFormat;
-            DataFormatConversionConfiguration = dataFormatConversionConfiguration;
-            ErrorOutputPrefix = errorOutputPrefix;
-            KmsKeyArn = kmsKeyArn;
-            Prefix = prefix;
-            ProcessingConfiguration = processingConfiguration;
-            RoleArn = roleArn;
-            S3BackupConfiguration = s3BackupConfiguration;
-            S3BackupMode = s3BackupMode;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogGroupName;
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogStreamName;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions(
-            bool? enabled,
-            string? logGroupName,
-            string? logStreamName)
-        {
-            Enabled = enabled;
-            LogGroupName = logGroupName;
-            LogStreamName = logStreamName;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration
-    {
-        /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// Nested argument that specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. More details below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration InputFormatConfiguration;
-        /// <summary>
-        /// Nested argument that specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. More details below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration OutputFormatConfiguration;
-        /// <summary>
-        /// Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration SchemaConfiguration;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration(
-            bool? enabled,
-            FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration inputFormatConfiguration,
-            FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration outputFormatConfiguration,
-            FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration schemaConfiguration)
-        {
-            Enabled = enabled;
-            InputFormatConfiguration = inputFormatConfiguration;
-            OutputFormatConfiguration = outputFormatConfiguration;
-            SchemaConfiguration = schemaConfiguration;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration
-    {
-        /// <summary>
-        /// Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer Deserializer;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer deserializer)
-        {
-            Deserializer = deserializer;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer
-    {
-        /// <summary>
-        /// Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe? HiveJsonSerDe;
-        /// <summary>
-        /// Nested argument that specifies the OpenX SerDe. More details below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe? OpenXJsonSerDe;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer(
-            FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe? hiveJsonSerDe,
-            FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe? openXJsonSerDe)
-        {
-            HiveJsonSerDe = hiveJsonSerDe;
-            OpenXJsonSerDe = openXJsonSerDe;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe
-    {
-        /// <summary>
-        /// A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
-        /// </summary>
-        public readonly ImmutableArray<string> TimestampFormats;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe(ImmutableArray<string> timestampFormats)
-        {
-            TimestampFormats = timestampFormats;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe
-    {
-        /// <summary>
-        /// When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
-        /// </summary>
-        public readonly bool? CaseInsensitive;
-        /// <summary>
-        /// A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? ColumnToJsonKeyMappings;
-        /// <summary>
-        /// When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option. Defaults to `false`.
-        /// </summary>
-        public readonly bool? ConvertDotsInJsonKeysToUnderscores;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe(
-            bool? caseInsensitive,
-            ImmutableDictionary<string, string>? columnToJsonKeyMappings,
-            bool? convertDotsInJsonKeysToUnderscores)
-        {
-            CaseInsensitive = caseInsensitive;
-            ColumnToJsonKeyMappings = columnToJsonKeyMappings;
-            ConvertDotsInJsonKeysToUnderscores = convertDotsInJsonKeysToUnderscores;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration
-    {
-        /// <summary>
-        /// Nested argument that specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. More details below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer Serializer;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer serializer)
-        {
-            Serializer = serializer;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer
-    {
-        /// <summary>
-        /// Nested argument that specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). More details below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe? OrcSerDe;
-        /// <summary>
-        /// Nested argument that specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/documentation/latest/). More details below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe? ParquetSerDe;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer(
-            FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe? orcSerDe,
-            FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe? parquetSerDe)
-        {
-            OrcSerDe = orcSerDe;
-            ParquetSerDe = parquetSerDe;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe
-    {
-        /// <summary>
-        /// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-        /// </summary>
-        public readonly int? BlockSizeBytes;
-        /// <summary>
-        /// A list of column names for which you want Kinesis Data Firehose to create bloom filters.
-        /// </summary>
-        public readonly ImmutableArray<string> BloomFilterColumns;
-        /// <summary>
-        /// The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
-        /// </summary>
-        public readonly double? BloomFilterFalsePositiveProbability;
-        /// <summary>
-        /// The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
-        /// </summary>
-        public readonly string? Compression;
-        /// <summary>
-        /// A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
-        /// </summary>
-        public readonly double? DictionaryKeyThreshold;
-        /// <summary>
-        /// Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
-        /// </summary>
-        public readonly bool? EnablePadding;
-        /// <summary>
-        /// The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
-        /// </summary>
-        public readonly string? FormatVersion;
-        /// <summary>
-        /// A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enable_padding` is `false`.
-        /// </summary>
-        public readonly double? PaddingTolerance;
-        /// <summary>
-        /// The number of rows between index entries. The default is `10000` and the minimum is `1000`.
-        /// </summary>
-        public readonly int? RowIndexStride;
-        /// <summary>
-        /// The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
-        /// </summary>
-        public readonly int? StripeSizeBytes;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe(
-            int? blockSizeBytes,
-            ImmutableArray<string> bloomFilterColumns,
-            double? bloomFilterFalsePositiveProbability,
-            string? compression,
-            double? dictionaryKeyThreshold,
-            bool? enablePadding,
-            string? formatVersion,
-            double? paddingTolerance,
-            int? rowIndexStride,
-            int? stripeSizeBytes)
-        {
-            BlockSizeBytes = blockSizeBytes;
-            BloomFilterColumns = bloomFilterColumns;
-            BloomFilterFalsePositiveProbability = bloomFilterFalsePositiveProbability;
-            Compression = compression;
-            DictionaryKeyThreshold = dictionaryKeyThreshold;
-            EnablePadding = enablePadding;
-            FormatVersion = formatVersion;
-            PaddingTolerance = paddingTolerance;
-            RowIndexStride = rowIndexStride;
-            StripeSizeBytes = stripeSizeBytes;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe
-    {
-        /// <summary>
-        /// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-        /// </summary>
-        public readonly int? BlockSizeBytes;
-        /// <summary>
-        /// The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
-        /// </summary>
-        public readonly string? Compression;
-        /// <summary>
-        /// Indicates whether to enable dictionary compression.
-        /// </summary>
-        public readonly bool? EnableDictionaryCompression;
-        /// <summary>
-        /// The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
-        /// </summary>
-        public readonly int? MaxPaddingBytes;
-        /// <summary>
-        /// The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
-        /// </summary>
-        public readonly int? PageSizeBytes;
-        /// <summary>
-        /// Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
-        /// </summary>
-        public readonly string? WriterVersion;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe(
-            int? blockSizeBytes,
-            string? compression,
-            bool? enableDictionaryCompression,
-            int? maxPaddingBytes,
-            int? pageSizeBytes,
-            string? writerVersion)
-        {
-            BlockSizeBytes = blockSizeBytes;
-            Compression = compression;
-            EnableDictionaryCompression = enableDictionaryCompression;
-            MaxPaddingBytes = maxPaddingBytes;
-            PageSizeBytes = pageSizeBytes;
-            WriterVersion = writerVersion;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration
-    {
-        /// <summary>
-        /// The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
-        /// </summary>
-        public readonly string CatalogId;
-        /// <summary>
-        /// Specifies the name of the AWS Glue database that contains the schema for the output data.
-        /// </summary>
-        public readonly string DatabaseName;
-        /// <summary>
-        /// If you don't specify an AWS Region, the default is the current region.
-        /// </summary>
-        public readonly string Region;
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// Specifies the AWS Glue table that contains the column information that constitutes your data schema.
-        /// </summary>
-        public readonly string TableName;
-        /// <summary>
-        /// Specifies the table version for the output data schema. Defaults to `LATEST`.
-        /// </summary>
-        public readonly string? VersionId;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration(
-            string catalogId,
-            string databaseName,
-            string region,
-            string roleArn,
-            string tableName,
-            string? versionId)
-        {
-            CatalogId = catalogId;
-            DatabaseName = databaseName;
-            Region = region;
-            RoleArn = roleArn;
-            TableName = tableName;
-            VersionId = versionId;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration
-    {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// Array of data processors. More details are given below
-        /// </summary>
-        public readonly ImmutableArray<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessors> Processors;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration(
-            bool? enabled,
-            ImmutableArray<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessors> processors)
-        {
-            Enabled = enabled;
-            Processors = processors;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessors
-    {
-        /// <summary>
-        /// Array of processor parameters. More details are given below
-        /// </summary>
-        public readonly ImmutableArray<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParameters> Parameters;
-        /// <summary>
-        /// The type of processor. Valid Values: `Lambda`
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessors(
-            ImmutableArray<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParameters> parameters,
-            string type)
-        {
-            Parameters = parameters;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParameters
-    {
-        /// <summary>
-        /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
-        /// </summary>
-        public readonly string ParameterName;
-        /// <summary>
-        /// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-        /// </summary>
-        public readonly string ParameterValue;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParameters(
-            string parameterName,
-            string parameterValue)
-        {
-            ParameterName = parameterName;
-            ParameterValue = parameterValue;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration
-    {
-        /// <summary>
-        /// The ARN of the S3 bucket
-        /// </summary>
-        public readonly string BucketArn;
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        /// </summary>
-        public readonly int? BufferInterval;
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        /// </summary>
-        public readonly int? BufferSize;
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        public readonly FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions CloudwatchLoggingOptions;
-        /// <summary>
-        /// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP &amp; Snappy. If the destination is redshift you cannot use ZIP or Snappy.
-        /// </summary>
-        public readonly string? CompressionFormat;
-        /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
-        /// </summary>
-        public readonly string? KmsKeyArn;
-        /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        /// </summary>
-        public readonly string? Prefix;
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        public readonly string RoleArn;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration(
-            string bucketArn,
-            int? bufferInterval,
-            int? bufferSize,
-            FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions,
-            string? compressionFormat,
-            string? kmsKeyArn,
-            string? prefix,
-            string roleArn)
-        {
-            BucketArn = bucketArn;
-            BufferInterval = bufferInterval;
-            BufferSize = bufferSize;
-            CloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            CompressionFormat = compressionFormat;
-            KmsKeyArn = kmsKeyArn;
-            Prefix = prefix;
-            RoleArn = roleArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogGroupName;
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogStreamName;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions(
-            bool? enabled,
-            string? logGroupName,
-            string? logStreamName)
-        {
-            Enabled = enabled;
-            LogGroupName = logGroupName;
-            LogStreamName = logStreamName;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamKinesisSourceConfiguration
-    {
-        /// <summary>
-        /// The kinesis stream used as the source of the firehose delivery stream.
-        /// </summary>
-        public readonly string KinesisStreamArn;
-        /// <summary>
-        /// The ARN of the role that provides access to the source Kinesis stream.
-        /// </summary>
-        public readonly string RoleArn;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamKinesisSourceConfiguration(
-            string kinesisStreamArn,
-            string roleArn)
-        {
-            KinesisStreamArn = kinesisStreamArn;
-            RoleArn = roleArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamRedshiftConfiguration
-    {
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        public readonly FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions CloudwatchLoggingOptions;
-        /// <summary>
-        /// The jdbcurl of the redshift cluster.
-        /// </summary>
-        public readonly string ClusterJdbcurl;
-        /// <summary>
-        /// Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
-        /// </summary>
-        public readonly string? CopyOptions;
-        /// <summary>
-        /// The data table columns that will be targeted by the copy command.
-        /// </summary>
-        public readonly string? DataTableColumns;
-        /// <summary>
-        /// The name of the table in the redshift cluster that the s3 bucket will copy to.
-        /// </summary>
-        public readonly string DataTableName;
-        /// <summary>
-        /// The password for the username above.
-        /// </summary>
-        public readonly string Password;
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration? ProcessingConfiguration;
-        /// <summary>
-        /// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-        /// </summary>
-        public readonly int? RetryDuration;
-        /// <summary>
-        /// The arn of the role the stream assumes.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration? S3BackupConfiguration;
-        /// <summary>
-        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
-        /// </summary>
-        public readonly string? S3BackupMode;
-        /// <summary>
-        /// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
-        /// </summary>
-        public readonly string Username;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamRedshiftConfiguration(
-            FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions,
-            string clusterJdbcurl,
-            string? copyOptions,
-            string? dataTableColumns,
-            string dataTableName,
-            string password,
-            FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration? processingConfiguration,
-            int? retryDuration,
-            string roleArn,
-            FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration? s3BackupConfiguration,
-            string? s3BackupMode,
-            string username)
-        {
-            CloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            ClusterJdbcurl = clusterJdbcurl;
-            CopyOptions = copyOptions;
-            DataTableColumns = dataTableColumns;
-            DataTableName = dataTableName;
-            Password = password;
-            ProcessingConfiguration = processingConfiguration;
-            RetryDuration = retryDuration;
-            RoleArn = roleArn;
-            S3BackupConfiguration = s3BackupConfiguration;
-            S3BackupMode = s3BackupMode;
-            Username = username;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogGroupName;
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogStreamName;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions(
-            bool? enabled,
-            string? logGroupName,
-            string? logStreamName)
-        {
-            Enabled = enabled;
-            LogGroupName = logGroupName;
-            LogStreamName = logStreamName;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration
-    {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// Array of data processors. More details are given below
-        /// </summary>
-        public readonly ImmutableArray<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessors> Processors;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration(
-            bool? enabled,
-            ImmutableArray<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessors> processors)
-        {
-            Enabled = enabled;
-            Processors = processors;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessors
-    {
-        /// <summary>
-        /// Array of processor parameters. More details are given below
-        /// </summary>
-        public readonly ImmutableArray<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParameters> Parameters;
-        /// <summary>
-        /// The type of processor. Valid Values: `Lambda`
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessors(
-            ImmutableArray<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParameters> parameters,
-            string type)
-        {
-            Parameters = parameters;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParameters
-    {
-        /// <summary>
-        /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
-        /// </summary>
-        public readonly string ParameterName;
-        /// <summary>
-        /// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-        /// </summary>
-        public readonly string ParameterValue;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParameters(
-            string parameterName,
-            string parameterValue)
-        {
-            ParameterName = parameterName;
-            ParameterValue = parameterValue;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration
-    {
-        /// <summary>
-        /// The ARN of the S3 bucket
-        /// </summary>
-        public readonly string BucketArn;
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        /// </summary>
-        public readonly int? BufferInterval;
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        /// </summary>
-        public readonly int? BufferSize;
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        public readonly FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions CloudwatchLoggingOptions;
-        /// <summary>
-        /// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP &amp; Snappy. If the destination is redshift you cannot use ZIP or Snappy.
-        /// </summary>
-        public readonly string? CompressionFormat;
-        /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
-        /// </summary>
-        public readonly string? KmsKeyArn;
-        /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        /// </summary>
-        public readonly string? Prefix;
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        public readonly string RoleArn;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration(
-            string bucketArn,
-            int? bufferInterval,
-            int? bufferSize,
-            FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions,
-            string? compressionFormat,
-            string? kmsKeyArn,
-            string? prefix,
-            string roleArn)
-        {
-            BucketArn = bucketArn;
-            BufferInterval = bufferInterval;
-            BufferSize = bufferSize;
-            CloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            CompressionFormat = compressionFormat;
-            KmsKeyArn = kmsKeyArn;
-            Prefix = prefix;
-            RoleArn = roleArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogGroupName;
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogStreamName;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions(
-            bool? enabled,
-            string? logGroupName,
-            string? logStreamName)
-        {
-            Enabled = enabled;
-            LogGroupName = logGroupName;
-            LogStreamName = logStreamName;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamS3Configuration
-    {
-        /// <summary>
-        /// The ARN of the S3 bucket
-        /// </summary>
-        public readonly string BucketArn;
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        /// </summary>
-        public readonly int? BufferInterval;
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        /// </summary>
-        public readonly int? BufferSize;
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
-        public readonly FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions CloudwatchLoggingOptions;
-        /// <summary>
-        /// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP &amp; Snappy. If the destination is redshift you cannot use ZIP or Snappy.
-        /// </summary>
-        public readonly string? CompressionFormat;
-        /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
-        /// </summary>
-        public readonly string? KmsKeyArn;
-        /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        /// </summary>
-        public readonly string? Prefix;
-        /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        /// </summary>
-        public readonly string RoleArn;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamS3Configuration(
-            string bucketArn,
-            int? bufferInterval,
-            int? bufferSize,
-            FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions,
-            string? compressionFormat,
-            string? kmsKeyArn,
-            string? prefix,
-            string roleArn)
-        {
-            BucketArn = bucketArn;
-            BufferInterval = bufferInterval;
-            BufferSize = bufferSize;
-            CloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            CompressionFormat = compressionFormat;
-            KmsKeyArn = kmsKeyArn;
-            Prefix = prefix;
-            RoleArn = roleArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogGroupName;
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogStreamName;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions(
-            bool? enabled,
-            string? logGroupName,
-            string? logStreamName)
-        {
-            Enabled = enabled;
-            LogGroupName = logGroupName;
-            LogStreamName = logStreamName;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamServerSideEncryption
-    {
-        /// <summary>
-        /// Whether to enable encryption at rest. Default is `false`.
-        /// </summary>
-        public readonly bool? Enabled;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamServerSideEncryption(bool? enabled)
-        {
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamSplunkConfiguration
-    {
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions CloudwatchLoggingOptions;
-        /// <summary>
-        /// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
-        /// </summary>
-        public readonly int? HecAcknowledgmentTimeout;
-        /// <summary>
-        /// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
-        /// </summary>
-        public readonly string HecEndpoint;
-        /// <summary>
-        /// The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
-        /// </summary>
-        public readonly string? HecEndpointType;
-        /// <summary>
-        /// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-        /// </summary>
-        public readonly string HecToken;
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
-        public readonly FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration? ProcessingConfiguration;
-        /// <summary>
-        /// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-        /// </summary>
-        public readonly int? RetryDuration;
-        /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-        /// </summary>
-        public readonly string? S3BackupMode;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamSplunkConfiguration(
-            FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions,
-            int? hecAcknowledgmentTimeout,
-            string hecEndpoint,
-            string? hecEndpointType,
-            string hecToken,
-            FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration? processingConfiguration,
-            int? retryDuration,
-            string? s3BackupMode)
-        {
-            CloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            HecAcknowledgmentTimeout = hecAcknowledgmentTimeout;
-            HecEndpoint = hecEndpoint;
-            HecEndpointType = hecEndpointType;
-            HecToken = hecToken;
-            ProcessingConfiguration = processingConfiguration;
-            RetryDuration = retryDuration;
-            S3BackupMode = s3BackupMode;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions
-    {
-        /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogGroupName;
-        /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-        /// </summary>
-        public readonly string? LogStreamName;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions(
-            bool? enabled,
-            string? logGroupName,
-            string? logStreamName)
-        {
-            Enabled = enabled;
-            LogGroupName = logGroupName;
-            LogStreamName = logStreamName;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration
-    {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// Array of data processors. More details are given below
-        /// </summary>
-        public readonly ImmutableArray<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessors> Processors;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration(
-            bool? enabled,
-            ImmutableArray<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessors> processors)
-        {
-            Enabled = enabled;
-            Processors = processors;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessors
-    {
-        /// <summary>
-        /// Array of processor parameters. More details are given below
-        /// </summary>
-        public readonly ImmutableArray<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParameters> Parameters;
-        /// <summary>
-        /// The type of processor. Valid Values: `Lambda`
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessors(
-            ImmutableArray<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParameters> parameters,
-            string type)
-        {
-            Parameters = parameters;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParameters
-    {
-        /// <summary>
-        /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
-        /// </summary>
-        public readonly string ParameterName;
-        /// <summary>
-        /// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-        /// </summary>
-        public readonly string ParameterValue;
-
-        [OutputConstructor]
-        private FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParameters(
-            string parameterName,
-            string parameterValue)
-        {
-            ParameterName = parameterName;
-            ParameterValue = parameterValue;
-        }
-    }
     }
 }

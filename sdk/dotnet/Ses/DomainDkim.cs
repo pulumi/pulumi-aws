@@ -12,11 +12,47 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides an SES domain DKIM generation resource.
     /// 
-    /// Domain ownership needs to be confirmed first using [ses_domain_identity Resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html)
+    /// Domain ownership needs to be confirmed first using `aws.ses.DomainIdentity` resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_dkim.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleDomainIdentity = new Aws.Ses.DomainIdentity("exampleDomainIdentity", new Aws.Ses.DomainIdentityArgs
+    ///         {
+    ///             Domain = "example.com",
+    ///         });
+    ///         var exampleDomainDkim = new Aws.Ses.DomainDkim("exampleDomainDkim", new Aws.Ses.DomainDkimArgs
+    ///         {
+    ///             Domain = exampleDomainIdentity.Domain,
+    ///         });
+    ///         var exampleAmazonsesDkimRecord = new List&lt;Aws.Route53.Record&gt;();
+    ///         for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
+    ///         {
+    ///             var range = new { Value = rangeIndex };
+    ///             exampleAmazonsesDkimRecord.Add(new Aws.Route53.Record($"exampleAmazonsesDkimRecord-{range.Value}", new Aws.Route53.RecordArgs
+    ///             {
+    ///                 ZoneId = "ABCDEFGHIJ123",
+    ///                 Name = exampleDomainDkim.DkimTokens[range.Value].Apply(dkimTokens =&gt; $"{dkimTokens}._domainkey.example.com"),
+    ///                 Type = "CNAME",
+    ///                 Ttl = 600,
+    ///                 Records = 
+    ///                 {
+    ///                     exampleDomainDkim.DkimTokens[range.Value].Apply(dkimTokens =&gt; $"{dkimTokens}.dkim.amazonses.com"),
+    ///                 },
+    ///             }));
+    ///         }
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DomainDkim : Pulumi.CustomResource
     {
@@ -46,7 +82,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DomainDkim(string name, DomainDkimArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/domainDkim:DomainDkim", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/domainDkim:DomainDkim", name, args ?? new DomainDkimArgs(), MakeResourceOptions(options, ""))
         {
         }
 

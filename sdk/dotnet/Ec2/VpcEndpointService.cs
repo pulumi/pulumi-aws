@@ -19,9 +19,51 @@ namespace Pulumi.Aws.Ec2
     /// a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
     /// and will overwrite the association.
     /// 
+    /// ## Example Usage
+    /// ### Network Load Balancers
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_service.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.VpcEndpointService("example", new Aws.Ec2.VpcEndpointServiceArgs
+    ///         {
+    ///             AcceptanceRequired = false,
+    ///             NetworkLoadBalancerArns = 
+    ///             {
+    ///                 aws_lb.Example.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Gateway Load Balancers
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.VpcEndpointService("example", new Aws.Ec2.VpcEndpointServiceArgs
+    ///         {
+    ///             AcceptanceRequired = false,
+    ///             GatewayLoadBalancerArns = 
+    ///             {
+    ///                 aws_lb.Example.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VpcEndpointService : Pulumi.CustomResource
     {
@@ -38,6 +80,12 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> AllowedPrincipals { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint service.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The Availability Zones in which the service is available.
         /// </summary>
         [Output("availabilityZones")]
@@ -50,13 +98,19 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> BaseEndpointDnsNames { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+        /// </summary>
+        [Output("gatewayLoadBalancerArns")]
+        public Output<ImmutableArray<string>> GatewayLoadBalancerArns { get; private set; } = null!;
+
+        /// <summary>
         /// Whether or not the service manages its VPC endpoints - `true` or `false`.
         /// </summary>
         [Output("managesVpcEndpoints")]
         public Output<bool> ManagesVpcEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// The ARNs of one or more Network Load Balancers for the endpoint service.
+        /// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         /// </summary>
         [Output("networkLoadBalancerArns")]
         public Output<ImmutableArray<string>> NetworkLoadBalancerArns { get; private set; } = null!;
@@ -86,10 +140,10 @@ namespace Pulumi.Aws.Ec2
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -100,7 +154,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcEndpointService(string name, VpcEndpointServiceArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpcEndpointService:VpcEndpointService", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpcEndpointService:VpcEndpointService", name, args ?? new VpcEndpointServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -155,11 +209,23 @@ namespace Pulumi.Aws.Ec2
             set => _allowedPrincipals = value;
         }
 
-        [Input("networkLoadBalancerArns", required: true)]
+        [Input("gatewayLoadBalancerArns")]
+        private InputList<string>? _gatewayLoadBalancerArns;
+
+        /// <summary>
+        /// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+        /// </summary>
+        public InputList<string> GatewayLoadBalancerArns
+        {
+            get => _gatewayLoadBalancerArns ?? (_gatewayLoadBalancerArns = new InputList<string>());
+            set => _gatewayLoadBalancerArns = value;
+        }
+
+        [Input("networkLoadBalancerArns")]
         private InputList<string>? _networkLoadBalancerArns;
 
         /// <summary>
-        /// The ARNs of one or more Network Load Balancers for the endpoint service.
+        /// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         /// </summary>
         public InputList<string> NetworkLoadBalancerArns
         {
@@ -168,14 +234,14 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -204,6 +270,12 @@ namespace Pulumi.Aws.Ec2
             set => _allowedPrincipals = value;
         }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint service.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
 
@@ -228,6 +300,18 @@ namespace Pulumi.Aws.Ec2
             set => _baseEndpointDnsNames = value;
         }
 
+        [Input("gatewayLoadBalancerArns")]
+        private InputList<string>? _gatewayLoadBalancerArns;
+
+        /// <summary>
+        /// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+        /// </summary>
+        public InputList<string> GatewayLoadBalancerArns
+        {
+            get => _gatewayLoadBalancerArns ?? (_gatewayLoadBalancerArns = new InputList<string>());
+            set => _gatewayLoadBalancerArns = value;
+        }
+
         /// <summary>
         /// Whether or not the service manages its VPC endpoints - `true` or `false`.
         /// </summary>
@@ -238,7 +322,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _networkLoadBalancerArns;
 
         /// <summary>
-        /// The ARNs of one or more Network Load Balancers for the endpoint service.
+        /// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         /// </summary>
         public InputList<string> NetworkLoadBalancerArns
         {
@@ -271,14 +355,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? State { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

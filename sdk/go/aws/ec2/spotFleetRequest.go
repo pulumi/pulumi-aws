@@ -7,11 +7,212 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
 // instances to be requested on the Spot market.
+//
+// ## Example Usage
+// ### Using launch specifications
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewSpotFleetRequest(ctx, "cheapCompute", &ec2.SpotFleetRequestArgs{
+// 			IamFleetRole:       pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
+// 			SpotPrice:          pulumi.String("0.03"),
+// 			AllocationStrategy: pulumi.String("diversified"),
+// 			TargetCapacity:     pulumi.Int(6),
+// 			ValidUntil:         pulumi.String("2019-11-04T20:44:20Z"),
+// 			LaunchSpecifications: ec2.SpotFleetRequestLaunchSpecificationArray{
+// 				&ec2.SpotFleetRequestLaunchSpecificationArgs{
+// 					InstanceType:          pulumi.String("m4.10xlarge"),
+// 					Ami:                   pulumi.String("ami-1234"),
+// 					SpotPrice:             pulumi.String("2.793"),
+// 					PlacementTenancy:      pulumi.String("dedicated"),
+// 					IamInstanceProfileArn: pulumi.Any(aws_iam_instance_profile.Example.Arn),
+// 				},
+// 				&ec2.SpotFleetRequestLaunchSpecificationArgs{
+// 					InstanceType:          pulumi.String("m4.4xlarge"),
+// 					Ami:                   pulumi.String("ami-5678"),
+// 					KeyName:               pulumi.String("my-key"),
+// 					SpotPrice:             pulumi.String("1.117"),
+// 					IamInstanceProfileArn: pulumi.Any(aws_iam_instance_profile.Example.Arn),
+// 					AvailabilityZone:      pulumi.String("us-west-1a"),
+// 					SubnetId:              pulumi.String("subnet-1234"),
+// 					WeightedCapacity:      pulumi.String("35"),
+// 					RootBlockDevices: ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArray{
+// 						&ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs{
+// 							VolumeSize: pulumi.Int(300),
+// 							VolumeType: pulumi.String("gp2"),
+// 						},
+// 					},
+// 					Tags: pulumi.StringMap{
+// 						"Name": pulumi.String("spot-fleet-example"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Using launch templates
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		fooLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "fooLaunchTemplate", &ec2.LaunchTemplateArgs{
+// 			ImageId:      pulumi.String("ami-516b9131"),
+// 			InstanceType: pulumi.String("m1.small"),
+// 			KeyName:      pulumi.String("some-key"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewSpotFleetRequest(ctx, "fooSpotFleetRequest", &ec2.SpotFleetRequestArgs{
+// 			IamFleetRole:   pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
+// 			SpotPrice:      pulumi.String("0.005"),
+// 			TargetCapacity: pulumi.Int(2),
+// 			ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
+// 			LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
+// 				&ec2.SpotFleetRequestLaunchTemplateConfigArgs{
+// 					LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
+// 						Id:      fooLaunchTemplate.ID(),
+// 						Version: fooLaunchTemplate.LatestVersion,
+// 					},
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			aws_iam_policy_attachment.Test - attach,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// > **NOTE:** This provider does not support the functionality where multiple `subnetId` or `availabilityZone` parameters can be specified in the same
+// launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used:
+// ### Using multiple launch specifications
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewSpotFleetRequest(ctx, "foo", &ec2.SpotFleetRequestArgs{
+// 			IamFleetRole: pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
+// 			LaunchSpecifications: ec2.SpotFleetRequestLaunchSpecificationArray{
+// 				&ec2.SpotFleetRequestLaunchSpecificationArgs{
+// 					Ami:              pulumi.String("ami-d06a90b0"),
+// 					AvailabilityZone: pulumi.String("us-west-2a"),
+// 					InstanceType:     pulumi.String("m1.small"),
+// 					KeyName:          pulumi.String("my-key"),
+// 				},
+// 				&ec2.SpotFleetRequestLaunchSpecificationArgs{
+// 					Ami:              pulumi.String("ami-d06a90b0"),
+// 					AvailabilityZone: pulumi.String("us-west-2a"),
+// 					InstanceType:     pulumi.String("m5.large"),
+// 					KeyName:          pulumi.String("my-key"),
+// 				},
+// 			},
+// 			SpotPrice:      pulumi.String("0.005"),
+// 			TargetCapacity: pulumi.Int(2),
+// 			ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Using multiple launch configurations
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
+// 			VpcId: _var.Vpc_id,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "fooLaunchTemplate", &ec2.LaunchTemplateArgs{
+// 			ImageId:      pulumi.String("ami-516b9131"),
+// 			InstanceType: pulumi.String("m1.small"),
+// 			KeyName:      pulumi.String("some-key"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewSpotFleetRequest(ctx, "fooSpotFleetRequest", &ec2.SpotFleetRequestArgs{
+// 			IamFleetRole:   pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
+// 			SpotPrice:      pulumi.String("0.005"),
+// 			TargetCapacity: pulumi.Int(2),
+// 			ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
+// 			LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
+// 				&ec2.SpotFleetRequestLaunchTemplateConfigArgs{
+// 					LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
+// 						Id:      fooLaunchTemplate.ID(),
+// 						Version: fooLaunchTemplate.LatestVersion,
+// 					},
+// 					Overrides: ec2.SpotFleetRequestLaunchTemplateConfigOverrideArray{
+// 						&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
+// 							SubnetId: pulumi.Any(data.Aws_subnets.Example.Ids[0]),
+// 						},
+// 						&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
+// 							SubnetId: pulumi.Any(data.Aws_subnets.Example.Ids[1]),
+// 						},
+// 						&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
+// 							SubnetId: pulumi.Any(data.Aws_subnets.Example.Ids[2]),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			aws_iam_policy_attachment.Test - attach,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SpotFleetRequest struct {
 	pulumi.CustomResourceState
 
@@ -36,7 +237,6 @@ type SpotFleetRequest struct {
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
 	InstanceInterruptionBehaviour pulumi.StringPtrOutput `pulumi:"instanceInterruptionBehaviour"`
-	//
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -44,16 +244,20 @@ type SpotFleetRequest struct {
 	InstancePoolsToUseCount pulumi.IntPtrOutput `pulumi:"instancePoolsToUseCount"`
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
-	// across different markets and instance types.
+	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchSpecifications SpotFleetRequestLaunchSpecificationArrayOutput `pulumi:"launchSpecifications"`
+	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	LaunchTemplateConfigs SpotFleetRequestLaunchTemplateConfigArrayOutput `pulumi:"launchTemplateConfigs"`
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers pulumi.StringArrayOutput `pulumi:"loadBalancers"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrOutput `pulumi:"replaceUnhealthyInstances"`
-	// The maximum bid price per unit hour.
+	// The maximum spot bid for this override request.
 	SpotPrice pulumi.StringPtrOutput `pulumi:"spotPrice"`
 	// The state of the Spot fleet request.
 	SpotRequestState pulumi.StringOutput `pulumi:"spotRequestState"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
@@ -65,7 +269,7 @@ type SpotFleetRequest struct {
 	TerminateInstancesWithExpiration pulumi.BoolPtrOutput `pulumi:"terminateInstancesWithExpiration"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom pulumi.StringPtrOutput `pulumi:"validFrom"`
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
 	ValidUntil pulumi.StringPtrOutput `pulumi:"validUntil"`
 	// If set, this provider will
 	// wait for the Spot Request to be fulfilled, and will throw an error if the
@@ -78,9 +282,6 @@ func NewSpotFleetRequest(ctx *pulumi.Context,
 	name string, args *SpotFleetRequestArgs, opts ...pulumi.ResourceOption) (*SpotFleetRequest, error) {
 	if args == nil || args.IamFleetRole == nil {
 		return nil, errors.New("missing required argument 'IamFleetRole'")
-	}
-	if args == nil || args.LaunchSpecifications == nil {
-		return nil, errors.New("missing required argument 'LaunchSpecifications'")
 	}
 	if args == nil || args.TargetCapacity == nil {
 		return nil, errors.New("missing required argument 'TargetCapacity'")
@@ -131,7 +332,6 @@ type spotFleetRequestState struct {
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
-	//
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -139,16 +339,20 @@ type spotFleetRequestState struct {
 	InstancePoolsToUseCount *int `pulumi:"instancePoolsToUseCount"`
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
-	// across different markets and instance types.
+	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchSpecifications []SpotFleetRequestLaunchSpecification `pulumi:"launchSpecifications"`
+	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	LaunchTemplateConfigs []SpotFleetRequestLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers []string `pulumi:"loadBalancers"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
-	// The maximum bid price per unit hour.
+	// The maximum spot bid for this override request.
 	SpotPrice *string `pulumi:"spotPrice"`
 	// The state of the Spot fleet request.
 	SpotRequestState *string `pulumi:"spotRequestState"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
@@ -160,7 +364,7 @@ type spotFleetRequestState struct {
 	TerminateInstancesWithExpiration *bool `pulumi:"terminateInstancesWithExpiration"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom *string `pulumi:"validFrom"`
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
 	ValidUntil *string `pulumi:"validUntil"`
 	// If set, this provider will
 	// wait for the Spot Request to be fulfilled, and will throw an error if the
@@ -190,7 +394,6 @@ type SpotFleetRequestState struct {
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
-	//
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -198,16 +401,20 @@ type SpotFleetRequestState struct {
 	InstancePoolsToUseCount pulumi.IntPtrInput
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
-	// across different markets and instance types.
+	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchSpecifications SpotFleetRequestLaunchSpecificationArrayInput
+	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	LaunchTemplateConfigs SpotFleetRequestLaunchTemplateConfigArrayInput
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers pulumi.StringArrayInput
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
-	// The maximum bid price per unit hour.
+	// The maximum spot bid for this override request.
 	SpotPrice pulumi.StringPtrInput
 	// The state of the Spot fleet request.
 	SpotRequestState pulumi.StringPtrInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
@@ -219,7 +426,7 @@ type SpotFleetRequestState struct {
 	TerminateInstancesWithExpiration pulumi.BoolPtrInput
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom pulumi.StringPtrInput
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
 	ValidUntil pulumi.StringPtrInput
 	// If set, this provider will
 	// wait for the Spot Request to be fulfilled, and will throw an error if the
@@ -252,7 +459,6 @@ type spotFleetRequestArgs struct {
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
-	//
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -260,14 +466,18 @@ type spotFleetRequestArgs struct {
 	InstancePoolsToUseCount *int `pulumi:"instancePoolsToUseCount"`
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
-	// across different markets and instance types.
+	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchSpecifications []SpotFleetRequestLaunchSpecification `pulumi:"launchSpecifications"`
+	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	LaunchTemplateConfigs []SpotFleetRequestLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers []string `pulumi:"loadBalancers"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
-	// The maximum bid price per unit hour.
+	// The maximum spot bid for this override request.
 	SpotPrice *string `pulumi:"spotPrice"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
@@ -279,7 +489,7 @@ type spotFleetRequestArgs struct {
 	TerminateInstancesWithExpiration *bool `pulumi:"terminateInstancesWithExpiration"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom *string `pulumi:"validFrom"`
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
 	ValidUntil *string `pulumi:"validUntil"`
 	// If set, this provider will
 	// wait for the Spot Request to be fulfilled, and will throw an error if the
@@ -309,7 +519,6 @@ type SpotFleetRequestArgs struct {
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
-	//
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -317,14 +526,18 @@ type SpotFleetRequestArgs struct {
 	InstancePoolsToUseCount pulumi.IntPtrInput
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
-	// across different markets and instance types.
+	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchSpecifications SpotFleetRequestLaunchSpecificationArrayInput
+	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	LaunchTemplateConfigs SpotFleetRequestLaunchTemplateConfigArrayInput
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers pulumi.StringArrayInput
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
-	// The maximum bid price per unit hour.
+	// The maximum spot bid for this override request.
 	SpotPrice pulumi.StringPtrInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
@@ -336,7 +549,7 @@ type SpotFleetRequestArgs struct {
 	TerminateInstancesWithExpiration pulumi.BoolPtrInput
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom pulumi.StringPtrInput
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
 	ValidUntil pulumi.StringPtrInput
 	// If set, this provider will
 	// wait for the Spot Request to be fulfilled, and will throw an error if the

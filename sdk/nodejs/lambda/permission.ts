@@ -2,26 +2,21 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {Function} from "./function";
+import {Function} from "./index";
 
 /**
- * Creates a Lambda permission to allow external sources invoking the Lambda function
- * (e.g. CloudWatch Event Rule, SNS or S3).
- * 
+ * Gives an external source (like a CloudWatch Event Rule, SNS, or S3) permission to access the Lambda function.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ * ### Basic Example
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const iamForLambda = new aws.iam.Role("iamForLambda", {
- *     assumeRolePolicy: `{
+ *
+ * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -34,37 +29,34 @@ import {Function} from "./function";
  *     }
  *   ]
  * }
- * `,
- * });
+ * `});
  * const testLambda = new aws.lambda.Function("testLambda", {
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
- *     handler: "exports.handler",
  *     role: iamForLambda.arn,
- *     runtime: "nodejs8.10",
+ *     handler: "exports.handler",
+ *     runtime: "nodejs12.x",
  * });
  * const testAlias = new aws.lambda.Alias("testAlias", {
  *     description: "a sample description",
- *     functionName: testLambda.functionName,
- *     functionVersion: "$LATEST",
+ *     functionName: testLambda.name,
+ *     functionVersion: `$LATEST`,
  * });
  * const allowCloudwatch = new aws.lambda.Permission("allowCloudwatch", {
  *     action: "lambda:InvokeFunction",
- *     function: testLambda.functionName,
+ *     "function": testLambda.name,
  *     principal: "events.amazonaws.com",
- *     qualifier: testAlias.name,
  *     sourceArn: "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
+ *     qualifier: testAlias.name,
  * });
  * ```
- * 
- * ## Usage with SNS
- * 
+ * ### Usage with SNS
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const defaultTopic = new aws.sns.Topic("default", {});
- * const defaultRole = new aws.iam.Role("default", {
- *     assumeRolePolicy: `{
+ *
+ * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
+ * const defaultRole = new aws.iam.Role("defaultRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -77,45 +69,41 @@ import {Function} from "./function";
  *     }
  *   ]
  * }
- * `,
- * });
+ * `});
  * const func = new aws.lambda.Function("func", {
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
- *     handler: "exports.handler",
  *     role: defaultRole.arn,
+ *     handler: "exports.handler",
  *     runtime: "python2.7",
  * });
  * const withSns = new aws.lambda.Permission("withSns", {
  *     action: "lambda:InvokeFunction",
- *     function: func.functionName,
+ *     "function": func.name,
  *     principal: "sns.amazonaws.com",
  *     sourceArn: defaultTopic.arn,
  * });
  * const lambda = new aws.sns.TopicSubscription("lambda", {
- *     endpoint: func.arn,
- *     protocol: "lambda",
  *     topic: defaultTopic.arn,
+ *     protocol: "lambda",
+ *     endpoint: func.arn,
  * });
  * ```
- * 
- * ## Specify Lambda permissions for API Gateway REST API
- * 
+ * ### Specify Lambda permissions for API Gateway REST API
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
- * const lambdaPermission = new aws.lambda.Permission("lambdaPermission", {
+ * const lambdaPermission = new aws.lambda.Permission("lambda_permission", {
  *     action: "lambda:InvokeFunction",
  *     function: "MyDemoFunction",
  *     principal: "apigateway.amazonaws.com",
  *     sourceArn: pulumi.interpolate`${myDemoAPI.executionArn}/*&#47;*&#47;*`,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_permission.html.markdown.
  */
 export class Permission extends pulumi.CustomResource {
     /**
@@ -125,6 +113,7 @@ export class Permission extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PermissionState, opts?: pulumi.CustomResourceOptions): Permission {
         return new Permission(name, <any>state, { ...opts, id: id });
@@ -149,7 +138,7 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly action!: pulumi.Output<string>;
     /**
-     * The Event Source Token to validate.  Used with [Alexa Skills][1].
+     * The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
      */
     public readonly eventSourceToken!: pulumi.Output<string | undefined>;
     /**
@@ -173,12 +162,11 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly sourceAccount!: pulumi.Output<string | undefined>;
     /**
-     * When granting Amazon S3 or CloudWatch Events permission to
-     * invoke your function, you should specify this field with the Amazon Resource Name (ARN)
-     * for the S3 Bucket or CloudWatch Events Rule as its value.  This ensures that only events
-     * generated from the specified bucket or rule can invoke the function.
-     * API Gateway ARNs have a unique structure described
-     * [here](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+     * When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
+     * Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+     * For S3, this should be the ARN of the S3 Bucket.
+     * For CloudWatch Events, this should be the ARN of the CloudWatch Events Rule.
+     * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
      */
     public readonly sourceArn!: pulumi.Output<string | undefined>;
     /**
@@ -252,7 +240,7 @@ export interface PermissionState {
      */
     readonly action?: pulumi.Input<string>;
     /**
-     * The Event Source Token to validate.  Used with [Alexa Skills][1].
+     * The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
      */
     readonly eventSourceToken?: pulumi.Input<string>;
     /**
@@ -276,12 +264,11 @@ export interface PermissionState {
      */
     readonly sourceAccount?: pulumi.Input<string>;
     /**
-     * When granting Amazon S3 or CloudWatch Events permission to
-     * invoke your function, you should specify this field with the Amazon Resource Name (ARN)
-     * for the S3 Bucket or CloudWatch Events Rule as its value.  This ensures that only events
-     * generated from the specified bucket or rule can invoke the function.
-     * API Gateway ARNs have a unique structure described
-     * [here](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+     * When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
+     * Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+     * For S3, this should be the ARN of the S3 Bucket.
+     * For CloudWatch Events, this should be the ARN of the CloudWatch Events Rule.
+     * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
      */
     readonly sourceArn?: pulumi.Input<string>;
     /**
@@ -303,7 +290,7 @@ export interface PermissionArgs {
      */
     readonly action: pulumi.Input<string>;
     /**
-     * The Event Source Token to validate.  Used with [Alexa Skills][1].
+     * The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
      */
     readonly eventSourceToken?: pulumi.Input<string>;
     /**
@@ -327,12 +314,11 @@ export interface PermissionArgs {
      */
     readonly sourceAccount?: pulumi.Input<string>;
     /**
-     * When granting Amazon S3 or CloudWatch Events permission to
-     * invoke your function, you should specify this field with the Amazon Resource Name (ARN)
-     * for the S3 Bucket or CloudWatch Events Rule as its value.  This ensures that only events
-     * generated from the specified bucket or rule can invoke the function.
-     * API Gateway ARNs have a unique structure described
-     * [here](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+     * When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
+     * Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+     * For S3, this should be the ARN of the S3 Bucket.
+     * For CloudWatch Events, this should be the ARN of the CloudWatch Events Rule.
+     * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
      */
     readonly sourceArn?: pulumi.Input<string>;
     /**

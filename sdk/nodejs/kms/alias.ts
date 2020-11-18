@@ -8,22 +8,16 @@ import * as utilities from "../utilities";
  * Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
  * but API (hence this provider too) allows you to create as many aliases as
  * the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const key = new aws.kms.Key("a", {});
- * const alias = new aws.kms.Alias("a", {
- *     targetKeyId: key.keyId,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_alias.html.markdown.
+ * const key = new aws.kms.Key("key", {});
+ * const alias = new aws.kms.Alias("alias", {targetKeyId: key.keyId});
+ * ```
  */
 export class Alias extends pulumi.CustomResource {
     /**
@@ -33,6 +27,7 @@ export class Alias extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AliasState, opts?: pulumi.CustomResourceOptions): Alias {
         return new Alias(name, <any>state, { ...opts, id: id });

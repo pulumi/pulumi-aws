@@ -14,9 +14,121 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// &gt; **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute and import the signed certificate using the AWS SDK, CLI or Console. This provider can support another resource to manage that workflow automatically in the future.
     /// 
+    /// ## Example Usage
+    /// ### Basic
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acmpca_certificate_authority.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Acmpca.CertificateAuthority("example", new Aws.Acmpca.CertificateAuthorityArgs
+    ///         {
+    ///             CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
+    ///             {
+    ///                 KeyAlgorithm = "RSA_4096",
+    ///                 SigningAlgorithm = "SHA512WITHRSA",
+    ///                 Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
+    ///                 {
+    ///                     CommonName = "example.com",
+    ///                 },
+    ///             },
+    ///             PermanentDeletionTimeInDays = 7,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Enable Certificate Revocation List
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var acmpcaBucketAccess = Output.Tuple(exampleBucket.Arn, exampleBucket.Arn).Apply(values =&gt;
+    ///         {
+    ///             var exampleBucketArn = values.Item1;
+    ///             var exampleBucketArn1 = values.Item2;
+    ///             return Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///             {
+    ///                 Statements = 
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                     {
+    ///                         Actions = 
+    ///                         {
+    ///                             "s3:GetBucketAcl",
+    ///                             "s3:GetBucketLocation",
+    ///                             "s3:PutObject",
+    ///                             "s3:PutObjectAcl",
+    ///                         },
+    ///                         Resources = 
+    ///                         {
+    ///                             exampleBucketArn,
+    ///                             $"{exampleBucketArn1}/*",
+    ///                         },
+    ///                         Principals = 
+    ///                         {
+    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                             {
+    ///                                 Identifiers = 
+    ///                                 {
+    ///                                     "acm-pca.amazonaws.com",
+    ///                                 },
+    ///                                 Type = "Service",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             });
+    ///         });
+    ///         var exampleBucketPolicy = new Aws.S3.BucketPolicy("exampleBucketPolicy", new Aws.S3.BucketPolicyArgs
+    ///         {
+    ///             Bucket = exampleBucket.Id,
+    ///             Policy = acmpcaBucketAccess.Apply(acmpcaBucketAccess =&gt; acmpcaBucketAccess.Json),
+    ///         });
+    ///         var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new Aws.Acmpca.CertificateAuthorityArgs
+    ///         {
+    ///             CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
+    ///             {
+    ///                 KeyAlgorithm = "RSA_4096",
+    ///                 SigningAlgorithm = "SHA512WITHRSA",
+    ///                 Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
+    ///                 {
+    ///                     CommonName = "example.com",
+    ///                 },
+    ///             },
+    ///             RevocationConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityRevocationConfigurationArgs
+    ///             {
+    ///                 CrlConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs
+    ///                 {
+    ///                     CustomCname = "crl.example.com",
+    ///                     Enabled = true,
+    ///                     ExpirationInDays = 7,
+    ///                     S3BucketName = exampleBucket.Id,
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleBucketPolicy,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class CertificateAuthority : Pulumi.CustomResource
     {
@@ -96,7 +208,7 @@ namespace Pulumi.Aws.Acmpca
         /// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
@@ -113,7 +225,7 @@ namespace Pulumi.Aws.Acmpca
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CertificateAuthority(string name, CertificateAuthorityArgs args, CustomResourceOptions? options = null)
-            : base("aws:acmpca/certificateAuthority:CertificateAuthority", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:acmpca/certificateAuthority:CertificateAuthority", name, args ?? new CertificateAuthorityArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -175,14 +287,14 @@ namespace Pulumi.Aws.Acmpca
         public Input<Inputs.CertificateAuthorityRevocationConfigurationArgs>? RevocationConfiguration { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -272,14 +384,14 @@ namespace Pulumi.Aws.Acmpca
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -292,486 +404,5 @@ namespace Pulumi.Aws.Acmpca
         public CertificateAuthorityState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class CertificateAuthorityCertificateAuthorityConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        /// </summary>
-        [Input("keyAlgorithm", required: true)]
-        public Input<string> KeyAlgorithm { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        /// </summary>
-        [Input("signingAlgorithm", required: true)]
-        public Input<string> SigningAlgorithm { get; set; } = null!;
-
-        /// <summary>
-        /// Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
-        /// </summary>
-        [Input("subject", required: true)]
-        public Input<CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs> Subject { get; set; } = null!;
-
-        public CertificateAuthorityCertificateAuthorityConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class CertificateAuthorityCertificateAuthorityConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        /// </summary>
-        [Input("keyAlgorithm", required: true)]
-        public Input<string> KeyAlgorithm { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        /// </summary>
-        [Input("signingAlgorithm", required: true)]
-        public Input<string> SigningAlgorithm { get; set; } = null!;
-
-        /// <summary>
-        /// Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
-        /// </summary>
-        [Input("subject", required: true)]
-        public Input<CertificateAuthorityCertificateAuthorityConfigurationSubjectGetArgs> Subject { get; set; } = null!;
-
-        public CertificateAuthorityCertificateAuthorityConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Fully qualified domain name (FQDN) associated with the certificate subject.
-        /// </summary>
-        [Input("commonName")]
-        public Input<string>? CommonName { get; set; }
-
-        /// <summary>
-        /// Two digit code that specifies the country in which the certificate subject located.
-        /// </summary>
-        [Input("country")]
-        public Input<string>? Country { get; set; }
-
-        /// <summary>
-        /// Disambiguating information for the certificate subject.
-        /// </summary>
-        [Input("distinguishedNameQualifier")]
-        public Input<string>? DistinguishedNameQualifier { get; set; }
-
-        /// <summary>
-        /// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
-        /// </summary>
-        [Input("generationQualifier")]
-        public Input<string>? GenerationQualifier { get; set; }
-
-        /// <summary>
-        /// First name.
-        /// </summary>
-        [Input("givenName")]
-        public Input<string>? GivenName { get; set; }
-
-        /// <summary>
-        /// Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`.
-        /// </summary>
-        [Input("initials")]
-        public Input<string>? Initials { get; set; }
-
-        /// <summary>
-        /// The locality (such as a city or town) in which the certificate subject is located.
-        /// </summary>
-        [Input("locality")]
-        public Input<string>? Locality { get; set; }
-
-        /// <summary>
-        /// Legal name of the organization with which the certificate subject is affiliated.
-        /// </summary>
-        [Input("organization")]
-        public Input<string>? Organization { get; set; }
-
-        /// <summary>
-        /// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-        /// </summary>
-        [Input("organizationalUnit")]
-        public Input<string>? OrganizationalUnit { get; set; }
-
-        /// <summary>
-        /// Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-        /// </summary>
-        [Input("pseudonym")]
-        public Input<string>? Pseudonym { get; set; }
-
-        /// <summary>
-        /// State in which the subject of the certificate is located.
-        /// </summary>
-        [Input("state")]
-        public Input<string>? State { get; set; }
-
-        /// <summary>
-        /// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
-        /// </summary>
-        [Input("surname")]
-        public Input<string>? Surname { get; set; }
-
-        /// <summary>
-        /// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
-        /// </summary>
-        [Input("title")]
-        public Input<string>? Title { get; set; }
-
-        public CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs()
-        {
-        }
-    }
-
-    public sealed class CertificateAuthorityCertificateAuthorityConfigurationSubjectGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Fully qualified domain name (FQDN) associated with the certificate subject.
-        /// </summary>
-        [Input("commonName")]
-        public Input<string>? CommonName { get; set; }
-
-        /// <summary>
-        /// Two digit code that specifies the country in which the certificate subject located.
-        /// </summary>
-        [Input("country")]
-        public Input<string>? Country { get; set; }
-
-        /// <summary>
-        /// Disambiguating information for the certificate subject.
-        /// </summary>
-        [Input("distinguishedNameQualifier")]
-        public Input<string>? DistinguishedNameQualifier { get; set; }
-
-        /// <summary>
-        /// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
-        /// </summary>
-        [Input("generationQualifier")]
-        public Input<string>? GenerationQualifier { get; set; }
-
-        /// <summary>
-        /// First name.
-        /// </summary>
-        [Input("givenName")]
-        public Input<string>? GivenName { get; set; }
-
-        /// <summary>
-        /// Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`.
-        /// </summary>
-        [Input("initials")]
-        public Input<string>? Initials { get; set; }
-
-        /// <summary>
-        /// The locality (such as a city or town) in which the certificate subject is located.
-        /// </summary>
-        [Input("locality")]
-        public Input<string>? Locality { get; set; }
-
-        /// <summary>
-        /// Legal name of the organization with which the certificate subject is affiliated.
-        /// </summary>
-        [Input("organization")]
-        public Input<string>? Organization { get; set; }
-
-        /// <summary>
-        /// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-        /// </summary>
-        [Input("organizationalUnit")]
-        public Input<string>? OrganizationalUnit { get; set; }
-
-        /// <summary>
-        /// Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-        /// </summary>
-        [Input("pseudonym")]
-        public Input<string>? Pseudonym { get; set; }
-
-        /// <summary>
-        /// State in which the subject of the certificate is located.
-        /// </summary>
-        [Input("state")]
-        public Input<string>? State { get; set; }
-
-        /// <summary>
-        /// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
-        /// </summary>
-        [Input("surname")]
-        public Input<string>? Surname { get; set; }
-
-        /// <summary>
-        /// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
-        /// </summary>
-        [Input("title")]
-        public Input<string>? Title { get; set; }
-
-        public CertificateAuthorityCertificateAuthorityConfigurationSubjectGetArgs()
-        {
-        }
-    }
-
-    public sealed class CertificateAuthorityRevocationConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-        /// </summary>
-        [Input("crlConfiguration")]
-        public Input<CertificateAuthorityRevocationConfigurationCrlConfigurationArgs>? CrlConfiguration { get; set; }
-
-        public CertificateAuthorityRevocationConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
-        /// </summary>
-        [Input("customCname")]
-        public Input<string>? CustomCname { get; set; }
-
-        /// <summary>
-        /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// Number of days until a certificate expires. Must be between 1 and 5000.
-        /// </summary>
-        [Input("expirationInDays", required: true)]
-        public Input<int> ExpirationInDays { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
-        /// </summary>
-        [Input("s3BucketName")]
-        public Input<string>? S3BucketName { get; set; }
-
-        public CertificateAuthorityRevocationConfigurationCrlConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class CertificateAuthorityRevocationConfigurationCrlConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
-        /// </summary>
-        [Input("customCname")]
-        public Input<string>? CustomCname { get; set; }
-
-        /// <summary>
-        /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// Number of days until a certificate expires. Must be between 1 and 5000.
-        /// </summary>
-        [Input("expirationInDays", required: true)]
-        public Input<int> ExpirationInDays { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
-        /// </summary>
-        [Input("s3BucketName")]
-        public Input<string>? S3BucketName { get; set; }
-
-        public CertificateAuthorityRevocationConfigurationCrlConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class CertificateAuthorityRevocationConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-        /// </summary>
-        [Input("crlConfiguration")]
-        public Input<CertificateAuthorityRevocationConfigurationCrlConfigurationGetArgs>? CrlConfiguration { get; set; }
-
-        public CertificateAuthorityRevocationConfigurationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class CertificateAuthorityCertificateAuthorityConfiguration
-    {
-        /// <summary>
-        /// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        /// </summary>
-        public readonly string KeyAlgorithm;
-        /// <summary>
-        /// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        /// </summary>
-        public readonly string SigningAlgorithm;
-        /// <summary>
-        /// Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
-        /// </summary>
-        public readonly CertificateAuthorityCertificateAuthorityConfigurationSubject Subject;
-
-        [OutputConstructor]
-        private CertificateAuthorityCertificateAuthorityConfiguration(
-            string keyAlgorithm,
-            string signingAlgorithm,
-            CertificateAuthorityCertificateAuthorityConfigurationSubject subject)
-        {
-            KeyAlgorithm = keyAlgorithm;
-            SigningAlgorithm = signingAlgorithm;
-            Subject = subject;
-        }
-    }
-
-    [OutputType]
-    public sealed class CertificateAuthorityCertificateAuthorityConfigurationSubject
-    {
-        /// <summary>
-        /// Fully qualified domain name (FQDN) associated with the certificate subject.
-        /// </summary>
-        public readonly string? CommonName;
-        /// <summary>
-        /// Two digit code that specifies the country in which the certificate subject located.
-        /// </summary>
-        public readonly string? Country;
-        /// <summary>
-        /// Disambiguating information for the certificate subject.
-        /// </summary>
-        public readonly string? DistinguishedNameQualifier;
-        /// <summary>
-        /// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
-        /// </summary>
-        public readonly string? GenerationQualifier;
-        /// <summary>
-        /// First name.
-        /// </summary>
-        public readonly string? GivenName;
-        /// <summary>
-        /// Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`.
-        /// </summary>
-        public readonly string? Initials;
-        /// <summary>
-        /// The locality (such as a city or town) in which the certificate subject is located.
-        /// </summary>
-        public readonly string? Locality;
-        /// <summary>
-        /// Legal name of the organization with which the certificate subject is affiliated.
-        /// </summary>
-        public readonly string? Organization;
-        /// <summary>
-        /// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-        /// </summary>
-        public readonly string? OrganizationalUnit;
-        /// <summary>
-        /// Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-        /// </summary>
-        public readonly string? Pseudonym;
-        /// <summary>
-        /// State in which the subject of the certificate is located.
-        /// </summary>
-        public readonly string? State;
-        /// <summary>
-        /// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
-        /// </summary>
-        public readonly string? Surname;
-        /// <summary>
-        /// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
-        /// </summary>
-        public readonly string? Title;
-
-        [OutputConstructor]
-        private CertificateAuthorityCertificateAuthorityConfigurationSubject(
-            string? commonName,
-            string? country,
-            string? distinguishedNameQualifier,
-            string? generationQualifier,
-            string? givenName,
-            string? initials,
-            string? locality,
-            string? organization,
-            string? organizationalUnit,
-            string? pseudonym,
-            string? state,
-            string? surname,
-            string? title)
-        {
-            CommonName = commonName;
-            Country = country;
-            DistinguishedNameQualifier = distinguishedNameQualifier;
-            GenerationQualifier = generationQualifier;
-            GivenName = givenName;
-            Initials = initials;
-            Locality = locality;
-            Organization = organization;
-            OrganizationalUnit = organizationalUnit;
-            Pseudonym = pseudonym;
-            State = state;
-            Surname = surname;
-            Title = title;
-        }
-    }
-
-    [OutputType]
-    public sealed class CertificateAuthorityRevocationConfiguration
-    {
-        /// <summary>
-        /// Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-        /// </summary>
-        public readonly CertificateAuthorityRevocationConfigurationCrlConfiguration? CrlConfiguration;
-
-        [OutputConstructor]
-        private CertificateAuthorityRevocationConfiguration(CertificateAuthorityRevocationConfigurationCrlConfiguration? crlConfiguration)
-        {
-            CrlConfiguration = crlConfiguration;
-        }
-    }
-
-    [OutputType]
-    public sealed class CertificateAuthorityRevocationConfigurationCrlConfiguration
-    {
-        /// <summary>
-        /// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
-        /// </summary>
-        public readonly string? CustomCname;
-        /// <summary>
-        /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// Number of days until a certificate expires. Must be between 1 and 5000.
-        /// </summary>
-        public readonly int ExpirationInDays;
-        /// <summary>
-        /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
-        /// </summary>
-        public readonly string? S3BucketName;
-
-        [OutputConstructor]
-        private CertificateAuthorityRevocationConfigurationCrlConfiguration(
-            string? customCname,
-            bool? enabled,
-            int expirationInDays,
-            string? s3BucketName)
-        {
-            CustomCname = customCname;
-            Enabled = enabled;
-            ExpirationInDays = expirationInDays;
-            S3BucketName = s3BucketName;
-        }
-    }
     }
 }

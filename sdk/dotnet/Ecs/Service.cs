@@ -16,75 +16,121 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
     /// 
+    /// ## Example Usage
     /// 
-    /// ## capacity_provider_strategy
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// The `capacity_provider_strategy` configuration block supports the following:
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mongo = new Aws.Ecs.Service("mongo", new Aws.Ecs.ServiceArgs
+    ///         {
+    ///             Cluster = aws_ecs_cluster.Foo.Id,
+    ///             TaskDefinition = aws_ecs_task_definition.Mongo.Arn,
+    ///             DesiredCount = 3,
+    ///             IamRole = aws_iam_role.Foo.Arn,
+    ///             OrderedPlacementStrategies = 
+    ///             {
+    ///                 new Aws.Ecs.Inputs.ServiceOrderedPlacementStrategyArgs
+    ///                 {
+    ///                     Type = "binpack",
+    ///                     Field = "cpu",
+    ///                 },
+    ///             },
+    ///             LoadBalancers = 
+    ///             {
+    ///                 new Aws.Ecs.Inputs.ServiceLoadBalancerArgs
+    ///                 {
+    ///                     TargetGroupArn = aws_lb_target_group.Foo.Arn,
+    ///                     ContainerName = "mongo",
+    ///                     ContainerPort = 8080,
+    ///                 },
+    ///             },
+    ///             PlacementConstraints = 
+    ///             {
+    ///                 new Aws.Ecs.Inputs.ServicePlacementConstraintArgs
+    ///                 {
+    ///                     Type = "memberOf",
+    ///                     Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 aws_iam_role_policy.Foo,
+    ///             },
+    ///         });
+    ///     }
     /// 
-    /// * `capacity_provider` - (Required) The short name or full Amazon Resource Name (ARN) of the capacity provider.
-    /// * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
-    /// * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+    /// }
+    /// ```
+    /// ### Ignoring Changes to Desired Count
     /// 
-    /// ## deployment_controller
+    /// You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
     /// 
-    /// The `deployment_controller` configuration block supports the following:
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// * `type` - (Optional) Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ... other configurations ...
+    ///         var example = new Aws.Ecs.Service("example", new Aws.Ecs.ServiceArgs
+    ///         {
+    ///             DesiredCount = 2,
+    ///         });
+    ///     }
     /// 
-    /// ## load_balancer
+    /// }
+    /// ```
+    /// ### Daemon Scheduling Strategy
     /// 
-    /// `load_balancer` supports the following:
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// * `elb_name` - (Required for ELB Classic) The name of the ELB (Classic) to associate with the service.
-    /// * `target_group_arn` - (Required for ALB/NLB) The ARN of the Load Balancer target group to associate with the service.
-    /// * `container_name` - (Required) The name of the container to associate with the load balancer (as it appears in a container definition).
-    /// * `container_port` - (Required) The port on the container to associate with the load balancer.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bar = new Aws.Ecs.Service("bar", new Aws.Ecs.ServiceArgs
+    ///         {
+    ///             Cluster = aws_ecs_cluster.Foo.Id,
+    ///             TaskDefinition = aws_ecs_task_definition.Bar.Arn,
+    ///             SchedulingStrategy = "DAEMON",
+    ///         });
+    ///     }
     /// 
-    /// &gt; **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
+    /// }
+    /// ```
+    /// ### External Deployment Controller
     /// 
-    /// ## ordered_placement_strategy
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// `ordered_placement_strategy` supports the following:
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ecs.Service("example", new Aws.Ecs.ServiceArgs
+    ///         {
+    ///             Cluster = aws_ecs_cluster.Example.Id,
+    ///             DeploymentController = new Aws.Ecs.Inputs.ServiceDeploymentControllerArgs
+    ///             {
+    ///                 Type = "EXTERNAL",
+    ///             },
+    ///         });
+    ///     }
     /// 
-    /// * `type` - (Required) The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
-    /// * `field` - (Optional) For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-    ///  which has the same effect), or any platform or custom attribute that is applied to a container instance.
-    ///  For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-    ///  needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-    /// 
-    /// &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
-    /// 
-    /// ## placement_constraints
-    /// 
-    /// `placement_constraints` support the following:
-    /// 
-    /// * `type` - (Required) The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-    /// * `expression` -  (Optional) Cluster Query Language expression to apply to the constraint. Does not need to be specified
-    /// for the `distinctInstance` type.
-    /// For more information, see [Cluster Query Language in the Amazon EC2 Container
-    /// Service Developer
-    /// Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-    /// 
-    /// ## network_configuration
-    /// 
-    /// `network_configuration` support the following:
-    /// 
-    /// * `subnets` - (Required) The subnets associated with the task or service.
-    /// * `security_groups` - (Optional) The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-    /// * `assign_public_ip` - (Optional) Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-    /// 
-    /// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
-    /// 
-    /// ## service_registries
-    /// 
-    /// `service_registries` support the following:
-    /// 
-    /// * `registry_arn` - (Required) The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
-    /// * `port` - (Optional) The port value used if your Service Discovery service specified an SRV record.
-    /// * `container_port` - (Optional) The port value, already specified in the task definition, to be used for your service discovery service.
-    /// * `container_name` - (Optional) The container name value, already specified in the task definition, to be used for your service discovery service.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_service.html.markdown.
+    /// }
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {
@@ -92,7 +138,7 @@ namespace Pulumi.Aws.Ecs
         /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         /// </summary>
         [Output("capacityProviderStrategies")]
-        public Output<ImmutableArray<Outputs.ServiceCapacityProviderStrategies>> CapacityProviderStrategies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceCapacityProviderStrategy>> CapacityProviderStrategies { get; private set; } = null!;
 
         /// <summary>
         /// ARN of an ECS cluster
@@ -131,6 +177,12 @@ namespace Pulumi.Aws.Ecs
         public Output<bool?> EnableEcsManagedTags { get; private set; } = null!;
 
         /// <summary>
+        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+        /// </summary>
+        [Output("forceNewDeployment")]
+        public Output<bool?> ForceNewDeployment { get; private set; } = null!;
+
+        /// <summary>
         /// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         /// </summary>
         [Output("healthCheckGracePeriodSeconds")]
@@ -152,7 +204,7 @@ namespace Pulumi.Aws.Ecs
         /// A load balancer block. Load balancers documented below.
         /// </summary>
         [Output("loadBalancers")]
-        public Output<ImmutableArray<Outputs.ServiceLoadBalancers>> LoadBalancers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceLoadBalancer>> LoadBalancers { get; private set; } = null!;
 
         /// <summary>
         /// The name of the service (up to 255 letters, numbers, hyphens, and underscores)
@@ -167,17 +219,16 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.ServiceNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
+        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
         /// </summary>
         [Output("orderedPlacementStrategies")]
-        public Output<ImmutableArray<Outputs.ServiceOrderedPlacementStrategies>> OrderedPlacementStrategies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceOrderedPlacementStrategy>> OrderedPlacementStrategies { get; private set; } = null!;
 
         /// <summary>
-        /// rules that are taken into consideration during task placement. Maximum number of
-        /// `placement_constraints` is `10`. Defined below.
+        /// rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. Defined below.
         /// </summary>
         [Output("placementConstraints")]
-        public Output<ImmutableArray<Outputs.ServicePlacementConstraints>> PlacementConstraints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServicePlacementConstraint>> PlacementConstraints { get; private set; } = null!;
 
         /// <summary>
         /// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
@@ -192,7 +243,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> PropagateTags { get; private set; } = null!;
 
         /// <summary>
-        /// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+        /// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         /// </summary>
         [Output("schedulingStrategy")]
         public Output<string?> SchedulingStrategy { get; private set; } = null!;
@@ -204,20 +255,17 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.ServiceServiceRegistries?> ServiceRegistries { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         /// </summary>
         [Output("taskDefinition")]
-        public Output<string> TaskDefinition { get; private set; } = null!;
+        public Output<string?> TaskDefinition { get; private set; } = null!;
 
-        /// <summary>
-        /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-        /// </summary>
         [Output("waitForSteadyState")]
         public Output<bool?> WaitForSteadyState { get; private set; } = null!;
 
@@ -229,8 +277,8 @@ namespace Pulumi.Aws.Ecs
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("aws:ecs/service:Service", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+        public Service(string name, ServiceArgs? args = null, CustomResourceOptions? options = null)
+            : base("aws:ecs/service:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -268,14 +316,14 @@ namespace Pulumi.Aws.Ecs
     public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
         [Input("capacityProviderStrategies")]
-        private InputList<Inputs.ServiceCapacityProviderStrategiesArgs>? _capacityProviderStrategies;
+        private InputList<Inputs.ServiceCapacityProviderStrategyArgs>? _capacityProviderStrategies;
 
         /// <summary>
         /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         /// </summary>
-        public InputList<Inputs.ServiceCapacityProviderStrategiesArgs> CapacityProviderStrategies
+        public InputList<Inputs.ServiceCapacityProviderStrategyArgs> CapacityProviderStrategies
         {
-            get => _capacityProviderStrategies ?? (_capacityProviderStrategies = new InputList<Inputs.ServiceCapacityProviderStrategiesArgs>());
+            get => _capacityProviderStrategies ?? (_capacityProviderStrategies = new InputList<Inputs.ServiceCapacityProviderStrategyArgs>());
             set => _capacityProviderStrategies = value;
         }
 
@@ -316,6 +364,12 @@ namespace Pulumi.Aws.Ecs
         public Input<bool>? EnableEcsManagedTags { get; set; }
 
         /// <summary>
+        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+        /// </summary>
+        [Input("forceNewDeployment")]
+        public Input<bool>? ForceNewDeployment { get; set; }
+
+        /// <summary>
         /// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         /// </summary>
         [Input("healthCheckGracePeriodSeconds")]
@@ -334,14 +388,14 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? LaunchType { get; set; }
 
         [Input("loadBalancers")]
-        private InputList<Inputs.ServiceLoadBalancersArgs>? _loadBalancers;
+        private InputList<Inputs.ServiceLoadBalancerArgs>? _loadBalancers;
 
         /// <summary>
         /// A load balancer block. Load balancers documented below.
         /// </summary>
-        public InputList<Inputs.ServiceLoadBalancersArgs> LoadBalancers
+        public InputList<Inputs.ServiceLoadBalancerArgs> LoadBalancers
         {
-            get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.ServiceLoadBalancersArgs>());
+            get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.ServiceLoadBalancerArgs>());
             set => _loadBalancers = value;
         }
 
@@ -358,27 +412,26 @@ namespace Pulumi.Aws.Ecs
         public Input<Inputs.ServiceNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         [Input("orderedPlacementStrategies")]
-        private InputList<Inputs.ServiceOrderedPlacementStrategiesArgs>? _orderedPlacementStrategies;
+        private InputList<Inputs.ServiceOrderedPlacementStrategyArgs>? _orderedPlacementStrategies;
 
         /// <summary>
-        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
+        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
         /// </summary>
-        public InputList<Inputs.ServiceOrderedPlacementStrategiesArgs> OrderedPlacementStrategies
+        public InputList<Inputs.ServiceOrderedPlacementStrategyArgs> OrderedPlacementStrategies
         {
-            get => _orderedPlacementStrategies ?? (_orderedPlacementStrategies = new InputList<Inputs.ServiceOrderedPlacementStrategiesArgs>());
+            get => _orderedPlacementStrategies ?? (_orderedPlacementStrategies = new InputList<Inputs.ServiceOrderedPlacementStrategyArgs>());
             set => _orderedPlacementStrategies = value;
         }
 
         [Input("placementConstraints")]
-        private InputList<Inputs.ServicePlacementConstraintsArgs>? _placementConstraints;
+        private InputList<Inputs.ServicePlacementConstraintArgs>? _placementConstraints;
 
         /// <summary>
-        /// rules that are taken into consideration during task placement. Maximum number of
-        /// `placement_constraints` is `10`. Defined below.
+        /// rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. Defined below.
         /// </summary>
-        public InputList<Inputs.ServicePlacementConstraintsArgs> PlacementConstraints
+        public InputList<Inputs.ServicePlacementConstraintArgs> PlacementConstraints
         {
-            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.ServicePlacementConstraintsArgs>());
+            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.ServicePlacementConstraintArgs>());
             set => _placementConstraints = value;
         }
 
@@ -395,7 +448,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? PropagateTags { get; set; }
 
         /// <summary>
-        /// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+        /// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         /// </summary>
         [Input("schedulingStrategy")]
         public Input<string>? SchedulingStrategy { get; set; }
@@ -407,26 +460,23 @@ namespace Pulumi.Aws.Ecs
         public Input<Inputs.ServiceServiceRegistriesArgs>? ServiceRegistries { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         /// </summary>
-        [Input("taskDefinition", required: true)]
-        public Input<string> TaskDefinition { get; set; } = null!;
+        [Input("taskDefinition")]
+        public Input<string>? TaskDefinition { get; set; }
 
-        /// <summary>
-        /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-        /// </summary>
         [Input("waitForSteadyState")]
         public Input<bool>? WaitForSteadyState { get; set; }
 
@@ -438,14 +488,14 @@ namespace Pulumi.Aws.Ecs
     public sealed class ServiceState : Pulumi.ResourceArgs
     {
         [Input("capacityProviderStrategies")]
-        private InputList<Inputs.ServiceCapacityProviderStrategiesGetArgs>? _capacityProviderStrategies;
+        private InputList<Inputs.ServiceCapacityProviderStrategyGetArgs>? _capacityProviderStrategies;
 
         /// <summary>
         /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         /// </summary>
-        public InputList<Inputs.ServiceCapacityProviderStrategiesGetArgs> CapacityProviderStrategies
+        public InputList<Inputs.ServiceCapacityProviderStrategyGetArgs> CapacityProviderStrategies
         {
-            get => _capacityProviderStrategies ?? (_capacityProviderStrategies = new InputList<Inputs.ServiceCapacityProviderStrategiesGetArgs>());
+            get => _capacityProviderStrategies ?? (_capacityProviderStrategies = new InputList<Inputs.ServiceCapacityProviderStrategyGetArgs>());
             set => _capacityProviderStrategies = value;
         }
 
@@ -486,6 +536,12 @@ namespace Pulumi.Aws.Ecs
         public Input<bool>? EnableEcsManagedTags { get; set; }
 
         /// <summary>
+        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+        /// </summary>
+        [Input("forceNewDeployment")]
+        public Input<bool>? ForceNewDeployment { get; set; }
+
+        /// <summary>
         /// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         /// </summary>
         [Input("healthCheckGracePeriodSeconds")]
@@ -504,14 +560,14 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? LaunchType { get; set; }
 
         [Input("loadBalancers")]
-        private InputList<Inputs.ServiceLoadBalancersGetArgs>? _loadBalancers;
+        private InputList<Inputs.ServiceLoadBalancerGetArgs>? _loadBalancers;
 
         /// <summary>
         /// A load balancer block. Load balancers documented below.
         /// </summary>
-        public InputList<Inputs.ServiceLoadBalancersGetArgs> LoadBalancers
+        public InputList<Inputs.ServiceLoadBalancerGetArgs> LoadBalancers
         {
-            get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.ServiceLoadBalancersGetArgs>());
+            get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.ServiceLoadBalancerGetArgs>());
             set => _loadBalancers = value;
         }
 
@@ -528,27 +584,26 @@ namespace Pulumi.Aws.Ecs
         public Input<Inputs.ServiceNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
 
         [Input("orderedPlacementStrategies")]
-        private InputList<Inputs.ServiceOrderedPlacementStrategiesGetArgs>? _orderedPlacementStrategies;
+        private InputList<Inputs.ServiceOrderedPlacementStrategyGetArgs>? _orderedPlacementStrategies;
 
         /// <summary>
-        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
+        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
         /// </summary>
-        public InputList<Inputs.ServiceOrderedPlacementStrategiesGetArgs> OrderedPlacementStrategies
+        public InputList<Inputs.ServiceOrderedPlacementStrategyGetArgs> OrderedPlacementStrategies
         {
-            get => _orderedPlacementStrategies ?? (_orderedPlacementStrategies = new InputList<Inputs.ServiceOrderedPlacementStrategiesGetArgs>());
+            get => _orderedPlacementStrategies ?? (_orderedPlacementStrategies = new InputList<Inputs.ServiceOrderedPlacementStrategyGetArgs>());
             set => _orderedPlacementStrategies = value;
         }
 
         [Input("placementConstraints")]
-        private InputList<Inputs.ServicePlacementConstraintsGetArgs>? _placementConstraints;
+        private InputList<Inputs.ServicePlacementConstraintGetArgs>? _placementConstraints;
 
         /// <summary>
-        /// rules that are taken into consideration during task placement. Maximum number of
-        /// `placement_constraints` is `10`. Defined below.
+        /// rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. Defined below.
         /// </summary>
-        public InputList<Inputs.ServicePlacementConstraintsGetArgs> PlacementConstraints
+        public InputList<Inputs.ServicePlacementConstraintGetArgs> PlacementConstraints
         {
-            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.ServicePlacementConstraintsGetArgs>());
+            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.ServicePlacementConstraintGetArgs>());
             set => _placementConstraints = value;
         }
 
@@ -565,7 +620,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? PropagateTags { get; set; }
 
         /// <summary>
-        /// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+        /// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         /// </summary>
         [Input("schedulingStrategy")]
         public Input<string>? SchedulingStrategy { get; set; }
@@ -577,397 +632,28 @@ namespace Pulumi.Aws.Ecs
         public Input<Inputs.ServiceServiceRegistriesGetArgs>? ServiceRegistries { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         /// </summary>
         [Input("taskDefinition")]
         public Input<string>? TaskDefinition { get; set; }
 
-        /// <summary>
-        /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-        /// </summary>
         [Input("waitForSteadyState")]
         public Input<bool>? WaitForSteadyState { get; set; }
 
         public ServiceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ServiceCapacityProviderStrategiesArgs : Pulumi.ResourceArgs
-    {
-        [Input("base")]
-        public Input<int>? Base { get; set; }
-
-        [Input("capacityProvider", required: true)]
-        public Input<string> CapacityProvider { get; set; } = null!;
-
-        [Input("weight")]
-        public Input<int>? Weight { get; set; }
-
-        public ServiceCapacityProviderStrategiesArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceCapacityProviderStrategiesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("base")]
-        public Input<int>? Base { get; set; }
-
-        [Input("capacityProvider", required: true)]
-        public Input<string> CapacityProvider { get; set; } = null!;
-
-        [Input("weight")]
-        public Input<int>? Weight { get; set; }
-
-        public ServiceCapacityProviderStrategiesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceDeploymentControllerArgs : Pulumi.ResourceArgs
-    {
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public ServiceDeploymentControllerArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceDeploymentControllerGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public ServiceDeploymentControllerGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceLoadBalancersArgs : Pulumi.ResourceArgs
-    {
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
-
-        [Input("containerPort", required: true)]
-        public Input<int> ContainerPort { get; set; } = null!;
-
-        [Input("elbName")]
-        public Input<string>? ElbName { get; set; }
-
-        [Input("targetGroupArn")]
-        public Input<string>? TargetGroupArn { get; set; }
-
-        public ServiceLoadBalancersArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceLoadBalancersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
-
-        [Input("containerPort", required: true)]
-        public Input<int> ContainerPort { get; set; } = null!;
-
-        [Input("elbName")]
-        public Input<string>? ElbName { get; set; }
-
-        [Input("targetGroupArn")]
-        public Input<string>? TargetGroupArn { get; set; }
-
-        public ServiceLoadBalancersGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceNetworkConfigurationArgs : Pulumi.ResourceArgs
-    {
-        [Input("assignPublicIp")]
-        public Input<bool>? AssignPublicIp { get; set; }
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        [Input("subnets", required: true)]
-        private InputList<string>? _subnets;
-        public InputList<string> Subnets
-        {
-            get => _subnets ?? (_subnets = new InputList<string>());
-            set => _subnets = value;
-        }
-
-        public ServiceNetworkConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceNetworkConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("assignPublicIp")]
-        public Input<bool>? AssignPublicIp { get; set; }
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        [Input("subnets", required: true)]
-        private InputList<string>? _subnets;
-        public InputList<string> Subnets
-        {
-            get => _subnets ?? (_subnets = new InputList<string>());
-            set => _subnets = value;
-        }
-
-        public ServiceNetworkConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceOrderedPlacementStrategiesArgs : Pulumi.ResourceArgs
-    {
-        [Input("field")]
-        public Input<string>? Field { get; set; }
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServiceOrderedPlacementStrategiesArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceOrderedPlacementStrategiesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("field")]
-        public Input<string>? Field { get; set; }
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServiceOrderedPlacementStrategiesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServicePlacementConstraintsArgs : Pulumi.ResourceArgs
-    {
-        [Input("expression")]
-        public Input<string>? Expression { get; set; }
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServicePlacementConstraintsArgs()
-        {
-        }
-    }
-
-    public sealed class ServicePlacementConstraintsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("expression")]
-        public Input<string>? Expression { get; set; }
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServicePlacementConstraintsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceServiceRegistriesArgs : Pulumi.ResourceArgs
-    {
-        [Input("containerName")]
-        public Input<string>? ContainerName { get; set; }
-
-        [Input("containerPort")]
-        public Input<int>? ContainerPort { get; set; }
-
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        [Input("registryArn", required: true)]
-        public Input<string> RegistryArn { get; set; } = null!;
-
-        public ServiceServiceRegistriesArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceServiceRegistriesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("containerName")]
-        public Input<string>? ContainerName { get; set; }
-
-        [Input("containerPort")]
-        public Input<int>? ContainerPort { get; set; }
-
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        [Input("registryArn", required: true)]
-        public Input<string> RegistryArn { get; set; } = null!;
-
-        public ServiceServiceRegistriesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ServiceCapacityProviderStrategies
-    {
-        public readonly int? Base;
-        public readonly string CapacityProvider;
-        public readonly int? Weight;
-
-        [OutputConstructor]
-        private ServiceCapacityProviderStrategies(
-            int? @base,
-            string capacityProvider,
-            int? weight)
-        {
-            Base = @base;
-            CapacityProvider = capacityProvider;
-            Weight = weight;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceDeploymentController
-    {
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private ServiceDeploymentController(string? type)
-        {
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceLoadBalancers
-    {
-        public readonly string ContainerName;
-        public readonly int ContainerPort;
-        public readonly string? ElbName;
-        public readonly string? TargetGroupArn;
-
-        [OutputConstructor]
-        private ServiceLoadBalancers(
-            string containerName,
-            int containerPort,
-            string? elbName,
-            string? targetGroupArn)
-        {
-            ContainerName = containerName;
-            ContainerPort = containerPort;
-            ElbName = elbName;
-            TargetGroupArn = targetGroupArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceNetworkConfiguration
-    {
-        public readonly bool? AssignPublicIp;
-        public readonly ImmutableArray<string> SecurityGroups;
-        public readonly ImmutableArray<string> Subnets;
-
-        [OutputConstructor]
-        private ServiceNetworkConfiguration(
-            bool? assignPublicIp,
-            ImmutableArray<string> securityGroups,
-            ImmutableArray<string> subnets)
-        {
-            AssignPublicIp = assignPublicIp;
-            SecurityGroups = securityGroups;
-            Subnets = subnets;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceOrderedPlacementStrategies
-    {
-        public readonly string? Field;
-        public readonly string Type;
-
-        [OutputConstructor]
-        private ServiceOrderedPlacementStrategies(
-            string? field,
-            string type)
-        {
-            Field = field;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServicePlacementConstraints
-    {
-        public readonly string? Expression;
-        public readonly string Type;
-
-        [OutputConstructor]
-        private ServicePlacementConstraints(
-            string? expression,
-            string type)
-        {
-            Expression = expression;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceServiceRegistries
-    {
-        public readonly string? ContainerName;
-        public readonly int? ContainerPort;
-        public readonly int? Port;
-        public readonly string RegistryArn;
-
-        [OutputConstructor]
-        private ServiceServiceRegistries(
-            string? containerName,
-            int? containerPort,
-            int? port,
-            string registryArn)
-        {
-            ContainerName = containerName;
-            ContainerPort = containerPort;
-            Port = port;
-            RegistryArn = registryArn;
-        }
-    }
     }
 }

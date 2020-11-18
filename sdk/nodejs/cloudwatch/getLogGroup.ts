@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an AWS Cloudwatch Log Group
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.cloudwatch.getLogGroup({
- *     name: "MyImportantLogs",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudwatch_log_group.html.markdown.
+ * const example = pulumi.output(aws.cloudwatch.getLogGroup({
+ *     name: "MyImportantLogs",
+ * }, { async: true }));
+ * ```
  */
-export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupResult> & GetLogGroupResult {
+export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,12 +29,10 @@ export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetLogGroupResult> = pulumi.runtime.invoke("aws:cloudwatch/getLogGroup:getLogGroup", {
+    return pulumi.runtime.invoke("aws:cloudwatch/getLogGroup:getLogGroup", {
         "name": args.name,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -49,9 +44,9 @@ export interface GetLogGroupArgs {
      */
     readonly name: string;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -67,6 +62,10 @@ export interface GetLogGroupResult {
      */
     readonly creationTime: number;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN of the KMS Key to use when encrypting log data.
      */
     readonly kmsKeyId: string;
@@ -76,11 +75,7 @@ export interface GetLogGroupResult {
      */
     readonly retentionInDays: number;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
+    readonly tags: {[key: string]: string};
 }

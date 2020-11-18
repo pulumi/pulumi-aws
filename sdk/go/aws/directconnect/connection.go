@@ -7,10 +7,34 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Connection of Direct Connect.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/directconnect"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := directconnect.NewConnection(ctx, "hoge", &directconnect.ConnectionArgs{
+// 			Bandwidth: pulumi.String("1Gbps"),
+// 			Location:  pulumi.String("EqDC2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Connection struct {
 	pulumi.CustomResourceState
 
@@ -28,8 +52,8 @@ type Connection struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the connection.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -80,8 +104,8 @@ type connectionState struct {
 	Location *string `pulumi:"location"`
 	// The name of the connection.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ConnectionState struct {
@@ -99,8 +123,8 @@ type ConnectionState struct {
 	Location pulumi.StringPtrInput
 	// The name of the connection.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -114,8 +138,8 @@ type connectionArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the connection.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
@@ -126,8 +150,8 @@ type ConnectionArgs struct {
 	Location pulumi.StringInput
 	// The name of the connection.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {

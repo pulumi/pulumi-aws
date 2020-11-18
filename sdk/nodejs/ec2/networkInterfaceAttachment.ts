@@ -2,29 +2,23 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Attach an Elastic network interface (ENI) resource with EC2 instance.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.ec2.NetworkInterfaceAttachment("test", {
+ *     instanceId: aws_instance.test.id,
+ *     networkInterfaceId: aws_network_interface.test.id,
  *     deviceIndex: 0,
- *     instanceId: aws_instance_test.id,
- *     networkInterfaceId: aws_network_interface_test.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface_attachment.html.markdown.
  */
 export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     /**
@@ -34,6 +28,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NetworkInterfaceAttachmentState, opts?: pulumi.CustomResourceOptions): NetworkInterfaceAttachment {
         return new NetworkInterfaceAttachment(name, <any>state, { ...opts, id: id });

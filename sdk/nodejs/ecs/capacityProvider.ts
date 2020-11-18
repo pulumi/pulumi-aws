@@ -4,32 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
- * 
- * > **NOTE:** The AWS API does not currently support deleting ECS cluster capacity providers. Removing this resource will only remove the state for it.
- * 
- * 
- * ## autoScalingGroupProvider
- * 
- * The `autoScalingGroupProvider` block supports the following:
- * 
- * * `autoScalingGroupArn` - (Required) - The Amazon Resource Name (ARN) of the associated auto scaling group.
- * * `managedScaling` - (Optional) - Nested argument defining the parameters of the auto scaling. Defined below.
- * * `managedTerminationProtection` - (Optional) - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
- * 
- * ## managedScaling
- * 
- * The `managedScaling` block supports the following:
- * 
- * * `maximumScalingStepSize` - (Optional) The maximum step adjustment size. A number between 1 and 10,000.
- * * `minimumScalingStepSize` - (Optional) The minimum step adjustment size. A number between 1 and 10,000.
- * * `status` - (Optional) Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
- * * `targetCapacity` - (Optional) The target utilization for the capacity provider. A number between 1 and 100.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_capacity_provider.html.markdown.
+ * > **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `minSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ... other configuration, including potentially other tags ...
+ * const testGroup = new aws.autoscaling.Group("testGroup", {tags: [{
+ *     key: "AmazonECSManaged",
+ *     propagateAtLaunch: true,
+ * }]});
+ * const testCapacityProvider = new aws.ecs.CapacityProvider("testCapacityProvider", {autoScalingGroupProvider: {
+ *     autoScalingGroupArn: testGroup.arn,
+ *     managedTerminationProtection: "ENABLED",
+ *     managedScaling: {
+ *         maximumScalingStepSize: 1000,
+ *         minimumScalingStepSize: 1,
+ *         status: "ENABLED",
+ *         targetCapacity: 10,
+ *     },
+ * }});
+ * ```
  */
 export class CapacityProvider extends pulumi.CustomResource {
     /**
@@ -39,6 +43,7 @@ export class CapacityProvider extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CapacityProviderState, opts?: pulumi.CustomResourceOptions): CapacityProvider {
         return new CapacityProvider(name, <any>state, { ...opts, id: id });
@@ -71,9 +76,9 @@ export class CapacityProvider extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a CapacityProvider resource with the given unique name, arguments, and options.
@@ -129,9 +134,9 @@ export interface CapacityProviderState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -147,7 +152,7 @@ export interface CapacityProviderArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

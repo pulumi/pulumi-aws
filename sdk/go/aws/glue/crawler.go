@@ -7,10 +7,132 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
+//
+// ## Example Usage
+// ### DynamoDB Target
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+// 			DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+// 			Role:         pulumi.Any(aws_iam_role.Example.Arn),
+// 			DynamodbTargets: glue.CrawlerDynamodbTargetArray{
+// 				&glue.CrawlerDynamodbTargetArgs{
+// 					Path: pulumi.String("table-name"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### JDBC Target
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+// 			DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+// 			Role:         pulumi.Any(aws_iam_role.Example.Arn),
+// 			JdbcTargets: glue.CrawlerJdbcTargetArray{
+// 				&glue.CrawlerJdbcTargetArgs{
+// 					ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
+// 					Path:           pulumi.String(fmt.Sprintf("%v%v", "database-name/", "%")),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### S3 Target
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+// 			DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+// 			Role:         pulumi.Any(aws_iam_role.Example.Arn),
+// 			S3Targets: glue.CrawlerS3TargetArray{
+// 				&glue.CrawlerS3TargetArgs{
+// 					Path: pulumi.String(fmt.Sprintf("%v%v", "s3://", aws_s3_bucket.Example.Bucket)),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### MongoDB Target
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+// 			DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+// 			Role:         pulumi.Any(aws_iam_role.Example.Arn),
+// 			MongodbTargets: glue.CrawlerMongodbTargetArray{
+// 				&glue.CrawlerMongodbTargetArgs{
+// 					ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
+// 					Path:           pulumi.String(fmt.Sprintf("%v%v", "database-name/", "%")),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Crawler struct {
 	pulumi.CustomResourceState
 
@@ -29,6 +151,8 @@ type Crawler struct {
 	DynamodbTargets CrawlerDynamodbTargetArrayOutput `pulumi:"dynamodbTargets"`
 	// List of nested JBDC target arguments. See below.
 	JdbcTargets CrawlerJdbcTargetArrayOutput `pulumi:"jdbcTargets"`
+	// List nested MongoDB target arguments. See below.
+	MongodbTargets CrawlerMongodbTargetArrayOutput `pulumi:"mongodbTargets"`
 	// Name of the crawler.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
@@ -43,8 +167,8 @@ type Crawler struct {
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrOutput `pulumi:"tablePrefix"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewCrawler registers a new resource with the given unique name, arguments, and options.
@@ -96,6 +220,8 @@ type crawlerState struct {
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
 	// List of nested JBDC target arguments. See below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
+	// List nested MongoDB target arguments. See below.
+	MongodbTargets []CrawlerMongodbTarget `pulumi:"mongodbTargets"`
 	// Name of the crawler.
 	Name *string `pulumi:"name"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
@@ -110,8 +236,8 @@ type crawlerState struct {
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// The table prefix used for catalog tables that are created.
 	TablePrefix *string `pulumi:"tablePrefix"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type CrawlerState struct {
@@ -130,6 +256,8 @@ type CrawlerState struct {
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
 	// List of nested JBDC target arguments. See below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
+	// List nested MongoDB target arguments. See below.
+	MongodbTargets CrawlerMongodbTargetArrayInput
 	// Name of the crawler.
 	Name pulumi.StringPtrInput
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
@@ -144,8 +272,8 @@ type CrawlerState struct {
 	SecurityConfiguration pulumi.StringPtrInput
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (CrawlerState) ElementType() reflect.Type {
@@ -166,6 +294,8 @@ type crawlerArgs struct {
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
 	// List of nested JBDC target arguments. See below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
+	// List nested MongoDB target arguments. See below.
+	MongodbTargets []CrawlerMongodbTarget `pulumi:"mongodbTargets"`
 	// Name of the crawler.
 	Name *string `pulumi:"name"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
@@ -180,8 +310,8 @@ type crawlerArgs struct {
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// The table prefix used for catalog tables that are created.
 	TablePrefix *string `pulumi:"tablePrefix"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Crawler resource.
@@ -199,6 +329,8 @@ type CrawlerArgs struct {
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
 	// List of nested JBDC target arguments. See below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
+	// List nested MongoDB target arguments. See below.
+	MongodbTargets CrawlerMongodbTargetArrayInput
 	// Name of the crawler.
 	Name pulumi.StringPtrInput
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
@@ -213,8 +345,8 @@ type CrawlerArgs struct {
 	SecurityConfiguration pulumi.StringPtrInput
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (CrawlerArgs) ElementType() reflect.Type {

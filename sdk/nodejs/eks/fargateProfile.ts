@@ -4,13 +4,48 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages an EKS Fargate Profile.
- * 
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_fargate_profile.html.markdown.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.eks.FargateProfile("example", {
+ *     clusterName: aws_eks_cluster.example.name,
+ *     podExecutionRoleArn: aws_iam_role.example.arn,
+ *     subnetIds: aws_subnet.example.map(__item => __item.id),
+ *     selectors: [{
+ *         namespace: "example",
+ *     }],
+ * });
+ * ```
+ * ### Example IAM Role for EKS Fargate Profile
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
+ *     Statement: [{
+ *         Action: "sts:AssumeRole",
+ *         Effect: "Allow",
+ *         Principal: {
+ *             Service: "eks-fargate-pods.amazonaws.com",
+ *         },
+ *     }],
+ *     Version: "2012-10-17",
+ * })});
+ * const example_AmazonEKSFargatePodExecutionRolePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", {
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
+ *     role: example.name,
+ * });
+ * ```
  */
 export class FargateProfile extends pulumi.CustomResource {
     /**
@@ -20,6 +55,7 @@ export class FargateProfile extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FargateProfileState, opts?: pulumi.CustomResourceOptions): FargateProfile {
         return new FargateProfile(name, <any>state, { ...opts, id: id });
@@ -68,9 +104,9 @@ export class FargateProfile extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a FargateProfile resource with the given unique name, arguments, and options.
@@ -156,9 +192,9 @@ export interface FargateProfileState {
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -186,7 +222,7 @@ export interface FargateProfileArgs {
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

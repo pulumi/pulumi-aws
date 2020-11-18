@@ -4,29 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The ECS Service data source allows access to details of a specific
  * Service within a AWS ECS Cluster.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws_ecs_cluster_example.arn.apply(arn => aws.ecs.getService({
- *     clusterArn: arn,
- *     serviceName: "example",
- * }));
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_service.html.markdown.
+ * const example = aws.ecs.getService({
+ *     serviceName: "example",
+ *     clusterArn: data.aws_ecs_cluster.example.arn,
+ * });
+ * ```
  */
-export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> & GetServiceResult {
+export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {
         opts = {}
     }
@@ -34,12 +31,10 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetServiceResult> = pulumi.runtime.invoke("aws:ecs/getService:getService", {
+    return pulumi.runtime.invoke("aws:ecs/getService:getService", {
         "clusterArn": args.clusterArn,
         "serviceName": args.serviceName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -70,6 +65,10 @@ export interface GetServiceResult {
      */
     readonly desiredCount: number;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The launch type for the ECS Service
      */
     readonly launchType: string;
@@ -82,8 +81,4 @@ export interface GetServiceResult {
      * The family for the latest ACTIVE revision
      */
     readonly taskDefinition: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -4,41 +4,38 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Get information on an EC2 Transit Gateway VPC Attachment.
- * 
+ *
  * ## Example Usage
- * 
  * ### By Filter
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ec2transitgateway.getVpcAttachment({
+ *
+ * const example = pulumi.output(aws.ec2transitgateway.getVpcAttachment({
  *     filters: [{
  *         name: "vpc-id",
  *         values: ["vpc-12345678"],
  *     }],
- * });
+ * }, { async: true }));
  * ```
- * 
  * ### By Identifier
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ec2transitgateway.getVpcAttachment({
- *     id: "tgw-attach-12345678",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpc_attachment.html.markdown.
+ * const example = pulumi.output(aws.ec2transitgateway.getVpcAttachment({
+ *     id: "tgw-attach-12345678",
+ * }, { async: true }));
+ * ```
  */
-export function getVpcAttachment(args?: GetVpcAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentResult> & GetVpcAttachmentResult {
+export function getVpcAttachment(args?: GetVpcAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -47,13 +44,11 @@ export function getVpcAttachment(args?: GetVpcAttachmentArgs, opts?: pulumi.Invo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetVpcAttachmentResult> = pulumi.runtime.invoke("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", {
+    return pulumi.runtime.invoke("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", {
         "filters": args.filters,
         "id": args.id,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -71,13 +66,17 @@ export interface GetVpcAttachmentArgs {
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
  * A collection of values returned by getVpcAttachment.
  */
 export interface GetVpcAttachmentResult {
+    /**
+     * Whether Appliance Mode support is enabled.
+     */
+    readonly applianceModeSupport: string;
     /**
      * Whether DNS support is enabled.
      */
@@ -98,7 +97,7 @@ export interface GetVpcAttachmentResult {
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * EC2 Transit Gateway identifier
      */

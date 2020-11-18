@@ -4,6 +4,7 @@
 // Export members:
 export * from "./certificate";
 export * from "./endpoint";
+export * from "./eventSubscription";
 export * from "./replicationInstance";
 export * from "./replicationSubnetGroup";
 export * from "./replicationTask";

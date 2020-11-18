@@ -16,9 +16,29 @@ namespace Pulumi.Aws.Iam
     /// See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
     /// in the official AWS docs.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_password_policy.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var strict = new Aws.Iam.AccountPasswordPolicy("strict", new Aws.Iam.AccountPasswordPolicyArgs
+    ///         {
+    ///             AllowUsersToChangePassword = true,
+    ///             MinimumPasswordLength = 8,
+    ///             RequireLowercaseCharacters = true,
+    ///             RequireNumbers = true,
+    ///             RequireSymbols = true,
+    ///             RequireUppercaseCharacters = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AccountPasswordPolicy : Pulumi.CustomResource
     {
@@ -94,7 +114,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccountPasswordPolicy(string name, AccountPasswordPolicyArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:iam/accountPasswordPolicy:AccountPasswordPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/accountPasswordPolicy:AccountPasswordPolicy", name, args ?? new AccountPasswordPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

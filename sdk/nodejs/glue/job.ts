@@ -4,67 +4,59 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Job resource.
- * 
+ *
  * > Glue functionality, such as monitoring and logging of jobs, is typically managed with the `defaultArguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
- * 
+ *
  * ## Example Usage
- * 
  * ### Python Job
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Job("example", {
+ *     roleArn: aws_iam_role.example.arn,
  *     command: {
- *         scriptLocation: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}/example.py`,
+ *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.py`,
  *     },
- *     roleArn: aws_iam_role_example.arn,
  * });
  * ```
- * 
  * ### Scala Job
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Job("example", {
+ *     roleArn: aws_iam_role.example.arn,
  *     command: {
- *         scriptLocation: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}/example.scala`,
+ *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.scala`,
  *     },
  *     defaultArguments: {
  *         "--job-language": "scala",
  *     },
- *     roleArn: aws_iam_role_example.arn,
  * });
  * ```
- * 
  * ### Enabling CloudWatch Logs and Metrics
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
- *     retentionInDays: 14,
- * });
- * const exampleJob = new aws.glue.Job("example", {
- *     defaultArguments: {
- *         // ... potentially other arguments ...
- *         "--continuous-log-logGroup": exampleLogGroup.name,
- *         "--enable-continuous-cloudwatch-log": "true",
- *         "--enable-continuous-log-filter": "true",
- *         "--enable-metrics": "",
- *     },
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_job.html.markdown.
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 14});
+ * // ... other configuration ...
+ * const exampleJob = new aws.glue.Job("exampleJob", {defaultArguments: {
+ *     "--continuous-log-logGroup": exampleLogGroup.name,
+ *     "--enable-continuous-cloudwatch-log": "true",
+ *     "--enable-continuous-log-filter": "true",
+ *     "--enable-metrics": "",
+ * }});
+ * ```
  */
 export class Job extends pulumi.CustomResource {
     /**
@@ -74,6 +66,7 @@ export class Job extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: JobState, opts?: pulumi.CustomResourceOptions): Job {
         return new Job(name, <any>state, { ...opts, id: id });
@@ -94,10 +87,6 @@ export class Job extends pulumi.CustomResource {
     }
 
     /**
-     * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-     */
-    public readonly allocatedCapacity!: pulumi.Output<number>;
-    /**
      * Amazon Resource Name (ARN) of Glue Job
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -112,7 +101,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      */
-    public readonly defaultArguments!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly defaultArguments!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Description of the job.
      */
@@ -126,7 +115,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly glueVersion!: pulumi.Output<string>;
     /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
     public readonly maxCapacity!: pulumi.Output<number>;
     /**
@@ -137,6 +126,10 @@ export class Job extends pulumi.CustomResource {
      * The name you assign to this job. It must be unique in your account.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Non-overridable arguments for this job, specified as name-value pairs.
+     */
+    public readonly nonOverridableArguments!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Notification property of the job. Defined below.
      */
@@ -154,9 +147,9 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly securityConfiguration!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
@@ -178,7 +171,6 @@ export class Job extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as JobState | undefined;
-            inputs["allocatedCapacity"] = state ? state.allocatedCapacity : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["command"] = state ? state.command : undefined;
             inputs["connections"] = state ? state.connections : undefined;
@@ -189,6 +181,7 @@ export class Job extends pulumi.CustomResource {
             inputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             inputs["maxRetries"] = state ? state.maxRetries : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["nonOverridableArguments"] = state ? state.nonOverridableArguments : undefined;
             inputs["notificationProperty"] = state ? state.notificationProperty : undefined;
             inputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
@@ -204,7 +197,6 @@ export class Job extends pulumi.CustomResource {
             if (!args || args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["allocatedCapacity"] = args ? args.allocatedCapacity : undefined;
             inputs["command"] = args ? args.command : undefined;
             inputs["connections"] = args ? args.connections : undefined;
             inputs["defaultArguments"] = args ? args.defaultArguments : undefined;
@@ -214,6 +206,7 @@ export class Job extends pulumi.CustomResource {
             inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             inputs["maxRetries"] = args ? args.maxRetries : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["nonOverridableArguments"] = args ? args.nonOverridableArguments : undefined;
             inputs["notificationProperty"] = args ? args.notificationProperty : undefined;
             inputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
@@ -239,12 +232,6 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobState {
     /**
-     * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-     * 
-     * @deprecated Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
-     */
-    readonly allocatedCapacity?: pulumi.Input<number>;
-    /**
      * Amazon Resource Name (ARN) of Glue Job
      */
     readonly arn?: pulumi.Input<string>;
@@ -259,7 +246,7 @@ export interface JobState {
     /**
      * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      */
-    readonly defaultArguments?: pulumi.Input<{[key: string]: any}>;
+    readonly defaultArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Description of the job.
      */
@@ -273,7 +260,7 @@ export interface JobState {
      */
     readonly glueVersion?: pulumi.Input<string>;
     /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
     readonly maxCapacity?: pulumi.Input<number>;
     /**
@@ -284,6 +271,10 @@ export interface JobState {
      * The name you assign to this job. It must be unique in your account.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Non-overridable arguments for this job, specified as name-value pairs.
+     */
+    readonly nonOverridableArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Notification property of the job. Defined below.
      */
@@ -301,9 +292,9 @@ export interface JobState {
      */
     readonly securityConfiguration?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
@@ -319,12 +310,6 @@ export interface JobState {
  */
 export interface JobArgs {
     /**
-     * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-     * 
-     * @deprecated Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
-     */
-    readonly allocatedCapacity?: pulumi.Input<number>;
-    /**
      * The command of the job. Defined below.
      */
     readonly command: pulumi.Input<inputs.glue.JobCommand>;
@@ -335,7 +320,7 @@ export interface JobArgs {
     /**
      * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      */
-    readonly defaultArguments?: pulumi.Input<{[key: string]: any}>;
+    readonly defaultArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Description of the job.
      */
@@ -349,7 +334,7 @@ export interface JobArgs {
      */
     readonly glueVersion?: pulumi.Input<string>;
     /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
     readonly maxCapacity?: pulumi.Input<number>;
     /**
@@ -360,6 +345,10 @@ export interface JobArgs {
      * The name you assign to this job. It must be unique in your account.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Non-overridable arguments for this job, specified as name-value pairs.
+     */
+    readonly nonOverridableArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Notification property of the job. Defined below.
      */
@@ -377,9 +366,9 @@ export interface JobArgs {
      */
     readonly securityConfiguration?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */

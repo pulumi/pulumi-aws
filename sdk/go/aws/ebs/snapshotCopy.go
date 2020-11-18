@@ -7,13 +7,61 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates a Snapshot of a snapshot.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ebs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
+// 			AvailabilityZone: pulumi.String("us-west-2a"),
+// 			Size:             pulumi.Int(40),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("HelloWorld"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSnapshot, err := ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
+// 			VolumeId: example.ID(),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("HelloWorld_snap"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ebs.NewSnapshotCopy(ctx, "exampleCopy", &ebs.SnapshotCopyArgs{
+// 			SourceSnapshotId: exampleSnapshot.ID(),
+// 			SourceRegion:     pulumi.String("us-west-2"),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("HelloWorld_copy_snap"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SnapshotCopy struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
 	// * `sourceSnapshotId` The ARN of the copied snapshot.
 	// * `sourceRegion` The region of the source snapshot.
@@ -23,18 +71,18 @@ type SnapshotCopy struct {
 	// Whether the snapshot is encrypted.
 	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
-	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
-	// * `sourceRegion` The region of the source snapshot.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
 	// The AWS account ID of the snapshot owner.
-	OwnerId          pulumi.StringOutput `pulumi:"ownerId"`
-	SourceRegion     pulumi.StringOutput `pulumi:"sourceRegion"`
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The region of the source snapshot.
+	SourceRegion pulumi.StringOutput `pulumi:"sourceRegion"`
+	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringOutput `pulumi:"sourceSnapshotId"`
-	// A mapping of tags for the snapshot.
-	Tags     pulumi.MapOutput    `pulumi:"tags"`
-	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
+	// A map of tags for the snapshot.
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	VolumeId pulumi.StringOutput    `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
 	VolumeSize pulumi.IntOutput `pulumi:"volumeSize"`
 }
@@ -73,6 +121,8 @@ func GetSnapshotCopy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotCopy resources.
 type snapshotCopyState struct {
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn *string `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
 	// * `sourceSnapshotId` The ARN of the copied snapshot.
 	// * `sourceRegion` The region of the source snapshot.
@@ -82,23 +132,25 @@ type snapshotCopyState struct {
 	// Whether the snapshot is encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
-	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
-	// * `sourceRegion` The region of the source snapshot.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias *string `pulumi:"ownerAlias"`
 	// The AWS account ID of the snapshot owner.
-	OwnerId          *string `pulumi:"ownerId"`
-	SourceRegion     *string `pulumi:"sourceRegion"`
+	OwnerId *string `pulumi:"ownerId"`
+	// The region of the source snapshot.
+	SourceRegion *string `pulumi:"sourceRegion"`
+	// The ARN for the snapshot to be copied.
 	SourceSnapshotId *string `pulumi:"sourceSnapshotId"`
-	// A mapping of tags for the snapshot.
-	Tags     map[string]interface{} `pulumi:"tags"`
-	VolumeId *string                `pulumi:"volumeId"`
+	// A map of tags for the snapshot.
+	Tags     map[string]string `pulumi:"tags"`
+	VolumeId *string           `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
 	VolumeSize *int `pulumi:"volumeSize"`
 }
 
 type SnapshotCopyState struct {
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn pulumi.StringPtrInput
 	// The data encryption key identifier for the snapshot.
 	// * `sourceSnapshotId` The ARN of the copied snapshot.
 	// * `sourceRegion` The region of the source snapshot.
@@ -108,17 +160,17 @@ type SnapshotCopyState struct {
 	// Whether the snapshot is encrypted.
 	Encrypted pulumi.BoolPtrInput
 	// The ARN for the KMS encryption key.
-	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
-	// * `sourceRegion` The region of the source snapshot.
 	KmsKeyId pulumi.StringPtrInput
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias pulumi.StringPtrInput
 	// The AWS account ID of the snapshot owner.
-	OwnerId          pulumi.StringPtrInput
-	SourceRegion     pulumi.StringPtrInput
+	OwnerId pulumi.StringPtrInput
+	// The region of the source snapshot.
+	SourceRegion pulumi.StringPtrInput
+	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringPtrInput
-	// A mapping of tags for the snapshot.
-	Tags     pulumi.MapInput
+	// A map of tags for the snapshot.
+	Tags     pulumi.StringMapInput
 	VolumeId pulumi.StringPtrInput
 	// The size of the drive in GiBs.
 	VolumeSize pulumi.IntPtrInput
@@ -134,13 +186,13 @@ type snapshotCopyArgs struct {
 	// Whether the snapshot is encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
-	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
-	// * `sourceRegion` The region of the source snapshot.
-	KmsKeyId         *string `pulumi:"kmsKeyId"`
-	SourceRegion     string  `pulumi:"sourceRegion"`
-	SourceSnapshotId string  `pulumi:"sourceSnapshotId"`
-	// A mapping of tags for the snapshot.
-	Tags map[string]interface{} `pulumi:"tags"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The region of the source snapshot.
+	SourceRegion string `pulumi:"sourceRegion"`
+	// The ARN for the snapshot to be copied.
+	SourceSnapshotId string `pulumi:"sourceSnapshotId"`
+	// A map of tags for the snapshot.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SnapshotCopy resource.
@@ -150,13 +202,13 @@ type SnapshotCopyArgs struct {
 	// Whether the snapshot is encrypted.
 	Encrypted pulumi.BoolPtrInput
 	// The ARN for the KMS encryption key.
-	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
-	// * `sourceRegion` The region of the source snapshot.
-	KmsKeyId         pulumi.StringPtrInput
-	SourceRegion     pulumi.StringInput
+	KmsKeyId pulumi.StringPtrInput
+	// The region of the source snapshot.
+	SourceRegion pulumi.StringInput
+	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringInput
-	// A mapping of tags for the snapshot.
-	Tags pulumi.MapInput
+	// A map of tags for the snapshot.
+	Tags pulumi.StringMapInput
 }
 
 func (SnapshotCopyArgs) ElementType() reflect.Type {

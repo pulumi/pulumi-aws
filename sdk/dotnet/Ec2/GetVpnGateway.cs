@@ -9,33 +9,52 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The VPN Gateway data source provides details about
-        /// a specific VPN gateway.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetVpnGateway.InvokeAsync() instead")]
-        public static Task<GetVpnGatewayResult> GetVpnGateway(GetVpnGatewayArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnGatewayResult>("aws:ec2/getVpnGateway:getVpnGateway", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetVpnGateway
     {
         /// <summary>
         /// The VPN Gateway data source provides details about
         /// a specific VPN gateway.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var selected = Output.Create(Aws.Ec2.GetVpnGateway.InvokeAsync(new Aws.Ec2.GetVpnGatewayArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetVpnGatewayFilterArgs
+        ///                 {
+        ///                     Name = "tag:Name",
+        ///                     Values = 
+        ///                     {
+        ///                         "vpn-gw",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         this.VpnGatewayId = selected.Apply(selected =&gt; selected.Id);
+        ///     }
+        /// 
+        ///     [Output("vpnGatewayId")]
+        ///     public Output&lt;string&gt; VpnGatewayId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpnGatewayResult> InvokeAsync(GetVpnGatewayArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnGatewayResult>("aws:ec2/getVpnGateway:getVpnGateway", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnGatewayResult>("aws:ec2/getVpnGateway:getVpnGateway", args ?? new GetVpnGatewayArgs(), options.WithVersion());
     }
+
 
     public sealed class GetVpnGatewayArgs : Pulumi.InvokeArgs
     {
@@ -58,14 +77,14 @@ namespace Pulumi.Aws.Ec2
         public string? AvailabilityZone { get; set; }
 
         [Input("filters")]
-        private List<Inputs.GetVpnGatewayFiltersArgs>? _filters;
+        private List<Inputs.GetVpnGatewayFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetVpnGatewayFiltersArgs> Filters
+        public List<Inputs.GetVpnGatewayFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetVpnGatewayFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetVpnGatewayFilterArgs>());
             set => _filters = value;
         }
 
@@ -82,15 +101,15 @@ namespace Pulumi.Aws.Ec2
         public string? State { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// A map of tags, each pair of which must exactly match
         /// a pair on the desired VPN Gateway.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -99,28 +118,39 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetVpnGatewayResult
     {
         public readonly string AmazonSideAsn;
+        public readonly string Arn;
         public readonly string AttachedVpcId;
         public readonly string AvailabilityZone;
-        public readonly ImmutableArray<Outputs.GetVpnGatewayFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetVpnGatewayFilterResult> Filters;
         public readonly string Id;
         public readonly string State;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetVpnGatewayResult(
             string amazonSideAsn,
+
+            string arn,
+
             string attachedVpcId,
+
             string availabilityZone,
-            ImmutableArray<Outputs.GetVpnGatewayFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetVpnGatewayFilterResult> filters,
+
             string id,
+
             string state,
-            ImmutableDictionary<string, object> tags)
+
+            ImmutableDictionary<string, string> tags)
         {
             AmazonSideAsn = amazonSideAsn;
+            Arn = arn;
             AttachedVpcId = attachedVpcId;
             AvailabilityZone = availabilityZone;
             Filters = filters;
@@ -128,64 +158,5 @@ namespace Pulumi.Aws.Ec2
             State = state;
             Tags = tags;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetVpnGatewayFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A VPN Gateway will be selected if any one of the given values matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetVpnGatewayFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetVpnGatewayFiltersResult
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A VPN Gateway will be selected if any one of the given values matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetVpnGatewayFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

@@ -12,6 +12,176 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a resource to create a new launch configuration, used for autoscaling groups.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ubuntu = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
+    ///         {
+    ///             MostRecent = true,
+    ///             Filters = 
+    ///             {
+    ///                 new Aws.Inputs.GetAmiFilterArgs
+    ///                 {
+    ///                     Name = "name",
+    ///                     Values = 
+    ///                     {
+    ///                         "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+    ///                     },
+    ///                 },
+    ///                 new Aws.Inputs.GetAmiFilterArgs
+    ///                 {
+    ///                     Name = "virtualization-type",
+    ///                     Values = 
+    ///                     {
+    ///                         "hvm",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Owners = 
+    ///             {
+    ///                 "099720109477",
+    ///             },
+    ///         }));
+    ///         var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new Aws.Ec2.LaunchConfigurationArgs
+    ///         {
+    ///             ImageId = ubuntu.Apply(ubuntu =&gt; ubuntu.Id),
+    ///             InstanceType = "t2.micro",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ## Using with AutoScaling Groups
+    /// 
+    /// Launch Configurations cannot be updated after creation with the Amazon
+    /// Web Service API. In order to update a Launch Configuration, this provider will
+    /// destroy the existing resource and create a replacement. In order to effectively
+    /// use a Launch Configuration resource with an [AutoScaling Group resource](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
+    /// it's recommended to specify `create_before_destroy` in a [lifecycle](https://www.terraform.io/docs/configuration/resources.html#lifecycle) block.
+    /// Either omit the Launch Configuration `name` attribute, or specify a partial name
+    /// with `name_prefix`.  Example:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ubuntu = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
+    ///         {
+    ///             MostRecent = true,
+    ///             Filters = 
+    ///             {
+    ///                 new Aws.Inputs.GetAmiFilterArgs
+    ///                 {
+    ///                     Name = "name",
+    ///                     Values = 
+    ///                     {
+    ///                         "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+    ///                     },
+    ///                 },
+    ///                 new Aws.Inputs.GetAmiFilterArgs
+    ///                 {
+    ///                     Name = "virtualization-type",
+    ///                     Values = 
+    ///                     {
+    ///                         "hvm",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Owners = 
+    ///             {
+    ///                 "099720109477",
+    ///             },
+    ///         }));
+    ///         var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new Aws.Ec2.LaunchConfigurationArgs
+    ///         {
+    ///             NamePrefix = "lc-example-",
+    ///             ImageId = ubuntu.Apply(ubuntu =&gt; ubuntu.Id),
+    ///             InstanceType = "t2.micro",
+    ///         });
+    ///         var bar = new Aws.AutoScaling.Group("bar", new Aws.AutoScaling.GroupArgs
+    ///         {
+    ///             LaunchConfiguration = asConf.Name,
+    ///             MinSize = 1,
+    ///             MaxSize = 2,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// With this setup this provider generates a unique name for your Launch
+    /// Configuration and can then update the AutoScaling Group without conflict before
+    /// destroying the previous Launch Configuration.
+    /// 
+    /// ## Using with Spot Instances
+    /// 
+    /// Launch configurations can set the spot instance pricing to be used for the
+    /// Auto Scaling Group to reserve instances. Simply specifying the `spot_price`
+    /// parameter will set the price on the Launch Configuration which will attempt to
+    /// reserve your instances at this price.  See the [AWS Spot Instance
+    /// documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+    /// for more information or how to launch [Spot Instances](https://www.terraform.io/docs/providers/aws/r/spot_instance_request.html) with this provider.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ubuntu = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
+    ///         {
+    ///             MostRecent = true,
+    ///             Filters = 
+    ///             {
+    ///                 new Aws.Inputs.GetAmiFilterArgs
+    ///                 {
+    ///                     Name = "name",
+    ///                     Values = 
+    ///                     {
+    ///                         "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+    ///                     },
+    ///                 },
+    ///                 new Aws.Inputs.GetAmiFilterArgs
+    ///                 {
+    ///                     Name = "virtualization-type",
+    ///                     Values = 
+    ///                     {
+    ///                         "hvm",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Owners = 
+    ///             {
+    ///                 "099720109477",
+    ///             },
+    ///         }));
+    ///         var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new Aws.Ec2.LaunchConfigurationArgs
+    ///         {
+    ///             ImageId = ubuntu.Apply(ubuntu =&gt; ubuntu.Id),
+    ///             InstanceType = "m4.large",
+    ///             SpotPrice = "0.001",
+    ///         });
+    ///         var bar = new Aws.AutoScaling.Group("bar", new Aws.AutoScaling.GroupArgs
+    ///         {
+    ///             LaunchConfiguration = asConf.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Block devices
     /// 
@@ -48,6 +218,7 @@ namespace Pulumi.Aws.Ec2
     /// * `delete_on_termination` - (Optional) Whether the volume should be destroyed
     ///   on instance termination (Default: `true`).
     /// * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshot_id` as the encrypted flag will be determined by the snapshot. (Default: `false`).
+    /// * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
     /// 
     /// Modifying any `ebs_block_device` currently requires resource replacement.
     /// 
@@ -68,8 +239,6 @@ namespace Pulumi.Aws.Ec2
     /// cannot currently be detected by this provider. After updating to block device
     /// configuration, resource recreation can be manually triggered by using the
     /// [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_configuration.html.markdown.
     /// </summary>
     public partial class LaunchConfiguration : Pulumi.CustomResource
     {
@@ -90,7 +259,7 @@ namespace Pulumi.Aws.Ec2
         /// instance.  See Block Devices below for details.
         /// </summary>
         [Output("ebsBlockDevices")]
-        public Output<ImmutableArray<Outputs.LaunchConfigurationEbsBlockDevices>> EbsBlockDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LaunchConfigurationEbsBlockDevice>> EbsBlockDevices { get; private set; } = null!;
 
         /// <summary>
         /// If true, the launched EC2 instance will be EBS-optimized.
@@ -109,7 +278,7 @@ namespace Pulumi.Aws.Ec2
         /// "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
         [Output("ephemeralBlockDevices")]
-        public Output<ImmutableArray<Outputs.LaunchConfigurationEphemeralBlockDevices>> EphemeralBlockDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LaunchConfigurationEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
 
         /// <summary>
         /// The name attribute of the IAM instance profile to associate
@@ -210,7 +379,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LaunchConfiguration(string name, LaunchConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/launchConfiguration:LaunchConfiguration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/launchConfiguration:LaunchConfiguration", name, args ?? new LaunchConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -254,15 +423,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AssociatePublicIpAddress { get; set; }
 
         [Input("ebsBlockDevices")]
-        private InputList<Inputs.LaunchConfigurationEbsBlockDevicesArgs>? _ebsBlockDevices;
+        private InputList<Inputs.LaunchConfigurationEbsBlockDeviceArgs>? _ebsBlockDevices;
 
         /// <summary>
         /// Additional EBS block devices to attach to the
         /// instance.  See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.LaunchConfigurationEbsBlockDevicesArgs> EbsBlockDevices
+        public InputList<Inputs.LaunchConfigurationEbsBlockDeviceArgs> EbsBlockDevices
         {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.LaunchConfigurationEbsBlockDevicesArgs>());
+            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.LaunchConfigurationEbsBlockDeviceArgs>());
             set => _ebsBlockDevices = value;
         }
 
@@ -279,15 +448,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnableMonitoring { get; set; }
 
         [Input("ephemeralBlockDevices")]
-        private InputList<Inputs.LaunchConfigurationEphemeralBlockDevicesArgs>? _ephemeralBlockDevices;
+        private InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs>? _ephemeralBlockDevices;
 
         /// <summary>
         /// Customize Ephemeral (also known as
         /// "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.LaunchConfigurationEphemeralBlockDevicesArgs> EphemeralBlockDevices
+        public InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs> EphemeralBlockDevices
         {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.LaunchConfigurationEphemeralBlockDevicesArgs>());
+            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
@@ -413,15 +582,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AssociatePublicIpAddress { get; set; }
 
         [Input("ebsBlockDevices")]
-        private InputList<Inputs.LaunchConfigurationEbsBlockDevicesGetArgs>? _ebsBlockDevices;
+        private InputList<Inputs.LaunchConfigurationEbsBlockDeviceGetArgs>? _ebsBlockDevices;
 
         /// <summary>
         /// Additional EBS block devices to attach to the
         /// instance.  See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.LaunchConfigurationEbsBlockDevicesGetArgs> EbsBlockDevices
+        public InputList<Inputs.LaunchConfigurationEbsBlockDeviceGetArgs> EbsBlockDevices
         {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.LaunchConfigurationEbsBlockDevicesGetArgs>());
+            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.LaunchConfigurationEbsBlockDeviceGetArgs>());
             set => _ebsBlockDevices = value;
         }
 
@@ -438,15 +607,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnableMonitoring { get; set; }
 
         [Input("ephemeralBlockDevices")]
-        private InputList<Inputs.LaunchConfigurationEphemeralBlockDevicesGetArgs>? _ephemeralBlockDevices;
+        private InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceGetArgs>? _ephemeralBlockDevices;
 
         /// <summary>
         /// Customize Ephemeral (also known as
         /// "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.LaunchConfigurationEphemeralBlockDevicesGetArgs> EphemeralBlockDevices
+        public InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceGetArgs> EphemeralBlockDevices
         {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.LaunchConfigurationEphemeralBlockDevicesGetArgs>());
+            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceGetArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
@@ -555,220 +724,5 @@ namespace Pulumi.Aws.Ec2
         public LaunchConfigurationState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class LaunchConfigurationEbsBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("noDevice")]
-        public Input<bool>? NoDevice { get; set; }
-
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public LaunchConfigurationEbsBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchConfigurationEbsBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("noDevice")]
-        public Input<bool>? NoDevice { get; set; }
-
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public LaunchConfigurationEbsBlockDevicesGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchConfigurationEphemeralBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("virtualName", required: true)]
-        public Input<string> VirtualName { get; set; } = null!;
-
-        public LaunchConfigurationEphemeralBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchConfigurationEphemeralBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("virtualName", required: true)]
-        public Input<string> VirtualName { get; set; } = null!;
-
-        public LaunchConfigurationEphemeralBlockDevicesGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchConfigurationRootBlockDeviceArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public LaunchConfigurationRootBlockDeviceArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchConfigurationRootBlockDeviceGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public LaunchConfigurationRootBlockDeviceGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class LaunchConfigurationEbsBlockDevices
-    {
-        public readonly bool? DeleteOnTermination;
-        public readonly string DeviceName;
-        public readonly bool Encrypted;
-        public readonly int Iops;
-        public readonly bool? NoDevice;
-        public readonly string SnapshotId;
-        public readonly int VolumeSize;
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private LaunchConfigurationEbsBlockDevices(
-            bool? deleteOnTermination,
-            string deviceName,
-            bool encrypted,
-            int iops,
-            bool? noDevice,
-            string snapshotId,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            DeviceName = deviceName;
-            Encrypted = encrypted;
-            Iops = iops;
-            NoDevice = noDevice;
-            SnapshotId = snapshotId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchConfigurationEphemeralBlockDevices
-    {
-        public readonly string DeviceName;
-        public readonly string VirtualName;
-
-        [OutputConstructor]
-        private LaunchConfigurationEphemeralBlockDevices(
-            string deviceName,
-            string virtualName)
-        {
-            DeviceName = deviceName;
-            VirtualName = virtualName;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchConfigurationRootBlockDevice
-    {
-        public readonly bool? DeleteOnTermination;
-        public readonly bool Encrypted;
-        public readonly int Iops;
-        public readonly int VolumeSize;
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private LaunchConfigurationRootBlockDevice(
-            bool? deleteOnTermination,
-            bool encrypted,
-            int iops,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            Encrypted = encrypted;
-            Iops = iops;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
     }
 }

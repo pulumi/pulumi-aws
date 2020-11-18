@@ -9,33 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecs
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The ECS Cluster data source allows access to details of a specific
-        /// cluster within an AWS ECS service.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_cluster.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCluster.InvokeAsync() instead")]
-        public static Task<GetClusterResult> GetCluster(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:ecs/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCluster
     {
         /// <summary>
         /// The ECS Cluster data source allows access to details of a specific
         /// cluster within an AWS ECS service.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_cluster.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var ecs_mongo = Output.Create(Aws.Ecs.GetCluster.InvokeAsync(new Aws.Ecs.GetClusterArgs
+        ///         {
+        ///             ClusterName = "ecs-mongo-production",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:ecs/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:ecs/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }
+
 
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
@@ -50,6 +56,7 @@ namespace Pulumi.Aws.Ecs
         }
     }
 
+
     [OutputType]
     public sealed class GetClusterResult
     {
@@ -58,6 +65,10 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string Arn;
         public readonly string ClusterName;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The number of pending tasks for the ECS Cluster
         /// </summary>
@@ -73,55 +84,38 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// The settings associated with the ECS Cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetClusterSettingsResult> Settings;
+        public readonly ImmutableArray<Outputs.GetClusterSettingResult> Settings;
         /// <summary>
         /// The status of the ECS Cluster
         /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterResult(
             string arn,
+
             string clusterName,
+
+            string id,
+
             int pendingTasksCount,
+
             int registeredContainerInstancesCount,
+
             int runningTasksCount,
-            ImmutableArray<Outputs.GetClusterSettingsResult> settings,
-            string status,
-            string id)
+
+            ImmutableArray<Outputs.GetClusterSettingResult> settings,
+
+            string status)
         {
             Arn = arn;
             ClusterName = clusterName;
+            Id = id;
             PendingTasksCount = pendingTasksCount;
             RegisteredContainerInstancesCount = registeredContainerInstancesCount;
             RunningTasksCount = runningTasksCount;
             Settings = settings;
             Status = status;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetClusterSettingsResult
-    {
-        public readonly string Name;
-        public readonly string Value;
-
-        [OutputConstructor]
-        private GetClusterSettingsResult(
-            string name,
-            string value)
-        {
-            Name = name;
-            Value = value;
-        }
-    }
     }
 }

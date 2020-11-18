@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type AcceleratorAttributes struct {
@@ -19,6 +19,10 @@ type AcceleratorAttributes struct {
 	FlowLogsS3Prefix *string `pulumi:"flowLogsS3Prefix"`
 }
 
+// AcceleratorAttributesInput is an input type that accepts AcceleratorAttributesArgs and AcceleratorAttributesOutput values.
+// You can construct a concrete instance of `AcceleratorAttributesInput` via:
+//
+//          AcceleratorAttributesArgs{...}
 type AcceleratorAttributesInput interface {
 	pulumi.Input
 
@@ -55,6 +59,14 @@ func (i AcceleratorAttributesArgs) ToAcceleratorAttributesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorAttributesOutput).ToAcceleratorAttributesPtrOutputWithContext(ctx)
 }
 
+// AcceleratorAttributesPtrInput is an input type that accepts AcceleratorAttributesArgs, AcceleratorAttributesPtr and AcceleratorAttributesPtrOutput values.
+// You can construct a concrete instance of `AcceleratorAttributesPtrInput` via:
+//
+//          AcceleratorAttributesArgs{...}
+//
+//  or:
+//
+//          nil
 type AcceleratorAttributesPtrInput interface {
 	pulumi.Input
 
@@ -139,17 +151,32 @@ func (o AcceleratorAttributesPtrOutput) Elem() AcceleratorAttributesOutput {
 
 // Indicates whether flow logs are enabled.
 func (o AcceleratorAttributesPtrOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AcceleratorAttributes) *bool { return v.FlowLogsEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *AcceleratorAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FlowLogsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Amazon S3 bucket for the flow logs.
 func (o AcceleratorAttributesPtrOutput) FlowLogsS3Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AcceleratorAttributes) *string { return v.FlowLogsS3Bucket }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AcceleratorAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FlowLogsS3Bucket
+	}).(pulumi.StringPtrOutput)
 }
 
 // The prefix for the location in the Amazon S3 bucket for the flow logs.
 func (o AcceleratorAttributesPtrOutput) FlowLogsS3Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AcceleratorAttributes) *string { return v.FlowLogsS3Prefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AcceleratorAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FlowLogsS3Prefix
+	}).(pulumi.StringPtrOutput)
 }
 
 type AcceleratorIpSet struct {
@@ -159,6 +186,10 @@ type AcceleratorIpSet struct {
 	IpFamily *string `pulumi:"ipFamily"`
 }
 
+// AcceleratorIpSetInput is an input type that accepts AcceleratorIpSetArgs and AcceleratorIpSetOutput values.
+// You can construct a concrete instance of `AcceleratorIpSetInput` via:
+//
+//          AcceleratorIpSetArgs{...}
 type AcceleratorIpSetInput interface {
 	pulumi.Input
 
@@ -185,6 +216,10 @@ func (i AcceleratorIpSetArgs) ToAcceleratorIpSetOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorIpSetOutput)
 }
 
+// AcceleratorIpSetArrayInput is an input type that accepts AcceleratorIpSetArray and AcceleratorIpSetArrayOutput values.
+// You can construct a concrete instance of `AcceleratorIpSetArrayInput` via:
+//
+//          AcceleratorIpSetArray{ AcceleratorIpSetArgs{...} }
 type AcceleratorIpSetArrayInput interface {
 	pulumi.Input
 
@@ -251,12 +286,17 @@ func (o AcceleratorIpSetArrayOutput) Index(i pulumi.IntInput) AcceleratorIpSetOu
 }
 
 type EndpointGroupEndpointConfiguration struct {
+	ClientIpPreservationEnabled *bool `pulumi:"clientIpPreservationEnabled"`
 	// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
 	EndpointId *string `pulumi:"endpointId"`
 	// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
 	Weight *int `pulumi:"weight"`
 }
 
+// EndpointGroupEndpointConfigurationInput is an input type that accepts EndpointGroupEndpointConfigurationArgs and EndpointGroupEndpointConfigurationOutput values.
+// You can construct a concrete instance of `EndpointGroupEndpointConfigurationInput` via:
+//
+//          EndpointGroupEndpointConfigurationArgs{...}
 type EndpointGroupEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -265,6 +305,7 @@ type EndpointGroupEndpointConfigurationInput interface {
 }
 
 type EndpointGroupEndpointConfigurationArgs struct {
+	ClientIpPreservationEnabled pulumi.BoolPtrInput `pulumi:"clientIpPreservationEnabled"`
 	// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
 	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
 	// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
@@ -283,6 +324,10 @@ func (i EndpointGroupEndpointConfigurationArgs) ToEndpointGroupEndpointConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupEndpointConfigurationOutput)
 }
 
+// EndpointGroupEndpointConfigurationArrayInput is an input type that accepts EndpointGroupEndpointConfigurationArray and EndpointGroupEndpointConfigurationArrayOutput values.
+// You can construct a concrete instance of `EndpointGroupEndpointConfigurationArrayInput` via:
+//
+//          EndpointGroupEndpointConfigurationArray{ EndpointGroupEndpointConfigurationArgs{...} }
 type EndpointGroupEndpointConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -316,6 +361,10 @@ func (o EndpointGroupEndpointConfigurationOutput) ToEndpointGroupEndpointConfigu
 
 func (o EndpointGroupEndpointConfigurationOutput) ToEndpointGroupEndpointConfigurationOutputWithContext(ctx context.Context) EndpointGroupEndpointConfigurationOutput {
 	return o
+}
+
+func (o EndpointGroupEndpointConfigurationOutput) ClientIpPreservationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) *bool { return v.ClientIpPreservationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
@@ -355,6 +404,10 @@ type ListenerPortRange struct {
 	ToPort *int `pulumi:"toPort"`
 }
 
+// ListenerPortRangeInput is an input type that accepts ListenerPortRangeArgs and ListenerPortRangeOutput values.
+// You can construct a concrete instance of `ListenerPortRangeInput` via:
+//
+//          ListenerPortRangeArgs{...}
 type ListenerPortRangeInput interface {
 	pulumi.Input
 
@@ -381,6 +434,10 @@ func (i ListenerPortRangeArgs) ToListenerPortRangeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerPortRangeOutput)
 }
 
+// ListenerPortRangeArrayInput is an input type that accepts ListenerPortRangeArray and ListenerPortRangeArrayOutput values.
+// You can construct a concrete instance of `ListenerPortRangeArrayInput` via:
+//
+//          ListenerPortRangeArray{ ListenerPortRangeArgs{...} }
 type ListenerPortRangeArrayInput interface {
 	pulumi.Input
 

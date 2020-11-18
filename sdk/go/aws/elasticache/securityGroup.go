@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an ElastiCache Security Group to control access to one or more cache
@@ -16,6 +16,36 @@ import (
 // > **NOTE:** ElastiCache Security Groups are for use only when working with an
 // ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
 // ElastiCache Subnet Group resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		barSecurityGroup, err := ec2.NewSecurityGroup(ctx, "barSecurityGroup", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = elasticache.NewSecurityGroup(ctx, "barElasticache_securityGroupSecurityGroup", &elasticache.SecurityGroupArgs{
+// 			SecurityGroupNames: pulumi.StringArray{
+// 				barSecurityGroup.Name,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SecurityGroup struct {
 	pulumi.CustomResourceState
 

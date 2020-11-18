@@ -2,30 +2,28 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * This data source can be used to fetch information about a specific
  * IAM group. By using this data source, you can reference IAM group
  * properties without having to hard code ARNs as input.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.iam.getGroup({
- *     groupName: "anExampleGroupName",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_group.html.markdown.
+ * const example = pulumi.output(aws.iam.getGroup({
+ *     groupName: "an_example_group_name",
+ * }, { async: true }));
+ * ```
  */
-export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> & GetGroupResult {
+export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,11 +31,9 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetGroupResult> = pulumi.runtime.invoke("aws:iam/getGroup:getGroup", {
+    return pulumi.runtime.invoke("aws:iam/getGroup:getGroup", {
         "groupName": args.groupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -64,6 +60,10 @@ export interface GetGroupResult {
     readonly groupId: string;
     readonly groupName: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The path to the iam user.
      */
     readonly path: string;
@@ -71,8 +71,4 @@ export interface GetGroupResult {
      * List of objects containing group member information. See supported fields below.
      */
     readonly users: outputs.iam.GetGroupUser[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

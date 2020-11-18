@@ -2,42 +2,36 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The AWS Inspector Rules Packages data source allows access to the list of AWS
  * Inspector Rules Packages which can be used by AWS Inspector within the region
  * configured in the provider.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * // Declare the data source
- * const rules = aws.inspector.getRulesPackages();
- * // e.g. Use in aws.inspector.AssessmentTemplate
- * const group = new aws.inspector.ResourceGroup("group", {
- *     tags: {
- *         test: "test",
- *     },
- * });
- * const assessmentAssessmentTarget = new aws.inspector.AssessmentTarget("assessment", {
- *     resourceGroupArn: group.arn,
- * });
- * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessment", {
- *     duration: 60,
- *     rulesPackageArns: rules.arns,
+ *
+ * const rules = aws.inspector.getRulesPackages({});
+ * // e.g. Use in aws_inspector_assessment_template
+ * const group = new aws.inspector.ResourceGroup("group", {tags: {
+ *     test: "test",
+ * }});
+ * const assessmentAssessmentTarget = new aws.inspector.AssessmentTarget("assessmentAssessmentTarget", {resourceGroupArn: group.arn});
+ * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessmentAssessmentTemplate", {
  *     targetArn: assessmentAssessmentTarget.arn,
+ *     duration: "60",
+ *     rulesPackageArns: rules.then(rules => rules.arns),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/inspector_rules_packages.html.markdown.
  */
-export function getRulesPackages(opts?: pulumi.InvokeOptions): Promise<GetRulesPackagesResult> & GetRulesPackagesResult {
+export function getRulesPackages(opts?: pulumi.InvokeOptions): Promise<GetRulesPackagesResult> {
     if (!opts) {
         opts = {}
     }
@@ -45,10 +39,8 @@ export function getRulesPackages(opts?: pulumi.InvokeOptions): Promise<GetRulesP
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRulesPackagesResult> = pulumi.runtime.invoke("aws:inspector/getRulesPackages:getRulesPackages", {
+    return pulumi.runtime.invoke("aws:inspector/getRulesPackages:getRulesPackages", {
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -60,7 +52,7 @@ export interface GetRulesPackagesResult {
      */
     readonly arns: string[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

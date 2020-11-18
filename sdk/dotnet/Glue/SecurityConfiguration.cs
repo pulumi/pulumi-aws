@@ -12,9 +12,39 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Manages a Glue Security Configuration.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_security_configuration.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.SecurityConfiguration("example", new Aws.Glue.SecurityConfigurationArgs
+    ///         {
+    ///             EncryptionConfiguration = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationArgs
+    ///             {
+    ///                 CloudwatchEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs
+    ///                 {
+    ///                     CloudwatchEncryptionMode = "DISABLED",
+    ///                 },
+    ///                 JobBookmarksEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs
+    ///                 {
+    ///                     JobBookmarksEncryptionMode = "DISABLED",
+    ///                 },
+    ///                 S3Encryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs
+    ///                 {
+    ///                     KmsKeyArn = data.Aws_kms_key.Example.Arn,
+    ///                     S3EncryptionMode = "SSE-KMS",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SecurityConfiguration : Pulumi.CustomResource
     {
@@ -39,7 +69,7 @@ namespace Pulumi.Aws.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityConfiguration(string name, SecurityConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws:glue/securityConfiguration:SecurityConfiguration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:glue/securityConfiguration:SecurityConfiguration", name, args ?? new SecurityConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -110,253 +140,5 @@ namespace Pulumi.Aws.Glue
         public SecurityConfigurationState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SecurityConfigurationEncryptionConfigurationArgs : Pulumi.ResourceArgs
-    {
-        [Input("cloudwatchEncryption", required: true)]
-        public Input<SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs> CloudwatchEncryption { get; set; } = null!;
-
-        [Input("jobBookmarksEncryption", required: true)]
-        public Input<SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs> JobBookmarksEncryption { get; set; } = null!;
-
-        /// <summary>
-        /// A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
-        /// </summary>
-        [Input("s3Encryption", required: true)]
-        public Input<SecurityConfigurationEncryptionConfigurationS3EncryptionArgs> S3Encryption { get; set; } = null!;
-
-        public SecurityConfigurationEncryptionConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
-        /// </summary>
-        [Input("cloudwatchEncryptionMode")]
-        public Input<string>? CloudwatchEncryptionMode { get; set; }
-
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        public SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs()
-        {
-        }
-    }
-
-    public sealed class SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
-        /// </summary>
-        [Input("cloudwatchEncryptionMode")]
-        public Input<string>? CloudwatchEncryptionMode { get; set; }
-
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        public SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionGetArgs()
-        {
-        }
-    }
-
-    public sealed class SecurityConfigurationEncryptionConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("cloudwatchEncryption", required: true)]
-        public Input<SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionGetArgs> CloudwatchEncryption { get; set; } = null!;
-
-        [Input("jobBookmarksEncryption", required: true)]
-        public Input<SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionGetArgs> JobBookmarksEncryption { get; set; } = null!;
-
-        /// <summary>
-        /// A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
-        /// </summary>
-        [Input("s3Encryption", required: true)]
-        public Input<SecurityConfigurationEncryptionConfigurationS3EncryptionGetArgs> S3Encryption { get; set; } = null!;
-
-        public SecurityConfigurationEncryptionConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
-        /// </summary>
-        [Input("jobBookmarksEncryptionMode")]
-        public Input<string>? JobBookmarksEncryptionMode { get; set; }
-
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        public SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs()
-        {
-        }
-    }
-
-    public sealed class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
-        /// </summary>
-        [Input("jobBookmarksEncryptionMode")]
-        public Input<string>? JobBookmarksEncryptionMode { get; set; }
-
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        public SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionGetArgs()
-        {
-        }
-    }
-
-    public sealed class SecurityConfigurationEncryptionConfigurationS3EncryptionArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        /// <summary>
-        /// Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
-        /// </summary>
-        [Input("s3EncryptionMode")]
-        public Input<string>? S3EncryptionMode { get; set; }
-
-        public SecurityConfigurationEncryptionConfigurationS3EncryptionArgs()
-        {
-        }
-    }
-
-    public sealed class SecurityConfigurationEncryptionConfigurationS3EncryptionGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        /// <summary>
-        /// Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
-        /// </summary>
-        [Input("s3EncryptionMode")]
-        public Input<string>? S3EncryptionMode { get; set; }
-
-        public SecurityConfigurationEncryptionConfigurationS3EncryptionGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SecurityConfigurationEncryptionConfiguration
-    {
-        public readonly SecurityConfigurationEncryptionConfigurationCloudwatchEncryption CloudwatchEncryption;
-        public readonly SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption JobBookmarksEncryption;
-        /// <summary>
-        /// A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
-        /// </summary>
-        public readonly SecurityConfigurationEncryptionConfigurationS3Encryption S3Encryption;
-
-        [OutputConstructor]
-        private SecurityConfigurationEncryptionConfiguration(
-            SecurityConfigurationEncryptionConfigurationCloudwatchEncryption cloudwatchEncryption,
-            SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption jobBookmarksEncryption,
-            SecurityConfigurationEncryptionConfigurationS3Encryption s3Encryption)
-        {
-            CloudwatchEncryption = cloudwatchEncryption;
-            JobBookmarksEncryption = jobBookmarksEncryption;
-            S3Encryption = s3Encryption;
-        }
-    }
-
-    [OutputType]
-    public sealed class SecurityConfigurationEncryptionConfigurationCloudwatchEncryption
-    {
-        /// <summary>
-        /// Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
-        /// </summary>
-        public readonly string? CloudwatchEncryptionMode;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
-        public readonly string? KmsKeyArn;
-
-        [OutputConstructor]
-        private SecurityConfigurationEncryptionConfigurationCloudwatchEncryption(
-            string? cloudwatchEncryptionMode,
-            string? kmsKeyArn)
-        {
-            CloudwatchEncryptionMode = cloudwatchEncryptionMode;
-            KmsKeyArn = kmsKeyArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption
-    {
-        /// <summary>
-        /// Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
-        /// </summary>
-        public readonly string? JobBookmarksEncryptionMode;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
-        public readonly string? KmsKeyArn;
-
-        [OutputConstructor]
-        private SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption(
-            string? jobBookmarksEncryptionMode,
-            string? kmsKeyArn)
-        {
-            JobBookmarksEncryptionMode = jobBookmarksEncryptionMode;
-            KmsKeyArn = kmsKeyArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class SecurityConfigurationEncryptionConfigurationS3Encryption
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
-        public readonly string? KmsKeyArn;
-        /// <summary>
-        /// Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
-        /// </summary>
-        public readonly string? S3EncryptionMode;
-
-        [OutputConstructor]
-        private SecurityConfigurationEncryptionConfigurationS3Encryption(
-            string? kmsKeyArn,
-            string? s3EncryptionMode)
-        {
-            KmsKeyArn = kmsKeyArn;
-            S3EncryptionMode = s3EncryptionMode;
-        }
-    }
     }
 }

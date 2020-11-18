@@ -4,10 +4,63 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides information about a Launch Template.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "my-launch-template"
+// 		_, err := ec2.LookupLaunchTemplate(ctx, &ec2.LookupLaunchTemplateArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Filter
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.LookupLaunchTemplate(ctx, &ec2.LookupLaunchTemplateArgs{
+// 			Filters: []ec2.GetLaunchTemplateFilter{
+// 				ec2.GetLaunchTemplateFilter{
+// 					Name: "launch-template-name",
+// 					Values: []string{
+// 						"some-template",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupLaunchTemplate(ctx *pulumi.Context, args *LookupLaunchTemplateArgs, opts ...pulumi.InvokeOption) (*LookupLaunchTemplateResult, error) {
 	var rv LookupLaunchTemplateResult
 	err := ctx.Invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", args, &rv, opts...)
@@ -23,8 +76,8 @@ type LookupLaunchTemplateArgs struct {
 	Filters []GetLaunchTemplateFilter `pulumi:"filters"`
 	// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
 	Name *string `pulumi:"name"`
-	// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLaunchTemplate.
@@ -54,7 +107,7 @@ type LookupLaunchTemplateResult struct {
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfiles []GetLaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfiles"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The AMI from which to launch the instance.
 	ImageId string `pulumi:"imageId"`
@@ -89,8 +142,8 @@ type LookupLaunchTemplateResult struct {
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// The tags to apply to the resources during launch.
 	TagSpecifications []GetLaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
-	// (Optional) A mapping of tags to assign to the launch template.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// (Optional) A map of tags to assign to the launch template.
+	Tags map[string]string `pulumi:"tags"`
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData string `pulumi:"userData"`
 	// A list of security group IDs to associate with.

@@ -4,24 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an Application AutoScaling Policy resource.
- * 
+ *
  * ## Example Usage
- * 
  * ### DynamoDB Table Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodbTableReadTarget", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
  *     resourceId: "table/tableName",
- *     roleArn: aws_iam_role_DynamoDBAutoscaleRole.arn,
  *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });
@@ -38,18 +37,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
  * ### ECS Service Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
  *     resourceId: "service/clusterName/serviceName",
- *     roleArn: var_ecs_iam_role,
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
  * });
@@ -63,80 +60,52 @@ import * as utilities from "../utilities";
  *         cooldown: 60,
  *         metricAggregationType: "Maximum",
  *         stepAdjustments: [{
- *             metricIntervalUpperBound: "0",
+ *             metricIntervalUpperBound: 0,
  *             scalingAdjustment: -1,
  *         }],
  *     },
  * });
  * ```
- * 
  * ### Preserve desired count when updating an autoscaled ECS Service
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ecsService = new aws.ecs.Service("ecsService", {
  *     cluster: "clusterName",
- *     desiredCount: 2,
  *     taskDefinition: "taskDefinitionFamily:1",
- * }, {ignoreChanges: ["desiredCount"]});
+ *     desiredCount: 2,
+ * });
  * ```
- * 
  * ### Aurora Read Replica Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const replicasTarget = new aws.appautoscaling.Target("replicas", {
- *     maxCapacity: 15,
- *     minCapacity: 1,
- *     resourceId: pulumi.interpolate`cluster:${aws_rds_cluster_example.id}`,
- *     scalableDimension: "rds:cluster:ReadReplicaCount",
+ *
+ * const replicasTarget = new aws.appautoscaling.Target("replicasTarget", {
  *     serviceNamespace: "rds",
+ *     scalableDimension: "rds:cluster:ReadReplicaCount",
+ *     resourceId: `cluster:${aws_rds_cluster.example.id}`,
+ *     minCapacity: 1,
+ *     maxCapacity: 15,
  * });
- * const replicasPolicy = new aws.appautoscaling.Policy("replicas", {
- *     policyType: "TargetTrackingScaling",
- *     resourceId: replicasTarget.resourceId,
- *     scalableDimension: replicasTarget.scalableDimension,
+ * const replicasPolicy = new aws.appautoscaling.Policy("replicasPolicy", {
  *     serviceNamespace: replicasTarget.serviceNamespace,
+ *     scalableDimension: replicasTarget.scalableDimension,
+ *     resourceId: replicasTarget.resourceId,
+ *     policyType: "TargetTrackingScaling",
  *     targetTrackingScalingPolicyConfiguration: {
  *         predefinedMetricSpecification: {
  *             predefinedMetricType: "RDSReaderAverageCPUUtilization",
  *         },
+ *         targetValue: 75,
  *         scaleInCooldown: 300,
  *         scaleOutCooldown: 300,
- *         targetValue: 75,
  *     },
  * });
  * ```
- * 
- * ## Nested fields
- * 
- * ### `targetTrackingScalingPolicyConfiguration`
- * 
- * * `targetValue` - (Required) The target value for the metric.
- * * `disableScaleIn` - (Optional) Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
- * * `scaleInCooldown` - (Optional) The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
- * * `scaleOutCooldown` - (Optional) The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
- * * `customizedMetricSpecification` - (Optional) A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
- * * `predefinedMetricSpecification` - (Optional) A predefined metric. See supported fields below.
- * 
- * ### `customizedMetricSpecification`
- * 
- * * `dimensions` - (Optional) The dimensions of the metric.
- * * `metricName` - (Required) The name of the metric.
- * * `namespace` - (Required) The namespace of the metric.
- * * `statistic` - (Required) The statistic of the metric.
- * * `unit` - (Optional) The unit of the metric.
- * 
- * ### `predefinedMetricSpecification`
- * 
- * * `predefinedMetricType` - (Required) The metric type.
- * * `resourceLabel` - (Optional) Reserved for future use.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_policy.html.markdown.
  */
 export class Policy extends pulumi.CustomResource {
     /**
@@ -146,6 +115,7 @@ export class Policy extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PolicyState, opts?: pulumi.CustomResourceOptions): Policy {
         return new Policy(name, <any>state, { ...opts, id: id });
@@ -174,7 +144,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * For DynamoDB, only `TargetTrackingScaling` is supported. For Amazon ECS, Spot Fleet, and Amazon RDS, both `StepScaling` and `TargetTrackingScaling` are supported. For any other service, only `StepScaling` is supported. Defaults to `StepScaling`.
+     * The policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
      */
     public readonly policyType!: pulumi.Output<string | undefined>;
     /**
@@ -262,7 +232,7 @@ export interface PolicyState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * For DynamoDB, only `TargetTrackingScaling` is supported. For Amazon ECS, Spot Fleet, and Amazon RDS, both `StepScaling` and `TargetTrackingScaling` are supported. For any other service, only `StepScaling` is supported. Defaults to `StepScaling`.
+     * The policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
      */
     readonly policyType?: pulumi.Input<string>;
     /**
@@ -296,7 +266,7 @@ export interface PolicyArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * For DynamoDB, only `TargetTrackingScaling` is supported. For Amazon ECS, Spot Fleet, and Amazon RDS, both `StepScaling` and `TargetTrackingScaling` are supported. For any other service, only `StepScaling` is supported. Defaults to `StepScaling`.
+     * The policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
      */
     readonly policyType?: pulumi.Input<string>;
     /**

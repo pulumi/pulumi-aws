@@ -4,81 +4,80 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {Deployment} from "./deployment";
-import {RestApi} from "./restApi";
+import {Deployment, RestApi} from "./index";
 
 /**
  * Provides an API Gateway Stage.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testRestApi = new aws.apigateway.RestApi("test", {
- *     description: "This is my API for demonstration purposes",
- * });
- * const testResource = new aws.apigateway.Resource("test", {
+ *
+ * const testRestApi = new aws.apigateway.RestApi("testRestApi", {description: "This is my API for demonstration purposes"});
+ * const testResource = new aws.apigateway.Resource("testResource", {
+ *     restApi: testRestApi.id,
  *     parentId: testRestApi.rootResourceId,
  *     pathPart: "mytestresource",
- *     restApi: testRestApi.id,
  * });
- * const testMethod = new aws.apigateway.Method("test", {
- *     authorization: "NONE",
+ * const testMethod = new aws.apigateway.Method("testMethod", {
+ *     restApi: testRestApi.id,
+ *     resourceId: testResource.id,
  *     httpMethod: "GET",
- *     resourceId: testResource.id,
- *     restApi: testRestApi.id,
+ *     authorization: "NONE",
  * });
- * const testIntegration = new aws.apigateway.Integration("test", {
- *     httpMethod: testMethod.httpMethod,
- *     resourceId: testResource.id,
+ * const testIntegration = new aws.apigateway.Integration("testIntegration", {
  *     restApi: testRestApi.id,
+ *     resourceId: testResource.id,
+ *     httpMethod: testMethod.httpMethod,
  *     type: "MOCK",
  * });
- * const testDeployment = new aws.apigateway.Deployment("test", {
+ * const testDeployment = new aws.apigateway.Deployment("testDeployment", {
  *     restApi: testRestApi.id,
  *     stageName: "dev",
- * }, {dependsOn: [testIntegration]});
- * const testStage = new aws.apigateway.Stage("test", {
- *     deployment: testDeployment.id,
- *     restApi: testRestApi.id,
- *     stageName: "prod",
+ * }, {
+ *     dependsOn: [testIntegration],
  * });
- * const methodSettings = new aws.apigateway.MethodSettings("s", {
- *     methodPath: pulumi.interpolate`${testResource.pathPart}/${testMethod.httpMethod}`,
+ * const testStage = new aws.apigateway.Stage("testStage", {
+ *     stageName: "prod",
  *     restApi: testRestApi.id,
- *     settings: {
- *         loggingLevel: "INFO",
- *         metricsEnabled: true,
- *     },
+ *     deployment: testDeployment.id,
+ * });
+ * const methodSettings = new aws.apigateway.MethodSettings("methodSettings", {
+ *     restApi: testRestApi.id,
  *     stageName: testStage.stageName,
+ *     methodPath: pulumi.interpolate`${testResource.pathPart}/${testMethod.httpMethod}`,
+ *     settings: {
+ *         metricsEnabled: true,
+ *         loggingLevel: "INFO",
+ *     },
  * });
  * ```
- * 
  * ### Managing the API Logging CloudWatch Log Group
- * 
+ *
+ * API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, the `aws.cloudwatch.LogGroup` resource can be imported as a one time operation and recreation of the environment can occur without import.
+ *
+ * > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with API Gateway automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const stageName = config.get("stageName") || "example";
- * 
- * const exampleRestApi = new aws.apigateway.RestApi("example", {});
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
- *     retentionInDays: 7,
+ * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
+ * // ... other configuration ...
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 7});
+ * // ... potentially other configuration ...
+ * const exampleStage = new aws.apigateway.Stage("exampleStage", {stageName: stageName}, {
+ *     dependsOn: [exampleLogGroup],
  * });
- * const exampleStage = new aws.apigateway.Stage("example", {
- *     name: stageName,
- * }, {dependsOn: [exampleLogGroup]});
+ * // ... other configuration ...
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_stage.html.markdown.
  */
 export class Stage extends pulumi.CustomResource {
     /**
@@ -88,6 +87,7 @@ export class Stage extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: StageState, opts?: pulumi.CustomResourceOptions): Stage {
         return new Stage(name, <any>state, { ...opts, id: id });
@@ -141,7 +141,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly documentationVersion!: pulumi.Output<string | undefined>;
     /**
-     * The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+     * The execution ARN to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
@@ -160,13 +160,13 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly stageName!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map that defines the stage variables
      */
-    public readonly variables!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly variables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      */
@@ -275,7 +275,7 @@ export interface StageState {
      */
     readonly documentationVersion?: pulumi.Input<string>;
     /**
-     * The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+     * The execution ARN to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
@@ -294,13 +294,13 @@ export interface StageState {
      */
     readonly stageName?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map that defines the stage variables
      */
-    readonly variables?: pulumi.Input<{[key: string]: any}>;
+    readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      */
@@ -349,13 +349,13 @@ export interface StageArgs {
      */
     readonly stageName: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map that defines the stage variables
      */
-    readonly variables?: pulumi.Input<{[key: string]: any}>;
+    readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      */

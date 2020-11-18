@@ -4,10 +4,45 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Information about single EC2 Instance Type Offering.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.GetInstanceTypeOffering(ctx, &ec2.GetInstanceTypeOfferingArgs{
+// 			Filters: []ec2.GetInstanceTypeOfferingFilter{
+// 				ec2.GetInstanceTypeOfferingFilter{
+// 					Name: "instance-type",
+// 					Values: []string{
+// 						"t2.micro",
+// 						"t3.micro",
+// 					},
+// 				},
+// 			},
+// 			PreferredInstanceTypes: []string{
+// 				"t3.micro",
+// 				"t2.micro",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetInstanceTypeOffering(ctx *pulumi.Context, args *GetInstanceTypeOfferingArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypeOfferingResult, error) {
 	var rv GetInstanceTypeOfferingResult
 	err := ctx.Invoke("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args, &rv, opts...)
@@ -30,7 +65,7 @@ type GetInstanceTypeOfferingArgs struct {
 // A collection of values returned by getInstanceTypeOffering.
 type GetInstanceTypeOfferingResult struct {
 	Filters []GetInstanceTypeOfferingFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// EC2 Instance Type.
 	InstanceType           string   `pulumi:"instanceType"`

@@ -5,10 +5,38 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct master account on read, and disassociate with the master account upon removal.
- * 
+ * Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/guardduty_invite_accepter.html.markdown.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const primary = new aws.Provider("primary", {});
+ * const member = new aws.Provider("member", {});
+ * const primaryDetector = new aws.guardduty.Detector("primaryDetector", {}, {
+ *     provider: aws.primary,
+ * });
+ * const memberDetector = new aws.guardduty.Detector("memberDetector", {}, {
+ *     provider: aws.member,
+ * });
+ * const memberMember = new aws.guardduty.Member("memberMember", {
+ *     accountId: memberDetector.accountId,
+ *     detectorId: primaryDetector.id,
+ *     email: "required@example.com",
+ *     invite: true,
+ * }, {
+ *     provider: aws.primary,
+ * });
+ * const memberInviteAccepter = new aws.guardduty.InviteAccepter("memberInviteAccepter", {
+ *     detectorId: memberDetector.id,
+ *     masterAccountId: primaryDetector.accountId,
+ * }, {
+ *     provider: aws.member,
+ *     dependsOn: [memberMember],
+ * });
+ * ```
  */
 export class InviteAccepter extends pulumi.CustomResource {
     /**
@@ -18,6 +46,7 @@ export class InviteAccepter extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: InviteAccepterState, opts?: pulumi.CustomResourceOptions): InviteAccepter {
         return new InviteAccepter(name, <any>state, { ...opts, id: id });
@@ -42,7 +71,7 @@ export class InviteAccepter extends pulumi.CustomResource {
      */
     public readonly detectorId!: pulumi.Output<string>;
     /**
-     * AWS account ID for master account.
+     * AWS account ID for primary account.
      */
     public readonly masterAccountId!: pulumi.Output<string>;
 
@@ -91,7 +120,7 @@ export interface InviteAccepterState {
      */
     readonly detectorId?: pulumi.Input<string>;
     /**
-     * AWS account ID for master account.
+     * AWS account ID for primary account.
      */
     readonly masterAccountId?: pulumi.Input<string>;
 }
@@ -105,7 +134,7 @@ export interface InviteAccepterArgs {
      */
     readonly detectorId: pulumi.Input<string>;
     /**
-     * AWS account ID for master account.
+     * AWS account ID for primary account.
      */
     readonly masterAccountId: pulumi.Input<string>;
 }

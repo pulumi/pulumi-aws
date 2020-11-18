@@ -7,15 +7,117 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a DMS (Data Migration Service) replication instance resource. DMS replication instances can be created, updated, deleted, and imported.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/dms"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		dmsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			Statements: []iam.GetPolicyDocumentStatement{
+// 				iam.GetPolicyDocumentStatement{
+// 					Actions: []string{
+// 						"sts:AssumeRole",
+// 					},
+// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// 						iam.GetPolicyDocumentStatementPrincipal{
+// 							Identifiers: []string{
+// 								"dms.amazonaws.com",
+// 							},
+// 							Type: "Service",
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRole(ctx, "dms_access_for_endpoint", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "dms_access_for_endpoint_AmazonDMSRedshiftS3Role", &iam.RolePolicyAttachmentArgs{
+// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role"),
+// 			Role:      dms_access_for_endpoint.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRole(ctx, "dms_cloudwatch_logs_role", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole", &iam.RolePolicyAttachmentArgs{
+// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole"),
+// 			Role:      dms_cloudwatch_logs_role.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRole(ctx, "dms_vpc_role", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "dms_vpc_role_AmazonDMSVPCManagementRole", &iam.RolePolicyAttachmentArgs{
+// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole"),
+// 			Role:      dms_vpc_role.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = dms.NewReplicationInstance(ctx, "test", &dms.ReplicationInstanceArgs{
+// 			AllocatedStorage:           pulumi.Int(20),
+// 			ApplyImmediately:           pulumi.Bool(true),
+// 			AutoMinorVersionUpgrade:    pulumi.Bool(true),
+// 			AvailabilityZone:           pulumi.String("us-west-2c"),
+// 			EngineVersion:              pulumi.String("3.1.4"),
+// 			KmsKeyArn:                  pulumi.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"),
+// 			MultiAz:                    pulumi.Bool(false),
+// 			PreferredMaintenanceWindow: pulumi.String("sun:10:30-sun:14:30"),
+// 			PubliclyAccessible:         pulumi.Bool(true),
+// 			ReplicationInstanceClass:   pulumi.String("dms.t2.micro"),
+// 			ReplicationInstanceId:      pulumi.String("test-dms-replication-instance-tf"),
+// 			ReplicationSubnetGroupId:   pulumi.Any(aws_dms_replication_subnet_group.Test - dms - replication - subnet - group - tf.Id),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("test"),
+// 			},
+// 			VpcSecurityGroupIds: pulumi.StringArray{
+// 				pulumi.String("sg-12345678"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ReplicationInstance struct {
 	pulumi.CustomResourceState
 
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 	AllocatedStorage pulumi.IntOutput `pulumi:"allocatedStorage"`
+	// Indicates that major version upgrades are allowed.
+	AllowMajorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"allowMajorVersionUpgrade"`
 	// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
 	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
@@ -44,8 +146,8 @@ type ReplicationInstance struct {
 	ReplicationInstancePublicIps pulumi.StringArrayOutput `pulumi:"replicationInstancePublicIps"`
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId pulumi.StringOutput `pulumi:"replicationSubnetGroupId"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
@@ -86,6 +188,8 @@ func GetReplicationInstance(ctx *pulumi.Context,
 type replicationInstanceState struct {
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 	AllocatedStorage *int `pulumi:"allocatedStorage"`
+	// Indicates that major version upgrades are allowed.
+	AllowMajorVersionUpgrade *bool `pulumi:"allowMajorVersionUpgrade"`
 	// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
@@ -114,8 +218,8 @@ type replicationInstanceState struct {
 	ReplicationInstancePublicIps []string `pulumi:"replicationInstancePublicIps"`
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId *string `pulumi:"replicationSubnetGroupId"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -123,6 +227,8 @@ type replicationInstanceState struct {
 type ReplicationInstanceState struct {
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 	AllocatedStorage pulumi.IntPtrInput
+	// Indicates that major version upgrades are allowed.
+	AllowMajorVersionUpgrade pulumi.BoolPtrInput
 	// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
 	ApplyImmediately pulumi.BoolPtrInput
 	// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
@@ -151,8 +257,8 @@ type ReplicationInstanceState struct {
 	ReplicationInstancePublicIps pulumi.StringArrayInput
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
@@ -164,6 +270,8 @@ func (ReplicationInstanceState) ElementType() reflect.Type {
 type replicationInstanceArgs struct {
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 	AllocatedStorage *int `pulumi:"allocatedStorage"`
+	// Indicates that major version upgrades are allowed.
+	AllowMajorVersionUpgrade *bool `pulumi:"allowMajorVersionUpgrade"`
 	// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
@@ -186,8 +294,8 @@ type replicationInstanceArgs struct {
 	ReplicationInstanceId string `pulumi:"replicationInstanceId"`
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId *string `pulumi:"replicationSubnetGroupId"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -196,6 +304,8 @@ type replicationInstanceArgs struct {
 type ReplicationInstanceArgs struct {
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 	AllocatedStorage pulumi.IntPtrInput
+	// Indicates that major version upgrades are allowed.
+	AllowMajorVersionUpgrade pulumi.BoolPtrInput
 	// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
 	ApplyImmediately pulumi.BoolPtrInput
 	// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
@@ -218,8 +328,8 @@ type ReplicationInstanceArgs struct {
 	ReplicationInstanceId pulumi.StringInput
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }

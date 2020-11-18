@@ -12,9 +12,161 @@ namespace Pulumi.Aws.Msk
     /// <summary>
     /// Manages AWS Managed Streaming for Kafka cluster
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_cluster.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var vpc = new Aws.Ec2.Vpc("vpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "192.168.0.0/22",
+    ///         });
+    ///         var azs = Output.Create(Aws.GetAvailabilityZones.InvokeAsync(new Aws.GetAvailabilityZonesArgs
+    ///         {
+    ///             State = "available",
+    ///         }));
+    ///         var subnetAz1 = new Aws.Ec2.Subnet("subnetAz1", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             AvailabilityZone = azs.Apply(azs =&gt; azs.Names[0]),
+    ///             CidrBlock = "192.168.0.0/24",
+    ///             VpcId = vpc.Id,
+    ///         });
+    ///         var subnetAz2 = new Aws.Ec2.Subnet("subnetAz2", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             AvailabilityZone = azs.Apply(azs =&gt; azs.Names[1]),
+    ///             CidrBlock = "192.168.1.0/24",
+    ///             VpcId = vpc.Id,
+    ///         });
+    ///         var subnetAz3 = new Aws.Ec2.Subnet("subnetAz3", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             AvailabilityZone = azs.Apply(azs =&gt; azs.Names[2]),
+    ///             CidrBlock = "192.168.2.0/24",
+    ///             VpcId = vpc.Id,
+    ///         });
+    ///         var sg = new Aws.Ec2.SecurityGroup("sg", new Aws.Ec2.SecurityGroupArgs
+    ///         {
+    ///             VpcId = vpc.Id,
+    ///         });
+    ///         var kms = new Aws.Kms.Key("kms", new Aws.Kms.KeyArgs
+    ///         {
+    ///             Description = "example",
+    ///         });
+    ///         var test = new Aws.CloudWatch.LogGroup("test", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///         });
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///             Acl = "private",
+    ///         });
+    ///         var firehoseRole = new Aws.Iam.Role("firehoseRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    /// ""Version"": ""2012-10-17"",
+    /// ""Statement"": [
+    ///   {
+    ///     ""Action"": ""sts:AssumeRole"",
+    ///     ""Principal"": {
+    ///       ""Service"": ""firehose.amazonaws.com""
+    ///     },
+    ///     ""Effect"": ""Allow"",
+    ///     ""Sid"": """"
+    ///   }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "s3",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = firehoseRole.Arn,
+    ///                 BucketArn = bucket.Arn,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "LogDeliveryEnabled", "placeholder" },
+    ///             },
+    ///         });
+    ///         var example = new Aws.Msk.Cluster("example", new Aws.Msk.ClusterArgs
+    ///         {
+    ///             KafkaVersion = "2.4.1",
+    ///             NumberOfBrokerNodes = 3,
+    ///             BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
+    ///             {
+    ///                 InstanceType = "kafka.m5.large",
+    ///                 EbsVolumeSize = 1000,
+    ///                 ClientSubnets = 
+    ///                 {
+    ///                     subnetAz1.Id,
+    ///                     subnetAz2.Id,
+    ///                     subnetAz3.Id,
+    ///                 },
+    ///                 SecurityGroups = 
+    ///                 {
+    ///                     sg.Id,
+    ///                 },
+    ///             },
+    ///             EncryptionInfo = new Aws.Msk.Inputs.ClusterEncryptionInfoArgs
+    ///             {
+    ///                 EncryptionAtRestKmsKeyArn = kms.Arn,
+    ///             },
+    ///             OpenMonitoring = new Aws.Msk.Inputs.ClusterOpenMonitoringArgs
+    ///             {
+    ///                 Prometheus = new Aws.Msk.Inputs.ClusterOpenMonitoringPrometheusArgs
+    ///                 {
+    ///                     JmxExporter = new Aws.Msk.Inputs.ClusterOpenMonitoringPrometheusJmxExporterArgs
+    ///                     {
+    ///                         EnabledInBroker = true,
+    ///                     },
+    ///                     NodeExporter = new Aws.Msk.Inputs.ClusterOpenMonitoringPrometheusNodeExporterArgs
+    ///                     {
+    ///                         EnabledInBroker = true,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             LoggingInfo = new Aws.Msk.Inputs.ClusterLoggingInfoArgs
+    ///             {
+    ///                 BrokerLogs = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsArgs
+    ///                 {
+    ///                     CloudwatchLogs = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         LogGroup = test.Name,
+    ///                     },
+    ///                     Firehose = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsFirehoseArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         DeliveryStream = testStream.Name,
+    ///                     },
+    ///                     S3 = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsS3Args
+    ///                     {
+    ///                         Enabled = true,
+    ///                         Bucket = bucket.Id,
+    ///                         Prefix = "logs/msk-",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "foo", "bar" },
+    ///             },
+    ///         });
+    ///         this.ZookeeperConnectString = example.ZookeeperConnectString;
+    ///         this.BootstrapBrokersTls = example.BootstrapBrokersTls;
+    ///     }
+    /// 
+    ///     [Output("zookeeperConnectString")]
+    ///     public Output&lt;string&gt; ZookeeperConnectString { get; set; }
+    ///     [Output("bootstrapBrokersTls")]
+    ///     public Output&lt;string&gt; BootstrapBrokersTls { get; set; }
+    /// }
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -25,13 +177,13 @@ namespace Pulumi.Aws.Msk
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+        /// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
         /// </summary>
         [Output("bootstrapBrokers")]
         public Output<string> BootstrapBrokers { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+        /// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
         /// </summary>
         [Output("bootstrapBrokersTls")]
         public Output<string> BootstrapBrokersTls { get; private set; } = null!;
@@ -104,10 +256,10 @@ namespace Pulumi.Aws.Msk
         public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource
+        /// A map of tags to assign to the resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
@@ -124,7 +276,7 @@ namespace Pulumi.Aws.Msk
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("aws:msk/cluster:Cluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:msk/cluster:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -176,8 +328,8 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// Name of the MSK cluster.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
@@ -222,14 +374,14 @@ namespace Pulumi.Aws.Msk
         public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource
+        /// A map of tags to assign to the resource
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -247,13 +399,13 @@ namespace Pulumi.Aws.Msk
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+        /// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
         /// </summary>
         [Input("bootstrapBrokers")]
         public Input<string>? BootstrapBrokers { get; set; }
 
         /// <summary>
-        /// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+        /// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
         /// </summary>
         [Input("bootstrapBrokersTls")]
         public Input<string>? BootstrapBrokersTls { get; set; }
@@ -326,14 +478,14 @@ namespace Pulumi.Aws.Msk
         public Input<Inputs.ClusterOpenMonitoringGetArgs>? OpenMonitoring { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource
+        /// A map of tags to assign to the resource
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -346,898 +498,5 @@ namespace Pulumi.Aws.Msk
         public ClusterState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ClusterBrokerNodeGroupInfoArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
-        /// </summary>
-        [Input("azDistribution")]
-        public Input<string>? AzDistribution { get; set; }
-
-        [Input("clientSubnets", required: true)]
-        private InputList<string>? _clientSubnets;
-
-        /// <summary>
-        /// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-        /// </summary>
-        public InputList<string> ClientSubnets
-        {
-            get => _clientSubnets ?? (_clientSubnets = new InputList<string>());
-            set => _clientSubnets = value;
-        }
-
-        /// <summary>
-        /// The size in GiB of the EBS volume for the data drive on each broker node.
-        /// </summary>
-        [Input("ebsVolumeSize", required: true)]
-        public Input<int> EbsVolumeSize { get; set; } = null!;
-
-        /// <summary>
-        /// Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-        /// </summary>
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        [Input("securityGroups", required: true)]
-        private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-        /// </summary>
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        public ClusterBrokerNodeGroupInfoArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterBrokerNodeGroupInfoGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
-        /// </summary>
-        [Input("azDistribution")]
-        public Input<string>? AzDistribution { get; set; }
-
-        [Input("clientSubnets", required: true)]
-        private InputList<string>? _clientSubnets;
-
-        /// <summary>
-        /// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-        /// </summary>
-        public InputList<string> ClientSubnets
-        {
-            get => _clientSubnets ?? (_clientSubnets = new InputList<string>());
-            set => _clientSubnets = value;
-        }
-
-        /// <summary>
-        /// The size in GiB of the EBS volume for the data drive on each broker node.
-        /// </summary>
-        [Input("ebsVolumeSize", required: true)]
-        public Input<int> EbsVolumeSize { get; set; } = null!;
-
-        /// <summary>
-        /// Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-        /// </summary>
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        [Input("securityGroups", required: true)]
-        private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-        /// </summary>
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        public ClusterBrokerNodeGroupInfoGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterClientAuthenticationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Configuration block for specifying TLS client authentication. See below.
-        /// </summary>
-        [Input("tls")]
-        public Input<ClusterClientAuthenticationTlsArgs>? Tls { get; set; }
-
-        public ClusterClientAuthenticationArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterClientAuthenticationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Configuration block for specifying TLS client authentication. See below.
-        /// </summary>
-        [Input("tls")]
-        public Input<ClusterClientAuthenticationTlsGetArgs>? Tls { get; set; }
-
-        public ClusterClientAuthenticationGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterClientAuthenticationTlsArgs : Pulumi.ResourceArgs
-    {
-        [Input("certificateAuthorityArns")]
-        private InputList<string>? _certificateAuthorityArns;
-
-        /// <summary>
-        /// List of ACM Certificate Authority Amazon Resource Names (ARNs).
-        /// </summary>
-        public InputList<string> CertificateAuthorityArns
-        {
-            get => _certificateAuthorityArns ?? (_certificateAuthorityArns = new InputList<string>());
-            set => _certificateAuthorityArns = value;
-        }
-
-        public ClusterClientAuthenticationTlsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterClientAuthenticationTlsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("certificateAuthorityArns")]
-        private InputList<string>? _certificateAuthorityArns;
-
-        /// <summary>
-        /// List of ACM Certificate Authority Amazon Resource Names (ARNs).
-        /// </summary>
-        public InputList<string> CertificateAuthorityArns
-        {
-            get => _certificateAuthorityArns ?? (_certificateAuthorityArns = new InputList<string>());
-            set => _certificateAuthorityArns = value;
-        }
-
-        public ClusterClientAuthenticationTlsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterConfigurationInfoArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-        /// </summary>
-        [Input("arn", required: true)]
-        public Input<string> Arn { get; set; } = null!;
-
-        /// <summary>
-        /// Revision of the MSK Configuration to use in the cluster.
-        /// </summary>
-        [Input("revision", required: true)]
-        public Input<int> Revision { get; set; } = null!;
-
-        public ClusterConfigurationInfoArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterConfigurationInfoGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-        /// </summary>
-        [Input("arn", required: true)]
-        public Input<string> Arn { get; set; } = null!;
-
-        /// <summary>
-        /// Revision of the MSK Configuration to use in the cluster.
-        /// </summary>
-        [Input("revision", required: true)]
-        public Input<int> Revision { get; set; } = null!;
-
-        public ClusterConfigurationInfoGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterEncryptionInfoArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
-        /// </summary>
-        [Input("encryptionAtRestKmsKeyArn")]
-        public Input<string>? EncryptionAtRestKmsKeyArn { get; set; }
-
-        /// <summary>
-        /// Configuration block to specify encryption in transit. See below.
-        /// </summary>
-        [Input("encryptionInTransit")]
-        public Input<ClusterEncryptionInfoEncryptionInTransitArgs>? EncryptionInTransit { get; set; }
-
-        public ClusterEncryptionInfoArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterEncryptionInfoEncryptionInTransitArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryption_in_transit` block defined, but `TLS` when `encryption_in_transit` block omitted.
-        /// </summary>
-        [Input("clientBroker")]
-        public Input<string>? ClientBroker { get; set; }
-
-        /// <summary>
-        /// Whether data communication among broker nodes is encrypted. Default value: `true`.
-        /// </summary>
-        [Input("inCluster")]
-        public Input<bool>? InCluster { get; set; }
-
-        public ClusterEncryptionInfoEncryptionInTransitArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterEncryptionInfoEncryptionInTransitGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryption_in_transit` block defined, but `TLS` when `encryption_in_transit` block omitted.
-        /// </summary>
-        [Input("clientBroker")]
-        public Input<string>? ClientBroker { get; set; }
-
-        /// <summary>
-        /// Whether data communication among broker nodes is encrypted. Default value: `true`.
-        /// </summary>
-        [Input("inCluster")]
-        public Input<bool>? InCluster { get; set; }
-
-        public ClusterEncryptionInfoEncryptionInTransitGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterEncryptionInfoGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
-        /// </summary>
-        [Input("encryptionAtRestKmsKeyArn")]
-        public Input<string>? EncryptionAtRestKmsKeyArn { get; set; }
-
-        /// <summary>
-        /// Configuration block to specify encryption in transit. See below.
-        /// </summary>
-        [Input("encryptionInTransit")]
-        public Input<ClusterEncryptionInfoEncryptionInTransitGetArgs>? EncryptionInTransit { get; set; }
-
-        public ClusterEncryptionInfoGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterLoggingInfoArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Configuration block for Broker Logs settings for logging info. See below.
-        /// </summary>
-        [Input("brokerLogs", required: true)]
-        public Input<ClusterLoggingInfoBrokerLogsArgs> BrokerLogs { get; set; } = null!;
-
-        public ClusterLoggingInfoArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterLoggingInfoBrokerLogsArgs : Pulumi.ResourceArgs
-    {
-        [Input("cloudwatchLogs")]
-        public Input<ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs>? CloudwatchLogs { get; set; }
-
-        [Input("firehose")]
-        public Input<ClusterLoggingInfoBrokerLogsFirehoseArgs>? Firehose { get; set; }
-
-        [Input("s3")]
-        public Input<ClusterLoggingInfoBrokerLogsS3Args>? S3 { get; set; }
-
-        public ClusterLoggingInfoBrokerLogsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the Cloudwatch Log Group to deliver logs to.
-        /// </summary>
-        [Input("logGroup")]
-        public Input<string>? LogGroup { get; set; }
-
-        public ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the Cloudwatch Log Group to deliver logs to.
-        /// </summary>
-        [Input("logGroup")]
-        public Input<string>? LogGroup { get; set; }
-
-        public ClusterLoggingInfoBrokerLogsCloudwatchLogsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterLoggingInfoBrokerLogsFirehoseArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-        /// </summary>
-        [Input("deliveryStream")]
-        public Input<string>? DeliveryStream { get; set; }
-
-        /// <summary>
-        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public ClusterLoggingInfoBrokerLogsFirehoseArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterLoggingInfoBrokerLogsFirehoseGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-        /// </summary>
-        [Input("deliveryStream")]
-        public Input<string>? DeliveryStream { get; set; }
-
-        /// <summary>
-        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public ClusterLoggingInfoBrokerLogsFirehoseGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterLoggingInfoBrokerLogsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("cloudwatchLogs")]
-        public Input<ClusterLoggingInfoBrokerLogsCloudwatchLogsGetArgs>? CloudwatchLogs { get; set; }
-
-        [Input("firehose")]
-        public Input<ClusterLoggingInfoBrokerLogsFirehoseGetArgs>? Firehose { get; set; }
-
-        [Input("s3")]
-        public Input<ClusterLoggingInfoBrokerLogsS3GetArgs>? S3 { get; set; }
-
-        public ClusterLoggingInfoBrokerLogsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterLoggingInfoBrokerLogsS3Args : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Name of the S3 bucket to deliver logs to. 
-        /// </summary>
-        [Input("bucket")]
-        public Input<string>? Bucket { get; set; }
-
-        /// <summary>
-        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        /// <summary>
-        /// Prefix to append to the folder name. 
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        public ClusterLoggingInfoBrokerLogsS3Args()
-        {
-        }
-    }
-
-    public sealed class ClusterLoggingInfoBrokerLogsS3GetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Name of the S3 bucket to deliver logs to. 
-        /// </summary>
-        [Input("bucket")]
-        public Input<string>? Bucket { get; set; }
-
-        /// <summary>
-        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        /// <summary>
-        /// Prefix to append to the folder name. 
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        public ClusterLoggingInfoBrokerLogsS3GetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterLoggingInfoGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Configuration block for Broker Logs settings for logging info. See below.
-        /// </summary>
-        [Input("brokerLogs", required: true)]
-        public Input<ClusterLoggingInfoBrokerLogsGetArgs> BrokerLogs { get; set; } = null!;
-
-        public ClusterLoggingInfoGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterOpenMonitoringArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Configuration block for Prometheus settings for open monitoring. See below.
-        /// </summary>
-        [Input("prometheus", required: true)]
-        public Input<ClusterOpenMonitoringPrometheusArgs> Prometheus { get; set; } = null!;
-
-        public ClusterOpenMonitoringArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterOpenMonitoringGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Configuration block for Prometheus settings for open monitoring. See below.
-        /// </summary>
-        [Input("prometheus", required: true)]
-        public Input<ClusterOpenMonitoringPrometheusGetArgs> Prometheus { get; set; } = null!;
-
-        public ClusterOpenMonitoringGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterOpenMonitoringPrometheusArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Configuration block for JMX Exporter. See below.
-        /// </summary>
-        [Input("jmxExporter")]
-        public Input<ClusterOpenMonitoringPrometheusJmxExporterArgs>? JmxExporter { get; set; }
-
-        /// <summary>
-        /// Configuration block for Node Exporter. See below.
-        /// </summary>
-        [Input("nodeExporter")]
-        public Input<ClusterOpenMonitoringPrometheusNodeExporterArgs>? NodeExporter { get; set; }
-
-        public ClusterOpenMonitoringPrometheusArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterOpenMonitoringPrometheusGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Configuration block for JMX Exporter. See below.
-        /// </summary>
-        [Input("jmxExporter")]
-        public Input<ClusterOpenMonitoringPrometheusJmxExporterGetArgs>? JmxExporter { get; set; }
-
-        /// <summary>
-        /// Configuration block for Node Exporter. See below.
-        /// </summary>
-        [Input("nodeExporter")]
-        public Input<ClusterOpenMonitoringPrometheusNodeExporterGetArgs>? NodeExporter { get; set; }
-
-        public ClusterOpenMonitoringPrometheusGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterOpenMonitoringPrometheusJmxExporterArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether you want to enable or disable the JMX Exporter. 
-        /// </summary>
-        [Input("enabledInBroker", required: true)]
-        public Input<bool> EnabledInBroker { get; set; } = null!;
-
-        public ClusterOpenMonitoringPrometheusJmxExporterArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterOpenMonitoringPrometheusJmxExporterGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether you want to enable or disable the JMX Exporter. 
-        /// </summary>
-        [Input("enabledInBroker", required: true)]
-        public Input<bool> EnabledInBroker { get; set; } = null!;
-
-        public ClusterOpenMonitoringPrometheusJmxExporterGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterOpenMonitoringPrometheusNodeExporterArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether you want to enable or disable the JMX Exporter. 
-        /// </summary>
-        [Input("enabledInBroker", required: true)]
-        public Input<bool> EnabledInBroker { get; set; } = null!;
-
-        public ClusterOpenMonitoringPrometheusNodeExporterArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterOpenMonitoringPrometheusNodeExporterGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether you want to enable or disable the JMX Exporter. 
-        /// </summary>
-        [Input("enabledInBroker", required: true)]
-        public Input<bool> EnabledInBroker { get; set; } = null!;
-
-        public ClusterOpenMonitoringPrometheusNodeExporterGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ClusterBrokerNodeGroupInfo
-    {
-        /// <summary>
-        /// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
-        /// </summary>
-        public readonly string? AzDistribution;
-        /// <summary>
-        /// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-        /// </summary>
-        public readonly ImmutableArray<string> ClientSubnets;
-        /// <summary>
-        /// The size in GiB of the EBS volume for the data drive on each broker node.
-        /// </summary>
-        public readonly int EbsVolumeSize;
-        /// <summary>
-        /// Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-        /// </summary>
-        public readonly string InstanceType;
-        /// <summary>
-        /// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-        /// </summary>
-        public readonly ImmutableArray<string> SecurityGroups;
-
-        [OutputConstructor]
-        private ClusterBrokerNodeGroupInfo(
-            string? azDistribution,
-            ImmutableArray<string> clientSubnets,
-            int ebsVolumeSize,
-            string instanceType,
-            ImmutableArray<string> securityGroups)
-        {
-            AzDistribution = azDistribution;
-            ClientSubnets = clientSubnets;
-            EbsVolumeSize = ebsVolumeSize;
-            InstanceType = instanceType;
-            SecurityGroups = securityGroups;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterClientAuthentication
-    {
-        /// <summary>
-        /// Configuration block for specifying TLS client authentication. See below.
-        /// </summary>
-        public readonly ClusterClientAuthenticationTls? Tls;
-
-        [OutputConstructor]
-        private ClusterClientAuthentication(ClusterClientAuthenticationTls? tls)
-        {
-            Tls = tls;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterClientAuthenticationTls
-    {
-        /// <summary>
-        /// List of ACM Certificate Authority Amazon Resource Names (ARNs).
-        /// </summary>
-        public readonly ImmutableArray<string> CertificateAuthorityArns;
-
-        [OutputConstructor]
-        private ClusterClientAuthenticationTls(ImmutableArray<string> certificateAuthorityArns)
-        {
-            CertificateAuthorityArns = certificateAuthorityArns;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterConfigurationInfo
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-        /// </summary>
-        public readonly string Arn;
-        /// <summary>
-        /// Revision of the MSK Configuration to use in the cluster.
-        /// </summary>
-        public readonly int Revision;
-
-        [OutputConstructor]
-        private ClusterConfigurationInfo(
-            string arn,
-            int revision)
-        {
-            Arn = arn;
-            Revision = revision;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterEncryptionInfo
-    {
-        /// <summary>
-        /// You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
-        /// </summary>
-        public readonly string EncryptionAtRestKmsKeyArn;
-        /// <summary>
-        /// Configuration block to specify encryption in transit. See below.
-        /// </summary>
-        public readonly ClusterEncryptionInfoEncryptionInTransit? EncryptionInTransit;
-
-        [OutputConstructor]
-        private ClusterEncryptionInfo(
-            string encryptionAtRestKmsKeyArn,
-            ClusterEncryptionInfoEncryptionInTransit? encryptionInTransit)
-        {
-            EncryptionAtRestKmsKeyArn = encryptionAtRestKmsKeyArn;
-            EncryptionInTransit = encryptionInTransit;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterEncryptionInfoEncryptionInTransit
-    {
-        /// <summary>
-        /// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryption_in_transit` block defined, but `TLS` when `encryption_in_transit` block omitted.
-        /// </summary>
-        public readonly string? ClientBroker;
-        /// <summary>
-        /// Whether data communication among broker nodes is encrypted. Default value: `true`.
-        /// </summary>
-        public readonly bool? InCluster;
-
-        [OutputConstructor]
-        private ClusterEncryptionInfoEncryptionInTransit(
-            string? clientBroker,
-            bool? inCluster)
-        {
-            ClientBroker = clientBroker;
-            InCluster = inCluster;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterLoggingInfo
-    {
-        /// <summary>
-        /// Configuration block for Broker Logs settings for logging info. See below.
-        /// </summary>
-        public readonly ClusterLoggingInfoBrokerLogs BrokerLogs;
-
-        [OutputConstructor]
-        private ClusterLoggingInfo(ClusterLoggingInfoBrokerLogs brokerLogs)
-        {
-            BrokerLogs = brokerLogs;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterLoggingInfoBrokerLogs
-    {
-        public readonly ClusterLoggingInfoBrokerLogsCloudwatchLogs? CloudwatchLogs;
-        public readonly ClusterLoggingInfoBrokerLogsFirehose? Firehose;
-        public readonly ClusterLoggingInfoBrokerLogsS3? S3;
-
-        [OutputConstructor]
-        private ClusterLoggingInfoBrokerLogs(
-            ClusterLoggingInfoBrokerLogsCloudwatchLogs? cloudwatchLogs,
-            ClusterLoggingInfoBrokerLogsFirehose? firehose,
-            ClusterLoggingInfoBrokerLogsS3? s3)
-        {
-            CloudwatchLogs = cloudwatchLogs;
-            Firehose = firehose;
-            S3 = s3;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogs
-    {
-        /// <summary>
-        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
-        /// </summary>
-        public readonly bool Enabled;
-        /// <summary>
-        /// Name of the Cloudwatch Log Group to deliver logs to.
-        /// </summary>
-        public readonly string? LogGroup;
-
-        [OutputConstructor]
-        private ClusterLoggingInfoBrokerLogsCloudwatchLogs(
-            bool enabled,
-            string? logGroup)
-        {
-            Enabled = enabled;
-            LogGroup = logGroup;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterLoggingInfoBrokerLogsFirehose
-    {
-        /// <summary>
-        /// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-        /// </summary>
-        public readonly string? DeliveryStream;
-        /// <summary>
-        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private ClusterLoggingInfoBrokerLogsFirehose(
-            string? deliveryStream,
-            bool enabled)
-        {
-            DeliveryStream = deliveryStream;
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterLoggingInfoBrokerLogsS3
-    {
-        /// <summary>
-        /// Name of the S3 bucket to deliver logs to. 
-        /// </summary>
-        public readonly string? Bucket;
-        /// <summary>
-        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
-        /// </summary>
-        public readonly bool Enabled;
-        /// <summary>
-        /// Prefix to append to the folder name. 
-        /// </summary>
-        public readonly string? Prefix;
-
-        [OutputConstructor]
-        private ClusterLoggingInfoBrokerLogsS3(
-            string? bucket,
-            bool enabled,
-            string? prefix)
-        {
-            Bucket = bucket;
-            Enabled = enabled;
-            Prefix = prefix;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterOpenMonitoring
-    {
-        /// <summary>
-        /// Configuration block for Prometheus settings for open monitoring. See below.
-        /// </summary>
-        public readonly ClusterOpenMonitoringPrometheus Prometheus;
-
-        [OutputConstructor]
-        private ClusterOpenMonitoring(ClusterOpenMonitoringPrometheus prometheus)
-        {
-            Prometheus = prometheus;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterOpenMonitoringPrometheus
-    {
-        /// <summary>
-        /// Configuration block for JMX Exporter. See below.
-        /// </summary>
-        public readonly ClusterOpenMonitoringPrometheusJmxExporter? JmxExporter;
-        /// <summary>
-        /// Configuration block for Node Exporter. See below.
-        /// </summary>
-        public readonly ClusterOpenMonitoringPrometheusNodeExporter? NodeExporter;
-
-        [OutputConstructor]
-        private ClusterOpenMonitoringPrometheus(
-            ClusterOpenMonitoringPrometheusJmxExporter? jmxExporter,
-            ClusterOpenMonitoringPrometheusNodeExporter? nodeExporter)
-        {
-            JmxExporter = jmxExporter;
-            NodeExporter = nodeExporter;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterOpenMonitoringPrometheusJmxExporter
-    {
-        /// <summary>
-        /// Indicates whether you want to enable or disable the JMX Exporter. 
-        /// </summary>
-        public readonly bool EnabledInBroker;
-
-        [OutputConstructor]
-        private ClusterOpenMonitoringPrometheusJmxExporter(bool enabledInBroker)
-        {
-            EnabledInBroker = enabledInBroker;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterOpenMonitoringPrometheusNodeExporter
-    {
-        /// <summary>
-        /// Indicates whether you want to enable or disable the JMX Exporter. 
-        /// </summary>
-        public readonly bool EnabledInBroker;
-
-        [OutputConstructor]
-        private ClusterOpenMonitoringPrometheusNodeExporter(bool enabledInBroker)
-        {
-            EnabledInBroker = enabledInBroker;
-        }
-    }
     }
 }

@@ -2,27 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a Direct Connect Gateway.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.directconnect.getGateway({
- *     name: "example",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dx_gateway.html.markdown.
+ * const example = pulumi.output(aws.directconnect.getGateway({
+ *     name: "example",
+ * }, { async: true }));
+ * ```
  */
-export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> & GetGatewayResult {
+export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
     if (!opts) {
         opts = {}
     }
@@ -30,11 +29,9 @@ export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetGatewayResult> = pulumi.runtime.invoke("aws:directconnect/getGateway:getGateway", {
+    return pulumi.runtime.invoke("aws:directconnect/getGateway:getGateway", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -55,13 +52,13 @@ export interface GetGatewayResult {
      * The ASN on the Amazon side of the connection.
      */
     readonly amazonSideAsn: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * AWS Account ID of the gateway.
      */
     readonly ownerAccountId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -12,9 +12,29 @@ namespace Pulumi.Aws.Organizations
     /// <summary>
     /// Provides a resource to create an organization.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organization.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var org = new Aws.Organizations.Organization("org", new Aws.Organizations.OrganizationArgs
+    ///         {
+    ///             AwsServiceAccessPrincipals = 
+    ///             {
+    ///                 "cloudtrail.amazonaws.com",
+    ///                 "config.amazonaws.com",
+    ///             },
+    ///             FeatureSet = "ALL",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Organization : Pulumi.CustomResource
     {
@@ -22,7 +42,7 @@ namespace Pulumi.Aws.Organizations
         /// List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
         /// </summary>
         [Output("accounts")]
-        public Output<ImmutableArray<Outputs.OrganizationAccounts>> Accounts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OrganizationAccount>> Accounts { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the root
@@ -37,7 +57,7 @@ namespace Pulumi.Aws.Organizations
         public Output<ImmutableArray<string>> AwsServiceAccessPrincipals { get; private set; } = null!;
 
         /// <summary>
-        /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY` and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+        /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         /// </summary>
         [Output("enabledPolicyTypes")]
         public Output<ImmutableArray<string>> EnabledPolicyTypes { get; private set; } = null!;
@@ -70,13 +90,13 @@ namespace Pulumi.Aws.Organizations
         /// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         /// </summary>
         [Output("nonMasterAccounts")]
-        public Output<ImmutableArray<Outputs.OrganizationNonMasterAccounts>> NonMasterAccounts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OrganizationNonMasterAccount>> NonMasterAccounts { get; private set; } = null!;
 
         /// <summary>
         /// List of organization roots. All elements have these attributes:
         /// </summary>
         [Output("roots")]
-        public Output<ImmutableArray<Outputs.OrganizationRoots>> Roots { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OrganizationRoot>> Roots { get; private set; } = null!;
 
 
         /// <summary>
@@ -87,7 +107,7 @@ namespace Pulumi.Aws.Organizations
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Organization(string name, OrganizationArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:organizations/organization:Organization", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:organizations/organization:Organization", name, args ?? new OrganizationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -140,7 +160,7 @@ namespace Pulumi.Aws.Organizations
         private InputList<string>? _enabledPolicyTypes;
 
         /// <summary>
-        /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY` and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+        /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         /// </summary>
         public InputList<string> EnabledPolicyTypes
         {
@@ -162,14 +182,14 @@ namespace Pulumi.Aws.Organizations
     public sealed class OrganizationState : Pulumi.ResourceArgs
     {
         [Input("accounts")]
-        private InputList<Inputs.OrganizationAccountsGetArgs>? _accounts;
+        private InputList<Inputs.OrganizationAccountGetArgs>? _accounts;
 
         /// <summary>
         /// List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
         /// </summary>
-        public InputList<Inputs.OrganizationAccountsGetArgs> Accounts
+        public InputList<Inputs.OrganizationAccountGetArgs> Accounts
         {
-            get => _accounts ?? (_accounts = new InputList<Inputs.OrganizationAccountsGetArgs>());
+            get => _accounts ?? (_accounts = new InputList<Inputs.OrganizationAccountGetArgs>());
             set => _accounts = value;
         }
 
@@ -195,7 +215,7 @@ namespace Pulumi.Aws.Organizations
         private InputList<string>? _enabledPolicyTypes;
 
         /// <summary>
-        /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY` and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+        /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         /// </summary>
         public InputList<string> EnabledPolicyTypes
         {
@@ -228,299 +248,31 @@ namespace Pulumi.Aws.Organizations
         public Input<string>? MasterAccountId { get; set; }
 
         [Input("nonMasterAccounts")]
-        private InputList<Inputs.OrganizationNonMasterAccountsGetArgs>? _nonMasterAccounts;
+        private InputList<Inputs.OrganizationNonMasterAccountGetArgs>? _nonMasterAccounts;
 
         /// <summary>
         /// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         /// </summary>
-        public InputList<Inputs.OrganizationNonMasterAccountsGetArgs> NonMasterAccounts
+        public InputList<Inputs.OrganizationNonMasterAccountGetArgs> NonMasterAccounts
         {
-            get => _nonMasterAccounts ?? (_nonMasterAccounts = new InputList<Inputs.OrganizationNonMasterAccountsGetArgs>());
+            get => _nonMasterAccounts ?? (_nonMasterAccounts = new InputList<Inputs.OrganizationNonMasterAccountGetArgs>());
             set => _nonMasterAccounts = value;
         }
 
         [Input("roots")]
-        private InputList<Inputs.OrganizationRootsGetArgs>? _roots;
+        private InputList<Inputs.OrganizationRootGetArgs>? _roots;
 
         /// <summary>
         /// List of organization roots. All elements have these attributes:
         /// </summary>
-        public InputList<Inputs.OrganizationRootsGetArgs> Roots
+        public InputList<Inputs.OrganizationRootGetArgs> Roots
         {
-            get => _roots ?? (_roots = new InputList<Inputs.OrganizationRootsGetArgs>());
+            get => _roots ?? (_roots = new InputList<Inputs.OrganizationRootGetArgs>());
             set => _roots = value;
         }
 
         public OrganizationState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class OrganizationAccountsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ARN of the root
-        /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
-
-        /// <summary>
-        /// Email of the account
-        /// </summary>
-        [Input("email")]
-        public Input<string>? Email { get; set; }
-
-        /// <summary>
-        /// Identifier of the root
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the policy type
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The status of the policy type as it relates to the associated root
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
-
-        public OrganizationAccountsGetArgs()
-        {
-        }
-    }
-
-    public sealed class OrganizationNonMasterAccountsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ARN of the root
-        /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
-
-        /// <summary>
-        /// Email of the account
-        /// </summary>
-        [Input("email")]
-        public Input<string>? Email { get; set; }
-
-        /// <summary>
-        /// Identifier of the root
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the policy type
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The status of the policy type as it relates to the associated root
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
-
-        public OrganizationNonMasterAccountsGetArgs()
-        {
-        }
-    }
-
-    public sealed class OrganizationRootsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ARN of the root
-        /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
-
-        /// <summary>
-        /// Identifier of the root
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the policy type
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("policyTypes")]
-        private InputList<OrganizationRootsPolicyTypesGetArgs>? _policyTypes;
-
-        /// <summary>
-        /// List of policy types enabled for this root. All elements have these attributes:
-        /// </summary>
-        public InputList<OrganizationRootsPolicyTypesGetArgs> PolicyTypes
-        {
-            get => _policyTypes ?? (_policyTypes = new InputList<OrganizationRootsPolicyTypesGetArgs>());
-            set => _policyTypes = value;
-        }
-
-        public OrganizationRootsGetArgs()
-        {
-        }
-    }
-
-    public sealed class OrganizationRootsPolicyTypesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The status of the policy type as it relates to the associated root
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public OrganizationRootsPolicyTypesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class OrganizationAccounts
-    {
-        /// <summary>
-        /// ARN of the root
-        /// </summary>
-        public readonly string Arn;
-        /// <summary>
-        /// Email of the account
-        /// </summary>
-        public readonly string Email;
-        /// <summary>
-        /// Identifier of the root
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the policy type
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The status of the policy type as it relates to the associated root
-        /// </summary>
-        public readonly string Status;
-
-        [OutputConstructor]
-        private OrganizationAccounts(
-            string arn,
-            string email,
-            string id,
-            string name,
-            string status)
-        {
-            Arn = arn;
-            Email = email;
-            Id = id;
-            Name = name;
-            Status = status;
-        }
-    }
-
-    [OutputType]
-    public sealed class OrganizationNonMasterAccounts
-    {
-        /// <summary>
-        /// ARN of the root
-        /// </summary>
-        public readonly string Arn;
-        /// <summary>
-        /// Email of the account
-        /// </summary>
-        public readonly string Email;
-        /// <summary>
-        /// Identifier of the root
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the policy type
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The status of the policy type as it relates to the associated root
-        /// </summary>
-        public readonly string Status;
-
-        [OutputConstructor]
-        private OrganizationNonMasterAccounts(
-            string arn,
-            string email,
-            string id,
-            string name,
-            string status)
-        {
-            Arn = arn;
-            Email = email;
-            Id = id;
-            Name = name;
-            Status = status;
-        }
-    }
-
-    [OutputType]
-    public sealed class OrganizationRoots
-    {
-        /// <summary>
-        /// ARN of the root
-        /// </summary>
-        public readonly string Arn;
-        /// <summary>
-        /// Identifier of the root
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the policy type
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// List of policy types enabled for this root. All elements have these attributes:
-        /// </summary>
-        public readonly ImmutableArray<OrganizationRootsPolicyTypes> PolicyTypes;
-
-        [OutputConstructor]
-        private OrganizationRoots(
-            string arn,
-            string id,
-            string name,
-            ImmutableArray<OrganizationRootsPolicyTypes> policyTypes)
-        {
-            Arn = arn;
-            Id = id;
-            Name = name;
-            PolicyTypes = policyTypes;
-        }
-    }
-
-    [OutputType]
-    public sealed class OrganizationRootsPolicyTypes
-    {
-        /// <summary>
-        /// The status of the policy type as it relates to the associated root
-        /// </summary>
-        public readonly string Status;
-        public readonly string Type;
-
-        [OutputConstructor]
-        private OrganizationRootsPolicyTypes(
-            string status,
-            string type)
-        {
-            Status = status;
-            Type = type;
-        }
-    }
     }
 }

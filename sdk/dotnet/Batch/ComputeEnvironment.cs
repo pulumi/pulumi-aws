@@ -12,15 +12,129 @@ namespace Pulumi.Aws.Batch
     /// <summary>
     /// Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
     /// 
-    /// For information about AWS Batch, see [What is AWS Batch?][1] .
-    /// For information about compute environment, see [Compute Environments][2] .
+    /// For information about AWS Batch, see [What is AWS Batch?](http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html) .
+    /// For information about compute environment, see [Compute Environments](http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) .
     /// 
     /// &gt; **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `aws.iam.RolePolicyAttachment`;
-    /// otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
+    /// otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_compute_environment.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ecsInstanceRoleRole = new Aws.Iam.Role("ecsInstanceRoleRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": [
+    /// 	{
+    /// 	    ""Action"": ""sts:AssumeRole"",
+    /// 	    ""Effect"": ""Allow"",
+    /// 	    ""Principal"": {
+    /// 		""Service"": ""ec2.amazonaws.com""
+    /// 	    }
+    /// 	}
+    ///     ]
+    /// }
+    /// ",
+    ///         });
+    ///         var ecsInstanceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             Role = ecsInstanceRoleRole.Name,
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
+    ///         });
+    ///         var ecsInstanceRoleInstanceProfile = new Aws.Iam.InstanceProfile("ecsInstanceRoleInstanceProfile", new Aws.Iam.InstanceProfileArgs
+    ///         {
+    ///             Role = ecsInstanceRoleRole.Name,
+    ///         });
+    ///         var awsBatchServiceRoleRole = new Aws.Iam.Role("awsBatchServiceRoleRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": [
+    /// 	{
+    /// 	    ""Action"": ""sts:AssumeRole"",
+    /// 	    ""Effect"": ""Allow"",
+    /// 	    ""Principal"": {
+    /// 		""Service"": ""batch.amazonaws.com""
+    /// 	    }
+    /// 	}
+    ///     ]
+    /// }
+    /// ",
+    ///         });
+    ///         var awsBatchServiceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             Role = awsBatchServiceRoleRole.Name,
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
+    ///         });
+    ///         var sampleVpc = new Aws.Ec2.Vpc("sampleVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var sampleSecurityGroup = new Aws.Ec2.SecurityGroup("sampleSecurityGroup", new Aws.Ec2.SecurityGroupArgs
+    ///         {
+    ///             VpcId = sampleVpc.Id,
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
+    ///                     CidrBlocks = 
+    ///                     {
+    ///                         "0.0.0.0/0",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var sampleSubnet = new Aws.Ec2.Subnet("sampleSubnet", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             VpcId = sampleVpc.Id,
+    ///             CidrBlock = "10.1.1.0/24",
+    ///         });
+    ///         var sampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("sampleComputeEnvironment", new Aws.Batch.ComputeEnvironmentArgs
+    ///         {
+    ///             ComputeEnvironmentName = "sample",
+    ///             ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
+    ///             {
+    ///                 InstanceRole = ecsInstanceRoleInstanceProfile.Arn,
+    ///                 InstanceTypes = 
+    ///                 {
+    ///                     "c4.large",
+    ///                 },
+    ///                 MaxVcpus = 16,
+    ///                 MinVcpus = 0,
+    ///                 SecurityGroupIds = 
+    ///                 {
+    ///                     sampleSecurityGroup.Id,
+    ///                 },
+    ///                 Subnets = 
+    ///                 {
+    ///                     sampleSubnet.Id,
+    ///                 },
+    ///                 Type = "EC2",
+    ///             },
+    ///             ServiceRole = awsBatchServiceRoleRole.Arn,
+    ///             Type = "MANAGED",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 awsBatchServiceRoleRolePolicyAttachment,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ComputeEnvironment : Pulumi.CustomResource
     {
@@ -79,6 +193,12 @@ namespace Pulumi.Aws.Batch
         public Output<string> StatusReason { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value pair tags to be applied to resources that are launched in the compute environment.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The type of compute environment. Valid items are `EC2` or `SPOT`.
         /// </summary>
         [Output("type")]
@@ -93,7 +213,7 @@ namespace Pulumi.Aws.Batch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ComputeEnvironment(string name, ComputeEnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:batch/computeEnvironment:ComputeEnvironment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:batch/computeEnvironment:ComputeEnvironment", name, args ?? new ComputeEnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -159,6 +279,18 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value pair tags to be applied to resources that are launched in the compute environment.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The type of compute environment. Valid items are `EC2` or `SPOT`.
@@ -227,6 +359,18 @@ namespace Pulumi.Aws.Batch
         [Input("statusReason")]
         public Input<string>? StatusReason { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value pair tags to be applied to resources that are launched in the compute environment.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The type of compute environment. Valid items are `EC2` or `SPOT`.
         /// </summary>
@@ -236,433 +380,5 @@ namespace Pulumi.Aws.Batch
         public ComputeEnvironmentState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ComputeEnvironmentComputeResourcesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
-        /// </summary>
-        [Input("allocationStrategy")]
-        public Input<string>? AllocationStrategy { get; set; }
-
-        /// <summary>
-        /// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
-        /// </summary>
-        [Input("bidPercentage")]
-        public Input<int>? BidPercentage { get; set; }
-
-        /// <summary>
-        /// The desired number of EC2 vCPUS in the compute environment.
-        /// </summary>
-        [Input("desiredVcpus")]
-        public Input<int>? DesiredVcpus { get; set; }
-
-        /// <summary>
-        /// The EC2 key pair that is used for instances launched in the compute environment.
-        /// </summary>
-        [Input("ec2KeyPair")]
-        public Input<string>? Ec2KeyPair { get; set; }
-
-        /// <summary>
-        /// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
-        /// </summary>
-        [Input("imageId")]
-        public Input<string>? ImageId { get; set; }
-
-        /// <summary>
-        /// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
-        /// </summary>
-        [Input("instanceRole", required: true)]
-        public Input<string> InstanceRole { get; set; } = null!;
-
-        [Input("instanceTypes", required: true)]
-        private InputList<string>? _instanceTypes;
-
-        /// <summary>
-        /// A list of instance types that may be launched.
-        /// </summary>
-        public InputList<string> InstanceTypes
-        {
-            get => _instanceTypes ?? (_instanceTypes = new InputList<string>());
-            set => _instanceTypes = value;
-        }
-
-        /// <summary>
-        /// The launch template to use for your compute resources. See details below.
-        /// </summary>
-        [Input("launchTemplate")]
-        public Input<ComputeEnvironmentComputeResourcesLaunchTemplateArgs>? LaunchTemplate { get; set; }
-
-        /// <summary>
-        /// The maximum number of EC2 vCPUs that an environment can reach.
-        /// </summary>
-        [Input("maxVcpus", required: true)]
-        public Input<int> MaxVcpus { get; set; } = null!;
-
-        /// <summary>
-        /// The minimum number of EC2 vCPUs that an environment should maintain.
-        /// </summary>
-        [Input("minVcpus", required: true)]
-        public Input<int> MinVcpus { get; set; } = null!;
-
-        [Input("securityGroupIds", required: true)]
-        private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// A list of EC2 security group that are associated with instances launched in the compute environment.
-        /// </summary>
-        public InputList<string> SecurityGroupIds
-        {
-            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
-            set => _securityGroupIds = value;
-        }
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
-        /// </summary>
-        [Input("spotIamFleetRole")]
-        public Input<string>? SpotIamFleetRole { get; set; }
-
-        [Input("subnets", required: true)]
-        private InputList<string>? _subnets;
-
-        /// <summary>
-        /// A list of VPC subnets into which the compute resources are launched.
-        /// </summary>
-        public InputList<string> Subnets
-        {
-            get => _subnets ?? (_subnets = new InputList<string>());
-            set => _subnets = value;
-        }
-
-        [Input("tags")]
-        private InputMap<object>? _tags;
-
-        /// <summary>
-        /// Key-value pair tags to be applied to resources that are launched in the compute environment.
-        /// </summary>
-        public InputMap<object> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<object>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of compute environment. Valid items are `EC2` or `SPOT`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ComputeEnvironmentComputeResourcesArgs()
-        {
-        }
-    }
-
-    public sealed class ComputeEnvironmentComputeResourcesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
-        /// </summary>
-        [Input("allocationStrategy")]
-        public Input<string>? AllocationStrategy { get; set; }
-
-        /// <summary>
-        /// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
-        /// </summary>
-        [Input("bidPercentage")]
-        public Input<int>? BidPercentage { get; set; }
-
-        /// <summary>
-        /// The desired number of EC2 vCPUS in the compute environment.
-        /// </summary>
-        [Input("desiredVcpus")]
-        public Input<int>? DesiredVcpus { get; set; }
-
-        /// <summary>
-        /// The EC2 key pair that is used for instances launched in the compute environment.
-        /// </summary>
-        [Input("ec2KeyPair")]
-        public Input<string>? Ec2KeyPair { get; set; }
-
-        /// <summary>
-        /// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
-        /// </summary>
-        [Input("imageId")]
-        public Input<string>? ImageId { get; set; }
-
-        /// <summary>
-        /// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
-        /// </summary>
-        [Input("instanceRole", required: true)]
-        public Input<string> InstanceRole { get; set; } = null!;
-
-        [Input("instanceTypes", required: true)]
-        private InputList<string>? _instanceTypes;
-
-        /// <summary>
-        /// A list of instance types that may be launched.
-        /// </summary>
-        public InputList<string> InstanceTypes
-        {
-            get => _instanceTypes ?? (_instanceTypes = new InputList<string>());
-            set => _instanceTypes = value;
-        }
-
-        /// <summary>
-        /// The launch template to use for your compute resources. See details below.
-        /// </summary>
-        [Input("launchTemplate")]
-        public Input<ComputeEnvironmentComputeResourcesLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
-
-        /// <summary>
-        /// The maximum number of EC2 vCPUs that an environment can reach.
-        /// </summary>
-        [Input("maxVcpus", required: true)]
-        public Input<int> MaxVcpus { get; set; } = null!;
-
-        /// <summary>
-        /// The minimum number of EC2 vCPUs that an environment should maintain.
-        /// </summary>
-        [Input("minVcpus", required: true)]
-        public Input<int> MinVcpus { get; set; } = null!;
-
-        [Input("securityGroupIds", required: true)]
-        private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// A list of EC2 security group that are associated with instances launched in the compute environment.
-        /// </summary>
-        public InputList<string> SecurityGroupIds
-        {
-            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
-            set => _securityGroupIds = value;
-        }
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
-        /// </summary>
-        [Input("spotIamFleetRole")]
-        public Input<string>? SpotIamFleetRole { get; set; }
-
-        [Input("subnets", required: true)]
-        private InputList<string>? _subnets;
-
-        /// <summary>
-        /// A list of VPC subnets into which the compute resources are launched.
-        /// </summary>
-        public InputList<string> Subnets
-        {
-            get => _subnets ?? (_subnets = new InputList<string>());
-            set => _subnets = value;
-        }
-
-        [Input("tags")]
-        private InputMap<object>? _tags;
-
-        /// <summary>
-        /// Key-value pair tags to be applied to resources that are launched in the compute environment.
-        /// </summary>
-        public InputMap<object> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<object>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of compute environment. Valid items are `EC2` or `SPOT`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ComputeEnvironmentComputeResourcesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ComputeEnvironmentComputeResourcesLaunchTemplateArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
-        /// </summary>
-        [Input("launchTemplateId")]
-        public Input<string>? LaunchTemplateId { get; set; }
-
-        /// <summary>
-        /// Name of the launch template.
-        /// </summary>
-        [Input("launchTemplateName")]
-        public Input<string>? LaunchTemplateName { get; set; }
-
-        /// <summary>
-        /// The version number of the launch template. Default: The default version of the launch template.
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
-
-        public ComputeEnvironmentComputeResourcesLaunchTemplateArgs()
-        {
-        }
-    }
-
-    public sealed class ComputeEnvironmentComputeResourcesLaunchTemplateGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
-        /// </summary>
-        [Input("launchTemplateId")]
-        public Input<string>? LaunchTemplateId { get; set; }
-
-        /// <summary>
-        /// Name of the launch template.
-        /// </summary>
-        [Input("launchTemplateName")]
-        public Input<string>? LaunchTemplateName { get; set; }
-
-        /// <summary>
-        /// The version number of the launch template. Default: The default version of the launch template.
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
-
-        public ComputeEnvironmentComputeResourcesLaunchTemplateGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ComputeEnvironmentComputeResources
-    {
-        /// <summary>
-        /// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
-        /// </summary>
-        public readonly string? AllocationStrategy;
-        /// <summary>
-        /// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
-        /// </summary>
-        public readonly int? BidPercentage;
-        /// <summary>
-        /// The desired number of EC2 vCPUS in the compute environment.
-        /// </summary>
-        public readonly int? DesiredVcpus;
-        /// <summary>
-        /// The EC2 key pair that is used for instances launched in the compute environment.
-        /// </summary>
-        public readonly string? Ec2KeyPair;
-        /// <summary>
-        /// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
-        /// </summary>
-        public readonly string? ImageId;
-        /// <summary>
-        /// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
-        /// </summary>
-        public readonly string InstanceRole;
-        /// <summary>
-        /// A list of instance types that may be launched.
-        /// </summary>
-        public readonly ImmutableArray<string> InstanceTypes;
-        /// <summary>
-        /// The launch template to use for your compute resources. See details below.
-        /// </summary>
-        public readonly ComputeEnvironmentComputeResourcesLaunchTemplate? LaunchTemplate;
-        /// <summary>
-        /// The maximum number of EC2 vCPUs that an environment can reach.
-        /// </summary>
-        public readonly int MaxVcpus;
-        /// <summary>
-        /// The minimum number of EC2 vCPUs that an environment should maintain.
-        /// </summary>
-        public readonly int MinVcpus;
-        /// <summary>
-        /// A list of EC2 security group that are associated with instances launched in the compute environment.
-        /// </summary>
-        public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
-        /// </summary>
-        public readonly string? SpotIamFleetRole;
-        /// <summary>
-        /// A list of VPC subnets into which the compute resources are launched.
-        /// </summary>
-        public readonly ImmutableArray<string> Subnets;
-        /// <summary>
-        /// Key-value pair tags to be applied to resources that are launched in the compute environment.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
-        /// <summary>
-        /// The type of compute environment. Valid items are `EC2` or `SPOT`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private ComputeEnvironmentComputeResources(
-            string? allocationStrategy,
-            int? bidPercentage,
-            int? desiredVcpus,
-            string? ec2KeyPair,
-            string? imageId,
-            string instanceRole,
-            ImmutableArray<string> instanceTypes,
-            ComputeEnvironmentComputeResourcesLaunchTemplate? launchTemplate,
-            int maxVcpus,
-            int minVcpus,
-            ImmutableArray<string> securityGroupIds,
-            string? spotIamFleetRole,
-            ImmutableArray<string> subnets,
-            ImmutableDictionary<string, object>? tags,
-            string type)
-        {
-            AllocationStrategy = allocationStrategy;
-            BidPercentage = bidPercentage;
-            DesiredVcpus = desiredVcpus;
-            Ec2KeyPair = ec2KeyPair;
-            ImageId = imageId;
-            InstanceRole = instanceRole;
-            InstanceTypes = instanceTypes;
-            LaunchTemplate = launchTemplate;
-            MaxVcpus = maxVcpus;
-            MinVcpus = minVcpus;
-            SecurityGroupIds = securityGroupIds;
-            SpotIamFleetRole = spotIamFleetRole;
-            Subnets = subnets;
-            Tags = tags;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class ComputeEnvironmentComputeResourcesLaunchTemplate
-    {
-        /// <summary>
-        /// ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
-        /// </summary>
-        public readonly string? LaunchTemplateId;
-        /// <summary>
-        /// Name of the launch template.
-        /// </summary>
-        public readonly string? LaunchTemplateName;
-        /// <summary>
-        /// The version number of the launch template. Default: The default version of the launch template.
-        /// </summary>
-        public readonly string? Version;
-
-        [OutputConstructor]
-        private ComputeEnvironmentComputeResourcesLaunchTemplate(
-            string? launchTemplateId,
-            string? launchTemplateName,
-            string? version)
-        {
-            LaunchTemplateId = launchTemplateId;
-            LaunchTemplateName = launchTemplateName;
-            Version = version;
-        }
-    }
     }
 }

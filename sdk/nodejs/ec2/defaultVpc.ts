@@ -2,38 +2,34 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
  * in the current region.
- * 
+ *
  * For AWS accounts created after 2013-12-04, each region comes with a Default VPC.
  * **This is an advanced resource**, and has special caveats to be aware of when
  * using it. Please read this document in its entirety before using this resource.
- * 
+ *
  * The `aws.ec2.DefaultVpc` behaves differently from normal resources, in that
  * this provider does not _create_ this resource, but instead "adopts" it
  * into management.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * Basic usage with tags:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultDefaultVpc = new aws.ec2.DefaultVpc("default", {
  *     tags: {
  *         Name: "Default VPC",
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc.html.markdown.
  */
 export class DefaultVpc extends pulumi.CustomResource {
     /**
@@ -43,6 +39,7 @@ export class DefaultVpc extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultVpcState, opts?: pulumi.CustomResourceOptions): DefaultVpc {
         return new DefaultVpc(name, <any>state, { ...opts, id: id });
@@ -91,7 +88,7 @@ export class DefaultVpc extends pulumi.CustomResource {
     /**
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
-     * See the [ClassicLink documentation][1] for more information. Defaults false.
+     * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
      */
     public readonly enableClassiclink!: pulumi.Output<boolean>;
     public readonly enableClassiclinkDnsSupport!: pulumi.Output<boolean>;
@@ -118,7 +115,7 @@ export class DefaultVpc extends pulumi.CustomResource {
     /**
      * The ID of the main route table associated with
      * this VPC. Note that you can change a VPC's main route table by using an
-     * [`aws.ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html)
+     * `aws.ec2.MainRouteTableAssociation`
      */
     public /*out*/ readonly mainRouteTableId!: pulumi.Output<string>;
     /**
@@ -126,9 +123,9 @@ export class DefaultVpc extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DefaultVpc resource with the given unique name, arguments, and options.
@@ -223,7 +220,7 @@ export interface DefaultVpcState {
     /**
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
-     * See the [ClassicLink documentation][1] for more information. Defaults false.
+     * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
      */
     readonly enableClassiclink?: pulumi.Input<boolean>;
     readonly enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
@@ -250,7 +247,7 @@ export interface DefaultVpcState {
     /**
      * The ID of the main route table associated with
      * this VPC. Note that you can change a VPC's main route table by using an
-     * [`aws.ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html)
+     * `aws.ec2.MainRouteTableAssociation`
      */
     readonly mainRouteTableId?: pulumi.Input<string>;
     /**
@@ -258,9 +255,9 @@ export interface DefaultVpcState {
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -270,7 +267,7 @@ export interface DefaultVpcArgs {
     /**
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
-     * See the [ClassicLink documentation][1] for more information. Defaults false.
+     * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
      */
     readonly enableClassiclink?: pulumi.Input<boolean>;
     readonly enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
@@ -283,7 +280,7 @@ export interface DefaultVpcArgs {
      */
     readonly enableDnsSupport?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -10,15 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides an Traffic mirror target.  
+    /// Provides an Traffic mirror target.\
     /// Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
     /// 
+    /// ## Example Usage
     /// 
+    /// To create a basic traffic mirror session
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_target.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var nlb = new Aws.Ec2.TrafficMirrorTarget("nlb", new Aws.Ec2.TrafficMirrorTargetArgs
+    ///         {
+    ///             Description = "NLB target",
+    ///             NetworkLoadBalancerArn = aws_lb.Lb.Arn,
+    ///         });
+    ///         var eni = new Aws.Ec2.TrafficMirrorTarget("eni", new Aws.Ec2.TrafficMirrorTargetArgs
+    ///         {
+    ///             Description = "ENI target",
+    ///             NetworkInterfaceId = aws_instance.Test.Primary_network_interface_id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TrafficMirrorTarget : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the traffic mirror target.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// A description of the traffic mirror session.
         /// </summary>
@@ -38,10 +67,10 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> NetworkLoadBalancerArn { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -52,7 +81,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TrafficMirrorTarget(string name, TrafficMirrorTargetArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget", name, args ?? new TrafficMirrorTargetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -108,14 +137,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetworkLoadBalancerArn { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -126,6 +155,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class TrafficMirrorTargetState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the traffic mirror target.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// A description of the traffic mirror session.
         /// </summary>
@@ -145,14 +180,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetworkLoadBalancerArn { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

@@ -12,9 +12,75 @@ namespace Pulumi.Aws.Eks
     /// <summary>
     /// Manages an EKS Fargate Profile.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_fargate_profile.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Eks.FargateProfile("example", new Aws.Eks.FargateProfileArgs
+    ///         {
+    ///             ClusterName = aws_eks_cluster.Example.Name,
+    ///             PodExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///             SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
+    ///             Selectors = 
+    ///             {
+    ///                 new Aws.Eks.Inputs.FargateProfileSelectorArgs
+    ///                 {
+    ///                     Namespace = "example",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Example IAM Role for EKS Fargate Profile
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Iam.Role("example", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "Statement", new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "Action", "sts:AssumeRole" },
+    ///                             { "Effect", "Allow" },
+    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "Service", "eks-fargate-pods.amazonaws.com" },
+    ///                             } },
+    ///                         },
+    ///                     }
+    ///                  },
+    ///                 { "Version", "2012-10-17" },
+    ///             }),
+    ///         });
+    ///         var example_AmazonEKSFargatePodExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
+    ///             Role = example.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FargateProfile : Pulumi.CustomResource
     {
@@ -46,7 +112,7 @@ namespace Pulumi.Aws.Eks
         /// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         /// </summary>
         [Output("selectors")]
-        public Output<ImmutableArray<Outputs.FargateProfileSelectors>> Selectors { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FargateProfileSelector>> Selectors { get; private set; } = null!;
 
         /// <summary>
         /// Status of the EKS Fargate Profile.
@@ -61,10 +127,10 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -75,7 +141,7 @@ namespace Pulumi.Aws.Eks
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FargateProfile(string name, FargateProfileArgs args, CustomResourceOptions? options = null)
-            : base("aws:eks/fargateProfile:FargateProfile", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:eks/fargateProfile:FargateProfile", name, args ?? new FargateProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -131,14 +197,14 @@ namespace Pulumi.Aws.Eks
         public Input<string> PodExecutionRoleArn { get; set; } = null!;
 
         [Input("selectors", required: true)]
-        private InputList<Inputs.FargateProfileSelectorsArgs>? _selectors;
+        private InputList<Inputs.FargateProfileSelectorArgs>? _selectors;
 
         /// <summary>
         /// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         /// </summary>
-        public InputList<Inputs.FargateProfileSelectorsArgs> Selectors
+        public InputList<Inputs.FargateProfileSelectorArgs> Selectors
         {
-            get => _selectors ?? (_selectors = new InputList<Inputs.FargateProfileSelectorsArgs>());
+            get => _selectors ?? (_selectors = new InputList<Inputs.FargateProfileSelectorArgs>());
             set => _selectors = value;
         }
 
@@ -155,14 +221,14 @@ namespace Pulumi.Aws.Eks
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -198,14 +264,14 @@ namespace Pulumi.Aws.Eks
         public Input<string>? PodExecutionRoleArn { get; set; }
 
         [Input("selectors")]
-        private InputList<Inputs.FargateProfileSelectorsGetArgs>? _selectors;
+        private InputList<Inputs.FargateProfileSelectorGetArgs>? _selectors;
 
         /// <summary>
         /// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         /// </summary>
-        public InputList<Inputs.FargateProfileSelectorsGetArgs> Selectors
+        public InputList<Inputs.FargateProfileSelectorGetArgs> Selectors
         {
-            get => _selectors ?? (_selectors = new InputList<Inputs.FargateProfileSelectorsGetArgs>());
+            get => _selectors ?? (_selectors = new InputList<Inputs.FargateProfileSelectorGetArgs>());
             set => _selectors = value;
         }
 
@@ -228,99 +294,19 @@ namespace Pulumi.Aws.Eks
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         public FargateProfileState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class FargateProfileSelectorsArgs : Pulumi.ResourceArgs
-    {
-        [Input("labels")]
-        private InputMap<string>? _labels;
-
-        /// <summary>
-        /// Key-value mapping of Kubernetes labels for selection.
-        /// </summary>
-        public InputMap<string> Labels
-        {
-            get => _labels ?? (_labels = new InputMap<string>());
-            set => _labels = value;
-        }
-
-        /// <summary>
-        /// Kubernetes namespace for selection.
-        /// </summary>
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
-
-        public FargateProfileSelectorsArgs()
-        {
-        }
-    }
-
-    public sealed class FargateProfileSelectorsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("labels")]
-        private InputMap<string>? _labels;
-
-        /// <summary>
-        /// Key-value mapping of Kubernetes labels for selection.
-        /// </summary>
-        public InputMap<string> Labels
-        {
-            get => _labels ?? (_labels = new InputMap<string>());
-            set => _labels = value;
-        }
-
-        /// <summary>
-        /// Kubernetes namespace for selection.
-        /// </summary>
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
-
-        public FargateProfileSelectorsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class FargateProfileSelectors
-    {
-        /// <summary>
-        /// Key-value mapping of Kubernetes labels for selection.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Labels;
-        /// <summary>
-        /// Kubernetes namespace for selection.
-        /// </summary>
-        public readonly string Namespace;
-
-        [OutputConstructor]
-        private FargateProfileSelectors(
-            ImmutableDictionary<string, string>? labels,
-            string @namespace)
-        {
-            Labels = labels;
-            Namespace = @namespace;
-        }
-    }
     }
 }

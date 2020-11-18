@@ -4,19 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic Transcoder preset resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.elastictranscoder.Preset("bar", {
  *     audio: {
  *         audioPackingMode: "SingleTrack",
@@ -72,8 +71,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastictranscoder_preset.html.markdown.
  */
 export class Preset extends pulumi.CustomResource {
     /**
@@ -83,6 +80,7 @@ export class Preset extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PresetState, opts?: pulumi.CustomResourceOptions): Preset {
         return new Preset(name, <any>state, { ...opts, id: id });
@@ -132,10 +130,12 @@ export class Preset extends pulumi.CustomResource {
      * Video parameters object (documented below)
      */
     public readonly video!: pulumi.Output<outputs.elastictranscoder.PresetVideo | undefined>;
-    public readonly videoCodecOptions!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Codec options for the video parameters
+     */
+    public readonly videoCodecOptions!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Watermark parameters for the video parameters (documented below)
-     * * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
      */
     public readonly videoWatermarks!: pulumi.Output<outputs.elastictranscoder.PresetVideoWatermark[] | undefined>;
 
@@ -224,10 +224,12 @@ export interface PresetState {
      * Video parameters object (documented below)
      */
     readonly video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
-    readonly videoCodecOptions?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Codec options for the video parameters
+     */
+    readonly videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Watermark parameters for the video parameters (documented below)
-     * * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
      */
     readonly videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
 }
@@ -265,10 +267,12 @@ export interface PresetArgs {
      * Video parameters object (documented below)
      */
     readonly video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
-    readonly videoCodecOptions?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Codec options for the video parameters
+     */
+    readonly videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Watermark parameters for the video parameters (documented below)
-     * * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
      */
     readonly videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
 }

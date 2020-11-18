@@ -7,14 +7,157 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a S3 bucket object resource.
+//
+// ## Example Usage
+// ### Encrypting with KMS Key
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/kms"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		examplekms, err := kms.NewKey(ctx, "examplekms", &kms.KeyArgs{
+// 			Description:          pulumi.String("KMS key 1"),
+// 			DeletionWindowInDays: pulumi.Int(7),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplebucket, err := s3.NewBucket(ctx, "examplebucket", &s3.BucketArgs{
+// 			Acl: pulumi.String("private"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketObject(ctx, "examplebucketObject", &s3.BucketObjectArgs{
+// 			Key:      pulumi.String("someobject"),
+// 			Bucket:   examplebucket.ID(),
+// 			Source:   pulumi.NewFileAsset("index.html"),
+// 			KmsKeyId: examplekms.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Server Side Encryption with S3 Default Master Key
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		examplebucket, err := s3.NewBucket(ctx, "examplebucket", &s3.BucketArgs{
+// 			Acl: pulumi.String("private"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketObject(ctx, "examplebucketObject", &s3.BucketObjectArgs{
+// 			Key:                  pulumi.String("someobject"),
+// 			Bucket:               examplebucket.ID(),
+// 			Source:               pulumi.NewFileAsset("index.html"),
+// 			ServerSideEncryption: pulumi.String("aws:kms"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Server Side Encryption with AWS-Managed Key
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		examplebucket, err := s3.NewBucket(ctx, "examplebucket", &s3.BucketArgs{
+// 			Acl: pulumi.String("private"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketObject(ctx, "examplebucketObject", &s3.BucketObjectArgs{
+// 			Key:                  pulumi.String("someobject"),
+// 			Bucket:               examplebucket.ID(),
+// 			Source:               pulumi.NewFileAsset("index.html"),
+// 			ServerSideEncryption: pulumi.String("AES256"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### S3 Object Lock
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		examplebucket, err := s3.NewBucket(ctx, "examplebucket", &s3.BucketArgs{
+// 			Acl: pulumi.String("private"),
+// 			Versioning: &s3.BucketVersioningArgs{
+// 				Enabled: pulumi.Bool(true),
+// 			},
+// 			ObjectLockConfiguration: &s3.BucketObjectLockConfigurationArgs{
+// 				ObjectLockEnabled: pulumi.String("Enabled"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketObject(ctx, "examplebucketObject", &s3.BucketObjectArgs{
+// 			Key:                       pulumi.String("someobject"),
+// 			Bucket:                    examplebucket.ID(),
+// 			Source:                    pulumi.NewFileAsset("important.txt"),
+// 			ObjectLockLegalHoldStatus: pulumi.String("ON"),
+// 			ObjectLockMode:            pulumi.String("GOVERNANCE"),
+// 			ObjectLockRetainUntilDate: pulumi.String("2021-12-31T23:59:60Z"),
+// 			ForceDestroy:              pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type BucketObject struct {
 	pulumi.CustomResourceState
 
-	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
 	Acl pulumi.StringPtrOutput `pulumi:"acl"`
 	// The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
@@ -39,13 +182,9 @@ type BucketObject struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// The name of the object once it is in the bucket.
-	Key pulumi.StringOutput `pulumi:"key"`
-	// Specifies the AWS KMS Key ARN to use for object encryption.
-	// This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
-	// use the exported `arn` attribute:
-	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	Key      pulumi.StringOutput `pulumi:"key"`
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus pulumi.StringPtrOutput `pulumi:"objectLockLegalHoldStatus"`
@@ -60,8 +199,8 @@ type BucketObject struct {
 	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass pulumi.StringOutput `pulumi:"storageClass"`
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A unique version ID value for the object, if bucket versioning
 	// is enabled.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
@@ -100,7 +239,7 @@ func GetBucketObject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketObject resources.
 type bucketObjectState struct {
-	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
 	Acl *string `pulumi:"acl"`
 	// The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket *string `pulumi:"bucket"`
@@ -125,13 +264,9 @@ type bucketObjectState struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The name of the object once it is in the bucket.
-	Key *string `pulumi:"key"`
-	// Specifies the AWS KMS Key ARN to use for object encryption.
-	// This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
-	// use the exported `arn` attribute:
-	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
+	Key      *string `pulumi:"key"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata map[string]string `pulumi:"metadata"`
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus *string `pulumi:"objectLockLegalHoldStatus"`
@@ -146,8 +281,8 @@ type bucketObjectState struct {
 	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass *string `pulumi:"storageClass"`
-	// A mapping of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags map[string]string `pulumi:"tags"`
 	// A unique version ID value for the object, if bucket versioning
 	// is enabled.
 	VersionId *string `pulumi:"versionId"`
@@ -156,7 +291,7 @@ type bucketObjectState struct {
 }
 
 type BucketObjectState struct {
-	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
 	Acl pulumi.StringPtrInput
 	// The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket pulumi.StringPtrInput
@@ -181,13 +316,9 @@ type BucketObjectState struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
 	// The name of the object once it is in the bucket.
-	Key pulumi.StringPtrInput
-	// Specifies the AWS KMS Key ARN to use for object encryption.
-	// This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
-	// use the exported `arn` attribute:
-	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
+	Key      pulumi.StringPtrInput
 	KmsKeyId pulumi.StringPtrInput
-	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapInput
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus pulumi.StringPtrInput
@@ -202,8 +333,8 @@ type BucketObjectState struct {
 	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass pulumi.StringPtrInput
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapInput
 	// A unique version ID value for the object, if bucket versioning
 	// is enabled.
 	VersionId pulumi.StringPtrInput
@@ -216,7 +347,7 @@ func (BucketObjectState) ElementType() reflect.Type {
 }
 
 type bucketObjectArgs struct {
-	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
 	Acl *string `pulumi:"acl"`
 	// The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket interface{} `pulumi:"bucket"`
@@ -241,13 +372,9 @@ type bucketObjectArgs struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The name of the object once it is in the bucket.
-	Key *string `pulumi:"key"`
-	// Specifies the AWS KMS Key ARN to use for object encryption.
-	// This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
-	// use the exported `arn` attribute:
-	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
+	Key      *string `pulumi:"key"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata map[string]string `pulumi:"metadata"`
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus *string `pulumi:"objectLockLegalHoldStatus"`
@@ -262,15 +389,15 @@ type bucketObjectArgs struct {
 	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass *string `pulumi:"storageClass"`
-	// A mapping of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the object.
+	Tags map[string]string `pulumi:"tags"`
 	// Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
 
 // The set of arguments for constructing a BucketObject resource.
 type BucketObjectArgs struct {
-	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
 	Acl pulumi.StringPtrInput
 	// The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket pulumi.Input
@@ -295,13 +422,9 @@ type BucketObjectArgs struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
 	// The name of the object once it is in the bucket.
-	Key pulumi.StringPtrInput
-	// Specifies the AWS KMS Key ARN to use for object encryption.
-	// This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
-	// use the exported `arn` attribute:
-	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
+	Key      pulumi.StringPtrInput
 	KmsKeyId pulumi.StringPtrInput
-	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapInput
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus pulumi.StringPtrInput
@@ -316,8 +439,8 @@ type BucketObjectArgs struct {
 	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass pulumi.StringPtrInput
-	// A mapping of tags to assign to the object.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the object.
+	Tags pulumi.StringMapInput
 	// Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	WebsiteRedirect pulumi.StringPtrInput
 }

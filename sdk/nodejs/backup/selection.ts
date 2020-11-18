@@ -4,21 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages selection conditions for AWS Backup plan resources.
- * 
+ *
  * ## Example Usage
- * 
  * ### IAM Role
- * 
+ *
+ * > For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
+ *
+ * The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleRole = new aws.iam.Role("example", {
- *     assumeRolePolicy: `{
+ *
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -30,52 +33,46 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ * `});
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
  *     role: exampleRole.name,
  * });
- * const exampleSelection = new aws.backup.Selection("example", {
- *     iamRoleArn: exampleRole.arn,
- * });
+ * // ... other configuration ...
+ * const exampleSelection = new aws.backup.Selection("exampleSelection", {iamRoleArn: exampleRole.arn});
  * ```
- * 
  * ### Selecting Backups By Tag
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: aws_iam_role_example.arn,
- *     planId: aws_backup_plan_example.id,
+ *     iamRoleArn: aws_iam_role.example.arn,
+ *     planId: aws_backup_plan.example.id,
  *     selectionTags: [{
- *         key: "foo",
  *         type: "STRINGEQUALS",
+ *         key: "foo",
  *         value: "bar",
  *     }],
  * });
  * ```
- * 
  * ### Selecting Backups By Resource
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: aws_iam_role_example.arn,
- *     planId: aws_backup_plan_example.id,
+ *     iamRoleArn: aws_iam_role.example.arn,
+ *     planId: aws_backup_plan.example.id,
  *     resources: [
- *         aws_db_instance_example.arn,
- *         aws_ebs_volume_example.arn,
- *         aws_efs_file_system_example.arn,
+ *         aws_db_instance.example.arn,
+ *         aws_ebs_volume.example.arn,
+ *         aws_efs_file_system.example.arn,
  *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_selection.html.markdown.
  */
 export class Selection extends pulumi.CustomResource {
     /**
@@ -85,6 +82,7 @@ export class Selection extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SelectionState, opts?: pulumi.CustomResourceOptions): Selection {
         return new Selection(name, <any>state, { ...opts, id: id });

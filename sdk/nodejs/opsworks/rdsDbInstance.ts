@@ -2,33 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks RDS DB Instance resource.
- * 
+ *
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myInstance = new aws.opsworks.RdsDbInstance("myInstance", {
- *     dbPassword: "somePass",
+ *     stackId: aws_opsworks_stack.my_stack.id,
+ *     rdsDbInstanceArn: aws_db_instance.my_instance.arn,
  *     dbUser: "someUser",
- *     rdsDbInstanceArn: aws_db_instance_my_instance.arn,
- *     stackId: aws_opsworks_stack_my_stack.id,
+ *     dbPassword: "somePass",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_rds_db_instance.html.markdown.
  */
 export class RdsDbInstance extends pulumi.CustomResource {
     /**
@@ -38,6 +31,7 @@ export class RdsDbInstance extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RdsDbInstanceState, opts?: pulumi.CustomResourceOptions): RdsDbInstance {
         return new RdsDbInstance(name, <any>state, { ...opts, id: id });

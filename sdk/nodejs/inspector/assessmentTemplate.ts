@@ -6,16 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Inspector assessment template
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.inspector.AssessmentTemplate("example", {
+ *     targetArn: aws_inspector_assessment_target.example.arn,
  *     duration: 3600,
  *     rulesPackageArns: [
  *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
@@ -23,11 +22,8 @@ import * as utilities from "../utilities";
  *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
  *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
  *     ],
- *     targetArn: aws_inspector_assessment_target_example.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_assessment_template.html.markdown.
  */
 export class AssessmentTemplate extends pulumi.CustomResource {
     /**
@@ -37,6 +33,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AssessmentTemplateState, opts?: pulumi.CustomResourceOptions): AssessmentTemplate {
         return new AssessmentTemplate(name, <any>state, { ...opts, id: id });
@@ -73,9 +70,9 @@ export class AssessmentTemplate extends pulumi.CustomResource {
      */
     public readonly rulesPackageArns!: pulumi.Output<string[]>;
     /**
-     * Key-value mapping of tags for the Inspector assessment template.
+     * Key-value map of tags for the Inspector assessment template.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The assessment target ARN to attach the template to.
      */
@@ -149,9 +146,9 @@ export interface AssessmentTemplateState {
      */
     readonly rulesPackageArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of tags for the Inspector assessment template.
+     * Key-value map of tags for the Inspector assessment template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The assessment target ARN to attach the template to.
      */
@@ -175,9 +172,9 @@ export interface AssessmentTemplateArgs {
      */
     readonly rulesPackageArns: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of tags for the Inspector assessment template.
+     * Key-value map of tags for the Inspector assessment template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The assessment target ARN to attach the template to.
      */

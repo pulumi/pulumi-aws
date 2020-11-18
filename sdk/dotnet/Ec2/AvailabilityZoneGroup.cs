@@ -14,9 +14,25 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE:** This is an advanced resource. The provider will automatically assume management of the EC2 Availability Zone Group without import and perform no actions on removal from configuration.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_availability_zone_group.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.AvailabilityZoneGroup("example", new Aws.Ec2.AvailabilityZoneGroupArgs
+    ///         {
+    ///             GroupName = "us-west-2-lax-1",
+    ///             OptInStatus = "opted-in",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AvailabilityZoneGroup : Pulumi.CustomResource
     {
@@ -41,7 +57,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AvailabilityZoneGroup(string name, AvailabilityZoneGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup", name, args ?? new AvailabilityZoneGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

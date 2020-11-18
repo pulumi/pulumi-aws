@@ -2,21 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a DMS (Data Migration Service) replication instance resource. DMS replication instances can be created, updated, deleted, and imported.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dmsAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
@@ -26,23 +22,17 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const dmsAccessForEndpoint = new aws.iam.Role("dms-access-for-endpoint", {
- *     assumeRolePolicy: dmsAssumeRole.json,
- * });
+ * const dms_access_for_endpoint = new aws.iam.Role("dms-access-for-endpoint", {assumeRolePolicy: dmsAssumeRole.then(dmsAssumeRole => dmsAssumeRole.json)});
  * const dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new aws.iam.RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role",
  *     role: dms_access_for_endpoint.name,
  * });
- * const dmsCloudwatchLogsRole = new aws.iam.Role("dms-cloudwatch-logs-role", {
- *     assumeRolePolicy: dmsAssumeRole.json,
- * });
+ * const dms_cloudwatch_logs_role = new aws.iam.Role("dms-cloudwatch-logs-role", {assumeRolePolicy: dmsAssumeRole.then(dmsAssumeRole => dmsAssumeRole.json)});
  * const dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new aws.iam.RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole",
  *     role: dms_cloudwatch_logs_role.name,
  * });
- * const dmsVpcRole = new aws.iam.Role("dms-vpc-role", {
- *     assumeRolePolicy: dmsAssumeRole.json,
- * });
+ * const dms_vpc_role = new aws.iam.Role("dms-vpc-role", {assumeRolePolicy: dmsAssumeRole.then(dmsAssumeRole => dmsAssumeRole.json)});
  * const dms_vpc_role_AmazonDMSVPCManagementRole = new aws.iam.RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
  *     role: dms_vpc_role.name,
@@ -60,15 +50,13 @@ import * as utilities from "../utilities";
  *     publiclyAccessible: true,
  *     replicationInstanceClass: "dms.t2.micro",
  *     replicationInstanceId: "test-dms-replication-instance-tf",
- *     replicationSubnetGroupId: aws_dms_replication_subnet_group_test_dms_replication_subnet_group_tf.id,
+ *     replicationSubnetGroupId: aws_dms_replication_subnet_group["test-dms-replication-subnet-group-tf"].id,
  *     tags: {
  *         Name: "test",
  *     },
  *     vpcSecurityGroupIds: ["sg-12345678"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_replication_instance.html.markdown.
  */
 export class ReplicationInstance extends pulumi.CustomResource {
     /**
@@ -78,6 +66,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ReplicationInstanceState, opts?: pulumi.CustomResourceOptions): ReplicationInstance {
         return new ReplicationInstance(name, <any>state, { ...opts, id: id });
@@ -101,6 +90,10 @@ export class ReplicationInstance extends pulumi.CustomResource {
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
     public readonly allocatedStorage!: pulumi.Output<number>;
+    /**
+     * Indicates that major version upgrades are allowed.
+     */
+    public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
      */
@@ -158,9 +151,9 @@ export class ReplicationInstance extends pulumi.CustomResource {
      */
     public readonly replicationSubnetGroupId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
      */
@@ -179,6 +172,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ReplicationInstanceState | undefined;
             inputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
+            inputs["allowMajorVersionUpgrade"] = state ? state.allowMajorVersionUpgrade : undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
@@ -204,6 +198,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
                 throw new Error("Missing required property 'replicationInstanceId'");
             }
             inputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;
+            inputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
@@ -240,6 +235,10 @@ export interface ReplicationInstanceState {
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
     readonly allocatedStorage?: pulumi.Input<number>;
+    /**
+     * Indicates that major version upgrades are allowed.
+     */
+    readonly allowMajorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
      */
@@ -297,9 +296,9 @@ export interface ReplicationInstanceState {
      */
     readonly replicationSubnetGroupId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
      */
@@ -314,6 +313,10 @@ export interface ReplicationInstanceArgs {
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
     readonly allocatedStorage?: pulumi.Input<number>;
+    /**
+     * Indicates that major version upgrades are allowed.
+     */
+    readonly allowMajorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
      */
@@ -359,9 +362,9 @@ export interface ReplicationInstanceArgs {
      */
     readonly replicationSubnetGroupId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
      */

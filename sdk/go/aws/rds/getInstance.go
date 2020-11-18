@@ -4,10 +4,33 @@
 package rds
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get information about an RDS instance
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := rds.LookupInstance(ctx, &rds.LookupInstanceArgs{
+// 			DbInstanceIdentifier: "my-test-database",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupInstanceResult, error) {
 	var rv LookupInstanceResult
 	err := ctx.Invoke("aws:rds/getInstance:getInstance", args, &rv, opts...)
@@ -20,8 +43,8 @@ func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulum
 // A collection of arguments for invoking getInstance.
 type LookupInstanceArgs struct {
 	// The name of the RDS instance
-	DbInstanceIdentifier string                 `pulumi:"dbInstanceIdentifier"`
-	Tags                 map[string]interface{} `pulumi:"tags"`
+	DbInstanceIdentifier string            `pulumi:"dbInstanceIdentifier"`
+	Tags                 map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getInstance.
@@ -65,7 +88,7 @@ type LookupInstanceResult struct {
 	EngineVersion string `pulumi:"engineVersion"`
 	// The canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
 	HostedZoneId string `pulumi:"hostedZoneId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Specifies the Provisioned IOPS (I/O operations per second) value.
 	Iops int `pulumi:"iops"`
@@ -98,8 +121,8 @@ type LookupInstanceResult struct {
 	// Specifies whether the DB instance is encrypted.
 	StorageEncrypted bool `pulumi:"storageEncrypted"`
 	// Specifies the storage type associated with DB instance.
-	StorageType string                 `pulumi:"storageType"`
-	Tags        map[string]interface{} `pulumi:"tags"`
+	StorageType string            `pulumi:"storageType"`
+	Tags        map[string]string `pulumi:"tags"`
 	// The time zone of the DB instance.
 	Timezone string `pulumi:"timezone"`
 	// Provides a list of VPC security group elements that the DB instance belongs to.

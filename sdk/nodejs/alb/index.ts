@@ -13,3 +13,6 @@ export * from "./loadBalancer";
 export * from "./loadBalancerType";
 export * from "./targetGroup";
 export * from "./targetGroupAttachment";
+
+// Export enums:
+export * from "../types/enums/alb";

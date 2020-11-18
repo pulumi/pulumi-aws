@@ -2,27 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Step Functions Activity data source
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const sfnActivity = aws.sfn.getActivity({
- *     name: "my-activity",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_activity.html.markdown.
+ * const sfnActivity = pulumi.output(aws.sfn.getActivity({
+ *     name: "my-activity",
+ * }, { async: true }));
+ * ```
  */
-export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> & GetActivityResult {
+export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -31,12 +30,10 @@ export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions)
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetActivityResult> = pulumi.runtime.invoke("aws:sfn/getActivity:getActivity", {
+    return pulumi.runtime.invoke("aws:sfn/getActivity:getActivity", {
         "arn": args.arn,
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -62,9 +59,9 @@ export interface GetActivityResult {
      * The date the activity was created.
      */
     readonly creationDate: string;
-    readonly name: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

@@ -4,25 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Creates a Lambda function alias. Creates an alias that points to the specified Lambda function version.
- * 
- * For information about Lambda and how to use it, see [What is AWS Lambda?][1]
- * For information about function aliases, see [CreateAlias][2] and [AliasRoutingConfiguration][3] in the API docs.
- * 
+ *
+ * For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+ * For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testAlias = new aws.lambda.Alias("testAlias", {
+ *
+ * const testLambdaAlias = new aws.lambda.Alias("testLambdaAlias", {
  *     description: "a sample description",
- *     functionName: aws_lambda_function_lambda_function_test.arn,
+ *     functionName: aws_lambda_function.lambda_function_test.arn,
  *     functionVersion: "1",
  *     routingConfig: {
  *         additionalVersionWeights: {
@@ -31,8 +30,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_alias.html.markdown.
  */
 export class Alias extends pulumi.CustomResource {
     /**
@@ -42,6 +39,7 @@ export class Alias extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AliasState, opts?: pulumi.CustomResourceOptions): Alias {
         return new Alias(name, <any>state, { ...opts, id: id });
@@ -70,7 +68,7 @@ export class Alias extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The function ARN of the Lambda function for which you want to create an alias.
+     * Lambda Function name or ARN.
      */
     public readonly functionName!: pulumi.Output<string>;
     /**
@@ -78,7 +76,7 @@ export class Alias extends pulumi.CustomResource {
      */
     public readonly functionVersion!: pulumi.Output<string>;
     /**
-     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
      */
     public /*out*/ readonly invokeArn!: pulumi.Output<string>;
     /**
@@ -149,7 +147,7 @@ export interface AliasState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The function ARN of the Lambda function for which you want to create an alias.
+     * Lambda Function name or ARN.
      */
     readonly functionName?: pulumi.Input<string>;
     /**
@@ -157,7 +155,7 @@ export interface AliasState {
      */
     readonly functionVersion?: pulumi.Input<string>;
     /**
-     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
      */
     readonly invokeArn?: pulumi.Input<string>;
     /**
@@ -179,7 +177,7 @@ export interface AliasArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The function ARN of the Lambda function for which you want to create an alias.
+     * Lambda Function name or ARN.
      */
     readonly functionName: pulumi.Input<string>;
     /**

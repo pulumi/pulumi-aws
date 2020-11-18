@@ -15,9 +15,28 @@ namespace Pulumi.Aws.Ec2
     /// To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
     /// This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_datafeed_subscription.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var defaultBucket = new Aws.S3.Bucket("defaultBucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var defaultSpotDatafeedSubscription = new Aws.Ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription", new Aws.Ec2.SpotDatafeedSubscriptionArgs
+    ///         {
+    ///             Bucket = defaultBucket.BucketName,
+    ///             Prefix = "my_subdirectory",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SpotDatafeedSubscription : Pulumi.CustomResource
     {
@@ -42,7 +61,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SpotDatafeedSubscription(string name, SpotDatafeedSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription", name, args ?? new SpotDatafeedSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

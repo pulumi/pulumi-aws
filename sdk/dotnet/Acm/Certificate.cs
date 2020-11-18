@@ -18,24 +18,84 @@ namespace Pulumi.Aws.Acm
     /// for other resources implementing the validation. It does not wait for a certificate to be issued.
     /// Use a `aws.acm.CertificateValidation` resource for this.
     /// 
-    /// Most commonly, this resource is used to together with `aws.route53.Record` and
+    /// Most commonly, this resource is used together with `aws.route53.Record` and
     /// `aws.acm.CertificateValidation` to request a DNS validated certificate,
     /// deploy the required validation records and wait for validation to complete.
     /// 
     /// Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
     /// of this provider.
     /// 
-    /// It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
+    /// It's recommended to specify `create_before_destroy = true` in a [lifecycle](https://www.terraform.io/docs/configuration/resources.html#lifecycle) block to replace a certificate
     /// which is currently in use (eg, by `aws.lb.Listener`).
     /// 
+    /// ## Example Usage
+    /// ### Certificate creation
     /// 
-    /// ## options Configuration Block
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// Supported nested arguments for the `options` configuration block:
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cert = new Aws.Acm.Certificate("cert", new Aws.Acm.CertificateArgs
+    ///         {
+    ///             DomainName = "example.com",
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "test" },
+    ///             },
+    ///             ValidationMethod = "DNS",
+    ///         });
+    ///     }
     /// 
-    /// * `certificate_transparency_logging_preference` - (Optional) Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+    /// }
+    /// ```
+    /// ### Importing an existing certificate
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Tls = Pulumi.Tls;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var examplePrivateKey = new Tls.PrivateKey("examplePrivateKey", new Tls.PrivateKeyArgs
+    ///         {
+    ///             Algorithm = "RSA",
+    ///         });
+    ///         var exampleSelfSignedCert = new Tls.SelfSignedCert("exampleSelfSignedCert", new Tls.SelfSignedCertArgs
+    ///         {
+    ///             KeyAlgorithm = "RSA",
+    ///             PrivateKeyPem = examplePrivateKey.PrivateKeyPem,
+    ///             Subjects = 
+    ///             {
+    ///                 new Tls.Inputs.SelfSignedCertSubjectArgs
+    ///                 {
+    ///                     CommonName = "example.com",
+    ///                     Organization = "ACME Examples, Inc",
+    ///                 },
+    ///             },
+    ///             ValidityPeriodHours = 12,
+    ///             AllowedUses = 
+    ///             {
+    ///                 "key_encipherment",
+    ///                 "digital_signature",
+    ///                 "server_auth",
+    ///             },
+    ///         });
+    ///         var cert = new Aws.Acm.Certificate("cert", new Aws.Acm.CertificateArgs
+    ///         {
+    ///             PrivateKey = examplePrivateKey.PrivateKeyPem,
+    ///             CertificateBody = exampleSelfSignedCert.CertPem,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {
@@ -71,11 +131,15 @@ namespace Pulumi.Aws.Acm
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
         /// </summary>
         [Output("domainValidationOptions")]
-        public Output<ImmutableArray<Outputs.CertificateDomainValidationOptions>> DomainValidationOptions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CertificateDomainValidationOption>> DomainValidationOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block used to set certificate options. Detailed below.
+        /// * Importing an existing certificate
+        /// </summary>
         [Output("options")]
         public Output<Outputs.CertificateOptions?> Options { get; private set; } = null!;
 
@@ -86,16 +150,22 @@ namespace Pulumi.Aws.Acm
         public Output<string?> PrivateKey { get; private set; } = null!;
 
         /// <summary>
-        /// A list of domains that should be SANs in the issued certificate
+        /// Status of the certificate.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         /// </summary>
         [Output("subjectAlternativeNames")]
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
@@ -104,8 +174,7 @@ namespace Pulumi.Aws.Acm
         public Output<ImmutableArray<string>> ValidationEmails { get; private set; } = null!;
 
         /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
-        /// * Importing an existing certificate
+        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
         /// </summary>
         [Output("validationMethod")]
         public Output<string> ValidationMethod { get; private set; } = null!;
@@ -119,7 +188,7 @@ namespace Pulumi.Aws.Acm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:acm/certificate:Certificate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:acm/certificate:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -181,6 +250,10 @@ namespace Pulumi.Aws.Acm
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
+        /// <summary>
+        /// Configuration block used to set certificate options. Detailed below.
+        /// * Importing an existing certificate
+        /// </summary>
         [Input("options")]
         public Input<Inputs.CertificateOptionsArgs>? Options { get; set; }
 
@@ -194,7 +267,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// A list of domains that should be SANs in the issued certificate
+        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
@@ -203,20 +276,19 @@ namespace Pulumi.Aws.Acm
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
-        /// * Importing an existing certificate
+        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
         /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }
@@ -260,17 +332,21 @@ namespace Pulumi.Aws.Acm
         public Input<string>? DomainName { get; set; }
 
         [Input("domainValidationOptions")]
-        private InputList<Inputs.CertificateDomainValidationOptionsGetArgs>? _domainValidationOptions;
+        private InputList<Inputs.CertificateDomainValidationOptionGetArgs>? _domainValidationOptions;
 
         /// <summary>
-        /// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
         /// </summary>
-        public InputList<Inputs.CertificateDomainValidationOptionsGetArgs> DomainValidationOptions
+        public InputList<Inputs.CertificateDomainValidationOptionGetArgs> DomainValidationOptions
         {
-            get => _domainValidationOptions ?? (_domainValidationOptions = new InputList<Inputs.CertificateDomainValidationOptionsGetArgs>());
+            get => _domainValidationOptions ?? (_domainValidationOptions = new InputList<Inputs.CertificateDomainValidationOptionGetArgs>());
             set => _domainValidationOptions = value;
         }
 
+        /// <summary>
+        /// Configuration block used to set certificate options. Detailed below.
+        /// * Importing an existing certificate
+        /// </summary>
         [Input("options")]
         public Input<Inputs.CertificateOptionsGetArgs>? Options { get; set; }
 
@@ -280,11 +356,17 @@ namespace Pulumi.Aws.Acm
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
 
+        /// <summary>
+        /// Status of the certificate.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
         [Input("subjectAlternativeNames")]
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// A list of domains that should be SANs in the issued certificate
+        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
@@ -293,14 +375,14 @@ namespace Pulumi.Aws.Acm
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -317,8 +399,7 @@ namespace Pulumi.Aws.Acm
         }
 
         /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
-        /// * Importing an existing certificate
+        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
         /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }
@@ -326,110 +407,5 @@ namespace Pulumi.Aws.Acm
         public CertificateState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class CertificateDomainValidationOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A domain name for which the certificate should be issued
-        /// </summary>
-        [Input("domainName")]
-        public Input<string>? DomainName { get; set; }
-
-        /// <summary>
-        /// The name of the DNS record to create to validate the certificate
-        /// </summary>
-        [Input("resourceRecordName")]
-        public Input<string>? ResourceRecordName { get; set; }
-
-        /// <summary>
-        /// The type of DNS record to create
-        /// </summary>
-        [Input("resourceRecordType")]
-        public Input<string>? ResourceRecordType { get; set; }
-
-        /// <summary>
-        /// The value the DNS record needs to have
-        /// </summary>
-        [Input("resourceRecordValue")]
-        public Input<string>? ResourceRecordValue { get; set; }
-
-        public CertificateDomainValidationOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class CertificateOptionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("certificateTransparencyLoggingPreference")]
-        public Input<string>? CertificateTransparencyLoggingPreference { get; set; }
-
-        public CertificateOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class CertificateOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("certificateTransparencyLoggingPreference")]
-        public Input<string>? CertificateTransparencyLoggingPreference { get; set; }
-
-        public CertificateOptionsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class CertificateDomainValidationOptions
-    {
-        /// <summary>
-        /// A domain name for which the certificate should be issued
-        /// </summary>
-        public readonly string DomainName;
-        /// <summary>
-        /// The name of the DNS record to create to validate the certificate
-        /// </summary>
-        public readonly string ResourceRecordName;
-        /// <summary>
-        /// The type of DNS record to create
-        /// </summary>
-        public readonly string ResourceRecordType;
-        /// <summary>
-        /// The value the DNS record needs to have
-        /// </summary>
-        public readonly string ResourceRecordValue;
-
-        [OutputConstructor]
-        private CertificateDomainValidationOptions(
-            string domainName,
-            string resourceRecordName,
-            string resourceRecordType,
-            string resourceRecordValue)
-        {
-            DomainName = domainName;
-            ResourceRecordName = resourceRecordName;
-            ResourceRecordType = resourceRecordType;
-            ResourceRecordValue = resourceRecordValue;
-        }
-    }
-
-    [OutputType]
-    public sealed class CertificateOptions
-    {
-        public readonly string? CertificateTransparencyLoggingPreference;
-
-        [OutputConstructor]
-        private CertificateOptions(string? certificateTransparencyLoggingPreference)
-        {
-            CertificateTransparencyLoggingPreference = certificateTransparencyLoggingPreference;
-        }
-    }
     }
 }

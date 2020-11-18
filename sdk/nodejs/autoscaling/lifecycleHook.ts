@@ -2,44 +2,40 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AutoScaling Lifecycle Hook resource.
- * 
+ *
  * > **NOTE:** This provider has two types of ways you can add lifecycle hooks - via
  * the `initialLifecycleHook` attribute from the
- * [`aws.autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html)
+ * `aws.autoscaling.Group`
  * resource, or via this one. Hooks added via this resource will not be added
  * until the autoscaling group has been created, and depending on your
- * [capacity](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html#waiting-for-capacity)
+ * `capacity`
  * settings, after the initial instances have been launched, creating unintended
  * behavior. If you need hooks to run on all instances, add them with
  * `initialLifecycleHook` in
- * [`aws.autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
+ * `aws.autoscaling.Group`,
  * but take care to not duplicate those hooks with this resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const foobarGroup = new aws.autoscaling.Group("foobar", {
+ *
+ * const foobarGroup = new aws.autoscaling.Group("foobarGroup", {
  *     availabilityZones: ["us-west-2a"],
  *     healthCheckType: "EC2",
+ *     terminationPolicies: ["OldestInstance"],
  *     tags: [{
  *         key: "Foo",
- *         propagateAtLaunch: true,
  *         value: "foo-bar",
+ *         propagateAtLaunch: true,
  *     }],
- *     terminationPolicies: ["OldestInstance"],
  * });
- * const foobarLifecycleHook = new aws.autoscaling.LifecycleHook("foobar", {
+ * const foobarLifecycleHook = new aws.autoscaling.LifecycleHook("foobarLifecycleHook", {
  *     autoscalingGroupName: foobarGroup.name,
  *     defaultResult: "CONTINUE",
  *     heartbeatTimeout: 2000,
@@ -52,8 +48,6 @@ import * as utilities from "../utilities";
  *     roleArn: "arn:aws:iam::123456789012:role/S3Access",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_lifecycle_hook.html.markdown.
  */
 export class LifecycleHook extends pulumi.CustomResource {
     /**
@@ -63,6 +57,7 @@ export class LifecycleHook extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LifecycleHookState, opts?: pulumi.CustomResourceOptions): LifecycleHook {
         return new LifecycleHook(name, <any>state, { ...opts, id: id });

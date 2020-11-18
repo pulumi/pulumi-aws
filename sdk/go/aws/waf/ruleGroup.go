@@ -7,10 +7,48 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a WAF Rule Group Resource
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/waf"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleRule, err := waf.NewRule(ctx, "exampleRule", &waf.RuleArgs{
+// 			MetricName: pulumi.String("example"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = waf.NewRuleGroup(ctx, "exampleRuleGroup", &waf.RuleGroupArgs{
+// 			MetricName: pulumi.String("example"),
+// 			ActivatedRules: waf.RuleGroupActivatedRuleArray{
+// 				&waf.RuleGroupActivatedRuleArgs{
+// 					Action: &waf.RuleGroupActivatedRuleActionArgs{
+// 						Type: pulumi.String("COUNT"),
+// 					},
+// 					Priority: pulumi.Int(50),
+// 					RuleId:   exampleRule.ID(),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +60,8 @@ type RuleGroup struct {
 	MetricName pulumi.StringOutput `pulumi:"metricName"`
 	// A friendly name of the rule group
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -65,8 +103,8 @@ type ruleGroupState struct {
 	MetricName *string `pulumi:"metricName"`
 	// A friendly name of the rule group
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type RuleGroupState struct {
@@ -78,8 +116,8 @@ type RuleGroupState struct {
 	MetricName pulumi.StringPtrInput
 	// A friendly name of the rule group
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (RuleGroupState) ElementType() reflect.Type {
@@ -93,8 +131,8 @@ type ruleGroupArgs struct {
 	MetricName string `pulumi:"metricName"`
 	// A friendly name of the rule group
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RuleGroup resource.
@@ -105,8 +143,8 @@ type RuleGroupArgs struct {
 	MetricName pulumi.StringInput
 	// A friendly name of the rule group
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (RuleGroupArgs) ElementType() reflect.Type {

@@ -15,16 +15,56 @@ namespace Pulumi.Aws.Ram
     /// When RAM Sharing with AWS Organizations is enabled:
     /// 
     /// - For AWS Account ID, Organization, and Organizational Unit principals within the same AWS Organization, no resource share invitation is sent and resources become available automatically after creating the association.
-    /// - For AWS Account ID principals outside the AWS Organization, a resource share invitation is sent and must be accepted before resources become available. See the [`aws.ram.ResourceShareAccepter` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_share_accepter.html) to accept these invitations.
+    /// - For AWS Account ID principals outside the AWS Organization, a resource share invitation is sent and must be accepted before resources become available. See the `aws.ram.ResourceShareAccepter` resource to accept these invitations.
     /// 
     /// When RAM Sharing with AWS Organizations is not enabled:
     /// 
     /// - Organization and Organizational Unit principals cannot be used.
-    /// - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the [`aws.ram.ResourceShareAccepter` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_share_accepter.html) to accept these invitations.
+    /// - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `aws.ram.ResourceShareAccepter` resource to accept these invitations.
     /// 
+    /// ## Example Usage
+    /// ### AWS Account ID
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_principal_association.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceShare = new Aws.Ram.ResourceShare("exampleResourceShare", new Aws.Ram.ResourceShareArgs
+    ///         {
+    ///             AllowExternalPrincipals = true,
+    ///         });
+    ///         var examplePrincipalAssociation = new Aws.Ram.PrincipalAssociation("examplePrincipalAssociation", new Aws.Ram.PrincipalAssociationArgs
+    ///         {
+    ///             Principal = "111111111111",
+    ///             ResourceShareArn = exampleResourceShare.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### AWS Organization
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ram.PrincipalAssociation("example", new Aws.Ram.PrincipalAssociationArgs
+    ///         {
+    ///             Principal = aws_organizations_organization.Example.Arn,
+    ///             ResourceShareArn = aws_ram_resource_share.Example.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PrincipalAssociation : Pulumi.CustomResource
     {
@@ -49,7 +89,7 @@ namespace Pulumi.Aws.Ram
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrincipalAssociation(string name, PrincipalAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ram/principalAssociation:PrincipalAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ram/principalAssociation:PrincipalAssociation", name, args ?? new PrincipalAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -9,25 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Alb
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
-        /// 
-        /// Provides information about a Load Balancer.
-        /// 
-        /// This data source can prove useful when a module accepts an LB as an input
-        /// variable and needs to, for example, determine the security groups associated
-        /// with it, etc.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetLoadBalancer.InvokeAsync() instead")]
-        public static Task<GetLoadBalancerResult> GetLoadBalancer(GetLoadBalancerArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:alb/getLoadBalancer:getLoadBalancer", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetLoadBalancer
     {
         /// <summary>
@@ -39,13 +20,37 @@ namespace Pulumi.Aws.Alb
         /// variable and needs to, for example, determine the security groups associated
         /// with it, etc.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var lbArn = config.Get("lbArn") ?? "";
+        ///         var lbName = config.Get("lbName") ?? "";
+        ///         var test = Output.Create(Aws.LB.GetLoadBalancer.InvokeAsync(new Aws.LB.GetLoadBalancerArgs
+        ///         {
+        ///             Arn = lbArn,
+        ///             Name = lbName,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:alb/getLoadBalancer:getLoadBalancer", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:alb/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithVersion());
     }
+
 
     public sealed class GetLoadBalancerArgs : Pulumi.InvokeArgs
     {
@@ -62,10 +67,10 @@ namespace Pulumi.Aws.Alb
         public string? Name { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -74,58 +79,88 @@ namespace Pulumi.Aws.Alb
         }
     }
 
+
     [OutputType]
     public sealed class GetLoadBalancerResult
     {
         public readonly Outputs.GetLoadBalancerAccessLogsResult AccessLogs;
         public readonly string Arn;
         public readonly string ArnSuffix;
+        public readonly string CustomerOwnedIpv4Pool;
         public readonly string DnsName;
         public readonly bool DropInvalidHeaderFields;
         public readonly bool EnableDeletionProtection;
+        public readonly bool EnableHttp2;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly int IdleTimeout;
         public readonly bool Internal;
+        public readonly string IpAddressType;
         public readonly string LoadBalancerType;
         public readonly string Name;
         public readonly ImmutableArray<string> SecurityGroups;
-        public readonly ImmutableArray<Outputs.GetLoadBalancerSubnetMappingsResult> SubnetMappings;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerSubnetMappingResult> SubnetMappings;
         public readonly ImmutableArray<string> Subnets;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VpcId;
         public readonly string ZoneId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetLoadBalancerResult(
             Outputs.GetLoadBalancerAccessLogsResult accessLogs,
+
             string arn,
+
             string arnSuffix,
+
+            string customerOwnedIpv4Pool,
+
             string dnsName,
+
             bool dropInvalidHeaderFields,
+
             bool enableDeletionProtection,
+
+            bool enableHttp2,
+
+            string id,
+
             int idleTimeout,
+
             bool @internal,
+
+            string ipAddressType,
+
             string loadBalancerType,
+
             string name,
+
             ImmutableArray<string> securityGroups,
-            ImmutableArray<Outputs.GetLoadBalancerSubnetMappingsResult> subnetMappings,
+
+            ImmutableArray<Outputs.GetLoadBalancerSubnetMappingResult> subnetMappings,
+
             ImmutableArray<string> subnets,
-            ImmutableDictionary<string, object> tags,
+
+            ImmutableDictionary<string, string> tags,
+
             string vpcId,
-            string zoneId,
-            string id)
+
+            string zoneId)
         {
             AccessLogs = accessLogs;
             Arn = arn;
             ArnSuffix = arnSuffix;
+            CustomerOwnedIpv4Pool = customerOwnedIpv4Pool;
             DnsName = dnsName;
             DropInvalidHeaderFields = dropInvalidHeaderFields;
             EnableDeletionProtection = enableDeletionProtection;
+            EnableHttp2 = enableHttp2;
+            Id = id;
             IdleTimeout = idleTimeout;
             Internal = @internal;
+            IpAddressType = ipAddressType;
             LoadBalancerType = loadBalancerType;
             Name = name;
             SecurityGroups = securityGroups;
@@ -134,46 +169,6 @@ namespace Pulumi.Aws.Alb
             Tags = tags;
             VpcId = vpcId;
             ZoneId = zoneId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetLoadBalancerAccessLogsResult
-    {
-        public readonly string Bucket;
-        public readonly bool Enabled;
-        public readonly string Prefix;
-
-        [OutputConstructor]
-        private GetLoadBalancerAccessLogsResult(
-            string bucket,
-            bool enabled,
-            string prefix)
-        {
-            Bucket = bucket;
-            Enabled = enabled;
-            Prefix = prefix;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLoadBalancerSubnetMappingsResult
-    {
-        public readonly string? AllocationId;
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private GetLoadBalancerSubnetMappingsResult(
-            string? allocationId,
-            string subnetId)
-        {
-            AllocationId = allocationId;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

@@ -4,21 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
  * Use this data source to get the ID of a registered AMI for use in other
  * resources.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.getAmi({
+ *
+ * const example = pulumi.output(aws.getAmi({
  *     executableUsers: ["self"],
  *     filters: [
  *         {
@@ -37,12 +36,10 @@ import * as utilities from "./utilities";
  *     mostRecent: true,
  *     nameRegex: "^myami-\\d{3}",
  *     owners: ["self"],
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
  */
-export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> & GetAmiResult {
+export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
     if (!opts) {
         opts = {}
     }
@@ -50,7 +47,7 @@ export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAmiResult> = pulumi.runtime.invoke("aws:index/getAmi:getAmi", {
+    return pulumi.runtime.invoke("aws:index/getAmi:getAmi", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
         "mostRecent": args.mostRecent,
@@ -58,8 +55,6 @@ export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<G
         "owners": args.owners,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -99,7 +94,7 @@ export interface GetAmiArgs {
      * * `tags.#.key` - The key name of the tag.
      * * `tags.#.value` - The value of the tag.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -110,6 +105,10 @@ export interface GetAmiResult {
      * The OS architecture of the AMI (ie: `i386` or `x8664`).
      */
     readonly architecture: string;
+    /**
+     * The ARN of the AMI.
+     */
+    readonly arn: string;
     /**
      * The block device mappings of the AMI.
      * * `block_device_mappings.#.device_name` - The physical name of the device.
@@ -143,6 +142,10 @@ export interface GetAmiResult {
      * The hypervisor type of the image.
      */
     readonly hypervisor: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     /**
      * The ID of the AMI. Should be the same as the resource `id`.
      */
@@ -222,20 +225,16 @@ export interface GetAmiResult {
      * * `state_reason.code` - The reason code for the state change.
      * * `state_reason.message` - The message for the state change.
      */
-    readonly stateReason: {[key: string]: any};
+    readonly stateReason: {[key: string]: string};
     /**
      * Any tags assigned to the image.
      * * `tags.#.key` - The key name of the tag.
      * * `tags.#.value` - The value of the tag.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The type of virtualization of the AMI (ie: `hvm` or
      * `paravirtual`).
      */
     readonly virtualizationType: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

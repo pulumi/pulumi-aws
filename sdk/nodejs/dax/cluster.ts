@@ -4,28 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a DAX Cluster resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.dax.Cluster("bar", {
  *     clusterName: "cluster-example",
- *     iamRoleArn: aws_iam_role_example.arn,
+ *     iamRoleArn: data.aws_iam_role.example.arn,
  *     nodeType: "dax.r4.large",
  *     replicationFactor: 1,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -35,6 +32,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterState, opts?: pulumi.CustomResourceOptions): Cluster {
         return new Cluster(name, <any>state, { ...opts, id: id });
@@ -96,7 +94,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly maintenanceWindow!: pulumi.Output<string>;
     /**
      * The compute and memory capacity of the nodes. See
-     * [Nodes][1] for supported node types
+     * [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
      */
     public readonly nodeType!: pulumi.Output<string>;
     /**
@@ -141,9 +139,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly subnetGroupName!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -265,7 +263,7 @@ export interface ClusterState {
     readonly maintenanceWindow?: pulumi.Input<string>;
     /**
      * The compute and memory capacity of the nodes. See
-     * [Nodes][1] for supported node types
+     * [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
      */
     readonly nodeType?: pulumi.Input<string>;
     /**
@@ -310,9 +308,9 @@ export interface ClusterState {
      */
     readonly subnetGroupName?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -348,7 +346,7 @@ export interface ClusterArgs {
     readonly maintenanceWindow?: pulumi.Input<string>;
     /**
      * The compute and memory capacity of the nodes. See
-     * [Nodes][1] for supported node types
+     * [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
      */
     readonly nodeType: pulumi.Input<string>;
     /**
@@ -383,7 +381,7 @@ export interface ClusterArgs {
      */
     readonly subnetGroupName?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

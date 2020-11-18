@@ -4,37 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a CodeCommit Trigger Resource.
- * 
- * > **NOTE on CodeCommit**: The CodeCommit is not yet rolled out
- * in all regions - available regions are listed
- * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testRepository = new aws.codecommit.Repository("test", {
- *     repositoryName: "test",
- * });
- * const testTrigger = new aws.codecommit.Trigger("test", {
+ *
+ * const testRepository = new aws.codecommit.Repository("testRepository", {repositoryName: "test"});
+ * const testTrigger = new aws.codecommit.Trigger("testTrigger", {
  *     repositoryName: testRepository.repositoryName,
  *     triggers: [{
- *         destinationArn: aws_sns_topic_test.arn,
- *         events: ["all"],
  *         name: "all",
+ *         events: ["all"],
+ *         destinationArn: aws_sns_topic.test.arn,
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codecommit_trigger.html.markdown.
  */
 export class Trigger extends pulumi.CustomResource {
     /**
@@ -44,6 +35,7 @@ export class Trigger extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TriggerState, opts?: pulumi.CustomResourceOptions): Trigger {
         return new Trigger(name, <any>state, { ...opts, id: id });

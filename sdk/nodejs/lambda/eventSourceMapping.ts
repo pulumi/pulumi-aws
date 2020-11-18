@@ -4,55 +4,51 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB and SQS.
- * 
- * For information about Lambda and how to use it, see [What is AWS Lambda?][1].
- * For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
- * 
- * ## Example Usage
- * 
- * ### DynamoDB
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_dynamodb_table_example.streamArn,
- *     functionName: aws_lambda_function_example.arn,
- *     startingPosition: "LATEST",
- * });
- * ```
- * 
- * ### Kinesis
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_kinesis_stream_example.arn,
- *     functionName: aws_lambda_function_example.arn,
- *     startingPosition: "LATEST",
- * });
- * ```
- * 
- * ### SQS
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_sqs_queue_sqs_queue_test.arn,
- *     functionName: aws_lambda_function_example.arn,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_event_source_mapping.html.markdown.
+ * For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
+ * For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
+ *
+ * ## Example Usage
+ * ### DynamoDB
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: aws_dynamodb_table.example.stream_arn,
+ *     functionName: aws_lambda_function.example.arn,
+ *     startingPosition: "LATEST",
+ * });
+ * ```
+ * ### Kinesis
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: aws_kinesis_stream.example.arn,
+ *     functionName: aws_lambda_function.example.arn,
+ *     startingPosition: "LATEST",
+ * });
+ * ```
+ * ### SQS
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: aws_sqs_queue.sqs_queue_test.arn,
+ *     functionName: aws_lambda_function.example.arn,
+ * });
+ * ```
  */
 export class EventSourceMapping extends pulumi.CustomResource {
     /**
@@ -62,6 +58,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventSourceMappingState, opts?: pulumi.CustomResourceOptions): EventSourceMapping {
         return new EventSourceMapping(name, <any>state, { ...opts, id: id });

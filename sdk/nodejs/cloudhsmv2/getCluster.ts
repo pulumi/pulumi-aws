@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a CloudHSM v2 cluster
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const cluster = aws.cloudhsmv2.getCluster({
- *     clusterId: "cluster-testclusterid",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudhsm_v2_cluster.html.markdown.
+ * const cluster = pulumi.output(aws.cloudhsmv2.getCluster({
+ *     clusterId: "cluster-testclusterid",
+ * }, { async: true }));
+ * ```
  */
-export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,12 +29,10 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetClusterResult> = pulumi.runtime.invoke("aws:cloudhsmv2/getCluster:getCluster", {
+    return pulumi.runtime.invoke("aws:cloudhsmv2/getCluster:getCluster", {
         "clusterId": args.clusterId,
         "clusterState": args.clusterState,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -71,6 +66,10 @@ export interface GetClusterResult {
     readonly clusterId: string;
     readonly clusterState: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ID of the security group associated with the CloudHSM cluster.
      */
     readonly securityGroupId: string;
@@ -82,8 +81,4 @@ export interface GetClusterResult {
      * The id of the VPC that the CloudHSM cluster resides in.
      */
     readonly vpcId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

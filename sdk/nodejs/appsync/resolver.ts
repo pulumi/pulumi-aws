@@ -4,52 +4,53 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AppSync Resolver.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const testGraphQLApi = new aws.appsync.GraphQLApi("test", {
+ *
+ * const testGraphQLApi = new aws.appsync.GraphQLApi("testGraphQLApi", {
  *     authenticationType: "API_KEY",
  *     schema: `type Mutation {
  * 	putPost(id: ID!, title: String!): Post
  * }
- * 
+ *
  * type Post {
  * 	id: ID!
  * 	title: String!
  * }
- * 
+ *
  * type Query {
  * 	singlePost(id: ID!): Post
  * }
- * 
+ *
  * schema {
  * 	query: Query
  * 	mutation: Mutation
  * }
  * `,
  * });
- * const testDataSource = new aws.appsync.DataSource("test", {
+ * const testDataSource = new aws.appsync.DataSource("testDataSource", {
  *     apiId: testGraphQLApi.id,
+ *     name: "tf_example",
+ *     type: "HTTP",
  *     httpConfig: {
  *         endpoint: "http://example.com",
  *     },
- *     type: "HTTP",
  * });
  * // UNIT type resolver (default)
- * const testResolver = new aws.appsync.Resolver("test", {
+ * const testResolver = new aws.appsync.Resolver("testResolver", {
  *     apiId: testGraphQLApi.id,
- *     dataSource: testDataSource.name,
  *     field: "singlePost",
+ *     type: "Query",
+ *     dataSource: testDataSource.name,
  *     requestTemplate: `{
  *     "version": "2018-05-29",
  *     "method": "GET",
@@ -65,27 +66,31 @@ import * as utilities from "../utilities";
  *     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
  * #end
  * `,
- *     type: "Query",
+ *     cachingConfig: {
+ *         cachingKeys: [
+ *             `$context.identity.sub`,
+ *             `$context.arguments.id`,
+ *         ],
+ *         ttl: 60,
+ *     },
  * });
  * // PIPELINE type resolver
- * const mutationPipelineTest = new aws.appsync.Resolver("Mutation_pipelineTest", {
+ * const mutationPipelineTest = new aws.appsync.Resolver("mutationPipelineTest", {
+ *     type: "Mutation",
  *     apiId: testGraphQLApi.id,
  *     field: "pipelineTest",
+ *     requestTemplate: "{}",
+ *     responseTemplate: `$util.toJson($ctx.result)`,
  *     kind: "PIPELINE",
  *     pipelineConfig: {
  *         functions: [
- *             aws_appsync_function_test1.functionId,
- *             aws_appsync_function_test2.functionId,
- *             aws_appsync_function_test3.functionId,
+ *             aws_appsync_function.test1.function_id,
+ *             aws_appsync_function.test2.function_id,
+ *             aws_appsync_function.test3.function_id,
  *         ],
  *     },
- *     requestTemplate: "{}",
- *     responseTemplate: "$util.toJson($ctx.result)",
- *     type: "Mutation",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_resolver.html.markdown.
  */
 export class Resolver extends pulumi.CustomResource {
     /**
@@ -95,6 +100,7 @@ export class Resolver extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ResolverState, opts?: pulumi.CustomResourceOptions): Resolver {
         return new Resolver(name, <any>state, { ...opts, id: id });
@@ -123,6 +129,10 @@ export class Resolver extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The CachingConfig.
+     */
+    public readonly cachingConfig!: pulumi.Output<outputs.appsync.ResolverCachingConfig | undefined>;
+    /**
      * The DataSource name.
      */
     public readonly dataSource!: pulumi.Output<string | undefined>;
@@ -135,7 +145,7 @@ export class Resolver extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * The PipelineConfig. A `pipelineConfig` block is documented below.
+     * The PipelineConfig.
      */
     public readonly pipelineConfig!: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
     /**
@@ -165,6 +175,7 @@ export class Resolver extends pulumi.CustomResource {
             const state = argsOrState as ResolverState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["cachingConfig"] = state ? state.cachingConfig : undefined;
             inputs["dataSource"] = state ? state.dataSource : undefined;
             inputs["field"] = state ? state.field : undefined;
             inputs["kind"] = state ? state.kind : undefined;
@@ -190,6 +201,7 @@ export class Resolver extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
+            inputs["cachingConfig"] = args ? args.cachingConfig : undefined;
             inputs["dataSource"] = args ? args.dataSource : undefined;
             inputs["field"] = args ? args.field : undefined;
             inputs["kind"] = args ? args.kind : undefined;
@@ -223,6 +235,10 @@ export interface ResolverState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * The CachingConfig.
+     */
+    readonly cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
+    /**
      * The DataSource name.
      */
     readonly dataSource?: pulumi.Input<string>;
@@ -235,7 +251,7 @@ export interface ResolverState {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * The PipelineConfig. A `pipelineConfig` block is documented below.
+     * The PipelineConfig.
      */
     readonly pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
     /**
@@ -261,6 +277,10 @@ export interface ResolverArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
+     * The CachingConfig.
+     */
+    readonly cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
+    /**
      * The DataSource name.
      */
     readonly dataSource?: pulumi.Input<string>;
@@ -273,7 +293,7 @@ export interface ResolverArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * The PipelineConfig. A `pipelineConfig` block is documented below.
+     * The PipelineConfig.
      */
     readonly pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
     /**

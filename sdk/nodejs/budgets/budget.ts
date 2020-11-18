@@ -4,19 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ec2 = new aws.budgets.Budget("ec2", {
  *     budgetType: "COST",
  *     costFilters: {
@@ -37,7 +36,90 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/budgets_budget.html.markdown.
+ * Create a budget for *$100*.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const cost = new aws.budgets.Budget("cost", {
+ *     // ...
+ *     budgetType: "COST",
+ *     limitAmount: "100",
+ *     limitUnit: "USD",
+ * });
+ * ```
+ *
+ * Create a budget for s3 with a limit of *3 GB* of storage.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const s3 = new aws.budgets.Budget("s3", {
+ *     // ...
+ *     budgetType: "USAGE",
+ *     limitAmount: "3",
+ *     limitUnit: "GB",
+ * });
+ * ```
+ *
+ * Create a Savings Plan Utilization Budget
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const savingsPlanUtilization = new aws.budgets.Budget("savings_plan_utilization", {
+ *     // ...
+ *     budgetType: "SAVINGS_PLANS_UTILIZATION",
+ *     costTypes: {
+ *         includeCredit: false,
+ *         includeDiscount: false,
+ *         includeOtherSubscription: false,
+ *         includeRecurring: false,
+ *         includeRefund: false,
+ *         includeSubscription: true,
+ *         includeSupport: false,
+ *         includeTax: false,
+ *         includeUpfront: false,
+ *         useBlended: false,
+ *     },
+ *     limitAmount: "100.0",
+ *     limitUnit: "PERCENTAGE",
+ * });
+ * ```
+ *
+ * Create a RI Utilization Budget
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const riUtilization = new aws.budgets.Budget("ri_utilization", {
+ *     // ...
+ *     budgetType: "RI_UTILIZATION",
+ *     // RI Utilization plans require a service cost filter to be set
+ *     costFilters: {
+ *         Service: "Amazon Relational Database Service",
+ *     },
+ *     //Cost types must be defined for RI budgets because the settings conflict with the defaults
+ *     costTypes: {
+ *         includeCredit: false,
+ *         includeDiscount: false,
+ *         includeOtherSubscription: false,
+ *         includeRecurring: false,
+ *         includeRefund: false,
+ *         includeSubscription: true,
+ *         includeSupport: false,
+ *         includeTax: false,
+ *         includeUpfront: false,
+ *         useBlended: false,
+ *     },
+ *     limitAmount: "100.0", // RI utilization must be 100
+ *     limitUnit: "PERCENTAGE",
+ * });
+ * ```
  */
 export class Budget extends pulumi.CustomResource {
     /**
@@ -47,6 +129,7 @@ export class Budget extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BudgetState, opts?: pulumi.CustomResourceOptions): Budget {
         return new Budget(name, <any>state, { ...opts, id: id });
@@ -77,7 +160,7 @@ export class Budget extends pulumi.CustomResource {
     /**
      * Map of CostFilters key/value pairs to apply to the budget.
      */
-    public readonly costFilters!: pulumi.Output<{[key: string]: any}>;
+    public readonly costFilters!: pulumi.Output<{[key: string]: string}>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
      */
@@ -195,7 +278,7 @@ export interface BudgetState {
     /**
      * Map of CostFilters key/value pairs to apply to the budget.
      */
-    readonly costFilters?: pulumi.Input<{[key: string]: any}>;
+    readonly costFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
      */
@@ -249,7 +332,7 @@ export interface BudgetArgs {
     /**
      * Map of CostFilters key/value pairs to apply to the budget.
      */
-    readonly costFilters?: pulumi.Input<{[key: string]: any}>;
+    readonly costFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
      */

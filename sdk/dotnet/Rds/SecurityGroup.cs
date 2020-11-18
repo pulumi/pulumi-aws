@@ -12,12 +12,33 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// Provides an RDS security group resource. This is only for DB instances in the
     /// EC2-Classic Platform. For instances inside a VPC, use the
-    /// [`aws_db_instance.vpc_security_group_ids`](https://www.terraform.io/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
+    /// `aws_db_instance.vpc_security_group_ids`
     /// attribute instead.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_security_group.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Rds.SecurityGroup("default", new Aws.Rds.SecurityGroupArgs
+    ///         {
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Rds.Inputs.SecurityGroupIngressArgs
+    ///                 {
+    ///                     Cidr = "10.0.0.0/24",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SecurityGroup : Pulumi.CustomResource
     {
@@ -46,10 +67,10 @@ namespace Pulumi.Aws.Rds
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -60,7 +81,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityGroup(string name, SecurityGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/securityGroup:SecurityGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:rds/securityGroup:SecurityGroup", name, args ?? new SecurityGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -122,14 +143,14 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -172,14 +193,14 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -187,112 +208,5 @@ namespace Pulumi.Aws.Rds
         {
             Description = "Managed by Pulumi";
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SecurityGroupIngressArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CIDR block to accept
-        /// </summary>
-        [Input("cidr")]
-        public Input<string>? Cidr { get; set; }
-
-        /// <summary>
-        /// The ID of the security group to authorize
-        /// </summary>
-        [Input("securityGroupId")]
-        public Input<string>? SecurityGroupId { get; set; }
-
-        /// <summary>
-        /// The name of the security group to authorize
-        /// </summary>
-        [Input("securityGroupName")]
-        public Input<string>? SecurityGroupName { get; set; }
-
-        /// <summary>
-        /// The owner Id of the security group provided
-        /// by `security_group_name`.
-        /// </summary>
-        [Input("securityGroupOwnerId")]
-        public Input<string>? SecurityGroupOwnerId { get; set; }
-
-        public SecurityGroupIngressArgs()
-        {
-        }
-    }
-
-    public sealed class SecurityGroupIngressGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CIDR block to accept
-        /// </summary>
-        [Input("cidr")]
-        public Input<string>? Cidr { get; set; }
-
-        /// <summary>
-        /// The ID of the security group to authorize
-        /// </summary>
-        [Input("securityGroupId")]
-        public Input<string>? SecurityGroupId { get; set; }
-
-        /// <summary>
-        /// The name of the security group to authorize
-        /// </summary>
-        [Input("securityGroupName")]
-        public Input<string>? SecurityGroupName { get; set; }
-
-        /// <summary>
-        /// The owner Id of the security group provided
-        /// by `security_group_name`.
-        /// </summary>
-        [Input("securityGroupOwnerId")]
-        public Input<string>? SecurityGroupOwnerId { get; set; }
-
-        public SecurityGroupIngressGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SecurityGroupIngress
-    {
-        /// <summary>
-        /// The CIDR block to accept
-        /// </summary>
-        public readonly string? Cidr;
-        /// <summary>
-        /// The ID of the security group to authorize
-        /// </summary>
-        public readonly string SecurityGroupId;
-        /// <summary>
-        /// The name of the security group to authorize
-        /// </summary>
-        public readonly string SecurityGroupName;
-        /// <summary>
-        /// The owner Id of the security group provided
-        /// by `security_group_name`.
-        /// </summary>
-        public readonly string SecurityGroupOwnerId;
-
-        [OutputConstructor]
-        private SecurityGroupIngress(
-            string? cidr,
-            string securityGroupId,
-            string securityGroupName,
-            string securityGroupOwnerId)
-        {
-            Cidr = cidr;
-            SecurityGroupId = securityGroupId;
-            SecurityGroupName = securityGroupName;
-            SecurityGroupOwnerId = securityGroupOwnerId;
-        }
-    }
     }
 }

@@ -4,66 +4,70 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {RecordType} from "./recordType";
+import {RecordType} from "./index";
 
 /**
  * Provides a Route53 record resource.
- * 
+ *
  * ## Example Usage
- * 
  * ### Simple routing policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const www = new aws.route53.Record("www", {
+ *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "www.example.com",
- *     records: [aws_eip_lb.publicIp],
- *     ttl: 300,
  *     type: "A",
- *     zoneId: aws_route53_zone_primary.zoneId,
+ *     ttl: "300",
+ *     records: [aws_eip.lb.public_ip],
  * });
  * ```
- * 
  * ### Weighted routing policy
- * 
+ * Other routing policies are configured similarly. See [AWS Route53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const wwwDev = new aws.route53.Record("www-dev", {
+ *
+ * const www_dev = new aws.route53.Record("www-dev", {
+ *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "www",
- *     records: ["dev.example.com"],
- *     setIdentifier: "dev",
- *     ttl: 5,
  *     type: "CNAME",
+ *     ttl: "5",
  *     weightedRoutingPolicies: [{
  *         weight: 10,
  *     }],
- *     zoneId: aws_route53_zone_primary.zoneId,
+ *     setIdentifier: "dev",
+ *     records: ["dev.example.com"],
  * });
- * const wwwLive = new aws.route53.Record("www-live", {
+ * const www_live = new aws.route53.Record("www-live", {
+ *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "www",
- *     records: ["live.example.com"],
- *     setIdentifier: "live",
- *     ttl: 5,
  *     type: "CNAME",
+ *     ttl: "5",
  *     weightedRoutingPolicies: [{
  *         weight: 90,
  *     }],
- *     zoneId: aws_route53_zone_primary.zoneId,
+ *     setIdentifier: "live",
+ *     records: ["live.example.com"],
  * });
  * ```
- * 
  * ### Alias record
- * 
+ * See [related part of AWS Route53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
+ * to understand differences between alias and non-alias records.
+ *
+ * TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
+ * you cannot change this, therefore `ttl` has to be omitted in alias records.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.elb.LoadBalancer("main", {
  *     availabilityZones: ["us-east-1c"],
  *     listeners: [{
@@ -74,40 +78,39 @@ import {RecordType} from "./recordType";
  *     }],
  * });
  * const www = new aws.route53.Record("www", {
- *     aliases: [{
- *         evaluateTargetHealth: true,
- *         name: main.dnsName,
- *         zoneId: main.zoneId,
- *     }],
+ *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "example.com",
  *     type: "A",
- *     zoneId: aws_route53_zone_primary.zoneId,
+ *     aliases: [{
+ *         name: main.dnsName,
+ *         zoneId: main.zoneId,
+ *         evaluateTargetHealth: true,
+ *     }],
  * });
  * ```
- * 
  * ### NS and SOA Record Management
- * 
+ *
+ * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allowOverwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleZone = new aws.route53.Zone("example", {});
- * const exampleRecord = new aws.route53.Record("example", {
+ *
+ * const exampleZone = new aws.route53.Zone("exampleZone", {});
+ * const exampleRecord = new aws.route53.Record("exampleRecord", {
  *     allowOverwrite: true,
  *     name: "test.example.com",
+ *     ttl: 30,
+ *     type: "NS",
+ *     zoneId: exampleZone.zoneId,
  *     records: [
  *         exampleZone.nameServers[0],
  *         exampleZone.nameServers[1],
  *         exampleZone.nameServers[2],
  *         exampleZone.nameServers[3],
  *     ],
- *     ttl: 30,
- *     type: "NS",
- *     zoneId: exampleZone.zoneId,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_record.html.markdown.
  */
 export class Record extends pulumi.CustomResource {
     /**
@@ -117,6 +120,7 @@ export class Record extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RecordState, opts?: pulumi.CustomResourceOptions): Record {
         return new Record(name, <any>state, { ...opts, id: id });
@@ -194,7 +198,7 @@ export class Record extends pulumi.CustomResource {
      */
     public readonly weightedRoutingPolicies!: pulumi.Output<outputs.route53.RecordWeightedRoutingPolicy[] | undefined>;
     /**
-     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
      */
     public readonly zoneId!: pulumi.Output<string>;
 
@@ -325,7 +329,7 @@ export interface RecordState {
      */
     readonly weightedRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordWeightedRoutingPolicy>[]>;
     /**
-     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
      */
     readonly zoneId?: pulumi.Input<string>;
 }
@@ -388,7 +392,7 @@ export interface RecordArgs {
      */
     readonly weightedRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordWeightedRoutingPolicy>[]>;
     /**
-     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
      */
     readonly zoneId: pulumi.Input<string>;
 }

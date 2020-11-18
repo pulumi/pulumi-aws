@@ -9,56 +9,100 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetRouteTables.InvokeAsync() instead")]
-        public static Task<GetRouteTablesResult> GetRouteTables(GetRouteTablesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRouteTables
     {
         /// <summary>
         /// This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// The following adds a route for a particular cidr block to every (private
+        /// kops) route table in a specified vpc to use a particular vpc peering
+        /// connection.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Threading.Tasks;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var dict = Output.Create(Initialize());
+        ///     }
+        /// 
+        ///     private async Task&lt;IDictionary&lt;string, Output&lt;string&gt;&gt;&gt; Initialize()
+        ///     {
+        ///         var rts = await Aws.Ec2.GetRouteTables.InvokeAsync(new Aws.Ec2.GetRouteTablesArgs
+        ///         {
+        ///             VpcId = @var.Vpc_id,
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetRouteTablesFilterArgs
+        ///                 {
+        ///                     Name = "tag:kubernetes.io/kops/role",
+        ///                     Values = 
+        ///                     {
+        ///                         "private*",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///         var route = new List&lt;Aws.Ec2.Route&gt;();
+        ///         for (var rangeIndex = 0; rangeIndex &lt; rts.Ids.Length; rangeIndex++)
+        ///         {
+        ///             var range = new { Value = rangeIndex };
+        ///             route.Add(new Aws.Ec2.Route($"route-{range.Value}", new Aws.Ec2.RouteArgs
+        ///             {
+        ///                 RouteTableId = rts.Ids[range.Value],
+        ///                 DestinationCidrBlock = "10.0.1.0/22",
+        ///                 VpcPeeringConnectionId = "pcx-0e9a7a9ecd137dc54",
+        ///             }));
+        ///         }
+        /// 
+        ///         return new Dictionary&lt;string, Output&lt;string&gt;&gt;
+        ///         {
+        ///         };
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRouteTablesResult> InvokeAsync(GetRouteTablesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? new GetRouteTablesArgs(), options.WithVersion());
     }
+
 
     public sealed class GetRouteTablesArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetRouteTablesFiltersArgs>? _filters;
+        private List<Inputs.GetRouteTablesFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetRouteTablesFiltersArgs> Filters
+        public List<Inputs.GetRouteTablesFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetRouteTablesFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetRouteTablesFilterArgs>());
             set => _filters = value;
         }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// A map of tags, each pair of which must exactly match
         /// a pair on the desired route tables.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -73,93 +117,39 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetRouteTablesResult
     {
-        public readonly ImmutableArray<Outputs.GetRouteTablesFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetRouteTablesFilterResult> Filters;
         /// <summary>
-        /// A list of all the route table ids found. This data source will fail if none are found.
-        /// </summary>
-        public readonly ImmutableArray<string> Ids;
-        public readonly ImmutableDictionary<string, object> Tags;
-        public readonly string? VpcId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A set of all the route table ids found. This data source will fail if none are found.
+        /// </summary>
+        public readonly ImmutableArray<string> Ids;
+        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetRouteTablesResult(
-            ImmutableArray<Outputs.GetRouteTablesFiltersResult> filters,
+            ImmutableArray<Outputs.GetRouteTablesFilterResult> filters,
+
+            string id,
+
             ImmutableArray<string> ids,
-            ImmutableDictionary<string, object> tags,
-            string? vpcId,
-            string id)
+
+            ImmutableDictionary<string, string> tags,
+
+            string? vpcId)
         {
             Filters = filters;
+            Id = id;
             Ids = ids;
             Tags = tags;
             VpcId = vpcId;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetRouteTablesFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A Route Table will be selected if any one of the given values matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetRouteTablesFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetRouteTablesFiltersResult
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A Route Table will be selected if any one of the given values matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetRouteTablesFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

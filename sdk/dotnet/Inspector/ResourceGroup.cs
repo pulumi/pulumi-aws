@@ -12,9 +12,28 @@ namespace Pulumi.Aws.Inspector
     /// <summary>
     /// Provides an Amazon Inspector resource group resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_resource_group.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Inspector.ResourceGroup("example", new Aws.Inspector.ResourceGroupArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Env", "bar" },
+    ///                 { "Name", "foo" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ResourceGroup : Pulumi.CustomResource
     {
@@ -25,10 +44,10 @@ namespace Pulumi.Aws.Inspector
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+        /// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -39,7 +58,7 @@ namespace Pulumi.Aws.Inspector
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceGroup(string name, ResourceGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:inspector/resourceGroup:ResourceGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:inspector/resourceGroup:ResourceGroup", name, args ?? new ResourceGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -77,14 +96,14 @@ namespace Pulumi.Aws.Inspector
     public sealed class ResourceGroupArgs : Pulumi.ResourceArgs
     {
         [Input("tags", required: true)]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+        /// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -102,14 +121,14 @@ namespace Pulumi.Aws.Inspector
         public Input<string>? Arn { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+        /// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

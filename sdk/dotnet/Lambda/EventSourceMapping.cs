@@ -12,12 +12,69 @@ namespace Pulumi.Aws.Lambda
     /// <summary>
     /// Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB and SQS.
     /// 
-    /// For information about Lambda and how to use it, see [What is AWS Lambda?][1].
-    /// For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
+    /// For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
+    /// For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
     /// 
+    /// ## Example Usage
+    /// ### DynamoDB
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_event_source_mapping.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.EventSourceMapping("example", new Aws.Lambda.EventSourceMappingArgs
+    ///         {
+    ///             EventSourceArn = aws_dynamodb_table.Example.Stream_arn,
+    ///             FunctionName = aws_lambda_function.Example.Arn,
+    ///             StartingPosition = "LATEST",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Kinesis
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.EventSourceMapping("example", new Aws.Lambda.EventSourceMappingArgs
+    ///         {
+    ///             EventSourceArn = aws_kinesis_stream.Example.Arn,
+    ///             FunctionName = aws_lambda_function.Example.Arn,
+    ///             StartingPosition = "LATEST",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### SQS
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.EventSourceMapping("example", new Aws.Lambda.EventSourceMappingArgs
+    ///         {
+    ///             EventSourceArn = aws_sqs_queue.Sqs_queue_test.Arn,
+    ///             FunctionName = aws_lambda_function.Example.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EventSourceMapping : Pulumi.CustomResource
     {
@@ -128,7 +185,7 @@ namespace Pulumi.Aws.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventSourceMapping(string name, EventSourceMappingArgs args, CustomResourceOptions? options = null)
-            : base("aws:lambda/eventSourceMapping:EventSourceMapping", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:lambda/eventSourceMapping:EventSourceMapping", name, args ?? new EventSourceMappingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -335,95 +392,5 @@ namespace Pulumi.Aws.Lambda
         public EventSourceMappingState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class EventSourceMappingDestinationConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The destination configuration for failed invocations. Detailed below.
-        /// </summary>
-        [Input("onFailure")]
-        public Input<EventSourceMappingDestinationConfigOnFailureArgs>? OnFailure { get; set; }
-
-        public EventSourceMappingDestinationConfigArgs()
-        {
-        }
-    }
-
-    public sealed class EventSourceMappingDestinationConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The destination configuration for failed invocations. Detailed below.
-        /// </summary>
-        [Input("onFailure")]
-        public Input<EventSourceMappingDestinationConfigOnFailureGetArgs>? OnFailure { get; set; }
-
-        public EventSourceMappingDestinationConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class EventSourceMappingDestinationConfigOnFailureArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the destination resource.
-        /// </summary>
-        [Input("destinationArn", required: true)]
-        public Input<string> DestinationArn { get; set; } = null!;
-
-        public EventSourceMappingDestinationConfigOnFailureArgs()
-        {
-        }
-    }
-
-    public sealed class EventSourceMappingDestinationConfigOnFailureGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the destination resource.
-        /// </summary>
-        [Input("destinationArn", required: true)]
-        public Input<string> DestinationArn { get; set; } = null!;
-
-        public EventSourceMappingDestinationConfigOnFailureGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class EventSourceMappingDestinationConfig
-    {
-        /// <summary>
-        /// The destination configuration for failed invocations. Detailed below.
-        /// </summary>
-        public readonly EventSourceMappingDestinationConfigOnFailure? OnFailure;
-
-        [OutputConstructor]
-        private EventSourceMappingDestinationConfig(EventSourceMappingDestinationConfigOnFailure? onFailure)
-        {
-            OnFailure = onFailure;
-        }
-    }
-
-    [OutputType]
-    public sealed class EventSourceMappingDestinationConfigOnFailure
-    {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the destination resource.
-        /// </summary>
-        public readonly string DestinationArn;
-
-        [OutputConstructor]
-        private EventSourceMappingDestinationConfigOnFailure(string destinationArn)
-        {
-            DestinationArn = destinationArn;
-        }
-    }
     }
 }

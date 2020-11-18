@@ -9,31 +9,38 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Msk
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Get information on an Amazon MSK Cluster.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_cluster.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCluster.InvokeAsync() instead")]
-        public static Task<GetClusterResult> GetCluster(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:msk/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCluster
     {
         /// <summary>
         /// Get information on an Amazon MSK Cluster.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_cluster.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Msk.GetCluster.InvokeAsync(new Aws.Msk.GetClusterArgs
+        ///         {
+        ///             ClusterName = "example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:msk/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:msk/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }
+
 
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
@@ -44,14 +51,14 @@ namespace Pulumi.Aws.Msk
         public string ClusterName { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// Map of key-value pairs assigned to the cluster.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -59,6 +66,7 @@ namespace Pulumi.Aws.Msk
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetClusterResult
@@ -77,6 +85,10 @@ namespace Pulumi.Aws.Msk
         public readonly string BootstrapBrokersTls;
         public readonly string ClusterName;
         /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Apache Kafka version.
         /// </summary>
         public readonly string KafkaVersion;
@@ -87,37 +99,41 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// Map of key-value pairs assigned to the cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
         /// </summary>
         public readonly string ZookeeperConnectString;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterResult(
             string arn,
+
             string bootstrapBrokers,
+
             string bootstrapBrokersTls,
+
             string clusterName,
+
+            string id,
+
             string kafkaVersion,
+
             int numberOfBrokerNodes,
-            ImmutableDictionary<string, object> tags,
-            string zookeeperConnectString,
-            string id)
+
+            ImmutableDictionary<string, string> tags,
+
+            string zookeeperConnectString)
         {
             Arn = arn;
             BootstrapBrokers = bootstrapBrokers;
             BootstrapBrokersTls = bootstrapBrokersTls;
             ClusterName = clusterName;
+            Id = id;
             KafkaVersion = kafkaVersion;
             NumberOfBrokerNodes = numberOfBrokerNodes;
             Tags = tags;
             ZookeeperConnectString = zookeeperConnectString;
-            Id = id;
         }
     }
 }

@@ -4,32 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a settings of an API Gateway Documentation Part.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleRestApi = new aws.apigateway.RestApi("example", {});
- * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("example", {
+ *
+ * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
+ * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("exampleDocumentationPart", {
  *     location: {
+ *         type: "METHOD",
  *         method: "GET",
  *         path: "/example",
- *         type: "METHOD",
  *     },
  *     properties: "{\"description\":\"Example description\"}",
  *     restApiId: exampleRestApi.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_documentation_part.html.markdown.
  */
 export class DocumentationPart extends pulumi.CustomResource {
     /**
@@ -39,6 +36,7 @@ export class DocumentationPart extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DocumentationPartState, opts?: pulumi.CustomResourceOptions): DocumentationPart {
         return new DocumentationPart(name, <any>state, { ...opts, id: id });

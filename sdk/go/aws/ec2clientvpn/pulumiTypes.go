@@ -7,149 +7,131 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-type EndpointAuthenticationOptions struct {
+type EndpointAuthenticationOption struct {
 	// The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
 	// The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
 	RootCertificateChainArn *string `pulumi:"rootCertificateChainArn"`
-	// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, or `directory-service-authentication` to use Active Directory authentication.
+	// The ARN of the IAM SAML identity provider if type is `federated-authentication`.
+	SamlProviderArn *string `pulumi:"samlProviderArn"`
+	// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
 	Type string `pulumi:"type"`
 }
 
-type EndpointAuthenticationOptionsInput interface {
+// EndpointAuthenticationOptionInput is an input type that accepts EndpointAuthenticationOptionArgs and EndpointAuthenticationOptionOutput values.
+// You can construct a concrete instance of `EndpointAuthenticationOptionInput` via:
+//
+//          EndpointAuthenticationOptionArgs{...}
+type EndpointAuthenticationOptionInput interface {
 	pulumi.Input
 
-	ToEndpointAuthenticationOptionsOutput() EndpointAuthenticationOptionsOutput
-	ToEndpointAuthenticationOptionsOutputWithContext(context.Context) EndpointAuthenticationOptionsOutput
+	ToEndpointAuthenticationOptionOutput() EndpointAuthenticationOptionOutput
+	ToEndpointAuthenticationOptionOutputWithContext(context.Context) EndpointAuthenticationOptionOutput
 }
 
-type EndpointAuthenticationOptionsArgs struct {
+type EndpointAuthenticationOptionArgs struct {
 	// The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
 	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
 	// The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
 	RootCertificateChainArn pulumi.StringPtrInput `pulumi:"rootCertificateChainArn"`
-	// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, or `directory-service-authentication` to use Active Directory authentication.
+	// The ARN of the IAM SAML identity provider if type is `federated-authentication`.
+	SamlProviderArn pulumi.StringPtrInput `pulumi:"samlProviderArn"`
+	// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (EndpointAuthenticationOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointAuthenticationOptions)(nil)).Elem()
+func (EndpointAuthenticationOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAuthenticationOption)(nil)).Elem()
 }
 
-func (i EndpointAuthenticationOptionsArgs) ToEndpointAuthenticationOptionsOutput() EndpointAuthenticationOptionsOutput {
-	return i.ToEndpointAuthenticationOptionsOutputWithContext(context.Background())
+func (i EndpointAuthenticationOptionArgs) ToEndpointAuthenticationOptionOutput() EndpointAuthenticationOptionOutput {
+	return i.ToEndpointAuthenticationOptionOutputWithContext(context.Background())
 }
 
-func (i EndpointAuthenticationOptionsArgs) ToEndpointAuthenticationOptionsOutputWithContext(ctx context.Context) EndpointAuthenticationOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthenticationOptionsOutput)
+func (i EndpointAuthenticationOptionArgs) ToEndpointAuthenticationOptionOutputWithContext(ctx context.Context) EndpointAuthenticationOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthenticationOptionOutput)
 }
 
-func (i EndpointAuthenticationOptionsArgs) ToEndpointAuthenticationOptionsPtrOutput() EndpointAuthenticationOptionsPtrOutput {
-	return i.ToEndpointAuthenticationOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i EndpointAuthenticationOptionsArgs) ToEndpointAuthenticationOptionsPtrOutputWithContext(ctx context.Context) EndpointAuthenticationOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthenticationOptionsOutput).ToEndpointAuthenticationOptionsPtrOutputWithContext(ctx)
-}
-
-type EndpointAuthenticationOptionsPtrInput interface {
+// EndpointAuthenticationOptionArrayInput is an input type that accepts EndpointAuthenticationOptionArray and EndpointAuthenticationOptionArrayOutput values.
+// You can construct a concrete instance of `EndpointAuthenticationOptionArrayInput` via:
+//
+//          EndpointAuthenticationOptionArray{ EndpointAuthenticationOptionArgs{...} }
+type EndpointAuthenticationOptionArrayInput interface {
 	pulumi.Input
 
-	ToEndpointAuthenticationOptionsPtrOutput() EndpointAuthenticationOptionsPtrOutput
-	ToEndpointAuthenticationOptionsPtrOutputWithContext(context.Context) EndpointAuthenticationOptionsPtrOutput
+	ToEndpointAuthenticationOptionArrayOutput() EndpointAuthenticationOptionArrayOutput
+	ToEndpointAuthenticationOptionArrayOutputWithContext(context.Context) EndpointAuthenticationOptionArrayOutput
 }
 
-type endpointAuthenticationOptionsPtrType EndpointAuthenticationOptionsArgs
+type EndpointAuthenticationOptionArray []EndpointAuthenticationOptionInput
 
-func EndpointAuthenticationOptionsPtr(v *EndpointAuthenticationOptionsArgs) EndpointAuthenticationOptionsPtrInput {
-	return (*endpointAuthenticationOptionsPtrType)(v)
+func (EndpointAuthenticationOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointAuthenticationOption)(nil)).Elem()
 }
 
-func (*endpointAuthenticationOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointAuthenticationOptions)(nil)).Elem()
+func (i EndpointAuthenticationOptionArray) ToEndpointAuthenticationOptionArrayOutput() EndpointAuthenticationOptionArrayOutput {
+	return i.ToEndpointAuthenticationOptionArrayOutputWithContext(context.Background())
 }
 
-func (i *endpointAuthenticationOptionsPtrType) ToEndpointAuthenticationOptionsPtrOutput() EndpointAuthenticationOptionsPtrOutput {
-	return i.ToEndpointAuthenticationOptionsPtrOutputWithContext(context.Background())
+func (i EndpointAuthenticationOptionArray) ToEndpointAuthenticationOptionArrayOutputWithContext(ctx context.Context) EndpointAuthenticationOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthenticationOptionArrayOutput)
 }
 
-func (i *endpointAuthenticationOptionsPtrType) ToEndpointAuthenticationOptionsPtrOutputWithContext(ctx context.Context) EndpointAuthenticationOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthenticationOptionsPtrOutput)
+type EndpointAuthenticationOptionOutput struct{ *pulumi.OutputState }
+
+func (EndpointAuthenticationOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAuthenticationOption)(nil)).Elem()
 }
 
-type EndpointAuthenticationOptionsOutput struct{ *pulumi.OutputState }
-
-func (EndpointAuthenticationOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointAuthenticationOptions)(nil)).Elem()
-}
-
-func (o EndpointAuthenticationOptionsOutput) ToEndpointAuthenticationOptionsOutput() EndpointAuthenticationOptionsOutput {
+func (o EndpointAuthenticationOptionOutput) ToEndpointAuthenticationOptionOutput() EndpointAuthenticationOptionOutput {
 	return o
 }
 
-func (o EndpointAuthenticationOptionsOutput) ToEndpointAuthenticationOptionsOutputWithContext(ctx context.Context) EndpointAuthenticationOptionsOutput {
+func (o EndpointAuthenticationOptionOutput) ToEndpointAuthenticationOptionOutputWithContext(ctx context.Context) EndpointAuthenticationOptionOutput {
 	return o
-}
-
-func (o EndpointAuthenticationOptionsOutput) ToEndpointAuthenticationOptionsPtrOutput() EndpointAuthenticationOptionsPtrOutput {
-	return o.ToEndpointAuthenticationOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o EndpointAuthenticationOptionsOutput) ToEndpointAuthenticationOptionsPtrOutputWithContext(ctx context.Context) EndpointAuthenticationOptionsPtrOutput {
-	return o.ApplyT(func(v EndpointAuthenticationOptions) *EndpointAuthenticationOptions {
-		return &v
-	}).(EndpointAuthenticationOptionsPtrOutput)
 }
 
 // The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
-func (o EndpointAuthenticationOptionsOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointAuthenticationOptions) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
+func (o EndpointAuthenticationOptionOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAuthenticationOption) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
-func (o EndpointAuthenticationOptionsOutput) RootCertificateChainArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointAuthenticationOptions) *string { return v.RootCertificateChainArn }).(pulumi.StringPtrOutput)
+func (o EndpointAuthenticationOptionOutput) RootCertificateChainArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAuthenticationOption) *string { return v.RootCertificateChainArn }).(pulumi.StringPtrOutput)
 }
 
-// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, or `directory-service-authentication` to use Active Directory authentication.
-func (o EndpointAuthenticationOptionsOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointAuthenticationOptions) string { return v.Type }).(pulumi.StringOutput)
+// The ARN of the IAM SAML identity provider if type is `federated-authentication`.
+func (o EndpointAuthenticationOptionOutput) SamlProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAuthenticationOption) *string { return v.SamlProviderArn }).(pulumi.StringPtrOutput)
 }
 
-type EndpointAuthenticationOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (EndpointAuthenticationOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointAuthenticationOptions)(nil)).Elem()
+// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
+func (o EndpointAuthenticationOptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointAuthenticationOption) string { return v.Type }).(pulumi.StringOutput)
 }
 
-func (o EndpointAuthenticationOptionsPtrOutput) ToEndpointAuthenticationOptionsPtrOutput() EndpointAuthenticationOptionsPtrOutput {
+type EndpointAuthenticationOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointAuthenticationOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointAuthenticationOption)(nil)).Elem()
+}
+
+func (o EndpointAuthenticationOptionArrayOutput) ToEndpointAuthenticationOptionArrayOutput() EndpointAuthenticationOptionArrayOutput {
 	return o
 }
 
-func (o EndpointAuthenticationOptionsPtrOutput) ToEndpointAuthenticationOptionsPtrOutputWithContext(ctx context.Context) EndpointAuthenticationOptionsPtrOutput {
+func (o EndpointAuthenticationOptionArrayOutput) ToEndpointAuthenticationOptionArrayOutputWithContext(ctx context.Context) EndpointAuthenticationOptionArrayOutput {
 	return o
 }
 
-func (o EndpointAuthenticationOptionsPtrOutput) Elem() EndpointAuthenticationOptionsOutput {
-	return o.ApplyT(func(v *EndpointAuthenticationOptions) EndpointAuthenticationOptions { return *v }).(EndpointAuthenticationOptionsOutput)
-}
-
-// The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
-func (o EndpointAuthenticationOptionsPtrOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointAuthenticationOptions) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
-}
-
-// The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
-func (o EndpointAuthenticationOptionsPtrOutput) RootCertificateChainArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointAuthenticationOptions) *string { return v.RootCertificateChainArn }).(pulumi.StringPtrOutput)
-}
-
-// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, or `directory-service-authentication` to use Active Directory authentication.
-func (o EndpointAuthenticationOptionsPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointAuthenticationOptions) string { return v.Type }).(pulumi.StringOutput)
+func (o EndpointAuthenticationOptionArrayOutput) Index(i pulumi.IntInput) EndpointAuthenticationOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointAuthenticationOption {
+		return vs[0].([]EndpointAuthenticationOption)[vs[1].(int)]
+	}).(EndpointAuthenticationOptionOutput)
 }
 
 type EndpointConnectionLogOptions struct {
@@ -161,6 +143,10 @@ type EndpointConnectionLogOptions struct {
 	Enabled bool `pulumi:"enabled"`
 }
 
+// EndpointConnectionLogOptionsInput is an input type that accepts EndpointConnectionLogOptionsArgs and EndpointConnectionLogOptionsOutput values.
+// You can construct a concrete instance of `EndpointConnectionLogOptionsInput` via:
+//
+//          EndpointConnectionLogOptionsArgs{...}
 type EndpointConnectionLogOptionsInput interface {
 	pulumi.Input
 
@@ -197,6 +183,14 @@ func (i EndpointConnectionLogOptionsArgs) ToEndpointConnectionLogOptionsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointConnectionLogOptionsOutput).ToEndpointConnectionLogOptionsPtrOutputWithContext(ctx)
 }
 
+// EndpointConnectionLogOptionsPtrInput is an input type that accepts EndpointConnectionLogOptionsArgs, EndpointConnectionLogOptionsPtr and EndpointConnectionLogOptionsPtrOutput values.
+// You can construct a concrete instance of `EndpointConnectionLogOptionsPtrInput` via:
+//
+//          EndpointConnectionLogOptionsArgs{...}
+//
+//  or:
+//
+//          nil
 type EndpointConnectionLogOptionsPtrInput interface {
 	pulumi.Input
 
@@ -281,22 +275,37 @@ func (o EndpointConnectionLogOptionsPtrOutput) Elem() EndpointConnectionLogOptio
 
 // The name of the CloudWatch Logs log group.
 func (o EndpointConnectionLogOptionsPtrOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointConnectionLogOptions) *string { return v.CloudwatchLogGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointConnectionLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogGroup
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the CloudWatch Logs log stream to which the connection data is published.
 func (o EndpointConnectionLogOptionsPtrOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointConnectionLogOptions) *string { return v.CloudwatchLogStream }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointConnectionLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogStream
+	}).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether connection logging is enabled.
-func (o EndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v EndpointConnectionLogOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o EndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointConnectionLogOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(EndpointAuthenticationOptionsOutput{})
-	pulumi.RegisterOutputType(EndpointAuthenticationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointAuthenticationOptionOutput{})
+	pulumi.RegisterOutputType(EndpointAuthenticationOptionArrayOutput{})
 	pulumi.RegisterOutputType(EndpointConnectionLogOptionsOutput{})
 	pulumi.RegisterOutputType(EndpointConnectionLogOptionsPtrOutput{})
 }

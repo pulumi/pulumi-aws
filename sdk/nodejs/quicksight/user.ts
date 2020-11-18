@@ -6,15 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Resource for managing QuickSight User
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.quicksight.User("example", {
  *     email: "author@example.com",
  *     identityType: "IAM",
@@ -22,8 +20,6 @@ import * as utilities from "../utilities";
  *     userRole: "AUTHOR",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/quicksight_user.html.markdown.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -33,6 +29,7 @@ export class User extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserState, opts?: pulumi.CustomResourceOptions): User {
         return new User(name, <any>state, { ...opts, id: id });

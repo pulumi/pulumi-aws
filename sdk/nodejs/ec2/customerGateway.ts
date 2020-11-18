@@ -2,23 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ec2.CustomerGateway("main", {
- *     bgpAsn: 65000,
+ *     bgpAsn: "65000",
  *     ipAddress: "172.83.124.10",
  *     tags: {
  *         Name: "main-customer-gateway",
@@ -26,8 +22,6 @@ import * as utilities from "../utilities";
  *     type: "ipsec.1",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/customer_gateway.html.markdown.
  */
 export class CustomerGateway extends pulumi.CustomResource {
     /**
@@ -37,6 +31,7 @@ export class CustomerGateway extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CustomerGatewayState, opts?: pulumi.CustomResourceOptions): CustomerGateway {
         return new CustomerGateway(name, <any>state, { ...opts, id: id });
@@ -57,9 +52,13 @@ export class CustomerGateway extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the customer gateway.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
-    public readonly bgpAsn!: pulumi.Output<number>;
+    public readonly bgpAsn!: pulumi.Output<string>;
     /**
      * The IP address of the gateway's Internet-routable external interface.
      */
@@ -67,7 +66,7 @@ export class CustomerGateway extends pulumi.CustomResource {
     /**
      * Tags to apply to the gateway.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".
@@ -86,6 +85,7 @@ export class CustomerGateway extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as CustomerGatewayState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -105,6 +105,7 @@ export class CustomerGateway extends pulumi.CustomResource {
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -122,9 +123,13 @@ export class CustomerGateway extends pulumi.CustomResource {
  */
 export interface CustomerGatewayState {
     /**
+     * The ARN of the customer gateway.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
-    readonly bgpAsn?: pulumi.Input<number>;
+    readonly bgpAsn?: pulumi.Input<string>;
     /**
      * The IP address of the gateway's Internet-routable external interface.
      */
@@ -132,7 +137,7 @@ export interface CustomerGatewayState {
     /**
      * Tags to apply to the gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".
@@ -147,7 +152,7 @@ export interface CustomerGatewayArgs {
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
-    readonly bgpAsn: pulumi.Input<number>;
+    readonly bgpAsn: pulumi.Input<string>;
     /**
      * The IP address of the gateway's Internet-routable external interface.
      */
@@ -155,7 +160,7 @@ export interface CustomerGatewayArgs {
     /**
      * Tags to apply to the gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".

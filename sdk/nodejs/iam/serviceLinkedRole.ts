@@ -6,21 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const elasticbeanstalk = new aws.iam.ServiceLinkedRole("elasticbeanstalk", {
  *     awsServiceName: "elasticbeanstalk.amazonaws.com",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_service_linked_role.html.markdown.
  */
 export class ServiceLinkedRole extends pulumi.CustomResource {
     /**
@@ -30,6 +26,7 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServiceLinkedRoleState, opts?: pulumi.CustomResourceOptions): ServiceLinkedRole {
         return new ServiceLinkedRole(name, <any>state, { ...opts, id: id });

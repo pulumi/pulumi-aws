@@ -12,17 +12,44 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/customer_gateway.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Ec2.CustomerGateway("main", new Aws.Ec2.CustomerGatewayArgs
+    ///         {
+    ///             BgpAsn = "65000",
+    ///             IpAddress = "172.83.124.10",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "main-customer-gateway" },
+    ///             },
+    ///             Type = "ipsec.1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class CustomerGateway : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the customer gateway.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
         [Output("bgpAsn")]
-        public Output<int> BgpAsn { get; private set; } = null!;
+        public Output<string> BgpAsn { get; private set; } = null!;
 
         /// <summary>
         /// The IP address of the gateway's Internet-routable external interface.
@@ -34,7 +61,7 @@ namespace Pulumi.Aws.Ec2
         /// Tags to apply to the gateway.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of customer gateway. The only type AWS
@@ -52,7 +79,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomerGateway(string name, CustomerGatewayArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/customerGateway:CustomerGateway", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/customerGateway:CustomerGateway", name, args ?? new CustomerGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -93,7 +120,7 @@ namespace Pulumi.Aws.Ec2
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
         [Input("bgpAsn", required: true)]
-        public Input<int> BgpAsn { get; set; } = null!;
+        public Input<string> BgpAsn { get; set; } = null!;
 
         /// <summary>
         /// The IP address of the gateway's Internet-routable external interface.
@@ -102,14 +129,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string> IpAddress { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Tags to apply to the gateway.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -128,10 +155,16 @@ namespace Pulumi.Aws.Ec2
     public sealed class CustomerGatewayState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ARN of the customer gateway.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
         [Input("bgpAsn")]
-        public Input<int>? BgpAsn { get; set; }
+        public Input<string>? BgpAsn { get; set; }
 
         /// <summary>
         /// The IP address of the gateway's Internet-routable external interface.
@@ -140,14 +173,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? IpAddress { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Tags to apply to the gateway.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

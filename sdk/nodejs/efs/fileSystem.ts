@@ -4,40 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides an Elastic File System (EFS) resource.
- * 
+ * Provides an Elastic File System (EFS) File System resource.
+ *
  * ## Example Usage
- * 
  * ### EFS File System w/ tags
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.efs.FileSystem("foo", {
  *     tags: {
  *         Name: "MyProduct",
  *     },
  * });
  * ```
- * 
  * ### Using lifecycle policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const fooWithLifecylePolicy = new aws.efs.FileSystem("fooWithLifecylePolicy", {
+ *
+ * const fooWithLifecylePolicy = new aws.efs.FileSystem("foo_with_lifecyle_policy", {
  *     lifecyclePolicy: {
  *         transitionToIa: "AFTER_30_DAYS",
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_file_system.html.markdown.
  */
 export class FileSystem extends pulumi.CustomResource {
     /**
@@ -47,6 +44,7 @@ export class FileSystem extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FileSystemState, opts?: pulumi.CustomResourceOptions): FileSystem {
         return new FileSystem(name, <any>state, { ...opts, id: id });
@@ -102,9 +100,9 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly provisionedThroughputInMibps!: pulumi.Output<number | undefined>;
     /**
-     * A mapping of tags to assign to the file system.
+     * A map of tags to assign to the file system.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */
@@ -196,9 +194,9 @@ export interface FileSystemState {
      */
     readonly provisionedThroughputInMibps?: pulumi.Input<number>;
     /**
-     * A mapping of tags to assign to the file system.
+     * A map of tags to assign to the file system.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */
@@ -237,9 +235,9 @@ export interface FileSystemArgs {
      */
     readonly provisionedThroughputInMibps?: pulumi.Input<number>;
     /**
-     * A mapping of tags to assign to the file system.
+     * A map of tags to assign to the file system.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */

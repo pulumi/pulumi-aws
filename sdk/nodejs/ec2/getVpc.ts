@@ -4,19 +4,17 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * `aws.ec2.Vpc` provides details about a specific VPC.
- * 
+ *
  * This resource can prove useful when a module accepts a vpc id as
  * an input variable and needs to, for example, determine the CIDR block of that
  * VPC.
- * 
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc.html.markdown.
  */
-export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcResult> & GetVpcResult {
+export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -25,7 +23,7 @@ export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetVpcResult> = pulumi.runtime.invoke("aws:ec2/getVpc:getVpc", {
+    return pulumi.runtime.invoke("aws:ec2/getVpc:getVpc", {
         "cidrBlock": args.cidrBlock,
         "default": args.default,
         "dhcpOptionsId": args.dhcpOptionsId,
@@ -34,8 +32,6 @@ export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<
         "state": args.state,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -69,10 +65,10 @@ export interface GetVpcArgs {
      */
     readonly state?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired VPC.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -125,5 +121,5 @@ export interface GetVpcResult {
      * The State of the association.
      */
     readonly state: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

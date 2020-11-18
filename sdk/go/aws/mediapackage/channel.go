@@ -7,10 +7,34 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an AWS Elemental MediaPackage Channel.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/mediapackage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := mediapackage.NewChannel(ctx, "kittens", &mediapackage.ChannelArgs{
+// 			ChannelId:   pulumi.String("kitten-channel"),
+// 			Description: pulumi.String("A channel dedicated to amusing videos of kittens."),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Channel struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +46,8 @@ type Channel struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// A single item list of HLS ingest information
 	HlsIngests ChannelHlsIngestArrayOutput `pulumi:"hlsIngests"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -68,8 +92,8 @@ type channelState struct {
 	Description *string `pulumi:"description"`
 	// A single item list of HLS ingest information
 	HlsIngests []ChannelHlsIngest `pulumi:"hlsIngests"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ChannelState struct {
@@ -81,8 +105,8 @@ type ChannelState struct {
 	Description pulumi.StringPtrInput
 	// A single item list of HLS ingest information
 	HlsIngests ChannelHlsIngestArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ChannelState) ElementType() reflect.Type {
@@ -94,8 +118,8 @@ type channelArgs struct {
 	ChannelId string `pulumi:"channelId"`
 	// A description of the channel
 	Description *string `pulumi:"description"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Channel resource.
@@ -104,8 +128,8 @@ type ChannelArgs struct {
 	ChannelId pulumi.StringInput
 	// A description of the channel
 	Description pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {

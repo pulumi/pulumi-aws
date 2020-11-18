@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type EventDestinationCloudwatchDestination struct {
@@ -19,6 +19,10 @@ type EventDestinationCloudwatchDestination struct {
 	ValueSource string `pulumi:"valueSource"`
 }
 
+// EventDestinationCloudwatchDestinationInput is an input type that accepts EventDestinationCloudwatchDestinationArgs and EventDestinationCloudwatchDestinationOutput values.
+// You can construct a concrete instance of `EventDestinationCloudwatchDestinationInput` via:
+//
+//          EventDestinationCloudwatchDestinationArgs{...}
 type EventDestinationCloudwatchDestinationInput interface {
 	pulumi.Input
 
@@ -47,6 +51,10 @@ func (i EventDestinationCloudwatchDestinationArgs) ToEventDestinationCloudwatchD
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationCloudwatchDestinationOutput)
 }
 
+// EventDestinationCloudwatchDestinationArrayInput is an input type that accepts EventDestinationCloudwatchDestinationArray and EventDestinationCloudwatchDestinationArrayOutput values.
+// You can construct a concrete instance of `EventDestinationCloudwatchDestinationArrayInput` via:
+//
+//          EventDestinationCloudwatchDestinationArray{ EventDestinationCloudwatchDestinationArgs{...} }
 type EventDestinationCloudwatchDestinationArrayInput interface {
 	pulumi.Input
 
@@ -124,6 +132,10 @@ type EventDestinationKinesisDestination struct {
 	StreamArn string `pulumi:"streamArn"`
 }
 
+// EventDestinationKinesisDestinationInput is an input type that accepts EventDestinationKinesisDestinationArgs and EventDestinationKinesisDestinationOutput values.
+// You can construct a concrete instance of `EventDestinationKinesisDestinationInput` via:
+//
+//          EventDestinationKinesisDestinationArgs{...}
 type EventDestinationKinesisDestinationInput interface {
 	pulumi.Input
 
@@ -158,6 +170,14 @@ func (i EventDestinationKinesisDestinationArgs) ToEventDestinationKinesisDestina
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationKinesisDestinationOutput).ToEventDestinationKinesisDestinationPtrOutputWithContext(ctx)
 }
 
+// EventDestinationKinesisDestinationPtrInput is an input type that accepts EventDestinationKinesisDestinationArgs, EventDestinationKinesisDestinationPtr and EventDestinationKinesisDestinationPtrOutput values.
+// You can construct a concrete instance of `EventDestinationKinesisDestinationPtrInput` via:
+//
+//          EventDestinationKinesisDestinationArgs{...}
+//
+//  or:
+//
+//          nil
 type EventDestinationKinesisDestinationPtrInput interface {
 	pulumi.Input
 
@@ -236,13 +256,23 @@ func (o EventDestinationKinesisDestinationPtrOutput) Elem() EventDestinationKine
 }
 
 // The ARN of the role that has permissions to access the Kinesis Stream
-func (o EventDestinationKinesisDestinationPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v EventDestinationKinesisDestination) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o EventDestinationKinesisDestinationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventDestinationKinesisDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the Kinesis Stream
-func (o EventDestinationKinesisDestinationPtrOutput) StreamArn() pulumi.StringOutput {
-	return o.ApplyT(func(v EventDestinationKinesisDestination) string { return v.StreamArn }).(pulumi.StringOutput)
+func (o EventDestinationKinesisDestinationPtrOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventDestinationKinesisDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventDestinationSnsDestination struct {
@@ -250,6 +280,10 @@ type EventDestinationSnsDestination struct {
 	TopicArn string `pulumi:"topicArn"`
 }
 
+// EventDestinationSnsDestinationInput is an input type that accepts EventDestinationSnsDestinationArgs and EventDestinationSnsDestinationOutput values.
+// You can construct a concrete instance of `EventDestinationSnsDestinationInput` via:
+//
+//          EventDestinationSnsDestinationArgs{...}
 type EventDestinationSnsDestinationInput interface {
 	pulumi.Input
 
@@ -282,6 +316,14 @@ func (i EventDestinationSnsDestinationArgs) ToEventDestinationSnsDestinationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationSnsDestinationOutput).ToEventDestinationSnsDestinationPtrOutputWithContext(ctx)
 }
 
+// EventDestinationSnsDestinationPtrInput is an input type that accepts EventDestinationSnsDestinationArgs, EventDestinationSnsDestinationPtr and EventDestinationSnsDestinationPtrOutput values.
+// You can construct a concrete instance of `EventDestinationSnsDestinationPtrInput` via:
+//
+//          EventDestinationSnsDestinationArgs{...}
+//
+//  or:
+//
+//          nil
 type EventDestinationSnsDestinationPtrInput interface {
 	pulumi.Input
 
@@ -355,8 +397,13 @@ func (o EventDestinationSnsDestinationPtrOutput) Elem() EventDestinationSnsDesti
 }
 
 // The ARN of the SNS topic
-func (o EventDestinationSnsDestinationPtrOutput) TopicArn() pulumi.StringOutput {
-	return o.ApplyT(func(v EventDestinationSnsDestination) string { return v.TopicArn }).(pulumi.StringOutput)
+func (o EventDestinationSnsDestinationPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventDestinationSnsDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type ReceiptRuleAddHeaderAction struct {
@@ -368,6 +415,10 @@ type ReceiptRuleAddHeaderAction struct {
 	Position int `pulumi:"position"`
 }
 
+// ReceiptRuleAddHeaderActionInput is an input type that accepts ReceiptRuleAddHeaderActionArgs and ReceiptRuleAddHeaderActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleAddHeaderActionInput` via:
+//
+//          ReceiptRuleAddHeaderActionArgs{...}
 type ReceiptRuleAddHeaderActionInput interface {
 	pulumi.Input
 
@@ -396,6 +447,10 @@ func (i ReceiptRuleAddHeaderActionArgs) ToReceiptRuleAddHeaderActionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleAddHeaderActionOutput)
 }
 
+// ReceiptRuleAddHeaderActionArrayInput is an input type that accepts ReceiptRuleAddHeaderActionArray and ReceiptRuleAddHeaderActionArrayOutput values.
+// You can construct a concrete instance of `ReceiptRuleAddHeaderActionArrayInput` via:
+//
+//          ReceiptRuleAddHeaderActionArray{ ReceiptRuleAddHeaderActionArgs{...} }
 type ReceiptRuleAddHeaderActionArrayInput interface {
 	pulumi.Input
 
@@ -481,6 +536,10 @@ type ReceiptRuleBounceAction struct {
 	TopicArn *string `pulumi:"topicArn"`
 }
 
+// ReceiptRuleBounceActionInput is an input type that accepts ReceiptRuleBounceActionArgs and ReceiptRuleBounceActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleBounceActionInput` via:
+//
+//          ReceiptRuleBounceActionArgs{...}
 type ReceiptRuleBounceActionInput interface {
 	pulumi.Input
 
@@ -515,6 +574,10 @@ func (i ReceiptRuleBounceActionArgs) ToReceiptRuleBounceActionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleBounceActionOutput)
 }
 
+// ReceiptRuleBounceActionArrayInput is an input type that accepts ReceiptRuleBounceActionArray and ReceiptRuleBounceActionArrayOutput values.
+// You can construct a concrete instance of `ReceiptRuleBounceActionArrayInput` via:
+//
+//          ReceiptRuleBounceActionArray{ ReceiptRuleBounceActionArgs{...} }
 type ReceiptRuleBounceActionArrayInput interface {
 	pulumi.Input
 
@@ -611,6 +674,10 @@ type ReceiptRuleLambdaAction struct {
 	TopicArn *string `pulumi:"topicArn"`
 }
 
+// ReceiptRuleLambdaActionInput is an input type that accepts ReceiptRuleLambdaActionArgs and ReceiptRuleLambdaActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleLambdaActionInput` via:
+//
+//          ReceiptRuleLambdaActionArgs{...}
 type ReceiptRuleLambdaActionInput interface {
 	pulumi.Input
 
@@ -641,6 +708,10 @@ func (i ReceiptRuleLambdaActionArgs) ToReceiptRuleLambdaActionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleLambdaActionOutput)
 }
 
+// ReceiptRuleLambdaActionArrayInput is an input type that accepts ReceiptRuleLambdaActionArray and ReceiptRuleLambdaActionArrayOutput values.
+// You can construct a concrete instance of `ReceiptRuleLambdaActionArrayInput` via:
+//
+//          ReceiptRuleLambdaActionArray{ ReceiptRuleLambdaActionArgs{...} }
 type ReceiptRuleLambdaActionArrayInput interface {
 	pulumi.Input
 
@@ -729,6 +800,10 @@ type ReceiptRuleS3Action struct {
 	TopicArn *string `pulumi:"topicArn"`
 }
 
+// ReceiptRuleS3ActionInput is an input type that accepts ReceiptRuleS3ActionArgs and ReceiptRuleS3ActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleS3ActionInput` via:
+//
+//          ReceiptRuleS3ActionArgs{...}
 type ReceiptRuleS3ActionInput interface {
 	pulumi.Input
 
@@ -761,6 +836,10 @@ func (i ReceiptRuleS3ActionArgs) ToReceiptRuleS3ActionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleS3ActionOutput)
 }
 
+// ReceiptRuleS3ActionArrayInput is an input type that accepts ReceiptRuleS3ActionArray and ReceiptRuleS3ActionArrayOutput values.
+// You can construct a concrete instance of `ReceiptRuleS3ActionArrayInput` via:
+//
+//          ReceiptRuleS3ActionArray{ ReceiptRuleS3ActionArgs{...} }
 type ReceiptRuleS3ActionArrayInput interface {
 	pulumi.Input
 
@@ -848,6 +927,10 @@ type ReceiptRuleSnsAction struct {
 	TopicArn string `pulumi:"topicArn"`
 }
 
+// ReceiptRuleSnsActionInput is an input type that accepts ReceiptRuleSnsActionArgs and ReceiptRuleSnsActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleSnsActionInput` via:
+//
+//          ReceiptRuleSnsActionArgs{...}
 type ReceiptRuleSnsActionInput interface {
 	pulumi.Input
 
@@ -874,6 +957,10 @@ func (i ReceiptRuleSnsActionArgs) ToReceiptRuleSnsActionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSnsActionOutput)
 }
 
+// ReceiptRuleSnsActionArrayInput is an input type that accepts ReceiptRuleSnsActionArray and ReceiptRuleSnsActionArrayOutput values.
+// You can construct a concrete instance of `ReceiptRuleSnsActionArrayInput` via:
+//
+//          ReceiptRuleSnsActionArray{ ReceiptRuleSnsActionArgs{...} }
 type ReceiptRuleSnsActionArrayInput interface {
 	pulumi.Input
 
@@ -948,6 +1035,10 @@ type ReceiptRuleStopAction struct {
 	TopicArn *string `pulumi:"topicArn"`
 }
 
+// ReceiptRuleStopActionInput is an input type that accepts ReceiptRuleStopActionArgs and ReceiptRuleStopActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleStopActionInput` via:
+//
+//          ReceiptRuleStopActionArgs{...}
 type ReceiptRuleStopActionInput interface {
 	pulumi.Input
 
@@ -976,6 +1067,10 @@ func (i ReceiptRuleStopActionArgs) ToReceiptRuleStopActionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleStopActionOutput)
 }
 
+// ReceiptRuleStopActionArrayInput is an input type that accepts ReceiptRuleStopActionArray and ReceiptRuleStopActionArrayOutput values.
+// You can construct a concrete instance of `ReceiptRuleStopActionArrayInput` via:
+//
+//          ReceiptRuleStopActionArray{ ReceiptRuleStopActionArgs{...} }
 type ReceiptRuleStopActionArrayInput interface {
 	pulumi.Input
 
@@ -1055,6 +1150,10 @@ type ReceiptRuleWorkmailAction struct {
 	TopicArn *string `pulumi:"topicArn"`
 }
 
+// ReceiptRuleWorkmailActionInput is an input type that accepts ReceiptRuleWorkmailActionArgs and ReceiptRuleWorkmailActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleWorkmailActionInput` via:
+//
+//          ReceiptRuleWorkmailActionArgs{...}
 type ReceiptRuleWorkmailActionInput interface {
 	pulumi.Input
 
@@ -1083,6 +1182,10 @@ func (i ReceiptRuleWorkmailActionArgs) ToReceiptRuleWorkmailActionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleWorkmailActionOutput)
 }
 
+// ReceiptRuleWorkmailActionArrayInput is an input type that accepts ReceiptRuleWorkmailActionArray and ReceiptRuleWorkmailActionArrayOutput values.
+// You can construct a concrete instance of `ReceiptRuleWorkmailActionArrayInput` via:
+//
+//          ReceiptRuleWorkmailActionArray{ ReceiptRuleWorkmailActionArgs{...} }
 type ReceiptRuleWorkmailActionArrayInput interface {
 	pulumi.Input
 

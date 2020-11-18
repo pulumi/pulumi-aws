@@ -9,31 +9,38 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Provides information about a RDS cluster.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/rds_cluster.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCluster.InvokeAsync() instead")]
-        public static Task<GetClusterResult> GetCluster(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:rds/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCluster
     {
         /// <summary>
-        /// Provides information about a RDS cluster.
+        /// Provides information about an RDS cluster.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/rds_cluster.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var clusterName = Output.Create(Aws.Rds.GetCluster.InvokeAsync(new Aws.Rds.GetClusterArgs
+        ///         {
+        ///             ClusterIdentifier = "clusterName",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:rds/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:rds/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }
+
 
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
@@ -44,10 +51,10 @@ namespace Pulumi.Aws.Rds
         public string ClusterIdentifier { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -56,11 +63,13 @@ namespace Pulumi.Aws.Rds
         }
     }
 
+
     [OutputType]
     public sealed class GetClusterResult
     {
         public readonly string Arn;
         public readonly ImmutableArray<string> AvailabilityZones;
+        public readonly int BacktrackWindow;
         public readonly int BackupRetentionPeriod;
         public readonly string ClusterIdentifier;
         public readonly ImmutableArray<string> ClusterMembers;
@@ -76,6 +85,10 @@ namespace Pulumi.Aws.Rds
         public readonly string HostedZoneId;
         public readonly bool IamDatabaseAuthenticationEnabled;
         public readonly ImmutableArray<string> IamRoles;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string KmsKeyId;
         public readonly string MasterUsername;
         public readonly int Port;
@@ -84,46 +97,72 @@ namespace Pulumi.Aws.Rds
         public readonly string ReaderEndpoint;
         public readonly string ReplicationSourceIdentifier;
         public readonly bool StorageEncrypted;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterResult(
             string arn,
+
             ImmutableArray<string> availabilityZones,
+
+            int backtrackWindow,
+
             int backupRetentionPeriod,
+
             string clusterIdentifier,
+
             ImmutableArray<string> clusterMembers,
+
             string clusterResourceId,
+
             string databaseName,
+
             string dbClusterParameterGroupName,
+
             string dbSubnetGroupName,
+
             ImmutableArray<string> enabledCloudwatchLogsExports,
+
             string endpoint,
+
             string engine,
+
             string engineVersion,
+
             string finalSnapshotIdentifier,
+
             string hostedZoneId,
+
             bool iamDatabaseAuthenticationEnabled,
+
             ImmutableArray<string> iamRoles,
+
+            string id,
+
             string kmsKeyId,
+
             string masterUsername,
+
             int port,
+
             string preferredBackupWindow,
+
             string preferredMaintenanceWindow,
+
             string readerEndpoint,
+
             string replicationSourceIdentifier,
+
             bool storageEncrypted,
-            ImmutableDictionary<string, object> tags,
-            ImmutableArray<string> vpcSecurityGroupIds,
-            string id)
+
+            ImmutableDictionary<string, string> tags,
+
+            ImmutableArray<string> vpcSecurityGroupIds)
         {
             Arn = arn;
             AvailabilityZones = availabilityZones;
+            BacktrackWindow = backtrackWindow;
             BackupRetentionPeriod = backupRetentionPeriod;
             ClusterIdentifier = clusterIdentifier;
             ClusterMembers = clusterMembers;
@@ -139,6 +178,7 @@ namespace Pulumi.Aws.Rds
             HostedZoneId = hostedZoneId;
             IamDatabaseAuthenticationEnabled = iamDatabaseAuthenticationEnabled;
             IamRoles = iamRoles;
+            Id = id;
             KmsKeyId = kmsKeyId;
             MasterUsername = masterUsername;
             Port = port;
@@ -149,7 +189,6 @@ namespace Pulumi.Aws.Rds
             StorageEncrypted = storageEncrypted;
             Tags = tags;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
-            Id = id;
         }
     }
 }

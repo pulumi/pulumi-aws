@@ -8,33 +8,30 @@ import * as utilities from "../utilities";
  * Provides a Lightsail Instance. Amazon Lightsail is a service to provide easy virtual private servers
  * with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
  * for more information.
- * 
+ *
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new GitLab Lightsail Instance
- * const gitlabTest = new aws.lightsail.Instance("gitlabTest", {
+ * const gitlabTest = new aws.lightsail.Instance("gitlab_test", {
  *     availabilityZone: "us-east-1b",
  *     blueprintId: "string",
  *     bundleId: "string",
- *     keyPairName: "someKeyName",
+ *     keyPairName: "some_key_name",
  *     tags: {
  *         foo: "bar",
  *     },
  * });
  * ```
- * 
  * ## Availability Zones
- * 
+ *
  * Lightsail currently supports the following Availability Zones (e.g. `us-east-1a`):
- * 
+ *
  * - `ap-northeast-1{a,c,d}`
  * - `ap-northeast-2{a,c}`
  * - `ap-south-1{a,b}`
@@ -48,46 +45,15 @@ import * as utilities from "../utilities";
  * - `us-east-1{a,b,c,d,e,f}`
  * - `us-east-2{a,b,c}`
  * - `us-west-2{a,b,c}`
- * 
- * ## Blueprints
- * 
- * Lightsail currently supports the following Blueprint IDs:
- * 
- * ### OS Only
- * 
- * - `amazonLinux20180302`
- * - `centos7190101`
- * - `debian87`
- * - `debian95`
- * - `freebsd111`
- * - `opensuse422`
- * - `ubuntu16042`
- * - `ubuntu1804`
- * 
- * ### Apps and OS
- * 
- * - `drupal856`
- * - `gitlab11141`
- * - `joomla3811`
- * - `lamp56372`
- * - `lamp71201`
- * - `magento225`
- * - `mean401`
- * - `nginx11401`
- * - `nodejs1080`
- * - `pleskUbuntu178111`
- * - `redmine346`
- * - `wordpress498`
- * - `wordpressMultisite498`
- * 
+ *
  * ## Bundles
- * 
+ *
  * Lightsail currently supports the following Bundle IDs (e.g. an instance in `ap-northeast-1` would use `small20`):
- * 
+ *
  * ### Prefix
- * 
+ *
  * A Bundle ID starts with one of the below size prefixes:
- * 
+ *
  * - `nano_`
  * - `micro_`
  * - `small_`
@@ -95,11 +61,11 @@ import * as utilities from "../utilities";
  * - `large_`
  * - `xlarge_`
  * - `2xlarge_`
- * 
+ *
  * ### Suffix
- * 
+ *
  * A Bundle ID ends with one of the following suffixes depending on Availability Zone:
- * 
+ *
  * - ap-northeast-1: `20`
  * - ap-northeast-2: `20`
  * - ap-south-1: `21`
@@ -113,8 +79,6 @@ import * as utilities from "../utilities";
  * - us-east-1: `20`
  * - us-east-2: `20`
  * - us-west-2: `20`
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_instance.html.markdown.
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -124,6 +88,7 @@ export class Instance extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: InstanceState, opts?: pulumi.CustomResourceOptions): Instance {
         return new Instance(name, <any>state, { ...opts, id: id });
@@ -153,8 +118,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * The ID for a virtual private server image
-     * (see list below)
+     * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
      */
     public readonly blueprintId!: pulumi.Output<string>;
     /**
@@ -186,9 +150,9 @@ export class Instance extends pulumi.CustomResource {
     public /*out*/ readonly publicIpAddress!: pulumi.Output<string>;
     public /*out*/ readonly ramSize!: pulumi.Output<number>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * launch script to configure server with additional user data
      */
@@ -276,8 +240,7 @@ export interface InstanceState {
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
-     * The ID for a virtual private server image
-     * (see list below)
+     * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
      */
     readonly blueprintId?: pulumi.Input<string>;
     /**
@@ -309,9 +272,9 @@ export interface InstanceState {
     readonly publicIpAddress?: pulumi.Input<string>;
     readonly ramSize?: pulumi.Input<number>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * launch script to configure server with additional user data
      */
@@ -329,8 +292,7 @@ export interface InstanceArgs {
      */
     readonly availabilityZone: pulumi.Input<string>;
     /**
-     * The ID for a virtual private server image
-     * (see list below)
+     * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
      */
     readonly blueprintId: pulumi.Input<string>;
     /**
@@ -347,9 +309,9 @@ export interface InstanceArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * launch script to configure server with additional user data
      */

@@ -2,28 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint SMS Channel resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const app = new aws.pinpoint.App("app", {});
- * const sms = new aws.pinpoint.SmsChannel("sms", {
- *     applicationId: app.applicationId,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_sms_channel.markdown.
+ * const app = new aws.pinpoint.App("app", {});
+ * const sms = new aws.pinpoint.SmsChannel("sms", {applicationId: app.applicationId});
+ * ```
  */
 export class SmsChannel extends pulumi.CustomResource {
     /**
@@ -33,6 +25,7 @@ export class SmsChannel extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SmsChannelState, opts?: pulumi.CustomResourceOptions): SmsChannel {
         return new SmsChannel(name, <any>state, { ...opts, id: id });

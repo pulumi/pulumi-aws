@@ -12,9 +12,24 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides a resource to designate the active SES receipt rule set
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_active_receipt_rule_set.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Ses.ActiveReceiptRuleSet("main", new Aws.Ses.ActiveReceiptRuleSetArgs
+    ///         {
+    ///             RuleSetName = "primary-rules",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ActiveReceiptRuleSet : Pulumi.CustomResource
     {
@@ -33,7 +48,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ActiveReceiptRuleSet(string name, ActiveReceiptRuleSetArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet", name, args ?? new ActiveReceiptRuleSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 

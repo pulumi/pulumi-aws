@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ses
 {
+    [Obsolete(@"aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet")]
     public partial class ConfgurationSet : Pulumi.CustomResource
     {
         [Output("name")]
@@ -23,7 +24,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfgurationSet(string name, ConfgurationSetArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ses/confgurationSet:ConfgurationSet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/confgurationSet:ConfgurationSet", name, args ?? new ConfgurationSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 

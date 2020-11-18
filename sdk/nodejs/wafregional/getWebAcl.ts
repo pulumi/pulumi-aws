@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.wafregional.getWebAcl({
- *     name: "tfWAFRegionalWebACL",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_web_acl.html.markdown.
+ * const example = pulumi.output(aws.wafregional.getWebAcl({
+ *     name: "tfWAFRegionalWebACL",
+ * }, { async: true }));
+ * ```
  */
-export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAclResult> & GetWebAclResult {
+export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAclResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,11 +29,9 @@ export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetWebAclResult> = pulumi.runtime.invoke("aws:wafregional/getWebAcl:getWebAcl", {
+    return pulumi.runtime.invoke("aws:wafregional/getWebAcl:getWebAcl", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -53,9 +48,9 @@ export interface GetWebAclArgs {
  * A collection of values returned by getWebAcl.
  */
 export interface GetWebAclResult {
-    readonly name: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

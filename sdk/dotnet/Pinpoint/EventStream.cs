@@ -12,9 +12,68 @@ namespace Pulumi.Aws.Pinpoint
     /// <summary>
     /// Provides a Pinpoint Event Stream resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_event_stream.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
+    ///         {
+    ///         });
+    ///         var testStream = new Aws.Kinesis.Stream("testStream", new Aws.Kinesis.StreamArgs
+    ///         {
+    ///             ShardCount = 1,
+    ///         });
+    ///         var testRole = new Aws.Iam.Role("testRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""pinpoint.us-east-1.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var stream = new Aws.Pinpoint.EventStream("stream", new Aws.Pinpoint.EventStreamArgs
+    ///         {
+    ///             ApplicationId = app.ApplicationId,
+    ///             DestinationStreamArn = testStream.Arn,
+    ///             RoleArn = testRole.Arn,
+    ///         });
+    ///         var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = testRole.Id,
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": {
+    ///     ""Action"": [
+    ///       ""kinesis:PutRecords"",
+    ///       ""kinesis:DescribeStream""
+    ///     ],
+    ///     ""Effect"": ""Allow"",
+    ///     ""Resource"": [
+    ///       ""arn:aws:kinesis:us-east-1:*:*/*""
+    ///     ]
+    ///   }
+    /// }
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EventStream : Pulumi.CustomResource
     {
@@ -45,7 +104,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventStream(string name, EventStreamArgs args, CustomResourceOptions? options = null)
-            : base("aws:pinpoint/eventStream:EventStream", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:pinpoint/eventStream:EventStream", name, args ?? new EventStreamArgs(), MakeResourceOptions(options, ""))
         {
         }
 

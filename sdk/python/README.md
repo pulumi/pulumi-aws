@@ -1,8 +1,9 @@
-[![Build Status](https://travis-ci.com/pulumi/pulumi-aws.svg?token=eHg7Zp5zdDDJfTjY8ejq&branch=master)](https://travis-ci.com/pulumi/pulumi-aws)
+[![Actions Status](https://github.com/pulumi/pulumi-aws/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-aws/actions)
 [![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
 [![NPM version](https://badge.fury.io/js/%40pulumi%2Faws.svg)](https://www.npmjs.com/package/@pulumi/aws)
 [![Python version](https://badge.fury.io/py/pulumi-aws.svg)](https://pypi.org/project/pulumi-aws)
-[![GoDoc](https://godoc.org/github.com/pulumi/pulumi-aws?status.svg)](https://godoc.org/github.com/pulumi/pulumi-aws)
+[![NuGet version](https://badge.fury.io/nu/pulumi.aws.svg)](https://badge.fury.io/nu/pulumi.aws)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-aws/sdk/v3/go)](https://pkg.go.dev/github.com/pulumi/pulumi-aws/sdk/v3/go)
 [![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-aws/blob/master/LICENSE)
 
 # Amazon Web Services (AWS) provider
@@ -40,7 +41,13 @@ To use from Python, install using `pip`:
 
 To use from Go, use `go get` to grab the latest version of the library
 
-    $ go get github.com/pulumi/pulumi-aws/sdk/go/...
+    $ go get github.com/pulumi/pulumi-aws/sdk/v2/go/...
+
+### .NET
+
+To use from .NET, install using `dotnet add package`:
+
+    $ dotnet add package Pulumi.Aws
 
 ## Concepts
 
@@ -63,12 +70,5 @@ of this underlying capability.
 
 ## Reference
 
-For detailed reference documentation, please visit [the API docs](
-https://pulumi.io/reference/pkg/nodejs/@pulumi/aws/index.html).
-
-## Updating this provider
-
-The AWS Resource Provider for Pulumi is based on the Terraform Provider for
-AWS. Instructions for keeping it up to date are available [here][updating].
-
-[updating]: https://github.com/pulumi/pulumi-terraform/wiki/Updating-Pulumi-Providers-Backed-By-Terraform-Providers
+For further information, please visit [the AWS provider docs](https://www.pulumi.com/docs/intro/cloud-providers/aws)
+or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/aws).

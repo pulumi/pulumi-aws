@@ -7,10 +7,35 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an SSM Maintenance Window resource
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ssm.NewMaintenanceWindow(ctx, "production", &ssm.MaintenanceWindowArgs{
+// 			Cutoff:   pulumi.Int(1),
+// 			Duration: pulumi.Int(3),
+// 			Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type MaintenanceWindow struct {
 	pulumi.CustomResourceState
 
@@ -34,8 +59,8 @@ type MaintenanceWindow struct {
 	ScheduleTimezone pulumi.StringPtrOutput `pulumi:"scheduleTimezone"`
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
 	StartDate pulumi.StringPtrOutput `pulumi:"startDate"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewMaintenanceWindow registers a new resource with the given unique name, arguments, and options.
@@ -95,8 +120,8 @@ type maintenanceWindowState struct {
 	ScheduleTimezone *string `pulumi:"scheduleTimezone"`
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
 	StartDate *string `pulumi:"startDate"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type MaintenanceWindowState struct {
@@ -120,8 +145,8 @@ type MaintenanceWindowState struct {
 	ScheduleTimezone pulumi.StringPtrInput
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
 	StartDate pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (MaintenanceWindowState) ElementType() reflect.Type {
@@ -149,8 +174,8 @@ type maintenanceWindowArgs struct {
 	ScheduleTimezone *string `pulumi:"scheduleTimezone"`
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
 	StartDate *string `pulumi:"startDate"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MaintenanceWindow resource.
@@ -175,8 +200,8 @@ type MaintenanceWindowArgs struct {
 	ScheduleTimezone pulumi.StringPtrInput
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
 	StartDate pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (MaintenanceWindowArgs) ElementType() reflect.Type {

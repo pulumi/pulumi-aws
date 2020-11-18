@@ -4,49 +4,56 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Get information about the organization that the user's account belongs to
- * 
+ *
  * ## Example Usage
- * 
- * ### SNS topic that can be interacted by the organization only
- * 
+ * ### List all account IDs for the organization
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.organizations.getOrganization();
+ *
+ * const example = aws.organizations.getOrganization({});
+ * export const accountIds = example.then(example => example.accounts.map(__item => __item.id));
+ * ```
+ * ### SNS topic that can be interacted by the organization only
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.organizations.getOrganization({});
  * const snsTopic = new aws.sns.Topic("snsTopic", {});
- * const snsTopicPolicyPolicyDocument = snsTopic.arn.apply(arn => aws.iam.getPolicyDocument({
+ * const snsTopicPolicyPolicyDocument = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocument({
  *     statements: [{
+ *         effect: "Allow",
  *         actions: [
  *             "SNS:Subscribe",
  *             "SNS:Publish",
  *         ],
  *         conditions: [{
  *             test: "StringEquals",
- *             values: [example],
  *             variable: "aws:PrincipalOrgID",
+ *             values: [example.id],
  *         }],
- *         effect: "Allow",
  *         principals: [{
- *             identifiers: ["*"],
  *             type: "AWS",
+ *             identifiers: ["*"],
  *         }],
  *         resources: [arn],
  *     }],
  * }));
- * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("snsTopicPolicy", {
+ * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("snsTopicPolicyTopicPolicy", {
  *     arn: snsTopic.arn,
  *     policy: snsTopicPolicyPolicyDocument.json,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organization.html.markdown.
  */
-export function getOrganization(opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> & GetOrganizationResult {
+export function getOrganization(opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
     if (!opts) {
         opts = {}
     }
@@ -54,10 +61,8 @@ export function getOrganization(opts?: pulumi.InvokeOptions): Promise<GetOrganiz
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetOrganizationResult> = pulumi.runtime.invoke("aws:organizations/getOrganization:getOrganization", {
+    return pulumi.runtime.invoke("aws:organizations/getOrganization:getOrganization", {
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -85,6 +90,10 @@ export interface GetOrganizationResult {
      */
     readonly featureSet: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
      */
     readonly masterAccountArn: string;
@@ -104,8 +113,4 @@ export interface GetOrganizationResult {
      * List of organization roots. All elements have these attributes:
      */
     readonly roots: outputs.organizations.GetOrganizationRoot[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -7,15 +7,52 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a SageMaker endpoint configuration resource.
+//
+// ## Example Usage
+//
+// Basic usage:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sagemaker"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sagemaker.NewEndpointConfiguration(ctx, "ec", &sagemaker.EndpointConfigurationArgs{
+// 			ProductionVariants: sagemaker.EndpointConfigurationProductionVariantArray{
+// 				&sagemaker.EndpointConfigurationProductionVariantArgs{
+// 					VariantName:          pulumi.String("variant-1"),
+// 					ModelName:            pulumi.Any(aws_sagemaker_model.M.Name),
+// 					InitialInstanceCount: pulumi.Int(1),
+// 					InstanceType:         pulumi.String("ml.t2.medium"),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("foo"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type EndpointConfiguration struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+	DataCaptureConfig EndpointConfigurationDataCaptureConfigPtrOutput `pulumi:"dataCaptureConfig"`
 	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
@@ -23,7 +60,7 @@ type EndpointConfiguration struct {
 	// Fields are documented below.
 	ProductionVariants EndpointConfigurationProductionVariantArrayOutput `pulumi:"productionVariants"`
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewEndpointConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -59,6 +96,8 @@ func GetEndpointConfiguration(ctx *pulumi.Context,
 type endpointConfigurationState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
 	Arn *string `pulumi:"arn"`
+	// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+	DataCaptureConfig *EndpointConfigurationDataCaptureConfig `pulumi:"dataCaptureConfig"`
 	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
@@ -66,12 +105,14 @@ type endpointConfigurationState struct {
 	// Fields are documented below.
 	ProductionVariants []EndpointConfigurationProductionVariant `pulumi:"productionVariants"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type EndpointConfigurationState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
 	Arn pulumi.StringPtrInput
+	// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+	DataCaptureConfig EndpointConfigurationDataCaptureConfigPtrInput
 	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn pulumi.StringPtrInput
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
@@ -79,7 +120,7 @@ type EndpointConfigurationState struct {
 	// Fields are documented below.
 	ProductionVariants EndpointConfigurationProductionVariantArrayInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (EndpointConfigurationState) ElementType() reflect.Type {
@@ -87,6 +128,8 @@ func (EndpointConfigurationState) ElementType() reflect.Type {
 }
 
 type endpointConfigurationArgs struct {
+	// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+	DataCaptureConfig *EndpointConfigurationDataCaptureConfig `pulumi:"dataCaptureConfig"`
 	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
@@ -94,11 +137,13 @@ type endpointConfigurationArgs struct {
 	// Fields are documented below.
 	ProductionVariants []EndpointConfigurationProductionVariant `pulumi:"productionVariants"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EndpointConfiguration resource.
 type EndpointConfigurationArgs struct {
+	// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+	DataCaptureConfig EndpointConfigurationDataCaptureConfigPtrInput
 	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn pulumi.StringPtrInput
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
@@ -106,7 +151,7 @@ type EndpointConfigurationArgs struct {
 	// Fields are documented below.
 	ProductionVariants EndpointConfigurationProductionVariantArrayInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (EndpointConfigurationArgs) ElementType() reflect.Type {

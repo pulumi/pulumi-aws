@@ -6,21 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to designate the active SES receipt rule set
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ses.ActiveReceiptRuleSet("main", {
  *     ruleSetName: "primary-rules",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_active_receipt_rule_set.html.markdown.
  */
 export class ActiveReceiptRuleSet extends pulumi.CustomResource {
     /**
@@ -30,6 +26,7 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ActiveReceiptRuleSetState, opts?: pulumi.CustomResourceOptions): ActiveReceiptRuleSet {
         return new ActiveReceiptRuleSet(name, <any>state, { ...opts, id: id });

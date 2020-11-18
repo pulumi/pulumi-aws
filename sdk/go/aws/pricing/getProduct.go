@@ -4,11 +4,95 @@
 package pricing
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get the pricing information of all products in AWS.
 // This data source is only available in a us-east-1 or ap-south-1 provider.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/pricing"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := pricing.GetProduct(ctx, &pricing.GetProductArgs{
+// 			Filters: []pricing.GetProductFilter{
+// 				pricing.GetProductFilter{
+// 					Field: "instanceType",
+// 					Value: "c5.xlarge",
+// 				},
+// 				pricing.GetProductFilter{
+// 					Field: "operatingSystem",
+// 					Value: "Linux",
+// 				},
+// 				pricing.GetProductFilter{
+// 					Field: "location",
+// 					Value: "US East (N. Virginia)",
+// 				},
+// 				pricing.GetProductFilter{
+// 					Field: "preInstalledSw",
+// 					Value: "NA",
+// 				},
+// 				pricing.GetProductFilter{
+// 					Field: "licenseModel",
+// 					Value: "No License required",
+// 				},
+// 				pricing.GetProductFilter{
+// 					Field: "tenancy",
+// 					Value: "Shared",
+// 				},
+// 				pricing.GetProductFilter{
+// 					Field: "capacitystatus",
+// 					Value: "Used",
+// 				},
+// 			},
+// 			ServiceCode: "AmazonEC2",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/pricing"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := pricing.GetProduct(ctx, &pricing.GetProductArgs{
+// 			Filters: []pricing.GetProductFilter{
+// 				pricing.GetProductFilter{
+// 					Field: "instanceType",
+// 					Value: "ds1.xlarge",
+// 				},
+// 				pricing.GetProductFilter{
+// 					Field: "location",
+// 					Value: "US East (N. Virginia)",
+// 				},
+// 			},
+// 			ServiceCode: "AmazonRedshift",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.InvokeOption) (*GetProductResult, error) {
 	var rv GetProductResult
 	err := ctx.Invoke("aws:pricing/getProduct:getProduct", args, &rv, opts...)
@@ -29,7 +113,7 @@ type GetProductArgs struct {
 // A collection of values returned by getProduct.
 type GetProductResult struct {
 	Filters []GetProductFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set to the product returned from the API.
 	Result      string `pulumi:"result"`

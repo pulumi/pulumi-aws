@@ -13,9 +13,38 @@ namespace Pulumi.Aws.Shield
     /// Enables AWS Shield Advanced for a specific AWS resource.
     /// The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
     /// 
+    /// ## Example Usage
+    /// ### Create protection
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/shield_protection.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var available = Output.Create(Aws.GetAvailabilityZones.InvokeAsync());
+    ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
+    ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+    ///         var exampleEip = new Aws.Ec2.Eip("exampleEip", new Aws.Ec2.EipArgs
+    ///         {
+    ///             Vpc = true,
+    ///         });
+    ///         var exampleProtection = new Aws.Shield.Protection("exampleProtection", new Aws.Shield.ProtectionArgs
+    ///         {
+    ///             ResourceArn = Output.Tuple(currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
+    ///             {
+    ///                 var currentRegion = values.Item1;
+    ///                 var currentCallerIdentity = values.Item2;
+    ///                 var id = values.Item3;
+    ///                 return $"arn:aws:ec2:{currentRegion.Name}:{currentCallerIdentity.AccountId}:eip-allocation/{id}";
+    ///             }),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Protection : Pulumi.CustomResource
     {
@@ -40,7 +69,7 @@ namespace Pulumi.Aws.Shield
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Protection(string name, ProtectionArgs args, CustomResourceOptions? options = null)
-            : base("aws:shield/protection:Protection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:shield/protection:Protection", name, args ?? new ProtectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

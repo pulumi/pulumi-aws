@@ -7,9 +7,34 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/redshift"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := redshift.NewSnapshotSchedule(ctx, "_default", &redshift.SnapshotScheduleArgs{
+// 			Definitions: pulumi.StringArray{
+// 				pulumi.String("rate(12 hours)"),
+// 			},
+// 			Identifier: pulumi.String("tf-redshift-snapshot-schedule"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SnapshotSchedule struct {
 	pulumi.CustomResourceState
 
@@ -25,8 +50,8 @@ type SnapshotSchedule struct {
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewSnapshotSchedule registers a new resource with the given unique name, arguments, and options.
@@ -72,8 +97,8 @@ type snapshotScheduleState struct {
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type SnapshotScheduleState struct {
@@ -89,8 +114,8 @@ type SnapshotScheduleState struct {
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (SnapshotScheduleState) ElementType() reflect.Type {
@@ -109,8 +134,8 @@ type snapshotScheduleArgs struct {
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SnapshotSchedule resource.
@@ -126,8 +151,8 @@ type SnapshotScheduleArgs struct {
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (SnapshotScheduleArgs) ElementType() reflect.Type {

@@ -4,46 +4,43 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific redshift cluster.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testCluster = aws.redshift.getCluster({
  *     clusterIdentifier: "test-cluster",
  * });
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "redshift",
- *     redshiftConfiguration: {
- *         clusterJdbcurl: `jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,
- *         copyOptions: "delimiter '|'", // the default delimiter
- *         dataTableColumns: "test-col",
- *         dataTableName: "test-table",
- *         password: "T3stPass",
- *         roleArn: aws_iam_role_firehose_role.arn,
- *         username: "testuser",
- *     },
  *     s3Configuration: {
- *         bucketArn: aws_s3_bucket_bucket.arn,
- *         bufferInterval: 400,
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         bucketArn: aws_s3_bucket.bucket.arn,
  *         bufferSize: 10,
+ *         bufferInterval: 400,
  *         compressionFormat: "GZIP",
- *         roleArn: aws_iam_role_firehose_role.arn,
+ *     },
+ *     redshiftConfiguration: {
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         clusterJdbcurl: Promise.all([testCluster, testCluster]).then(([testCluster, testCluster1]) => `jdbc:redshift://${testCluster.endpoint}/${testCluster1.databaseName}`),
+ *         username: "testuser",
+ *         password: "T3stPass",
+ *         dataTableName: "test-table",
+ *         copyOptions: "delimiter '|'",
+ *         dataTableColumns: "test-col",
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_cluster.html.markdown.
  */
-export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}
     }
@@ -51,12 +48,10 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetClusterResult> = pulumi.runtime.invoke("aws:redshift/getCluster:getCluster", {
+    return pulumi.runtime.invoke("aws:redshift/getCluster:getCluster", {
         "clusterIdentifier": args.clusterIdentifier,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -70,7 +65,7 @@ export interface GetClusterArgs {
     /**
      * The tags associated to the cluster
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -151,6 +146,10 @@ export interface GetClusterResult {
      */
     readonly iamRoles: string[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The KMS encryption key associated to the cluster
      */
     readonly kmsKeyId: string;
@@ -185,7 +184,7 @@ export interface GetClusterResult {
     /**
      * The tags associated to the cluster
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The VPC Id associated with the cluster
      */
@@ -194,8 +193,4 @@ export interface GetClusterResult {
      * The VPC security group Ids associated with the cluster
      */
     readonly vpcSecurityGroupIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

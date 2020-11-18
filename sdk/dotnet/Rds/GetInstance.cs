@@ -9,31 +9,38 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get information about an RDS instance
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_instance.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetInstance.InvokeAsync() instead")]
-        public static Task<GetInstanceResult> GetInstance(GetInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:rds/getInstance:getInstance", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetInstance
     {
         /// <summary>
         /// Use this data source to get information about an RDS instance
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_instance.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var database = Output.Create(Aws.Rds.GetInstance.InvokeAsync(new Aws.Rds.GetInstanceArgs
+        ///         {
+        ///             DbInstanceIdentifier = "my-test-database",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:rds/getInstance:getInstance", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:rds/getInstance:getInstance", args ?? new GetInstanceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetInstanceArgs : Pulumi.InvokeArgs
     {
@@ -44,10 +51,10 @@ namespace Pulumi.Aws.Rds
         public string DbInstanceIdentifier { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -55,6 +62,7 @@ namespace Pulumi.Aws.Rds
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetInstanceResult
@@ -137,6 +145,10 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string HostedZoneId;
         /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Specifies the Provisioned IOPS (I/O operations per second) value.
         /// </summary>
         public readonly int Iops;
@@ -200,7 +212,7 @@ namespace Pulumi.Aws.Rds
         /// Specifies the storage type associated with DB instance.
         /// </summary>
         public readonly string StorageType;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The time zone of the DB instance.
         /// </summary>
@@ -209,53 +221,88 @@ namespace Pulumi.Aws.Rds
         /// Provides a list of VPC security group elements that the DB instance belongs to.
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroups;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetInstanceResult(
             string address,
+
             int allocatedStorage,
+
             bool autoMinorVersionUpgrade,
+
             string availabilityZone,
+
             int backupRetentionPeriod,
+
             string caCertIdentifier,
+
             string dbClusterIdentifier,
+
             string dbInstanceArn,
+
             string dbInstanceClass,
+
             string dbInstanceIdentifier,
+
             int dbInstancePort,
+
             string dbName,
+
             ImmutableArray<string> dbParameterGroups,
+
             ImmutableArray<string> dbSecurityGroups,
+
             string dbSubnetGroup,
+
             ImmutableArray<string> enabledCloudwatchLogsExports,
+
             string endpoint,
+
             string engine,
+
             string engineVersion,
+
             string hostedZoneId,
+
+            string id,
+
             int iops,
+
             string kmsKeyId,
+
             string licenseModel,
+
             string masterUsername,
+
             int monitoringInterval,
+
             string monitoringRoleArn,
+
             bool multiAz,
+
             ImmutableArray<string> optionGroupMemberships,
+
             int port,
+
             string preferredBackupWindow,
+
             string preferredMaintenanceWindow,
+
             bool publiclyAccessible,
+
             string replicateSourceDb,
+
             string resourceId,
+
             bool storageEncrypted,
+
             string storageType,
-            ImmutableDictionary<string, object> tags,
+
+            ImmutableDictionary<string, string> tags,
+
             string timezone,
-            ImmutableArray<string> vpcSecurityGroups,
-            string id)
+
+            ImmutableArray<string> vpcSecurityGroups)
         {
             Address = address;
             AllocatedStorage = allocatedStorage;
@@ -277,6 +324,7 @@ namespace Pulumi.Aws.Rds
             Engine = engine;
             EngineVersion = engineVersion;
             HostedZoneId = hostedZoneId;
+            Id = id;
             Iops = iops;
             KmsKeyId = kmsKeyId;
             LicenseModel = licenseModel;
@@ -296,7 +344,6 @@ namespace Pulumi.Aws.Rds
             Tags = tags;
             Timezone = timezone;
             VpcSecurityGroups = vpcSecurityGroups;
-            Id = id;
         }
     }
 }

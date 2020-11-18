@@ -7,13 +7,52 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an AWS Backup plan resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/backup"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := backup.NewPlan(ctx, "example", &backup.PlanArgs{
+// 			Rules: backup.PlanRuleArray{
+// 				&backup.PlanRuleArgs{
+// 					RuleName:        pulumi.String("tf_example_backup_rule"),
+// 					TargetVaultName: pulumi.Any(aws_backup_vault.Test.Name),
+// 					Schedule:        pulumi.String("cron(0 12 * * ? *)"),
+// 				},
+// 			},
+// 			AdvancedBackupSettings: backup.PlanAdvancedBackupSettingArray{
+// 				&backup.PlanAdvancedBackupSettingArgs{
+// 					BackupOptions: pulumi.StringMap{
+// 						"WindowsVSS": pulumi.String("enabled"),
+// 					},
+// 					ResourceType: pulumi.String("EC2"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Plan struct {
 	pulumi.CustomResourceState
 
+	// An object that specifies backup options for each resource type.
+	AdvancedBackupSettings PlanAdvancedBackupSettingArrayOutput `pulumi:"advancedBackupSettings"`
 	// The ARN of the backup plan.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The display name of a backup plan.
@@ -21,7 +60,7 @@ type Plan struct {
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayOutput `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -57,6 +96,8 @@ func GetPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Plan resources.
 type planState struct {
+	// An object that specifies backup options for each resource type.
+	AdvancedBackupSettings []PlanAdvancedBackupSetting `pulumi:"advancedBackupSettings"`
 	// The ARN of the backup plan.
 	Arn *string `pulumi:"arn"`
 	// The display name of a backup plan.
@@ -64,12 +105,14 @@ type planState struct {
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules []PlanRule `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 	Version *string `pulumi:"version"`
 }
 
 type PlanState struct {
+	// An object that specifies backup options for each resource type.
+	AdvancedBackupSettings PlanAdvancedBackupSettingArrayInput
 	// The ARN of the backup plan.
 	Arn pulumi.StringPtrInput
 	// The display name of a backup plan.
@@ -77,7 +120,7 @@ type PlanState struct {
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayInput
 	// Metadata that you can assign to help organize the plans you create.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 	Version pulumi.StringPtrInput
 }
@@ -87,22 +130,26 @@ func (PlanState) ElementType() reflect.Type {
 }
 
 type planArgs struct {
+	// An object that specifies backup options for each resource type.
+	AdvancedBackupSettings []PlanAdvancedBackupSetting `pulumi:"advancedBackupSettings"`
 	// The display name of a backup plan.
 	Name *string `pulumi:"name"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules []PlanRule `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Plan resource.
 type PlanArgs struct {
+	// An object that specifies backup options for each resource type.
+	AdvancedBackupSettings PlanAdvancedBackupSettingArrayInput
 	// The display name of a backup plan.
 	Name pulumi.StringPtrInput
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayInput
 	// Metadata that you can assign to help organize the plans you create.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (PlanArgs) ElementType() reflect.Type {

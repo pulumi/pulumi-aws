@@ -4,30 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides information about an Elastic File System (EFS).
- * 
+ * Provides information about an Elastic File System (EFS) File System.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const fileSystemId = config.get("fileSystemId") || "";
- * 
  * const byId = aws.efs.getFileSystem({
  *     fileSystemId: fileSystemId,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_file_system.html.markdown.
  */
-export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> & GetFileSystemResult {
+export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -36,13 +32,11 @@ export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOpti
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetFileSystemResult> = pulumi.runtime.invoke("aws:efs/getFileSystem:getFileSystem", {
+    return pulumi.runtime.invoke("aws:efs/getFileSystem:getFileSystem", {
         "creationToken": args.creationToken,
         "fileSystemId": args.fileSystemId,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -57,7 +51,7 @@ export interface GetFileSystemArgs {
      * The ID that identifies the file system (e.g. fs-ccfc0d65).
      */
     readonly fileSystemId?: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -79,6 +73,10 @@ export interface GetFileSystemResult {
     readonly encrypted: boolean;
     readonly fileSystemId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
@@ -92,16 +90,16 @@ export interface GetFileSystemResult {
     readonly performanceMode: string;
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system.
-     * * `tags` -A mapping of tags to assign to the file system.
+     * * `tags` -A map of tags to assign to the file system.
      */
     readonly provisionedThroughputInMibps: number;
-    readonly tags: {[key: string]: any};
+    /**
+     * The current byte count used by the file system.
+     */
+    readonly sizeInBytes: number;
+    readonly tags: {[key: string]: string};
     /**
      * Throughput mode for the file system.
      */
     readonly throughputMode: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

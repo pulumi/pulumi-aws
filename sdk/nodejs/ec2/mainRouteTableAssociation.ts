@@ -2,37 +2,30 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource for managing the main routing table of a VPC.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const mainRouteTableAssociation = new aws.ec2.MainRouteTableAssociation("a", {
- *     routeTableId: aws_route_table_bar.id,
- *     vpcId: aws_vpc_foo.id,
+ *
+ * const mainRouteTableAssociation = new aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation", {
+ *     vpcId: aws_vpc.foo.id,
+ *     routeTableId: aws_route_table.bar.id,
  * });
  * ```
- * 
  * ## Notes
- * 
+ *
  * On VPC creation, the AWS API always creates an initial Main Route Table. This
  * resource records the ID of that Route Table under `originalRouteTableId`.
  * The "Delete" action for a `mainRouteTableAssociation` consists of resetting
  * this original table as the Main Route Table for the VPC. You'll see this
  * additional Route Table in the AWS console; it must remain intact in order for
  * the `mainRouteTableAssociation` delete to work properly.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/main_route_table_association.html.markdown.
  */
 export class MainRouteTableAssociation extends pulumi.CustomResource {
     /**
@@ -42,6 +35,7 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MainRouteTableAssociationState, opts?: pulumi.CustomResourceOptions): MainRouteTableAssociation {
         return new MainRouteTableAssociation(name, <any>state, { ...opts, id: id });

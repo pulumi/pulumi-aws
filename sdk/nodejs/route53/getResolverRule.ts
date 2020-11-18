@@ -4,28 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.route53.getResolverRule({
+ *
+ * const example = pulumi.output(aws.route53.getResolverRule({
  *     domainName: "subdomain.example.com",
  *     ruleType: "SYSTEM",
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rule.html.markdown.
  */
-export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleResult> & GetResolverRuleResult {
+export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -34,7 +33,7 @@ export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.Invoke
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetResolverRuleResult> = pulumi.runtime.invoke("aws:route53/getResolverRule:getResolverRule", {
+    return pulumi.runtime.invoke("aws:route53/getResolverRule:getResolverRule", {
         "domainName": args.domainName,
         "name": args.name,
         "resolverEndpointId": args.resolverEndpointId,
@@ -42,8 +41,6 @@ export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.Invoke
         "ruleType": args.ruleType,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -71,9 +68,9 @@ export interface GetResolverRuleArgs {
      */
     readonly ruleType?: string;
     /**
-     * A mapping of tags assigned to the resolver rule.
+     * A map of tags assigned to the resolver rule.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -85,6 +82,10 @@ export interface GetResolverRuleResult {
      */
     readonly arn: string;
     readonly domainName: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
@@ -99,11 +100,7 @@ export interface GetResolverRuleResult {
      */
     readonly shareStatus: string;
     /**
-     * A mapping of tags assigned to the resolver rule.
+     * A map of tags assigned to the resolver rule.
      */
-    readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
+    readonly tags: {[key: string]: string};
 }

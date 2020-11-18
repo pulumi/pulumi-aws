@@ -96,7 +96,7 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
             action: "lambda:invokeFunction",
             function: this.func,
             principal: pulumi.interpolate`logs.${region}.amazonaws.com`,
-            sourceArn: logGroup.arn,
+            sourceArn: pulumi.interpolate`${logGroup.arn}:*`,
         }, parentOpts);
 
         this.logSubscriptionFilter = new logSubscriptionFilter.LogSubscriptionFilter(name, {
@@ -148,7 +148,7 @@ logGroup.LogGroup.prototype.onDecodedEvent = function(this: logGroup.LogGroup, n
 
 async function decodeLogGroupEvent(event: LogGroupEvent): Promise<DecodedLogGroupEvent> {
     const zlib = await import("zlib");
-    const payload = new Buffer(event.awslogs.data, "base64");
+    const payload = Buffer.from(event.awslogs.data, "base64");
 
     return new Promise<DecodedLogGroupEvent>((resolve, reject) => {
         zlib.gunzip(payload, function(err, result) {

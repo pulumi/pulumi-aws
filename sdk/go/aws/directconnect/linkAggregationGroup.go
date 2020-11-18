@@ -7,12 +7,37 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Direct Connect LAG. Connections can be added to the LAG via the [`directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) and [`directconnect.ConnectionAssociation`](https://www.terraform.io/docs/providers/aws/r/dx_connection_association.html) resources.
+// Provides a Direct Connect LAG. Connections can be added to the LAG via the `directconnect.Connection` and `directconnect.ConnectionAssociation` resources.
 //
 // > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. This provider will remove this unmanaged connection during resource creation.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/directconnect"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := directconnect.NewLinkAggregationGroup(ctx, "hoge", &directconnect.LinkAggregationGroupArgs{
+// 			ConnectionsBandwidth: pulumi.String("1Gbps"),
+// 			ForceDestroy:         pulumi.Bool(true),
+// 			Location:             pulumi.String("EqDC2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LinkAggregationGroup struct {
 	pulumi.CustomResourceState
 
@@ -30,8 +55,8 @@ type LinkAggregationGroup struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the LAG.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewLinkAggregationGroup registers a new resource with the given unique name, arguments, and options.
@@ -82,8 +107,8 @@ type linkAggregationGroupState struct {
 	Location *string `pulumi:"location"`
 	// The name of the LAG.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type LinkAggregationGroupState struct {
@@ -101,8 +126,8 @@ type LinkAggregationGroupState struct {
 	Location pulumi.StringPtrInput
 	// The name of the LAG.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (LinkAggregationGroupState) ElementType() reflect.Type {
@@ -118,8 +143,8 @@ type linkAggregationGroupArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the LAG.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LinkAggregationGroup resource.
@@ -132,8 +157,8 @@ type LinkAggregationGroupArgs struct {
 	Location pulumi.StringInput
 	// The name of the LAG.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (LinkAggregationGroupArgs) ElementType() reflect.Type {

@@ -4,13 +4,14 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an ElastiCache Replication Group resource.
  * For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
- * [`aws.elasticache.Cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
- * 
+ * `aws.elasticache.Cluster` resource.
+ *
  * > **Note:** When you change an attribute, such as `engineVersion`, by
  * default the ElastiCache API applies it in the next maintenance window. Because
  * of this, this provider may report a difference in its planning phase because the
@@ -18,15 +19,16 @@ import * as utilities from "../utilities";
  * `applyImmediately` flag to instruct the service to apply the change
  * immediately. Using `applyImmediately` can result in a brief downtime as
  * servers reboots.
- * 
+ *
  * ## Example Usage
- * 
  * ### Redis Cluster Mode Disabled
- * 
+ *
+ * To create a single shard primary with single read replica:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.elasticache.ReplicationGroup("example", {
  *     automaticFailoverEnabled: true,
  *     availabilityZones: [
@@ -40,13 +42,41 @@ import * as utilities from "../utilities";
  *     replicationGroupDescription: "test description",
  * });
  * ```
- * 
- * ### Redis Cluster Mode Enabled
- * 
+ *
+ * You have two options for adjusting the number of replicas:
+ *
+ * * Adjusting `numberCacheClusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g. preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
+ * * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replicationGroupId` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `numberCacheCluster` attribute.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
+ * const example = new aws.elasticache.ReplicationGroup("example", {
+ *     automaticFailoverEnabled: true,
+ *     availabilityZones: [
+ *         "us-west-2a",
+ *         "us-west-2b",
+ *     ],
+ *     replicationGroupDescription: "test description",
+ *     nodeType: "cache.m4.large",
+ *     numberCacheClusters: 2,
+ *     parameterGroupName: "default.redis3.2",
+ *     port: 6379,
+ * });
+ * let replica: aws.elasticache.Cluster | undefined;
+ * if (1 == true) {
+ *     replica = new aws.elasticache.Cluster("replica", {replicationGroupId: example.id});
+ * }
+ * ```
+ * ### Redis Cluster Mode Enabled
+ *
+ * To create two shards with a primary and a single read replica each:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
  * const baz = new aws.elasticache.ReplicationGroup("baz", {
  *     automaticFailoverEnabled: true,
  *     clusterMode: {
@@ -60,7 +90,11 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_replication_group.html.markdown.
+ * > **Note:** We currently do not support passing a `primaryClusterId` in order to create the Replication Group.
+ *
+ * > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
+ * and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
+ * for full details on using Replication Groups.
  */
 export class ReplicationGroup extends pulumi.CustomResource {
     /**
@@ -70,6 +104,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ReplicationGroupState, opts?: pulumi.CustomResourceOptions): ReplicationGroup {
         return new ReplicationGroup(name, <any>state, { ...opts, id: id });
@@ -213,9 +248,9 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly subnetGroupName!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether to enable encryption in transit.
      */
@@ -438,9 +473,9 @@ export interface ReplicationGroupState {
      */
     readonly subnetGroupName?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to enable encryption in transit.
      */
@@ -563,9 +598,9 @@ export interface ReplicationGroupArgs {
      */
     readonly subnetGroupName?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to enable encryption in transit.
      */

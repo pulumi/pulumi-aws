@@ -9,43 +9,72 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Get an existing AWS Customer Gateway.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCustomerGateway.InvokeAsync() instead")]
-        public static Task<GetCustomerGatewayResult> GetCustomerGateway(GetCustomerGatewayArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerGatewayResult>("aws:ec2/getCustomerGateway:getCustomerGateway", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCustomerGateway
     {
         /// <summary>
         /// Get an existing AWS Customer Gateway.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var foo = Output.Create(Aws.Ec2.GetCustomerGateway.InvokeAsync(new Aws.Ec2.GetCustomerGatewayArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetCustomerGatewayFilterArgs
+        ///                 {
+        ///                     Name = "tag:Name",
+        ///                     Values = 
+        ///                     {
+        ///                         "foo-prod",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         var main = new Aws.Ec2.VpnGateway("main", new Aws.Ec2.VpnGatewayArgs
+        ///         {
+        ///             VpcId = aws_vpc.Main.Id,
+        ///             AmazonSideAsn = "7224",
+        ///         });
+        ///         var transit = new Aws.Ec2.VpnConnection("transit", new Aws.Ec2.VpnConnectionArgs
+        ///         {
+        ///             VpnGatewayId = main.Id,
+        ///             CustomerGatewayId = foo.Apply(foo =&gt; foo.Id),
+        ///             Type = foo.Apply(foo =&gt; foo.Type),
+        ///             StaticRoutesOnly = false,
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCustomerGatewayResult> InvokeAsync(GetCustomerGatewayArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerGatewayResult>("aws:ec2/getCustomerGateway:getCustomerGateway", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerGatewayResult>("aws:ec2/getCustomerGateway:getCustomerGateway", args ?? new GetCustomerGatewayArgs(), options.WithVersion());
     }
+
 
     public sealed class GetCustomerGatewayArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetCustomerGatewayFiltersArgs>? _filters;
+        private List<Inputs.GetCustomerGatewayFilterArgs>? _filters;
 
         /// <summary>
         /// One or more [name-value pairs][dcg-filters] to filter by.
         /// </summary>
-        public List<Inputs.GetCustomerGatewayFiltersArgs> Filters
+        public List<Inputs.GetCustomerGatewayFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetCustomerGatewayFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetCustomerGatewayFilterArgs>());
             set => _filters = value;
         }
 
@@ -56,14 +85,14 @@ namespace Pulumi.Aws.Ec2
         public string? Id { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// Map of key-value pairs assigned to the gateway.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -72,14 +101,19 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetCustomerGatewayResult
     {
         /// <summary>
+        /// The ARN of the customer gateway.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
         public readonly int BgpAsn;
-        public readonly ImmutableArray<Outputs.GetCustomerGatewayFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetCustomerGatewayFilterResult> Filters;
         public readonly string? Id;
         /// <summary>
         /// (Optional) The IP address of the gateway's Internet-routable external interface.
@@ -88,7 +122,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Map of key-value pairs assigned to the gateway.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// (Optional) The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
         /// </summary>
@@ -96,13 +130,21 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private GetCustomerGatewayResult(
+            string arn,
+
             int bgpAsn,
-            ImmutableArray<Outputs.GetCustomerGatewayFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetCustomerGatewayFilterResult> filters,
+
             string? id,
+
             string ipAddress,
-            ImmutableDictionary<string, object> tags,
+
+            ImmutableDictionary<string, string> tags,
+
             string type)
         {
+            Arn = arn;
             BgpAsn = bgpAsn;
             Filters = filters;
             Id = id;
@@ -110,47 +152,5 @@ namespace Pulumi.Aws.Ec2
             Tags = tags;
             Type = type;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetCustomerGatewayFiltersArgs : Pulumi.InvokeArgs
-    {
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetCustomerGatewayFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetCustomerGatewayFiltersResult
-    {
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetCustomerGatewayFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

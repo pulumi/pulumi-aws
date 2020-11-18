@@ -4,32 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
  * Use this data source to lookup current AWS partition in which this provider is working
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const current = aws.getPartition();
- * const s3Policy = aws.iam.getPolicyDocument({
+ *
+ * const current = pulumi.output(aws.getPartition({ async: true }));
+ * const s3Policy = current.apply(current => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["s3:ListBucket"],
  *         resources: [`arn:${current.partition}:s3:::my-bucket`],
  *         sid: "1",
  *     }],
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
  */
-export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> & GetPartitionResult {
+export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -37,20 +34,24 @@ export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionR
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetPartitionResult> = pulumi.runtime.invoke("aws:index/getPartition:getPartition", {
+    return pulumi.runtime.invoke("aws:index/getPartition:getPartition", {
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
  * A collection of values returned by getPartition.
  */
 export interface GetPartitionResult {
-    readonly dnsSuffix: string;
-    readonly partition: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * Base DNS domain name for the current partition (e.g. `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
+     */
+    readonly dnsSuffix: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Identifier of the current partition (e.g. `aws` in AWS Commercial, `aws-cn` in AWS China).
+     */
+    readonly partition: string;
 }

@@ -2,27 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Backup vault resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.backup.Vault("example", {
- *     kmsKeyArn: aws_kms_key_example.arn,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_vault.html.markdown.
+ * const example = new aws.backup.Vault("example", {kmsKeyArn: aws_kms_key.example.arn});
+ * ```
  */
 export class Vault extends pulumi.CustomResource {
     /**
@@ -32,6 +24,7 @@ export class Vault extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VaultState, opts?: pulumi.CustomResourceOptions): Vault {
         return new Vault(name, <any>state, { ...opts, id: id });
@@ -70,7 +63,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Vault resource with the given unique name, arguments, and options.
@@ -131,7 +124,7 @@ export interface VaultState {
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -149,5 +142,5 @@ export interface VaultArgs {
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

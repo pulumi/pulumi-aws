@@ -16,14 +16,43 @@ namespace Pulumi.Aws.Cur
     /// 
     /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cur_report_definition.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleCurReportDefinition = new Aws.Cur.ReportDefinition("exampleCurReportDefinition", new Aws.Cur.ReportDefinitionArgs
+    ///         {
+    ///             AdditionalArtifacts = 
+    ///             {
+    ///                 "REDSHIFT",
+    ///                 "QUICKSIGHT",
+    ///             },
+    ///             AdditionalSchemaElements = 
+    ///             {
+    ///                 "RESOURCES",
+    ///             },
+    ///             Compression = "GZIP",
+    ///             Format = "textORcsv",
+    ///             ReportName = "example-cur-report-definition",
+    ///             S3Bucket = "example-bucket-name",
+    ///             S3Region = "us-east-1",
+    ///             TimeUnit = "HOURLY",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ReportDefinition : Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
+        /// A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be OVERWRITE_REPORT.
         /// </summary>
         [Output("additionalArtifacts")]
         public Output<ImmutableArray<string>> AdditionalArtifacts { get; private set; } = null!;
@@ -35,22 +64,34 @@ namespace Pulumi.Aws.Cur
         public Output<ImmutableArray<string>> AdditionalSchemaElements { get; private set; } = null!;
 
         /// <summary>
-        /// Compression format for report. Valid values are: GZIP, ZIP.
+        /// Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
         /// </summary>
         [Output("compression")]
         public Output<string> Compression { get; private set; } = null!;
 
         /// <summary>
-        /// Format for report. Valid values are: textORcsv.
+        /// Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
         /// </summary>
         [Output("format")]
         public Output<string> Format { get; private set; } = null!;
+
+        /// <summary>
+        /// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+        /// </summary>
+        [Output("refreshClosedReports")]
+        public Output<bool?> RefreshClosedReports { get; private set; } = null!;
 
         /// <summary>
         /// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         /// </summary>
         [Output("reportName")]
         public Output<string> ReportName { get; private set; } = null!;
+
+        /// <summary>
+        /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
+        /// </summary>
+        [Output("reportVersioning")]
+        public Output<string?> ReportVersioning { get; private set; } = null!;
 
         /// <summary>
         /// Name of the existing S3 bucket to hold generated reports.
@@ -85,7 +126,7 @@ namespace Pulumi.Aws.Cur
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReportDefinition(string name, ReportDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("aws:cur/reportDefinition:ReportDefinition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cur/reportDefinition:ReportDefinition", name, args ?? new ReportDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -126,7 +167,7 @@ namespace Pulumi.Aws.Cur
         private InputList<string>? _additionalArtifacts;
 
         /// <summary>
-        /// A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
+        /// A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be OVERWRITE_REPORT.
         /// </summary>
         public InputList<string> AdditionalArtifacts
         {
@@ -147,22 +188,34 @@ namespace Pulumi.Aws.Cur
         }
 
         /// <summary>
-        /// Compression format for report. Valid values are: GZIP, ZIP.
+        /// Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
         /// </summary>
         [Input("compression", required: true)]
         public Input<string> Compression { get; set; } = null!;
 
         /// <summary>
-        /// Format for report. Valid values are: textORcsv.
+        /// Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
+
+        /// <summary>
+        /// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+        /// </summary>
+        [Input("refreshClosedReports")]
+        public Input<bool>? RefreshClosedReports { get; set; }
 
         /// <summary>
         /// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         /// </summary>
         [Input("reportName", required: true)]
         public Input<string> ReportName { get; set; } = null!;
+
+        /// <summary>
+        /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
+        /// </summary>
+        [Input("reportVersioning")]
+        public Input<string>? ReportVersioning { get; set; }
 
         /// <summary>
         /// Name of the existing S3 bucket to hold generated reports.
@@ -199,7 +252,7 @@ namespace Pulumi.Aws.Cur
         private InputList<string>? _additionalArtifacts;
 
         /// <summary>
-        /// A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
+        /// A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be OVERWRITE_REPORT.
         /// </summary>
         public InputList<string> AdditionalArtifacts
         {
@@ -220,22 +273,34 @@ namespace Pulumi.Aws.Cur
         }
 
         /// <summary>
-        /// Compression format for report. Valid values are: GZIP, ZIP.
+        /// Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
         /// </summary>
         [Input("compression")]
         public Input<string>? Compression { get; set; }
 
         /// <summary>
-        /// Format for report. Valid values are: textORcsv.
+        /// Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
+
+        /// <summary>
+        /// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+        /// </summary>
+        [Input("refreshClosedReports")]
+        public Input<bool>? RefreshClosedReports { get; set; }
 
         /// <summary>
         /// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         /// </summary>
         [Input("reportName")]
         public Input<string>? ReportName { get; set; }
+
+        /// <summary>
+        /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
+        /// </summary>
+        [Input("reportVersioning")]
+        public Input<string>? ReportVersioning { get; set; }
 
         /// <summary>
         /// Name of the existing S3 bucket to hold generated reports.

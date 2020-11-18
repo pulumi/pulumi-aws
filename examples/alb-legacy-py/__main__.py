@@ -1,4 +1,4 @@
-# Copyright 2016-2018, Pulumi Corporation.  All rights reserved.
+# Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
 
 import pulumi
 
@@ -15,10 +15,10 @@ internet_gateway = ec2.InternetGateway('test',
 
 route_table = ec2.RouteTable('test',
     vpc_id=vpc.id,
-    routes=[{
-        "cidrBlock": "0.0.0.0/0",
-        "gatewayId": internet_gateway.id
-    }])
+    routes=[ec2.RouteTableRouteArgs(
+        cidr_block="0.0.0.0/0",
+        gateway_id=internet_gateway.id
+    )])
 
 zones = Output.from_input(get_availability_zones())
 zone_names = zones.apply(

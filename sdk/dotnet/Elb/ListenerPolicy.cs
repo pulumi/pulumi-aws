@@ -12,7 +12,134 @@ namespace Pulumi.Aws.Elb
     /// <summary>
     /// Attaches a load balancer policy to an ELB Listener.
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_listener_policy.html.markdown.
+    /// ## Example Usage
+    /// ### Custom Policy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var wu_tang = new Aws.Elb.LoadBalancer("wu-tang", new Aws.Elb.LoadBalancerArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-east-1a",
+    ///             },
+    ///             Listeners = 
+    ///             {
+    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///                 {
+    ///                     InstancePort = 443,
+    ///                     InstanceProtocol = "http",
+    ///                     LbPort = 443,
+    ///                     LbProtocol = "https",
+    ///                     SslCertificateId = "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "wu-tang" },
+    ///             },
+    ///         });
+    ///         var wu_tang_ssl = new Aws.Elb.LoadBalancerPolicy("wu-tang-ssl", new Aws.Elb.LoadBalancerPolicyArgs
+    ///         {
+    ///             LoadBalancerName = wu_tang.Name,
+    ///             PolicyName = "wu-tang-ssl",
+    ///             PolicyTypeName = "SSLNegotiationPolicyType",
+    ///             PolicyAttributes = 
+    ///             {
+    ///                 new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
+    ///                 {
+    ///                     Name = "ECDHE-ECDSA-AES128-GCM-SHA256",
+    ///                     Value = "true",
+    ///                 },
+    ///                 new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
+    ///                 {
+    ///                     Name = "Protocol-TLSv1.2",
+    ///                     Value = "true",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var wu_tang_listener_policies_443 = new Aws.Elb.ListenerPolicy("wu-tang-listener-policies-443", new Aws.Elb.ListenerPolicyArgs
+    ///         {
+    ///             LoadBalancerName = wu_tang.Name,
+    ///             LoadBalancerPort = 443,
+    ///             PolicyNames = 
+    ///             {
+    ///                 wu_tang_ssl.PolicyName,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// This example shows how to customize the TLS settings of an HTTPS listener.
+    /// ### AWS Predefined Security Policy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var wu_tang = new Aws.Elb.LoadBalancer("wu-tang", new Aws.Elb.LoadBalancerArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-east-1a",
+    ///             },
+    ///             Listeners = 
+    ///             {
+    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///                 {
+    ///                     InstancePort = 443,
+    ///                     InstanceProtocol = "http",
+    ///                     LbPort = 443,
+    ///                     LbProtocol = "https",
+    ///                     SslCertificateId = "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "wu-tang" },
+    ///             },
+    ///         });
+    ///         var wu_tang_ssl_tls_1_1 = new Aws.Elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", new Aws.Elb.LoadBalancerPolicyArgs
+    ///         {
+    ///             LoadBalancerName = wu_tang.Name,
+    ///             PolicyName = "wu-tang-ssl",
+    ///             PolicyTypeName = "SSLNegotiationPolicyType",
+    ///             PolicyAttributes = 
+    ///             {
+    ///                 new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
+    ///                 {
+    ///                     Name = "Reference-Security-Policy",
+    ///                     Value = "ELBSecurityPolicy-TLS-1-1-2017-01",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var wu_tang_listener_policies_443 = new Aws.Elb.ListenerPolicy("wu-tang-listener-policies-443", new Aws.Elb.ListenerPolicyArgs
+    ///         {
+    ///             LoadBalancerName = wu_tang.Name,
+    ///             LoadBalancerPort = 443,
+    ///             PolicyNames = 
+    ///             {
+    ///                 wu_tang_ssl_tls_1_1.PolicyName,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
     /// </summary>
     public partial class ListenerPolicy : Pulumi.CustomResource
     {
@@ -43,7 +170,7 @@ namespace Pulumi.Aws.Elb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ListenerPolicy(string name, ListenerPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:elb/listenerPolicy:ListenerPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:elb/listenerPolicy:ListenerPolicy", name, args ?? new ListenerPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -56,7 +183,11 @@ namespace Pulumi.Aws.Elb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:elasticloadbalancing/listenerPolicy:ListenerPolicy" } },
+                Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "aws:elasticloadbalancing/listenerPolicy:ListenerPolicy"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

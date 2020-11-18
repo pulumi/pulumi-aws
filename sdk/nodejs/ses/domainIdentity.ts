@@ -6,28 +6,22 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES domain identity resource
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ses.DomainIdentity("example", {
- *     domain: "example.com",
- * });
+ *
+ * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
  * const exampleAmazonsesVerificationRecord = new aws.route53.Record("exampleAmazonsesVerificationRecord", {
- *     name: "_amazonses.example.com",
- *     records: [example.verificationToken],
- *     ttl: 600,
- *     type: "TXT",
  *     zoneId: "ABCDEFGHIJ123",
+ *     name: "_amazonses.example.com",
+ *     type: "TXT",
+ *     ttl: "600",
+ *     records: [example.verificationToken],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity.html.markdown.
  */
 export class DomainIdentity extends pulumi.CustomResource {
     /**
@@ -37,6 +31,7 @@ export class DomainIdentity extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DomainIdentityState, opts?: pulumi.CustomResourceOptions): DomainIdentity {
         return new DomainIdentity(name, <any>state, { ...opts, id: id });

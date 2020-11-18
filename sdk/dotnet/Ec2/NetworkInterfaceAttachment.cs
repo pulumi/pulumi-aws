@@ -12,9 +12,26 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Attach an Elastic network interface (ENI) resource with EC2 instance.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface_attachment.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.Ec2.NetworkInterfaceAttachment("test", new Aws.Ec2.NetworkInterfaceAttachmentArgs
+    ///         {
+    ///             InstanceId = aws_instance.Test.Id,
+    ///             NetworkInterfaceId = aws_network_interface.Test.Id,
+    ///             DeviceIndex = 0,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class NetworkInterfaceAttachment : Pulumi.CustomResource
     {
@@ -57,7 +74,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkInterfaceAttachment(string name, NetworkInterfaceAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, args ?? new NetworkInterfaceAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

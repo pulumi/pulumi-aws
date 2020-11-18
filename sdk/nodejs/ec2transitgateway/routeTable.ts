@@ -6,21 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EC2 Transit Gateway Route Table.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2transitgateway.RouteTable("example", {
- *     transitGatewayId: aws_ec2_transit_gateway_example.id,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_route_table.html.markdown.
+ * const example = new aws.ec2transitgateway.RouteTable("example", {transitGatewayId: aws_ec2_transit_gateway.example.id});
+ * ```
  */
 export class RouteTable extends pulumi.CustomResource {
     /**
@@ -30,6 +24,7 @@ export class RouteTable extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RouteTableState, opts?: pulumi.CustomResourceOptions): RouteTable {
         return new RouteTable(name, <any>state, { ...opts, id: id });
@@ -50,6 +45,10 @@ export class RouteTable extends pulumi.CustomResource {
     }
 
     /**
+     * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      */
     public /*out*/ readonly defaultAssociationRouteTable!: pulumi.Output<boolean>;
@@ -60,7 +59,7 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
@@ -78,6 +77,7 @@ export class RouteTable extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as RouteTableState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["defaultAssociationRouteTable"] = state ? state.defaultAssociationRouteTable : undefined;
             inputs["defaultPropagationRouteTable"] = state ? state.defaultPropagationRouteTable : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -89,6 +89,7 @@ export class RouteTable extends pulumi.CustomResource {
             }
             inputs["tags"] = args ? args.tags : undefined;
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["defaultAssociationRouteTable"] = undefined /*out*/;
             inputs["defaultPropagationRouteTable"] = undefined /*out*/;
         }
@@ -108,6 +109,10 @@ export class RouteTable extends pulumi.CustomResource {
  */
 export interface RouteTableState {
     /**
+     * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      */
     readonly defaultAssociationRouteTable?: pulumi.Input<boolean>;
@@ -118,7 +123,7 @@ export interface RouteTableState {
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
@@ -132,7 +137,7 @@ export interface RouteTableArgs {
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */

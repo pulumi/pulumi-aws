@@ -2,84 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {RestApi} from "./restApi";
+import {RestApi} from "./index";
 
 /**
  * Provides an API Gateway Authorizer.
- * 
- * ## Example Usage
- * 
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const demoRestApi = new aws.apigateway.RestApi("demo", {});
- * const invocationRole = new aws.iam.Role("invocationRole", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "apigateway.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- *     path: "/",
- * });
- * const lambda = new aws.iam.Role("lambda", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- * });
- * const authorizer = new aws.lambda.Function("authorizer", {
- *     code: new pulumi.asset.FileArchive("lambda-function.zip"),
- *     handler: "exports.example",
- *     role: lambda.arn,
- * });
- * const demoAuthorizer = new aws.apigateway.Authorizer("demo", {
- *     authorizerCredentials: invocationRole.arn,
- *     authorizerUri: authorizer.invokeArn,
- *     restApi: demoRestApi.id,
- * });
- * const invocationPolicy = new aws.iam.RolePolicy("invocationPolicy", {
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "lambda:InvokeFunction",
- *       "Effect": "Allow",
- *       "Resource": "${authorizer.arn}"
- *     }
- *   ]
- * }
- * `,
- *     role: invocationRole.id,
- * });
- * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_authorizer.html.markdown.
  */
 export class Authorizer extends pulumi.CustomResource {
     /**
@@ -89,6 +17,7 @@ export class Authorizer extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AuthorizerState, opts?: pulumi.CustomResourceOptions): Authorizer {
         return new Authorizer(name, <any>state, { ...opts, id: id });

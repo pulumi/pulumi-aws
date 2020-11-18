@@ -12,9 +12,32 @@ namespace Pulumi.Aws.Inspector
     /// <summary>
     /// Provides a Inspector assessment template
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_assessment_template.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Inspector.AssessmentTemplate("example", new Aws.Inspector.AssessmentTemplateArgs
+    ///         {
+    ///             TargetArn = aws_inspector_assessment_target.Example.Arn,
+    ///             Duration = 3600,
+    ///             RulesPackageArns = 
+    ///             {
+    ///                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
+    ///                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
+    ///                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
+    ///                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AssessmentTemplate : Pulumi.CustomResource
     {
@@ -43,10 +66,10 @@ namespace Pulumi.Aws.Inspector
         public Output<ImmutableArray<string>> RulesPackageArns { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of tags for the Inspector assessment template.
+        /// Key-value map of tags for the Inspector assessment template.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The assessment target ARN to attach the template to.
@@ -63,7 +86,7 @@ namespace Pulumi.Aws.Inspector
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AssessmentTemplate(string name, AssessmentTemplateArgs args, CustomResourceOptions? options = null)
-            : base("aws:inspector/assessmentTemplate:AssessmentTemplate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:inspector/assessmentTemplate:AssessmentTemplate", name, args ?? new AssessmentTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -125,14 +148,14 @@ namespace Pulumi.Aws.Inspector
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the Inspector assessment template.
+        /// Key-value map of tags for the Inspector assessment template.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -180,14 +203,14 @@ namespace Pulumi.Aws.Inspector
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the Inspector assessment template.
+        /// Key-value map of tags for the Inspector assessment template.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

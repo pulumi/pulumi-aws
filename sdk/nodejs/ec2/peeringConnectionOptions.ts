@@ -4,11 +4,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage VPC peering connection options.
- * 
+ *
  * > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
  * both a standalone VPC Peering Connection Options and a VPC Peering Connection
  * resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
@@ -17,90 +18,94 @@ import * as utilities from "../utilities";
  * Using a VPC Peering Connection Options resource decouples management of the connection options from
  * management of the VPC Peering Connection and allows options to be set correctly in cross-region and
  * cross-account scenarios.
- * 
+ *
  * Basic usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const fooVpc = new aws.ec2.Vpc("foo", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const bar = new aws.ec2.Vpc("bar", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("foo", {
- *     autoAccept: true,
- *     peerVpcId: bar.id,
+ *
+ * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.0.0.0/16"});
+ * const bar = new aws.ec2.Vpc("bar", {cidrBlock: "10.1.0.0/16"});
+ * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection", {
  *     vpcId: fooVpc.id,
+ *     peerVpcId: bar.id,
+ *     autoAccept: true,
  * });
- * const fooPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("foo", {
+ * const fooPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("fooPeeringConnectionOptions", {
+ *     vpcPeeringConnectionId: fooVpcPeeringConnection.id,
  *     accepter: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
  *     requester: {
- *         allowClassicLinkToRemoteVpc: true,
  *         allowVpcToRemoteClassicLink: true,
+ *         allowClassicLinkToRemoteVpc: true,
  *     },
- *     vpcPeeringConnectionId: fooVpcPeeringConnection.id,
  * });
  * ```
- * 
+ *
  * Basic cross-account usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const requester = new aws.Provider("requester", {});
+ * // Requester's credentials.
  * const accepter = new aws.Provider("accepter", {});
+ * // Accepter's credentials.
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
- *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
- * }, {provider: requester});
- * const peerVpc = new aws.ec2.Vpc("peer", {
+ *     enableDnsHostnames: true,
+ * }, {
+ *     provider: aws.requester,
+ * });
+ * const peerVpc = new aws.ec2.Vpc("peerVpc", {
  *     cidrBlock: "10.1.0.0/16",
- *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
- * }, {provider: accepter});
- * const peerCallerIdentity = aws.getCallerIdentity({provider: accepter});
- * // Requester's side of the connection.
- * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peer", {
- *     autoAccept: false,
- *     peerOwnerId: peerCallerIdentity.accountId,
+ *     enableDnsHostnames: true,
+ * }, {
+ *     provider: aws.accepter,
+ * });
+ * const peerCallerIdentity = aws.getCallerIdentity({});
+ * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection", {
+ *     vpcId: main.id,
  *     peerVpcId: peerVpc.id,
+ *     peerOwnerId: peerCallerIdentity.then(peerCallerIdentity => peerCallerIdentity.accountId),
+ *     autoAccept: false,
  *     tags: {
  *         Side: "Requester",
  *     },
- *     vpcId: main.id,
- * }, {provider: requester});
- * // Accepter's side of the connection.
- * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peer", {
+ * }, {
+ *     provider: aws.requester,
+ * });
+ * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", {
+ *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
  *     autoAccept: true,
  *     tags: {
  *         Side: "Accepter",
  *     },
- *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
- * }, {provider: accepter});
- * const requesterPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("requester", {
+ * }, {
+ *     provider: aws.accepter,
+ * });
+ * const requesterPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("requesterPeeringConnectionOptions", {
+ *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
  *     requester: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
- *     // As options can't be set until the connection has been accepted
- *     // create an explicit dependency on the accepter.
+ * }, {
+ *     provider: aws.requester,
+ * });
+ * const accepterPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("accepterPeeringConnectionOptions", {
  *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
- * }, {provider: requester});
- * const accepterPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("accepter", {
  *     accepter: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
- *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
- * }, {provider: accepter});
+ * }, {
+ *     provider: aws.accepter,
+ * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_options.html.markdown.
  */
 export class PeeringConnectionOptions extends pulumi.CustomResource {
     /**
@@ -110,6 +115,7 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PeeringConnectionOptionsState, opts?: pulumi.CustomResourceOptions): PeeringConnectionOptions {
         return new PeeringConnectionOptions(name, <any>state, { ...opts, id: id });
@@ -131,13 +137,13 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
 
     /**
      * An optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
     public readonly accepter!: pulumi.Output<outputs.ec2.PeeringConnectionOptionsAccepter>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
     public readonly requester!: pulumi.Output<outputs.ec2.PeeringConnectionOptionsRequester>;
@@ -187,13 +193,13 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
 export interface PeeringConnectionOptionsState {
     /**
      * An optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
     readonly accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
     readonly requester?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsRequester>;
@@ -209,13 +215,13 @@ export interface PeeringConnectionOptionsState {
 export interface PeeringConnectionOptionsArgs {
     /**
      * An optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
     readonly accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
     readonly requester?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsRequester>;

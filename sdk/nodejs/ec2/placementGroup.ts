@@ -2,30 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {PlacementStrategy} from "./placementStrategy";
+import {PlacementStrategy} from "./index";
 
 /**
  * Provides an EC2 placement group. Read more about placement groups
  * in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const web = new aws.ec2.PlacementGroup("web", {
  *     strategy: "cluster",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/placement_group.html.markdown.
  */
 export class PlacementGroup extends pulumi.CustomResource {
     /**
@@ -35,6 +29,7 @@ export class PlacementGroup extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PlacementGroupState, opts?: pulumi.CustomResourceOptions): PlacementGroup {
         return new PlacementGroup(name, <any>state, { ...opts, id: id });
@@ -55,6 +50,10 @@ export class PlacementGroup extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the placement group.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The name of the placement group.
      */
     public readonly name!: pulumi.Output<string>;
@@ -63,13 +62,13 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly placementGroupId!: pulumi.Output<string>;
     /**
-     * The placement strategy.
+     * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
      */
     public readonly strategy!: pulumi.Output<PlacementStrategy>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a PlacementGroup resource with the given unique name, arguments, and options.
@@ -83,6 +82,7 @@ export class PlacementGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as PlacementGroupState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["placementGroupId"] = state ? state.placementGroupId : undefined;
             inputs["strategy"] = state ? state.strategy : undefined;
@@ -95,6 +95,7 @@ export class PlacementGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["strategy"] = args ? args.strategy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["placementGroupId"] = undefined /*out*/;
         }
         if (!opts) {
@@ -113,6 +114,10 @@ export class PlacementGroup extends pulumi.CustomResource {
  */
 export interface PlacementGroupState {
     /**
+     * Amazon Resource Name (ARN) of the placement group.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The name of the placement group.
      */
     readonly name?: pulumi.Input<string>;
@@ -121,13 +126,13 @@ export interface PlacementGroupState {
      */
     readonly placementGroupId?: pulumi.Input<string>;
     /**
-     * The placement strategy.
+     * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
      */
     readonly strategy?: pulumi.Input<PlacementStrategy>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -139,11 +144,11 @@ export interface PlacementGroupArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The placement strategy.
+     * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
      */
     readonly strategy: pulumi.Input<PlacementStrategy>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

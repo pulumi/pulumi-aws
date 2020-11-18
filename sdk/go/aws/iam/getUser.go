@@ -4,12 +4,35 @@
 package iam
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // This data source can be used to fetch information about a specific
 // IAM user. By using this data source, you can reference IAM user
 // properties without having to hard code ARNs or unique IDs as input.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := iam.LookupUser(ctx, &iam.LookupUserArgs{
+// 			UserName: "an_example_user_name",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
 	err := ctx.Invoke("aws:iam/getUser:getUser", args, &rv, opts...)
@@ -29,7 +52,7 @@ type LookupUserArgs struct {
 type LookupUserResult struct {
 	// The Amazon Resource Name (ARN) assigned by AWS for this user.
 	Arn string `pulumi:"arn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Path in which this user was created.
 	Path string `pulumi:"path"`

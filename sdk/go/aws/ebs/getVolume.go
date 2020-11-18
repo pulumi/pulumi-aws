@@ -4,11 +4,49 @@
 package ebs
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get information about an EBS volume for use in other
 // resources.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ebs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		_, err := ebs.LookupVolume(ctx, &ebs.LookupVolumeArgs{
+// 			Filters: []ebs.GetVolumeFilter{
+// 				ebs.GetVolumeFilter{
+// 					Name: "volume-type",
+// 					Values: []string{
+// 						"gp2",
+// 					},
+// 				},
+// 				ebs.GetVolumeFilter{
+// 					Name: "tag:Name",
+// 					Values: []string{
+// 						"Example",
+// 					},
+// 				},
+// 			},
+// 			MostRecent: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	var rv LookupVolumeResult
 	err := ctx.Invoke("aws:ebs/getVolume:getVolume", args, &rv, opts...)
@@ -27,8 +65,8 @@ type LookupVolumeArgs struct {
 	// If more than one result is returned, use the most
 	// recent Volume.
 	MostRecent *bool `pulumi:"mostRecent"`
-	// A mapping of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVolume.
@@ -40,19 +78,23 @@ type LookupVolumeResult struct {
 	// Whether the disk is encrypted.
 	Encrypted bool              `pulumi:"encrypted"`
 	Filters   []GetVolumeFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The amount of IOPS for the disk.
 	Iops int `pulumi:"iops"`
 	// The ARN for the KMS encryption key.
 	KmsKeyId   string `pulumi:"kmsKeyId"`
 	MostRecent *bool  `pulumi:"mostRecent"`
+	// (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
+	MultiAttachEnabled bool `pulumi:"multiAttachEnabled"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn string `pulumi:"outpostArn"`
 	// The size of the drive in GiBs.
 	Size int `pulumi:"size"`
 	// The snapshotId the EBS volume is based off.
 	SnapshotId string `pulumi:"snapshotId"`
-	// A mapping of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The volume ID (e.g. vol-59fcb34e).
 	VolumeId string `pulumi:"volumeId"`
 	// The type of EBS volume.

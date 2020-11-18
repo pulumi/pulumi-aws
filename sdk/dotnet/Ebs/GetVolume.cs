@@ -9,47 +9,72 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ebs
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get information about an EBS volume for use in other
-        /// resources.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetVolume.InvokeAsync() instead")]
-        public static Task<GetVolumeResult> GetVolume(GetVolumeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("aws:ebs/getVolume:getVolume", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetVolume
     {
         /// <summary>
         /// Use this data source to get information about an EBS volume for use in other
         /// resources.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var ebsVolume = Output.Create(Aws.Ebs.GetVolume.InvokeAsync(new Aws.Ebs.GetVolumeArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ebs.Inputs.GetVolumeFilterArgs
+        ///                 {
+        ///                     Name = "volume-type",
+        ///                     Values = 
+        ///                     {
+        ///                         "gp2",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ebs.Inputs.GetVolumeFilterArgs
+        ///                 {
+        ///                     Name = "tag:Name",
+        ///                     Values = 
+        ///                     {
+        ///                         "Example",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             MostRecent = true,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("aws:ebs/getVolume:getVolume", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("aws:ebs/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());
     }
+
 
     public sealed class GetVolumeArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetVolumeFiltersArgs>? _filters;
+        private List<Inputs.GetVolumeFilterArgs>? _filters;
 
         /// <summary>
         /// One or more name/value pairs to filter off of. There are
         /// several valid keys, for a full reference, check out
         /// [describe-volumes in the AWS CLI reference][1].
         /// </summary>
-        public List<Inputs.GetVolumeFiltersArgs> Filters
+        public List<Inputs.GetVolumeFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetVolumeFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetVolumeFilterArgs>());
             set => _filters = value;
         }
 
@@ -61,14 +86,14 @@ namespace Pulumi.Aws.Ebs
         public bool? MostRecent { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags for the resource.
+        /// A map of tags for the resource.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -76,6 +101,7 @@ namespace Pulumi.Aws.Ebs
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetVolumeResult
@@ -92,7 +118,11 @@ namespace Pulumi.Aws.Ebs
         /// Whether the disk is encrypted.
         /// </summary>
         public readonly bool Encrypted;
-        public readonly ImmutableArray<Outputs.GetVolumeFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetVolumeFilterResult> Filters;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The amount of IOPS for the disk.
         /// </summary>
@@ -103,6 +133,14 @@ namespace Pulumi.Aws.Ebs
         public readonly string KmsKeyId;
         public readonly bool? MostRecent;
         /// <summary>
+        /// (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
+        /// </summary>
+        public readonly bool MultiAttachEnabled;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        public readonly string OutpostArn;
+        /// <summary>
         /// The size of the drive in GiBs.
         /// </summary>
         public readonly int Size;
@@ -111,9 +149,9 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string SnapshotId;
         /// <summary>
-        /// A mapping of tags for the resource.
+        /// A map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The volume ID (e.g. vol-59fcb34e).
         /// </summary>
@@ -122,82 +160,54 @@ namespace Pulumi.Aws.Ebs
         /// The type of EBS volume.
         /// </summary>
         public readonly string VolumeType;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetVolumeResult(
             string arn,
+
             string availabilityZone,
+
             bool encrypted,
-            ImmutableArray<Outputs.GetVolumeFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetVolumeFilterResult> filters,
+
+            string id,
+
             int iops,
+
             string kmsKeyId,
+
             bool? mostRecent,
+
+            bool multiAttachEnabled,
+
+            string outpostArn,
+
             int size,
+
             string snapshotId,
-            ImmutableDictionary<string, object> tags,
+
+            ImmutableDictionary<string, string> tags,
+
             string volumeId,
-            string volumeType,
-            string id)
+
+            string volumeType)
         {
             Arn = arn;
             AvailabilityZone = availabilityZone;
             Encrypted = encrypted;
             Filters = filters;
+            Id = id;
             Iops = iops;
             KmsKeyId = kmsKeyId;
             MostRecent = mostRecent;
+            MultiAttachEnabled = multiAttachEnabled;
+            OutpostArn = outpostArn;
             Size = size;
             SnapshotId = snapshotId;
             Tags = tags;
             VolumeId = volumeId;
             VolumeType = volumeType;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetVolumeFiltersArgs : Pulumi.InvokeArgs
-    {
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetVolumeFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetVolumeFiltersResult
-    {
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetVolumeFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

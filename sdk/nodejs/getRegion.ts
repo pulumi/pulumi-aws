@@ -4,30 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
- * `aws..getRegion` provides details about a specific AWS region.
- * 
+ * `aws.getRegion` provides details about a specific AWS region.
+ *
  * As well as validating a given region name this resource can be used to
  * discover the name of the region configured within the provider. The latter
  * can be useful in a child module which is inheriting an AWS provider
  * configuration from its parent module.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * The following example shows how the resource might be used to obtain
+ * the name of the AWS region configured on the provider.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const current = aws.getRegion();
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.
+ * const current = pulumi.output(aws.getRegion({ async: true }));
+ * ```
  */
-export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionResult> & GetRegionResult {
+export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -36,12 +36,10 @@ export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Pr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRegionResult> = pulumi.runtime.invoke("aws:index/getRegion:getRegion", {
+    return pulumi.runtime.invoke("aws:index/getRegion:getRegion", {
         "endpoint": args.endpoint,
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -71,11 +69,11 @@ export interface GetRegionResult {
      */
     readonly endpoint: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the selected region.
      */
     readonly name: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

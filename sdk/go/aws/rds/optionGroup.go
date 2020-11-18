@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an RDS DB option group resource. Documentation of the available options for various RDS engines can be found at:
@@ -16,6 +16,56 @@ import (
 // * [Microsoft SQL Server Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.html)
 // * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
 // * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := rds.NewOptionGroup(ctx, "example", &rds.OptionGroupArgs{
+// 			OptionGroupDescription: pulumi.String("Option Group"),
+// 			EngineName:             pulumi.String("sqlserver-ee"),
+// 			MajorEngineVersion:     pulumi.String("11.00"),
+// 			Options: rds.OptionGroupOptionArray{
+// 				&rds.OptionGroupOptionArgs{
+// 					OptionName: pulumi.String("Timezone"),
+// 					OptionSettings: rds.OptionGroupOptionOptionSettingArray{
+// 						&rds.OptionGroupOptionOptionSettingArgs{
+// 							Name:  pulumi.String("TIME_ZONE"),
+// 							Value: pulumi.String("UTC"),
+// 						},
+// 					},
+// 				},
+// 				&rds.OptionGroupOptionArgs{
+// 					OptionName: pulumi.String("SQLSERVER_BACKUP_RESTORE"),
+// 					OptionSettings: rds.OptionGroupOptionOptionSettingArray{
+// 						&rds.OptionGroupOptionOptionSettingArgs{
+// 							Name:  pulumi.String("IAM_ROLE_ARN"),
+// 							Value: pulumi.Any(aws_iam_role.Example.Arn),
+// 						},
+// 					},
+// 				},
+// 				&rds.OptionGroupOptionArgs{
+// 					OptionName: pulumi.String("TDE"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// > **Note**: Any modifications to the `dbOptionGroup` are set to happen immediately as we default to applying immediately.
 type OptionGroup struct {
 	pulumi.CustomResourceState
 
@@ -33,8 +83,8 @@ type OptionGroup struct {
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
 	// A list of Options to apply.
 	Options OptionGroupOptionArrayOutput `pulumi:"options"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewOptionGroup registers a new resource with the given unique name, arguments, and options.
@@ -88,8 +138,8 @@ type optionGroupState struct {
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// A list of Options to apply.
 	Options []OptionGroupOption `pulumi:"options"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type OptionGroupState struct {
@@ -107,8 +157,8 @@ type OptionGroupState struct {
 	OptionGroupDescription pulumi.StringPtrInput
 	// A list of Options to apply.
 	Options OptionGroupOptionArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (OptionGroupState) ElementType() reflect.Type {
@@ -128,8 +178,8 @@ type optionGroupArgs struct {
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// A list of Options to apply.
 	Options []OptionGroupOption `pulumi:"options"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OptionGroup resource.
@@ -146,8 +196,8 @@ type OptionGroupArgs struct {
 	OptionGroupDescription pulumi.StringPtrInput
 	// A list of Options to apply.
 	Options OptionGroupOptionArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (OptionGroupArgs) ElementType() reflect.Type {

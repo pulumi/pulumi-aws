@@ -6,17 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a License Manager license configuration resource.
- * 
+ *
  * > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API - recreate the resource instead.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.licensemanager.LicenseConfiguration("example", {
  *     description: "Example",
  *     licenseCount: 10,
@@ -28,11 +26,10 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
  * ## Rules
- * 
+ *
  * License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
- * 
+ *
  * * `minimumVcpus` - Resource must have minimum vCPU count in order to use the license. Default: 1
  * * `maximumVcpus` - Resource must have maximum vCPU count in order to use the license. Default: unbounded, limit: 10000
  * * `minimumCores` - Resource must have minimum core count in order to use the license. Default: 1
@@ -40,8 +37,6 @@ import * as utilities from "../utilities";
  * * `minimumSockets` - Resource must have minimum socket count in order to use the license. Default: 1
  * * `maximumSockets` - Resource must have maximum socket count in order to use the license. Default: unbounded, limit: 10000
  * * `allowedTenancy` - Defines where the license can be used. If set, restricts license usage to selected tenancies. Specify a comma delimited list of `EC2-Default`, `EC2-DedicatedHost`, `EC2-DedicatedInstance`
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_license_configuration.markdown.
  */
 export class LicenseConfiguration extends pulumi.CustomResource {
     /**
@@ -51,6 +46,7 @@ export class LicenseConfiguration extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LicenseConfigurationState, opts?: pulumi.CustomResourceOptions): LicenseConfiguration {
         return new LicenseConfiguration(name, <any>state, { ...opts, id: id });
@@ -95,9 +91,9 @@ export class LicenseConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LicenseConfiguration resource with the given unique name, arguments, and options.
@@ -171,9 +167,9 @@ export interface LicenseConfigurationState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -205,7 +201,7 @@ export interface LicenseConfigurationArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

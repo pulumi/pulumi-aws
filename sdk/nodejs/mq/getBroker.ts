@@ -4,23 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides information about a MQ Broker.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const brokerId = config.get("brokerId") || "";
  * const brokerName = config.get("brokerName") || "";
- * 
  * const byId = aws.mq.getBroker({
  *     brokerId: brokerId,
  * });
@@ -28,10 +26,8 @@ import * as utilities from "../utilities";
  *     brokerName: brokerName,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/mq_broker.html.markdown.
  */
-export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> & GetBrokerResult {
+export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -40,14 +36,12 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetBrokerResult> = pulumi.runtime.invoke("aws:mq/getBroker:getBroker", {
+    return pulumi.runtime.invoke("aws:mq/getBroker:getBroker", {
         "brokerId": args.brokerId,
         "brokerName": args.brokerName,
         "logs": args.logs,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -63,7 +57,7 @@ export interface GetBrokerArgs {
      */
     readonly brokerName?: string;
     readonly logs?: inputs.mq.GetBrokerLogs;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -80,16 +74,16 @@ export interface GetBrokerResult {
     readonly engineType: string;
     readonly engineVersion: string;
     readonly hostInstanceType: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly instances: outputs.mq.GetBrokerInstance[];
     readonly logs?: outputs.mq.GetBrokerLogs;
     readonly maintenanceWindowStartTime: outputs.mq.GetBrokerMaintenanceWindowStartTime;
     readonly publiclyAccessible: boolean;
     readonly securityGroups: string[];
     readonly subnetIds: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly users: outputs.mq.GetBrokerUser[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

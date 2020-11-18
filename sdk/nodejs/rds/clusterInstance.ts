@@ -2,59 +2,53 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {EngineType} from "./engineType";
-import {InstanceType} from "./instanceType";
+import {EngineType, InstanceType} from "./index";
 
 /**
  * Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
- * attributes that are specific to a single instance in a [RDS Cluster][3],
+ * attributes that are specific to a single instance in a [RDS Cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html),
  * specifically running Amazon Aurora.
- * 
+ *
  * Unlike other RDS resources that support replication, with Amazon Aurora you do
  * not designate a primary and subsequent replicas. Instead, you simply add RDS
- * Instances and Aurora manages the replication. You can use the [count][5]
+ * Instances and Aurora manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/resources.html#count)
  * meta-parameter to make multiple instances and join them all to the same RDS
  * Cluster, or you may specify different Cluster Instance resources with various
  * `instanceClass` sizes.
- * 
- * For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
- * 
+ *
+ * For more information on Amazon Aurora, see [Aurora on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html) in the Amazon RDS User Guide.
+ *
  * > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`protect` CustomResourceOption](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to this resource configuration if you desire protection from accidental deletion.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const defaultCluster = new aws.rds.Cluster("default", {
+ *
+ * const _default = new aws.rds.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
- *     masterPassword: "barbut8chars",
  *     masterUsername: "foo",
+ *     masterPassword: "barbut8chars",
  * });
- * const clusterInstances: aws.rds.ClusterInstance[] = [];
- * for (let i = 0; i < 2; i++) {
- *     clusterInstances.push(new aws.rds.ClusterInstance(`cluster_instances-${i}`, {
- *         clusterIdentifier: defaultCluster.id,
- *         identifier: `aurora-cluster-demo-${i}`,
+ * const clusterInstances: aws.rds.ClusterInstance[];
+ * for (const range = {value: 0}; range.value < 2; range.value++) {
+ *     clusterInstances.push(new aws.rds.ClusterInstance(`clusterInstances-${range.value}`, {
+ *         identifier: `aurora-cluster-demo-${range.value}`,
+ *         clusterIdentifier: _default.id,
  *         instanceClass: "db.r4.large",
+ *         engine: _default.engine,
+ *         engineVersion: _default.engineVersion,
  *     }));
  * }
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_instance.html.markdown.
  */
 export class ClusterInstance extends pulumi.CustomResource {
     /**
@@ -64,6 +58,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterInstanceState, opts?: pulumi.CustomResourceOptions): ClusterInstance {
         return new ClusterInstance(name, <any>state, { ...opts, id: id });
@@ -105,7 +100,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly caCertIdentifier!: pulumi.Output<string>;
     /**
-     * The identifier of the [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+     * The identifier of the `aws.rds.Cluster` in which to launch this instance.
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
@@ -117,7 +112,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly dbParameterGroupName!: pulumi.Output<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
@@ -136,7 +131,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<EngineType | undefined>;
     /**
-     * The database engine version.
+     * The database engine version
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -149,7 +144,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     public readonly identifierPrefix!: pulumi.Output<string>;
     /**
      * The instance class to use. For details on CPU
-     * and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
+     * and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
      */
     public readonly instanceClass!: pulumi.Output<string>;
     /**
@@ -194,7 +189,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     public readonly promotionTier!: pulumi.Output<number | undefined>;
     /**
      * Bool to control if instance is publicly accessible.
-     * Default `false`. See the documentation on [Creating DB Instances][6] for more
+     * Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
      * details on controlling this property.
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
@@ -203,9 +198,9 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
-     * A mapping of tags to assign to the instance.
+     * A map of tags to assign to the instance.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
@@ -327,7 +322,7 @@ export interface ClusterInstanceState {
      */
     readonly caCertIdentifier?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+     * The identifier of the `aws.rds.Cluster` in which to launch this instance.
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
@@ -339,7 +334,7 @@ export interface ClusterInstanceState {
      */
     readonly dbParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -358,7 +353,7 @@ export interface ClusterInstanceState {
      */
     readonly engine?: pulumi.Input<EngineType>;
     /**
-     * The database engine version.
+     * The database engine version
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
@@ -371,7 +366,7 @@ export interface ClusterInstanceState {
     readonly identifierPrefix?: pulumi.Input<string>;
     /**
      * The instance class to use. For details on CPU
-     * and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
+     * and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
      */
     readonly instanceClass?: pulumi.Input<string | InstanceType>;
     /**
@@ -416,7 +411,7 @@ export interface ClusterInstanceState {
     readonly promotionTier?: pulumi.Input<number>;
     /**
      * Bool to control if instance is publicly accessible.
-     * Default `false`. See the documentation on [Creating DB Instances][6] for more
+     * Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
      * details on controlling this property.
      */
     readonly publiclyAccessible?: pulumi.Input<boolean>;
@@ -425,9 +420,9 @@ export interface ClusterInstanceState {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the instance.
+     * A map of tags to assign to the instance.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
@@ -456,7 +451,7 @@ export interface ClusterInstanceArgs {
      */
     readonly caCertIdentifier?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+     * The identifier of the `aws.rds.Cluster` in which to launch this instance.
      */
     readonly clusterIdentifier: pulumi.Input<string>;
     /**
@@ -468,7 +463,7 @@ export interface ClusterInstanceArgs {
      */
     readonly dbParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -479,7 +474,7 @@ export interface ClusterInstanceArgs {
      */
     readonly engine?: pulumi.Input<EngineType>;
     /**
-     * The database engine version.
+     * The database engine version
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
@@ -492,7 +487,7 @@ export interface ClusterInstanceArgs {
     readonly identifierPrefix?: pulumi.Input<string>;
     /**
      * The instance class to use. For details on CPU
-     * and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
+     * and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
      */
     readonly instanceClass: pulumi.Input<string | InstanceType>;
     /**
@@ -529,12 +524,12 @@ export interface ClusterInstanceArgs {
     readonly promotionTier?: pulumi.Input<number>;
     /**
      * Bool to control if instance is publicly accessible.
-     * Default `false`. See the documentation on [Creating DB Instances][6] for more
+     * Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
      * details on controlling this property.
      */
     readonly publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the instance.
+     * A map of tags to assign to the instance.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -9,31 +9,77 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Retrieve information about an EC2 DHCP Options configuration.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetVpcDhcpOptions.InvokeAsync() instead")]
-        public static Task<GetVpcDhcpOptionsResult> GetVpcDhcpOptions(GetVpcDhcpOptionsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcDhcpOptionsResult>("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetVpcDhcpOptions
     {
         /// <summary>
         /// Retrieve information about an EC2 DHCP Options configuration.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Lookup by DHCP Options ID
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2.GetVpcDhcpOptions.InvokeAsync(new Aws.Ec2.GetVpcDhcpOptionsArgs
+        ///         {
+        ///             DhcpOptionsId = "dopts-12345678",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Lookup by Filter
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2.GetVpcDhcpOptions.InvokeAsync(new Aws.Ec2.GetVpcDhcpOptionsArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterArgs
+        ///                 {
+        ///                     Name = "key",
+        ///                     Values = 
+        ///                     {
+        ///                         "domain-name",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterArgs
+        ///                 {
+        ///                     Name = "value",
+        ///                     Values = 
+        ///                     {
+        ///                         "example.com",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcDhcpOptionsResult> InvokeAsync(GetVpcDhcpOptionsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcDhcpOptionsResult>("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcDhcpOptionsResult>("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args ?? new GetVpcDhcpOptionsArgs(), options.WithVersion());
     }
+
 
     public sealed class GetVpcDhcpOptionsArgs : Pulumi.InvokeArgs
     {
@@ -44,26 +90,26 @@ namespace Pulumi.Aws.Ec2
         public string? DhcpOptionsId { get; set; }
 
         [Input("filters")]
-        private List<Inputs.GetVpcDhcpOptionsFiltersArgs>? _filters;
+        private List<Inputs.GetVpcDhcpOptionsFilterArgs>? _filters;
 
         /// <summary>
         /// List of custom filters as described below.
         /// </summary>
-        public List<Inputs.GetVpcDhcpOptionsFiltersArgs> Filters
+        public List<Inputs.GetVpcDhcpOptionsFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetVpcDhcpOptionsFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetVpcDhcpOptionsFilterArgs>());
             set => _filters = value;
         }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags assigned to the resource.
+        /// A map of tags assigned to the resource.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -72,9 +118,14 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetVpcDhcpOptionsResult
     {
+        /// <summary>
+        /// The ARN of the DHCP Options Set.
+        /// </summary>
+        public readonly string Arn;
         /// <summary>
         /// EC2 DHCP Options ID
         /// </summary>
@@ -87,7 +138,11 @@ namespace Pulumi.Aws.Ec2
         /// List of name servers.
         /// </summary>
         public readonly ImmutableArray<string> DomainNameServers;
-        public readonly ImmutableArray<Outputs.GetVpcDhcpOptionsFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetVpcDhcpOptionsFilterResult> Filters;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// List of NETBIOS name servers.
         /// </summary>
@@ -105,92 +160,45 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string OwnerId;
         /// <summary>
-        /// A mapping of tags assigned to the resource.
+        /// A map of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetVpcDhcpOptionsResult(
+            string arn,
+
             string dhcpOptionsId,
+
             string domainName,
+
             ImmutableArray<string> domainNameServers,
-            ImmutableArray<Outputs.GetVpcDhcpOptionsFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetVpcDhcpOptionsFilterResult> filters,
+
+            string id,
+
             ImmutableArray<string> netbiosNameServers,
+
             string netbiosNodeType,
+
             ImmutableArray<string> ntpServers,
+
             string ownerId,
-            ImmutableDictionary<string, object> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
+            Arn = arn;
             DhcpOptionsId = dhcpOptionsId;
             DomainName = domainName;
             DomainNameServers = domainNameServers;
             Filters = filters;
+            Id = id;
             NetbiosNameServers = netbiosNameServers;
             NetbiosNodeType = netbiosNodeType;
             NtpServers = ntpServers;
             OwnerId = ownerId;
             Tags = tags;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetVpcDhcpOptionsFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the field to filter.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values for filtering.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetVpcDhcpOptionsFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetVpcDhcpOptionsFiltersResult
-    {
-        /// <summary>
-        /// The name of the field to filter.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values for filtering.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetVpcDhcpOptionsFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

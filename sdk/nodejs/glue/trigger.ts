@@ -4,103 +4,101 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages a Glue Trigger resource.
- * 
+ *
  * ## Example Usage
- * 
  * ### Conditional Trigger
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Trigger("example", {
+ *     type: "CONDITIONAL",
  *     actions: [{
- *         jobName: aws_glue_job_example1.name,
+ *         jobName: aws_glue_job.example1.name,
  *     }],
  *     predicate: {
  *         conditions: [{
- *             jobName: aws_glue_job_example2.name,
+ *             jobName: aws_glue_job.example2.name,
  *             state: "SUCCEEDED",
  *         }],
  *     },
- *     type: "CONDITIONAL",
  * });
  * ```
- * 
  * ### On-Demand Trigger
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Trigger("example", {
- *     actions: [{
- *         jobName: aws_glue_job_example.name,
- *     }],
  *     type: "ON_DEMAND",
+ *     actions: [{
+ *         jobName: aws_glue_job.example.name,
+ *     }],
  * });
  * ```
- * 
  * ### Scheduled Trigger
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Trigger("example", {
- *     actions: [{
- *         jobName: aws_glue_job_example.name,
- *     }],
  *     schedule: "cron(15 12 * * ? *)",
  *     type: "SCHEDULED",
+ *     actions: [{
+ *         jobName: aws_glue_job.example.name,
+ *     }],
  * });
  * ```
- * 
  * ### Conditional Trigger with Crawler Action
- * 
+ *
+ * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Trigger("example", {
+ *     type: "CONDITIONAL",
  *     actions: [{
- *         crawlerName: aws_glue_crawler_example1.name,
+ *         crawlerName: aws_glue_crawler.example1.name,
  *     }],
  *     predicate: {
  *         conditions: [{
- *             jobName: aws_glue_job_example2.name,
+ *             jobName: aws_glue_job.example2.name,
  *             state: "SUCCEEDED",
  *         }],
  *     },
- *     type: "CONDITIONAL",
  * });
  * ```
- * 
- * ### Conditional Trigger with Crawler Condition 
- * 
+ * ### Conditional Trigger with Crawler Condition
+ *
+ * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Trigger("example", {
+ *     type: "CONDITIONAL",
  *     actions: [{
- *         jobName: aws_glue_job_example1.name,
+ *         jobName: aws_glue_job.example1.name,
  *     }],
  *     predicate: {
  *         conditions: [{
+ *             crawlerName: aws_glue_crawler.example2.name,
  *             crawlState: "SUCCEEDED",
- *             crawlerName: aws_glue_crawler_example2.name,
  *         }],
  *     },
- *     type: "CONDITIONAL",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_trigger.html.markdown.
  */
 export class Trigger extends pulumi.CustomResource {
     /**
@@ -110,6 +108,7 @@ export class Trigger extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TriggerState, opts?: pulumi.CustomResourceOptions): Trigger {
         return new Trigger(name, <any>state, { ...opts, id: id });
@@ -158,9 +157,9 @@ export class Trigger extends pulumi.CustomResource {
      */
     public readonly schedule!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
      */
@@ -255,9 +254,9 @@ export interface TriggerState {
      */
     readonly schedule?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
      */
@@ -297,9 +296,9 @@ export interface TriggerArgs {
      */
     readonly schedule?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
      */

@@ -4,10 +4,51 @@
 package mq
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides information about a MQ Broker.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/mq"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		brokerId := ""
+// 		if param := cfg.Get("brokerId"); param != "" {
+// 			brokerId = param
+// 		}
+// 		brokerName := ""
+// 		if param := cfg.Get("brokerName"); param != "" {
+// 			brokerName = param
+// 		}
+// 		opt0 := brokerId
+// 		_, err := mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
+// 			BrokerId: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt1 := brokerName
+// 		_, err = mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
+// 			BrokerName: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupBroker(ctx *pulumi.Context, args *LookupBrokerArgs, opts ...pulumi.InvokeOption) (*LookupBrokerResult, error) {
 	var rv LookupBrokerResult
 	err := ctx.Invoke("aws:mq/getBroker:getBroker", args, &rv, opts...)
@@ -22,9 +63,9 @@ type LookupBrokerArgs struct {
 	// The unique id of the mq broker.
 	BrokerId *string `pulumi:"brokerId"`
 	// The unique name of the mq broker.
-	BrokerName *string                `pulumi:"brokerName"`
-	Logs       *GetBrokerLogs         `pulumi:"logs"`
-	Tags       map[string]interface{} `pulumi:"tags"`
+	BrokerName *string           `pulumi:"brokerName"`
+	Logs       *GetBrokerLogs    `pulumi:"logs"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getBroker.
@@ -39,7 +80,7 @@ type LookupBrokerResult struct {
 	EngineType              string                      `pulumi:"engineType"`
 	EngineVersion           string                      `pulumi:"engineVersion"`
 	HostInstanceType        string                      `pulumi:"hostInstanceType"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                         string                              `pulumi:"id"`
 	Instances                  []GetBrokerInstance                 `pulumi:"instances"`
 	Logs                       *GetBrokerLogs                      `pulumi:"logs"`
@@ -47,6 +88,6 @@ type LookupBrokerResult struct {
 	PubliclyAccessible         bool                                `pulumi:"publiclyAccessible"`
 	SecurityGroups             []string                            `pulumi:"securityGroups"`
 	SubnetIds                  []string                            `pulumi:"subnetIds"`
-	Tags                       map[string]interface{}              `pulumi:"tags"`
+	Tags                       map[string]string                   `pulumi:"tags"`
 	Users                      []GetBrokerUser                     `pulumi:"users"`
 }

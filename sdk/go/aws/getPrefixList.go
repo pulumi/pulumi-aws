@@ -4,16 +4,91 @@
 package aws
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// `.getPrefixList` provides details about a specific prefix list (PL)
+// `getPrefixList` provides details about a specific prefix list (PL)
 // in the current region.
 //
 // This can be used both to validate a prefix list given in a variable
 // and to obtain the CIDR blocks (IP address ranges) for the associated
 // AWS service. The latter may be useful e.g. for adding network ACL
 // rules.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		privateS3VpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "privateS3VpcEndpoint", &ec2.VpcEndpointArgs{
+// 			VpcId:       pulumi.Any(aws_vpc.Foo.Id),
+// 			ServiceName: pulumi.String("com.amazonaws.us-west-2.s3"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		bar, err := ec2.NewNetworkAcl(ctx, "bar", &ec2.NetworkAclArgs{
+// 			VpcId: pulumi.Any(aws_vpc.Foo.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewNetworkAclRule(ctx, "privateS3NetworkAclRule", &ec2.NetworkAclRuleArgs{
+// 			NetworkAclId: bar.ID(),
+// 			RuleNumber:   pulumi.Int(200),
+// 			Egress:       pulumi.Bool(false),
+// 			Protocol:     pulumi.String("tcp"),
+// 			RuleAction:   pulumi.String("allow"),
+// 			CidrBlock: privateS3PrefixList.ApplyT(func(privateS3PrefixList aws.GetPrefixListResult) (string, error) {
+// 				return privateS3PrefixList.CidrBlocks[0], nil
+// 			}).(pulumi.StringOutput),
+// 			FromPort: pulumi.Int(443),
+// 			ToPort:   pulumi.Int(443),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Filter
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := aws.GetPrefixList(ctx, &aws.GetPrefixListArgs{
+// 			Filters: []aws.GetPrefixListFilter{
+// 				aws.GetPrefixListFilter{
+// 					Name: "prefix-list-id",
+// 					Values: []string{
+// 						"pl-68a54001",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.InvokeOption) (*GetPrefixListResult, error) {
 	var rv GetPrefixListResult
 	err := ctx.Invoke("aws:index/getPrefixList:getPrefixList", args, &rv, opts...)
@@ -38,7 +113,7 @@ type GetPrefixListResult struct {
 	// The list of CIDR blocks for the AWS service associated with the prefix list.
 	CidrBlocks []string              `pulumi:"cidrBlocks"`
 	Filters    []GetPrefixListFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the selected prefix list.
 	Name         string  `pulumi:"name"`

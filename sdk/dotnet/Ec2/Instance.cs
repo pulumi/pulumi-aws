@@ -11,11 +11,58 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Provides an EC2 instance resource. This allows instances to be created, updated,
-    /// and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
+    /// and deleted.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/instance.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ubuntu = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
+    ///         {
+    ///             MostRecent = true,
+    ///             Filters = 
+    ///             {
+    ///                 new Aws.Inputs.GetAmiFilterArgs
+    ///                 {
+    ///                     Name = "name",
+    ///                     Values = 
+    ///                     {
+    ///                         "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
+    ///                     },
+    ///                 },
+    ///                 new Aws.Inputs.GetAmiFilterArgs
+    ///                 {
+    ///                     Name = "virtualization-type",
+    ///                     Values = 
+    ///                     {
+    ///                         "hvm",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Owners = 
+    ///             {
+    ///                 "099720109477",
+    ///             },
+    ///         }));
+    ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
+    ///         {
+    ///             Ami = ubuntu.Apply(ubuntu =&gt; ubuntu.Id),
+    ///             InstanceType = "t3.micro",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "HelloWorld" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Instance : Pulumi.CustomResource
     {
@@ -75,7 +122,7 @@ namespace Pulumi.Aws.Ec2
         /// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
         /// </summary>
         [Output("ebsBlockDevices")]
-        public Output<ImmutableArray<Outputs.InstanceEbsBlockDevices>> EbsBlockDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InstanceEbsBlockDevice>> EbsBlockDevices { get; private set; } = null!;
 
         /// <summary>
         /// If true, the launched EC2 instance will be EBS-optimized.
@@ -92,7 +139,7 @@ namespace Pulumi.Aws.Ec2
         /// "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
         [Output("ephemeralBlockDevices")]
-        public Output<ImmutableArray<Outputs.InstanceEphemeralBlockDevices>> EphemeralBlockDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InstanceEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
 
         /// <summary>
         /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
@@ -115,7 +162,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The IAM Instance Profile to
         /// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-        /// * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         /// </summary>
         [Output("iamInstanceProfile")]
         public Output<string?> IamInstanceProfile { get; private set; } = null!;
@@ -141,6 +187,9 @@ namespace Pulumi.Aws.Ec2
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
+        /// <summary>
+        /// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+        /// </summary>
         [Output("ipv6AddressCount")]
         public Output<int> Ipv6AddressCount { get; private set; } = null!;
 
@@ -172,7 +221,13 @@ namespace Pulumi.Aws.Ec2
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         /// </summary>
         [Output("networkInterfaces")]
-        public Output<ImmutableArray<Outputs.InstanceNetworkInterfaces>> NetworkInterfaces { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InstanceNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the Outpost the instance is assigned to.
+        /// </summary>
+        [Output("outpostArn")]
+        public Output<string> OutpostArn { get; private set; } = null!;
 
         /// <summary>
         /// Base-64 encoded encrypted password data for the instance.
@@ -219,7 +274,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PublicDns { get; private set; } = null!;
 
         /// <summary>
-        /// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws.ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+        /// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         /// </summary>
         [Output("publicIp")]
         public Output<string> PublicIp { get; private set; } = null!;
@@ -230,6 +285,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("rootBlockDevice")]
         public Output<Outputs.InstanceRootBlockDevice> RootBlockDevice { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+        /// </summary>
+        [Output("secondaryPrivateIps")]
+        public Output<ImmutableArray<string>> SecondaryPrivateIps { get; private set; } = null!;
 
         /// <summary>
         /// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
@@ -251,10 +312,10 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
@@ -275,10 +336,10 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> UserDataBase64 { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the devices created by the instance at launch time.
+        /// A map of tags to assign to the devices created by the instance at launch time.
         /// </summary>
         [Output("volumeTags")]
-        public Output<ImmutableDictionary<string, object>> VolumeTags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> VolumeTags { get; private set; } = null!;
 
         /// <summary>
         /// A list of security group IDs to associate with.
@@ -295,7 +356,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Instance(string name, InstanceArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/instance:Instance", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/instance:Instance", name, args ?? new InstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -378,15 +439,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? DisableApiTermination { get; set; }
 
         [Input("ebsBlockDevices")]
-        private InputList<Inputs.InstanceEbsBlockDevicesArgs>? _ebsBlockDevices;
+        private InputList<Inputs.InstanceEbsBlockDeviceArgs>? _ebsBlockDevices;
 
         /// <summary>
         /// Additional EBS block devices to attach to the
         /// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
         /// </summary>
-        public InputList<Inputs.InstanceEbsBlockDevicesArgs> EbsBlockDevices
+        public InputList<Inputs.InstanceEbsBlockDeviceArgs> EbsBlockDevices
         {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.InstanceEbsBlockDevicesArgs>());
+            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.InstanceEbsBlockDeviceArgs>());
             set => _ebsBlockDevices = value;
         }
 
@@ -401,15 +462,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EbsOptimized { get; set; }
 
         [Input("ephemeralBlockDevices")]
-        private InputList<Inputs.InstanceEphemeralBlockDevicesArgs>? _ephemeralBlockDevices;
+        private InputList<Inputs.InstanceEphemeralBlockDeviceArgs>? _ephemeralBlockDevices;
 
         /// <summary>
         /// Customize Ephemeral (also known as
         /// "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.InstanceEphemeralBlockDevicesArgs> EphemeralBlockDevices
+        public InputList<Inputs.InstanceEphemeralBlockDeviceArgs> EphemeralBlockDevices
         {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.InstanceEphemeralBlockDevicesArgs>());
+            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.InstanceEphemeralBlockDeviceArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
@@ -434,7 +495,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The IAM Instance Profile to
         /// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-        /// * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         /// </summary>
         [Input("iamInstanceProfile")]
         public Input<string>? IamInstanceProfile { get; set; }
@@ -454,6 +514,9 @@ namespace Pulumi.Aws.Ec2
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
+        /// <summary>
+        /// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+        /// </summary>
         [Input("ipv6AddressCount")]
         public Input<int>? Ipv6AddressCount { get; set; }
 
@@ -488,14 +551,14 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? Monitoring { get; set; }
 
         [Input("networkInterfaces")]
-        private InputList<Inputs.InstanceNetworkInterfacesArgs>? _networkInterfaces;
+        private InputList<Inputs.InstanceNetworkInterfaceArgs>? _networkInterfaces;
 
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         /// </summary>
-        public InputList<Inputs.InstanceNetworkInterfacesArgs> NetworkInterfaces
+        public InputList<Inputs.InstanceNetworkInterfaceArgs> NetworkInterfaces
         {
-            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.InstanceNetworkInterfacesArgs>());
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.InstanceNetworkInterfaceArgs>());
             set => _networkInterfaces = value;
         }
 
@@ -518,6 +581,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("rootBlockDevice")]
         public Input<Inputs.InstanceRootBlockDeviceArgs>? RootBlockDevice { get; set; }
+
+        [Input("secondaryPrivateIps")]
+        private InputList<string>? _secondaryPrivateIps;
+
+        /// <summary>
+        /// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+        /// </summary>
+        public InputList<string> SecondaryPrivateIps
+        {
+            get => _secondaryPrivateIps ?? (_secondaryPrivateIps = new InputList<string>());
+            set => _secondaryPrivateIps = value;
+        }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
@@ -546,14 +621,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -576,14 +651,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? UserDataBase64 { get; set; }
 
         [Input("volumeTags")]
-        private InputMap<object>? _volumeTags;
+        private InputMap<string>? _volumeTags;
 
         /// <summary>
-        /// A mapping of tags to assign to the devices created by the instance at launch time.
+        /// A map of tags to assign to the devices created by the instance at launch time.
         /// </summary>
-        public InputMap<object> VolumeTags
+        public InputMap<string> VolumeTags
         {
-            get => _volumeTags ?? (_volumeTags = new InputMap<object>());
+            get => _volumeTags ?? (_volumeTags = new InputMap<string>());
             set => _volumeTags = value;
         }
 
@@ -658,15 +733,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? DisableApiTermination { get; set; }
 
         [Input("ebsBlockDevices")]
-        private InputList<Inputs.InstanceEbsBlockDevicesGetArgs>? _ebsBlockDevices;
+        private InputList<Inputs.InstanceEbsBlockDeviceGetArgs>? _ebsBlockDevices;
 
         /// <summary>
         /// Additional EBS block devices to attach to the
         /// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
         /// </summary>
-        public InputList<Inputs.InstanceEbsBlockDevicesGetArgs> EbsBlockDevices
+        public InputList<Inputs.InstanceEbsBlockDeviceGetArgs> EbsBlockDevices
         {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.InstanceEbsBlockDevicesGetArgs>());
+            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.InstanceEbsBlockDeviceGetArgs>());
             set => _ebsBlockDevices = value;
         }
 
@@ -681,15 +756,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EbsOptimized { get; set; }
 
         [Input("ephemeralBlockDevices")]
-        private InputList<Inputs.InstanceEphemeralBlockDevicesGetArgs>? _ephemeralBlockDevices;
+        private InputList<Inputs.InstanceEphemeralBlockDeviceGetArgs>? _ephemeralBlockDevices;
 
         /// <summary>
         /// Customize Ephemeral (also known as
         /// "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.InstanceEphemeralBlockDevicesGetArgs> EphemeralBlockDevices
+        public InputList<Inputs.InstanceEphemeralBlockDeviceGetArgs> EphemeralBlockDevices
         {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.InstanceEphemeralBlockDevicesGetArgs>());
+            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.InstanceEphemeralBlockDeviceGetArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
@@ -714,7 +789,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The IAM Instance Profile to
         /// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-        /// * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         /// </summary>
         [Input("iamInstanceProfile")]
         public Input<string>? IamInstanceProfile { get; set; }
@@ -740,6 +814,9 @@ namespace Pulumi.Aws.Ec2
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
+        /// <summary>
+        /// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+        /// </summary>
         [Input("ipv6AddressCount")]
         public Input<int>? Ipv6AddressCount { get; set; }
 
@@ -774,16 +851,22 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? Monitoring { get; set; }
 
         [Input("networkInterfaces")]
-        private InputList<Inputs.InstanceNetworkInterfacesGetArgs>? _networkInterfaces;
+        private InputList<Inputs.InstanceNetworkInterfaceGetArgs>? _networkInterfaces;
 
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         /// </summary>
-        public InputList<Inputs.InstanceNetworkInterfacesGetArgs> NetworkInterfaces
+        public InputList<Inputs.InstanceNetworkInterfaceGetArgs> NetworkInterfaces
         {
-            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.InstanceNetworkInterfacesGetArgs>());
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.InstanceNetworkInterfaceGetArgs>());
             set => _networkInterfaces = value;
         }
+
+        /// <summary>
+        /// The ARN of the Outpost the instance is assigned to.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
         /// Base-64 encoded encrypted password data for the instance.
@@ -830,7 +913,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PublicDns { get; set; }
 
         /// <summary>
-        /// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws.ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+        /// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         /// </summary>
         [Input("publicIp")]
         public Input<string>? PublicIp { get; set; }
@@ -841,6 +924,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("rootBlockDevice")]
         public Input<Inputs.InstanceRootBlockDeviceGetArgs>? RootBlockDevice { get; set; }
+
+        [Input("secondaryPrivateIps")]
+        private InputList<string>? _secondaryPrivateIps;
+
+        /// <summary>
+        /// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+        /// </summary>
+        public InputList<string> SecondaryPrivateIps
+        {
+            get => _secondaryPrivateIps ?? (_secondaryPrivateIps = new InputList<string>());
+            set => _secondaryPrivateIps = value;
+        }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
@@ -869,14 +964,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -899,14 +994,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? UserDataBase64 { get; set; }
 
         [Input("volumeTags")]
-        private InputMap<object>? _volumeTags;
+        private InputMap<string>? _volumeTags;
 
         /// <summary>
-        /// A mapping of tags to assign to the devices created by the instance at launch time.
+        /// A map of tags to assign to the devices created by the instance at launch time.
         /// </summary>
-        public InputMap<object> VolumeTags
+        public InputMap<string> VolumeTags
         {
-            get => _volumeTags ?? (_volumeTags = new InputMap<object>());
+            get => _volumeTags ?? (_volumeTags = new InputMap<string>());
             set => _volumeTags = value;
         }
 
@@ -925,642 +1020,5 @@ namespace Pulumi.Aws.Ec2
         public InstanceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class InstanceCreditSpecificationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
-        /// </summary>
-        [Input("cpuCredits")]
-        public Input<string>? CpuCredits { get; set; }
-
-        public InstanceCreditSpecificationArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceCreditSpecificationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
-        /// </summary>
-        [Input("cpuCredits")]
-        public Input<string>? CpuCredits { get; set; }
-
-        public InstanceCreditSpecificationGetArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceEbsBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// The name of the device to mount.
-        /// </summary>
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        /// <summary>
-        /// Enables [EBS
-        /// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
-        /// </summary>
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        /// <summary>
-        /// The Snapshot ID to mount.
-        /// </summary>
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeId")]
-        public Input<string>? VolumeId { get; set; }
-
-        /// <summary>
-        /// The size of the volume in gibibytes (GiB).
-        /// </summary>
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"gp2"`).
-        /// </summary>
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public InstanceEbsBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceEbsBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// The name of the device to mount.
-        /// </summary>
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        /// <summary>
-        /// Enables [EBS
-        /// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
-        /// </summary>
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        /// <summary>
-        /// The Snapshot ID to mount.
-        /// </summary>
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeId")]
-        public Input<string>? VolumeId { get; set; }
-
-        /// <summary>
-        /// The size of the volume in gibibytes (GiB).
-        /// </summary>
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"gp2"`).
-        /// </summary>
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public InstanceEbsBlockDevicesGetArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceEphemeralBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the block device to mount on the instance.
-        /// </summary>
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        /// <summary>
-        /// Suppresses the specified device included in the AMI's block device mapping.
-        /// </summary>
-        [Input("noDevice")]
-        public Input<bool>? NoDevice { get; set; }
-
-        /// <summary>
-        /// The [Instance Store Device
-        /// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-        /// (e.g. `"ephemeral0"`).
-        /// </summary>
-        [Input("virtualName")]
-        public Input<string>? VirtualName { get; set; }
-
-        public InstanceEphemeralBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceEphemeralBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the block device to mount on the instance.
-        /// </summary>
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        /// <summary>
-        /// Suppresses the specified device included in the AMI's block device mapping.
-        /// </summary>
-        [Input("noDevice")]
-        public Input<bool>? NoDevice { get; set; }
-
-        /// <summary>
-        /// The [Instance Store Device
-        /// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-        /// (e.g. `"ephemeral0"`).
-        /// </summary>
-        [Input("virtualName")]
-        public Input<string>? VirtualName { get; set; }
-
-        public InstanceEphemeralBlockDevicesGetArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceMetadataOptionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
-        /// </summary>
-        [Input("httpEndpoint")]
-        public Input<string>? HttpEndpoint { get; set; }
-
-        /// <summary>
-        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-        /// </summary>
-        [Input("httpPutResponseHopLimit")]
-        public Input<int>? HttpPutResponseHopLimit { get; set; }
-
-        /// <summary>
-        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
-        /// </summary>
-        [Input("httpTokens")]
-        public Input<string>? HttpTokens { get; set; }
-
-        public InstanceMetadataOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceMetadataOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
-        /// </summary>
-        [Input("httpEndpoint")]
-        public Input<string>? HttpEndpoint { get; set; }
-
-        /// <summary>
-        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-        /// </summary>
-        [Input("httpPutResponseHopLimit")]
-        public Input<int>? HttpPutResponseHopLimit { get; set; }
-
-        /// <summary>
-        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
-        /// </summary>
-        [Input("httpTokens")]
-        public Input<string>? HttpTokens { get; set; }
-
-        public InstanceMetadataOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceNetworkInterfacesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// The integer index of the network interface attachment. Limited by instance type.
-        /// </summary>
-        [Input("deviceIndex", required: true)]
-        public Input<int> DeviceIndex { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the network interface to attach.
-        /// </summary>
-        [Input("networkInterfaceId", required: true)]
-        public Input<string> NetworkInterfaceId { get; set; } = null!;
-
-        public InstanceNetworkInterfacesArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceNetworkInterfacesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// The integer index of the network interface attachment. Limited by instance type.
-        /// </summary>
-        [Input("deviceIndex", required: true)]
-        public Input<int> DeviceIndex { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the network interface to attach.
-        /// </summary>
-        [Input("networkInterfaceId", required: true)]
-        public Input<string> NetworkInterfaceId { get; set; } = null!;
-
-        public InstanceNetworkInterfacesGetArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceRootBlockDeviceArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
-        /// </summary>
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This is only valid for `volume_type` of `"io1"`, and must be specified if
-        /// using that type
-        /// </summary>
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        [Input("volumeId")]
-        public Input<string>? VolumeId { get; set; }
-
-        /// <summary>
-        /// The size of the volume in gibibytes (GiB).
-        /// </summary>
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
-        /// </summary>
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public InstanceRootBlockDeviceArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceRootBlockDeviceGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
-        /// </summary>
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This is only valid for `volume_type` of `"io1"`, and must be specified if
-        /// using that type
-        /// </summary>
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        [Input("volumeId")]
-        public Input<string>? VolumeId { get; set; }
-
-        /// <summary>
-        /// The size of the volume in gibibytes (GiB).
-        /// </summary>
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
-        /// </summary>
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public InstanceRootBlockDeviceGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class InstanceCreditSpecification
-    {
-        /// <summary>
-        /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
-        /// </summary>
-        public readonly string? CpuCredits;
-
-        [OutputConstructor]
-        private InstanceCreditSpecification(string? cpuCredits)
-        {
-            CpuCredits = cpuCredits;
-        }
-    }
-
-    [OutputType]
-    public sealed class InstanceEbsBlockDevices
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        public readonly bool? DeleteOnTermination;
-        /// <summary>
-        /// The name of the device to mount.
-        /// </summary>
-        public readonly string DeviceName;
-        /// <summary>
-        /// Enables [EBS
-        /// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
-        /// </summary>
-        public readonly bool Encrypted;
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
-        /// </summary>
-        public readonly int Iops;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        /// </summary>
-        public readonly string KmsKeyId;
-        /// <summary>
-        /// The Snapshot ID to mount.
-        /// </summary>
-        public readonly string SnapshotId;
-        public readonly string VolumeId;
-        /// <summary>
-        /// The size of the volume in gibibytes (GiB).
-        /// </summary>
-        public readonly int VolumeSize;
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"gp2"`).
-        /// </summary>
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private InstanceEbsBlockDevices(
-            bool? deleteOnTermination,
-            string deviceName,
-            bool encrypted,
-            int iops,
-            string kmsKeyId,
-            string snapshotId,
-            string volumeId,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            DeviceName = deviceName;
-            Encrypted = encrypted;
-            Iops = iops;
-            KmsKeyId = kmsKeyId;
-            SnapshotId = snapshotId;
-            VolumeId = volumeId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
-
-    [OutputType]
-    public sealed class InstanceEphemeralBlockDevices
-    {
-        /// <summary>
-        /// The name of the block device to mount on the instance.
-        /// </summary>
-        public readonly string DeviceName;
-        /// <summary>
-        /// Suppresses the specified device included in the AMI's block device mapping.
-        /// </summary>
-        public readonly bool? NoDevice;
-        /// <summary>
-        /// The [Instance Store Device
-        /// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-        /// (e.g. `"ephemeral0"`).
-        /// </summary>
-        public readonly string? VirtualName;
-
-        [OutputConstructor]
-        private InstanceEphemeralBlockDevices(
-            string deviceName,
-            bool? noDevice,
-            string? virtualName)
-        {
-            DeviceName = deviceName;
-            NoDevice = noDevice;
-            VirtualName = virtualName;
-        }
-    }
-
-    [OutputType]
-    public sealed class InstanceMetadataOptions
-    {
-        /// <summary>
-        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
-        /// </summary>
-        public readonly string HttpEndpoint;
-        /// <summary>
-        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-        /// </summary>
-        public readonly int HttpPutResponseHopLimit;
-        /// <summary>
-        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
-        /// </summary>
-        public readonly string HttpTokens;
-
-        [OutputConstructor]
-        private InstanceMetadataOptions(
-            string httpEndpoint,
-            int httpPutResponseHopLimit,
-            string httpTokens)
-        {
-            HttpEndpoint = httpEndpoint;
-            HttpPutResponseHopLimit = httpPutResponseHopLimit;
-            HttpTokens = httpTokens;
-        }
-    }
-
-    [OutputType]
-    public sealed class InstanceNetworkInterfaces
-    {
-        /// <summary>
-        /// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
-        /// </summary>
-        public readonly bool? DeleteOnTermination;
-        /// <summary>
-        /// The integer index of the network interface attachment. Limited by instance type.
-        /// </summary>
-        public readonly int DeviceIndex;
-        /// <summary>
-        /// The ID of the network interface to attach.
-        /// </summary>
-        public readonly string NetworkInterfaceId;
-
-        [OutputConstructor]
-        private InstanceNetworkInterfaces(
-            bool? deleteOnTermination,
-            int deviceIndex,
-            string networkInterfaceId)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            DeviceIndex = deviceIndex;
-            NetworkInterfaceId = networkInterfaceId;
-        }
-    }
-
-    [OutputType]
-    public sealed class InstanceRootBlockDevice
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        public readonly bool? DeleteOnTermination;
-        /// <summary>
-        /// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
-        /// </summary>
-        public readonly bool Encrypted;
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This is only valid for `volume_type` of `"io1"`, and must be specified if
-        /// using that type
-        /// </summary>
-        public readonly int Iops;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        /// </summary>
-        public readonly string KmsKeyId;
-        public readonly string VolumeId;
-        /// <summary>
-        /// The size of the volume in gibibytes (GiB).
-        /// </summary>
-        public readonly int VolumeSize;
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
-        /// </summary>
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private InstanceRootBlockDevice(
-            bool? deleteOnTermination,
-            bool encrypted,
-            int iops,
-            string kmsKeyId,
-            string volumeId,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            Encrypted = encrypted;
-            Iops = iops;
-            KmsKeyId = kmsKeyId;
-            VolumeId = volumeId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
     }
 }

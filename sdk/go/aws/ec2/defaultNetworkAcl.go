@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a resource to manage the default AWS Network ACL. VPC Only.
@@ -34,9 +34,139 @@ import (
 //
 // For more information about Network ACLs, see the AWS Documentation on
 // [Network ACLs][aws-network-acls].
+//
+// ## Basic Example Usage, with default rules
+//
+// The following config gives the Default Network ACL the same rules that AWS
+// includes, but pulls the resource under management by this provider. This means that
+// any ACL rules added or changed will be detected as drift.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.1.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewDefaultNetworkAcl(ctx, "_default", &ec2.DefaultNetworkAclArgs{
+// 			DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
+// 			Ingress: ec2.DefaultNetworkAclIngressArray{
+// 				&ec2.DefaultNetworkAclIngressArgs{
+// 					Protocol:  pulumi.String("-1"),
+// 					RuleNo:    pulumi.Int(100),
+// 					Action:    pulumi.String("allow"),
+// 					CidrBlock: mainvpc.CidrBlock,
+// 					FromPort:  pulumi.Int(0),
+// 					ToPort:    pulumi.Int(0),
+// 				},
+// 			},
+// 			Egress: ec2.DefaultNetworkAclEgressArray{
+// 				&ec2.DefaultNetworkAclEgressArgs{
+// 					Protocol:  pulumi.String("-1"),
+// 					RuleNo:    pulumi.Int(100),
+// 					Action:    pulumi.String("allow"),
+// 					CidrBlock: pulumi.String("0.0.0.0/0"),
+// 					FromPort:  pulumi.Int(0),
+// 					ToPort:    pulumi.Int(0),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Example config to deny all Egress traffic, allowing Ingress
+//
+// The following denies all Egress traffic by omitting any `egress` rules, while
+// including the default `ingress` rule to allow all traffic.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.1.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewDefaultNetworkAcl(ctx, "_default", &ec2.DefaultNetworkAclArgs{
+// 			DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
+// 			Ingress: ec2.DefaultNetworkAclIngressArray{
+// 				&ec2.DefaultNetworkAclIngressArgs{
+// 					Protocol:  pulumi.String("-1"),
+// 					RuleNo:    pulumi.Int(100),
+// 					Action:    pulumi.String("allow"),
+// 					CidrBlock: mainvpc.CidrBlock,
+// 					FromPort:  pulumi.Int(0),
+// 					ToPort:    pulumi.Int(0),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Example config to deny all traffic to any Subnet in the Default Network ACL
+//
+// This config denies all traffic in the Default ACL. This can be useful if you
+// want a locked down default to force all resources in the VPC to assign a
+// non-default ACL.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.1.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewDefaultNetworkAcl(ctx, "_default", &ec2.DefaultNetworkAclArgs{
+// 			DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DefaultNetworkAcl struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Default Network ACL
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Network ACL ID to manage. This
 	// attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
 	DefaultNetworkAclId pulumi.StringOutput `pulumi:"defaultNetworkAclId"`
@@ -49,8 +179,8 @@ type DefaultNetworkAcl struct {
 	// A list of Subnet IDs to apply the ACL to. See the
 	// notes below on managing Subnets in the Default Network ACL
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of the associated VPC
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -86,6 +216,8 @@ func GetDefaultNetworkAcl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultNetworkAcl resources.
 type defaultNetworkAclState struct {
+	// The ARN of the Default Network ACL
+	Arn *string `pulumi:"arn"`
 	// The Network ACL ID to manage. This
 	// attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
 	DefaultNetworkAclId *string `pulumi:"defaultNetworkAclId"`
@@ -98,13 +230,15 @@ type defaultNetworkAclState struct {
 	// A list of Subnet IDs to apply the ACL to. See the
 	// notes below on managing Subnets in the Default Network ACL
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the associated VPC
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type DefaultNetworkAclState struct {
+	// The ARN of the Default Network ACL
+	Arn pulumi.StringPtrInput
 	// The Network ACL ID to manage. This
 	// attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
 	DefaultNetworkAclId pulumi.StringPtrInput
@@ -117,8 +251,8 @@ type DefaultNetworkAclState struct {
 	// A list of Subnet IDs to apply the ACL to. See the
 	// notes below on managing Subnets in the Default Network ACL
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The ID of the associated VPC
 	VpcId pulumi.StringPtrInput
 }
@@ -138,8 +272,8 @@ type defaultNetworkAclArgs struct {
 	// A list of Subnet IDs to apply the ACL to. See the
 	// notes below on managing Subnets in the Default Network ACL
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DefaultNetworkAcl resource.
@@ -154,8 +288,8 @@ type DefaultNetworkAclArgs struct {
 	// A list of Subnet IDs to apply the ACL to. See the
 	// notes below on managing Subnets in the Default Network ACL
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (DefaultNetworkAclArgs) ElementType() reflect.Type {

@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Inspector
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The AWS Inspector Rules Packages data source allows access to the list of AWS
-        /// Inspector Rules Packages which can be used by AWS Inspector within the region
-        /// configured in the provider.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/inspector_rules_packages.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetRulesPackages.InvokeAsync() instead")]
-        public static Task<GetRulesPackagesResult> GetRulesPackages(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRulesPackages
     {
         /// <summary>
@@ -31,13 +16,48 @@ namespace Pulumi.Aws.Inspector
         /// Inspector Rules Packages which can be used by AWS Inspector within the region
         /// configured in the provider.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/inspector_rules_packages.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var rules = Output.Create(Aws.Inspector.GetRulesPackages.InvokeAsync());
+        ///         // e.g. Use in aws_inspector_assessment_template
+        ///         var @group = new Aws.Inspector.ResourceGroup("group", new Aws.Inspector.ResourceGroupArgs
+        ///         {
+        ///             Tags = 
+        ///             {
+        ///                 { "test", "test" },
+        ///             },
+        ///         });
+        ///         var assessmentAssessmentTarget = new Aws.Inspector.AssessmentTarget("assessmentAssessmentTarget", new Aws.Inspector.AssessmentTargetArgs
+        ///         {
+        ///             ResourceGroupArn = @group.Arn,
+        ///         });
+        ///         var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessmentAssessmentTemplate", new Aws.Inspector.AssessmentTemplateArgs
+        ///         {
+        ///             TargetArn = assessmentAssessmentTarget.Arn,
+        ///             Duration = 60,
+        ///             RulesPackageArns = rules.Apply(rules =&gt; rules.Arns),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRulesPackagesResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithVersion());
     }
+
 
     [OutputType]
     public sealed class GetRulesPackagesResult
@@ -47,13 +67,14 @@ namespace Pulumi.Aws.Inspector
         /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
 
         [OutputConstructor]
         private GetRulesPackagesResult(
             ImmutableArray<string> arns,
+
             string id)
         {
             Arns = arns;

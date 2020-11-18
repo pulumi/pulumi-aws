@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Get information on an Amazon MSK Configuration.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.msk.getConfiguration({
- *     name: "example",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_configuration.html.markdown.
+ * const example = pulumi.output(aws.msk.getConfiguration({
+ *     name: "example",
+ * }, { async: true }));
+ * ```
  */
-export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> & GetConfigurationResult {
+export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,11 +29,9 @@ export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetConfigurationResult> = pulumi.runtime.invoke("aws:msk/getConfiguration:getConfiguration", {
+    return pulumi.runtime.invoke("aws:msk/getConfiguration:getConfiguration", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -62,6 +57,10 @@ export interface GetConfigurationResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * List of Apache Kafka versions which can use this configuration.
      */
     readonly kafkaVersions: string[];
@@ -74,8 +73,4 @@ export interface GetConfigurationResult {
      * Contents of the server.properties file.
      */
     readonly serverProperties: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -7,10 +7,107 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an SES event destination
+//
+// ## Example Usage
+// ### CloudWatch Destination
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ses"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ses.NewEventDestination(ctx, "cloudwatch", &ses.EventDestinationArgs{
+// 			ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
+// 			Enabled:              pulumi.Bool(true),
+// 			MatchingTypes: pulumi.StringArray{
+// 				pulumi.String("bounce"),
+// 				pulumi.String("send"),
+// 			},
+// 			CloudwatchDestinations: ses.EventDestinationCloudwatchDestinationArray{
+// 				&ses.EventDestinationCloudwatchDestinationArgs{
+// 					DefaultValue:  pulumi.String("default"),
+// 					DimensionName: pulumi.String("dimension"),
+// 					ValueSource:   pulumi.String("emailHeader"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Kinesis Destination
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ses"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ses.NewEventDestination(ctx, "kinesis", &ses.EventDestinationArgs{
+// 			ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
+// 			Enabled:              pulumi.Bool(true),
+// 			MatchingTypes: pulumi.StringArray{
+// 				pulumi.String("bounce"),
+// 				pulumi.String("send"),
+// 			},
+// 			KinesisDestination: &ses.EventDestinationKinesisDestinationArgs{
+// 				StreamArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+// 				RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### SNS Destination
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ses"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ses.NewEventDestination(ctx, "sns", &ses.EventDestinationArgs{
+// 			ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
+// 			Enabled:              pulumi.Bool(true),
+// 			MatchingTypes: pulumi.StringArray{
+// 				pulumi.String("bounce"),
+// 				pulumi.String("send"),
+// 			},
+// 			SnsDestination: &ses.EventDestinationSnsDestinationArgs{
+// 				TopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type EventDestination struct {
 	pulumi.CustomResourceState
 

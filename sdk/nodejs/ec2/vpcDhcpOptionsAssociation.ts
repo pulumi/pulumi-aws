@@ -2,33 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a VPC DHCP Options Association resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dnsResolver = new aws.ec2.VpcDhcpOptionsAssociation("dnsResolver", {
- *     dhcpOptionsId: aws_vpc_dhcp_options_foo.id,
- *     vpcId: aws_vpc_foo.id,
+ *     vpcId: aws_vpc.foo.id,
+ *     dhcpOptionsId: aws_vpc_dhcp_options.foo.id,
  * });
  * ```
- * 
  * ## Remarks
- * 
+ *
  * * You can only associate one DHCP Options Set to a given VPC ID.
  * * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_dhcp_options_association.html.markdown.
  */
 export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
     /**
@@ -38,6 +31,7 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcDhcpOptionsAssociationState, opts?: pulumi.CustomResourceOptions): VpcDhcpOptionsAssociation {
         return new VpcDhcpOptionsAssociation(name, <any>state, { ...opts, id: id });

@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates an entry (a rule) in a network ACL with the specified rule number.
@@ -17,6 +17,44 @@ import (
 // defined in-line. At this time you cannot use a Network ACL with in-line rules
 // in conjunction with any Network ACL Rule resources. Doing so will cause
 // a conflict of rule settings and will overwrite rules.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		barNetworkAcl, err := ec2.NewNetworkAcl(ctx, "barNetworkAcl", &ec2.NetworkAclArgs{
+// 			VpcId: pulumi.Any(aws_vpc.Foo.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewNetworkAclRule(ctx, "barNetworkAclRule", &ec2.NetworkAclRuleArgs{
+// 			NetworkAclId: barNetworkAcl.ID(),
+// 			RuleNumber:   pulumi.Int(200),
+// 			Egress:       pulumi.Bool(false),
+// 			Protocol:     pulumi.String("tcp"),
+// 			RuleAction:   pulumi.String("allow"),
+// 			CidrBlock:    pulumi.Any(aws_vpc.Foo.Cidr_block),
+// 			FromPort:     pulumi.Int(22),
+// 			ToPort:       pulumi.Int(22),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
 type NetworkAclRule struct {
 	pulumi.CustomResourceState
 

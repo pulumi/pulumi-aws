@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type ClusterParameterGroupParameter struct {
@@ -21,6 +21,10 @@ type ClusterParameterGroupParameter struct {
 	Value string `pulumi:"value"`
 }
 
+// ClusterParameterGroupParameterInput is an input type that accepts ClusterParameterGroupParameterArgs and ClusterParameterGroupParameterOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterInput` via:
+//
+//          ClusterParameterGroupParameterArgs{...}
 type ClusterParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -51,6 +55,10 @@ func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterOutput)
 }
 
+// ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
+//
+//          ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
 type ClusterParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -123,6 +131,198 @@ func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) Clus
 	}).(ClusterParameterGroupParameterOutput)
 }
 
+type ClusterRestoreToPointInTime struct {
+	// Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
+	RestoreToTime *string `pulumi:"restoreToTime"`
+	// Type of restore to be performed.
+	// Valid options are `full-copy` (default) and `copy-on-write`.
+	RestoreType *string `pulumi:"restoreType"`
+	// The identifier of the source database cluster from which to restore.
+	SourceClusterIdentifier string `pulumi:"sourceClusterIdentifier"`
+	// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
+	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
+}
+
+// ClusterRestoreToPointInTimeInput is an input type that accepts ClusterRestoreToPointInTimeArgs and ClusterRestoreToPointInTimeOutput values.
+// You can construct a concrete instance of `ClusterRestoreToPointInTimeInput` via:
+//
+//          ClusterRestoreToPointInTimeArgs{...}
+type ClusterRestoreToPointInTimeInput interface {
+	pulumi.Input
+
+	ToClusterRestoreToPointInTimeOutput() ClusterRestoreToPointInTimeOutput
+	ToClusterRestoreToPointInTimeOutputWithContext(context.Context) ClusterRestoreToPointInTimeOutput
+}
+
+type ClusterRestoreToPointInTimeArgs struct {
+	// Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
+	RestoreToTime pulumi.StringPtrInput `pulumi:"restoreToTime"`
+	// Type of restore to be performed.
+	// Valid options are `full-copy` (default) and `copy-on-write`.
+	RestoreType pulumi.StringPtrInput `pulumi:"restoreType"`
+	// The identifier of the source database cluster from which to restore.
+	SourceClusterIdentifier pulumi.StringInput `pulumi:"sourceClusterIdentifier"`
+	// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
+	UseLatestRestorableTime pulumi.BoolPtrInput `pulumi:"useLatestRestorableTime"`
+}
+
+func (ClusterRestoreToPointInTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRestoreToPointInTime)(nil)).Elem()
+}
+
+func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimeOutput() ClusterRestoreToPointInTimeOutput {
+	return i.ToClusterRestoreToPointInTimeOutputWithContext(context.Background())
+}
+
+func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimeOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestoreToPointInTimeOutput)
+}
+
+func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput {
+	return i.ToClusterRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestoreToPointInTimeOutput).ToClusterRestoreToPointInTimePtrOutputWithContext(ctx)
+}
+
+// ClusterRestoreToPointInTimePtrInput is an input type that accepts ClusterRestoreToPointInTimeArgs, ClusterRestoreToPointInTimePtr and ClusterRestoreToPointInTimePtrOutput values.
+// You can construct a concrete instance of `ClusterRestoreToPointInTimePtrInput` via:
+//
+//          ClusterRestoreToPointInTimeArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterRestoreToPointInTimePtrInput interface {
+	pulumi.Input
+
+	ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput
+	ToClusterRestoreToPointInTimePtrOutputWithContext(context.Context) ClusterRestoreToPointInTimePtrOutput
+}
+
+type clusterRestoreToPointInTimePtrType ClusterRestoreToPointInTimeArgs
+
+func ClusterRestoreToPointInTimePtr(v *ClusterRestoreToPointInTimeArgs) ClusterRestoreToPointInTimePtrInput {
+	return (*clusterRestoreToPointInTimePtrType)(v)
+}
+
+func (*clusterRestoreToPointInTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRestoreToPointInTime)(nil)).Elem()
+}
+
+func (i *clusterRestoreToPointInTimePtrType) ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput {
+	return i.ToClusterRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterRestoreToPointInTimePtrType) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestoreToPointInTimePtrOutput)
+}
+
+type ClusterRestoreToPointInTimeOutput struct{ *pulumi.OutputState }
+
+func (ClusterRestoreToPointInTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRestoreToPointInTime)(nil)).Elem()
+}
+
+func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimeOutput() ClusterRestoreToPointInTimeOutput {
+	return o
+}
+
+func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimeOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimeOutput {
+	return o
+}
+
+func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput {
+	return o.ToClusterRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *ClusterRestoreToPointInTime {
+		return &v
+	}).(ClusterRestoreToPointInTimePtrOutput)
+}
+
+// Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
+func (o ClusterRestoreToPointInTimeOutput) RestoreToTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.RestoreToTime }).(pulumi.StringPtrOutput)
+}
+
+// Type of restore to be performed.
+// Valid options are `full-copy` (default) and `copy-on-write`.
+func (o ClusterRestoreToPointInTimeOutput) RestoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.RestoreType }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source database cluster from which to restore.
+func (o ClusterRestoreToPointInTimeOutput) SourceClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) string { return v.SourceClusterIdentifier }).(pulumi.StringOutput)
+}
+
+// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
+func (o ClusterRestoreToPointInTimeOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *bool { return v.UseLatestRestorableTime }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterRestoreToPointInTimePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterRestoreToPointInTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRestoreToPointInTime)(nil)).Elem()
+}
+
+func (o ClusterRestoreToPointInTimePtrOutput) ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput {
+	return o
+}
+
+func (o ClusterRestoreToPointInTimePtrOutput) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
+	return o
+}
+
+func (o ClusterRestoreToPointInTimePtrOutput) Elem() ClusterRestoreToPointInTimeOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) ClusterRestoreToPointInTime { return *v }).(ClusterRestoreToPointInTimeOutput)
+}
+
+// Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
+func (o ClusterRestoreToPointInTimePtrOutput) RestoreToTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreToTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of restore to be performed.
+// Valid options are `full-copy` (default) and `copy-on-write`.
+func (o ClusterRestoreToPointInTimePtrOutput) RestoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source database cluster from which to restore.
+func (o ClusterRestoreToPointInTimePtrOutput) SourceClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
+func (o ClusterRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLatestRestorableTime
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ClusterS3Import struct {
 	// The bucket name where your backup is stored
 	BucketName string `pulumi:"bucketName"`
@@ -136,6 +336,10 @@ type ClusterS3Import struct {
 	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
 }
 
+// ClusterS3ImportInput is an input type that accepts ClusterS3ImportArgs and ClusterS3ImportOutput values.
+// You can construct a concrete instance of `ClusterS3ImportInput` via:
+//
+//          ClusterS3ImportArgs{...}
 type ClusterS3ImportInput interface {
 	pulumi.Input
 
@@ -176,6 +380,14 @@ func (i ClusterS3ImportArgs) ToClusterS3ImportPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterS3ImportOutput).ToClusterS3ImportPtrOutputWithContext(ctx)
 }
 
+// ClusterS3ImportPtrInput is an input type that accepts ClusterS3ImportArgs, ClusterS3ImportPtr and ClusterS3ImportPtrOutput values.
+// You can construct a concrete instance of `ClusterS3ImportPtrInput` via:
+//
+//          ClusterS3ImportArgs{...}
+//
+//  or:
+//
+//          nil
 type ClusterS3ImportPtrInput interface {
 	pulumi.Input
 
@@ -269,28 +481,53 @@ func (o ClusterS3ImportPtrOutput) Elem() ClusterS3ImportOutput {
 }
 
 // The bucket name where your backup is stored
-func (o ClusterS3ImportPtrOutput) BucketName() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterS3Import) string { return v.BucketName }).(pulumi.StringOutput)
+func (o ClusterS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Can be blank, but is the path to your backup
 func (o ClusterS3ImportPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterS3Import) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketPrefix
+	}).(pulumi.StringPtrOutput)
 }
 
 // Role applied to load the data.
-func (o ClusterS3ImportPtrOutput) IngestionRole() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterS3Import) string { return v.IngestionRole }).(pulumi.StringOutput)
+func (o ClusterS3ImportPtrOutput) IngestionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IngestionRole
+	}).(pulumi.StringPtrOutput)
 }
 
 // Source engine for the backup
-func (o ClusterS3ImportPtrOutput) SourceEngine() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterS3Import) string { return v.SourceEngine }).(pulumi.StringOutput)
+func (o ClusterS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceEngine
+	}).(pulumi.StringPtrOutput)
 }
 
 // Version of the source engine used to make the backup
-func (o ClusterS3ImportPtrOutput) SourceEngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
+func (o ClusterS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceEngineVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterScalingConfiguration struct {
@@ -298,7 +535,7 @@ type ClusterScalingConfiguration struct {
 	AutoPause *bool `pulumi:"autoPause"`
 	// The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
 	MaxCapacity *int `pulumi:"maxCapacity"`
-	// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
+	// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
 	MinCapacity *int `pulumi:"minCapacity"`
 	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 	SecondsUntilAutoPause *int `pulumi:"secondsUntilAutoPause"`
@@ -306,6 +543,10 @@ type ClusterScalingConfiguration struct {
 	TimeoutAction *string `pulumi:"timeoutAction"`
 }
 
+// ClusterScalingConfigurationInput is an input type that accepts ClusterScalingConfigurationArgs and ClusterScalingConfigurationOutput values.
+// You can construct a concrete instance of `ClusterScalingConfigurationInput` via:
+//
+//          ClusterScalingConfigurationArgs{...}
 type ClusterScalingConfigurationInput interface {
 	pulumi.Input
 
@@ -318,7 +559,7 @@ type ClusterScalingConfigurationArgs struct {
 	AutoPause pulumi.BoolPtrInput `pulumi:"autoPause"`
 	// The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
 	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
-	// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
+	// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
 	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
 	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 	SecondsUntilAutoPause pulumi.IntPtrInput `pulumi:"secondsUntilAutoPause"`
@@ -346,6 +587,14 @@ func (i ClusterScalingConfigurationArgs) ToClusterScalingConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterScalingConfigurationOutput).ToClusterScalingConfigurationPtrOutputWithContext(ctx)
 }
 
+// ClusterScalingConfigurationPtrInput is an input type that accepts ClusterScalingConfigurationArgs, ClusterScalingConfigurationPtr and ClusterScalingConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterScalingConfigurationPtrInput` via:
+//
+//          ClusterScalingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type ClusterScalingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -405,7 +654,7 @@ func (o ClusterScalingConfigurationOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
+// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
 func (o ClusterScalingConfigurationOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
@@ -440,27 +689,346 @@ func (o ClusterScalingConfigurationPtrOutput) Elem() ClusterScalingConfiguration
 
 // Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
 func (o ClusterScalingConfigurationPtrOutput) AutoPause() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ClusterScalingConfiguration) *bool { return v.AutoPause }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ClusterScalingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoPause
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
 func (o ClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
+// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
 func (o ClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 func (o ClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SecondsUntilAutoPause
+	}).(pulumi.IntPtrOutput)
 }
 
 // The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
 func (o ClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterScalingConfiguration) *string { return v.TimeoutAction }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterScalingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutAction
+	}).(pulumi.StringPtrOutput)
+}
+
+type GlobalClusterGlobalClusterMember struct {
+	// Amazon Resource Name (ARN) of member DB Cluster
+	DbClusterArn *string `pulumi:"dbClusterArn"`
+	// Whether the member is the primary DB Cluster
+	IsWriter *bool `pulumi:"isWriter"`
+}
+
+// GlobalClusterGlobalClusterMemberInput is an input type that accepts GlobalClusterGlobalClusterMemberArgs and GlobalClusterGlobalClusterMemberOutput values.
+// You can construct a concrete instance of `GlobalClusterGlobalClusterMemberInput` via:
+//
+//          GlobalClusterGlobalClusterMemberArgs{...}
+type GlobalClusterGlobalClusterMemberInput interface {
+	pulumi.Input
+
+	ToGlobalClusterGlobalClusterMemberOutput() GlobalClusterGlobalClusterMemberOutput
+	ToGlobalClusterGlobalClusterMemberOutputWithContext(context.Context) GlobalClusterGlobalClusterMemberOutput
+}
+
+type GlobalClusterGlobalClusterMemberArgs struct {
+	// Amazon Resource Name (ARN) of member DB Cluster
+	DbClusterArn pulumi.StringPtrInput `pulumi:"dbClusterArn"`
+	// Whether the member is the primary DB Cluster
+	IsWriter pulumi.BoolPtrInput `pulumi:"isWriter"`
+}
+
+func (GlobalClusterGlobalClusterMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalClusterGlobalClusterMember)(nil)).Elem()
+}
+
+func (i GlobalClusterGlobalClusterMemberArgs) ToGlobalClusterGlobalClusterMemberOutput() GlobalClusterGlobalClusterMemberOutput {
+	return i.ToGlobalClusterGlobalClusterMemberOutputWithContext(context.Background())
+}
+
+func (i GlobalClusterGlobalClusterMemberArgs) ToGlobalClusterGlobalClusterMemberOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalClusterMemberOutput)
+}
+
+// GlobalClusterGlobalClusterMemberArrayInput is an input type that accepts GlobalClusterGlobalClusterMemberArray and GlobalClusterGlobalClusterMemberArrayOutput values.
+// You can construct a concrete instance of `GlobalClusterGlobalClusterMemberArrayInput` via:
+//
+//          GlobalClusterGlobalClusterMemberArray{ GlobalClusterGlobalClusterMemberArgs{...} }
+type GlobalClusterGlobalClusterMemberArrayInput interface {
+	pulumi.Input
+
+	ToGlobalClusterGlobalClusterMemberArrayOutput() GlobalClusterGlobalClusterMemberArrayOutput
+	ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(context.Context) GlobalClusterGlobalClusterMemberArrayOutput
+}
+
+type GlobalClusterGlobalClusterMemberArray []GlobalClusterGlobalClusterMemberInput
+
+func (GlobalClusterGlobalClusterMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalClusterGlobalClusterMember)(nil)).Elem()
+}
+
+func (i GlobalClusterGlobalClusterMemberArray) ToGlobalClusterGlobalClusterMemberArrayOutput() GlobalClusterGlobalClusterMemberArrayOutput {
+	return i.ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GlobalClusterGlobalClusterMemberArray) ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalClusterMemberArrayOutput)
+}
+
+type GlobalClusterGlobalClusterMemberOutput struct{ *pulumi.OutputState }
+
+func (GlobalClusterGlobalClusterMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalClusterGlobalClusterMember)(nil)).Elem()
+}
+
+func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemberOutput() GlobalClusterGlobalClusterMemberOutput {
+	return o
+}
+
+func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemberOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberOutput {
+	return o
+}
+
+// Amazon Resource Name (ARN) of member DB Cluster
+func (o GlobalClusterGlobalClusterMemberOutput) DbClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalClusterGlobalClusterMember) *string { return v.DbClusterArn }).(pulumi.StringPtrOutput)
+}
+
+// Whether the member is the primary DB Cluster
+func (o GlobalClusterGlobalClusterMemberOutput) IsWriter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GlobalClusterGlobalClusterMember) *bool { return v.IsWriter }).(pulumi.BoolPtrOutput)
+}
+
+type GlobalClusterGlobalClusterMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GlobalClusterGlobalClusterMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalClusterGlobalClusterMember)(nil)).Elem()
+}
+
+func (o GlobalClusterGlobalClusterMemberArrayOutput) ToGlobalClusterGlobalClusterMemberArrayOutput() GlobalClusterGlobalClusterMemberArrayOutput {
+	return o
+}
+
+func (o GlobalClusterGlobalClusterMemberArrayOutput) ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberArrayOutput {
+	return o
+}
+
+func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) GlobalClusterGlobalClusterMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalClusterGlobalClusterMember {
+		return vs[0].([]GlobalClusterGlobalClusterMember)[vs[1].(int)]
+	}).(GlobalClusterGlobalClusterMemberOutput)
+}
+
+type InstanceRestoreToPointInTime struct {
+	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+	RestoreTime *string `pulumi:"restoreTime"`
+	// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+	SourceDbInstanceIdentifier *string `pulumi:"sourceDbInstanceIdentifier"`
+	// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+	SourceDbiResourceId *string `pulumi:"sourceDbiResourceId"`
+	// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
+}
+
+// InstanceRestoreToPointInTimeInput is an input type that accepts InstanceRestoreToPointInTimeArgs and InstanceRestoreToPointInTimeOutput values.
+// You can construct a concrete instance of `InstanceRestoreToPointInTimeInput` via:
+//
+//          InstanceRestoreToPointInTimeArgs{...}
+type InstanceRestoreToPointInTimeInput interface {
+	pulumi.Input
+
+	ToInstanceRestoreToPointInTimeOutput() InstanceRestoreToPointInTimeOutput
+	ToInstanceRestoreToPointInTimeOutputWithContext(context.Context) InstanceRestoreToPointInTimeOutput
+}
+
+type InstanceRestoreToPointInTimeArgs struct {
+	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+	RestoreTime pulumi.StringPtrInput `pulumi:"restoreTime"`
+	// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+	SourceDbInstanceIdentifier pulumi.StringPtrInput `pulumi:"sourceDbInstanceIdentifier"`
+	// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+	SourceDbiResourceId pulumi.StringPtrInput `pulumi:"sourceDbiResourceId"`
+	// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+	UseLatestRestorableTime pulumi.BoolPtrInput `pulumi:"useLatestRestorableTime"`
+}
+
+func (InstanceRestoreToPointInTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceRestoreToPointInTime)(nil)).Elem()
+}
+
+func (i InstanceRestoreToPointInTimeArgs) ToInstanceRestoreToPointInTimeOutput() InstanceRestoreToPointInTimeOutput {
+	return i.ToInstanceRestoreToPointInTimeOutputWithContext(context.Background())
+}
+
+func (i InstanceRestoreToPointInTimeArgs) ToInstanceRestoreToPointInTimeOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceRestoreToPointInTimeOutput)
+}
+
+func (i InstanceRestoreToPointInTimeArgs) ToInstanceRestoreToPointInTimePtrOutput() InstanceRestoreToPointInTimePtrOutput {
+	return i.ToInstanceRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (i InstanceRestoreToPointInTimeArgs) ToInstanceRestoreToPointInTimePtrOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceRestoreToPointInTimeOutput).ToInstanceRestoreToPointInTimePtrOutputWithContext(ctx)
+}
+
+// InstanceRestoreToPointInTimePtrInput is an input type that accepts InstanceRestoreToPointInTimeArgs, InstanceRestoreToPointInTimePtr and InstanceRestoreToPointInTimePtrOutput values.
+// You can construct a concrete instance of `InstanceRestoreToPointInTimePtrInput` via:
+//
+//          InstanceRestoreToPointInTimeArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceRestoreToPointInTimePtrInput interface {
+	pulumi.Input
+
+	ToInstanceRestoreToPointInTimePtrOutput() InstanceRestoreToPointInTimePtrOutput
+	ToInstanceRestoreToPointInTimePtrOutputWithContext(context.Context) InstanceRestoreToPointInTimePtrOutput
+}
+
+type instanceRestoreToPointInTimePtrType InstanceRestoreToPointInTimeArgs
+
+func InstanceRestoreToPointInTimePtr(v *InstanceRestoreToPointInTimeArgs) InstanceRestoreToPointInTimePtrInput {
+	return (*instanceRestoreToPointInTimePtrType)(v)
+}
+
+func (*instanceRestoreToPointInTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceRestoreToPointInTime)(nil)).Elem()
+}
+
+func (i *instanceRestoreToPointInTimePtrType) ToInstanceRestoreToPointInTimePtrOutput() InstanceRestoreToPointInTimePtrOutput {
+	return i.ToInstanceRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (i *instanceRestoreToPointInTimePtrType) ToInstanceRestoreToPointInTimePtrOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceRestoreToPointInTimePtrOutput)
+}
+
+type InstanceRestoreToPointInTimeOutput struct{ *pulumi.OutputState }
+
+func (InstanceRestoreToPointInTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceRestoreToPointInTime)(nil)).Elem()
+}
+
+func (o InstanceRestoreToPointInTimeOutput) ToInstanceRestoreToPointInTimeOutput() InstanceRestoreToPointInTimeOutput {
+	return o
+}
+
+func (o InstanceRestoreToPointInTimeOutput) ToInstanceRestoreToPointInTimeOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimeOutput {
+	return o
+}
+
+func (o InstanceRestoreToPointInTimeOutput) ToInstanceRestoreToPointInTimePtrOutput() InstanceRestoreToPointInTimePtrOutput {
+	return o.ToInstanceRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceRestoreToPointInTimeOutput) ToInstanceRestoreToPointInTimePtrOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimePtrOutput {
+	return o.ApplyT(func(v InstanceRestoreToPointInTime) *InstanceRestoreToPointInTime {
+		return &v
+	}).(InstanceRestoreToPointInTimePtrOutput)
+}
+
+// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+func (o InstanceRestoreToPointInTimeOutput) RestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.RestoreTime }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+func (o InstanceRestoreToPointInTimeOutput) SourceDbInstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.SourceDbInstanceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+func (o InstanceRestoreToPointInTimeOutput) SourceDbiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.SourceDbiResourceId }).(pulumi.StringPtrOutput)
+}
+
+// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+func (o InstanceRestoreToPointInTimeOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceRestoreToPointInTime) *bool { return v.UseLatestRestorableTime }).(pulumi.BoolPtrOutput)
+}
+
+type InstanceRestoreToPointInTimePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceRestoreToPointInTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceRestoreToPointInTime)(nil)).Elem()
+}
+
+func (o InstanceRestoreToPointInTimePtrOutput) ToInstanceRestoreToPointInTimePtrOutput() InstanceRestoreToPointInTimePtrOutput {
+	return o
+}
+
+func (o InstanceRestoreToPointInTimePtrOutput) ToInstanceRestoreToPointInTimePtrOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimePtrOutput {
+	return o
+}
+
+func (o InstanceRestoreToPointInTimePtrOutput) Elem() InstanceRestoreToPointInTimeOutput {
+	return o.ApplyT(func(v *InstanceRestoreToPointInTime) InstanceRestoreToPointInTime { return *v }).(InstanceRestoreToPointInTimeOutput)
+}
+
+// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+func (o InstanceRestoreToPointInTimePtrOutput) RestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+func (o InstanceRestoreToPointInTimePtrOutput) SourceDbInstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDbInstanceIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+func (o InstanceRestoreToPointInTimePtrOutput) SourceDbiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDbiResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+func (o InstanceRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLatestRestorableTime
+	}).(pulumi.BoolPtrOutput)
 }
 
 type InstanceS3Import struct {
@@ -476,6 +1044,10 @@ type InstanceS3Import struct {
 	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
 }
 
+// InstanceS3ImportInput is an input type that accepts InstanceS3ImportArgs and InstanceS3ImportOutput values.
+// You can construct a concrete instance of `InstanceS3ImportInput` via:
+//
+//          InstanceS3ImportArgs{...}
 type InstanceS3ImportInput interface {
 	pulumi.Input
 
@@ -516,6 +1088,14 @@ func (i InstanceS3ImportArgs) ToInstanceS3ImportPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceS3ImportOutput).ToInstanceS3ImportPtrOutputWithContext(ctx)
 }
 
+// InstanceS3ImportPtrInput is an input type that accepts InstanceS3ImportArgs, InstanceS3ImportPtr and InstanceS3ImportPtrOutput values.
+// You can construct a concrete instance of `InstanceS3ImportPtrInput` via:
+//
+//          InstanceS3ImportArgs{...}
+//
+//  or:
+//
+//          nil
 type InstanceS3ImportPtrInput interface {
 	pulumi.Input
 
@@ -609,28 +1189,53 @@ func (o InstanceS3ImportPtrOutput) Elem() InstanceS3ImportOutput {
 }
 
 // The bucket name where your backup is stored
-func (o InstanceS3ImportPtrOutput) BucketName() pulumi.StringOutput {
-	return o.ApplyT(func(v InstanceS3Import) string { return v.BucketName }).(pulumi.StringOutput)
+func (o InstanceS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Can be blank, but is the path to your backup
 func (o InstanceS3ImportPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceS3Import) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *InstanceS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketPrefix
+	}).(pulumi.StringPtrOutput)
 }
 
 // Role applied to load the data.
-func (o InstanceS3ImportPtrOutput) IngestionRole() pulumi.StringOutput {
-	return o.ApplyT(func(v InstanceS3Import) string { return v.IngestionRole }).(pulumi.StringOutput)
+func (o InstanceS3ImportPtrOutput) IngestionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IngestionRole
+	}).(pulumi.StringPtrOutput)
 }
 
 // Source engine for the backup
-func (o InstanceS3ImportPtrOutput) SourceEngine() pulumi.StringOutput {
-	return o.ApplyT(func(v InstanceS3Import) string { return v.SourceEngine }).(pulumi.StringOutput)
+func (o InstanceS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceEngine
+	}).(pulumi.StringPtrOutput)
 }
 
 // Version of the source engine used to make the backup
-func (o InstanceS3ImportPtrOutput) SourceEngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v InstanceS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
+func (o InstanceS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceEngineVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 type OptionGroupOption struct {
@@ -648,6 +1253,10 @@ type OptionGroupOption struct {
 	VpcSecurityGroupMemberships []string `pulumi:"vpcSecurityGroupMemberships"`
 }
 
+// OptionGroupOptionInput is an input type that accepts OptionGroupOptionArgs and OptionGroupOptionOutput values.
+// You can construct a concrete instance of `OptionGroupOptionInput` via:
+//
+//          OptionGroupOptionArgs{...}
 type OptionGroupOptionInput interface {
 	pulumi.Input
 
@@ -682,6 +1291,10 @@ func (i OptionGroupOptionArgs) ToOptionGroupOptionOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionOutput)
 }
 
+// OptionGroupOptionArrayInput is an input type that accepts OptionGroupOptionArray and OptionGroupOptionArrayOutput values.
+// You can construct a concrete instance of `OptionGroupOptionArrayInput` via:
+//
+//          OptionGroupOptionArray{ OptionGroupOptionArgs{...} }
 type OptionGroupOptionArrayInput interface {
 	pulumi.Input
 
@@ -774,6 +1387,10 @@ type OptionGroupOptionOptionSetting struct {
 	Value string `pulumi:"value"`
 }
 
+// OptionGroupOptionOptionSettingInput is an input type that accepts OptionGroupOptionOptionSettingArgs and OptionGroupOptionOptionSettingOutput values.
+// You can construct a concrete instance of `OptionGroupOptionOptionSettingInput` via:
+//
+//          OptionGroupOptionOptionSettingArgs{...}
 type OptionGroupOptionOptionSettingInput interface {
 	pulumi.Input
 
@@ -800,6 +1417,10 @@ func (i OptionGroupOptionOptionSettingArgs) ToOptionGroupOptionOptionSettingOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionOptionSettingOutput)
 }
 
+// OptionGroupOptionOptionSettingArrayInput is an input type that accepts OptionGroupOptionOptionSettingArray and OptionGroupOptionOptionSettingArrayOutput values.
+// You can construct a concrete instance of `OptionGroupOptionOptionSettingArrayInput` via:
+//
+//          OptionGroupOptionOptionSettingArray{ OptionGroupOptionOptionSettingArgs{...} }
 type OptionGroupOptionOptionSettingArrayInput interface {
 	pulumi.Input
 
@@ -876,6 +1497,10 @@ type ParameterGroupParameter struct {
 	Value string `pulumi:"value"`
 }
 
+// ParameterGroupParameterInput is an input type that accepts ParameterGroupParameterArgs and ParameterGroupParameterOutput values.
+// You can construct a concrete instance of `ParameterGroupParameterInput` via:
+//
+//          ParameterGroupParameterArgs{...}
 type ParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -906,6 +1531,10 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterOutput)
 }
 
+// ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
+// You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
+//
+//          ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
 type ParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -978,6 +1607,339 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 	}).(ParameterGroupParameterOutput)
 }
 
+type ProxyAuth struct {
+	// The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+	AuthScheme *string `pulumi:"authScheme"`
+	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
+	Description *string `pulumi:"description"`
+	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
+	IamAuth *string `pulumi:"iamAuth"`
+	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// ProxyAuthInput is an input type that accepts ProxyAuthArgs and ProxyAuthOutput values.
+// You can construct a concrete instance of `ProxyAuthInput` via:
+//
+//          ProxyAuthArgs{...}
+type ProxyAuthInput interface {
+	pulumi.Input
+
+	ToProxyAuthOutput() ProxyAuthOutput
+	ToProxyAuthOutputWithContext(context.Context) ProxyAuthOutput
+}
+
+type ProxyAuthArgs struct {
+	// The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+	AuthScheme pulumi.StringPtrInput `pulumi:"authScheme"`
+	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
+	IamAuth pulumi.StringPtrInput `pulumi:"iamAuth"`
+	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (ProxyAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyAuth)(nil)).Elem()
+}
+
+func (i ProxyAuthArgs) ToProxyAuthOutput() ProxyAuthOutput {
+	return i.ToProxyAuthOutputWithContext(context.Background())
+}
+
+func (i ProxyAuthArgs) ToProxyAuthOutputWithContext(ctx context.Context) ProxyAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyAuthOutput)
+}
+
+// ProxyAuthArrayInput is an input type that accepts ProxyAuthArray and ProxyAuthArrayOutput values.
+// You can construct a concrete instance of `ProxyAuthArrayInput` via:
+//
+//          ProxyAuthArray{ ProxyAuthArgs{...} }
+type ProxyAuthArrayInput interface {
+	pulumi.Input
+
+	ToProxyAuthArrayOutput() ProxyAuthArrayOutput
+	ToProxyAuthArrayOutputWithContext(context.Context) ProxyAuthArrayOutput
+}
+
+type ProxyAuthArray []ProxyAuthInput
+
+func (ProxyAuthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProxyAuth)(nil)).Elem()
+}
+
+func (i ProxyAuthArray) ToProxyAuthArrayOutput() ProxyAuthArrayOutput {
+	return i.ToProxyAuthArrayOutputWithContext(context.Background())
+}
+
+func (i ProxyAuthArray) ToProxyAuthArrayOutputWithContext(ctx context.Context) ProxyAuthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyAuthArrayOutput)
+}
+
+type ProxyAuthOutput struct{ *pulumi.OutputState }
+
+func (ProxyAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyAuth)(nil)).Elem()
+}
+
+func (o ProxyAuthOutput) ToProxyAuthOutput() ProxyAuthOutput {
+	return o
+}
+
+func (o ProxyAuthOutput) ToProxyAuthOutputWithContext(ctx context.Context) ProxyAuthOutput {
+	return o
+}
+
+// The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+func (o ProxyAuthOutput) AuthScheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyAuth) *string { return v.AuthScheme }).(pulumi.StringPtrOutput)
+}
+
+// A user-specified description about the authentication used by a proxy to log in as a specific database user.
+func (o ProxyAuthOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyAuth) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
+func (o ProxyAuthOutput) IamAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyAuth) *string { return v.IamAuth }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+func (o ProxyAuthOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyAuth) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+type ProxyAuthArrayOutput struct{ *pulumi.OutputState }
+
+func (ProxyAuthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProxyAuth)(nil)).Elem()
+}
+
+func (o ProxyAuthArrayOutput) ToProxyAuthArrayOutput() ProxyAuthArrayOutput {
+	return o
+}
+
+func (o ProxyAuthArrayOutput) ToProxyAuthArrayOutputWithContext(ctx context.Context) ProxyAuthArrayOutput {
+	return o
+}
+
+func (o ProxyAuthArrayOutput) Index(i pulumi.IntInput) ProxyAuthOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProxyAuth {
+		return vs[0].([]ProxyAuth)[vs[1].(int)]
+	}).(ProxyAuthOutput)
+}
+
+type ProxyDefaultTargetGroupConnectionPoolConfig struct {
+	// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+	ConnectionBorrowTimeout *int `pulumi:"connectionBorrowTimeout"`
+	// One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
+	InitQuery *string `pulumi:"initQuery"`
+	// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+	MaxConnectionsPercent *int `pulumi:"maxConnectionsPercent"`
+	// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+	MaxIdleConnectionsPercent *int `pulumi:"maxIdleConnectionsPercent"`
+	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+	SessionPinningFilters []string `pulumi:"sessionPinningFilters"`
+}
+
+// ProxyDefaultTargetGroupConnectionPoolConfigInput is an input type that accepts ProxyDefaultTargetGroupConnectionPoolConfigArgs and ProxyDefaultTargetGroupConnectionPoolConfigOutput values.
+// You can construct a concrete instance of `ProxyDefaultTargetGroupConnectionPoolConfigInput` via:
+//
+//          ProxyDefaultTargetGroupConnectionPoolConfigArgs{...}
+type ProxyDefaultTargetGroupConnectionPoolConfigInput interface {
+	pulumi.Input
+
+	ToProxyDefaultTargetGroupConnectionPoolConfigOutput() ProxyDefaultTargetGroupConnectionPoolConfigOutput
+	ToProxyDefaultTargetGroupConnectionPoolConfigOutputWithContext(context.Context) ProxyDefaultTargetGroupConnectionPoolConfigOutput
+}
+
+type ProxyDefaultTargetGroupConnectionPoolConfigArgs struct {
+	// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+	ConnectionBorrowTimeout pulumi.IntPtrInput `pulumi:"connectionBorrowTimeout"`
+	// One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
+	InitQuery pulumi.StringPtrInput `pulumi:"initQuery"`
+	// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+	MaxConnectionsPercent pulumi.IntPtrInput `pulumi:"maxConnectionsPercent"`
+	// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+	MaxIdleConnectionsPercent pulumi.IntPtrInput `pulumi:"maxIdleConnectionsPercent"`
+	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+	SessionPinningFilters pulumi.StringArrayInput `pulumi:"sessionPinningFilters"`
+}
+
+func (ProxyDefaultTargetGroupConnectionPoolConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyDefaultTargetGroupConnectionPoolConfig)(nil)).Elem()
+}
+
+func (i ProxyDefaultTargetGroupConnectionPoolConfigArgs) ToProxyDefaultTargetGroupConnectionPoolConfigOutput() ProxyDefaultTargetGroupConnectionPoolConfigOutput {
+	return i.ToProxyDefaultTargetGroupConnectionPoolConfigOutputWithContext(context.Background())
+}
+
+func (i ProxyDefaultTargetGroupConnectionPoolConfigArgs) ToProxyDefaultTargetGroupConnectionPoolConfigOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupConnectionPoolConfigOutput)
+}
+
+func (i ProxyDefaultTargetGroupConnectionPoolConfigArgs) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutput() ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return i.ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProxyDefaultTargetGroupConnectionPoolConfigArgs) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupConnectionPoolConfigOutput).ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(ctx)
+}
+
+// ProxyDefaultTargetGroupConnectionPoolConfigPtrInput is an input type that accepts ProxyDefaultTargetGroupConnectionPoolConfigArgs, ProxyDefaultTargetGroupConnectionPoolConfigPtr and ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput values.
+// You can construct a concrete instance of `ProxyDefaultTargetGroupConnectionPoolConfigPtrInput` via:
+//
+//          ProxyDefaultTargetGroupConnectionPoolConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ProxyDefaultTargetGroupConnectionPoolConfigPtrInput interface {
+	pulumi.Input
+
+	ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutput() ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput
+	ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(context.Context) ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput
+}
+
+type proxyDefaultTargetGroupConnectionPoolConfigPtrType ProxyDefaultTargetGroupConnectionPoolConfigArgs
+
+func ProxyDefaultTargetGroupConnectionPoolConfigPtr(v *ProxyDefaultTargetGroupConnectionPoolConfigArgs) ProxyDefaultTargetGroupConnectionPoolConfigPtrInput {
+	return (*proxyDefaultTargetGroupConnectionPoolConfigPtrType)(v)
+}
+
+func (*proxyDefaultTargetGroupConnectionPoolConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyDefaultTargetGroupConnectionPoolConfig)(nil)).Elem()
+}
+
+func (i *proxyDefaultTargetGroupConnectionPoolConfigPtrType) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutput() ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return i.ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *proxyDefaultTargetGroupConnectionPoolConfigPtrType) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput)
+}
+
+type ProxyDefaultTargetGroupConnectionPoolConfigOutput struct{ *pulumi.OutputState }
+
+func (ProxyDefaultTargetGroupConnectionPoolConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyDefaultTargetGroupConnectionPoolConfig)(nil)).Elem()
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ToProxyDefaultTargetGroupConnectionPoolConfigOutput() ProxyDefaultTargetGroupConnectionPoolConfigOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ToProxyDefaultTargetGroupConnectionPoolConfigOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutput() ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return o.ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *ProxyDefaultTargetGroupConnectionPoolConfig {
+		return &v
+	}).(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput)
+}
+
+// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ConnectionBorrowTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *int { return v.ConnectionBorrowTimeout }).(pulumi.IntPtrOutput)
+}
+
+// One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) InitQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *string { return v.InitQuery }).(pulumi.StringPtrOutput)
+}
+
+// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) MaxConnectionsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *int { return v.MaxConnectionsPercent }).(pulumi.IntPtrOutput)
+}
+
+// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) MaxIdleConnectionsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *int { return v.MaxIdleConnectionsPercent }).(pulumi.IntPtrOutput)
+}
+
+// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) SessionPinningFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) []string { return v.SessionPinningFilters }).(pulumi.StringArrayOutput)
+}
+
+type ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyDefaultTargetGroupConnectionPoolConfig)(nil)).Elem()
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutput() ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) Elem() ProxyDefaultTargetGroupConnectionPoolConfigOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) ProxyDefaultTargetGroupConnectionPoolConfig {
+		return *v
+	}).(ProxyDefaultTargetGroupConnectionPoolConfigOutput)
+}
+
+// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) ConnectionBorrowTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionBorrowTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) InitQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InitQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) MaxConnectionsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConnectionsPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) MaxIdleConnectionsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxIdleConnectionsPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) SessionPinningFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionPinningFilters
+	}).(pulumi.StringArrayOutput)
+}
+
 type SecurityGroupIngress struct {
 	// The CIDR block to accept
 	Cidr *string `pulumi:"cidr"`
@@ -990,6 +1952,10 @@ type SecurityGroupIngress struct {
 	SecurityGroupOwnerId *string `pulumi:"securityGroupOwnerId"`
 }
 
+// SecurityGroupIngressInput is an input type that accepts SecurityGroupIngressArgs and SecurityGroupIngressOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressInput` via:
+//
+//          SecurityGroupIngressArgs{...}
 type SecurityGroupIngressInput interface {
 	pulumi.Input
 
@@ -1021,6 +1987,10 @@ func (i SecurityGroupIngressArgs) ToSecurityGroupIngressOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressOutput)
 }
 
+// SecurityGroupIngressArrayInput is an input type that accepts SecurityGroupIngressArray and SecurityGroupIngressArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressArrayInput` via:
+//
+//          SecurityGroupIngressArray{ SecurityGroupIngressArgs{...} }
 type SecurityGroupIngressArrayInput interface {
 	pulumi.Input
 
@@ -1100,10 +2070,16 @@ func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupI
 func init() {
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterArrayOutput{})
+	pulumi.RegisterOutputType(ClusterRestoreToPointInTimeOutput{})
+	pulumi.RegisterOutputType(ClusterRestoreToPointInTimePtrOutput{})
 	pulumi.RegisterOutputType(ClusterS3ImportOutput{})
 	pulumi.RegisterOutputType(ClusterS3ImportPtrOutput{})
 	pulumi.RegisterOutputType(ClusterScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterScalingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberOutput{})
+	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberArrayOutput{})
+	pulumi.RegisterOutputType(InstanceRestoreToPointInTimeOutput{})
+	pulumi.RegisterOutputType(InstanceRestoreToPointInTimePtrOutput{})
 	pulumi.RegisterOutputType(InstanceS3ImportOutput{})
 	pulumi.RegisterOutputType(InstanceS3ImportPtrOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionOutput{})
@@ -1112,6 +2088,10 @@ func init() {
 	pulumi.RegisterOutputType(OptionGroupOptionOptionSettingArrayOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
+	pulumi.RegisterOutputType(ProxyAuthOutput{})
+	pulumi.RegisterOutputType(ProxyAuthArrayOutput{})
+	pulumi.RegisterOutputType(ProxyDefaultTargetGroupConnectionPoolConfigOutput{})
+	pulumi.RegisterOutputType(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{})
 }

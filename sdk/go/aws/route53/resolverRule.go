@@ -7,10 +7,67 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Route53 Resolver rule.
+//
+// ## Example Usage
+// ### System rule
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := route53.NewResolverRule(ctx, "sys", &route53.ResolverRuleArgs{
+// 			DomainName: pulumi.String("subdomain.example.com"),
+// 			RuleType:   pulumi.String("SYSTEM"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Forward rule
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := route53.NewResolverRule(ctx, "fwd", &route53.ResolverRuleArgs{
+// 			DomainName:         pulumi.String("example.com"),
+// 			RuleType:           pulumi.String("FORWARD"),
+// 			ResolverEndpointId: pulumi.Any(aws_route53_resolver_endpoint.Foo.Id),
+// 			TargetIps: route53.ResolverRuleTargetIpArray{
+// 				&route53.ResolverRuleTargetIpArgs{
+// 					Ip: pulumi.String("123.45.67.89"),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("Prod"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ResolverRule struct {
 	pulumi.CustomResourceState
 
@@ -30,8 +87,8 @@ type ResolverRule struct {
 	// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
 	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
 	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
 	// This argument should only be specified for `FORWARD` type rules.
 	TargetIps ResolverRuleTargetIpArrayOutput `pulumi:"targetIps"`
@@ -87,8 +144,8 @@ type resolverRuleState struct {
 	// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
 	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
 	ShareStatus *string `pulumi:"shareStatus"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
 	// This argument should only be specified for `FORWARD` type rules.
 	TargetIps []ResolverRuleTargetIp `pulumi:"targetIps"`
@@ -111,8 +168,8 @@ type ResolverRuleState struct {
 	// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
 	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
 	ShareStatus pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
 	// This argument should only be specified for `FORWARD` type rules.
 	TargetIps ResolverRuleTargetIpArrayInput
@@ -132,8 +189,8 @@ type resolverRuleArgs struct {
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 	// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
 	RuleType string `pulumi:"ruleType"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
 	// This argument should only be specified for `FORWARD` type rules.
 	TargetIps []ResolverRuleTargetIp `pulumi:"targetIps"`
@@ -150,8 +207,8 @@ type ResolverRuleArgs struct {
 	ResolverEndpointId pulumi.StringPtrInput
 	// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
 	RuleType pulumi.StringInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
 	// This argument should only be specified for `FORWARD` type rules.
 	TargetIps ResolverRuleTargetIpArrayInput

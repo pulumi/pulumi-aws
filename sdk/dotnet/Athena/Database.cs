@@ -12,9 +12,28 @@ namespace Pulumi.Aws.Athena
     /// <summary>
     /// Provides an Athena database.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_database.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var hogeBucket = new Aws.S3.Bucket("hogeBucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var hogeDatabase = new Aws.Athena.Database("hogeDatabase", new Aws.Athena.DatabaseArgs
+    ///         {
+    ///             Name = "database_name",
+    ///             Bucket = hogeBucket.BucketName,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Database : Pulumi.CustomResource
     {
@@ -51,7 +70,7 @@ namespace Pulumi.Aws.Athena
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("aws:athena/database:Database", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:athena/database:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -146,73 +165,5 @@ namespace Pulumi.Aws.Athena
         public DatabaseState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DatabaseEncryptionConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-        /// </summary>
-        [Input("encryptionOption", required: true)]
-        public Input<string> EncryptionOption { get; set; } = null!;
-
-        /// <summary>
-        /// The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
-        /// </summary>
-        [Input("kmsKey")]
-        public Input<string>? KmsKey { get; set; }
-
-        public DatabaseEncryptionConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class DatabaseEncryptionConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-        /// </summary>
-        [Input("encryptionOption", required: true)]
-        public Input<string> EncryptionOption { get; set; } = null!;
-
-        /// <summary>
-        /// The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
-        /// </summary>
-        [Input("kmsKey")]
-        public Input<string>? KmsKey { get; set; }
-
-        public DatabaseEncryptionConfigurationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DatabaseEncryptionConfiguration
-    {
-        /// <summary>
-        /// The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-        /// </summary>
-        public readonly string EncryptionOption;
-        /// <summary>
-        /// The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
-        /// </summary>
-        public readonly string? KmsKey;
-
-        [OutputConstructor]
-        private DatabaseEncryptionConfiguration(
-            string encryptionOption,
-            string? kmsKey)
-        {
-            EncryptionOption = encryptionOption;
-            KmsKey = kmsKey;
-        }
-    }
     }
 }

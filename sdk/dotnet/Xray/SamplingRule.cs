@@ -12,9 +12,38 @@ namespace Pulumi.Aws.Xray
     /// <summary>
     /// Creates and manages an AWS XRay Sampling Rule.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/xray_sampling_rule.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Xray.SamplingRule("example", new Aws.Xray.SamplingRuleArgs
+    ///         {
+    ///             Attributes = 
+    ///             {
+    ///                 { "Hello", "Tris" },
+    ///             },
+    ///             FixedRate = 0.05,
+    ///             Host = "*",
+    ///             HttpMethod = "*",
+    ///             Priority = 10000,
+    ///             ReservoirSize = 1,
+    ///             ResourceArn = "*",
+    ///             RuleName = "example",
+    ///             ServiceName = "*",
+    ///             ServiceType = "*",
+    ///             UrlPath = "*",
+    ///             Version = 1,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SamplingRule : Pulumi.CustomResource
     {
@@ -85,6 +114,12 @@ namespace Pulumi.Aws.Xray
         public Output<string> ServiceType { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// Matches the path from a request URL.
         /// </summary>
         [Output("urlPath")]
@@ -105,7 +140,7 @@ namespace Pulumi.Aws.Xray
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SamplingRule(string name, SamplingRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:xray/samplingRule:SamplingRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:xray/samplingRule:SamplingRule", name, args ?? new SamplingRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -208,6 +243,18 @@ namespace Pulumi.Aws.Xray
         [Input("serviceType", required: true)]
         public Input<string> ServiceType { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// Matches the path from a request URL.
         /// </summary>
@@ -298,6 +345,18 @@ namespace Pulumi.Aws.Xray
         /// </summary>
         [Input("serviceType")]
         public Input<string>? ServiceType { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Matches the path from a request URL.

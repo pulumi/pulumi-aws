@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .dashboard import *
+from .event_bus import *
 from .event_permission import *
 from .event_rule import *
 from .event_target import *
@@ -16,3 +17,5 @@ from .log_resource_policy import *
 from .log_stream import *
 from .log_subscription_filter import *
 from .metric_alarm import *
+from ._inputs import *
+from . import outputs

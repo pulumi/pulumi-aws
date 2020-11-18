@@ -4,29 +4,143 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Patch Baseline resource
- * 
- * > **NOTE on Patch Baselines:** The `approvedPatches` and `approvalRule` are 
+ *
+ * > **NOTE on Patch Baselines:** The `approvedPatches` and `approvalRule` are
  * both marked as optional fields, but the Patch Baseline requires that at least one
  * of them is specified.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * Basic usage using `approvedPatches` only
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const production = new aws.ssm.PatchBaseline("production", {
  *     approvedPatches: ["KB123456"],
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_baseline.html.markdown.
+ * Advanced usage, specifying patch filters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const production = new aws.ssm.PatchBaseline("production", {
+ *     approvalRules: [
+ *         {
+ *             approveAfterDays: 7,
+ *             complianceLevel: "HIGH",
+ *             patchFilters: [
+ *                 {
+ *                     key: "PRODUCT",
+ *                     values: ["WindowsServer2016"],
+ *                 },
+ *                 {
+ *                     key: "CLASSIFICATION",
+ *                     values: [
+ *                         "CriticalUpdates",
+ *                         "SecurityUpdates",
+ *                         "Updates",
+ *                     ],
+ *                 },
+ *                 {
+ *                     key: "MSRC_SEVERITY",
+ *                     values: [
+ *                         "Critical",
+ *                         "Important",
+ *                         "Moderate",
+ *                     ],
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             approveAfterDays: 7,
+ *             patchFilters: [{
+ *                 key: "PRODUCT",
+ *                 values: ["WindowsServer2012"],
+ *             }],
+ *         },
+ *     ],
+ *     approvedPatches: [
+ *         "KB123456",
+ *         "KB456789",
+ *     ],
+ *     description: "Patch Baseline Description",
+ *     globalFilters: [
+ *         {
+ *             key: "PRODUCT",
+ *             values: ["WindowsServer2008"],
+ *         },
+ *         {
+ *             key: "CLASSIFICATION",
+ *             values: ["ServicePacks"],
+ *         },
+ *         {
+ *             key: "MSRC_SEVERITY",
+ *             values: ["Low"],
+ *         },
+ *     ],
+ *     rejectedPatches: ["KB987654"],
+ * });
+ * ```
+ *
+ * Advanced usage, specifying Microsoft application and Windows patch rules
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const windowsOsApps = new aws.ssm.PatchBaseline("windows_os_apps", {
+ *     approvalRules: [
+ *         {
+ *             approveAfterDays: 7,
+ *             patchFilters: [
+ *                 {
+ *                     key: "CLASSIFICATION",
+ *                     values: [
+ *                         "CriticalUpdates",
+ *                         "SecurityUpdates",
+ *                     ],
+ *                 },
+ *                 {
+ *                     key: "MSRC_SEVERITY",
+ *                     values: [
+ *                         "Critical",
+ *                         "Important",
+ *                     ],
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             approveAfterDays: 7,
+ *             patchFilters: [
+ *                 {
+ *                     key: "PATCH_SET",
+ *                     values: ["APPLICATION"],
+ *                 },
+ *                 // Filter on Microsoft product if necessary
+ *                 {
+ *                     key: "PRODUCT",
+ *                     values: [
+ *                         "Office 2013",
+ *                         "Office 2016",
+ *                     ],
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ *     description: "Patch both Windows and Microsoft apps",
+ *     operatingSystem: "WINDOWS",
+ * });
+ * ```
  */
 export class PatchBaseline extends pulumi.CustomResource {
     /**
@@ -36,6 +150,7 @@ export class PatchBaseline extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PatchBaselineState, opts?: pulumi.CustomResourceOptions): PatchBaseline {
         return new PatchBaseline(name, <any>state, { ...opts, id: id });
@@ -88,9 +203,9 @@ export class PatchBaseline extends pulumi.CustomResource {
      */
     public readonly rejectedPatches!: pulumi.Output<string[] | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a PatchBaseline resource with the given unique name, arguments, and options.
@@ -173,9 +288,9 @@ export interface PatchBaselineState {
      */
     readonly rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -215,7 +330,7 @@ export interface PatchBaselineArgs {
      */
     readonly rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

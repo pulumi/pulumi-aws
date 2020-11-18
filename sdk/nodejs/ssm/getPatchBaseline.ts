@@ -4,29 +4,42 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ * To retrieve a baseline provided by AWS:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const centos = aws.ssm.getPatchBaseline({
+ *
+ * const centos = pulumi.output(aws.ssm.getPatchBaseline({
  *     namePrefix: "AWS-",
  *     operatingSystem: "CENTOS",
  *     owner: "AWS",
- * });
+ * }, { async: true }));
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_patch_baseline.html.markdown.
+ * To retrieve a baseline on your account:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const defaultCustom = pulumi.output(aws.ssm.getPatchBaseline({
+ *     defaultBaseline: true,
+ *     namePrefix: "MyCustomBaseline",
+ *     operatingSystem: "WINDOWS",
+ *     owner: "Self",
+ * }, { async: true }));
+ * ```
  */
-export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> & GetPatchBaselineResult {
+export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> {
     if (!opts) {
         opts = {}
     }
@@ -34,14 +47,12 @@ export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetPatchBaselineResult> = pulumi.runtime.invoke("aws:ssm/getPatchBaseline:getPatchBaseline", {
+    return pulumi.runtime.invoke("aws:ssm/getPatchBaseline:getPatchBaseline", {
         "defaultBaseline": args.defaultBaseline,
         "namePrefix": args.namePrefix,
         "operatingSystem": args.operatingSystem,
         "owner": args.owner,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -76,14 +87,14 @@ export interface GetPatchBaselineResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the baseline.
      */
     readonly name: string;
     readonly namePrefix?: string;
     readonly operatingSystem?: string;
     readonly owner: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

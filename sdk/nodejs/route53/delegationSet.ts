@@ -6,27 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const main = new aws.route53.DelegationSet("main", {
- *     referenceName: "DynDNS",
- * });
- * const primary = new aws.route53.Zone("primary", {
- *     delegationSetId: main.id,
- * });
- * const secondary = new aws.route53.Zone("secondary", {
- *     delegationSetId: main.id,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_delegation_set.html.markdown.
+ * const main = new aws.route53.DelegationSet("main", {referenceName: "DynDNS"});
+ * const primary = new aws.route53.Zone("primary", {delegationSetId: main.id});
+ * const secondary = new aws.route53.Zone("secondary", {delegationSetId: main.id});
+ * ```
  */
 export class DelegationSet extends pulumi.CustomResource {
     /**
@@ -36,6 +26,7 @@ export class DelegationSet extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DelegationSetState, opts?: pulumi.CustomResourceOptions): DelegationSet {
         return new DelegationSet(name, <any>state, { ...opts, id: id });

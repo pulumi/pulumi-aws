@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type NotificationRuleTarget struct {
@@ -19,6 +19,10 @@ type NotificationRuleTarget struct {
 	Type *string `pulumi:"type"`
 }
 
+// NotificationRuleTargetInput is an input type that accepts NotificationRuleTargetArgs and NotificationRuleTargetOutput values.
+// You can construct a concrete instance of `NotificationRuleTargetInput` via:
+//
+//          NotificationRuleTargetArgs{...}
 type NotificationRuleTargetInput interface {
 	pulumi.Input
 
@@ -47,6 +51,10 @@ func (i NotificationRuleTargetArgs) ToNotificationRuleTargetOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleTargetOutput)
 }
 
+// NotificationRuleTargetArrayInput is an input type that accepts NotificationRuleTargetArray and NotificationRuleTargetArrayOutput values.
+// You can construct a concrete instance of `NotificationRuleTargetArrayInput` via:
+//
+//          NotificationRuleTargetArray{ NotificationRuleTargetArgs{...} }
 type NotificationRuleTargetArrayInput interface {
 	pulumi.Input
 

@@ -2,49 +2,41 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
- *     retentionInDays: 14,
- * });
- * const ad_log_policyPolicyDocument = exampleLogGroup.arn.apply(arn => aws.iam.getPolicyDocument({
+ *
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 14});
+ * const ad-log-policyPolicyDocument = exampleLogGroup.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "logs:CreateLogStream",
  *             "logs:PutLogEvents",
  *         ],
- *         effect: "Allow",
  *         principals: [{
  *             identifiers: ["ds.amazonaws.com"],
  *             type: "Service",
  *         }],
- *         resources: [arn],
+ *         resources: [`${arn}:*`],
+ *         effect: "Allow",
  *     }],
  * }));
- * const ad_log_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("ad-log-policy", {
+ * const ad_log_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("ad-log-policyLogResourcePolicy", {
  *     policyDocument: ad_log_policyPolicyDocument.json,
  *     policyName: "ad-log-policy",
  * });
- * const exampleLogService = new aws.directoryservice.LogService("example", {
- *     directoryId: aws_directory_service_directory_example.id,
+ * const exampleLogService = new aws.directoryservice.LogService("exampleLogService", {
+ *     directoryId: aws_directory_service_directory.example.id,
  *     logGroupName: exampleLogGroup.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_log_subscription.html.markdown.
  */
 export class LogService extends pulumi.CustomResource {
     /**
@@ -54,6 +46,7 @@ export class LogService extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LogServiceState, opts?: pulumi.CustomResourceOptions): LogService {
         return new LogService(name, <any>state, { ...opts, id: id });

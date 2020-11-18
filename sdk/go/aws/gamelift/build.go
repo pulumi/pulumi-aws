@@ -7,10 +7,40 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an Gamelift Build resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/gamelift"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := gamelift.NewBuild(ctx, "test", &gamelift.BuildArgs{
+// 			OperatingSystem: pulumi.String("WINDOWS_2012"),
+// 			StorageLocation: &gamelift.BuildStorageLocationArgs{
+// 				Bucket:  pulumi.Any(aws_s3_bucket.Test.Bucket),
+// 				Key:     pulumi.Any(aws_s3_bucket_object.Test.Key),
+// 				RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			aws_iam_role_policy.Test,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Build struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +52,8 @@ type Build struct {
 	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationOutput `pulumi:"storageLocation"`
-	// Key-value mapping of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Version that is associated with this build.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
@@ -70,8 +100,8 @@ type buildState struct {
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation *BuildStorageLocation `pulumi:"storageLocation"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// Version that is associated with this build.
 	Version *string `pulumi:"version"`
 }
@@ -85,8 +115,8 @@ type BuildState struct {
 	OperatingSystem pulumi.StringPtrInput
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 	// Version that is associated with this build.
 	Version pulumi.StringPtrInput
 }
@@ -102,8 +132,8 @@ type buildArgs struct {
 	OperatingSystem string `pulumi:"operatingSystem"`
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocation `pulumi:"storageLocation"`
-	// Key-value mapping of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// Version that is associated with this build.
 	Version *string `pulumi:"version"`
 }
@@ -116,8 +146,8 @@ type BuildArgs struct {
 	OperatingSystem pulumi.StringInput
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationInput
-	// Key-value mapping of resource tags
-	Tags pulumi.MapInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 	// Version that is associated with this build.
 	Version pulumi.StringPtrInput
 }

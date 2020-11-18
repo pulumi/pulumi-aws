@@ -9,31 +9,38 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecr
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_repository.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetRepository.InvokeAsync() instead")]
-        public static Task<GetRepositoryResult> GetRepository(GetRepositoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:ecr/getRepository:getRepository", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRepository
     {
         /// <summary>
         /// The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_repository.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var service = Output.Create(Aws.Ecr.GetRepository.InvokeAsync(new Aws.Ecr.GetRepositoryArgs
+        ///         {
+        ///             Name = "ecr-repository",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRepositoryResult> InvokeAsync(GetRepositoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:ecr/getRepository:getRepository", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:ecr/getRepository:getRepository", args ?? new GetRepositoryArgs(), options.WithVersion());
     }
+
 
     public sealed class GetRepositoryArgs : Pulumi.InvokeArgs
     {
@@ -43,15 +50,21 @@ namespace Pulumi.Aws.Ecr
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The registry ID where the repository was created.
+        /// </summary>
+        [Input("registryId")]
+        public string? RegistryId { get; set; }
+
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags assigned to the resource.
+        /// A map of tags assigned to the resource.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -60,6 +73,7 @@ namespace Pulumi.Aws.Ecr
         }
     }
 
+
     [OutputType]
     public sealed class GetRepositoryResult
     {
@@ -67,39 +81,62 @@ namespace Pulumi.Aws.Ecr
         /// Full ARN of the repository.
         /// </summary>
         public readonly string Arn;
-        public readonly string Name;
         /// <summary>
-        /// The registry ID where the repository was created.
+        /// Encryption configuration for the repository. See Encryption Configuration below.
         /// </summary>
+        public readonly ImmutableArray<Outputs.GetRepositoryEncryptionConfigurationResult> EncryptionConfigurations;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
+        /// Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetRepositoryImageScanningConfigurationResult> ImageScanningConfigurations;
+        /// <summary>
+        /// The tag mutability setting for the repository.
+        /// </summary>
+        public readonly string ImageTagMutability;
+        public readonly string Name;
         public readonly string RegistryId;
         /// <summary>
         /// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         /// </summary>
         public readonly string RepositoryUrl;
         /// <summary>
-        /// A mapping of tags assigned to the resource.
+        /// A map of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetRepositoryResult(
             string arn,
+
+            ImmutableArray<Outputs.GetRepositoryEncryptionConfigurationResult> encryptionConfigurations,
+
+            string id,
+
+            ImmutableArray<Outputs.GetRepositoryImageScanningConfigurationResult> imageScanningConfigurations,
+
+            string imageTagMutability,
+
             string name,
+
             string registryId,
+
             string repositoryUrl,
-            ImmutableDictionary<string, object> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
+            EncryptionConfigurations = encryptionConfigurations;
+            Id = id;
+            ImageScanningConfigurations = imageScanningConfigurations;
+            ImageTagMutability = imageTagMutability;
             Name = name;
             RegistryId = registryId;
             RepositoryUrl = repositoryUrl;
             Tags = tags;
-            Id = id;
         }
     }
 }

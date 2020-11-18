@@ -6,7 +6,7 @@ package docdb
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages a DocDB Cluster.
@@ -19,8 +19,36 @@ import (
 // (see documentation below).
 //
 // > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
-// > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+// **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/docdb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := docdb.NewCluster(ctx, "docdb", &docdb.ClusterArgs{
+// 			BackupRetentionPeriod: pulumi.Int(5),
+// 			ClusterIdentifier:     pulumi.String("my-docdb-cluster"),
+// 			Engine:                pulumi.String("docdb"),
+// 			MasterPassword:        pulumi.String("mustbeeightchars"),
+// 			MasterUsername:        pulumi.String("foo"),
+// 			PreferredBackupWindow: pulumi.String("07:00-09:00"),
+// 			SkipFinalSnapshot:     pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +75,8 @@ type Cluster struct {
 	DbClusterParameterGroupName pulumi.StringOutput `pulumi:"dbClusterParameterGroupName"`
 	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
+	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enabledCloudwatchLogsExports"`
@@ -83,8 +113,8 @@ type Cluster struct {
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the DB cluster.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// A map of tags to assign to the DB cluster.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// List of VPC security groups to associate
 	// with the Cluster
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -141,6 +171,8 @@ type clusterState struct {
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
 	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
@@ -177,8 +209,8 @@ type clusterState struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the DB cluster.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the DB cluster.
+	Tags map[string]string `pulumi:"tags"`
 	// List of VPC security groups to associate
 	// with the Cluster
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -208,6 +240,8 @@ type ClusterState struct {
 	DbClusterParameterGroupName pulumi.StringPtrInput
 	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName pulumi.StringPtrInput
+	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection pulumi.BoolPtrInput
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
@@ -244,8 +278,8 @@ type ClusterState struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the DB cluster.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the DB cluster.
+	Tags pulumi.StringMapInput
 	// List of VPC security groups to associate
 	// with the Cluster
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -275,6 +309,8 @@ type clusterArgs struct {
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
 	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
@@ -305,8 +341,8 @@ type clusterArgs struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the DB cluster.
-	Tags map[string]interface{} `pulumi:"tags"`
+	// A map of tags to assign to the DB cluster.
+	Tags map[string]string `pulumi:"tags"`
 	// List of VPC security groups to associate
 	// with the Cluster
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -333,6 +369,8 @@ type ClusterArgs struct {
 	DbClusterParameterGroupName pulumi.StringPtrInput
 	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName pulumi.StringPtrInput
+	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection pulumi.BoolPtrInput
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
@@ -363,8 +401,8 @@ type ClusterArgs struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the DB cluster.
-	Tags pulumi.MapInput
+	// A map of tags to assign to the DB cluster.
+	Tags pulumi.StringMapInput
 	// List of VPC security groups to associate
 	// with the Cluster
 	VpcSecurityGroupIds pulumi.StringArrayInput

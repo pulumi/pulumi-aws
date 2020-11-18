@@ -4,21 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get a list of EBS Snapshot IDs matching the specified
  * criteria.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const ebsVolumes = aws.ebs.getSnapshotIds({
+ *
+ * const ebsVolumes = pulumi.output(aws.ebs.getSnapshotIds({
  *     filters: [
  *         {
  *             name: "volume-size",
@@ -30,12 +29,10 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     owners: ["self"],
- * });
+ * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
  */
-export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotIdsResult> & GetSnapshotIdsResult {
+export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotIdsResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -44,13 +41,11 @@ export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSnapshotIdsResult> = pulumi.runtime.invoke("aws:ebs/getSnapshotIds:getSnapshotIds", {
+    return pulumi.runtime.invoke("aws:ebs/getSnapshotIds:getSnapshotIds", {
         "filters": args.filters,
         "owners": args.owners,
         "restorableByUserIds": args.restorableByUserIds,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -78,11 +73,14 @@ export interface GetSnapshotIdsArgs {
  */
 export interface GetSnapshotIdsResult {
     readonly filters?: outputs.ebs.GetSnapshotIdsFilter[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
+     * Set of EBS snapshot IDs, sorted by creation time in descending order.
+     */
     readonly ids: string[];
     readonly owners?: string[];
     readonly restorableByUserIds?: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

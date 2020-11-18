@@ -9,31 +9,40 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Efs
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Provides information about an Elastic File System (EFS).
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_file_system.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetFileSystem.InvokeAsync() instead")]
-        public static Task<GetFileSystemResult> GetFileSystem(GetFileSystemArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetFileSystem
     {
         /// <summary>
-        /// Provides information about an Elastic File System (EFS).
+        /// Provides information about an Elastic File System (EFS) File System.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_file_system.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var fileSystemId = config.Get("fileSystemId") ?? "";
+        ///         var byId = Output.Create(Aws.Efs.GetFileSystem.InvokeAsync(new Aws.Efs.GetFileSystemArgs
+        ///         {
+        ///             FileSystemId = fileSystemId,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFileSystemResult> InvokeAsync(GetFileSystemArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? new GetFileSystemArgs(), options.WithVersion());
     }
+
 
     public sealed class GetFileSystemArgs : Pulumi.InvokeArgs
     {
@@ -50,10 +59,10 @@ namespace Pulumi.Aws.Efs
         public string? FileSystemId { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -61,6 +70,7 @@ namespace Pulumi.Aws.Efs
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetFileSystemResult
@@ -80,6 +90,10 @@ namespace Pulumi.Aws.Efs
         public readonly bool Encrypted;
         public readonly string FileSystemId;
         /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The ARN for the KMS encryption key.
         /// </summary>
         public readonly string KmsKeyId;
@@ -93,62 +107,60 @@ namespace Pulumi.Aws.Efs
         public readonly string PerformanceMode;
         /// <summary>
         /// The throughput, measured in MiB/s, that you want to provision for the file system.
-        /// * `tags` -A mapping of tags to assign to the file system.
+        /// * `tags` -A map of tags to assign to the file system.
         /// </summary>
         public readonly double ProvisionedThroughputInMibps;
-        public readonly ImmutableDictionary<string, object> Tags;
+        /// <summary>
+        /// The current byte count used by the file system.
+        /// </summary>
+        public readonly int SizeInBytes;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Throughput mode for the file system.
         /// </summary>
         public readonly string ThroughputMode;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetFileSystemResult(
             string arn,
+
             string creationToken,
+
             string dnsName,
+
             bool encrypted,
+
             string fileSystemId,
+
+            string id,
+
             string kmsKeyId,
+
             Outputs.GetFileSystemLifecyclePolicyResult lifecyclePolicy,
+
             string performanceMode,
+
             double provisionedThroughputInMibps,
-            ImmutableDictionary<string, object> tags,
-            string throughputMode,
-            string id)
+
+            int sizeInBytes,
+
+            ImmutableDictionary<string, string> tags,
+
+            string throughputMode)
         {
             Arn = arn;
             CreationToken = creationToken;
             DnsName = dnsName;
             Encrypted = encrypted;
             FileSystemId = fileSystemId;
+            Id = id;
             KmsKeyId = kmsKeyId;
             LifecyclePolicy = lifecyclePolicy;
             PerformanceMode = performanceMode;
             ProvisionedThroughputInMibps = provisionedThroughputInMibps;
+            SizeInBytes = sizeInBytes;
             Tags = tags;
             ThroughputMode = throughputMode;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetFileSystemLifecyclePolicyResult
-    {
-        public readonly string TransitionToIa;
-
-        [OutputConstructor]
-        private GetFileSystemLifecyclePolicyResult(string transitionToIa)
-        {
-            TransitionToIa = transitionToIa;
-        }
-    }
     }
 }

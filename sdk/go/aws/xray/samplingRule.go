@@ -7,10 +7,46 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates and manages an AWS XRay Sampling Rule.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/xray"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := xray.NewSamplingRule(ctx, "example", &xray.SamplingRuleArgs{
+// 			Attributes: pulumi.StringMap{
+// 				"Hello": pulumi.String("Tris"),
+// 			},
+// 			FixedRate:     pulumi.Float64(0.05),
+// 			Host:          pulumi.String("*"),
+// 			HttpMethod:    pulumi.String("*"),
+// 			Priority:      pulumi.Int(10000),
+// 			ReservoirSize: pulumi.Int(1),
+// 			ResourceArn:   pulumi.String("*"),
+// 			RuleName:      pulumi.String("example"),
+// 			ServiceName:   pulumi.String("*"),
+// 			ServiceType:   pulumi.String("*"),
+// 			UrlPath:       pulumi.String("*"),
+// 			Version:       pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SamplingRule struct {
 	pulumi.CustomResourceState
 
@@ -36,6 +72,8 @@ type SamplingRule struct {
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType pulumi.StringOutput `pulumi:"serviceType"`
+	// Key-value mapping of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Matches the path from a request URL.
 	UrlPath pulumi.StringOutput `pulumi:"urlPath"`
 	// The version of the sampling rule format (`1` )
@@ -122,6 +160,8 @@ type samplingRuleState struct {
 	ServiceName *string `pulumi:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType *string `pulumi:"serviceType"`
+	// Key-value mapping of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// Matches the path from a request URL.
 	UrlPath *string `pulumi:"urlPath"`
 	// The version of the sampling rule format (`1` )
@@ -151,6 +191,8 @@ type SamplingRuleState struct {
 	ServiceName pulumi.StringPtrInput
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType pulumi.StringPtrInput
+	// Key-value mapping of resource tags
+	Tags pulumi.StringMapInput
 	// Matches the path from a request URL.
 	UrlPath pulumi.StringPtrInput
 	// The version of the sampling rule format (`1` )
@@ -182,6 +224,8 @@ type samplingRuleArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType string `pulumi:"serviceType"`
+	// Key-value mapping of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// Matches the path from a request URL.
 	UrlPath string `pulumi:"urlPath"`
 	// The version of the sampling rule format (`1` )
@@ -210,6 +254,8 @@ type SamplingRuleArgs struct {
 	ServiceName pulumi.StringInput
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType pulumi.StringInput
+	// Key-value mapping of resource tags
+	Tags pulumi.StringMapInput
 	// Matches the path from a request URL.
 	UrlPath pulumi.StringInput
 	// The version of the sampling rule format (`1` )

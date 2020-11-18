@@ -2,41 +2,40 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Config Organization Custom Rule. More information about these rules can be found in the [Enabling AWS Config Rules Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. For working with Organization Managed Rules (those invoking an AWS managed rule), see the [`aws_config_organization_managed__rule` resource](https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule.html).
- * 
+ * Manages a Config Organization Custom Rule. More information about these rules can be found in the [Enabling AWS Config Rules Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. For working with Organization Managed Rules (those invoking an AWS managed rule), see the `aws_config_organization_managed__rule` resource.
+ *
  * > **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excludedAccounts` argument.
- * 
- * > **NOTE:** The proper Lambda permission to allow the AWS Config service invoke the Lambda Function must be in place before the rule will successfully create or update. See also the [`aws.lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
- * 
+ *
+ * > **NOTE:** The proper Lambda permission to allow the AWS Config service invoke the Lambda Function must be in place before the rule will successfully create or update. See also the `aws.lambda.Permission` resource.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const examplePermission = new aws.lambda.Permission("example", {
+ *
+ * const examplePermission = new aws.lambda.Permission("examplePermission", {
  *     action: "lambda:InvokeFunction",
- *     function: aws_lambda_function_example.arn,
+ *     "function": aws_lambda_function.example.arn,
  *     principal: "config.amazonaws.com",
  * });
- * const exampleOrganization = new aws.organizations.Organization("example", {
+ * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
  *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleOrganizationCustomRule = new aws.cfg.OrganizationCustomRule("example", {
- *     lambdaFunctionArn: aws_lambda_function_example.arn,
+ * const exampleOrganizationCustomRule = new aws.cfg.OrganizationCustomRule("exampleOrganizationCustomRule", {
+ *     lambdaFunctionArn: aws_lambda_function.example.arn,
  *     triggerTypes: ["ConfigurationItemChangeNotification"],
- * }, {dependsOn: [examplePermission, exampleOrganization]});
+ * }, {
+ *     dependsOn: [
+ *         examplePermission,
+ *         exampleOrganization,
+ *     ],
+ * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_organization_custom_rule.html.markdown.
  */
 export class OrganizationCustomRule extends pulumi.CustomResource {
     /**
@@ -46,6 +45,7 @@ export class OrganizationCustomRule extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: OrganizationCustomRuleState, opts?: pulumi.CustomResourceOptions): OrganizationCustomRule {
         return new OrganizationCustomRule(name, <any>state, { ...opts, id: id });

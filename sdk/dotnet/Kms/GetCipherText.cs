@@ -9,37 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Kms
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
-        /// by using an AWS KMS customer master key. The value returned by this data source
-        /// changes every apply. For a stable ciphertext value, see the [`aws.kms.Ciphertext`
-        /// resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCipherText.InvokeAsync() instead")]
-        public static Task<GetCipherTextResult> GetCipherText(GetCipherTextArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCipherText
     {
         /// <summary>
         /// The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
         /// by using an AWS KMS customer master key. The value returned by this data source
-        /// changes every apply. For a stable ciphertext value, see the [`aws.kms.Ciphertext`
-        /// resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
+        /// changes every apply. For a stable ciphertext value, see the `aws.kms.Ciphertext`
+        /// resource.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
         /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var oauthConfig = new Aws.Kms.Key("oauthConfig", new Aws.Kms.KeyArgs
+        ///         {
+        ///             Description = "oauth config",
+        ///             IsEnabled = true,
+        ///         });
+        ///         var oauth = oauthConfig.KeyId.Apply(keyId =&gt; Aws.Kms.GetCipherText.InvokeAsync(new Aws.Kms.GetCipherTextArgs
+        ///         {
+        ///             KeyId = keyId,
+        ///             Plaintext = @"{
+        ///   ""client_id"": ""e587dbae22222f55da22"",
+        ///   ""client_secret"": ""8289575d00000ace55e1815ec13673955721b8a5""
+        /// }
+        /// ",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCipherTextResult> InvokeAsync(GetCipherTextArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? new GetCipherTextArgs(), options.WithVersion());
     }
+
 
     public sealed class GetCipherTextArgs : Pulumi.InvokeArgs
     {
@@ -72,6 +86,7 @@ namespace Pulumi.Aws.Kms
         }
     }
 
+
     [OutputType]
     public sealed class GetCipherTextResult
     {
@@ -80,26 +95,30 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string CiphertextBlob;
         public readonly ImmutableDictionary<string, string>? Context;
-        public readonly string KeyId;
-        public readonly string Plaintext;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string KeyId;
+        public readonly string Plaintext;
 
         [OutputConstructor]
         private GetCipherTextResult(
             string ciphertextBlob,
+
             ImmutableDictionary<string, string>? context,
+
+            string id,
+
             string keyId,
-            string plaintext,
-            string id)
+
+            string plaintext)
         {
             CiphertextBlob = ciphertextBlob;
             Context = context;
+            Id = id;
             KeyId = keyId;
             Plaintext = plaintext;
-            Id = id;
         }
     }
 }

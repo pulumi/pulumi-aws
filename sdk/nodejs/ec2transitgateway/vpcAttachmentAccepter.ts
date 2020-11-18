@@ -6,30 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Manages the accepter's side of an EC2 Transit Gateway VPC Attachment.
- * 
+ *
  * When a cross-account (requester's AWS account differs from the accepter's AWS account) EC2 Transit Gateway VPC Attachment
  * is created, an EC2 Transit Gateway VPC Attachment resource is automatically created in the accepter's account.
  * The requester can use the `aws.ec2transitgateway.VpcAttachment` resource to manage its side of the connection
  * and the accepter can use the `aws.ec2transitgateway.VpcAttachmentAccepter` resource to "adopt" its side of the
  * connection into management.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2transitgateway.VpcAttachmentAccepter("example", {
+ *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment.example.id,
  *     tags: {
  *         Name: "Example cross-account attachment",
  *     },
- *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment_example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_vpc_attachment_accepter.html.markdown.
  */
 export class VpcAttachmentAccepter extends pulumi.CustomResource {
     /**
@@ -39,6 +35,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcAttachmentAccepterState, opts?: pulumi.CustomResourceOptions): VpcAttachmentAccepter {
         return new VpcAttachmentAccepter(name, <any>state, { ...opts, id: id });
@@ -59,6 +56,10 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
     }
 
     /**
+     * Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
+     */
+    public /*out*/ readonly applianceModeSupport!: pulumi.Output<string>;
+    /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`.
      */
     public /*out*/ readonly dnsSupport!: pulumi.Output<string>;
@@ -73,7 +74,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      */
@@ -111,6 +112,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as VpcAttachmentAccepterState | undefined;
+            inputs["applianceModeSupport"] = state ? state.applianceModeSupport : undefined;
             inputs["dnsSupport"] = state ? state.dnsSupport : undefined;
             inputs["ipv6Support"] = state ? state.ipv6Support : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -130,6 +132,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
             inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             inputs["transitGatewayDefaultRouteTableAssociation"] = args ? args.transitGatewayDefaultRouteTableAssociation : undefined;
             inputs["transitGatewayDefaultRouteTablePropagation"] = args ? args.transitGatewayDefaultRouteTablePropagation : undefined;
+            inputs["applianceModeSupport"] = undefined /*out*/;
             inputs["dnsSupport"] = undefined /*out*/;
             inputs["ipv6Support"] = undefined /*out*/;
             inputs["subnetIds"] = undefined /*out*/;
@@ -153,6 +156,10 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
  */
 export interface VpcAttachmentAccepterState {
     /**
+     * Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
+     */
+    readonly applianceModeSupport?: pulumi.Input<string>;
+    /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`.
      */
     readonly dnsSupport?: pulumi.Input<string>;
@@ -167,7 +174,7 @@ export interface VpcAttachmentAccepterState {
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      */
@@ -201,7 +208,7 @@ export interface VpcAttachmentAccepterArgs {
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      */

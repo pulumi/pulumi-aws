@@ -12,9 +12,44 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides a Cognito User Identity Provider resource.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_provider.html.markdown.
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Cognito.UserPool("example", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///             AutoVerifiedAttributes = 
+    ///             {
+    ///                 "email",
+    ///             },
+    ///         });
+    ///         var exampleProvider = new Aws.Cognito.IdentityProvider("exampleProvider", new Aws.Cognito.IdentityProviderArgs
+    ///         {
+    ///             UserPoolId = example.Id,
+    ///             ProviderName = "Google",
+    ///             ProviderType = "Google",
+    ///             ProviderDetails = 
+    ///             {
+    ///                 { "authorize_scopes", "email" },
+    ///                 { "client_id", "your client_id" },
+    ///                 { "client_secret", "your client_secret" },
+    ///             },
+    ///             AttributeMapping = 
+    ///             {
+    ///                 { "email", "email" },
+    ///                 { "username", "sub" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class IdentityProvider : Pulumi.CustomResource
     {
@@ -22,7 +57,7 @@ namespace Pulumi.Aws.Cognito
         /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         /// </summary>
         [Output("attributeMapping")]
-        public Output<ImmutableDictionary<string, object>?> AttributeMapping { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> AttributeMapping { get; private set; } = null!;
 
         /// <summary>
         /// The list of identity providers.
@@ -34,7 +69,7 @@ namespace Pulumi.Aws.Cognito
         /// The map of identity details, such as access token
         /// </summary>
         [Output("providerDetails")]
-        public Output<ImmutableDictionary<string, object>> ProviderDetails { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> ProviderDetails { get; private set; } = null!;
 
         /// <summary>
         /// The provider name
@@ -63,7 +98,7 @@ namespace Pulumi.Aws.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IdentityProvider(string name, IdentityProviderArgs args, CustomResourceOptions? options = null)
-            : base("aws:cognito/identityProvider:IdentityProvider", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cognito/identityProvider:IdentityProvider", name, args ?? new IdentityProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -101,14 +136,14 @@ namespace Pulumi.Aws.Cognito
     public sealed class IdentityProviderArgs : Pulumi.ResourceArgs
     {
         [Input("attributeMapping")]
-        private InputMap<object>? _attributeMapping;
+        private InputMap<string>? _attributeMapping;
 
         /// <summary>
         /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         /// </summary>
-        public InputMap<object> AttributeMapping
+        public InputMap<string> AttributeMapping
         {
-            get => _attributeMapping ?? (_attributeMapping = new InputMap<object>());
+            get => _attributeMapping ?? (_attributeMapping = new InputMap<string>());
             set => _attributeMapping = value;
         }
 
@@ -125,14 +160,14 @@ namespace Pulumi.Aws.Cognito
         }
 
         [Input("providerDetails", required: true)]
-        private InputMap<object>? _providerDetails;
+        private InputMap<string>? _providerDetails;
 
         /// <summary>
         /// The map of identity details, such as access token
         /// </summary>
-        public InputMap<object> ProviderDetails
+        public InputMap<string> ProviderDetails
         {
-            get => _providerDetails ?? (_providerDetails = new InputMap<object>());
+            get => _providerDetails ?? (_providerDetails = new InputMap<string>());
             set => _providerDetails = value;
         }
 
@@ -162,14 +197,14 @@ namespace Pulumi.Aws.Cognito
     public sealed class IdentityProviderState : Pulumi.ResourceArgs
     {
         [Input("attributeMapping")]
-        private InputMap<object>? _attributeMapping;
+        private InputMap<string>? _attributeMapping;
 
         /// <summary>
         /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         /// </summary>
-        public InputMap<object> AttributeMapping
+        public InputMap<string> AttributeMapping
         {
-            get => _attributeMapping ?? (_attributeMapping = new InputMap<object>());
+            get => _attributeMapping ?? (_attributeMapping = new InputMap<string>());
             set => _attributeMapping = value;
         }
 
@@ -186,14 +221,14 @@ namespace Pulumi.Aws.Cognito
         }
 
         [Input("providerDetails")]
-        private InputMap<object>? _providerDetails;
+        private InputMap<string>? _providerDetails;
 
         /// <summary>
         /// The map of identity details, such as access token
         /// </summary>
-        public InputMap<object> ProviderDetails
+        public InputMap<string> ProviderDetails
         {
-            get => _providerDetails ?? (_providerDetails = new InputMap<object>());
+            get => _providerDetails ?? (_providerDetails = new InputMap<string>());
             set => _providerDetails = value;
         }
 

@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an Elasticsearch Domain
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const myDomain = aws.elasticsearch.getDomain({
- *     domainName: "my-domain-name",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticsearch_domain.html.markdown.
+ * const myDomain = pulumi.output(aws.elasticsearch.getDomain({
+ *     domainName: "my-domain-name",
+ * }, { async: true }));
+ * ```
  */
-export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> & GetDomainResult {
+export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,12 +29,10 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDomainResult> = pulumi.runtime.invoke("aws:elasticsearch/getDomain:getDomain", {
+    return pulumi.runtime.invoke("aws:elasticsearch/getDomain:getDomain", {
         "domainName": args.domainName,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -51,7 +46,7 @@ export interface GetDomainArgs {
     /**
      * The tags assigned to the domain.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -65,7 +60,11 @@ export interface GetDomainResult {
     /**
      * Key-value string pairs to specify advanced configuration options.
      */
-    readonly advancedOptions: {[key: string]: any};
+    readonly advancedOptions: {[key: string]: string};
+    /**
+     * Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:
+     */
+    readonly advancedSecurityOptions: outputs.elasticsearch.GetDomainAdvancedSecurityOption[];
     /**
      * The Amazon Resource Name (ARN) of the domain.
      */
@@ -108,6 +107,10 @@ export interface GetDomainResult {
      */
     readonly endpoint: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Domain-specific endpoint used to access the Kibana application.
      */
     readonly kibanaEndpoint: string;
@@ -123,18 +126,14 @@ export interface GetDomainResult {
      * Status of a configuration change in the domain.
      * * `snapshotOptions` – Domain snapshot related options.
      */
-    readonly processing: string;
+    readonly processing: boolean;
     readonly snapshotOptions: outputs.elasticsearch.GetDomainSnapshotOption[];
     /**
      * The tags assigned to the domain.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * VPC Options for private Elasticsearch domains.
      */
     readonly vpcOptions: outputs.elasticsearch.GetDomainVpcOption[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

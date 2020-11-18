@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type DatabaseEncryptionConfiguration struct {
@@ -17,6 +17,10 @@ type DatabaseEncryptionConfiguration struct {
 	KmsKey *string `pulumi:"kmsKey"`
 }
 
+// DatabaseEncryptionConfigurationInput is an input type that accepts DatabaseEncryptionConfigurationArgs and DatabaseEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `DatabaseEncryptionConfigurationInput` via:
+//
+//          DatabaseEncryptionConfigurationArgs{...}
 type DatabaseEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -51,6 +55,14 @@ func (i DatabaseEncryptionConfigurationArgs) ToDatabaseEncryptionConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseEncryptionConfigurationOutput).ToDatabaseEncryptionConfigurationPtrOutputWithContext(ctx)
 }
 
+// DatabaseEncryptionConfigurationPtrInput is an input type that accepts DatabaseEncryptionConfigurationArgs, DatabaseEncryptionConfigurationPtr and DatabaseEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DatabaseEncryptionConfigurationPtrInput` via:
+//
+//          DatabaseEncryptionConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type DatabaseEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -129,13 +141,23 @@ func (o DatabaseEncryptionConfigurationPtrOutput) Elem() DatabaseEncryptionConfi
 }
 
 // The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-func (o DatabaseEncryptionConfigurationPtrOutput) EncryptionOption() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseEncryptionConfiguration) string { return v.EncryptionOption }).(pulumi.StringOutput)
+func (o DatabaseEncryptionConfigurationPtrOutput) EncryptionOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionOption
+	}).(pulumi.StringPtrOutput)
 }
 
 // The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
 func (o DatabaseEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DatabaseEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
 }
 
 type WorkgroupConfiguration struct {
@@ -149,6 +171,10 @@ type WorkgroupConfiguration struct {
 	ResultConfiguration *WorkgroupConfigurationResultConfiguration `pulumi:"resultConfiguration"`
 }
 
+// WorkgroupConfigurationInput is an input type that accepts WorkgroupConfigurationArgs and WorkgroupConfigurationOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationInput` via:
+//
+//          WorkgroupConfigurationArgs{...}
 type WorkgroupConfigurationInput interface {
 	pulumi.Input
 
@@ -187,6 +213,14 @@ func (i WorkgroupConfigurationArgs) ToWorkgroupConfigurationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationOutput).ToWorkgroupConfigurationPtrOutputWithContext(ctx)
 }
 
+// WorkgroupConfigurationPtrInput is an input type that accepts WorkgroupConfigurationArgs, WorkgroupConfigurationPtr and WorkgroupConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationPtrInput` via:
+//
+//          WorkgroupConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type WorkgroupConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -278,22 +312,40 @@ func (o WorkgroupConfigurationPtrOutput) Elem() WorkgroupConfigurationOutput {
 
 // Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
 func (o WorkgroupConfigurationPtrOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkgroupConfiguration) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *WorkgroupConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BytesScannedCutoffPerQuery
+	}).(pulumi.IntPtrOutput)
 }
 
 // Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
 func (o WorkgroupConfigurationPtrOutput) EnforceWorkgroupConfiguration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.EnforceWorkgroupConfiguration }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *WorkgroupConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnforceWorkgroupConfiguration
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 func (o WorkgroupConfigurationPtrOutput) PublishCloudwatchMetricsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.PublishCloudwatchMetricsEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *WorkgroupConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PublishCloudwatchMetricsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Configuration block with result settings. Documented below.
 func (o WorkgroupConfigurationPtrOutput) ResultConfiguration() WorkgroupConfigurationResultConfigurationPtrOutput {
-	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationResultConfiguration {
+	return o.ApplyT(func(v *WorkgroupConfiguration) *WorkgroupConfigurationResultConfiguration {
+		if v == nil {
+			return nil
+		}
 		return v.ResultConfiguration
 	}).(WorkgroupConfigurationResultConfigurationPtrOutput)
 }
@@ -305,6 +357,10 @@ type WorkgroupConfigurationResultConfiguration struct {
 	OutputLocation *string `pulumi:"outputLocation"`
 }
 
+// WorkgroupConfigurationResultConfigurationInput is an input type that accepts WorkgroupConfigurationResultConfigurationArgs and WorkgroupConfigurationResultConfigurationOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationInput` via:
+//
+//          WorkgroupConfigurationResultConfigurationArgs{...}
 type WorkgroupConfigurationResultConfigurationInput interface {
 	pulumi.Input
 
@@ -339,6 +395,14 @@ func (i WorkgroupConfigurationResultConfigurationArgs) ToWorkgroupConfigurationR
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationOutput).ToWorkgroupConfigurationResultConfigurationPtrOutputWithContext(ctx)
 }
 
+// WorkgroupConfigurationResultConfigurationPtrInput is an input type that accepts WorkgroupConfigurationResultConfigurationArgs, WorkgroupConfigurationResultConfigurationPtr and WorkgroupConfigurationResultConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationPtrInput` via:
+//
+//          WorkgroupConfigurationResultConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type WorkgroupConfigurationResultConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -422,14 +486,22 @@ func (o WorkgroupConfigurationResultConfigurationPtrOutput) Elem() WorkgroupConf
 
 // Configuration block with encryption settings. Documented below.
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) EncryptionConfiguration() WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput {
-	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
+	return o.ApplyT(func(v *WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
 		return v.EncryptionConfiguration
 	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
 }
 
 // The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) OutputLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *WorkgroupConfigurationResultConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputLocation
+	}).(pulumi.StringPtrOutput)
 }
 
 type WorkgroupConfigurationResultConfigurationEncryptionConfiguration struct {
@@ -439,6 +511,10 @@ type WorkgroupConfigurationResultConfigurationEncryptionConfiguration struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
+// WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput is an input type that accepts WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs and WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput` via:
+//
+//          WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{...}
 type WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -473,6 +549,14 @@ func (i WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput).ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutputWithContext(ctx)
 }
 
+// WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput is an input type that accepts WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs, WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtr and WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput` via:
+//
+//          WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
 type WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -556,14 +640,22 @@ func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutpu
 
 // Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput) EncryptionOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string {
+	return o.ApplyT(func(v *WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
 		return v.EncryptionOption
 	}).(pulumi.StringPtrOutput)
 }
 
 // For `SSE_KMS` and `CSE_KMS`, this is the KMS key Amazon Resource Name (ARN).
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

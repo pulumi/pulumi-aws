@@ -7,12 +7,71 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an SES domain MAIL FROM resource.
 //
-// > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the [ses.DomainIdentity resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html). To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
+// > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the `ses.DomainIdentity` resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/route53"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ses"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
+// 			Domain: pulumi.String("example.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleMailFrom, err := ses.NewMailFrom(ctx, "exampleMailFrom", &ses.MailFromArgs{
+// 			Domain: exampleDomainIdentity.Domain,
+// 			MailFromDomain: exampleDomainIdentity.Domain.ApplyT(func(domain string) (string, error) {
+// 				return fmt.Sprintf("%v%v", "bounce.", domain), nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "exampleSesDomainMailFromMx", &route53.RecordArgs{
+// 			ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
+// 			Name:   exampleMailFrom.MailFromDomain,
+// 			Type:   pulumi.String("MX"),
+// 			Ttl:    pulumi.Int(600),
+// 			Records: pulumi.StringArray{
+// 				pulumi.String("10 feedback-smtp.us-east-1.amazonses.com"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "exampleSesDomainMailFromTxt", &route53.RecordArgs{
+// 			ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
+// 			Name:   exampleMailFrom.MailFromDomain,
+// 			Type:   pulumi.String("TXT"),
+// 			Ttl:    pulumi.Int(600),
+// 			Records: pulumi.StringArray{
+// 				pulumi.String("v=spf1 include:amazonses.com -all"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type MailFrom struct {
 	pulumi.CustomResourceState
 

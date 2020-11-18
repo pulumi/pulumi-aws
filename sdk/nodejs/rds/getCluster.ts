@@ -4,27 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides information about a RDS cluster.
- * 
+ * Provides information about an RDS cluster.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
- * const clusterName = aws.rds.getCluster({
- *     clusterIdentifier: "clusterName",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/rds_cluster.html.markdown.
+ * const clusterName = pulumi.output(aws.rds.getCluster({
+ *     clusterIdentifier: "clusterName",
+ * }, { async: true }));
+ * ```
  */
-export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,12 +29,10 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetClusterResult> = pulumi.runtime.invoke("aws:rds/getCluster:getCluster", {
+    return pulumi.runtime.invoke("aws:rds/getCluster:getCluster", {
         "clusterIdentifier": args.clusterIdentifier,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
@@ -48,7 +43,7 @@ export interface GetClusterArgs {
      * The cluster identifier of the RDS cluster.
      */
     readonly clusterIdentifier: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -57,6 +52,7 @@ export interface GetClusterArgs {
 export interface GetClusterResult {
     readonly arn: string;
     readonly availabilityZones: string[];
+    readonly backtrackWindow: number;
     readonly backupRetentionPeriod: number;
     readonly clusterIdentifier: string;
     readonly clusterMembers: string[];
@@ -72,6 +68,10 @@ export interface GetClusterResult {
     readonly hostedZoneId: string;
     readonly iamDatabaseAuthenticationEnabled: boolean;
     readonly iamRoles: string[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly kmsKeyId: string;
     readonly masterUsername: string;
     readonly port: number;
@@ -80,10 +80,6 @@ export interface GetClusterResult {
     readonly readerEndpoint: string;
     readonly replicationSourceIdentifier: string;
     readonly storageEncrypted: boolean;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vpcSecurityGroupIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

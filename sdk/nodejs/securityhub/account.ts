@@ -6,21 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Enables Security Hub for this AWS account.
- * 
+ *
  * > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.securityhub.Account("example", {});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_account.markdown.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -30,6 +26,7 @@ export class Account extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AccountState, opts?: pulumi.CustomResourceOptions): Account {
         return new Account(name, <any>state, { ...opts, id: id });
