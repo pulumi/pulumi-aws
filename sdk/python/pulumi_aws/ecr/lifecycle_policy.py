@@ -85,6 +85,14 @@ class LifecyclePolicy(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        ECR Lifecycle Policy can be imported using the name of the repository, e.g.
+
+        ```sh
+         $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.

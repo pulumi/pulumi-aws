@@ -4,6 +4,7 @@
 package ec2clientvpn
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -47,6 +48,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// AWS Client VPN endpoints can be imported using the `id` value found via `aws ec2 describe-client-vpn-endpoints`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
 // ```
 type Endpoint struct {
 	pulumi.CustomResourceState
@@ -219,4 +228,43 @@ type EndpointArgs struct {
 
 func (EndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointArgs)(nil)).Elem()
+}
+
+type EndpointInput interface {
+	pulumi.Input
+
+	ToEndpointOutput() EndpointOutput
+	ToEndpointOutputWithContext(ctx context.Context) EndpointOutput
+}
+
+func (Endpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*Endpoint)(nil)).Elem()
+}
+
+func (i Endpoint) ToEndpointOutput() EndpointOutput {
+	return i.ToEndpointOutputWithContext(context.Background())
+}
+
+func (i Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
+}
+
+type EndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (EndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointOutput)(nil)).Elem()
+}
+
+func (o EndpointOutput) ToEndpointOutput() EndpointOutput {
+	return o
+}
+
+func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) EndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EndpointOutput{})
 }

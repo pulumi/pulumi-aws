@@ -4,6 +4,7 @@
 package batch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -124,6 +125,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// AWS Batch compute can be imported using the `compute_environment_name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
+// ```
+//
+//  [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html [4]https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
 type ComputeEnvironment struct {
 	pulumi.CustomResourceState
 
@@ -275,4 +286,43 @@ type ComputeEnvironmentArgs struct {
 
 func (ComputeEnvironmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*computeEnvironmentArgs)(nil)).Elem()
+}
+
+type ComputeEnvironmentInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentOutput() ComputeEnvironmentOutput
+	ToComputeEnvironmentOutputWithContext(ctx context.Context) ComputeEnvironmentOutput
+}
+
+func (ComputeEnvironment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironment)(nil)).Elem()
+}
+
+func (i ComputeEnvironment) ToComputeEnvironmentOutput() ComputeEnvironmentOutput {
+	return i.ToComputeEnvironmentOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironment) ToComputeEnvironmentOutputWithContext(ctx context.Context) ComputeEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentOutput)
+}
+
+type ComputeEnvironmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ComputeEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentOutput)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentOutput) ToComputeEnvironmentOutput() ComputeEnvironmentOutput {
+	return o
+}
+
+func (o ComputeEnvironmentOutput) ToComputeEnvironmentOutputWithContext(ctx context.Context) ComputeEnvironmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ComputeEnvironmentOutput{})
 }

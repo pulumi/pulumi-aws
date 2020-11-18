@@ -4,6 +4,7 @@
 package elasticbeanstalk
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -207,4 +208,43 @@ type ApplicationVersionArgs struct {
 
 func (ApplicationVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationVersionArgs)(nil)).Elem()
+}
+
+type ApplicationVersionInput interface {
+	pulumi.Input
+
+	ToApplicationVersionOutput() ApplicationVersionOutput
+	ToApplicationVersionOutputWithContext(ctx context.Context) ApplicationVersionOutput
+}
+
+func (ApplicationVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersion)(nil)).Elem()
+}
+
+func (i ApplicationVersion) ToApplicationVersionOutput() ApplicationVersionOutput {
+	return i.ToApplicationVersionOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersion) ToApplicationVersionOutputWithContext(ctx context.Context) ApplicationVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionOutput)
+}
+
+type ApplicationVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersionOutput)(nil)).Elem()
+}
+
+func (o ApplicationVersionOutput) ToApplicationVersionOutput() ApplicationVersionOutput {
+	return o
+}
+
+func (o ApplicationVersionOutput) ToApplicationVersionOutputWithContext(ctx context.Context) ApplicationVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationVersionOutput{})
 }

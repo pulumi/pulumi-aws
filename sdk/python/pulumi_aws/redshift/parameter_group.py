@@ -52,6 +52,14 @@ class ParameterGroup(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Redshift Parameter Groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Redshift parameter group. Defaults to "Managed by Pulumi".

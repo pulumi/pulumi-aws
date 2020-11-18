@@ -53,6 +53,14 @@ class NamedQuery(pulumi.CustomResource):
             query=hoge_database.name.apply(lambda name: f"SELECT * FROM {name} limit 10;"))
         ```
 
+        ## Import
+
+        Athena Named Query can be imported using the query ID, e.g.
+
+        ```sh
+         $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database: The database to which the query belongs.

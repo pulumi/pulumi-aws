@@ -14,7 +14,7 @@ __all__ = [
     'get_service_account',
 ]
 
-warnings.warn("aws.elasticloadbalancing.getServiceAccount has been deprecated in favor of aws.elb.getServiceAccount", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancing.getServiceAccount has been deprecated in favor of aws.elb.getServiceAccount""", DeprecationWarning)
 
 @pulumi.output_type
 class GetServiceAccountResult:

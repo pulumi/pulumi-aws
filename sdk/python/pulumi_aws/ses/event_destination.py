@@ -86,6 +86,14 @@ class EventDestination(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        SES event destinations can be imported using `configuration_set_name` together with the event destination's `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDestinationCloudwatchDestinationArgs']]]] cloudwatch_destinations: CloudWatch destination for the events

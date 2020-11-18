@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -157,6 +158,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// VPC Peering Connection Options can be imported using the `vpc peering id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
+// ```
 type PeeringConnectionOptions struct {
 	pulumi.CustomResourceState
 
@@ -261,4 +270,43 @@ type PeeringConnectionOptionsArgs struct {
 
 func (PeeringConnectionOptionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*peeringConnectionOptionsArgs)(nil)).Elem()
+}
+
+type PeeringConnectionOptionsInput interface {
+	pulumi.Input
+
+	ToPeeringConnectionOptionsOutput() PeeringConnectionOptionsOutput
+	ToPeeringConnectionOptionsOutputWithContext(ctx context.Context) PeeringConnectionOptionsOutput
+}
+
+func (PeeringConnectionOptions) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringConnectionOptions)(nil)).Elem()
+}
+
+func (i PeeringConnectionOptions) ToPeeringConnectionOptionsOutput() PeeringConnectionOptionsOutput {
+	return i.ToPeeringConnectionOptionsOutputWithContext(context.Background())
+}
+
+func (i PeeringConnectionOptions) ToPeeringConnectionOptionsOutputWithContext(ctx context.Context) PeeringConnectionOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringConnectionOptionsOutput)
+}
+
+type PeeringConnectionOptionsOutput struct {
+	*pulumi.OutputState
+}
+
+func (PeeringConnectionOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringConnectionOptionsOutput)(nil)).Elem()
+}
+
+func (o PeeringConnectionOptionsOutput) ToPeeringConnectionOptionsOutput() PeeringConnectionOptionsOutput {
+	return o
+}
+
+func (o PeeringConnectionOptionsOutput) ToPeeringConnectionOptionsOutputWithContext(ctx context.Context) PeeringConnectionOptionsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PeeringConnectionOptionsOutput{})
 }

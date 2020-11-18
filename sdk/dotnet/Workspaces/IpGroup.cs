@@ -30,6 +30,14 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// WorkSpaces IP groups can be imported using their GroupID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+    /// ```
     /// </summary>
     public partial class IpGroup : Pulumi.CustomResource
     {

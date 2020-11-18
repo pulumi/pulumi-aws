@@ -237,6 +237,14 @@ class WebAcl(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        WAFv2 Web ACLs can be imported using `ID/Name/Scope` e.g.
+
+        ```sh
+         $ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.

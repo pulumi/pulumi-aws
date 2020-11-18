@@ -4,6 +4,7 @@
 package cloudwatch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Cloudwatch Log Stream can be imported using the stream's `log_group_name` and `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
 // ```
 type LogStream struct {
 	pulumi.CustomResourceState
@@ -118,4 +127,43 @@ type LogStreamArgs struct {
 
 func (LogStreamArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logStreamArgs)(nil)).Elem()
+}
+
+type LogStreamInput interface {
+	pulumi.Input
+
+	ToLogStreamOutput() LogStreamOutput
+	ToLogStreamOutputWithContext(ctx context.Context) LogStreamOutput
+}
+
+func (LogStream) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogStream)(nil)).Elem()
+}
+
+func (i LogStream) ToLogStreamOutput() LogStreamOutput {
+	return i.ToLogStreamOutputWithContext(context.Background())
+}
+
+func (i LogStream) ToLogStreamOutputWithContext(ctx context.Context) LogStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogStreamOutput)
+}
+
+type LogStreamOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogStreamOutput)(nil)).Elem()
+}
+
+func (o LogStreamOutput) ToLogStreamOutput() LogStreamOutput {
+	return o
+}
+
+func (o LogStreamOutput) ToLogStreamOutputWithContext(ctx context.Context) LogStreamOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LogStreamOutput{})
 }

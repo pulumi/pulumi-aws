@@ -67,6 +67,14 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// CodeDeploy Applications can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:codedeploy/application:Application example my-application
+    /// ```
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {

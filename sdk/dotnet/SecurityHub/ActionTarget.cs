@@ -40,6 +40,14 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Security Hub custom action can be imported using the action target ARN e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+    /// ```
     /// </summary>
     public partial class ActionTarget : Pulumi.CustomResource
     {

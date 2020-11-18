@@ -4,6 +4,7 @@
 package autoscaling
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -72,6 +73,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// AutoScaling Lifecycle Hooks can be imported using the role autoscaling_group_name and name separated by `/`.
+//
+// ```sh
+//  $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
 // ```
 type LifecycleHook struct {
 	pulumi.CustomResourceState
@@ -210,4 +219,43 @@ type LifecycleHookArgs struct {
 
 func (LifecycleHookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*lifecycleHookArgs)(nil)).Elem()
+}
+
+type LifecycleHookInput interface {
+	pulumi.Input
+
+	ToLifecycleHookOutput() LifecycleHookOutput
+	ToLifecycleHookOutputWithContext(ctx context.Context) LifecycleHookOutput
+}
+
+func (LifecycleHook) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecycleHook)(nil)).Elem()
+}
+
+func (i LifecycleHook) ToLifecycleHookOutput() LifecycleHookOutput {
+	return i.ToLifecycleHookOutputWithContext(context.Background())
+}
+
+func (i LifecycleHook) ToLifecycleHookOutputWithContext(ctx context.Context) LifecycleHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecycleHookOutput)
+}
+
+type LifecycleHookOutput struct {
+	*pulumi.OutputState
+}
+
+func (LifecycleHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecycleHookOutput)(nil)).Elem()
+}
+
+func (o LifecycleHookOutput) ToLifecycleHookOutput() LifecycleHookOutput {
+	return o
+}
+
+func (o LifecycleHookOutput) ToLifecycleHookOutputWithContext(ctx context.Context) LifecycleHookOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LifecycleHookOutput{})
 }

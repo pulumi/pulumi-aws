@@ -32,6 +32,14 @@ class Activity(pulumi.CustomResource):
         sfn_activity = aws.sfn.Activity("sfnActivity")
         ```
 
+        ## Import
+
+        Activities can be imported using the `arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the activity to create.

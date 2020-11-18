@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {InstanceProfile} from "../iam";
@@ -172,6 +170,14 @@ import {InstanceProfile} from "../iam";
  * cannot currently be detected by this provider. After updating to block device
  * configuration, resource recreation can be manually triggered by using the
  * [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
+ *
+ * ## Import
+ *
+ * Launch configurations can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
+ * ```
  */
 export class LaunchConfiguration extends pulumi.CustomResource {
     /**

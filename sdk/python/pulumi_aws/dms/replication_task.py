@@ -51,6 +51,14 @@ class ReplicationTask(pulumi.CustomResource):
             target_endpoint_arn=aws_dms_endpoint["test-dms-target-endpoint-tf"]["endpoint_arn"])
         ```
 
+        ## Import
+
+        Replication tasks can be imported using the `replication_task_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cdc_start_time: The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.

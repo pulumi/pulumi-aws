@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -51,6 +52,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Gateway documentation versions can be imported using `REST-API-ID/VERSION`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
 // ```
 type DocumentationVersion struct {
 	pulumi.CustomResourceState
@@ -139,4 +148,43 @@ type DocumentationVersionArgs struct {
 
 func (DocumentationVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*documentationVersionArgs)(nil)).Elem()
+}
+
+type DocumentationVersionInput interface {
+	pulumi.Input
+
+	ToDocumentationVersionOutput() DocumentationVersionOutput
+	ToDocumentationVersionOutputWithContext(ctx context.Context) DocumentationVersionOutput
+}
+
+func (DocumentationVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentationVersion)(nil)).Elem()
+}
+
+func (i DocumentationVersion) ToDocumentationVersionOutput() DocumentationVersionOutput {
+	return i.ToDocumentationVersionOutputWithContext(context.Background())
+}
+
+func (i DocumentationVersion) ToDocumentationVersionOutputWithContext(ctx context.Context) DocumentationVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentationVersionOutput)
+}
+
+type DocumentationVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (DocumentationVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentationVersionOutput)(nil)).Elem()
+}
+
+func (o DocumentationVersionOutput) ToDocumentationVersionOutput() DocumentationVersionOutput {
+	return o
+}
+
+func (o DocumentationVersionOutput) ToDocumentationVersionOutputWithContext(ctx context.Context) DocumentationVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DocumentationVersionOutput{})
 }

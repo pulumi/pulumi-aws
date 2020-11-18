@@ -17,6 +17,14 @@ import * as utilities from "../utilities";
  *     ruleSetName: "primary-rules",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * SES receipt rule sets can be imported using the rule set name.
+ *
+ * ```sh
+ *  $ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
+ * ```
  */
 export class ReceiptRuleSet extends pulumi.CustomResource {
     /**

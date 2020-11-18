@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -313,4 +314,43 @@ type GangliaLayerArgs struct {
 
 func (GangliaLayerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gangliaLayerArgs)(nil)).Elem()
+}
+
+type GangliaLayerInput interface {
+	pulumi.Input
+
+	ToGangliaLayerOutput() GangliaLayerOutput
+	ToGangliaLayerOutputWithContext(ctx context.Context) GangliaLayerOutput
+}
+
+func (GangliaLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*GangliaLayer)(nil)).Elem()
+}
+
+func (i GangliaLayer) ToGangliaLayerOutput() GangliaLayerOutput {
+	return i.ToGangliaLayerOutputWithContext(context.Background())
+}
+
+func (i GangliaLayer) ToGangliaLayerOutputWithContext(ctx context.Context) GangliaLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerOutput)
+}
+
+type GangliaLayerOutput struct {
+	*pulumi.OutputState
+}
+
+func (GangliaLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GangliaLayerOutput)(nil)).Elem()
+}
+
+func (o GangliaLayerOutput) ToGangliaLayerOutput() GangliaLayerOutput {
+	return o
+}
+
+func (o GangliaLayerOutput) ToGangliaLayerOutputWithContext(ctx context.Context) GangliaLayerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GangliaLayerOutput{})
 }

@@ -20,6 +20,14 @@ import * as utilities from "../utilities";
  *     resourceShareArn: aws_ram_resource_share.example.arn,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * RAM Resource Associations can be imported using their Resource Share ARN and Resource ARN separated by a comma, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
+ * ```
  */
 export class ResourceAssociation extends pulumi.CustomResource {
     /**

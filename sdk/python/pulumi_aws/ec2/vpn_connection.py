@@ -74,6 +74,14 @@ class VpnConnection(pulumi.CustomResource):
             static_routes_only=True)
         ```
 
+        ## Import
+
+        VPN Connections can be imported using the `vpn connection id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.

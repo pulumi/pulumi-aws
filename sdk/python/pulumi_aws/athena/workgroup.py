@@ -48,6 +48,14 @@ class Workgroup(pulumi.CustomResource):
         ))
         ```
 
+        ## Import
+
+        Athena Workgroups can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import aws:athena/workgroup:Workgroup example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkgroupConfigurationArgs']] configuration: Configuration block with various settings for the workgroup. Documented below.

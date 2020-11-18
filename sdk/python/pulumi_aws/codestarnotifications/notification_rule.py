@@ -58,6 +58,14 @@ class NotificationRule(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        CodeStar notification rule can be imported using the ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] detail_type: The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.

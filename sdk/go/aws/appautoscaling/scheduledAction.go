@@ -4,6 +4,7 @@
 package appautoscaling
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -234,4 +235,43 @@ type ScheduledActionArgs struct {
 
 func (ScheduledActionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledActionArgs)(nil)).Elem()
+}
+
+type ScheduledActionInput interface {
+	pulumi.Input
+
+	ToScheduledActionOutput() ScheduledActionOutput
+	ToScheduledActionOutputWithContext(ctx context.Context) ScheduledActionOutput
+}
+
+func (ScheduledAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledAction)(nil)).Elem()
+}
+
+func (i ScheduledAction) ToScheduledActionOutput() ScheduledActionOutput {
+	return i.ToScheduledActionOutputWithContext(context.Background())
+}
+
+func (i ScheduledAction) ToScheduledActionOutputWithContext(ctx context.Context) ScheduledActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionOutput)
+}
+
+type ScheduledActionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScheduledActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionOutput)(nil)).Elem()
+}
+
+func (o ScheduledActionOutput) ToScheduledActionOutput() ScheduledActionOutput {
+	return o
+}
+
+func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Context) ScheduledActionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScheduledActionOutput{})
 }

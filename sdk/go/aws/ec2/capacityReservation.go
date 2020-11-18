@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,6 +37,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Capacity Reservations can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
 // ```
 type CapacityReservation struct {
 	pulumi.CustomResourceState
@@ -216,4 +225,43 @@ type CapacityReservationArgs struct {
 
 func (CapacityReservationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityReservationArgs)(nil)).Elem()
+}
+
+type CapacityReservationInput interface {
+	pulumi.Input
+
+	ToCapacityReservationOutput() CapacityReservationOutput
+	ToCapacityReservationOutputWithContext(ctx context.Context) CapacityReservationOutput
+}
+
+func (CapacityReservation) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservation)(nil)).Elem()
+}
+
+func (i CapacityReservation) ToCapacityReservationOutput() CapacityReservationOutput {
+	return i.ToCapacityReservationOutputWithContext(context.Background())
+}
+
+func (i CapacityReservation) ToCapacityReservationOutputWithContext(ctx context.Context) CapacityReservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationOutput)
+}
+
+type CapacityReservationOutput struct {
+	*pulumi.OutputState
+}
+
+func (CapacityReservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationOutput)(nil)).Elem()
+}
+
+func (o CapacityReservationOutput) ToCapacityReservationOutput() CapacityReservationOutput {
+	return o
+}
+
+func (o CapacityReservationOutput) ToCapacityReservationOutputWithContext(ctx context.Context) CapacityReservationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CapacityReservationOutput{})
 }

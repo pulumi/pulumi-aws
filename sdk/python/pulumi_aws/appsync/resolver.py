@@ -110,6 +110,14 @@ class Resolver(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        `aws_appsync_resolver` can be imported with their `api_id`, a hyphen, `type`, a hypen and `field` e.g.
+
+        ```sh
+         $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API.

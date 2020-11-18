@@ -4,6 +4,7 @@
 package ec2clientvpn
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,6 +37,18 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// AWS Client VPN authorization rules can be imported using the endpoint ID and target network CIDR. If there is a specific group name that is included as well. All values are separated by a `,`.
+//
+// ```sh
+//  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
+// ```
+//
+// ```sh
+//  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
 // ```
 type AuthorizationRule struct {
 	pulumi.CustomResourceState
@@ -144,4 +157,43 @@ type AuthorizationRuleArgs struct {
 
 func (AuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizationRuleArgs)(nil)).Elem()
+}
+
+type AuthorizationRuleInput interface {
+	pulumi.Input
+
+	ToAuthorizationRuleOutput() AuthorizationRuleOutput
+	ToAuthorizationRuleOutputWithContext(ctx context.Context) AuthorizationRuleOutput
+}
+
+func (AuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationRule)(nil)).Elem()
+}
+
+func (i AuthorizationRule) ToAuthorizationRuleOutput() AuthorizationRuleOutput {
+	return i.ToAuthorizationRuleOutputWithContext(context.Background())
+}
+
+func (i AuthorizationRule) ToAuthorizationRuleOutputWithContext(ctx context.Context) AuthorizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationRuleOutput)
+}
+
+type AuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (AuthorizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationRuleOutput)(nil)).Elem()
+}
+
+func (o AuthorizationRuleOutput) ToAuthorizationRuleOutput() AuthorizationRuleOutput {
+	return o
+}
+
+func (o AuthorizationRuleOutput) ToAuthorizationRuleOutputWithContext(ctx context.Context) AuthorizationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AuthorizationRuleOutput{})
 }

@@ -94,6 +94,14 @@ class Preset(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Elastic Transcoder presets can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PresetAudioArgs']] audio: Audio parameters object (documented below).

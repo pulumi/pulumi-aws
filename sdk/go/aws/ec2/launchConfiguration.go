@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -251,6 +252,14 @@ import (
 // cannot currently be detected by this provider. After updating to block device
 // configuration, resource recreation can be manually triggered by using the
 // [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
+//
+// ## Import
+//
+// Launch configurations can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
+// ```
 type LaunchConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -544,4 +553,43 @@ type LaunchConfigurationArgs struct {
 
 func (LaunchConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchConfigurationArgs)(nil)).Elem()
+}
+
+type LaunchConfigurationInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationOutput() LaunchConfigurationOutput
+	ToLaunchConfigurationOutputWithContext(ctx context.Context) LaunchConfigurationOutput
+}
+
+func (LaunchConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfiguration)(nil)).Elem()
+}
+
+func (i LaunchConfiguration) ToLaunchConfigurationOutput() LaunchConfigurationOutput {
+	return i.ToLaunchConfigurationOutputWithContext(context.Background())
+}
+
+func (i LaunchConfiguration) ToLaunchConfigurationOutputWithContext(ctx context.Context) LaunchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationOutput)
+}
+
+type LaunchConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (LaunchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationOutput)(nil)).Elem()
+}
+
+func (o LaunchConfigurationOutput) ToLaunchConfigurationOutput() LaunchConfigurationOutput {
+	return o
+}
+
+func (o LaunchConfigurationOutput) ToLaunchConfigurationOutputWithContext(ctx context.Context) LaunchConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LaunchConfigurationOutput{})
 }

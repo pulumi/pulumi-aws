@@ -56,6 +56,14 @@ class CustomLayer(pulumi.CustomResource):
             stack_id=aws_opsworks_stack["main"]["id"])
         ```
 
+        ## Import
+
+        OpsWorks Custom Layers can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.

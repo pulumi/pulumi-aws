@@ -37,6 +37,14 @@ class ResourceShare(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Resource shares can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_external_principals: Indicates whether principals outside your organization can be associated with a resource share.

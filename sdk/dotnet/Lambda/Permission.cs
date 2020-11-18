@@ -144,6 +144,18 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
+    /// ```
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
+    /// ```
     /// </summary>
     public partial class Permission : Pulumi.CustomResource
     {

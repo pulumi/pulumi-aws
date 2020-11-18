@@ -96,6 +96,16 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// App Mesh virtual gateway can be imported using `mesh_name` together with the virtual gateway's `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
+    /// ```
+    /// 
+    ///  [1]/docs/providers/aws/index.html
     /// </summary>
     public partial class VirtualGateway : Pulumi.CustomResource
     {

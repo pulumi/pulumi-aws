@@ -39,6 +39,14 @@ import * as utilities from "../utilities";
  *     records: ["v=spf1 include:amazonses.com -all"],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * MAIL FROM domain can be imported using the `domain` attribute, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ses/mailFrom:MailFrom example example.com
+ * ```
  */
 export class MailFrom extends pulumi.CustomResource {
     /**

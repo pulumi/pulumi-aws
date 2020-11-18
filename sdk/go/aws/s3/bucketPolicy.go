@@ -4,6 +4,7 @@
 package s3
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// S3 bucket policies can be imported using the bucket name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-bucket-name
 // ```
 type BucketPolicy struct {
 	pulumi.CustomResourceState
@@ -119,4 +128,43 @@ type BucketPolicyArgs struct {
 
 func (BucketPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketPolicyArgs)(nil)).Elem()
+}
+
+type BucketPolicyInput interface {
+	pulumi.Input
+
+	ToBucketPolicyOutput() BucketPolicyOutput
+	ToBucketPolicyOutputWithContext(ctx context.Context) BucketPolicyOutput
+}
+
+func (BucketPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketPolicy)(nil)).Elem()
+}
+
+func (i BucketPolicy) ToBucketPolicyOutput() BucketPolicyOutput {
+	return i.ToBucketPolicyOutputWithContext(context.Background())
+}
+
+func (i BucketPolicy) ToBucketPolicyOutputWithContext(ctx context.Context) BucketPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketPolicyOutput)
+}
+
+type BucketPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (BucketPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketPolicyOutput)(nil)).Elem()
+}
+
+func (o BucketPolicyOutput) ToBucketPolicyOutput() BucketPolicyOutput {
+	return o
+}
+
+func (o BucketPolicyOutput) ToBucketPolicyOutputWithContext(ctx context.Context) BucketPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BucketPolicyOutput{})
 }

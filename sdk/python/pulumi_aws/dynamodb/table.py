@@ -115,6 +115,14 @@ class Table(pulumi.CustomResource):
             stream_view_type="NEW_AND_OLD_IMAGES")
         ```
 
+        ## Import
+
+        DynamoDB tables can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]] attributes: List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:

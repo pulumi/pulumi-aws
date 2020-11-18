@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -67,6 +68,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IAM user group membership can be imported using the user name and group names separated by `/`.
+//
+// ```sh
+//  $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
 // ```
 type UserGroupMembership struct {
 	pulumi.CustomResourceState
@@ -145,4 +154,43 @@ type UserGroupMembershipArgs struct {
 
 func (UserGroupMembershipArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userGroupMembershipArgs)(nil)).Elem()
+}
+
+type UserGroupMembershipInput interface {
+	pulumi.Input
+
+	ToUserGroupMembershipOutput() UserGroupMembershipOutput
+	ToUserGroupMembershipOutputWithContext(ctx context.Context) UserGroupMembershipOutput
+}
+
+func (UserGroupMembership) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserGroupMembership)(nil)).Elem()
+}
+
+func (i UserGroupMembership) ToUserGroupMembershipOutput() UserGroupMembershipOutput {
+	return i.ToUserGroupMembershipOutputWithContext(context.Background())
+}
+
+func (i UserGroupMembership) ToUserGroupMembershipOutputWithContext(ctx context.Context) UserGroupMembershipOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserGroupMembershipOutput)
+}
+
+type UserGroupMembershipOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserGroupMembershipOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserGroupMembershipOutput)(nil)).Elem()
+}
+
+func (o UserGroupMembershipOutput) ToUserGroupMembershipOutput() UserGroupMembershipOutput {
+	return o
+}
+
+func (o UserGroupMembershipOutput) ToUserGroupMembershipOutputWithContext(ctx context.Context) UserGroupMembershipOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserGroupMembershipOutput{})
 }

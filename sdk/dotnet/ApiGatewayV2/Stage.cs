@@ -32,6 +32,14 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
+    /// ```
     /// </summary>
     public partial class Stage : Pulumi.CustomResource
     {

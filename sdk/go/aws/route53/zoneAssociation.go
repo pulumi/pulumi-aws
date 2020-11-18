@@ -4,6 +4,7 @@
 package route53
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -65,6 +66,20 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Route 53 Hosted Zone Associations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.
+//
+// ```sh
+//  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
+// ```
+//
+//  If the VPC is in a different region than the Terraform AWS Provider region configuration, the VPC Region can be added to the end. e.g.
+//
+// ```sh
+//  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
 // ```
 type ZoneAssociation struct {
 	pulumi.CustomResourceState
@@ -159,4 +174,43 @@ type ZoneAssociationArgs struct {
 
 func (ZoneAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*zoneAssociationArgs)(nil)).Elem()
+}
+
+type ZoneAssociationInput interface {
+	pulumi.Input
+
+	ToZoneAssociationOutput() ZoneAssociationOutput
+	ToZoneAssociationOutputWithContext(ctx context.Context) ZoneAssociationOutput
+}
+
+func (ZoneAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZoneAssociation)(nil)).Elem()
+}
+
+func (i ZoneAssociation) ToZoneAssociationOutput() ZoneAssociationOutput {
+	return i.ToZoneAssociationOutputWithContext(context.Background())
+}
+
+func (i ZoneAssociation) ToZoneAssociationOutputWithContext(ctx context.Context) ZoneAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZoneAssociationOutput)
+}
+
+type ZoneAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ZoneAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZoneAssociationOutput)(nil)).Elem()
+}
+
+func (o ZoneAssociationOutput) ToZoneAssociationOutput() ZoneAssociationOutput {
+	return o
+}
+
+func (o ZoneAssociationOutput) ToZoneAssociationOutputWithContext(ctx context.Context) ZoneAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ZoneAssociationOutput{})
 }

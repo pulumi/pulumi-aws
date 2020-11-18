@@ -4,6 +4,7 @@
 package inspector
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -40,6 +41,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_inspector_assessment_template` can be imported by using the template assessment ARN, e.g.
+//
+// ```sh
+//  $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
 // ```
 type AssessmentTemplate struct {
 	pulumi.CustomResourceState
@@ -157,4 +166,43 @@ type AssessmentTemplateArgs struct {
 
 func (AssessmentTemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assessmentTemplateArgs)(nil)).Elem()
+}
+
+type AssessmentTemplateInput interface {
+	pulumi.Input
+
+	ToAssessmentTemplateOutput() AssessmentTemplateOutput
+	ToAssessmentTemplateOutputWithContext(ctx context.Context) AssessmentTemplateOutput
+}
+
+func (AssessmentTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentTemplate)(nil)).Elem()
+}
+
+func (i AssessmentTemplate) ToAssessmentTemplateOutput() AssessmentTemplateOutput {
+	return i.ToAssessmentTemplateOutputWithContext(context.Background())
+}
+
+func (i AssessmentTemplate) ToAssessmentTemplateOutputWithContext(ctx context.Context) AssessmentTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplateOutput)
+}
+
+type AssessmentTemplateOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssessmentTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentTemplateOutput)(nil)).Elem()
+}
+
+func (o AssessmentTemplateOutput) ToAssessmentTemplateOutput() AssessmentTemplateOutput {
+	return o
+}
+
+func (o AssessmentTemplateOutput) ToAssessmentTemplateOutputWithContext(ctx context.Context) AssessmentTemplateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssessmentTemplateOutput{})
 }

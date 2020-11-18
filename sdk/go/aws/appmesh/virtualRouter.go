@@ -4,6 +4,7 @@
 package appmesh
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -54,6 +55,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// App Mesh virtual routers can be imported using `mesh_name` together with the virtual router's `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
+// ```
+//
+//  [1]/docs/providers/aws/index.html
 type VirtualRouter struct {
 	pulumi.CustomResourceState
 
@@ -185,4 +196,43 @@ type VirtualRouterArgs struct {
 
 func (VirtualRouterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualRouterArgs)(nil)).Elem()
+}
+
+type VirtualRouterInput interface {
+	pulumi.Input
+
+	ToVirtualRouterOutput() VirtualRouterOutput
+	ToVirtualRouterOutputWithContext(ctx context.Context) VirtualRouterOutput
+}
+
+func (VirtualRouter) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualRouter)(nil)).Elem()
+}
+
+func (i VirtualRouter) ToVirtualRouterOutput() VirtualRouterOutput {
+	return i.ToVirtualRouterOutputWithContext(context.Background())
+}
+
+func (i VirtualRouter) ToVirtualRouterOutputWithContext(ctx context.Context) VirtualRouterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterOutput)
+}
+
+type VirtualRouterOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualRouterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualRouterOutput)(nil)).Elem()
+}
+
+func (o VirtualRouterOutput) ToVirtualRouterOutput() VirtualRouterOutput {
+	return o
+}
+
+func (o VirtualRouterOutput) ToVirtualRouterOutputWithContext(ctx context.Context) VirtualRouterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualRouterOutput{})
 }

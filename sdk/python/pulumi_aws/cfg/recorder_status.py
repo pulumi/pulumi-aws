@@ -73,6 +73,14 @@ class RecorderStatus(pulumi.CustomResource):
         \"\"\"))
         ```
 
+        ## Import
+
+        Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.
+
+        ```sh
+         $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] is_enabled: Whether the configuration recorder should be enabled or disabled.

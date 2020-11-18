@@ -4,6 +4,7 @@
 package apigatewayv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -61,6 +62,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_apigatewayv2_api` can be imported by using the API identifier, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
 // ```
 type Api struct {
 	pulumi.CustomResourceState
@@ -305,4 +314,43 @@ type ApiArgs struct {
 
 func (ApiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiArgs)(nil)).Elem()
+}
+
+type ApiInput interface {
+	pulumi.Input
+
+	ToApiOutput() ApiOutput
+	ToApiOutputWithContext(ctx context.Context) ApiOutput
+}
+
+func (Api) ElementType() reflect.Type {
+	return reflect.TypeOf((*Api)(nil)).Elem()
+}
+
+func (i Api) ToApiOutput() ApiOutput {
+	return i.ToApiOutputWithContext(context.Background())
+}
+
+func (i Api) ToApiOutputWithContext(ctx context.Context) ApiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOutput)
+}
+
+type ApiOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOutput)(nil)).Elem()
+}
+
+func (o ApiOutput) ToApiOutput() ApiOutput {
+	return o
+}
+
+func (o ApiOutput) ToApiOutputWithContext(ctx context.Context) ApiOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiOutput{})
 }

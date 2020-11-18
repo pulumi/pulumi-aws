@@ -51,7 +51,14 @@ class Group(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a Group resource with the given unique name, props, and options.
+        ## Import
+
+        AutoScaling Groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:autoscaling/group:Group web web-asg
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.

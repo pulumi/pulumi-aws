@@ -186,6 +186,14 @@ class Domain(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[es_service_linked_role]))
         ```
 
+        ## Import
+
+        Elasticsearch domains can be imported using the `domain_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticsearch/domain:Domain example domain_name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain

@@ -23,6 +23,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ## Import
+ *
+ * DB Subnet groups can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
+ * ```
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**

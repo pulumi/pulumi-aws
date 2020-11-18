@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Xray
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// XRay Encryption Config can be imported using the region name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+    /// ```
+    /// </summary>
     public partial class EncryptionConfig : Pulumi.CustomResource
     {
         /// <summary>

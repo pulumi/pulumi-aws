@@ -75,6 +75,14 @@ import * as utilities from "../utilities";
  * [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
  * [3]: https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html
  * [4]: https://www.terraform.io/docs/providers/aws/r/s3_bucket.html
+ *
+ * ## Import
+ *
+ * Cloudfront Origin Access Identities can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
+ * ```
  */
 export class OriginAccessIdentity extends pulumi.CustomResource {
     /**

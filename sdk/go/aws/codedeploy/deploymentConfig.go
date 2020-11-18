@@ -4,6 +4,7 @@
 package codedeploy
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -127,6 +128,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// CodeDeploy Deployment Configurations can be imported using the `deployment_config_name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+// ```
 type DeploymentConfig struct {
 	pulumi.CustomResourceState
 
@@ -227,4 +236,43 @@ type DeploymentConfigArgs struct {
 
 func (DeploymentConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentConfigArgs)(nil)).Elem()
+}
+
+type DeploymentConfigInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigOutput() DeploymentConfigOutput
+	ToDeploymentConfigOutputWithContext(ctx context.Context) DeploymentConfigOutput
+}
+
+func (DeploymentConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfig)(nil)).Elem()
+}
+
+func (i DeploymentConfig) ToDeploymentConfigOutput() DeploymentConfigOutput {
+	return i.ToDeploymentConfigOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfig) ToDeploymentConfigOutputWithContext(ctx context.Context) DeploymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigOutput)
+}
+
+type DeploymentConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeploymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigOutput)(nil)).Elem()
+}
+
+func (o DeploymentConfigOutput) ToDeploymentConfigOutput() DeploymentConfigOutput {
+	return o
+}
+
+func (o DeploymentConfigOutput) ToDeploymentConfigOutputWithContext(ctx context.Context) DeploymentConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeploymentConfigOutput{})
 }

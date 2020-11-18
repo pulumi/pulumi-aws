@@ -4,6 +4,7 @@
 package lambda
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -113,6 +114,14 @@ import (
 //
 // For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
 // large files efficiently.
+//
+// ## Import
+//
+// Lambda Functions can be imported using the `function_name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
+// ```
 type Function struct {
 	pulumi.CustomResourceState
 
@@ -427,4 +436,43 @@ type FunctionArgs struct {
 
 func (FunctionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionArgs)(nil)).Elem()
+}
+
+type FunctionInput interface {
+	pulumi.Input
+
+	ToFunctionOutput() FunctionOutput
+	ToFunctionOutputWithContext(ctx context.Context) FunctionOutput
+}
+
+func (Function) ElementType() reflect.Type {
+	return reflect.TypeOf((*Function)(nil)).Elem()
+}
+
+func (i Function) ToFunctionOutput() FunctionOutput {
+	return i.ToFunctionOutputWithContext(context.Background())
+}
+
+func (i Function) ToFunctionOutputWithContext(ctx context.Context) FunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutput)
+}
+
+type FunctionOutput struct {
+	*pulumi.OutputState
+}
+
+func (FunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionOutput)(nil)).Elem()
+}
+
+func (o FunctionOutput) ToFunctionOutput() FunctionOutput {
+	return o
+}
+
+func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) FunctionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FunctionOutput{})
 }

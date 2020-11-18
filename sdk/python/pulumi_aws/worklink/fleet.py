@@ -64,6 +64,14 @@ class Fleet(pulumi.CustomResource):
         ))
         ```
 
+        ## Import
+
+        WorkLink can be imported using the ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] audit_stream_arn: The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.

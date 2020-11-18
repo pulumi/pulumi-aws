@@ -4,6 +4,7 @@
 package apigatewayv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -35,6 +36,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
 // ```
 type Stage struct {
 	pulumi.CustomResourceState
@@ -237,4 +246,43 @@ type StageArgs struct {
 
 func (StageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stageArgs)(nil)).Elem()
+}
+
+type StageInput interface {
+	pulumi.Input
+
+	ToStageOutput() StageOutput
+	ToStageOutputWithContext(ctx context.Context) StageOutput
+}
+
+func (Stage) ElementType() reflect.Type {
+	return reflect.TypeOf((*Stage)(nil)).Elem()
+}
+
+func (i Stage) ToStageOutput() StageOutput {
+	return i.ToStageOutputWithContext(context.Background())
+}
+
+func (i Stage) ToStageOutputWithContext(ctx context.Context) StageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageOutput)
+}
+
+type StageOutput struct {
+	*pulumi.OutputState
+}
+
+func (StageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageOutput)(nil)).Elem()
+}
+
+func (o StageOutput) ToStageOutput() StageOutput {
+	return o
+}
+
+func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StageOutput{})
 }

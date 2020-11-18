@@ -71,6 +71,14 @@ class Cluster(pulumi.CustomResource):
             skip_final_snapshot=True)
         ```
 
+        ## Import
+
+        DocDB Clusters can be imported using the `cluster_identifier`, e.g.
+
+        ```sh
+         $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications

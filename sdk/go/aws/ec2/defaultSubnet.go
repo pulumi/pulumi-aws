@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -174,4 +175,43 @@ type DefaultSubnetArgs struct {
 
 func (DefaultSubnetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultSubnetArgs)(nil)).Elem()
+}
+
+type DefaultSubnetInput interface {
+	pulumi.Input
+
+	ToDefaultSubnetOutput() DefaultSubnetOutput
+	ToDefaultSubnetOutputWithContext(ctx context.Context) DefaultSubnetOutput
+}
+
+func (DefaultSubnet) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultSubnet)(nil)).Elem()
+}
+
+func (i DefaultSubnet) ToDefaultSubnetOutput() DefaultSubnetOutput {
+	return i.ToDefaultSubnetOutputWithContext(context.Background())
+}
+
+func (i DefaultSubnet) ToDefaultSubnetOutputWithContext(ctx context.Context) DefaultSubnetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultSubnetOutput)
+}
+
+type DefaultSubnetOutput struct {
+	*pulumi.OutputState
+}
+
+func (DefaultSubnetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultSubnetOutput)(nil)).Elem()
+}
+
+func (o DefaultSubnetOutput) ToDefaultSubnetOutput() DefaultSubnetOutput {
+	return o
+}
+
+func (o DefaultSubnetOutput) ToDefaultSubnetOutputWithContext(ctx context.Context) DefaultSubnetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DefaultSubnetOutput{})
 }

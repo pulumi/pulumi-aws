@@ -45,6 +45,14 @@ class ApnsVoipChannel(pulumi.CustomResource):
             private_key=(lambda path: open(path).read())("./private_key.key"))
         ```
 
+        ## Import
+
+        Pinpoint APNs VoIP Channel can be imported using the `application-id`, e.g.
+
+        ```sh
+         $ pulumi import aws:pinpoint/apnsVoipChannel:ApnsVoipChannel apns_voip application-id
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The application ID.

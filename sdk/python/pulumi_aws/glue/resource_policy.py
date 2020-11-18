@@ -42,6 +42,14 @@ class ResourcePolicy(pulumi.CustomResource):
         example = aws.glue.ResourcePolicy("example", policy=glue_example_policy.json)
         ```
 
+        ## Import
+
+        Glue Resource Policy can be imported using the account ID
+
+        ```sh
+         $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy: The policy to be applied to the aws glue data catalog.

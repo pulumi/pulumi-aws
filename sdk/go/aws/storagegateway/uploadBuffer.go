@@ -4,6 +4,7 @@
 package storagegateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,6 +37,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_storagegateway_upload_buffer` can be imported by using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`), e.g.
+//
+// ```sh
+//  $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
 // ```
 type UploadBuffer struct {
 	pulumi.CustomResourceState
@@ -114,4 +123,43 @@ type UploadBufferArgs struct {
 
 func (UploadBufferArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*uploadBufferArgs)(nil)).Elem()
+}
+
+type UploadBufferInput interface {
+	pulumi.Input
+
+	ToUploadBufferOutput() UploadBufferOutput
+	ToUploadBufferOutputWithContext(ctx context.Context) UploadBufferOutput
+}
+
+func (UploadBuffer) ElementType() reflect.Type {
+	return reflect.TypeOf((*UploadBuffer)(nil)).Elem()
+}
+
+func (i UploadBuffer) ToUploadBufferOutput() UploadBufferOutput {
+	return i.ToUploadBufferOutputWithContext(context.Background())
+}
+
+func (i UploadBuffer) ToUploadBufferOutputWithContext(ctx context.Context) UploadBufferOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UploadBufferOutput)
+}
+
+type UploadBufferOutput struct {
+	*pulumi.OutputState
+}
+
+func (UploadBufferOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UploadBufferOutput)(nil)).Elem()
+}
+
+func (o UploadBufferOutput) ToUploadBufferOutput() UploadBufferOutput {
+	return o
+}
+
+func (o UploadBufferOutput) ToUploadBufferOutputWithContext(ctx context.Context) UploadBufferOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UploadBufferOutput{})
 }

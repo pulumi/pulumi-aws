@@ -49,6 +49,14 @@ class SourceCredential(pulumi.CustomResource):
             user_name="test-user")
         ```
 
+        ## Import
+
+        CodeBuild Source Credential can be imported using the CodeBuild Source Credential arn, e.g.
+
+        ```sh
+         $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.

@@ -17,6 +17,14 @@ import * as utilities from "../utilities";
  *
  * const messenger = new aws.cloudwatch.EventBus("messenger", {});
  * ```
+ *
+ * ## Import
+ *
+ * EventBridge event buses can be imported using the `name`, e.g. console
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+ * ```
  */
 export class EventBus extends pulumi.CustomResource {
     /**

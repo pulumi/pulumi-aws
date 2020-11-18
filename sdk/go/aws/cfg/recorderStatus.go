@@ -4,6 +4,7 @@
 package cfg
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -82,6 +83,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+// ```
 type RecorderStatus struct {
 	pulumi.CustomResourceState
 
@@ -156,4 +165,43 @@ type RecorderStatusArgs struct {
 
 func (RecorderStatusArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*recorderStatusArgs)(nil)).Elem()
+}
+
+type RecorderStatusInput interface {
+	pulumi.Input
+
+	ToRecorderStatusOutput() RecorderStatusOutput
+	ToRecorderStatusOutputWithContext(ctx context.Context) RecorderStatusOutput
+}
+
+func (RecorderStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecorderStatus)(nil)).Elem()
+}
+
+func (i RecorderStatus) ToRecorderStatusOutput() RecorderStatusOutput {
+	return i.ToRecorderStatusOutputWithContext(context.Background())
+}
+
+func (i RecorderStatus) ToRecorderStatusOutputWithContext(ctx context.Context) RecorderStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderStatusOutput)
+}
+
+type RecorderStatusOutput struct {
+	*pulumi.OutputState
+}
+
+func (RecorderStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecorderStatusOutput)(nil)).Elem()
+}
+
+func (o RecorderStatusOutput) ToRecorderStatusOutput() RecorderStatusOutput {
+	return o
+}
+
+func (o RecorderStatusOutput) ToRecorderStatusOutputWithContext(ctx context.Context) RecorderStatusOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RecorderStatusOutput{})
 }

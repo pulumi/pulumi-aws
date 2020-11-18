@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['AppCookieStickinessPolicy']
 
-warnings.warn("aws.elasticloadbalancing.AppCookieStickinessPolicy has been deprecated in favor of aws.elb.AppCookieStickinessPolicy", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancing.AppCookieStickinessPolicy has been deprecated in favor of aws.elb.AppCookieStickinessPolicy""", DeprecationWarning)
 
 
 class AppCookieStickinessPolicy(pulumi.CustomResource):
-    warnings.warn("aws.elasticloadbalancing.AppCookieStickinessPolicy has been deprecated in favor of aws.elb.AppCookieStickinessPolicy", DeprecationWarning)
+    warnings.warn("""aws.elasticloadbalancing.AppCookieStickinessPolicy has been deprecated in favor of aws.elb.AppCookieStickinessPolicy""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -47,6 +47,14 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
             load_balancer=lb.name,
             lb_port=80,
             cookie_name="MyAppCookie")
+        ```
+
+        ## Import
+
+        Application cookie stickiness policies can be imported using the ELB name, port, and policy name separated by colons (`:`), e.g.
+
+        ```sh
+         $ pulumi import aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
         ```
 
         :param str resource_name: The name of the resource.

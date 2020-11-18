@@ -37,6 +37,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A Spot Datafeed Subscription can be imported using the word `spot-datafeed-subscription`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
+    /// ```
     /// </summary>
     public partial class SpotDatafeedSubscription : Pulumi.CustomResource
     {

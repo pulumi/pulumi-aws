@@ -98,6 +98,14 @@ class TopicRule(pulumi.CustomResource):
         \"\"\"))
         ```
 
+        ## Import
+
+        IoT Topic Rules can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:iot/topicRule:TopicRule rule <name>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the rule.

@@ -63,6 +63,14 @@ namespace Pulumi.Aws.RedShift
     /// * `arn` - Amazon Resource Name (ARN) of the Redshift event notification subscription
     /// * `id` - The name of the Redshift event notification subscription
     /// * `customer_aws_id` - The AWS customer account associated with the Redshift event notification subscription
+    /// 
+    /// ## Import
+    /// 
+    /// Redshift Event Subscriptions can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
+    /// ```
     /// </summary>
     public partial class EventSubscription : Pulumi.CustomResource
     {

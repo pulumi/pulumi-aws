@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -131,4 +132,43 @@ type MainRouteTableAssociationArgs struct {
 
 func (MainRouteTableAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mainRouteTableAssociationArgs)(nil)).Elem()
+}
+
+type MainRouteTableAssociationInput interface {
+	pulumi.Input
+
+	ToMainRouteTableAssociationOutput() MainRouteTableAssociationOutput
+	ToMainRouteTableAssociationOutputWithContext(ctx context.Context) MainRouteTableAssociationOutput
+}
+
+func (MainRouteTableAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*MainRouteTableAssociation)(nil)).Elem()
+}
+
+func (i MainRouteTableAssociation) ToMainRouteTableAssociationOutput() MainRouteTableAssociationOutput {
+	return i.ToMainRouteTableAssociationOutputWithContext(context.Background())
+}
+
+func (i MainRouteTableAssociation) ToMainRouteTableAssociationOutputWithContext(ctx context.Context) MainRouteTableAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MainRouteTableAssociationOutput)
+}
+
+type MainRouteTableAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (MainRouteTableAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MainRouteTableAssociationOutput)(nil)).Elem()
+}
+
+func (o MainRouteTableAssociationOutput) ToMainRouteTableAssociationOutput() MainRouteTableAssociationOutput {
+	return o
+}
+
+func (o MainRouteTableAssociationOutput) ToMainRouteTableAssociationOutputWithContext(ctx context.Context) MainRouteTableAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MainRouteTableAssociationOutput{})
 }

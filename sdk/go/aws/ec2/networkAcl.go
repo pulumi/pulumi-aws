@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -63,6 +64,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Network ACLs can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
 // ```
 type NetworkAcl struct {
 	pulumi.CustomResourceState
@@ -180,4 +189,43 @@ type NetworkAclArgs struct {
 
 func (NetworkAclArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAclArgs)(nil)).Elem()
+}
+
+type NetworkAclInput interface {
+	pulumi.Input
+
+	ToNetworkAclOutput() NetworkAclOutput
+	ToNetworkAclOutputWithContext(ctx context.Context) NetworkAclOutput
+}
+
+func (NetworkAcl) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAcl)(nil)).Elem()
+}
+
+func (i NetworkAcl) ToNetworkAclOutput() NetworkAclOutput {
+	return i.ToNetworkAclOutputWithContext(context.Background())
+}
+
+func (i NetworkAcl) ToNetworkAclOutputWithContext(ctx context.Context) NetworkAclOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclOutput)
+}
+
+type NetworkAclOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkAclOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclOutput)(nil)).Elem()
+}
+
+func (o NetworkAclOutput) ToNetworkAclOutput() NetworkAclOutput {
+	return o
+}
+
+func (o NetworkAclOutput) ToNetworkAclOutputWithContext(ctx context.Context) NetworkAclOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkAclOutput{})
 }

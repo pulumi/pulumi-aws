@@ -169,6 +169,16 @@ class VirtualNode(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        App Mesh virtual nodes can be imported using `mesh_name` together with the virtual node's `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
+        ```
+
+         [1]/docs/providers/aws/index.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual node.

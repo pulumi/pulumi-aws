@@ -21,6 +21,14 @@ import * as utilities from "../utilities";
  *     vlan: 4094,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Direct Connect hosted private virtual interfaces can be imported using the `vif id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface test dxvif-33cc44dd
+ * ```
  */
 export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
     /**

@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleOrganization],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * GuardDuty Organization Admin Account can be imported using the AWS account ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+ * ```
  */
 export class OrganizationAdminAccount extends pulumi.CustomResource {
     /**

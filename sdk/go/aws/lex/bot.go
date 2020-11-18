@@ -4,6 +4,7 @@
 package lex
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -64,6 +65,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Bots can be imported using their name.
+//
+// ```sh
+//  $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
 // ```
 type Bot struct {
 	pulumi.CustomResourceState
@@ -316,4 +325,43 @@ type BotArgs struct {
 
 func (BotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*botArgs)(nil)).Elem()
+}
+
+type BotInput interface {
+	pulumi.Input
+
+	ToBotOutput() BotOutput
+	ToBotOutputWithContext(ctx context.Context) BotOutput
+}
+
+func (Bot) ElementType() reflect.Type {
+	return reflect.TypeOf((*Bot)(nil)).Elem()
+}
+
+func (i Bot) ToBotOutput() BotOutput {
+	return i.ToBotOutputWithContext(context.Background())
+}
+
+func (i Bot) ToBotOutputWithContext(ctx context.Context) BotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotOutput)
+}
+
+type BotOutput struct {
+	*pulumi.OutputState
+}
+
+func (BotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotOutput)(nil)).Elem()
+}
+
+func (o BotOutput) ToBotOutput() BotOutput {
+	return o
+}
+
+func (o BotOutput) ToBotOutputWithContext(ctx context.Context) BotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BotOutput{})
 }

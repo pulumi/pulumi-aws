@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -35,6 +33,14 @@ import * as utilities from "../utilities";
  *     rootDeviceName: "/dev/xvda",
  *     virtualizationType: "hvm",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_ami` can be imported using the ID of the AMI, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/ami:Ami example ami-12345678
  * ```
  */
 export class Ami extends pulumi.CustomResource {

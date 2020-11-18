@@ -4,6 +4,7 @@
 package athena
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -44,6 +45,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Athena Workgroups can be imported using their name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:athena/workgroup:Workgroup example example
 // ```
 type Workgroup struct {
 	pulumi.CustomResourceState
@@ -162,4 +171,43 @@ type WorkgroupArgs struct {
 
 func (WorkgroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workgroupArgs)(nil)).Elem()
+}
+
+type WorkgroupInput interface {
+	pulumi.Input
+
+	ToWorkgroupOutput() WorkgroupOutput
+	ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupOutput
+}
+
+func (Workgroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workgroup)(nil)).Elem()
+}
+
+func (i Workgroup) ToWorkgroupOutput() WorkgroupOutput {
+	return i.ToWorkgroupOutputWithContext(context.Background())
+}
+
+func (i Workgroup) ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupOutput)
+}
+
+type WorkgroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkgroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupOutput)(nil)).Elem()
+}
+
+func (o WorkgroupOutput) ToWorkgroupOutput() WorkgroupOutput {
+	return o
+}
+
+func (o WorkgroupOutput) ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkgroupOutput{})
 }

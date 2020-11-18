@@ -68,6 +68,14 @@ class NotebookInstance(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Sagemaker Notebook Instances can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_code_repositories: An array of up to three Git repositories to associate with the notebook instance.

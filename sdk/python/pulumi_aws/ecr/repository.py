@@ -41,6 +41,14 @@ class Repository(pulumi.CustomResource):
             image_tag_mutability="MUTABLE")
         ```
 
+        ## Import
+
+        ECR Repositories can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ecr/repository:Repository service test-service
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.

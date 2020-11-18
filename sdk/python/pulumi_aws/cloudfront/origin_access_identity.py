@@ -86,6 +86,14 @@ class OriginAccessIdentity(pulumi.CustomResource):
         [3]: https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html
         [4]: https://www.terraform.io/docs/providers/aws/r/s3_bucket.html
 
+        ## Import
+
+        Cloudfront Origin Access Identities can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: An optional comment for the origin access identity.

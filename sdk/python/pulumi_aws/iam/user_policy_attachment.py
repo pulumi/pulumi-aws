@@ -40,6 +40,14 @@ class UserPolicyAttachment(pulumi.CustomResource):
             policy_arn=policy.arn)
         ```
 
+        ## Import
+
+        IAM user policy attachments can be imported using the user name and policy arn separated by `/`.
+
+        ```sh
+         $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply

@@ -39,6 +39,14 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
+ *
+ * ## Import
+ *
+ * DocDB Cluster Instances can be imported using the `identifier`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+ * ```
  */
 export class ClusterInstance extends pulumi.CustomResource {
     /**

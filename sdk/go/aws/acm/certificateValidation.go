@@ -4,6 +4,7 @@
 package acm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -125,4 +126,43 @@ type CertificateValidationArgs struct {
 
 func (CertificateValidationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateValidationArgs)(nil)).Elem()
+}
+
+type CertificateValidationInput interface {
+	pulumi.Input
+
+	ToCertificateValidationOutput() CertificateValidationOutput
+	ToCertificateValidationOutputWithContext(ctx context.Context) CertificateValidationOutput
+}
+
+func (CertificateValidation) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateValidation)(nil)).Elem()
+}
+
+func (i CertificateValidation) ToCertificateValidationOutput() CertificateValidationOutput {
+	return i.ToCertificateValidationOutputWithContext(context.Background())
+}
+
+func (i CertificateValidation) ToCertificateValidationOutputWithContext(ctx context.Context) CertificateValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationOutput)
+}
+
+type CertificateValidationOutput struct {
+	*pulumi.OutputState
+}
+
+func (CertificateValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateValidationOutput)(nil)).Elem()
+}
+
+func (o CertificateValidationOutput) ToCertificateValidationOutput() CertificateValidationOutput {
+	return o
+}
+
+func (o CertificateValidationOutput) ToCertificateValidationOutputWithContext(ctx context.Context) CertificateValidationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CertificateValidationOutput{})
 }

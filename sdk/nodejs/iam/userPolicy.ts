@@ -34,6 +34,14 @@ import {PolicyDocument} from "./index";
  * });
  * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {user: lbUser.name});
  * ```
+ *
+ * ## Import
+ *
+ * IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+ * ```
  */
 export class UserPolicy extends pulumi.CustomResource {
     /**

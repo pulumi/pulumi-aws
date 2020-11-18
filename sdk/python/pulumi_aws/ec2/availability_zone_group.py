@@ -36,6 +36,14 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
             opt_in_status="opted-in")
         ```
 
+        ## Import
+
+        EC2 Availability Zone Groups can be imported using the group name, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_name: Name of the Availability Zone Group.

@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {ARN} from "..";
@@ -132,6 +130,14 @@ import {ARN} from "..";
  *
  * For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
  * large files efficiently.
+ *
+ * ## Import
+ *
+ * Lambda Functions can be imported using the `function_name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
+ * ```
  */
 export class Function extends pulumi.CustomResource {
     /**

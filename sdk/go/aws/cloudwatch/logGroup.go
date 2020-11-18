@@ -4,6 +4,7 @@
 package cloudwatch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -35,6 +36,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Cloudwatch Log Groups can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
 // ```
 type LogGroup struct {
 	pulumi.CustomResourceState
@@ -163,4 +172,43 @@ type LogGroupArgs struct {
 
 func (LogGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logGroupArgs)(nil)).Elem()
+}
+
+type LogGroupInput interface {
+	pulumi.Input
+
+	ToLogGroupOutput() LogGroupOutput
+	ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutput
+}
+
+func (LogGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogGroup)(nil)).Elem()
+}
+
+func (i LogGroup) ToLogGroupOutput() LogGroupOutput {
+	return i.ToLogGroupOutputWithContext(context.Background())
+}
+
+func (i LogGroup) ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogGroupOutput)
+}
+
+type LogGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogGroupOutput)(nil)).Elem()
+}
+
+func (o LogGroupOutput) ToLogGroupOutput() LogGroupOutput {
+	return o
+}
+
+func (o LogGroupOutput) ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LogGroupOutput{})
 }

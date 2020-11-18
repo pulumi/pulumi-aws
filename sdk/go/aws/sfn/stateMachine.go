@@ -4,6 +4,7 @@
 package sfn
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,6 +37,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// State Machines can be imported using the `arn`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
 // ```
 type StateMachine struct {
 	pulumi.CustomResourceState
@@ -152,4 +161,43 @@ type StateMachineArgs struct {
 
 func (StateMachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stateMachineArgs)(nil)).Elem()
+}
+
+type StateMachineInput interface {
+	pulumi.Input
+
+	ToStateMachineOutput() StateMachineOutput
+	ToStateMachineOutputWithContext(ctx context.Context) StateMachineOutput
+}
+
+func (StateMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachine)(nil)).Elem()
+}
+
+func (i StateMachine) ToStateMachineOutput() StateMachineOutput {
+	return i.ToStateMachineOutputWithContext(context.Background())
+}
+
+func (i StateMachine) ToStateMachineOutputWithContext(ctx context.Context) StateMachineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineOutput)
+}
+
+type StateMachineOutput struct {
+	*pulumi.OutputState
+}
+
+func (StateMachineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineOutput)(nil)).Elem()
+}
+
+func (o StateMachineOutput) ToStateMachineOutput() StateMachineOutput {
+	return o
+}
+
+func (o StateMachineOutput) ToStateMachineOutputWithContext(ctx context.Context) StateMachineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StateMachineOutput{})
 }

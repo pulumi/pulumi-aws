@@ -21,6 +21,14 @@ import * as utilities from "../utilities";
  *     routeResponseKey: `$default`,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_apigatewayv2_route_response` can be imported by using the API identifier, route identifier and route response identifier, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
+ * ```
  */
 export class RouteResponse extends pulumi.CustomResource {
     /**

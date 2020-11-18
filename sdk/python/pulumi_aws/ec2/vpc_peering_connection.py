@@ -113,6 +113,16 @@ class VpcPeeringConnection(pulumi.CustomResource):
         The accepter can manage its side of the connection using the `ec2.VpcPeeringConnectionAccepter` resource
         or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
 
+        ## Import
+
+        VPC Peering resources can be imported using the `vpc peering id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
+        ```
+
+         [1]/docs/providers/aws/index.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterArgs']] accepter: An optional configuration block that allows for [VPC Peering Connection]

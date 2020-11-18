@@ -69,6 +69,14 @@ class ResourceDataSync(pulumi.CustomResource):
         ))
         ```
 
+        ## Import
+
+        SSM resource data sync can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name for the configuration.

@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// DB proxy default target groups can be imported using the `db_proxy_name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
+    /// ```
+    /// </summary>
     public partial class ProxyDefaultTargetGroup : Pulumi.CustomResource
     {
         /// <summary>

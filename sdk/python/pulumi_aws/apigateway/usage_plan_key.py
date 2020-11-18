@@ -43,6 +43,14 @@ class UsagePlanKey(pulumi.CustomResource):
             usage_plan_id=myusageplan.id)
         ```
 
+        ## Import
+
+        AWS API Gateway Usage Plan Key can be imported using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_id: The identifier of the API key resource.

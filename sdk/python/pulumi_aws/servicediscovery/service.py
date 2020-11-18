@@ -77,6 +77,14 @@ class Service(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Service Discovery Service can be imported using the service ID, e.g.
+
+        ```sh
+         $ pulumi import aws:servicediscovery/service:Service example 0123456789
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the service.

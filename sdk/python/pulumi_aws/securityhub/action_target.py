@@ -37,6 +37,14 @@ class ActionTarget(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[example_account]))
         ```
 
+        ## Import
+
+        Security Hub custom action can be imported using the action target ARN e.g.
+
+        ```sh
+         $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The name of the custom action target.

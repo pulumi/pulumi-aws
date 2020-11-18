@@ -4,6 +4,7 @@
 package datasync
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,6 +39,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_datasync_location_fsx_windows_file_system` can be imported by using the `DataSync-ARN#FSx-Windows-ARN`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:datasync/locationFsxWindows:LocationFsxWindows example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
 // ```
 type LocationFsxWindows struct {
 	pulumi.CustomResourceState
@@ -190,4 +199,43 @@ type LocationFsxWindowsArgs struct {
 
 func (LocationFsxWindowsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationFsxWindowsArgs)(nil)).Elem()
+}
+
+type LocationFsxWindowsInput interface {
+	pulumi.Input
+
+	ToLocationFsxWindowsOutput() LocationFsxWindowsOutput
+	ToLocationFsxWindowsOutputWithContext(ctx context.Context) LocationFsxWindowsOutput
+}
+
+func (LocationFsxWindows) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFsxWindows)(nil)).Elem()
+}
+
+func (i LocationFsxWindows) ToLocationFsxWindowsOutput() LocationFsxWindowsOutput {
+	return i.ToLocationFsxWindowsOutputWithContext(context.Background())
+}
+
+func (i LocationFsxWindows) ToLocationFsxWindowsOutputWithContext(ctx context.Context) LocationFsxWindowsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxWindowsOutput)
+}
+
+type LocationFsxWindowsOutput struct {
+	*pulumi.OutputState
+}
+
+func (LocationFsxWindowsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFsxWindowsOutput)(nil)).Elem()
+}
+
+func (o LocationFsxWindowsOutput) ToLocationFsxWindowsOutput() LocationFsxWindowsOutput {
+	return o
+}
+
+func (o LocationFsxWindowsOutput) ToLocationFsxWindowsOutputWithContext(ctx context.Context) LocationFsxWindowsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LocationFsxWindowsOutput{})
 }

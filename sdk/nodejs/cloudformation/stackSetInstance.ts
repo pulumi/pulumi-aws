@@ -56,6 +56,14 @@ import * as utilities from "../utilities";
  *     role: aWSCloudFormationStackSetExecutionRole.name,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * CloudFormation StackSet Instances can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
+ * ```
  */
 export class StackSetInstance extends pulumi.CustomResource {
     /**

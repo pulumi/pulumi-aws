@@ -4,6 +4,7 @@
 package mediastore
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -30,6 +31,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// MediaStore Container can be imported using the MediaStore Container Name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:mediastore/container:Container example example
 // ```
 type Container struct {
 	pulumi.CustomResourceState
@@ -114,4 +123,43 @@ type ContainerArgs struct {
 
 func (ContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerArgs)(nil)).Elem()
+}
+
+type ContainerInput interface {
+	pulumi.Input
+
+	ToContainerOutput() ContainerOutput
+	ToContainerOutputWithContext(ctx context.Context) ContainerOutput
+}
+
+func (Container) ElementType() reflect.Type {
+	return reflect.TypeOf((*Container)(nil)).Elem()
+}
+
+func (i Container) ToContainerOutput() ContainerOutput {
+	return i.ToContainerOutputWithContext(context.Background())
+}
+
+func (i Container) ToContainerOutputWithContext(ctx context.Context) ContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerOutput)
+}
+
+type ContainerOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerOutput)(nil)).Elem()
+}
+
+func (o ContainerOutput) ToContainerOutput() ContainerOutput {
+	return o
+}
+
+func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) ContainerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContainerOutput{})
 }

@@ -69,6 +69,14 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_apigatewayv2_authorizer` can be imported by using the API identifier and authorizer identifier, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
+    /// ```
     /// </summary>
     public partial class Authorizer : Pulumi.CustomResource
     {

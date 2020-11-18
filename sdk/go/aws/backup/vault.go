@@ -4,6 +4,7 @@
 package backup
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -32,6 +33,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Backup vault can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:backup/vault:Vault test-vault TestVault
 // ```
 type Vault struct {
 	pulumi.CustomResourceState
@@ -126,4 +135,43 @@ type VaultArgs struct {
 
 func (VaultArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultArgs)(nil)).Elem()
+}
+
+type VaultInput interface {
+	pulumi.Input
+
+	ToVaultOutput() VaultOutput
+	ToVaultOutputWithContext(ctx context.Context) VaultOutput
+}
+
+func (Vault) ElementType() reflect.Type {
+	return reflect.TypeOf((*Vault)(nil)).Elem()
+}
+
+func (i Vault) ToVaultOutput() VaultOutput {
+	return i.ToVaultOutputWithContext(context.Background())
+}
+
+func (i Vault) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultOutput)
+}
+
+type VaultOutput struct {
+	*pulumi.OutputState
+}
+
+func (VaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultOutput)(nil)).Elem()
+}
+
+func (o VaultOutput) ToVaultOutput() VaultOutput {
+	return o
+}
+
+func (o VaultOutput) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VaultOutput{})
 }

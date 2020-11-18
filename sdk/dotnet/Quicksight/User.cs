@@ -33,6 +33,10 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Importing is currently not supported on this resource.
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

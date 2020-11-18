@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {PolicyDocument} from "../iam";
@@ -163,6 +161,14 @@ import {PolicyDocument} from "../iam";
  * }, {
  *     dependsOn: [esServiceLinkedRole],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Elasticsearch domains can be imported using the `domain_name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:elasticsearch/domain:Domain example domain_name
  * ```
  */
 export class Domain extends pulumi.CustomResource {

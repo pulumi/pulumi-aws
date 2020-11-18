@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -166,6 +167,22 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// EIPs in a VPC can be imported using their Allocation ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
+// ```
+//
+//  EIPs in EC2 Classic can be imported using their Public IP, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
+// ```
+//
+//  [1]https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html
 type Eip struct {
 	pulumi.CustomResourceState
 
@@ -349,4 +366,43 @@ type EipArgs struct {
 
 func (EipArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eipArgs)(nil)).Elem()
+}
+
+type EipInput interface {
+	pulumi.Input
+
+	ToEipOutput() EipOutput
+	ToEipOutputWithContext(ctx context.Context) EipOutput
+}
+
+func (Eip) ElementType() reflect.Type {
+	return reflect.TypeOf((*Eip)(nil)).Elem()
+}
+
+func (i Eip) ToEipOutput() EipOutput {
+	return i.ToEipOutputWithContext(context.Background())
+}
+
+func (i Eip) ToEipOutputWithContext(ctx context.Context) EipOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipOutput)
+}
+
+type EipOutput struct {
+	*pulumi.OutputState
+}
+
+func (EipOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EipOutput)(nil)).Elem()
+}
+
+func (o EipOutput) ToEipOutput() EipOutput {
+	return o
+}
+
+func (o EipOutput) ToEipOutputWithContext(ctx context.Context) EipOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EipOutput{})
 }

@@ -61,6 +61,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Direct Connect gateway associations can be imported using `dx_gateway_id` together with `associated_gateway_id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example dxgw-12345678/vgw-98765432
+ * ```
  */
 export class GatewayAssociation extends pulumi.CustomResource {
     /**

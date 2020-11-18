@@ -18,6 +18,14 @@ import * as utilities from "../utilities";
  *     policy: "Block",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * SES Receipt Filter can be imported using their `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+ * ```
  */
 export class ReceiptFilter extends pulumi.CustomResource {
     /**

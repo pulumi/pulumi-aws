@@ -98,6 +98,14 @@ import {RestApi} from "./index";
  *     connectionId: testVpcLink.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_api_gateway_integration` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
+ * ```
  */
 export class Integration extends pulumi.CustomResource {
     /**

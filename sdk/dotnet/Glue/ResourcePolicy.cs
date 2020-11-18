@@ -67,6 +67,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Glue Resource Policy can be imported using the account ID
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+    /// ```
     /// </summary>
     public partial class ResourcePolicy : Pulumi.CustomResource
     {

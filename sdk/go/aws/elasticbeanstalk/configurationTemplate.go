@@ -4,6 +4,7 @@
 package elasticbeanstalk
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -180,4 +181,43 @@ type ConfigurationTemplateArgs struct {
 
 func (ConfigurationTemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationTemplateArgs)(nil)).Elem()
+}
+
+type ConfigurationTemplateInput interface {
+	pulumi.Input
+
+	ToConfigurationTemplateOutput() ConfigurationTemplateOutput
+	ToConfigurationTemplateOutputWithContext(ctx context.Context) ConfigurationTemplateOutput
+}
+
+func (ConfigurationTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationTemplate)(nil)).Elem()
+}
+
+func (i ConfigurationTemplate) ToConfigurationTemplateOutput() ConfigurationTemplateOutput {
+	return i.ToConfigurationTemplateOutputWithContext(context.Background())
+}
+
+func (i ConfigurationTemplate) ToConfigurationTemplateOutputWithContext(ctx context.Context) ConfigurationTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateOutput)
+}
+
+type ConfigurationTemplateOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationTemplateOutput)(nil)).Elem()
+}
+
+func (o ConfigurationTemplateOutput) ToConfigurationTemplateOutput() ConfigurationTemplateOutput {
+	return o
+}
+
+func (o ConfigurationTemplateOutput) ToConfigurationTemplateOutputWithContext(ctx context.Context) ConfigurationTemplateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationTemplateOutput{})
 }

@@ -131,6 +131,14 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ECS services can be imported using the `name` together with ecs cluster `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

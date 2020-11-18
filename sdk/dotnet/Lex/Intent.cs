@@ -142,6 +142,14 @@ namespace Pulumi.Aws.Lex
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Intents can be imported using their name.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
+    /// ```
     /// </summary>
     public partial class Intent : Pulumi.CustomResource
     {

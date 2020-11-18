@@ -37,6 +37,14 @@ class RequestValidator(pulumi.CustomResource):
             validate_request_parameters=True)
         ```
 
+        ## Import
+
+        `aws_api_gateway_request_validator` can be imported using `REST-API-ID/REQUEST-VALIDATOR-ID`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the request validator

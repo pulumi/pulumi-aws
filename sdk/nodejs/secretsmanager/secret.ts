@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -37,6 +35,14 @@ import * as utilities from "../utilities";
  *         automaticallyAfterDays: 7,
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_secretsmanager_secret` can be imported by using the secret Amazon Resource Name (ARN), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:secretsmanager/secret:Secret example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
  * ```
  */
 export class Secret extends pulumi.CustomResource {

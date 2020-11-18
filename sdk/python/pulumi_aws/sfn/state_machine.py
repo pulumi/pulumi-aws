@@ -48,6 +48,14 @@ class StateMachine(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        State Machines can be imported using the `arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] definition: The Amazon States Language definition of the state machine.

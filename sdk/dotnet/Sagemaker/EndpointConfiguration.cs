@@ -45,6 +45,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Endpoint configurations can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
+    /// ```
     /// </summary>
     public partial class EndpointConfiguration : Pulumi.CustomResource
     {

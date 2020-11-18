@@ -234,6 +234,14 @@ namespace Pulumi.Aws.Alb
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Listeners can be imported using their ARN, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:alb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
+    /// ```
     /// </summary>
     public partial class Listener : Pulumi.CustomResource
     {

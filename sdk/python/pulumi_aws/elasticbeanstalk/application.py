@@ -47,6 +47,14 @@ class Application(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Elastic Beanstalk Applications can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Short description of the application

@@ -60,6 +60,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// IAM user group membership can be imported using the user name and group names separated by `/`.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+    /// ```
     /// </summary>
     public partial class UserGroupMembership : Pulumi.CustomResource
     {

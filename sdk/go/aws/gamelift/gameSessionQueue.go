@@ -4,12 +4,21 @@
 package gamelift
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an Gamelift Game Session Queue resource.
+//
+// ## Import
+//
+// Gamelift Game Session Queues can be imported by their `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+// ```
 type GameSessionQueue struct {
 	pulumi.CustomResourceState
 
@@ -117,4 +126,43 @@ type GameSessionQueueArgs struct {
 
 func (GameSessionQueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gameSessionQueueArgs)(nil)).Elem()
+}
+
+type GameSessionQueueInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueOutput() GameSessionQueueOutput
+	ToGameSessionQueueOutputWithContext(ctx context.Context) GameSessionQueueOutput
+}
+
+func (GameSessionQueue) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueue)(nil)).Elem()
+}
+
+func (i GameSessionQueue) ToGameSessionQueueOutput() GameSessionQueueOutput {
+	return i.ToGameSessionQueueOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueue) ToGameSessionQueueOutputWithContext(ctx context.Context) GameSessionQueueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueOutput)
+}
+
+type GameSessionQueueOutput struct {
+	*pulumi.OutputState
+}
+
+func (GameSessionQueueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueueOutput)(nil)).Elem()
+}
+
+func (o GameSessionQueueOutput) ToGameSessionQueueOutput() GameSessionQueueOutput {
+	return o
+}
+
+func (o GameSessionQueueOutput) ToGameSessionQueueOutputWithContext(ctx context.Context) GameSessionQueueOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GameSessionQueueOutput{})
 }

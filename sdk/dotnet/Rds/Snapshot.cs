@@ -44,6 +44,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
+    /// ```
     /// </summary>
     public partial class Snapshot : Pulumi.CustomResource
     {

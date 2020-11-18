@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IAM OpenID Connect Providers can be imported using the `arn`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
 // ```
 type OpenIdConnectProvider struct {
 	pulumi.CustomResourceState
@@ -134,4 +143,43 @@ type OpenIdConnectProviderArgs struct {
 
 func (OpenIdConnectProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*openIdConnectProviderArgs)(nil)).Elem()
+}
+
+type OpenIdConnectProviderInput interface {
+	pulumi.Input
+
+	ToOpenIdConnectProviderOutput() OpenIdConnectProviderOutput
+	ToOpenIdConnectProviderOutputWithContext(ctx context.Context) OpenIdConnectProviderOutput
+}
+
+func (OpenIdConnectProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenIdConnectProvider)(nil)).Elem()
+}
+
+func (i OpenIdConnectProvider) ToOpenIdConnectProviderOutput() OpenIdConnectProviderOutput {
+	return i.ToOpenIdConnectProviderOutputWithContext(context.Background())
+}
+
+func (i OpenIdConnectProvider) ToOpenIdConnectProviderOutputWithContext(ctx context.Context) OpenIdConnectProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectProviderOutput)
+}
+
+type OpenIdConnectProviderOutput struct {
+	*pulumi.OutputState
+}
+
+func (OpenIdConnectProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenIdConnectProviderOutput)(nil)).Elem()
+}
+
+func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderOutput() OpenIdConnectProviderOutput {
+	return o
+}
+
+func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderOutputWithContext(ctx context.Context) OpenIdConnectProviderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OpenIdConnectProviderOutput{})
 }

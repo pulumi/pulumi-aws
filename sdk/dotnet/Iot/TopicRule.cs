@@ -85,6 +85,14 @@ namespace Pulumi.Aws.Iot
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// IoT Topic Rules can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:iot/topicRule:TopicRule rule &lt;name&gt;
+    /// ```
     /// </summary>
     public partial class TopicRule : Pulumi.CustomResource
     {

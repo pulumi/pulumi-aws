@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IOT Role Alias can be imported via the alias, e.g.
+//
+// ```sh
+//  $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
 // ```
 type RoleAlias struct {
 	pulumi.CustomResourceState
@@ -137,4 +146,43 @@ type RoleAliasArgs struct {
 
 func (RoleAliasArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleAliasArgs)(nil)).Elem()
+}
+
+type RoleAliasInput interface {
+	pulumi.Input
+
+	ToRoleAliasOutput() RoleAliasOutput
+	ToRoleAliasOutputWithContext(ctx context.Context) RoleAliasOutput
+}
+
+func (RoleAlias) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAlias)(nil)).Elem()
+}
+
+func (i RoleAlias) ToRoleAliasOutput() RoleAliasOutput {
+	return i.ToRoleAliasOutputWithContext(context.Background())
+}
+
+func (i RoleAlias) ToRoleAliasOutputWithContext(ctx context.Context) RoleAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAliasOutput)
+}
+
+type RoleAliasOutput struct {
+	*pulumi.OutputState
+}
+
+func (RoleAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAliasOutput)(nil)).Elem()
+}
+
+func (o RoleAliasOutput) ToRoleAliasOutput() RoleAliasOutput {
+	return o
+}
+
+func (o RoleAliasOutput) ToRoleAliasOutputWithContext(ctx context.Context) RoleAliasOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RoleAliasOutput{})
 }

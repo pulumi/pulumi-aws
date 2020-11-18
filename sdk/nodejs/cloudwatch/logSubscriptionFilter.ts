@@ -23,6 +23,14 @@ import {LogGroup} from "./index";
  *     distribution: "Random",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * CloudWatch Logs subscription filter can be imported using the log group name and subscription filter name separated by `|`.
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
+ * ```
  */
 export class LogSubscriptionFilter extends pulumi.CustomResource {
     /**

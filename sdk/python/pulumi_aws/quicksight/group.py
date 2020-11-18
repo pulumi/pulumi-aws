@@ -34,6 +34,14 @@ class Group(pulumi.CustomResource):
         example = aws.quicksight.Group("example", group_name="tf-example")
         ```
 
+        ## Import
+
+        QuickSight Group can be imported using the aws account id, namespace and group name separated by `/`.
+
+        ```sh
+         $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.

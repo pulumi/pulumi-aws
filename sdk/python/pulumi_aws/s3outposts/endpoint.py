@@ -38,6 +38,14 @@ class Endpoint(pulumi.CustomResource):
             subnet_id=aws_subnet["example"]["id"])
         ```
 
+        ## Import
+
+        S3 Outposts Endpoints can be imported using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`) e.g.
+
+        ```sh
+         $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this endpoint.

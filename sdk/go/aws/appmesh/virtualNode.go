@@ -4,6 +4,7 @@
 package appmesh
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -216,6 +217,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// App Mesh virtual nodes can be imported using `mesh_name` together with the virtual node's `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
+// ```
+//
+//  [1]/docs/providers/aws/index.html
 type VirtualNode struct {
 	pulumi.CustomResourceState
 
@@ -347,4 +358,43 @@ type VirtualNodeArgs struct {
 
 func (VirtualNodeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNodeArgs)(nil)).Elem()
+}
+
+type VirtualNodeInput interface {
+	pulumi.Input
+
+	ToVirtualNodeOutput() VirtualNodeOutput
+	ToVirtualNodeOutputWithContext(ctx context.Context) VirtualNodeOutput
+}
+
+func (VirtualNode) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNode)(nil)).Elem()
+}
+
+func (i VirtualNode) ToVirtualNodeOutput() VirtualNodeOutput {
+	return i.ToVirtualNodeOutputWithContext(context.Background())
+}
+
+func (i VirtualNode) ToVirtualNodeOutputWithContext(ctx context.Context) VirtualNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeOutput)
+}
+
+type VirtualNodeOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeOutput)(nil)).Elem()
+}
+
+func (o VirtualNodeOutput) ToVirtualNodeOutput() VirtualNodeOutput {
+	return o
+}
+
+func (o VirtualNodeOutput) ToVirtualNodeOutputWithContext(ctx context.Context) VirtualNodeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNodeOutput{})
 }

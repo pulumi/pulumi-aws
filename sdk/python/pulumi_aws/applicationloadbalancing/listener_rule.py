@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['ListenerRule']
 
-warnings.warn("aws.applicationloadbalancing.ListenerRule has been deprecated in favor of aws.alb.ListenerRule", DeprecationWarning)
+warnings.warn("""aws.applicationloadbalancing.ListenerRule has been deprecated in favor of aws.alb.ListenerRule""", DeprecationWarning)
 
 
 class ListenerRule(pulumi.CustomResource):
-    warnings.warn("aws.applicationloadbalancing.ListenerRule has been deprecated in favor of aws.alb.ListenerRule", DeprecationWarning)
+    warnings.warn("""aws.applicationloadbalancing.ListenerRule has been deprecated in favor of aws.alb.ListenerRule""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -185,6 +185,14 @@ class ListenerRule(pulumi.CustomResource):
                     target_group_arn=aws_lb_target_group["static"]["arn"],
                 ),
             ])
+        ```
+
+        ## Import
+
+        Rules can be imported using their ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:applicationloadbalancing/listenerRule:ListenerRule front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener-rule/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b
         ```
 
         :param str resource_name: The name of the resource.

@@ -80,6 +80,14 @@ import * as utilities from "../utilities";
  *     insufficientDataHealthStatus: "Healthy",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Route53 Health Checks can be imported using the `health check id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
+ * ```
  */
 export class HealthCheck extends pulumi.CustomResource {
     /**

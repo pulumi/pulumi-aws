@@ -42,6 +42,14 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
             schedule_identifier=default_snapshot_schedule.id)
         ```
 
+        ## Import
+
+        Redshift Snapshot Schedule Association can be imported using the `<cluster-identifier>/<schedule-identifier>`, e.g.
+
+        ```sh
+         $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_identifier: The cluster identifier.

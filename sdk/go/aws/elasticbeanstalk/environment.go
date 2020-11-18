@@ -4,6 +4,7 @@
 package elasticbeanstalk
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -98,6 +99,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Elastic Beanstalk Environments can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
 // ```
 type Environment struct {
 	pulumi.CustomResourceState
@@ -426,4 +435,43 @@ type EnvironmentArgs struct {
 
 func (EnvironmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentArgs)(nil)).Elem()
+}
+
+type EnvironmentInput interface {
+	pulumi.Input
+
+	ToEnvironmentOutput() EnvironmentOutput
+	ToEnvironmentOutputWithContext(ctx context.Context) EnvironmentOutput
+}
+
+func (Environment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Environment)(nil)).Elem()
+}
+
+func (i Environment) ToEnvironmentOutput() EnvironmentOutput {
+	return i.ToEnvironmentOutputWithContext(context.Background())
+}
+
+func (i Environment) ToEnvironmentOutputWithContext(ctx context.Context) EnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentOutput)
+}
+
+type EnvironmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (EnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentOutput)(nil)).Elem()
+}
+
+func (o EnvironmentOutput) ToEnvironmentOutput() EnvironmentOutput {
+	return o
+}
+
+func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) EnvironmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EnvironmentOutput{})
 }

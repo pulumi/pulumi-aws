@@ -15,7 +15,7 @@ __all__ = [
     'get_target_group',
 ]
 
-warnings.warn("aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favor of aws.lb.getTargetGroup", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favor of aws.lb.getTargetGroup""", DeprecationWarning)
 
 @pulumi.output_type
 class GetTargetGroupResult:

@@ -4,6 +4,7 @@
 package appmesh
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -57,6 +58,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// App Mesh service meshes can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
 // ```
 type Mesh struct {
 	pulumi.CustomResourceState
@@ -169,4 +178,43 @@ type MeshArgs struct {
 
 func (MeshArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*meshArgs)(nil)).Elem()
+}
+
+type MeshInput interface {
+	pulumi.Input
+
+	ToMeshOutput() MeshOutput
+	ToMeshOutputWithContext(ctx context.Context) MeshOutput
+}
+
+func (Mesh) ElementType() reflect.Type {
+	return reflect.TypeOf((*Mesh)(nil)).Elem()
+}
+
+func (i Mesh) ToMeshOutput() MeshOutput {
+	return i.ToMeshOutputWithContext(context.Background())
+}
+
+func (i Mesh) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshOutput)
+}
+
+type MeshOutput struct {
+	*pulumi.OutputState
+}
+
+func (MeshOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshOutput)(nil)).Elem()
+}
+
+func (o MeshOutput) ToMeshOutput() MeshOutput {
+	return o
+}
+
+func (o MeshOutput) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MeshOutput{})
 }

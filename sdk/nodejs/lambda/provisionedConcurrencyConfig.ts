@@ -32,6 +32,14 @@ import * as utilities from "../utilities";
  *     qualifier: aws_lambda_function.example.version,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Lambda Provisioned Concurrency Configs can be imported using the `function_name` and `qualifier` separated by a colon (`:`), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function:production
+ * ```
  */
 export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
     /**

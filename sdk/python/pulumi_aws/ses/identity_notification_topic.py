@@ -38,6 +38,14 @@ class IdentityNotificationTopic(pulumi.CustomResource):
             include_original_headers=True)
         ```
 
+        ## Import
+
+        Identity Notification Topics can be imported using ID of the record. The ID is made up as IDENTITY|TYPE where IDENTITY is the SES Identity and TYPE is the Notification Type. e.g. example.com|Bounce In this example, `example.com` is the SES Identity and `Bounce` is the Notification Type. To import the ID above, it would look as follows
+
+        ```sh
+         $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity: The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).

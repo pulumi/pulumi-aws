@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -32,6 +30,14 @@ import * as utilities from "../utilities";
  *     }],
  *     scanEnabled: true,
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * SES receipt rules can be imported using the ruleset name and rule name separated by `:`.
+ *
+ * ```sh
+ *  $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
  * ```
  */
 export class ReceiptRule extends pulumi.CustomResource {

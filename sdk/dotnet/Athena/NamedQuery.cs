@@ -59,6 +59,14 @@ namespace Pulumi.Aws.Athena
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Athena Named Query can be imported using the query ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+    /// ```
     /// </summary>
     public partial class NamedQuery : Pulumi.CustomResource
     {

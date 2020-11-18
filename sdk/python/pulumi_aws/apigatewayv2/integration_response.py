@@ -41,6 +41,14 @@ class IntegrationResponse(pulumi.CustomResource):
             integration_response_key="/200/")
         ```
 
+        ## Import
+
+        `aws_apigatewayv2_integration_response` can be imported by using the API identifier, integration identifier and integration response identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.

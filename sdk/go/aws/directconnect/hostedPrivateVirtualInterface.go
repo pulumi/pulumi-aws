@@ -4,6 +4,7 @@
 package directconnect
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Direct Connect hosted private virtual interfaces can be imported using the `vif id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface test dxvif-33cc44dd
 // ```
 type HostedPrivateVirtualInterface struct {
 	pulumi.CustomResourceState
@@ -225,4 +234,43 @@ type HostedPrivateVirtualInterfaceArgs struct {
 
 func (HostedPrivateVirtualInterfaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedPrivateVirtualInterfaceArgs)(nil)).Elem()
+}
+
+type HostedPrivateVirtualInterfaceInput interface {
+	pulumi.Input
+
+	ToHostedPrivateVirtualInterfaceOutput() HostedPrivateVirtualInterfaceOutput
+	ToHostedPrivateVirtualInterfaceOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceOutput
+}
+
+func (HostedPrivateVirtualInterface) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedPrivateVirtualInterface)(nil)).Elem()
+}
+
+func (i HostedPrivateVirtualInterface) ToHostedPrivateVirtualInterfaceOutput() HostedPrivateVirtualInterfaceOutput {
+	return i.ToHostedPrivateVirtualInterfaceOutputWithContext(context.Background())
+}
+
+func (i HostedPrivateVirtualInterface) ToHostedPrivateVirtualInterfaceOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedPrivateVirtualInterfaceOutput)
+}
+
+type HostedPrivateVirtualInterfaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (HostedPrivateVirtualInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedPrivateVirtualInterfaceOutput)(nil)).Elem()
+}
+
+func (o HostedPrivateVirtualInterfaceOutput) ToHostedPrivateVirtualInterfaceOutput() HostedPrivateVirtualInterfaceOutput {
+	return o
+}
+
+func (o HostedPrivateVirtualInterfaceOutput) ToHostedPrivateVirtualInterfaceOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HostedPrivateVirtualInterfaceOutput{})
 }

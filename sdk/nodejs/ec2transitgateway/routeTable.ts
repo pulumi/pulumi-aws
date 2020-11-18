@@ -15,6 +15,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ec2transitgateway.RouteTable("example", {transitGatewayId: aws_ec2_transit_gateway.example.id});
  * ```
+ *
+ * ## Import
+ *
+ * `aws_ec2_transit_gateway_route_table` can be imported by using the EC2 Transit Gateway Route Table identifier, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
+ * ```
  */
 export class RouteTable extends pulumi.CustomResource {
     /**

@@ -106,6 +106,22 @@ class Eip(pulumi.CustomResource):
             vpc=True)
         ```
 
+        ## Import
+
+        EIPs in a VPC can be imported using their Allocation ID, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
+        ```
+
+         EIPs in EC2 Classic can be imported using their Public IP, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
+        ```
+
+         [1]https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] associate_with_private_ip: A user specified primary or secondary private IP address to

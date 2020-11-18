@@ -44,6 +44,14 @@ class Accelerator(pulumi.CustomResource):
             ip_address_type="IPV4")
         ```
 
+        ## Import
+
+        Global Accelerator accelerators can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AcceleratorAttributesArgs']] attributes: The attributes of the accelerator. Fields documented below.

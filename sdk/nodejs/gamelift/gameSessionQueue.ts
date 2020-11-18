@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -32,6 +30,14 @@ import * as utilities from "../utilities";
  *     ],
  *     timeoutInSeconds: 60,
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Gamelift Game Session Queues can be imported by their `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
  * ```
  */
 export class GameSessionQueue extends pulumi.CustomResource {

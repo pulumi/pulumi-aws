@@ -15,7 +15,7 @@ __all__ = [
     'get_listener',
 ]
 
-warnings.warn("aws.elasticloadbalancingv2.getListener has been deprecated in favor of aws.lb.getListener", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancingv2.getListener has been deprecated in favor of aws.lb.getListener""", DeprecationWarning)
 
 @pulumi.output_type
 class GetListenerResult:

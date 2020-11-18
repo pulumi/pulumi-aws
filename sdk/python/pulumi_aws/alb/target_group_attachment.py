@@ -62,6 +62,10 @@ class TargetGroupAttachment(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[with_lb]))
         ```
 
+        ## Import
+
+        Target Group Attachments cannot be imported.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.

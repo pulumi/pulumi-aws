@@ -48,6 +48,10 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## Import
+ *
+ * Target Group Attachments cannot be imported.
+ *
  * @deprecated aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favor of aws.lb.TargetGroupAttachment
  */
 export class TargetGroupAttachment extends pulumi.CustomResource {

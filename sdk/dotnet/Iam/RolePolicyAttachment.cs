@@ -67,6 +67,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// IAM role policy attachments can be imported using the role name and policy arn separated by `/`.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+    /// ```
     /// </summary>
     public partial class RolePolicyAttachment : Pulumi.CustomResource
     {

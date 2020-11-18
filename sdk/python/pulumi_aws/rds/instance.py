@@ -130,6 +130,14 @@ class Instance(pulumi.CustomResource):
             max_allocated_storage=100)
         ```
 
+        ## Import
+
+        DB Instances can be imported using the `identifier`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.

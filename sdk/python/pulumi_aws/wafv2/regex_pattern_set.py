@@ -51,6 +51,14 @@ class RegexPatternSet(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        WAFv2 Regex Pattern Sets can be imported using `ID/name/scope` e.g.
+
+        ```sh
+         $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A friendly description of the regular expression pattern set.

@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -22,6 +23,16 @@ import (
 // Certificates][2] in AWS Documentation.
 //
 // > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
+//
+// ## Import
+//
+// IAM Server Certificates can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+// ```
+//
+//  [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html [lifecycle]/docs/configuration/resources.html
 type ServerCertificate struct {
 	pulumi.CustomResourceState
 
@@ -189,4 +200,43 @@ type ServerCertificateArgs struct {
 
 func (ServerCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverCertificateArgs)(nil)).Elem()
+}
+
+type ServerCertificateInput interface {
+	pulumi.Input
+
+	ToServerCertificateOutput() ServerCertificateOutput
+	ToServerCertificateOutputWithContext(ctx context.Context) ServerCertificateOutput
+}
+
+func (ServerCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerCertificate)(nil)).Elem()
+}
+
+func (i ServerCertificate) ToServerCertificateOutput() ServerCertificateOutput {
+	return i.ToServerCertificateOutputWithContext(context.Background())
+}
+
+func (i ServerCertificate) ToServerCertificateOutputWithContext(ctx context.Context) ServerCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateOutput)
+}
+
+type ServerCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerCertificateOutput)(nil)).Elem()
+}
+
+func (o ServerCertificateOutput) ToServerCertificateOutput() ServerCertificateOutput {
+	return o
+}
+
+func (o ServerCertificateOutput) ToServerCertificateOutputWithContext(ctx context.Context) ServerCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerCertificateOutput{})
 }

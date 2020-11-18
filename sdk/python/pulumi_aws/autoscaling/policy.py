@@ -61,6 +61,14 @@ class Policy(pulumi.CustomResource):
             autoscaling_group_name=bar.name)
         ```
 
+        ## Import
+
+        AutoScaling scaling policy can be imported using the role autoscaling_group_name and name separated by `/`.
+
+        ```sh
+         $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] adjustment_type: Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.

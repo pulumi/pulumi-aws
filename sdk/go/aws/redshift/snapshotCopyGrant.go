@@ -4,6 +4,7 @@
 package redshift
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,6 +45,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Redshift Snapshot Copy Grants support import by name, e.g. console
+//
+// ```sh
+//  $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
 // ```
 type SnapshotCopyGrant struct {
 	pulumi.CustomResourceState
@@ -135,4 +144,43 @@ type SnapshotCopyGrantArgs struct {
 
 func (SnapshotCopyGrantArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotCopyGrantArgs)(nil)).Elem()
+}
+
+type SnapshotCopyGrantInput interface {
+	pulumi.Input
+
+	ToSnapshotCopyGrantOutput() SnapshotCopyGrantOutput
+	ToSnapshotCopyGrantOutputWithContext(ctx context.Context) SnapshotCopyGrantOutput
+}
+
+func (SnapshotCopyGrant) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotCopyGrant)(nil)).Elem()
+}
+
+func (i SnapshotCopyGrant) ToSnapshotCopyGrantOutput() SnapshotCopyGrantOutput {
+	return i.ToSnapshotCopyGrantOutputWithContext(context.Background())
+}
+
+func (i SnapshotCopyGrant) ToSnapshotCopyGrantOutputWithContext(ctx context.Context) SnapshotCopyGrantOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyGrantOutput)
+}
+
+type SnapshotCopyGrantOutput struct {
+	*pulumi.OutputState
+}
+
+func (SnapshotCopyGrantOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotCopyGrantOutput)(nil)).Elem()
+}
+
+func (o SnapshotCopyGrantOutput) ToSnapshotCopyGrantOutput() SnapshotCopyGrantOutput {
+	return o
+}
+
+func (o SnapshotCopyGrantOutput) ToSnapshotCopyGrantOutputWithContext(ctx context.Context) SnapshotCopyGrantOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SnapshotCopyGrantOutput{})
 }

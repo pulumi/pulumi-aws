@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -48,6 +49,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
 // ```
 type UserPolicy struct {
 	pulumi.CustomResourceState
@@ -146,4 +155,43 @@ type UserPolicyArgs struct {
 
 func (UserPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPolicyArgs)(nil)).Elem()
+}
+
+type UserPolicyInput interface {
+	pulumi.Input
+
+	ToUserPolicyOutput() UserPolicyOutput
+	ToUserPolicyOutputWithContext(ctx context.Context) UserPolicyOutput
+}
+
+func (UserPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPolicy)(nil)).Elem()
+}
+
+func (i UserPolicy) ToUserPolicyOutput() UserPolicyOutput {
+	return i.ToUserPolicyOutputWithContext(context.Background())
+}
+
+func (i UserPolicy) ToUserPolicyOutputWithContext(ctx context.Context) UserPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyOutput)
+}
+
+type UserPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPolicyOutput)(nil)).Elem()
+}
+
+func (o UserPolicyOutput) ToUserPolicyOutput() UserPolicyOutput {
+	return o
+}
+
+func (o UserPolicyOutput) ToUserPolicyOutputWithContext(ctx context.Context) UserPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserPolicyOutput{})
 }

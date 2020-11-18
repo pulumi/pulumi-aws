@@ -30,6 +30,14 @@ class Authorizer(pulumi.CustomResource):
         """
         Provides an API Gateway Authorizer.
 
+        ## Import
+
+        AWS API Gateway Authorizer can be imported using the `REST-API-ID/AUTHORIZER-ID`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorizer_credentials: The credentials required for the authorizer.

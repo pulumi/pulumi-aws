@@ -4,6 +4,7 @@
 package autoscalingplans
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -18,6 +19,14 @@ import (
 // See the [AWS documentation](https://docs.aws.amazon.com/autoscaling/plans/userguide/aws-auto-scaling-service-linked-roles.html#create-service-linked-role-manual) for more details.
 //
 // ## Example Usage
+//
+// ## Import
+//
+// Auto Scaling scaling plans can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
+// ```
 type ScalingPlan struct {
 	pulumi.CustomResourceState
 
@@ -111,4 +120,43 @@ type ScalingPlanArgs struct {
 
 func (ScalingPlanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scalingPlanArgs)(nil)).Elem()
+}
+
+type ScalingPlanInput interface {
+	pulumi.Input
+
+	ToScalingPlanOutput() ScalingPlanOutput
+	ToScalingPlanOutputWithContext(ctx context.Context) ScalingPlanOutput
+}
+
+func (ScalingPlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPlan)(nil)).Elem()
+}
+
+func (i ScalingPlan) ToScalingPlanOutput() ScalingPlanOutput {
+	return i.ToScalingPlanOutputWithContext(context.Background())
+}
+
+func (i ScalingPlan) ToScalingPlanOutputWithContext(ctx context.Context) ScalingPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanOutput)
+}
+
+type ScalingPlanOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScalingPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPlanOutput)(nil)).Elem()
+}
+
+func (o ScalingPlanOutput) ToScalingPlanOutput() ScalingPlanOutput {
+	return o
+}
+
+func (o ScalingPlanOutput) ToScalingPlanOutputWithContext(ctx context.Context) ScalingPlanOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScalingPlanOutput{})
 }

@@ -33,6 +33,14 @@ import * as utilities from "../utilities";
  * });
  * const bar = new aws.elasticache.SubnetGroup("bar", {subnetIds: [fooSubnet.id]});
  * ```
+ *
+ * ## Import
+ *
+ * ElastiCache Subnet Groups can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
+ * ```
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**

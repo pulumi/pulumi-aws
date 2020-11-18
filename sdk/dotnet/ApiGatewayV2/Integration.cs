@@ -92,6 +92,14 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_apigatewayv2_integration` can be imported by using the API identifier and integration identifier, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
+    /// ```
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {

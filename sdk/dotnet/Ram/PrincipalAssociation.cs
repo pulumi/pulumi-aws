@@ -65,6 +65,14 @@ namespace Pulumi.Aws.Ram
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// RAM Principal Associations can be imported using their Resource Share ARN and the `principal` separated by a comma, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
+    /// ```
     /// </summary>
     public partial class PrincipalAssociation : Pulumi.CustomResource
     {

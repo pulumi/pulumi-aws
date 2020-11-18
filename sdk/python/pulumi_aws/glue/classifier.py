@@ -82,6 +82,14 @@ class Classifier(pulumi.CustomResource):
         ))
         ```
 
+        ## Import
+
+        Glue Classifiers can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ClassifierCsvClassifierArgs']] csv_classifier: A classifier for Csv content. Defined below.

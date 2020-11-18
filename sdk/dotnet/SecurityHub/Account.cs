@@ -31,6 +31,14 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing Security Hub enabled account can be imported using the AWS account ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:securityhub/account:Account example 123456789012
+    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

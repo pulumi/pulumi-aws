@@ -4,6 +4,7 @@
 package elasticsearch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -122,4 +123,43 @@ type DomainPolicyArgs struct {
 
 func (DomainPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainPolicyArgs)(nil)).Elem()
+}
+
+type DomainPolicyInput interface {
+	pulumi.Input
+
+	ToDomainPolicyOutput() DomainPolicyOutput
+	ToDomainPolicyOutputWithContext(ctx context.Context) DomainPolicyOutput
+}
+
+func (DomainPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainPolicy)(nil)).Elem()
+}
+
+func (i DomainPolicy) ToDomainPolicyOutput() DomainPolicyOutput {
+	return i.ToDomainPolicyOutputWithContext(context.Background())
+}
+
+func (i DomainPolicy) ToDomainPolicyOutputWithContext(ctx context.Context) DomainPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainPolicyOutput)
+}
+
+type DomainPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainPolicyOutput)(nil)).Elem()
+}
+
+func (o DomainPolicyOutput) ToDomainPolicyOutput() DomainPolicyOutput {
+	return o
+}
+
+func (o DomainPolicyOutput) ToDomainPolicyOutputWithContext(ctx context.Context) DomainPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DomainPolicyOutput{})
 }

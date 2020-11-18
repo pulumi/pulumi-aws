@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -54,6 +55,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// AWS API Gateway Usage Plan Key can be imported using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
 // ```
 type UsagePlanKey struct {
 	pulumi.CustomResourceState
@@ -157,4 +166,43 @@ type UsagePlanKeyArgs struct {
 
 func (UsagePlanKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*usagePlanKeyArgs)(nil)).Elem()
+}
+
+type UsagePlanKeyInput interface {
+	pulumi.Input
+
+	ToUsagePlanKeyOutput() UsagePlanKeyOutput
+	ToUsagePlanKeyOutputWithContext(ctx context.Context) UsagePlanKeyOutput
+}
+
+func (UsagePlanKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanKey)(nil)).Elem()
+}
+
+func (i UsagePlanKey) ToUsagePlanKeyOutput() UsagePlanKeyOutput {
+	return i.ToUsagePlanKeyOutputWithContext(context.Background())
+}
+
+func (i UsagePlanKey) ToUsagePlanKeyOutputWithContext(ctx context.Context) UsagePlanKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanKeyOutput)
+}
+
+type UsagePlanKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (UsagePlanKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanKeyOutput)(nil)).Elem()
+}
+
+func (o UsagePlanKeyOutput) ToUsagePlanKeyOutput() UsagePlanKeyOutput {
+	return o
+}
+
+func (o UsagePlanKeyOutput) ToUsagePlanKeyOutputWithContext(ctx context.Context) UsagePlanKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UsagePlanKeyOutput{})
 }

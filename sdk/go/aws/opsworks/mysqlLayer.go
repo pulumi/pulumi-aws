@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -301,4 +302,43 @@ type MysqlLayerArgs struct {
 
 func (MysqlLayerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mysqlLayerArgs)(nil)).Elem()
+}
+
+type MysqlLayerInput interface {
+	pulumi.Input
+
+	ToMysqlLayerOutput() MysqlLayerOutput
+	ToMysqlLayerOutputWithContext(ctx context.Context) MysqlLayerOutput
+}
+
+func (MysqlLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*MysqlLayer)(nil)).Elem()
+}
+
+func (i MysqlLayer) ToMysqlLayerOutput() MysqlLayerOutput {
+	return i.ToMysqlLayerOutputWithContext(context.Background())
+}
+
+func (i MysqlLayer) ToMysqlLayerOutputWithContext(ctx context.Context) MysqlLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerOutput)
+}
+
+type MysqlLayerOutput struct {
+	*pulumi.OutputState
+}
+
+func (MysqlLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MysqlLayerOutput)(nil)).Elem()
+}
+
+func (o MysqlLayerOutput) ToMysqlLayerOutput() MysqlLayerOutput {
+	return o
+}
+
+func (o MysqlLayerOutput) ToMysqlLayerOutputWithContext(ctx context.Context) MysqlLayerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MysqlLayerOutput{})
 }

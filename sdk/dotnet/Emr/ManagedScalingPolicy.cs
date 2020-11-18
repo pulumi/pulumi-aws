@@ -54,6 +54,14 @@ namespace Pulumi.Aws.Emr
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// EMR Managed Scaling Policies can be imported via the EMR Cluster identifier, e.g. console
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
+    /// ```
     /// </summary>
     public partial class ManagedScalingPolicy : Pulumi.CustomResource
     {

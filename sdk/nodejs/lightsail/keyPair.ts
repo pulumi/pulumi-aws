@@ -41,6 +41,10 @@ import * as utilities from "../utilities";
  *
  * const lgKeyPair = new aws.lightsail.KeyPair("lgKeyPair", {publicKey: fs.readFileSync("~/.ssh/id_rsa.pub")});
  * ```
+ *
+ * ## Import
+ *
+ * Lightsail Key Pairs cannot be imported, because the private and public key are only available on initial creation.
  */
 export class KeyPair extends pulumi.CustomResource {
     /**

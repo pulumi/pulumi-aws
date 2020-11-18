@@ -45,6 +45,14 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
             cookie_name="MyAppCookie")
         ```
 
+        ## Import
+
+        Application cookie stickiness policies can be imported using the ELB name, port, and policy name separated by colons (`:`), e.g.
+
+        ```sh
+         $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cookie_name: The application cookie whose lifetime the ELB's cookie should follow.

@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -88,6 +86,16 @@ import * as utilities from "../utilities";
  *     dependsOn: [awsBatchServiceRoleRolePolicyAttachment],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * AWS Batch compute can be imported using the `compute_environment_name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
+ * ```
+ *
+ *  [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html [4]https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
  */
 export class ComputeEnvironment extends pulumi.CustomResource {
     /**

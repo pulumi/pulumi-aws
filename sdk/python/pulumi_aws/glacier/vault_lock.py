@@ -64,6 +64,14 @@ class VaultLock(pulumi.CustomResource):
             vault_name=aws_glacier_vault["example"]["name"])
         ```
 
+        ## Import
+
+        Glacier Vault Locks can be imported using the Glacier Vault name, e.g.
+
+        ```sh
+         $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] complete_lock: Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.

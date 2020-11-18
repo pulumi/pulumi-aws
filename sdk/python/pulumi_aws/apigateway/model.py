@@ -43,6 +43,14 @@ class Model(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        `aws_api_gateway_model` can be imported using `REST-API-ID/NAME`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/model:Model example 12345abcde/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type: The content type of the model

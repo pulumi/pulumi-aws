@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -329,4 +330,43 @@ type JavaAppLayerArgs struct {
 
 func (JavaAppLayerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*javaAppLayerArgs)(nil)).Elem()
+}
+
+type JavaAppLayerInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerOutput() JavaAppLayerOutput
+	ToJavaAppLayerOutputWithContext(ctx context.Context) JavaAppLayerOutput
+}
+
+func (JavaAppLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaAppLayer)(nil)).Elem()
+}
+
+func (i JavaAppLayer) ToJavaAppLayerOutput() JavaAppLayerOutput {
+	return i.ToJavaAppLayerOutputWithContext(context.Background())
+}
+
+func (i JavaAppLayer) ToJavaAppLayerOutputWithContext(ctx context.Context) JavaAppLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerOutput)
+}
+
+type JavaAppLayerOutput struct {
+	*pulumi.OutputState
+}
+
+func (JavaAppLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaAppLayerOutput)(nil)).Elem()
+}
+
+func (o JavaAppLayerOutput) ToJavaAppLayerOutput() JavaAppLayerOutput {
+	return o
+}
+
+func (o JavaAppLayerOutput) ToJavaAppLayerOutputWithContext(ctx context.Context) JavaAppLayerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JavaAppLayerOutput{})
 }

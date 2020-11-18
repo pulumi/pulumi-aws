@@ -62,6 +62,14 @@ class Ami(pulumi.CustomResource):
             virtualization_type="hvm")
         ```
 
+        ## Import
+
+        `aws_ami` can be imported using the ID of the AMI, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/ami:Ami example ami-12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".

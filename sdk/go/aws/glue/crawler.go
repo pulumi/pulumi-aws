@@ -4,6 +4,7 @@
 package glue
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -132,6 +133,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Glue Crawlers can be imported using `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
 // ```
 type Crawler struct {
 	pulumi.CustomResourceState
@@ -351,4 +360,43 @@ type CrawlerArgs struct {
 
 func (CrawlerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*crawlerArgs)(nil)).Elem()
+}
+
+type CrawlerInput interface {
+	pulumi.Input
+
+	ToCrawlerOutput() CrawlerOutput
+	ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput
+}
+
+func (Crawler) ElementType() reflect.Type {
+	return reflect.TypeOf((*Crawler)(nil)).Elem()
+}
+
+func (i Crawler) ToCrawlerOutput() CrawlerOutput {
+	return i.ToCrawlerOutputWithContext(context.Background())
+}
+
+func (i Crawler) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerOutput)
+}
+
+type CrawlerOutput struct {
+	*pulumi.OutputState
+}
+
+func (CrawlerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerOutput)(nil)).Elem()
+}
+
+func (o CrawlerOutput) ToCrawlerOutput() CrawlerOutput {
+	return o
+}
+
+func (o CrawlerOutput) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CrawlerOutput{})
 }

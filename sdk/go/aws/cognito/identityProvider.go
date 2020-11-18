@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -52,6 +53,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_cognito_identity_provider` resources can be imported using their User Pool ID and Provider Name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cognito/identityProvider:IdentityProvider example xxx_yyyyy:example
 // ```
 type IdentityProvider struct {
 	pulumi.CustomResourceState
@@ -176,4 +185,43 @@ type IdentityProviderArgs struct {
 
 func (IdentityProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderArgs)(nil)).Elem()
+}
+
+type IdentityProviderInput interface {
+	pulumi.Input
+
+	ToIdentityProviderOutput() IdentityProviderOutput
+	ToIdentityProviderOutputWithContext(ctx context.Context) IdentityProviderOutput
+}
+
+func (IdentityProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProvider)(nil)).Elem()
+}
+
+func (i IdentityProvider) ToIdentityProviderOutput() IdentityProviderOutput {
+	return i.ToIdentityProviderOutputWithContext(context.Background())
+}
+
+func (i IdentityProvider) ToIdentityProviderOutputWithContext(ctx context.Context) IdentityProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderOutput)
+}
+
+type IdentityProviderOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderOutput)(nil)).Elem()
+}
+
+func (o IdentityProviderOutput) ToIdentityProviderOutput() IdentityProviderOutput {
+	return o
+}
+
+func (o IdentityProviderOutput) ToIdentityProviderOutputWithContext(ctx context.Context) IdentityProviderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IdentityProviderOutput{})
 }

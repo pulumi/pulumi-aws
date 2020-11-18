@@ -42,6 +42,14 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// WAF Size Constraint Set can be imported using the id, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// ```
     /// </summary>
     public partial class SizeConstraintSet : Pulumi.CustomResource
     {

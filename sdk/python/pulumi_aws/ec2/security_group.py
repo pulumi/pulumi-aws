@@ -91,6 +91,14 @@ class SecurityGroup(pulumi.CustomResource):
         )])
         ```
 
+        ## Import
+
+        Security Groups can be imported using the `security group id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of this egress rule.

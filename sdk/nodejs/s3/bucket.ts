@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {PolicyDocument} from "../iam";
@@ -293,6 +291,16 @@ import {CannedAcl, RoutingRule} from "./index";
  *     },
  * ]});
  * ```
+ *
+ * ## Import
+ *
+ * S3 bucket can be imported using the `bucket`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
+ * ```
+ *
+ *  The `policy` argument is not imported and will be deprecated in a future version 3.x of the Terraform AWS Provider for removal in version 4.0. Use the [`aws_s3_bucket_policy` resource](/docs/providers/aws/r/s3_bucket_policy.html) to manage the S3 Bucket Policy instead.
  */
 export class Bucket extends pulumi.CustomResource {
     /**

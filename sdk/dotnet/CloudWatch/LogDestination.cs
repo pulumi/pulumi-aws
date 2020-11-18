@@ -31,6 +31,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// CloudWatch Logs destinations can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+    /// ```
     /// </summary>
     public partial class LogDestination : Pulumi.CustomResource
     {

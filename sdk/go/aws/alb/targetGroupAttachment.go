@@ -4,6 +4,7 @@
 package alb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -92,6 +93,10 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Target Group Attachments cannot be imported.
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 
@@ -195,4 +200,43 @@ type TargetGroupAttachmentArgs struct {
 
 func (TargetGroupAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetGroupAttachmentArgs)(nil)).Elem()
+}
+
+type TargetGroupAttachmentInput interface {
+	pulumi.Input
+
+	ToTargetGroupAttachmentOutput() TargetGroupAttachmentOutput
+	ToTargetGroupAttachmentOutputWithContext(ctx context.Context) TargetGroupAttachmentOutput
+}
+
+func (TargetGroupAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupAttachment)(nil)).Elem()
+}
+
+func (i TargetGroupAttachment) ToTargetGroupAttachmentOutput() TargetGroupAttachmentOutput {
+	return i.ToTargetGroupAttachmentOutputWithContext(context.Background())
+}
+
+func (i TargetGroupAttachment) ToTargetGroupAttachmentOutputWithContext(ctx context.Context) TargetGroupAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentOutput)
+}
+
+type TargetGroupAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (TargetGroupAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupAttachmentOutput)(nil)).Elem()
+}
+
+func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentOutput() TargetGroupAttachmentOutput {
+	return o
+}
+
+func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentOutputWithContext(ctx context.Context) TargetGroupAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TargetGroupAttachmentOutput{})
 }

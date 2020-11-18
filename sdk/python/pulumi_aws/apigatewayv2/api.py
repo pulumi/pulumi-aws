@@ -58,6 +58,14 @@ class Api(pulumi.CustomResource):
         example = aws.apigatewayv2.Api("example", protocol_type="HTTP")
         ```
 
+        ## Import
+
+        `aws_apigatewayv2_api` can be imported by using the API identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_key_selection_expression: An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).

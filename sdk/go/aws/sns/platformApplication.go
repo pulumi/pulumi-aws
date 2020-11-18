@@ -4,6 +4,7 @@
 package sns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -59,6 +60,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SNS platform applications can be imported using the ARN, e.g.
+//
+// ```sh
+//  $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
 // ```
 type PlatformApplication struct {
 	pulumi.CustomResourceState
@@ -233,4 +242,43 @@ type PlatformApplicationArgs struct {
 
 func (PlatformApplicationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*platformApplicationArgs)(nil)).Elem()
+}
+
+type PlatformApplicationInput interface {
+	pulumi.Input
+
+	ToPlatformApplicationOutput() PlatformApplicationOutput
+	ToPlatformApplicationOutputWithContext(ctx context.Context) PlatformApplicationOutput
+}
+
+func (PlatformApplication) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlatformApplication)(nil)).Elem()
+}
+
+func (i PlatformApplication) ToPlatformApplicationOutput() PlatformApplicationOutput {
+	return i.ToPlatformApplicationOutputWithContext(context.Background())
+}
+
+func (i PlatformApplication) ToPlatformApplicationOutputWithContext(ctx context.Context) PlatformApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationOutput)
+}
+
+type PlatformApplicationOutput struct {
+	*pulumi.OutputState
+}
+
+func (PlatformApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlatformApplicationOutput)(nil)).Elem()
+}
+
+func (o PlatformApplicationOutput) ToPlatformApplicationOutput() PlatformApplicationOutput {
+	return o
+}
+
+func (o PlatformApplicationOutput) ToPlatformApplicationOutputWithContext(ctx context.Context) PlatformApplicationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PlatformApplicationOutput{})
 }

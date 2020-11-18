@@ -31,6 +31,14 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// OpsWorks Custom Layers can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000
+    /// ```
     /// </summary>
     public partial class CustomLayer : Pulumi.CustomResource
     {

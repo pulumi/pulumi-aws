@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -33,6 +34,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SES email identities can be imported using the email address.
+//
+// ```sh
+//  $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
 // ```
 type EmailIdentity struct {
 	pulumi.CustomResourceState
@@ -104,4 +113,43 @@ type EmailIdentityArgs struct {
 
 func (EmailIdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailIdentityArgs)(nil)).Elem()
+}
+
+type EmailIdentityInput interface {
+	pulumi.Input
+
+	ToEmailIdentityOutput() EmailIdentityOutput
+	ToEmailIdentityOutputWithContext(ctx context.Context) EmailIdentityOutput
+}
+
+func (EmailIdentity) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentity)(nil)).Elem()
+}
+
+func (i EmailIdentity) ToEmailIdentityOutput() EmailIdentityOutput {
+	return i.ToEmailIdentityOutputWithContext(context.Background())
+}
+
+func (i EmailIdentity) ToEmailIdentityOutputWithContext(ctx context.Context) EmailIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityOutput)
+}
+
+type EmailIdentityOutput struct {
+	*pulumi.OutputState
+}
+
+func (EmailIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentityOutput)(nil)).Elem()
+}
+
+func (o EmailIdentityOutput) ToEmailIdentityOutput() EmailIdentityOutput {
+	return o
+}
+
+func (o EmailIdentityOutput) ToEmailIdentityOutputWithContext(ctx context.Context) EmailIdentityOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EmailIdentityOutput{})
 }

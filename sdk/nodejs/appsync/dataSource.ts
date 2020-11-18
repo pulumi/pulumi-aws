@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -66,6 +64,14 @@ import * as utilities from "../utilities";
  *         tableName: exampleTable.name,
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_appsync_datasource` can be imported with their `api_id`, a hyphen, and `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
  * ```
  */
 export class DataSource extends pulumi.CustomResource {

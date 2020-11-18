@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -35,6 +36,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// VPN Gateways can be imported using the `vpn gateway id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
 // ```
 type VpnGateway struct {
 	pulumi.CustomResourceState
@@ -133,4 +142,43 @@ type VpnGatewayArgs struct {
 
 func (VpnGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnGatewayArgs)(nil)).Elem()
+}
+
+type VpnGatewayInput interface {
+	pulumi.Input
+
+	ToVpnGatewayOutput() VpnGatewayOutput
+	ToVpnGatewayOutputWithContext(ctx context.Context) VpnGatewayOutput
+}
+
+func (VpnGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGateway)(nil)).Elem()
+}
+
+func (i VpnGateway) ToVpnGatewayOutput() VpnGatewayOutput {
+	return i.ToVpnGatewayOutputWithContext(context.Background())
+}
+
+func (i VpnGateway) ToVpnGatewayOutputWithContext(ctx context.Context) VpnGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayOutput)
+}
+
+type VpnGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayOutput)(nil)).Elem()
+}
+
+func (o VpnGatewayOutput) ToVpnGatewayOutput() VpnGatewayOutput {
+	return o
+}
+
+func (o VpnGatewayOutput) ToVpnGatewayOutputWithContext(ctx context.Context) VpnGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpnGatewayOutput{})
 }

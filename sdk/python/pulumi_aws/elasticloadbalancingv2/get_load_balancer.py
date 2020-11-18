@@ -15,7 +15,7 @@ __all__ = [
     'get_load_balancer',
 ]
 
-warnings.warn("aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer""", DeprecationWarning)
 
 @pulumi.output_type
 class GetLoadBalancerResult:

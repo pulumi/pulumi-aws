@@ -58,6 +58,14 @@ class SlotType(pulumi.CustomResource):
             value_selection_strategy="ORIGINAL_VALUE")
         ```
 
+        ## Import
+
+        Slot types can be imported using their name.
+
+        ```sh
+         $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each

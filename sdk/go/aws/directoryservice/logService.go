@@ -4,6 +4,7 @@
 package directoryservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
+//
+// ## Import
+//
+// Directory Service Log Subscriptions can be imported using the directory id, e.g.
+//
+// ```sh
+//  $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
+// ```
 type LogService struct {
 	pulumi.CustomResourceState
 
@@ -88,4 +97,43 @@ type LogServiceArgs struct {
 
 func (LogServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logServiceArgs)(nil)).Elem()
+}
+
+type LogServiceInput interface {
+	pulumi.Input
+
+	ToLogServiceOutput() LogServiceOutput
+	ToLogServiceOutputWithContext(ctx context.Context) LogServiceOutput
+}
+
+func (LogService) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogService)(nil)).Elem()
+}
+
+func (i LogService) ToLogServiceOutput() LogServiceOutput {
+	return i.ToLogServiceOutputWithContext(context.Background())
+}
+
+func (i LogService) ToLogServiceOutputWithContext(ctx context.Context) LogServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogServiceOutput)
+}
+
+type LogServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogServiceOutput)(nil)).Elem()
+}
+
+func (o LogServiceOutput) ToLogServiceOutput() LogServiceOutput {
+	return o
+}
+
+func (o LogServiceOutput) ToLogServiceOutputWithContext(ctx context.Context) LogServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LogServiceOutput{})
 }

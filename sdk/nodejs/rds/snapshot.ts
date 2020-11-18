@@ -30,6 +30,14 @@ import * as utilities from "../utilities";
  *     dbSnapshotIdentifier: "testsnapshot1234",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
+ * ```
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

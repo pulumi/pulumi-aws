@@ -120,6 +120,14 @@ class Integration(pulumi.CustomResource):
             connection_id=test_vpc_link.id)
         ```
 
+        ## Import
+
+        `aws_api_gateway_integration` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cache_key_parameters: A list of cache key parameters for the integration.

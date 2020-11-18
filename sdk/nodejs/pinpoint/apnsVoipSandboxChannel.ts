@@ -23,6 +23,14 @@ import * as utilities from "../utilities";
  *     privateKey: fs.readFileSync("./private_key.key"),
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Pinpoint APNs VoIP Sandbox Channel can be imported using the `application-id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
+ * ```
  */
 export class ApnsVoipSandboxChannel extends pulumi.CustomResource {
     /**

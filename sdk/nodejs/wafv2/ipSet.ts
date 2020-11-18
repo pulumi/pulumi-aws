@@ -27,6 +27,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ## Import
+ *
+ * WAFv2 IP Sets can be imported using `ID/name/scope`
+ *
+ * ```sh
+ *  $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+ * ```
  */
 export class IpSet extends pulumi.CustomResource {
     /**

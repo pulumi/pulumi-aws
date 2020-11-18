@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -72,6 +73,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Traffic mirror rules can be imported using the `traffic_mirror_filter_id` and `id` separated by `:` e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
 // ```
 type TrafficMirrorFilterRule struct {
 	pulumi.CustomResourceState
@@ -242,4 +251,43 @@ type TrafficMirrorFilterRuleArgs struct {
 
 func (TrafficMirrorFilterRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficMirrorFilterRuleArgs)(nil)).Elem()
+}
+
+type TrafficMirrorFilterRuleInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterRuleOutput() TrafficMirrorFilterRuleOutput
+	ToTrafficMirrorFilterRuleOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleOutput
+}
+
+func (TrafficMirrorFilterRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterRule)(nil)).Elem()
+}
+
+func (i TrafficMirrorFilterRule) ToTrafficMirrorFilterRuleOutput() TrafficMirrorFilterRuleOutput {
+	return i.ToTrafficMirrorFilterRuleOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterRule) ToTrafficMirrorFilterRuleOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleOutput)
+}
+
+type TrafficMirrorFilterRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (TrafficMirrorFilterRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterRuleOutput)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterRuleOutput) ToTrafficMirrorFilterRuleOutput() TrafficMirrorFilterRuleOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleOutput) ToTrafficMirrorFilterRuleOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TrafficMirrorFilterRuleOutput{})
 }

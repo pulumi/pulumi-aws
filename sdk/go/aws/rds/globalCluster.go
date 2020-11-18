@@ -4,6 +4,7 @@
 package rds
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -104,6 +105,26 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// `aws_rds_global_cluster` can be imported by using the RDS Global Cluster identifier, e.g.
+//
+// ```sh
+//  $ pulumi import aws:rds/globalCluster:GlobalCluster example example
+// ```
+//
+//  Certain resource arguments, like `force_destroy`, only exist within Terraform. If the argument is set in the Terraform configuration on an imported resource, Terraform will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration. Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](/docs/configuration/resources.html#ignore_changes) to hide the difference, e.g. hcl resource "aws_rds_global_cluster" "example" {
+//
+// # ... other configuration ...
+//
+// # There is no API for reading source_db_cluster_identifier
+//
+//  lifecycle {
+//
+//  ignore_changes = [source_db_cluster_identifier]
+//
+//  } }
 type GlobalCluster struct {
 	pulumi.CustomResourceState
 
@@ -246,4 +267,43 @@ type GlobalClusterArgs struct {
 
 func (GlobalClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalClusterArgs)(nil)).Elem()
+}
+
+type GlobalClusterInput interface {
+	pulumi.Input
+
+	ToGlobalClusterOutput() GlobalClusterOutput
+	ToGlobalClusterOutputWithContext(ctx context.Context) GlobalClusterOutput
+}
+
+func (GlobalCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalCluster)(nil)).Elem()
+}
+
+func (i GlobalCluster) ToGlobalClusterOutput() GlobalClusterOutput {
+	return i.ToGlobalClusterOutputWithContext(context.Background())
+}
+
+func (i GlobalCluster) ToGlobalClusterOutputWithContext(ctx context.Context) GlobalClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterOutput)
+}
+
+type GlobalClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (GlobalClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalClusterOutput)(nil)).Elem()
+}
+
+func (o GlobalClusterOutput) ToGlobalClusterOutput() GlobalClusterOutput {
+	return o
+}
+
+func (o GlobalClusterOutput) ToGlobalClusterOutputWithContext(ctx context.Context) GlobalClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GlobalClusterOutput{})
 }

@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -52,6 +50,26 @@ import * as utilities from "../utilities";
  *     provider: aws.peer,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * VPC Peering Connection Accepters can be imported by using the Peering Connection ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
+ * ```
+ *
+ *  Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the provider configuration on an imported resource, this provder will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. hcl resource "aws_vpc_peering_connection_accepter" "example" {
+ *
+ * # ... other configuration ...
+ *
+ * # There is no AWS EC2 API for reading auto_accept
+ *
+ *  lifecycle {
+ *
+ *  ignore_changes = [auto_accept]
+ *
+ *  } }
  */
 export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
     /**

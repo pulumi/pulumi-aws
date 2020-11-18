@@ -28,6 +28,14 @@ import * as utilities from "../utilities";
  *     targetEndpointArn: aws_dms_endpoint["test-dms-target-endpoint-tf"].endpoint_arn,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Replication tasks can be imported using the `replication_task_id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
+ * ```
  */
 export class ReplicationTask extends pulumi.CustomResource {
     /**

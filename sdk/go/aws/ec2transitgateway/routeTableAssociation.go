@@ -4,6 +4,7 @@
 package ec2transitgateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,6 +35,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_ec2_transit_gateway_route_table_association` can be imported by using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
 // ```
 type RouteTableAssociation struct {
 	pulumi.CustomResourceState
@@ -124,4 +133,43 @@ type RouteTableAssociationArgs struct {
 
 func (RouteTableAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeTableAssociationArgs)(nil)).Elem()
+}
+
+type RouteTableAssociationInput interface {
+	pulumi.Input
+
+	ToRouteTableAssociationOutput() RouteTableAssociationOutput
+	ToRouteTableAssociationOutputWithContext(ctx context.Context) RouteTableAssociationOutput
+}
+
+func (RouteTableAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTableAssociation)(nil)).Elem()
+}
+
+func (i RouteTableAssociation) ToRouteTableAssociationOutput() RouteTableAssociationOutput {
+	return i.ToRouteTableAssociationOutputWithContext(context.Background())
+}
+
+func (i RouteTableAssociation) ToRouteTableAssociationOutputWithContext(ctx context.Context) RouteTableAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteTableAssociationOutput)
+}
+
+type RouteTableAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (RouteTableAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTableAssociationOutput)(nil)).Elem()
+}
+
+func (o RouteTableAssociationOutput) ToRouteTableAssociationOutput() RouteTableAssociationOutput {
+	return o
+}
+
+func (o RouteTableAssociationOutput) ToRouteTableAssociationOutputWithContext(ctx context.Context) RouteTableAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RouteTableAssociationOutput{})
 }

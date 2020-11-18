@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -46,6 +47,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Egress-only Internet gateways can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
 // ```
 type EgressOnlyInternetGateway struct {
 	pulumi.CustomResourceState
@@ -121,4 +130,43 @@ type EgressOnlyInternetGatewayArgs struct {
 
 func (EgressOnlyInternetGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*egressOnlyInternetGatewayArgs)(nil)).Elem()
+}
+
+type EgressOnlyInternetGatewayInput interface {
+	pulumi.Input
+
+	ToEgressOnlyInternetGatewayOutput() EgressOnlyInternetGatewayOutput
+	ToEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayOutput
+}
+
+func (EgressOnlyInternetGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*EgressOnlyInternetGateway)(nil)).Elem()
+}
+
+func (i EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutput() EgressOnlyInternetGatewayOutput {
+	return i.ToEgressOnlyInternetGatewayOutputWithContext(context.Background())
+}
+
+func (i EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EgressOnlyInternetGatewayOutput)
+}
+
+type EgressOnlyInternetGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (EgressOnlyInternetGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EgressOnlyInternetGatewayOutput)(nil)).Elem()
+}
+
+func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutput() EgressOnlyInternetGatewayOutput {
+	return o
+}
+
+func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EgressOnlyInternetGatewayOutput{})
 }

@@ -71,6 +71,16 @@ class DefaultRouteTable(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Default VPC Routing tables can be imported using the `vpc_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+        ```
+
+         [aws-route-tables]http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table [tf-route-tables]/docs/providers/aws/r/route_table.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_route_table_id: The ID of the Default Routing Table.

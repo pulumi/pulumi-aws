@@ -55,6 +55,14 @@ class PlatformApplication(pulumi.CustomResource):
             platform_credential="<GCM API KEY>")
         ```
 
+        ## Import
+
+        SNS platform applications can be imported using the ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_delivery_failure_topic_arn: SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.

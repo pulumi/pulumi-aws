@@ -56,6 +56,14 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        VPC Endpoint connection notifications can be imported using the `VPC endpoint connection notification id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_events: One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.

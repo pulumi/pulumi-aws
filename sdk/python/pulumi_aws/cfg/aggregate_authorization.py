@@ -35,6 +35,14 @@ class AggregateAuthorization(pulumi.CustomResource):
             region="eu-west-2")
         ```
 
+        ## Import
+
+        Config aggregate authorizations can be imported using `account_id:region`, e.g.
+
+        ```sh
+         $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Account ID

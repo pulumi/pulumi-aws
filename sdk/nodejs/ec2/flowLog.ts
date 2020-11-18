@@ -71,6 +71,14 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc.example.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Flow Logs can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
+ * ```
  */
 export class FlowLog extends pulumi.CustomResource {
     /**

@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SES Identity Policies can be imported using the identity and policy name, separated by a pipe character (`|`), e.g.
+//
+// ```sh
+//  $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
 // ```
 type IdentityPolicy struct {
 	pulumi.CustomResourceState
@@ -131,4 +140,43 @@ type IdentityPolicyArgs struct {
 
 func (IdentityPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPolicyArgs)(nil)).Elem()
+}
+
+type IdentityPolicyInput interface {
+	pulumi.Input
+
+	ToIdentityPolicyOutput() IdentityPolicyOutput
+	ToIdentityPolicyOutputWithContext(ctx context.Context) IdentityPolicyOutput
+}
+
+func (IdentityPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPolicy)(nil)).Elem()
+}
+
+func (i IdentityPolicy) ToIdentityPolicyOutput() IdentityPolicyOutput {
+	return i.ToIdentityPolicyOutputWithContext(context.Background())
+}
+
+func (i IdentityPolicy) ToIdentityPolicyOutputWithContext(ctx context.Context) IdentityPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyOutput)
+}
+
+type IdentityPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPolicyOutput)(nil)).Elem()
+}
+
+func (o IdentityPolicyOutput) ToIdentityPolicyOutput() IdentityPolicyOutput {
+	return o
+}
+
+func (o IdentityPolicyOutput) ToIdentityPolicyOutputWithContext(ctx context.Context) IdentityPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IdentityPolicyOutput{})
 }

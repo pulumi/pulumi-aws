@@ -45,6 +45,14 @@ class SecurityConfiguration(pulumi.CustomResource):
         ))
         ```
 
+        ## Import
+
+        Glue Security Configurations can be imported using `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SecurityConfigurationEncryptionConfigurationArgs']] encryption_configuration: Configuration block containing encryption configuration. Detailed below.

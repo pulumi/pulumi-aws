@@ -47,6 +47,14 @@ class Rule(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[ipset]))
         ```
 
+        ## Import
+
+        WAF rules can be imported using the id, e.g.
+
+        ```sh
+         $ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.

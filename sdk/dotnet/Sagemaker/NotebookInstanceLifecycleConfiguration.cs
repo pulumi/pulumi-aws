@@ -11,6 +11,14 @@ namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
     /// Provides a lifecycle configuration for SageMaker Notebook Instances.
+    /// 
+    /// ## Import
+    /// 
+    /// Models can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+    /// ```
     /// </summary>
     public partial class NotebookInstanceLifecycleConfiguration : Pulumi.CustomResource
     {

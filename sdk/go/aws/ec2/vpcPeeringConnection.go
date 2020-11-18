@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -163,6 +164,16 @@ import (
 // If both VPCs are not in the same AWS account do not enable the `autoAccept` attribute.
 // The accepter can manage its side of the connection using the `ec2.VpcPeeringConnectionAccepter` resource
 // or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
+//
+// ## Import
+//
+// VPC Peering resources can be imported using the `vpc peering id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
+// ```
+//
+//  [1]/docs/providers/aws/index.html
 type VpcPeeringConnection struct {
 	pulumi.CustomResourceState
 
@@ -336,4 +347,43 @@ type VpcPeeringConnectionArgs struct {
 
 func (VpcPeeringConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcPeeringConnectionArgs)(nil)).Elem()
+}
+
+type VpcPeeringConnectionInput interface {
+	pulumi.Input
+
+	ToVpcPeeringConnectionOutput() VpcPeeringConnectionOutput
+	ToVpcPeeringConnectionOutputWithContext(ctx context.Context) VpcPeeringConnectionOutput
+}
+
+func (VpcPeeringConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnection)(nil)).Elem()
+}
+
+func (i VpcPeeringConnection) ToVpcPeeringConnectionOutput() VpcPeeringConnectionOutput {
+	return i.ToVpcPeeringConnectionOutputWithContext(context.Background())
+}
+
+func (i VpcPeeringConnection) ToVpcPeeringConnectionOutputWithContext(ctx context.Context) VpcPeeringConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionOutput)
+}
+
+type VpcPeeringConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcPeeringConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnectionOutput)(nil)).Elem()
+}
+
+func (o VpcPeeringConnectionOutput) ToVpcPeeringConnectionOutput() VpcPeeringConnectionOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionOutput) ToVpcPeeringConnectionOutputWithContext(ctx context.Context) VpcPeeringConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpcPeeringConnectionOutput{})
 }

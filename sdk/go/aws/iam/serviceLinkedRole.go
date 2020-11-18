@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -33,6 +34,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IAM service-linked roles can be imported using role ARN, e.g.
+//
+// ```sh
+//  $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
 // ```
 type ServiceLinkedRole struct {
 	pulumi.CustomResourceState
@@ -148,4 +157,43 @@ type ServiceLinkedRoleArgs struct {
 
 func (ServiceLinkedRoleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceLinkedRoleArgs)(nil)).Elem()
+}
+
+type ServiceLinkedRoleInput interface {
+	pulumi.Input
+
+	ToServiceLinkedRoleOutput() ServiceLinkedRoleOutput
+	ToServiceLinkedRoleOutputWithContext(ctx context.Context) ServiceLinkedRoleOutput
+}
+
+func (ServiceLinkedRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLinkedRole)(nil)).Elem()
+}
+
+func (i ServiceLinkedRole) ToServiceLinkedRoleOutput() ServiceLinkedRoleOutput {
+	return i.ToServiceLinkedRoleOutputWithContext(context.Background())
+}
+
+func (i ServiceLinkedRole) ToServiceLinkedRoleOutputWithContext(ctx context.Context) ServiceLinkedRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinkedRoleOutput)
+}
+
+type ServiceLinkedRoleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceLinkedRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLinkedRoleOutput)(nil)).Elem()
+}
+
+func (o ServiceLinkedRoleOutput) ToServiceLinkedRoleOutput() ServiceLinkedRoleOutput {
+	return o
+}
+
+func (o ServiceLinkedRoleOutput) ToServiceLinkedRoleOutputWithContext(ctx context.Context) ServiceLinkedRoleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceLinkedRoleOutput{})
 }

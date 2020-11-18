@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -77,6 +75,14 @@ import * as utilities from "../utilities";
  *         type: "EXTERNAL",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * ECS services can be imported using the `name` together with ecs cluster `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
  * ```
  */
 export class Service extends pulumi.CustomResource {

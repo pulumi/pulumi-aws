@@ -125,6 +125,14 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        AWS Maintenance Window Task can be imported using the `window_id` and `window_task_id` separated by `/`.
+
+        ```sh
+         $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task <window_id>/<window_task_id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the maintenance window task.

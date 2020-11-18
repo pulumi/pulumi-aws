@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -35,6 +36,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// The current Account Alias can be imported using the `account_alias`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
 // ```
 type AccountAlias struct {
 	pulumi.CustomResourceState
@@ -100,4 +109,43 @@ type AccountAliasArgs struct {
 
 func (AccountAliasArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountAliasArgs)(nil)).Elem()
+}
+
+type AccountAliasInput interface {
+	pulumi.Input
+
+	ToAccountAliasOutput() AccountAliasOutput
+	ToAccountAliasOutputWithContext(ctx context.Context) AccountAliasOutput
+}
+
+func (AccountAlias) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAlias)(nil)).Elem()
+}
+
+func (i AccountAlias) ToAccountAliasOutput() AccountAliasOutput {
+	return i.ToAccountAliasOutputWithContext(context.Background())
+}
+
+func (i AccountAlias) ToAccountAliasOutputWithContext(ctx context.Context) AccountAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAliasOutput)
+}
+
+type AccountAliasOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccountAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAliasOutput)(nil)).Elem()
+}
+
+func (o AccountAliasOutput) ToAccountAliasOutput() AccountAliasOutput {
+	return o
+}
+
+func (o AccountAliasOutput) ToAccountAliasOutputWithContext(ctx context.Context) AccountAliasOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccountAliasOutput{})
 }

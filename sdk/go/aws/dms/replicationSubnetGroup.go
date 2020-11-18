@@ -4,6 +4,7 @@
 package dms
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -40,6 +41,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Replication subnet groups can be imported using the `replication_subnet_group_id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
 // ```
 type ReplicationSubnetGroup struct {
 	pulumi.CustomResourceState
@@ -150,4 +159,43 @@ type ReplicationSubnetGroupArgs struct {
 
 func (ReplicationSubnetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationSubnetGroupArgs)(nil)).Elem()
+}
+
+type ReplicationSubnetGroupInput interface {
+	pulumi.Input
+
+	ToReplicationSubnetGroupOutput() ReplicationSubnetGroupOutput
+	ToReplicationSubnetGroupOutputWithContext(ctx context.Context) ReplicationSubnetGroupOutput
+}
+
+func (ReplicationSubnetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationSubnetGroup)(nil)).Elem()
+}
+
+func (i ReplicationSubnetGroup) ToReplicationSubnetGroupOutput() ReplicationSubnetGroupOutput {
+	return i.ToReplicationSubnetGroupOutputWithContext(context.Background())
+}
+
+func (i ReplicationSubnetGroup) ToReplicationSubnetGroupOutputWithContext(ctx context.Context) ReplicationSubnetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupOutput)
+}
+
+type ReplicationSubnetGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationSubnetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationSubnetGroupOutput)(nil)).Elem()
+}
+
+func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutput() ReplicationSubnetGroupOutput {
+	return o
+}
+
+func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutputWithContext(ctx context.Context) ReplicationSubnetGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationSubnetGroupOutput{})
 }

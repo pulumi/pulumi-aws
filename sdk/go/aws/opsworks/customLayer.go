@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,6 +35,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// OpsWorks Custom Layers can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000
 // ```
 type CustomLayer struct {
 	pulumi.CustomResourceState
@@ -293,4 +302,43 @@ type CustomLayerArgs struct {
 
 func (CustomLayerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customLayerArgs)(nil)).Elem()
+}
+
+type CustomLayerInput interface {
+	pulumi.Input
+
+	ToCustomLayerOutput() CustomLayerOutput
+	ToCustomLayerOutputWithContext(ctx context.Context) CustomLayerOutput
+}
+
+func (CustomLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLayer)(nil)).Elem()
+}
+
+func (i CustomLayer) ToCustomLayerOutput() CustomLayerOutput {
+	return i.ToCustomLayerOutputWithContext(context.Background())
+}
+
+func (i CustomLayer) ToCustomLayerOutputWithContext(ctx context.Context) CustomLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerOutput)
+}
+
+type CustomLayerOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLayerOutput)(nil)).Elem()
+}
+
+func (o CustomLayerOutput) ToCustomLayerOutput() CustomLayerOutput {
+	return o
+}
+
+func (o CustomLayerOutput) ToCustomLayerOutputWithContext(ctx context.Context) CustomLayerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomLayerOutput{})
 }

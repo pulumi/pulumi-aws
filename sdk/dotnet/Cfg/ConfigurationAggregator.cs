@@ -91,6 +91,14 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Configuration Aggregators can be imported using the name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+    /// ```
     /// </summary>
     public partial class ConfigurationAggregator : Pulumi.CustomResource
     {

@@ -4,6 +4,7 @@
 package organizations
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -33,6 +34,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// AWS Organizations Organizational Units can be imported by using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
 // ```
 type OrganizationalUnit struct {
 	pulumi.CustomResourceState
@@ -120,4 +129,43 @@ type OrganizationalUnitArgs struct {
 
 func (OrganizationalUnitArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationalUnitArgs)(nil)).Elem()
+}
+
+type OrganizationalUnitInput interface {
+	pulumi.Input
+
+	ToOrganizationalUnitOutput() OrganizationalUnitOutput
+	ToOrganizationalUnitOutputWithContext(ctx context.Context) OrganizationalUnitOutput
+}
+
+func (OrganizationalUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationalUnit)(nil)).Elem()
+}
+
+func (i OrganizationalUnit) ToOrganizationalUnitOutput() OrganizationalUnitOutput {
+	return i.ToOrganizationalUnitOutputWithContext(context.Background())
+}
+
+func (i OrganizationalUnit) ToOrganizationalUnitOutputWithContext(ctx context.Context) OrganizationalUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitOutput)
+}
+
+type OrganizationalUnitOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationalUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationalUnitOutput)(nil)).Elem()
+}
+
+func (o OrganizationalUnitOutput) ToOrganizationalUnitOutput() OrganizationalUnitOutput {
+	return o
+}
+
+func (o OrganizationalUnitOutput) ToOrganizationalUnitOutputWithContext(ctx context.Context) OrganizationalUnitOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrganizationalUnitOutput{})
 }

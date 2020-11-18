@@ -4,6 +4,7 @@
 package lex
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Slot types can be imported using their name.
+//
+// ```sh
+//  $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
 // ```
 type SlotType struct {
 	pulumi.CustomResourceState
@@ -220,4 +229,43 @@ type SlotTypeArgs struct {
 
 func (SlotTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*slotTypeArgs)(nil)).Elem()
+}
+
+type SlotTypeInput interface {
+	pulumi.Input
+
+	ToSlotTypeOutput() SlotTypeOutput
+	ToSlotTypeOutputWithContext(ctx context.Context) SlotTypeOutput
+}
+
+func (SlotType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlotType)(nil)).Elem()
+}
+
+func (i SlotType) ToSlotTypeOutput() SlotTypeOutput {
+	return i.ToSlotTypeOutputWithContext(context.Background())
+}
+
+func (i SlotType) ToSlotTypeOutputWithContext(ctx context.Context) SlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotTypeOutput)
+}
+
+type SlotTypeOutput struct {
+	*pulumi.OutputState
+}
+
+func (SlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlotTypeOutput)(nil)).Elem()
+}
+
+func (o SlotTypeOutput) ToSlotTypeOutput() SlotTypeOutput {
+	return o
+}
+
+func (o SlotTypeOutput) ToSlotTypeOutputWithContext(ctx context.Context) SlotTypeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SlotTypeOutput{})
 }

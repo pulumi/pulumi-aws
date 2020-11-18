@@ -4,6 +4,7 @@
 package cloudwatch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -65,6 +66,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// EventBridge permissions can be imported using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.
+//
+// ```sh
+//  $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
 // ```
 type EventPermission struct {
 	pulumi.CustomResourceState
@@ -173,4 +182,43 @@ type EventPermissionArgs struct {
 
 func (EventPermissionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventPermissionArgs)(nil)).Elem()
+}
+
+type EventPermissionInput interface {
+	pulumi.Input
+
+	ToEventPermissionOutput() EventPermissionOutput
+	ToEventPermissionOutputWithContext(ctx context.Context) EventPermissionOutput
+}
+
+func (EventPermission) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventPermission)(nil)).Elem()
+}
+
+func (i EventPermission) ToEventPermissionOutput() EventPermissionOutput {
+	return i.ToEventPermissionOutputWithContext(context.Background())
+}
+
+func (i EventPermission) ToEventPermissionOutputWithContext(ctx context.Context) EventPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionOutput)
+}
+
+type EventPermissionOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventPermissionOutput)(nil)).Elem()
+}
+
+func (o EventPermissionOutput) ToEventPermissionOutput() EventPermissionOutput {
+	return o
+}
+
+func (o EventPermissionOutput) ToEventPermissionOutputWithContext(ctx context.Context) EventPermissionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventPermissionOutput{})
 }

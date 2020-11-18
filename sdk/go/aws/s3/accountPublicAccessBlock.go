@@ -4,6 +4,7 @@
 package s3
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_s3_account_public_access_block` can be imported by using the AWS account ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
 // ```
 type AccountPublicAccessBlock struct {
 	pulumi.CustomResourceState
@@ -164,4 +173,43 @@ type AccountPublicAccessBlockArgs struct {
 
 func (AccountPublicAccessBlockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountPublicAccessBlockArgs)(nil)).Elem()
+}
+
+type AccountPublicAccessBlockInput interface {
+	pulumi.Input
+
+	ToAccountPublicAccessBlockOutput() AccountPublicAccessBlockOutput
+	ToAccountPublicAccessBlockOutputWithContext(ctx context.Context) AccountPublicAccessBlockOutput
+}
+
+func (AccountPublicAccessBlock) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountPublicAccessBlock)(nil)).Elem()
+}
+
+func (i AccountPublicAccessBlock) ToAccountPublicAccessBlockOutput() AccountPublicAccessBlockOutput {
+	return i.ToAccountPublicAccessBlockOutputWithContext(context.Background())
+}
+
+func (i AccountPublicAccessBlock) ToAccountPublicAccessBlockOutputWithContext(ctx context.Context) AccountPublicAccessBlockOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountPublicAccessBlockOutput)
+}
+
+type AccountPublicAccessBlockOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccountPublicAccessBlockOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountPublicAccessBlockOutput)(nil)).Elem()
+}
+
+func (o AccountPublicAccessBlockOutput) ToAccountPublicAccessBlockOutput() AccountPublicAccessBlockOutput {
+	return o
+}
+
+func (o AccountPublicAccessBlockOutput) ToAccountPublicAccessBlockOutputWithContext(ctx context.Context) AccountPublicAccessBlockOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccountPublicAccessBlockOutput{})
 }

@@ -4,6 +4,7 @@
 package organizations
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -82,6 +83,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// `aws_organizations_policy_attachment` can be imported by using the target ID and policy ID, e.g. with an account target
+//
+// ```sh
+//  $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+// ```
 type PolicyAttachment struct {
 	pulumi.CustomResourceState
 
@@ -159,4 +168,43 @@ type PolicyAttachmentArgs struct {
 
 func (PolicyAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyAttachmentArgs)(nil)).Elem()
+}
+
+type PolicyAttachmentInput interface {
+	pulumi.Input
+
+	ToPolicyAttachmentOutput() PolicyAttachmentOutput
+	ToPolicyAttachmentOutputWithContext(ctx context.Context) PolicyAttachmentOutput
+}
+
+func (PolicyAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAttachment)(nil)).Elem()
+}
+
+func (i PolicyAttachment) ToPolicyAttachmentOutput() PolicyAttachmentOutput {
+	return i.ToPolicyAttachmentOutputWithContext(context.Background())
+}
+
+func (i PolicyAttachment) ToPolicyAttachmentOutputWithContext(ctx context.Context) PolicyAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyAttachmentOutput)
+}
+
+type PolicyAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicyAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAttachmentOutput)(nil)).Elem()
+}
+
+func (o PolicyAttachmentOutput) ToPolicyAttachmentOutput() PolicyAttachmentOutput {
+	return o
+}
+
+func (o PolicyAttachmentOutput) ToPolicyAttachmentOutputWithContext(ctx context.Context) PolicyAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PolicyAttachmentOutput{})
 }

@@ -55,6 +55,14 @@ class Workflow(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Glue Workflows can be imported using `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, Any]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.

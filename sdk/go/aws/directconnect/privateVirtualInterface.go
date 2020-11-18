@@ -4,6 +4,7 @@
 package directconnect
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,6 +37,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Direct Connect private virtual interfaces can be imported using the `vif id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
 // ```
 type PrivateVirtualInterface struct {
 	pulumi.CustomResourceState
@@ -246,4 +255,43 @@ type PrivateVirtualInterfaceArgs struct {
 
 func (PrivateVirtualInterfaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateVirtualInterfaceArgs)(nil)).Elem()
+}
+
+type PrivateVirtualInterfaceInput interface {
+	pulumi.Input
+
+	ToPrivateVirtualInterfaceOutput() PrivateVirtualInterfaceOutput
+	ToPrivateVirtualInterfaceOutputWithContext(ctx context.Context) PrivateVirtualInterfaceOutput
+}
+
+func (PrivateVirtualInterface) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateVirtualInterface)(nil)).Elem()
+}
+
+func (i PrivateVirtualInterface) ToPrivateVirtualInterfaceOutput() PrivateVirtualInterfaceOutput {
+	return i.ToPrivateVirtualInterfaceOutputWithContext(context.Background())
+}
+
+func (i PrivateVirtualInterface) ToPrivateVirtualInterfaceOutputWithContext(ctx context.Context) PrivateVirtualInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateVirtualInterfaceOutput)
+}
+
+type PrivateVirtualInterfaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateVirtualInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateVirtualInterfaceOutput)(nil)).Elem()
+}
+
+func (o PrivateVirtualInterfaceOutput) ToPrivateVirtualInterfaceOutput() PrivateVirtualInterfaceOutput {
+	return o
+}
+
+func (o PrivateVirtualInterfaceOutput) ToPrivateVirtualInterfaceOutputWithContext(ctx context.Context) PrivateVirtualInterfaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateVirtualInterfaceOutput{})
 }

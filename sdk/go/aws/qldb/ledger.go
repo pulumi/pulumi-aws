@@ -4,6 +4,7 @@
 package qldb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -32,6 +33,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// QLDB Ledgers can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
 // ```
 type Ledger struct {
 	pulumi.CustomResourceState
@@ -120,4 +129,43 @@ type LedgerArgs struct {
 
 func (LedgerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ledgerArgs)(nil)).Elem()
+}
+
+type LedgerInput interface {
+	pulumi.Input
+
+	ToLedgerOutput() LedgerOutput
+	ToLedgerOutputWithContext(ctx context.Context) LedgerOutput
+}
+
+func (Ledger) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ledger)(nil)).Elem()
+}
+
+func (i Ledger) ToLedgerOutput() LedgerOutput {
+	return i.ToLedgerOutputWithContext(context.Background())
+}
+
+func (i Ledger) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LedgerOutput)
+}
+
+type LedgerOutput struct {
+	*pulumi.OutputState
+}
+
+func (LedgerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LedgerOutput)(nil)).Elem()
+}
+
+func (o LedgerOutput) ToLedgerOutput() LedgerOutput {
+	return o
+}
+
+func (o LedgerOutput) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LedgerOutput{})
 }

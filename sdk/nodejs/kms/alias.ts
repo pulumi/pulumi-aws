@@ -18,6 +18,14 @@ import * as utilities from "../utilities";
  * const key = new aws.kms.Key("key", {});
  * const alias = new aws.kms.Alias("alias", {targetKeyId: key.keyId});
  * ```
+ *
+ * ## Import
+ *
+ * KMS aliases can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
+ * ```
  */
 export class Alias extends pulumi.CustomResource {
     /**

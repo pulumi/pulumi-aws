@@ -4,6 +4,7 @@
 package ssm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// AWS SSM Activation can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
 // ```
 type Activation struct {
 	pulumi.CustomResourceState
@@ -186,4 +195,43 @@ type ActivationArgs struct {
 
 func (ActivationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activationArgs)(nil)).Elem()
+}
+
+type ActivationInput interface {
+	pulumi.Input
+
+	ToActivationOutput() ActivationOutput
+	ToActivationOutputWithContext(ctx context.Context) ActivationOutput
+}
+
+func (Activation) ElementType() reflect.Type {
+	return reflect.TypeOf((*Activation)(nil)).Elem()
+}
+
+func (i Activation) ToActivationOutput() ActivationOutput {
+	return i.ToActivationOutputWithContext(context.Background())
+}
+
+func (i Activation) ToActivationOutputWithContext(ctx context.Context) ActivationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivationOutput)
+}
+
+type ActivationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActivationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivationOutput)(nil)).Elem()
+}
+
+func (o ActivationOutput) ToActivationOutput() ActivationOutput {
+	return o
+}
+
+func (o ActivationOutput) ToActivationOutputWithContext(ctx context.Context) ActivationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActivationOutput{})
 }

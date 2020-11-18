@@ -4,6 +4,7 @@
 package lambda
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -140,6 +141,32 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Lambda Function Event Invoke Configs can be imported using the fully qualified Function name or Amazon Resource Name (ARN), e.g. ARN without qualifier (all versions and aliases)
+//
+// ```sh
+//  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+// ```
+//
+//  ARN with qualifier
+//
+// ```sh
+//  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+// ```
+//
+//  Name without qualifier (all versions and aliases)
+//
+// ```sh
+//  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
+// ```
+//
+//  Name with qualifier
+//
+// ```sh
+//  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
+// ```
 type FunctionEventInvokeConfig struct {
 	pulumi.CustomResourceState
 
@@ -244,4 +271,43 @@ type FunctionEventInvokeConfigArgs struct {
 
 func (FunctionEventInvokeConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionEventInvokeConfigArgs)(nil)).Elem()
+}
+
+type FunctionEventInvokeConfigInput interface {
+	pulumi.Input
+
+	ToFunctionEventInvokeConfigOutput() FunctionEventInvokeConfigOutput
+	ToFunctionEventInvokeConfigOutputWithContext(ctx context.Context) FunctionEventInvokeConfigOutput
+}
+
+func (FunctionEventInvokeConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionEventInvokeConfig)(nil)).Elem()
+}
+
+func (i FunctionEventInvokeConfig) ToFunctionEventInvokeConfigOutput() FunctionEventInvokeConfigOutput {
+	return i.ToFunctionEventInvokeConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionEventInvokeConfig) ToFunctionEventInvokeConfigOutputWithContext(ctx context.Context) FunctionEventInvokeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigOutput)
+}
+
+type FunctionEventInvokeConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (FunctionEventInvokeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionEventInvokeConfigOutput)(nil)).Elem()
+}
+
+func (o FunctionEventInvokeConfigOutput) ToFunctionEventInvokeConfigOutput() FunctionEventInvokeConfigOutput {
+	return o
+}
+
+func (o FunctionEventInvokeConfigOutput) ToFunctionEventInvokeConfigOutputWithContext(ctx context.Context) FunctionEventInvokeConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FunctionEventInvokeConfigOutput{})
 }

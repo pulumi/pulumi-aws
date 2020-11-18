@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -34,6 +32,20 @@ import * as utilities from "../utilities";
  *         vpcId: exampleVpc.id,
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * For Access Points associated with an AWS Partition S3 Bucket, this resource can be imported using the `account_id` and `name` separated by a colon (`:`), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
+ * ```
+ *
+ *  For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the Amazon Resource Name (ARN), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
  * ```
  */
 export class AccessPoint extends pulumi.CustomResource {

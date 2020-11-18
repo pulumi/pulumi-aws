@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -55,6 +56,20 @@ import (
 // ```
 //
 // > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
+//
+// ## Import
+//
+// Individual rules can be imported using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (e.g. 6) or string (e.g. tcp) value. If importing a rule previously provisioned by Terraform, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml For example, import a network ACL Rule with an argument like thisconsole
+//
+// ```sh
+//  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
+// ```
+//
+//  Or by the procotol's decimal valueconsole
+//
+// ```sh
+//  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
+// ```
 type NetworkAclRule struct {
 	pulumi.CustomResourceState
 
@@ -228,4 +243,43 @@ type NetworkAclRuleArgs struct {
 
 func (NetworkAclRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAclRuleArgs)(nil)).Elem()
+}
+
+type NetworkAclRuleInput interface {
+	pulumi.Input
+
+	ToNetworkAclRuleOutput() NetworkAclRuleOutput
+	ToNetworkAclRuleOutputWithContext(ctx context.Context) NetworkAclRuleOutput
+}
+
+func (NetworkAclRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclRule)(nil)).Elem()
+}
+
+func (i NetworkAclRule) ToNetworkAclRuleOutput() NetworkAclRuleOutput {
+	return i.ToNetworkAclRuleOutputWithContext(context.Background())
+}
+
+func (i NetworkAclRule) ToNetworkAclRuleOutputWithContext(ctx context.Context) NetworkAclRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclRuleOutput)
+}
+
+type NetworkAclRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkAclRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclRuleOutput)(nil)).Elem()
+}
+
+func (o NetworkAclRuleOutput) ToNetworkAclRuleOutput() NetworkAclRuleOutput {
+	return o
+}
+
+func (o NetworkAclRuleOutput) ToNetworkAclRuleOutputWithContext(ctx context.Context) NetworkAclRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkAclRuleOutput{})
 }

@@ -189,6 +189,14 @@ class TopicSubscription(pulumi.CustomResource):
             opts=ResourceOptions(provider="aws.sns2sqs"))
         ```
 
+        ## Import
+
+        SNS Topic Subscriptions can be imported using the `subscription arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).

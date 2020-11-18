@@ -4,6 +4,7 @@
 package xray
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -46,6 +47,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// XRay Sampling Rules can be imported using the name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:xray/samplingRule:SamplingRule example example
 // ```
 type SamplingRule struct {
 	pulumi.CustomResourceState
@@ -264,4 +273,43 @@ type SamplingRuleArgs struct {
 
 func (SamplingRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*samplingRuleArgs)(nil)).Elem()
+}
+
+type SamplingRuleInput interface {
+	pulumi.Input
+
+	ToSamplingRuleOutput() SamplingRuleOutput
+	ToSamplingRuleOutputWithContext(ctx context.Context) SamplingRuleOutput
+}
+
+func (SamplingRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamplingRule)(nil)).Elem()
+}
+
+func (i SamplingRule) ToSamplingRuleOutput() SamplingRuleOutput {
+	return i.ToSamplingRuleOutputWithContext(context.Background())
+}
+
+func (i SamplingRule) ToSamplingRuleOutputWithContext(ctx context.Context) SamplingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleOutput)
+}
+
+type SamplingRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (SamplingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamplingRuleOutput)(nil)).Elem()
+}
+
+func (o SamplingRuleOutput) ToSamplingRuleOutput() SamplingRuleOutput {
+	return o
+}
+
+func (o SamplingRuleOutput) ToSamplingRuleOutputWithContext(ctx context.Context) SamplingRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SamplingRuleOutput{})
 }

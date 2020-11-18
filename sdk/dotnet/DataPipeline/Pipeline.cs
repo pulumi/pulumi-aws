@@ -29,6 +29,14 @@ namespace Pulumi.Aws.DataPipeline
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_datapipeline_pipeline` can be imported by using the id (Pipeline ID), e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
+    /// ```
     /// </summary>
     public partial class Pipeline : Pulumi.CustomResource
     {

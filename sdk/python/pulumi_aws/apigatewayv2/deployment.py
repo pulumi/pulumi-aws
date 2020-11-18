@@ -39,6 +39,16 @@ class Deployment(pulumi.CustomResource):
             description="Example deployment")
         ```
 
+        ## Import
+
+        `aws_apigatewayv2_deployment` can be imported by using the API identifier and deployment identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
+        ```
+
+         The `triggers` argument cannot be imported.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.

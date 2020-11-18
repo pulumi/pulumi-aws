@@ -20,6 +20,14 @@ import {PlacementStrategy} from "./index";
  *     strategy: "cluster",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Placement groups can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+ * ```
  */
 export class PlacementGroup extends pulumi.CustomResource {
     /**

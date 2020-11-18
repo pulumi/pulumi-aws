@@ -19,6 +19,14 @@ import * as utilities from "../utilities";
  *     description: "KMS EXTERNAL for AMI encryption",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * KMS External Keys can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+ * ```
  */
 export class ExternalKey extends pulumi.CustomResource {
     /**

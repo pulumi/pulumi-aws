@@ -34,6 +34,14 @@ class OrganizationalUnit(pulumi.CustomResource):
         example = aws.organizations.OrganizationalUnit("example", parent_id=aws_organizations_organization["example"]["roots"][0]["id"])
         ```
 
+        ## Import
+
+        AWS Organizations Organizational Units can be imported by using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name for the organizational unit

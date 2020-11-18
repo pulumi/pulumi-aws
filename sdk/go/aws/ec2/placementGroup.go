@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,6 +35,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Placement groups can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
 // ```
 type PlacementGroup struct {
 	pulumi.CustomResourceState
@@ -131,4 +140,43 @@ type PlacementGroupArgs struct {
 
 func (PlacementGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*placementGroupArgs)(nil)).Elem()
+}
+
+type PlacementGroupInput interface {
+	pulumi.Input
+
+	ToPlacementGroupOutput() PlacementGroupOutput
+	ToPlacementGroupOutputWithContext(ctx context.Context) PlacementGroupOutput
+}
+
+func (PlacementGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementGroup)(nil)).Elem()
+}
+
+func (i PlacementGroup) ToPlacementGroupOutput() PlacementGroupOutput {
+	return i.ToPlacementGroupOutputWithContext(context.Background())
+}
+
+func (i PlacementGroup) ToPlacementGroupOutputWithContext(ctx context.Context) PlacementGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupOutput)
+}
+
+type PlacementGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (PlacementGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementGroupOutput)(nil)).Elem()
+}
+
+func (o PlacementGroupOutput) ToPlacementGroupOutput() PlacementGroupOutput {
+	return o
+}
+
+func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Context) PlacementGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PlacementGroupOutput{})
 }

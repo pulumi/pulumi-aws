@@ -37,6 +37,14 @@ import * as utilities from "../utilities";
  *     dependsOn: [memberMember],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_guardduty_invite_accepter` can be imported using the the member GuardDuty detector ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
+ * ```
  */
 export class InviteAccepter extends pulumi.CustomResource {
     /**

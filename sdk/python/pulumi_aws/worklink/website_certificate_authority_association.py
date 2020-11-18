@@ -34,6 +34,14 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
             certificate=(lambda path: open(path).read())("certificate.pem"))
         ```
 
+        ## Import
+
+        WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.
+
+        ```sh
+         $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: The root certificate of the Certificate Authority.

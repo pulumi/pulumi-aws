@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -17,6 +15,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.organizations.OrganizationalUnit("example", {parentId: aws_organizations_organization.example.roots[0].id});
+ * ```
+ *
+ * ## Import
+ *
+ * AWS Organizations Organizational Units can be imported by using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
  * ```
  */
 export class OrganizationalUnit extends pulumi.CustomResource {

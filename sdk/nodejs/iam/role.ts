@@ -57,6 +57,14 @@ import {PolicyDocument} from "./index";
  *     assumeRolePolicy: instance_assume_role_policy.then(instance_assume_role_policy => instance_assume_role_policy.json),
  * });
  * ```
+ *
+ * ## Import
+ *
+ * IAM Roles can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:iam/role:Role developer developer_name
+ * ```
  */
 export class Role extends pulumi.CustomResource {
     /**

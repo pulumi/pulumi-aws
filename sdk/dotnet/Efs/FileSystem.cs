@@ -55,6 +55,14 @@ namespace Pulumi.Aws.Efs
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// The EFS file systems can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+    /// ```
     /// </summary>
     public partial class FileSystem : Pulumi.CustomResource
     {

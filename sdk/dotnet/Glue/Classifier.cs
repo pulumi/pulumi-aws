@@ -110,6 +110,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Glue Classifiers can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
+    /// ```
     /// </summary>
     public partial class Classifier : Pulumi.CustomResource
     {

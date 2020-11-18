@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Pinpoint ADM Channel can be imported using the `application-id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
 // ```
 type AdmChannel struct {
 	pulumi.CustomResourceState
@@ -143,4 +152,43 @@ type AdmChannelArgs struct {
 
 func (AdmChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*admChannelArgs)(nil)).Elem()
+}
+
+type AdmChannelInput interface {
+	pulumi.Input
+
+	ToAdmChannelOutput() AdmChannelOutput
+	ToAdmChannelOutputWithContext(ctx context.Context) AdmChannelOutput
+}
+
+func (AdmChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdmChannel)(nil)).Elem()
+}
+
+func (i AdmChannel) ToAdmChannelOutput() AdmChannelOutput {
+	return i.ToAdmChannelOutputWithContext(context.Background())
+}
+
+func (i AdmChannel) ToAdmChannelOutputWithContext(ctx context.Context) AdmChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelOutput)
+}
+
+type AdmChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (AdmChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdmChannelOutput)(nil)).Elem()
+}
+
+func (o AdmChannelOutput) ToAdmChannelOutput() AdmChannelOutput {
+	return o
+}
+
+func (o AdmChannelOutput) ToAdmChannelOutputWithContext(ctx context.Context) AdmChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AdmChannelOutput{})
 }

@@ -2,13 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
+ *
+ * ## Import
+ *
+ * Launch Templates can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
+ * ```
  */
 export class LaunchTemplate extends pulumi.CustomResource {
     /**

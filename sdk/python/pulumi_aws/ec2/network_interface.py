@@ -50,6 +50,14 @@ class NetworkInterface(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Network Interfaces can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]] attachments: Block to define the attachment of the ENI. Documented below.

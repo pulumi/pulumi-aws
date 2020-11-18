@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -78,6 +76,32 @@ import * as utilities from "../utilities";
  *     qualifier: aws_lambda_function.example.version,
  * });
  * // ... other configuration ...
+ * ```
+ *
+ * ## Import
+ *
+ * Lambda Function Event Invoke Configs can be imported using the fully qualified Function name or Amazon Resource Name (ARN), e.g. ARN without qualifier (all versions and aliases)
+ *
+ * ```sh
+ *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+ * ```
+ *
+ *  ARN with qualifier
+ *
+ * ```sh
+ *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+ * ```
+ *
+ *  Name without qualifier (all versions and aliases)
+ *
+ * ```sh
+ *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
+ * ```
+ *
+ *  Name with qualifier
+ *
+ * ```sh
+ *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
  * ```
  */
 export class FunctionEventInvokeConfig extends pulumi.CustomResource {

@@ -38,6 +38,14 @@ class DefaultKmsKey(pulumi.CustomResource):
         example = aws.ebs.DefaultKmsKey("example", key_arn=aws_kms_key["example"]["arn"])
         ```
 
+        ## Import
+
+        The EBS default KMS CMK can be imported with the KMS key ARN, e.g. console
+
+        ```sh
+         $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.

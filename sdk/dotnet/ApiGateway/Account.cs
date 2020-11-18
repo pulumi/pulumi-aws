@@ -72,6 +72,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// API Gateway Accounts can be imported using the word `api-gateway-account`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

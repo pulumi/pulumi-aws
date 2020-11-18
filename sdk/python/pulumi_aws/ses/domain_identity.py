@@ -37,6 +37,14 @@ class DomainIdentity(pulumi.CustomResource):
             records=[example.verification_token])
         ```
 
+        ## Import
+
+        SES domain identities can be imported using the domain name.
+
+        ```sh
+         $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: The domain name to assign to SES

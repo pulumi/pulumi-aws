@@ -84,6 +84,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// DB Instances can be imported using the `identifier`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+    /// ```
     /// </summary>
     public partial class Instance : Pulumi.CustomResource
     {

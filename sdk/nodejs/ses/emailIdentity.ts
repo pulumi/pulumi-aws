@@ -17,6 +17,14 @@ import * as utilities from "../utilities";
  *     email: "email@example.com",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * SES email identities can be imported using the email address.
+ *
+ * ```sh
+ *  $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
+ * ```
  */
 export class EmailIdentity extends pulumi.CustomResource {
     /**

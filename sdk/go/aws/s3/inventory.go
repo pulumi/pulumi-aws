@@ -4,6 +4,7 @@
 package s3
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -96,6 +97,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// S3 bucket inventory configurations can be imported using `bucket:inventory`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
 // ```
 type Inventory struct {
 	pulumi.CustomResourceState
@@ -245,4 +254,43 @@ type InventoryArgs struct {
 
 func (InventoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*inventoryArgs)(nil)).Elem()
+}
+
+type InventoryInput interface {
+	pulumi.Input
+
+	ToInventoryOutput() InventoryOutput
+	ToInventoryOutputWithContext(ctx context.Context) InventoryOutput
+}
+
+func (Inventory) ElementType() reflect.Type {
+	return reflect.TypeOf((*Inventory)(nil)).Elem()
+}
+
+func (i Inventory) ToInventoryOutput() InventoryOutput {
+	return i.ToInventoryOutputWithContext(context.Background())
+}
+
+func (i Inventory) ToInventoryOutputWithContext(ctx context.Context) InventoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InventoryOutput)
+}
+
+type InventoryOutput struct {
+	*pulumi.OutputState
+}
+
+func (InventoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InventoryOutput)(nil)).Elem()
+}
+
+func (o InventoryOutput) ToInventoryOutput() InventoryOutput {
+	return o
+}
+
+func (o InventoryOutput) ToInventoryOutputWithContext(ctx context.Context) InventoryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InventoryOutput{})
 }

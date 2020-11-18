@@ -103,6 +103,14 @@ class Rule(pulumi.CustomResource):
             ]))
         ```
 
+        ## Import
+
+        Config Rule can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:cfg/rule:Rule foo example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the rule

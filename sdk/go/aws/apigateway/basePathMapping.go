@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,20 @@ import (
 // Connects a custom domain name registered via `apigateway.DomainName`
 // with a deployed API so that its methods can be called via the
 // custom domain name.
+//
+// ## Import
+//
+// `aws_api_gateway_base_path_mapping` can be imported by using the domain name and base path, e.g. For empty `base_path` (e.g. root path (`/`))
+//
+// ```sh
+//  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+// ```
+//
+//  Otherwise
+//
+// ```sh
+//  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+// ```
 type BasePathMapping struct {
 	pulumi.CustomResourceState
 
@@ -110,4 +125,43 @@ type BasePathMappingArgs struct {
 
 func (BasePathMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*basePathMappingArgs)(nil)).Elem()
+}
+
+type BasePathMappingInput interface {
+	pulumi.Input
+
+	ToBasePathMappingOutput() BasePathMappingOutput
+	ToBasePathMappingOutputWithContext(ctx context.Context) BasePathMappingOutput
+}
+
+func (BasePathMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasePathMapping)(nil)).Elem()
+}
+
+func (i BasePathMapping) ToBasePathMappingOutput() BasePathMappingOutput {
+	return i.ToBasePathMappingOutputWithContext(context.Background())
+}
+
+func (i BasePathMapping) ToBasePathMappingOutputWithContext(ctx context.Context) BasePathMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingOutput)
+}
+
+type BasePathMappingOutput struct {
+	*pulumi.OutputState
+}
+
+func (BasePathMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasePathMappingOutput)(nil)).Elem()
+}
+
+func (o BasePathMappingOutput) ToBasePathMappingOutput() BasePathMappingOutput {
+	return o
+}
+
+func (o BasePathMappingOutput) ToBasePathMappingOutputWithContext(ctx context.Context) BasePathMappingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BasePathMappingOutput{})
 }

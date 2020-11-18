@@ -56,6 +56,14 @@ class SubnetGroup(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Redshift subnet groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".

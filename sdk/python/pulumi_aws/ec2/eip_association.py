@@ -52,6 +52,14 @@ class EipAssociation(pulumi.CustomResource):
             allocation_id=example.id)
         ```
 
+        ## Import
+
+        EIP Assocations can be imported using their association ID.
+
+        ```sh
+         $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_id: The allocation ID. This is required for EC2-VPC.

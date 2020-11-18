@@ -4,6 +4,7 @@
 package appsync
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -202,6 +203,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// AppSync GraphQL API can be imported using the GraphQL API ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
+// ```
 type GraphQLApi struct {
 	pulumi.CustomResourceState
 
@@ -358,4 +367,43 @@ type GraphQLApiArgs struct {
 
 func (GraphQLApiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*graphQLApiArgs)(nil)).Elem()
+}
+
+type GraphQLApiInput interface {
+	pulumi.Input
+
+	ToGraphQLApiOutput() GraphQLApiOutput
+	ToGraphQLApiOutputWithContext(ctx context.Context) GraphQLApiOutput
+}
+
+func (GraphQLApi) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApi)(nil)).Elem()
+}
+
+func (i GraphQLApi) ToGraphQLApiOutput() GraphQLApiOutput {
+	return i.ToGraphQLApiOutputWithContext(context.Background())
+}
+
+func (i GraphQLApi) ToGraphQLApiOutputWithContext(ctx context.Context) GraphQLApiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiOutput)
+}
+
+type GraphQLApiOutput struct {
+	*pulumi.OutputState
+}
+
+func (GraphQLApiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApiOutput)(nil)).Elem()
+}
+
+func (o GraphQLApiOutput) ToGraphQLApiOutput() GraphQLApiOutput {
+	return o
+}
+
+func (o GraphQLApiOutput) ToGraphQLApiOutputWithContext(ctx context.Context) GraphQLApiOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GraphQLApiOutput{})
 }

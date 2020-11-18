@@ -122,6 +122,14 @@ namespace Pulumi.Aws.Eks
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// EKS Node Groups can be imported using the `cluster_name` and `node_group_name` separated by a colon (`:`), e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+    /// ```
     /// </summary>
     public partial class NodeGroup : Pulumi.CustomResource
     {

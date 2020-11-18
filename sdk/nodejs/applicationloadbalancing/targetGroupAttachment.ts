@@ -48,6 +48,10 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## Import
+ *
+ * Target Group Attachments cannot be imported.
+ *
  * @deprecated aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment
  */
 export class TargetGroupAttachment extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package elasticloadbalancing
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -113,4 +114,43 @@ type LoadBalancerPolicyArgs struct {
 
 func (LoadBalancerPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerPolicyArgs)(nil)).Elem()
+}
+
+type LoadBalancerPolicyInput interface {
+	pulumi.Input
+
+	ToLoadBalancerPolicyOutput() LoadBalancerPolicyOutput
+	ToLoadBalancerPolicyOutputWithContext(ctx context.Context) LoadBalancerPolicyOutput
+}
+
+func (LoadBalancerPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerPolicy)(nil)).Elem()
+}
+
+func (i LoadBalancerPolicy) ToLoadBalancerPolicyOutput() LoadBalancerPolicyOutput {
+	return i.ToLoadBalancerPolicyOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerPolicy) ToLoadBalancerPolicyOutputWithContext(ctx context.Context) LoadBalancerPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyOutput)
+}
+
+type LoadBalancerPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoadBalancerPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerPolicyOutput)(nil)).Elem()
+}
+
+func (o LoadBalancerPolicyOutput) ToLoadBalancerPolicyOutput() LoadBalancerPolicyOutput {
+	return o
+}
+
+func (o LoadBalancerPolicyOutput) ToLoadBalancerPolicyOutputWithContext(ctx context.Context) LoadBalancerPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LoadBalancerPolicyOutput{})
 }

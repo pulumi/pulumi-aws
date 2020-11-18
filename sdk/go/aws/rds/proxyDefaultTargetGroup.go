@@ -4,12 +4,20 @@
 package rds
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Import
+//
+// DB proxy default target groups can be imported using the `db_proxy_name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
+// ```
 type ProxyDefaultTargetGroup struct {
 	pulumi.CustomResourceState
 
@@ -99,4 +107,43 @@ type ProxyDefaultTargetGroupArgs struct {
 
 func (ProxyDefaultTargetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*proxyDefaultTargetGroupArgs)(nil)).Elem()
+}
+
+type ProxyDefaultTargetGroupInput interface {
+	pulumi.Input
+
+	ToProxyDefaultTargetGroupOutput() ProxyDefaultTargetGroupOutput
+	ToProxyDefaultTargetGroupOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupOutput
+}
+
+func (ProxyDefaultTargetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyDefaultTargetGroup)(nil)).Elem()
+}
+
+func (i ProxyDefaultTargetGroup) ToProxyDefaultTargetGroupOutput() ProxyDefaultTargetGroupOutput {
+	return i.ToProxyDefaultTargetGroupOutputWithContext(context.Background())
+}
+
+func (i ProxyDefaultTargetGroup) ToProxyDefaultTargetGroupOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupOutput)
+}
+
+type ProxyDefaultTargetGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProxyDefaultTargetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyDefaultTargetGroupOutput)(nil)).Elem()
+}
+
+func (o ProxyDefaultTargetGroupOutput) ToProxyDefaultTargetGroupOutput() ProxyDefaultTargetGroupOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupOutput) ToProxyDefaultTargetGroupOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProxyDefaultTargetGroupOutput{})
 }

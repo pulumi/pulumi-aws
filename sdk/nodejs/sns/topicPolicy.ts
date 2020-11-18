@@ -49,6 +49,14 @@ import * as utilities from "../utilities";
  *     policy: snsTopicPolicy.json,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * SNS Topic Policy can be imported using the topic ARN, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+ * ```
  */
 export class TopicPolicy extends pulumi.CustomResource {
     /**

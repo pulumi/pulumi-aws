@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -51,6 +52,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IAM role policy attachments can be imported using the role name and policy arn separated by `/`.
+//
+// ```sh
+//  $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 // ```
 type RolePolicyAttachment struct {
 	pulumi.CustomResourceState
@@ -129,4 +138,43 @@ type RolePolicyAttachmentArgs struct {
 
 func (RolePolicyAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rolePolicyAttachmentArgs)(nil)).Elem()
+}
+
+type RolePolicyAttachmentInput interface {
+	pulumi.Input
+
+	ToRolePolicyAttachmentOutput() RolePolicyAttachmentOutput
+	ToRolePolicyAttachmentOutputWithContext(ctx context.Context) RolePolicyAttachmentOutput
+}
+
+func (RolePolicyAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolePolicyAttachment)(nil)).Elem()
+}
+
+func (i RolePolicyAttachment) ToRolePolicyAttachmentOutput() RolePolicyAttachmentOutput {
+	return i.ToRolePolicyAttachmentOutputWithContext(context.Background())
+}
+
+func (i RolePolicyAttachment) ToRolePolicyAttachmentOutputWithContext(ctx context.Context) RolePolicyAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyAttachmentOutput)
+}
+
+type RolePolicyAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (RolePolicyAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolePolicyAttachmentOutput)(nil)).Elem()
+}
+
+func (o RolePolicyAttachmentOutput) ToRolePolicyAttachmentOutput() RolePolicyAttachmentOutput {
+	return o
+}
+
+func (o RolePolicyAttachmentOutput) ToRolePolicyAttachmentOutputWithContext(ctx context.Context) RolePolicyAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RolePolicyAttachmentOutput{})
 }

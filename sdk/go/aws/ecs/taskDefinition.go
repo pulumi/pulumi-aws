@@ -4,6 +4,7 @@
 package ecs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a revision of an ECS task definition to be used in `ecs.Service`.
+//
+// ## Import
+//
+// ECS Task Definitions can be imported via their Amazon Resource Name (ARN)
+//
+// ```sh
+//  $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
+// ```
 type TaskDefinition struct {
 	pulumi.CustomResourceState
 
@@ -260,4 +269,43 @@ type TaskDefinitionArgs struct {
 
 func (TaskDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskDefinitionArgs)(nil)).Elem()
+}
+
+type TaskDefinitionInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionOutput() TaskDefinitionOutput
+	ToTaskDefinitionOutputWithContext(ctx context.Context) TaskDefinitionOutput
+}
+
+func (TaskDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinition)(nil)).Elem()
+}
+
+func (i TaskDefinition) ToTaskDefinitionOutput() TaskDefinitionOutput {
+	return i.ToTaskDefinitionOutputWithContext(context.Background())
+}
+
+func (i TaskDefinition) ToTaskDefinitionOutputWithContext(ctx context.Context) TaskDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionOutput)
+}
+
+type TaskDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (TaskDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionOutput)(nil)).Elem()
+}
+
+func (o TaskDefinitionOutput) ToTaskDefinitionOutput() TaskDefinitionOutput {
+	return o
+}
+
+func (o TaskDefinitionOutput) ToTaskDefinitionOutputWithContext(ctx context.Context) TaskDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TaskDefinitionOutput{})
 }

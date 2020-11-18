@@ -4,6 +4,7 @@
 package ecr
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -35,6 +36,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// ECR Repositories can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ecr/repository:Repository service test-service
 // ```
 type Repository struct {
 	pulumi.CustomResourceState
@@ -155,4 +164,43 @@ type RepositoryArgs struct {
 
 func (RepositoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryArgs)(nil)).Elem()
+}
+
+type RepositoryInput interface {
+	pulumi.Input
+
+	ToRepositoryOutput() RepositoryOutput
+	ToRepositoryOutputWithContext(ctx context.Context) RepositoryOutput
+}
+
+func (Repository) ElementType() reflect.Type {
+	return reflect.TypeOf((*Repository)(nil)).Elem()
+}
+
+func (i Repository) ToRepositoryOutput() RepositoryOutput {
+	return i.ToRepositoryOutputWithContext(context.Background())
+}
+
+func (i Repository) ToRepositoryOutputWithContext(ctx context.Context) RepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryOutput)
+}
+
+type RepositoryOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryOutput)(nil)).Elem()
+}
+
+func (o RepositoryOutput) ToRepositoryOutput() RepositoryOutput {
+	return o
+}
+
+func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) RepositoryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RepositoryOutput{})
 }

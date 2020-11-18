@@ -160,6 +160,14 @@ class Function(pulumi.CustomResource):
         For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
         large files efficiently.
 
+        ## Import
+
+        Lambda Functions can be imported using the `function_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.

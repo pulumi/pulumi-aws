@@ -16,6 +16,14 @@ import * as utilities from "../utilities";
  * const yada = new aws.cloudwatch.LogGroup("yada", {});
  * const foo = new aws.cloudwatch.LogStream("foo", {logGroupName: yada.name});
  * ```
+ *
+ * ## Import
+ *
+ * Cloudwatch Log Stream can be imported using the stream's `log_group_name` and `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+ * ```
  */
 export class LogStream extends pulumi.CustomResource {
     /**

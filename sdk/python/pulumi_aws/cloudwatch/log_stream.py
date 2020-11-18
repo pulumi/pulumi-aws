@@ -33,6 +33,14 @@ class LogStream(pulumi.CustomResource):
         foo = aws.cloudwatch.LogStream("foo", log_group_name=yada.name)
         ```
 
+        ## Import
+
+        Cloudwatch Log Stream can be imported using the stream's `log_group_name` and `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.

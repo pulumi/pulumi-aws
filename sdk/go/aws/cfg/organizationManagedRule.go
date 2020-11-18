@@ -4,6 +4,7 @@
 package cfg
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Config Organization Managed Rules can be imported using the name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
 // ```
 type OrganizationManagedRule struct {
 	pulumi.CustomResourceState
@@ -210,4 +219,43 @@ type OrganizationManagedRuleArgs struct {
 
 func (OrganizationManagedRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationManagedRuleArgs)(nil)).Elem()
+}
+
+type OrganizationManagedRuleInput interface {
+	pulumi.Input
+
+	ToOrganizationManagedRuleOutput() OrganizationManagedRuleOutput
+	ToOrganizationManagedRuleOutputWithContext(ctx context.Context) OrganizationManagedRuleOutput
+}
+
+func (OrganizationManagedRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationManagedRule)(nil)).Elem()
+}
+
+func (i OrganizationManagedRule) ToOrganizationManagedRuleOutput() OrganizationManagedRuleOutput {
+	return i.ToOrganizationManagedRuleOutputWithContext(context.Background())
+}
+
+func (i OrganizationManagedRule) ToOrganizationManagedRuleOutputWithContext(ctx context.Context) OrganizationManagedRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationManagedRuleOutput)
+}
+
+type OrganizationManagedRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationManagedRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationManagedRuleOutput)(nil)).Elem()
+}
+
+func (o OrganizationManagedRuleOutput) ToOrganizationManagedRuleOutput() OrganizationManagedRuleOutput {
+	return o
+}
+
+func (o OrganizationManagedRuleOutput) ToOrganizationManagedRuleOutputWithContext(ctx context.Context) OrganizationManagedRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrganizationManagedRuleOutput{})
 }

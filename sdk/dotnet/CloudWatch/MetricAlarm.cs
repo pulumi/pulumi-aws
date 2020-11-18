@@ -234,6 +234,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// &gt; **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
     /// You must choose one or the other
+    /// 
+    /// ## Import
+    /// 
+    /// Cloud Metric Alarms can be imported using the `alarm_name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
+    /// ```
     /// </summary>
     public partial class MetricAlarm : Pulumi.CustomResource
     {

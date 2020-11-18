@@ -4,6 +4,7 @@
 package directconnect
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,6 +45,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Direct Connect transit virtual interfaces can be imported using the `vif id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
 // ```
 type TransitVirtualInterface struct {
 	pulumi.CustomResourceState
@@ -247,4 +256,43 @@ type TransitVirtualInterfaceArgs struct {
 
 func (TransitVirtualInterfaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitVirtualInterfaceArgs)(nil)).Elem()
+}
+
+type TransitVirtualInterfaceInput interface {
+	pulumi.Input
+
+	ToTransitVirtualInterfaceOutput() TransitVirtualInterfaceOutput
+	ToTransitVirtualInterfaceOutputWithContext(ctx context.Context) TransitVirtualInterfaceOutput
+}
+
+func (TransitVirtualInterface) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitVirtualInterface)(nil)).Elem()
+}
+
+func (i TransitVirtualInterface) ToTransitVirtualInterfaceOutput() TransitVirtualInterfaceOutput {
+	return i.ToTransitVirtualInterfaceOutputWithContext(context.Background())
+}
+
+func (i TransitVirtualInterface) ToTransitVirtualInterfaceOutputWithContext(ctx context.Context) TransitVirtualInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitVirtualInterfaceOutput)
+}
+
+type TransitVirtualInterfaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (TransitVirtualInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitVirtualInterfaceOutput)(nil)).Elem()
+}
+
+func (o TransitVirtualInterfaceOutput) ToTransitVirtualInterfaceOutput() TransitVirtualInterfaceOutput {
+	return o
+}
+
+func (o TransitVirtualInterfaceOutput) ToTransitVirtualInterfaceOutputWithContext(ctx context.Context) TransitVirtualInterfaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TransitVirtualInterfaceOutput{})
 }

@@ -21,6 +21,14 @@ import * as utilities from "../utilities";
  *     location: "EqDC2",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Direct Connect LAGs can be imported using the `lag id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
+ * ```
  */
 export class LinkAggregationGroup extends pulumi.CustomResource {
     /**

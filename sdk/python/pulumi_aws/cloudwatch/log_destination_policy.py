@@ -46,6 +46,14 @@ class LogDestinationPolicy(pulumi.CustomResource):
             access_policy=test_destination_policy_policy_document.json)
         ```
 
+        ## Import
+
+        CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.

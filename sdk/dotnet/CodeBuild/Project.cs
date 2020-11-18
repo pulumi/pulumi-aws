@@ -236,6 +236,14 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// CodeBuild Project can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:codebuild/project:Project name project-name
+    /// ```
     /// </summary>
     public partial class Project : Pulumi.CustomResource
     {

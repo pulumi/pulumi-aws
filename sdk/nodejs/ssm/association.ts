@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -20,6 +18,14 @@ import * as utilities from "../utilities";
  *     key: "InstanceIds",
  *     values: [aws_instance.example.id],
  * }]});
+ * ```
+ *
+ * ## Import
+ *
+ * SSM associations can be imported using the `association_id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
  * ```
  */
 export class Association extends pulumi.CustomResource {

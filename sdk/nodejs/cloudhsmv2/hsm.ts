@@ -23,6 +23,14 @@ import * as utilities from "../utilities";
  *     clusterId: cluster.then(cluster => cluster.clusterId),
  * });
  * ```
+ *
+ * ## Import
+ *
+ * HSM modules can be imported using their HSM ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+ * ```
  */
 export class Hsm extends pulumi.CustomResource {
     /**

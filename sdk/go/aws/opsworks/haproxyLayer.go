@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -343,4 +344,43 @@ type HaproxyLayerArgs struct {
 
 func (HaproxyLayerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*haproxyLayerArgs)(nil)).Elem()
+}
+
+type HaproxyLayerInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerOutput() HaproxyLayerOutput
+	ToHaproxyLayerOutputWithContext(ctx context.Context) HaproxyLayerOutput
+}
+
+func (HaproxyLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*HaproxyLayer)(nil)).Elem()
+}
+
+func (i HaproxyLayer) ToHaproxyLayerOutput() HaproxyLayerOutput {
+	return i.ToHaproxyLayerOutputWithContext(context.Background())
+}
+
+func (i HaproxyLayer) ToHaproxyLayerOutputWithContext(ctx context.Context) HaproxyLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerOutput)
+}
+
+type HaproxyLayerOutput struct {
+	*pulumi.OutputState
+}
+
+func (HaproxyLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HaproxyLayerOutput)(nil)).Elem()
+}
+
+func (o HaproxyLayerOutput) ToHaproxyLayerOutput() HaproxyLayerOutput {
+	return o
+}
+
+func (o HaproxyLayerOutput) ToHaproxyLayerOutputWithContext(ctx context.Context) HaproxyLayerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HaproxyLayerOutput{})
 }

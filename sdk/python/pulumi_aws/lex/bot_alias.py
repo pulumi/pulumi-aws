@@ -42,6 +42,14 @@ class BotAlias(pulumi.CustomResource):
             name="OrderFlowersProd")
         ```
 
+        ## Import
+
+        Bot aliases can be imported using an ID with the format `bot_name:bot_alias_name`.
+
+        ```sh
+         $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_name: The name of the bot.

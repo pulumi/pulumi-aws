@@ -82,6 +82,16 @@ class VirtualGateway(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        App Mesh virtual gateway can be imported using `mesh_name` together with the virtual gateway's `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
+        ```
+
+         [1]/docs/providers/aws/index.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual gateway.

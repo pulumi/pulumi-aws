@@ -193,6 +193,14 @@ class LaunchConfiguration(pulumi.CustomResource):
         configuration, resource recreation can be manually triggered by using the
         [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
 
+        ## Import
+
+        Launch configurations can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.

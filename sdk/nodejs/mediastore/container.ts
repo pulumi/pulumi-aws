@@ -15,6 +15,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.mediastore.Container("example", {});
  * ```
+ *
+ * ## Import
+ *
+ * MediaStore Container can be imported using the MediaStore Container Name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:mediastore/container:Container example example
+ * ```
  */
 export class Container extends pulumi.CustomResource {
     /**

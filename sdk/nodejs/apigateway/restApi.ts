@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -34,6 +32,14 @@ import * as utilities from "../utilities";
  *         types: "REGIONAL",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
  * ```
  */
 export class RestApi extends pulumi.CustomResource {

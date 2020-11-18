@@ -4,6 +4,7 @@
 package storagegateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,6 +39,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_storagegateway_nfs_file_share` can be imported by using the NFS File Share Amazon Resource Name (ARN), e.g.
+//
+// ```sh
+//  $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
 // ```
 type NfsFileShare struct {
 	pulumi.CustomResourceState
@@ -270,4 +279,43 @@ type NfsFileShareArgs struct {
 
 func (NfsFileShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*nfsFileShareArgs)(nil)).Elem()
+}
+
+type NfsFileShareInput interface {
+	pulumi.Input
+
+	ToNfsFileShareOutput() NfsFileShareOutput
+	ToNfsFileShareOutputWithContext(ctx context.Context) NfsFileShareOutput
+}
+
+func (NfsFileShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsFileShare)(nil)).Elem()
+}
+
+func (i NfsFileShare) ToNfsFileShareOutput() NfsFileShareOutput {
+	return i.ToNfsFileShareOutputWithContext(context.Background())
+}
+
+func (i NfsFileShare) ToNfsFileShareOutputWithContext(ctx context.Context) NfsFileShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareOutput)
+}
+
+type NfsFileShareOutput struct {
+	*pulumi.OutputState
+}
+
+func (NfsFileShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsFileShareOutput)(nil)).Elem()
+}
+
+func (o NfsFileShareOutput) ToNfsFileShareOutput() NfsFileShareOutput {
+	return o
+}
+
+func (o NfsFileShareOutput) ToNfsFileShareOutputWithContext(ctx context.Context) NfsFileShareOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NfsFileShareOutput{})
 }

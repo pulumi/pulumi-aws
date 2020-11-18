@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -119,6 +117,14 @@ import * as utilities from "../utilities";
  *     limitAmount: "100.0", // RI utilization must be 100
  *     limitUnit: "PERCENTAGE",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Budgets can be imported using `AccountID:BudgetName`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget`
  * ```
  */
 export class Budget extends pulumi.CustomResource {

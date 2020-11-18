@@ -58,6 +58,14 @@ class OrganizationCustomRule(pulumi.CustomResource):
                 ]))
         ```
 
+        ## Import
+
+        Config Organization Custom Rules can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the rule

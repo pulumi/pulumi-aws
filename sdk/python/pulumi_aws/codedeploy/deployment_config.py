@@ -95,6 +95,14 @@ class DeploymentConfig(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        CodeDeploy Deployment Configurations can be imported using the `deployment_config_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.

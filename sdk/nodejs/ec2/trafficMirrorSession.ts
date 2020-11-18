@@ -28,6 +28,14 @@ import * as utilities from "../utilities";
  *     trafficMirrorTargetId: target.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Traffic mirror sessions can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
+ * ```
  */
 export class TrafficMirrorSession extends pulumi.CustomResource {
     /**

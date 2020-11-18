@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Pinpoint SMS Channel can be imported using the `application-id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
 // ```
 type SmsChannel struct {
 	pulumi.CustomResourceState
@@ -144,4 +153,43 @@ type SmsChannelArgs struct {
 
 func (SmsChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsChannelArgs)(nil)).Elem()
+}
+
+type SmsChannelInput interface {
+	pulumi.Input
+
+	ToSmsChannelOutput() SmsChannelOutput
+	ToSmsChannelOutputWithContext(ctx context.Context) SmsChannelOutput
+}
+
+func (SmsChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmsChannel)(nil)).Elem()
+}
+
+func (i SmsChannel) ToSmsChannelOutput() SmsChannelOutput {
+	return i.ToSmsChannelOutputWithContext(context.Background())
+}
+
+func (i SmsChannel) ToSmsChannelOutputWithContext(ctx context.Context) SmsChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelOutput)
+}
+
+type SmsChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (SmsChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmsChannelOutput)(nil)).Elem()
+}
+
+func (o SmsChannelOutput) ToSmsChannelOutput() SmsChannelOutput {
+	return o
+}
+
+func (o SmsChannelOutput) ToSmsChannelOutputWithContext(ctx context.Context) SmsChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SmsChannelOutput{})
 }

@@ -176,6 +176,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Glue Triggers can be imported using `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
+    /// ```
     /// </summary>
     public partial class Trigger : Pulumi.CustomResource
     {

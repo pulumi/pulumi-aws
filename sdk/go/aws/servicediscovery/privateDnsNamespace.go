@@ -4,6 +4,7 @@
 package servicediscovery
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Service Discovery Private DNS Namespace can be imported using the namespace ID and VPC ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
 // ```
 type PrivateDnsNamespace struct {
 	pulumi.CustomResourceState
@@ -148,4 +157,43 @@ type PrivateDnsNamespaceArgs struct {
 
 func (PrivateDnsNamespaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateDnsNamespaceArgs)(nil)).Elem()
+}
+
+type PrivateDnsNamespaceInput interface {
+	pulumi.Input
+
+	ToPrivateDnsNamespaceOutput() PrivateDnsNamespaceOutput
+	ToPrivateDnsNamespaceOutputWithContext(ctx context.Context) PrivateDnsNamespaceOutput
+}
+
+func (PrivateDnsNamespace) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateDnsNamespace)(nil)).Elem()
+}
+
+func (i PrivateDnsNamespace) ToPrivateDnsNamespaceOutput() PrivateDnsNamespaceOutput {
+	return i.ToPrivateDnsNamespaceOutputWithContext(context.Background())
+}
+
+func (i PrivateDnsNamespace) ToPrivateDnsNamespaceOutputWithContext(ctx context.Context) PrivateDnsNamespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespaceOutput)
+}
+
+type PrivateDnsNamespaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateDnsNamespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateDnsNamespaceOutput)(nil)).Elem()
+}
+
+func (o PrivateDnsNamespaceOutput) ToPrivateDnsNamespaceOutput() PrivateDnsNamespaceOutput {
+	return o
+}
+
+func (o PrivateDnsNamespaceOutput) ToPrivateDnsNamespaceOutputWithContext(ctx context.Context) PrivateDnsNamespaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateDnsNamespaceOutput{})
 }

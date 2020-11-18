@@ -47,6 +47,14 @@ class Plan(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Backup Plan can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:backup/plan:Plan test <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanAdvancedBackupSettingArgs']]]] advanced_backup_settings: An object that specifies backup options for each resource type.

@@ -37,6 +37,14 @@ namespace Pulumi.Aws.Ebs
     /// ```
     /// 
     /// &gt; **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume
+    /// 
+    /// ## Import
+    /// 
+    /// EBS Volumes can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
+    /// ```
     /// </summary>
     public partial class Volume : Pulumi.CustomResource
     {

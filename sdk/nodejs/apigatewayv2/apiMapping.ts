@@ -21,6 +21,14 @@ import * as utilities from "../utilities";
  *     stage: aws_apigatewayv2_stage.example.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_apigatewayv2_api_mapping` can be imported by using the API mapping identifier and domain name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
+ * ```
  */
 export class ApiMapping extends pulumi.CustomResource {
     /**

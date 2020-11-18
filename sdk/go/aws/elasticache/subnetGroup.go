@@ -4,6 +4,7 @@
 package elasticache
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -60,6 +61,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// ElastiCache Subnet Groups can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
 // ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState
@@ -148,4 +157,43 @@ type SubnetGroupArgs struct {
 
 func (SubnetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetGroupArgs)(nil)).Elem()
+}
+
+type SubnetGroupInput interface {
+	pulumi.Input
+
+	ToSubnetGroupOutput() SubnetGroupOutput
+	ToSubnetGroupOutputWithContext(ctx context.Context) SubnetGroupOutput
+}
+
+func (SubnetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetGroup)(nil)).Elem()
+}
+
+func (i SubnetGroup) ToSubnetGroupOutput() SubnetGroupOutput {
+	return i.ToSubnetGroupOutputWithContext(context.Background())
+}
+
+func (i SubnetGroup) ToSubnetGroupOutputWithContext(ctx context.Context) SubnetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupOutput)
+}
+
+type SubnetGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubnetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetGroupOutput)(nil)).Elem()
+}
+
+func (o SubnetGroupOutput) ToSubnetGroupOutput() SubnetGroupOutput {
+	return o
+}
+
+func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) SubnetGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubnetGroupOutput{})
 }

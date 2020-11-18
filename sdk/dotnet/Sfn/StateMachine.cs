@@ -43,6 +43,14 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// State Machines can be imported using the `arn`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+    /// ```
     /// </summary>
     public partial class StateMachine : Pulumi.CustomResource
     {

@@ -45,6 +45,14 @@ namespace Pulumi.Aws.Shield
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Shield protection resources can be imported by specifying their ID e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
+    /// ```
     /// </summary>
     public partial class Protection : Pulumi.CustomResource
     {

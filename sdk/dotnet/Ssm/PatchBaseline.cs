@@ -220,6 +220,14 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SSM Patch Baselines can be imported by their baseline ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
+    /// ```
     /// </summary>
     public partial class PatchBaseline : Pulumi.CustomResource
     {

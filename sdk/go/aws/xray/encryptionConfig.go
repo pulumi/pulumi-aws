@@ -4,12 +4,20 @@
 package xray
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Import
+//
+// XRay Encryption Config can be imported using the region name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+// ```
 type EncryptionConfig struct {
 	pulumi.CustomResourceState
 
@@ -84,4 +92,43 @@ type EncryptionConfigArgs struct {
 
 func (EncryptionConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*encryptionConfigArgs)(nil)).Elem()
+}
+
+type EncryptionConfigInput interface {
+	pulumi.Input
+
+	ToEncryptionConfigOutput() EncryptionConfigOutput
+	ToEncryptionConfigOutputWithContext(ctx context.Context) EncryptionConfigOutput
+}
+
+func (EncryptionConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionConfig)(nil)).Elem()
+}
+
+func (i EncryptionConfig) ToEncryptionConfigOutput() EncryptionConfigOutput {
+	return i.ToEncryptionConfigOutputWithContext(context.Background())
+}
+
+func (i EncryptionConfig) ToEncryptionConfigOutputWithContext(ctx context.Context) EncryptionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigOutput)
+}
+
+type EncryptionConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (EncryptionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionConfigOutput)(nil)).Elem()
+}
+
+func (o EncryptionConfigOutput) ToEncryptionConfigOutput() EncryptionConfigOutput {
+	return o
+}
+
+func (o EncryptionConfigOutput) ToEncryptionConfigOutputWithContext(ctx context.Context) EncryptionConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EncryptionConfigOutput{})
 }

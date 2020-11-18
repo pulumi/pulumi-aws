@@ -4,6 +4,7 @@
 package wafv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -62,6 +63,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// WAFv2 Rule Group can be imported using `ID/name/scope` e.g.
+//
+// ```sh
+//  $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
 // ```
 type RuleGroup struct {
 	pulumi.CustomResourceState
@@ -202,4 +211,43 @@ type RuleGroupArgs struct {
 
 func (RuleGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleGroupArgs)(nil)).Elem()
+}
+
+type RuleGroupInput interface {
+	pulumi.Input
+
+	ToRuleGroupOutput() RuleGroupOutput
+	ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupOutput
+}
+
+func (RuleGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroup)(nil)).Elem()
+}
+
+func (i RuleGroup) ToRuleGroupOutput() RuleGroupOutput {
+	return i.ToRuleGroupOutputWithContext(context.Background())
+}
+
+func (i RuleGroup) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOutput)
+}
+
+type RuleGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (RuleGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupOutput)(nil)).Elem()
+}
+
+func (o RuleGroupOutput) ToRuleGroupOutput() RuleGroupOutput {
+	return o
+}
+
+func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RuleGroupOutput{})
 }

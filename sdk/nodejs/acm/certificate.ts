@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -91,6 +89,14 @@ import * as utilities from "../utilities";
  *         zoneId: aws_route53_zone.example.zone_id,
  *     }));
  * }
+ * ```
+ *
+ * ## Import
+ *
+ * Certificates can be imported using their ARN, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
  * ```
  */
 export class Certificate extends pulumi.CustomResource {

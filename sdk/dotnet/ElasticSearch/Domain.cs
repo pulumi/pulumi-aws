@@ -248,6 +248,14 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Elasticsearch domains can be imported using the `domain_name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:elasticsearch/domain:Domain example domain_name
+    /// ```
     /// </summary>
     public partial class Domain : Pulumi.CustomResource
     {

@@ -36,6 +36,14 @@ import * as utilities from "../utilities";
  *     query: pulumi.interpolate`SELECT * FROM ${hogeDatabase.name} limit 10;`,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Athena Named Query can be imported using the query ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+ * ```
  */
 export class NamedQuery extends pulumi.CustomResource {
     /**

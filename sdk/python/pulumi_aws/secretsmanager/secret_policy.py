@@ -51,6 +51,14 @@ class SecretPolicy(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        `aws_secretsmanager_secret_policy` can be imported by using the secret Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] block_public_policy: Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.

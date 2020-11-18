@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Endpoints can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
+ * ```
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

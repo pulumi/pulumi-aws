@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Cognito User Groups can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
 // ```
 type UserGroup struct {
 	pulumi.CustomResourceState
@@ -154,4 +163,43 @@ type UserGroupArgs struct {
 
 func (UserGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userGroupArgs)(nil)).Elem()
+}
+
+type UserGroupInput interface {
+	pulumi.Input
+
+	ToUserGroupOutput() UserGroupOutput
+	ToUserGroupOutputWithContext(ctx context.Context) UserGroupOutput
+}
+
+func (UserGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserGroup)(nil)).Elem()
+}
+
+func (i UserGroup) ToUserGroupOutput() UserGroupOutput {
+	return i.ToUserGroupOutputWithContext(context.Background())
+}
+
+func (i UserGroup) ToUserGroupOutputWithContext(ctx context.Context) UserGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserGroupOutput)
+}
+
+type UserGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserGroupOutput)(nil)).Elem()
+}
+
+func (o UserGroupOutput) ToUserGroupOutput() UserGroupOutput {
+	return o
+}
+
+func (o UserGroupOutput) ToUserGroupOutputWithContext(ctx context.Context) UserGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserGroupOutput{})
 }

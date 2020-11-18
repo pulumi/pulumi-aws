@@ -54,6 +54,14 @@ class Vpc(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        VPCs can be imported using the `vpc id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR

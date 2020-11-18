@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * XRay Encryption Config can be imported using the region name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+ * ```
+ */
 export class EncryptionConfig extends pulumi.CustomResource {
     /**
      * Get an existing EncryptionConfig resource's state with the given name, ID, and optional extra

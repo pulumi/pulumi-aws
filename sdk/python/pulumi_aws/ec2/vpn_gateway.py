@@ -38,6 +38,14 @@ class VpnGateway(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        VPN Gateways can be imported using the `vpn gateway id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] amazon_side_asn: The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.

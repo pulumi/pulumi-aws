@@ -4,6 +4,7 @@
 package apigatewayv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -74,6 +75,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_apigatewayv2_authorizer` can be imported by using the API identifier and authorizer identifier, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
 // ```
 type Authorizer struct {
 	pulumi.CustomResourceState
@@ -292,4 +301,43 @@ type AuthorizerArgs struct {
 
 func (AuthorizerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizerArgs)(nil)).Elem()
+}
+
+type AuthorizerInput interface {
+	pulumi.Input
+
+	ToAuthorizerOutput() AuthorizerOutput
+	ToAuthorizerOutputWithContext(ctx context.Context) AuthorizerOutput
+}
+
+func (Authorizer) ElementType() reflect.Type {
+	return reflect.TypeOf((*Authorizer)(nil)).Elem()
+}
+
+func (i Authorizer) ToAuthorizerOutput() AuthorizerOutput {
+	return i.ToAuthorizerOutputWithContext(context.Background())
+}
+
+func (i Authorizer) ToAuthorizerOutputWithContext(ctx context.Context) AuthorizerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerOutput)
+}
+
+type AuthorizerOutput struct {
+	*pulumi.OutputState
+}
+
+func (AuthorizerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerOutput)(nil)).Elem()
+}
+
+func (o AuthorizerOutput) ToAuthorizerOutput() AuthorizerOutput {
+	return o
+}
+
+func (o AuthorizerOutput) ToAuthorizerOutputWithContext(ctx context.Context) AuthorizerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AuthorizerOutput{})
 }

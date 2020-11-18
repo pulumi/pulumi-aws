@@ -4,6 +4,7 @@
 package elastictranscoder
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Elastic Transcoder pipelines can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
 // ```
 type Pipeline struct {
 	pulumi.CustomResourceState
@@ -203,4 +212,43 @@ type PipelineArgs struct {
 
 func (PipelineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineArgs)(nil)).Elem()
+}
+
+type PipelineInput interface {
+	pulumi.Input
+
+	ToPipelineOutput() PipelineOutput
+	ToPipelineOutputWithContext(ctx context.Context) PipelineOutput
+}
+
+func (Pipeline) ElementType() reflect.Type {
+	return reflect.TypeOf((*Pipeline)(nil)).Elem()
+}
+
+func (i Pipeline) ToPipelineOutput() PipelineOutput {
+	return i.ToPipelineOutputWithContext(context.Background())
+}
+
+func (i Pipeline) ToPipelineOutputWithContext(ctx context.Context) PipelineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineOutput)
+}
+
+type PipelineOutput struct {
+	*pulumi.OutputState
+}
+
+func (PipelineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineOutput)(nil)).Elem()
+}
+
+func (o PipelineOutput) ToPipelineOutput() PipelineOutput {
+	return o
+}
+
+func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) PipelineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PipelineOutput{})
 }

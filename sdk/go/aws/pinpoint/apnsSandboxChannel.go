@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Provides a Pinpoint APNs Sandbox Channel resource.
 //
 // > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
+//
+// ## Import
+//
+// Pinpoint APNs Sandbox Channel can be imported using the `application-id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
+// ```
 type ApnsSandboxChannel struct {
 	pulumi.CustomResourceState
 
@@ -172,4 +181,43 @@ type ApnsSandboxChannelArgs struct {
 
 func (ApnsSandboxChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apnsSandboxChannelArgs)(nil)).Elem()
+}
+
+type ApnsSandboxChannelInput interface {
+	pulumi.Input
+
+	ToApnsSandboxChannelOutput() ApnsSandboxChannelOutput
+	ToApnsSandboxChannelOutputWithContext(ctx context.Context) ApnsSandboxChannelOutput
+}
+
+func (ApnsSandboxChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsSandboxChannel)(nil)).Elem()
+}
+
+func (i ApnsSandboxChannel) ToApnsSandboxChannelOutput() ApnsSandboxChannelOutput {
+	return i.ToApnsSandboxChannelOutputWithContext(context.Background())
+}
+
+func (i ApnsSandboxChannel) ToApnsSandboxChannelOutputWithContext(ctx context.Context) ApnsSandboxChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelOutput)
+}
+
+type ApnsSandboxChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApnsSandboxChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsSandboxChannelOutput)(nil)).Elem()
+}
+
+func (o ApnsSandboxChannelOutput) ToApnsSandboxChannelOutput() ApnsSandboxChannelOutput {
+	return o
+}
+
+func (o ApnsSandboxChannelOutput) ToApnsSandboxChannelOutputWithContext(ctx context.Context) ApnsSandboxChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApnsSandboxChannelOutput{})
 }

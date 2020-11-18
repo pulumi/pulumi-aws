@@ -36,6 +36,14 @@ class Domain(pulumi.CustomResource):
             encryption_key=example_key.arn)
         ```
 
+        ## Import
+
+        CodeArtifact Domain can be imported using the CodeArtifact Domain arn, e.g.
+
+        ```sh
+         $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.

@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {Application, ApplicationVersion} from "./index";
@@ -64,6 +62,14 @@ import {Application, ApplicationVersion} from "./index";
  *         },
  *     ],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Elastic Beanstalk Environments can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
  * ```
  */
 export class Environment extends pulumi.CustomResource {

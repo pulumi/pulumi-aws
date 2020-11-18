@@ -48,6 +48,14 @@ class ResourceShareAccepter(pulumi.CustomResource):
         receiver_accept = aws.ram.ResourceShareAccepter("receiverAccept", share_arn=sender_invite.resource_share_arn)
         ```
 
+        ## Import
+
+        Resource share accepters can be imported using the resource share ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] share_arn: The ARN of the resource share.

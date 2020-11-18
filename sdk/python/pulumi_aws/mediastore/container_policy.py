@@ -50,6 +50,14 @@ class ContainerPolicy(pulumi.CustomResource):
         \"\"\"))
         ```
 
+        ## Import
+
+        MediaStore Container Policy can be imported using the MediaStore Container Name, e.g.
+
+        ```sh
+         $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_name: The name of the container.

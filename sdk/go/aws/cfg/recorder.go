@@ -4,6 +4,7 @@
 package cfg
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,6 +45,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Configuration Recorder can be imported using the name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cfg/recorder:Recorder foo example
 // ```
 type Recorder struct {
 	pulumi.CustomResourceState
@@ -139,4 +148,43 @@ type RecorderArgs struct {
 
 func (RecorderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*recorderArgs)(nil)).Elem()
+}
+
+type RecorderInput interface {
+	pulumi.Input
+
+	ToRecorderOutput() RecorderOutput
+	ToRecorderOutputWithContext(ctx context.Context) RecorderOutput
+}
+
+func (Recorder) ElementType() reflect.Type {
+	return reflect.TypeOf((*Recorder)(nil)).Elem()
+}
+
+func (i Recorder) ToRecorderOutput() RecorderOutput {
+	return i.ToRecorderOutputWithContext(context.Background())
+}
+
+func (i Recorder) ToRecorderOutputWithContext(ctx context.Context) RecorderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderOutput)
+}
+
+type RecorderOutput struct {
+	*pulumi.OutputState
+}
+
+func (RecorderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecorderOutput)(nil)).Elem()
+}
+
+func (o RecorderOutput) ToRecorderOutput() RecorderOutput {
+	return o
+}
+
+func (o RecorderOutput) ToRecorderOutputWithContext(ctx context.Context) RecorderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RecorderOutput{})
 }

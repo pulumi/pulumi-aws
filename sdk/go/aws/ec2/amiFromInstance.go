@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -277,4 +278,43 @@ type AmiFromInstanceArgs struct {
 
 func (AmiFromInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*amiFromInstanceArgs)(nil)).Elem()
+}
+
+type AmiFromInstanceInput interface {
+	pulumi.Input
+
+	ToAmiFromInstanceOutput() AmiFromInstanceOutput
+	ToAmiFromInstanceOutputWithContext(ctx context.Context) AmiFromInstanceOutput
+}
+
+func (AmiFromInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*AmiFromInstance)(nil)).Elem()
+}
+
+func (i AmiFromInstance) ToAmiFromInstanceOutput() AmiFromInstanceOutput {
+	return i.ToAmiFromInstanceOutputWithContext(context.Background())
+}
+
+func (i AmiFromInstance) ToAmiFromInstanceOutputWithContext(ctx context.Context) AmiFromInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiFromInstanceOutput)
+}
+
+type AmiFromInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (AmiFromInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AmiFromInstanceOutput)(nil)).Elem()
+}
+
+func (o AmiFromInstanceOutput) ToAmiFromInstanceOutput() AmiFromInstanceOutput {
+	return o
+}
+
+func (o AmiFromInstanceOutput) ToAmiFromInstanceOutputWithContext(ctx context.Context) AmiFromInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AmiFromInstanceOutput{})
 }

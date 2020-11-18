@@ -39,6 +39,14 @@ class Configuration(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        MSK configurations can be imported using the configuration ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the configuration.

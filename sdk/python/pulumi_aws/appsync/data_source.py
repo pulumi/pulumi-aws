@@ -87,6 +87,14 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        `aws_appsync_datasource` can be imported with their `api_id`, a hyphen, and `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API for the DataSource.

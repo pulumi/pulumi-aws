@@ -38,6 +38,14 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// DocumentDB Subnet groups can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
+    /// ```
     /// </summary>
     public partial class SubnetGroup : Pulumi.CustomResource
     {

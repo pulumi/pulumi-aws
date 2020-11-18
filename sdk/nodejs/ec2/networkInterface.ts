@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -25,6 +23,14 @@ import * as utilities from "../utilities";
  *         deviceIndex: 1,
  *     }],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Network Interfaces can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
  * ```
  */
 export class NetworkInterface extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -116,4 +117,43 @@ type VpnGatewayRoutePropagationArgs struct {
 
 func (VpnGatewayRoutePropagationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnGatewayRoutePropagationArgs)(nil)).Elem()
+}
+
+type VpnGatewayRoutePropagationInput interface {
+	pulumi.Input
+
+	ToVpnGatewayRoutePropagationOutput() VpnGatewayRoutePropagationOutput
+	ToVpnGatewayRoutePropagationOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationOutput
+}
+
+func (VpnGatewayRoutePropagation) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayRoutePropagation)(nil)).Elem()
+}
+
+func (i VpnGatewayRoutePropagation) ToVpnGatewayRoutePropagationOutput() VpnGatewayRoutePropagationOutput {
+	return i.ToVpnGatewayRoutePropagationOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayRoutePropagation) ToVpnGatewayRoutePropagationOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayRoutePropagationOutput)
+}
+
+type VpnGatewayRoutePropagationOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnGatewayRoutePropagationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayRoutePropagationOutput)(nil)).Elem()
+}
+
+func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationOutput() VpnGatewayRoutePropagationOutput {
+	return o
+}
+
+func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpnGatewayRoutePropagationOutput{})
 }

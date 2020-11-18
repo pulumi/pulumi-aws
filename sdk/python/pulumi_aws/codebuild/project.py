@@ -216,6 +216,14 @@ class Project(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        CodeBuild Project can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:codebuild/project:Project name project-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']] artifacts: Information about the project's build output artifacts. Artifact blocks are documented below.

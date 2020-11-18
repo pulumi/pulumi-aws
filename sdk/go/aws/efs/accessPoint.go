@@ -4,6 +4,7 @@
 package efs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -33,6 +34,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// The EFS access points can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
 // ```
 type AccessPoint struct {
 	pulumi.CustomResourceState
@@ -143,4 +152,43 @@ type AccessPointArgs struct {
 
 func (AccessPointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPointArgs)(nil)).Elem()
+}
+
+type AccessPointInput interface {
+	pulumi.Input
+
+	ToAccessPointOutput() AccessPointOutput
+	ToAccessPointOutputWithContext(ctx context.Context) AccessPointOutput
+}
+
+func (AccessPoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPoint)(nil)).Elem()
+}
+
+func (i AccessPoint) ToAccessPointOutput() AccessPointOutput {
+	return i.ToAccessPointOutputWithContext(context.Background())
+}
+
+func (i AccessPoint) ToAccessPointOutputWithContext(ctx context.Context) AccessPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointOutput)
+}
+
+type AccessPointOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccessPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointOutput)(nil)).Elem()
+}
+
+func (o AccessPointOutput) ToAccessPointOutput() AccessPointOutput {
+	return o
+}
+
+func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) AccessPointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccessPointOutput{})
 }

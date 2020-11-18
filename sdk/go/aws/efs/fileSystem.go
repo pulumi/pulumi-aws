@@ -4,6 +4,7 @@
 package efs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -59,6 +60,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// The EFS file systems can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
 // ```
 type FileSystem struct {
 	pulumi.CustomResourceState
@@ -218,4 +227,43 @@ type FileSystemArgs struct {
 
 func (FileSystemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileSystemArgs)(nil)).Elem()
+}
+
+type FileSystemInput interface {
+	pulumi.Input
+
+	ToFileSystemOutput() FileSystemOutput
+	ToFileSystemOutputWithContext(ctx context.Context) FileSystemOutput
+}
+
+func (FileSystem) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystem)(nil)).Elem()
+}
+
+func (i FileSystem) ToFileSystemOutput() FileSystemOutput {
+	return i.ToFileSystemOutputWithContext(context.Background())
+}
+
+func (i FileSystem) ToFileSystemOutputWithContext(ctx context.Context) FileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOutput)
+}
+
+type FileSystemOutput struct {
+	*pulumi.OutputState
+}
+
+func (FileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemOutput)(nil)).Elem()
+}
+
+func (o FileSystemOutput) ToFileSystemOutput() FileSystemOutput {
+	return o
+}
+
+func (o FileSystemOutput) ToFileSystemOutputWithContext(ctx context.Context) FileSystemOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FileSystemOutput{})
 }

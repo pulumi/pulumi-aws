@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {Deployment, RestApi} from "./index";
@@ -77,6 +75,14 @@ import {Deployment, RestApi} from "./index";
  *     dependsOn: [exampleLogGroup],
  * });
  * // ... other configuration ...
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_api_gateway_stage` can be imported using `REST-API-ID/STAGE-NAME`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
  * ```
  */
 export class Stage extends pulumi.CustomResource {

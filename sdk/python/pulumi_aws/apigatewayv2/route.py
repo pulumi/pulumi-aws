@@ -45,6 +45,14 @@ class Route(pulumi.CustomResource):
             route_key="$default")
         ```
 
+        ## Import
+
+        `aws_apigatewayv2_route` can be imported by using the API identifier and route identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.

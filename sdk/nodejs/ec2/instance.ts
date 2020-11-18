@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {InstanceProfile} from "../iam";
@@ -41,6 +39,14 @@ import {InstanceType} from "./index";
  *         Name: "HelloWorld",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Instances can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/instance:Instance web i-12345678
  * ```
  */
 export class Instance extends pulumi.CustomResource {

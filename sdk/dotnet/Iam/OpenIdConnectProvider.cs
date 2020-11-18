@@ -35,6 +35,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// IAM OpenID Connect Providers can be imported using the `arn`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
+    /// ```
     /// </summary>
     public partial class OpenIdConnectProvider : Pulumi.CustomResource
     {

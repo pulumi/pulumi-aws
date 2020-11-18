@@ -4,6 +4,7 @@
 package wafv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -47,6 +48,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// WAFv2 Web ACL Logging Configurations can be imported using the WAFv2 Web ACL ARN e.g.
+//
+// ```sh
+//  $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
 // ```
 type WebAclLoggingConfiguration struct {
 	pulumi.CustomResourceState
@@ -135,4 +144,43 @@ type WebAclLoggingConfigurationArgs struct {
 
 func (WebAclLoggingConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAclLoggingConfigurationArgs)(nil)).Elem()
+}
+
+type WebAclLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToWebAclLoggingConfigurationOutput() WebAclLoggingConfigurationOutput
+	ToWebAclLoggingConfigurationOutputWithContext(ctx context.Context) WebAclLoggingConfigurationOutput
+}
+
+func (WebAclLoggingConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclLoggingConfiguration)(nil)).Elem()
+}
+
+func (i WebAclLoggingConfiguration) ToWebAclLoggingConfigurationOutput() WebAclLoggingConfigurationOutput {
+	return i.ToWebAclLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i WebAclLoggingConfiguration) ToWebAclLoggingConfigurationOutputWithContext(ctx context.Context) WebAclLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationOutput)
+}
+
+type WebAclLoggingConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAclLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclLoggingConfigurationOutput)(nil)).Elem()
+}
+
+func (o WebAclLoggingConfigurationOutput) ToWebAclLoggingConfigurationOutput() WebAclLoggingConfigurationOutput {
+	return o
+}
+
+func (o WebAclLoggingConfigurationOutput) ToWebAclLoggingConfigurationOutputWithContext(ctx context.Context) WebAclLoggingConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAclLoggingConfigurationOutput{})
 }

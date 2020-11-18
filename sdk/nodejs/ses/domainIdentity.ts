@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *     records: [example.verificationToken],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * SES domain identities can be imported using the domain name.
+ *
+ * ```sh
+ *  $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+ * ```
  */
 export class DomainIdentity extends pulumi.CustomResource {
     /**

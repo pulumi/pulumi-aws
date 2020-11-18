@@ -19,6 +19,14 @@ import * as utilities from "../utilities";
  *     associatedGatewayId: aws_vpn_gateway.example.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Direct Connect Gateway Association Proposals can be imported using the proposal ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe
+ * ```
  */
 export class GatewayAssociationProposal extends pulumi.CustomResource {
     /**

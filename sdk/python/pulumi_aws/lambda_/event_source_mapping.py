@@ -72,6 +72,16 @@ class EventSourceMapping(pulumi.CustomResource):
             function_name=aws_lambda_function["example"]["arn"])
         ```
 
+        ## Import
+
+        Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.
+
+        ```sh
+         $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+        ```
+
+         [3]https://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSourceMapping.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.

@@ -4,6 +4,7 @@
 package codebuild
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -59,6 +60,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// CodeBuild Report Group can be imported using the CodeBuild Report Group arn, e.g.
+//
+// ```sh
+//  $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
 // ```
 type ReportGroup struct {
 	pulumi.CustomResourceState
@@ -169,4 +178,43 @@ type ReportGroupArgs struct {
 
 func (ReportGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportGroupArgs)(nil)).Elem()
+}
+
+type ReportGroupInput interface {
+	pulumi.Input
+
+	ToReportGroupOutput() ReportGroupOutput
+	ToReportGroupOutputWithContext(ctx context.Context) ReportGroupOutput
+}
+
+func (ReportGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroup)(nil)).Elem()
+}
+
+func (i ReportGroup) ToReportGroupOutput() ReportGroupOutput {
+	return i.ToReportGroupOutputWithContext(context.Background())
+}
+
+func (i ReportGroup) ToReportGroupOutputWithContext(ctx context.Context) ReportGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupOutput)
+}
+
+type ReportGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReportGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupOutput)(nil)).Elem()
+}
+
+func (o ReportGroupOutput) ToReportGroupOutput() ReportGroupOutput {
+	return o
+}
+
+func (o ReportGroupOutput) ToReportGroupOutputWithContext(ctx context.Context) ReportGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReportGroupOutput{})
 }

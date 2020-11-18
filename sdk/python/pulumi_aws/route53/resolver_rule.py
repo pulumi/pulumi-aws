@@ -58,6 +58,14 @@ class ResolverRule(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Route53 Resolver rules can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.

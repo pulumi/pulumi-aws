@@ -4,6 +4,7 @@
 package redshift
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,6 +35,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Redshift Snapshot Schedule can be imported using the `identifier`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
 // ```
 type SnapshotSchedule struct {
 	pulumi.CustomResourceState
@@ -157,4 +166,43 @@ type SnapshotScheduleArgs struct {
 
 func (SnapshotScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotScheduleArgs)(nil)).Elem()
+}
+
+type SnapshotScheduleInput interface {
+	pulumi.Input
+
+	ToSnapshotScheduleOutput() SnapshotScheduleOutput
+	ToSnapshotScheduleOutputWithContext(ctx context.Context) SnapshotScheduleOutput
+}
+
+func (SnapshotSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotSchedule)(nil)).Elem()
+}
+
+func (i SnapshotSchedule) ToSnapshotScheduleOutput() SnapshotScheduleOutput {
+	return i.ToSnapshotScheduleOutputWithContext(context.Background())
+}
+
+func (i SnapshotSchedule) ToSnapshotScheduleOutputWithContext(ctx context.Context) SnapshotScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleOutput)
+}
+
+type SnapshotScheduleOutput struct {
+	*pulumi.OutputState
+}
+
+func (SnapshotScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotScheduleOutput)(nil)).Elem()
+}
+
+func (o SnapshotScheduleOutput) ToSnapshotScheduleOutput() SnapshotScheduleOutput {
+	return o
+}
+
+func (o SnapshotScheduleOutput) ToSnapshotScheduleOutputWithContext(ctx context.Context) SnapshotScheduleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SnapshotScheduleOutput{})
 }

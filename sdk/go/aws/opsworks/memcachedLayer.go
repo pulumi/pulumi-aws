@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -289,4 +290,43 @@ type MemcachedLayerArgs struct {
 
 func (MemcachedLayerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*memcachedLayerArgs)(nil)).Elem()
+}
+
+type MemcachedLayerInput interface {
+	pulumi.Input
+
+	ToMemcachedLayerOutput() MemcachedLayerOutput
+	ToMemcachedLayerOutputWithContext(ctx context.Context) MemcachedLayerOutput
+}
+
+func (MemcachedLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemcachedLayer)(nil)).Elem()
+}
+
+func (i MemcachedLayer) ToMemcachedLayerOutput() MemcachedLayerOutput {
+	return i.ToMemcachedLayerOutputWithContext(context.Background())
+}
+
+func (i MemcachedLayer) ToMemcachedLayerOutputWithContext(ctx context.Context) MemcachedLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerOutput)
+}
+
+type MemcachedLayerOutput struct {
+	*pulumi.OutputState
+}
+
+func (MemcachedLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemcachedLayerOutput)(nil)).Elem()
+}
+
+func (o MemcachedLayerOutput) ToMemcachedLayerOutput() MemcachedLayerOutput {
+	return o
+}
+
+func (o MemcachedLayerOutput) ToMemcachedLayerOutputWithContext(ctx context.Context) MemcachedLayerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MemcachedLayerOutput{})
 }

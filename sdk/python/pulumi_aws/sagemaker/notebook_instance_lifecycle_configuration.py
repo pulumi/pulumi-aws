@@ -24,6 +24,14 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         """
         Provides a lifecycle configuration for SageMaker Notebook Instances.
 
+        ## Import
+
+        Models can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.

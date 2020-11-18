@@ -149,6 +149,14 @@ class Trail(pulumi.CustomResource):
         # CloudTrail requires the Log Stream wildcard
         ```
 
+        ## Import
+
+        Cloudtrails can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_watch_logs_group_arn: Specifies a log group name using an Amazon Resource Name (ARN),

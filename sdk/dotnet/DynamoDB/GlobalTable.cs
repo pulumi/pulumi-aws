@@ -98,6 +98,14 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// DynamoDB Global Tables can be imported using the global table name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
+    /// ```
     /// </summary>
     public partial class GlobalTable : Pulumi.CustomResource
     {

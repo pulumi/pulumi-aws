@@ -34,6 +34,14 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ECR Repositories can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ecr/repository:Repository service test-service
+    /// ```
     /// </summary>
     public partial class Repository : Pulumi.CustomResource
     {

@@ -4,6 +4,7 @@
 package kinesis
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -264,6 +265,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.
+//
+// ```sh
+//  $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
+// ```
+//
+//  NoteImport does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
 type FirehoseDeliveryStream struct {
 	pulumi.CustomResourceState
 
@@ -478,4 +489,43 @@ type FirehoseDeliveryStreamArgs struct {
 
 func (FirehoseDeliveryStreamArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firehoseDeliveryStreamArgs)(nil)).Elem()
+}
+
+type FirehoseDeliveryStreamInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOutput() FirehoseDeliveryStreamOutput
+	ToFirehoseDeliveryStreamOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOutput
+}
+
+func (FirehoseDeliveryStream) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStream)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStream) ToFirehoseDeliveryStreamOutput() FirehoseDeliveryStreamOutput {
+	return i.ToFirehoseDeliveryStreamOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStream) ToFirehoseDeliveryStreamOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOutput)
+}
+
+type FirehoseDeliveryStreamOutput struct {
+	*pulumi.OutputState
+}
+
+func (FirehoseDeliveryStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOutput)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOutput) ToFirehoseDeliveryStreamOutput() FirehoseDeliveryStreamOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOutput) ToFirehoseDeliveryStreamOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOutput{})
 }

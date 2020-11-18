@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ebs.DefaultKmsKey("example", {keyArn: aws_kms_key.example.arn});
  * ```
+ *
+ * ## Import
+ *
+ * The EBS default KMS CMK can be imported with the KMS key ARN, e.g. console
+ *
+ * ```sh
+ *  $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
+ * ```
  */
 export class DefaultKmsKey extends pulumi.CustomResource {
     /**

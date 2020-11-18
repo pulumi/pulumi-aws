@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['TargetGroupAttachment']
 
-warnings.warn("aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment", DeprecationWarning)
+warnings.warn("""aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment""", DeprecationWarning)
 
 
 class TargetGroupAttachment(pulumi.CustomResource):
-    warnings.warn("aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment", DeprecationWarning)
+    warnings.warn("""aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -65,6 +65,10 @@ class TargetGroupAttachment(pulumi.CustomResource):
             target_id=test_function.arn,
             opts=ResourceOptions(depends_on=[with_lb]))
         ```
+
+        ## Import
+
+        Target Group Attachments cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

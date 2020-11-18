@@ -59,6 +59,14 @@ class Proxy(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        DB proxies can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/proxy:Proxy example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProxyAuthArgs']]]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.

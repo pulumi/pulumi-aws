@@ -4,6 +4,7 @@
 package ec2transitgateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,6 +35,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_ec2_transit_gateway_route_table_propagation` can be imported by using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
 // ```
 type RouteTablePropagation struct {
 	pulumi.CustomResourceState
@@ -124,4 +133,43 @@ type RouteTablePropagationArgs struct {
 
 func (RouteTablePropagationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeTablePropagationArgs)(nil)).Elem()
+}
+
+type RouteTablePropagationInput interface {
+	pulumi.Input
+
+	ToRouteTablePropagationOutput() RouteTablePropagationOutput
+	ToRouteTablePropagationOutputWithContext(ctx context.Context) RouteTablePropagationOutput
+}
+
+func (RouteTablePropagation) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTablePropagation)(nil)).Elem()
+}
+
+func (i RouteTablePropagation) ToRouteTablePropagationOutput() RouteTablePropagationOutput {
+	return i.ToRouteTablePropagationOutputWithContext(context.Background())
+}
+
+func (i RouteTablePropagation) ToRouteTablePropagationOutputWithContext(ctx context.Context) RouteTablePropagationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteTablePropagationOutput)
+}
+
+type RouteTablePropagationOutput struct {
+	*pulumi.OutputState
+}
+
+func (RouteTablePropagationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTablePropagationOutput)(nil)).Elem()
+}
+
+func (o RouteTablePropagationOutput) ToRouteTablePropagationOutput() RouteTablePropagationOutput {
+	return o
+}
+
+func (o RouteTablePropagationOutput) ToRouteTablePropagationOutputWithContext(ctx context.Context) RouteTablePropagationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RouteTablePropagationOutput{})
 }

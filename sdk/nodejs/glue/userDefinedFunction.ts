@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -28,6 +26,14 @@ import * as utilities from "../utilities";
  *         uri: "uri",
  *     }],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Glue User Defined Functions can be imported using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
  * ```
  */
 export class UserDefinedFunction extends pulumi.CustomResource {

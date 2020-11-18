@@ -67,6 +67,14 @@ class ReportGroup(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        CodeBuild Report Group can be imported using the CodeBuild Report Group arn, e.g.
+
+        ```sh
+         $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ReportGroupExportConfigArgs']] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.

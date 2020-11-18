@@ -4,6 +4,7 @@
 package cloudwatch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -268,6 +269,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
+//
+// ```sh
+//  $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
+// ```
 type EventTarget struct {
 	pulumi.CustomResourceState
 
@@ -460,4 +469,43 @@ type EventTargetArgs struct {
 
 func (EventTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventTargetArgs)(nil)).Elem()
+}
+
+type EventTargetInput interface {
+	pulumi.Input
+
+	ToEventTargetOutput() EventTargetOutput
+	ToEventTargetOutputWithContext(ctx context.Context) EventTargetOutput
+}
+
+func (EventTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTarget)(nil)).Elem()
+}
+
+func (i EventTarget) ToEventTargetOutput() EventTargetOutput {
+	return i.ToEventTargetOutputWithContext(context.Background())
+}
+
+func (i EventTarget) ToEventTargetOutputWithContext(ctx context.Context) EventTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetOutput)
+}
+
+type EventTargetOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetOutput)(nil)).Elem()
+}
+
+func (o EventTargetOutput) ToEventTargetOutput() EventTargetOutput {
+	return o
+}
+
+func (o EventTargetOutput) ToEventTargetOutputWithContext(ctx context.Context) EventTargetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventTargetOutput{})
 }

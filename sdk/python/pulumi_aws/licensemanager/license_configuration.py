@@ -58,6 +58,14 @@ class LicenseConfiguration(pulumi.CustomResource):
         * `maximumSockets` - Resource must have maximum socket count in order to use the license. Default: unbounded, limit: 10000
         * `allowedTenancy` - Defines where the license can be used. If set, restricts license usage to selected tenancies. Specify a comma delimited list of `EC2-Default`, `EC2-DedicatedHost`, `EC2-DedicatedInstance`
 
+        ## Import
+
+        License configurations can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the license configuration.

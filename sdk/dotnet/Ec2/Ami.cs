@@ -50,6 +50,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_ami` can be imported using the ID of the AMI, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/ami:Ami example ami-12345678
+    /// ```
     /// </summary>
     public partial class Ami : Pulumi.CustomResource
     {

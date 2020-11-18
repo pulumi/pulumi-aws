@@ -57,6 +57,14 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
             opts=ResourceOptions(provider=aws["accepter"]))
         ```
 
+        ## Import
+
+        Direct Connect hosted transit virtual interfaces can be imported using the `vif id`, e.g.
+
+        ```sh
+         $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.

@@ -122,6 +122,14 @@ class MLTransform(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[aws_iam_role_policy_attachment["test"]]))
         ```
 
+        ## Import
+
+        Glue ML Transforms can be imported using `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the ML Transform.

@@ -4,12 +4,20 @@
 package emr
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Import
+//
+// EMR Instance Fleet can be imported with the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`), e.g. console
+//
+// ```sh
+//  $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
+// ```
 type InstanceFleet struct {
 	pulumi.CustomResourceState
 
@@ -130,4 +138,43 @@ type InstanceFleetArgs struct {
 
 func (InstanceFleetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceFleetArgs)(nil)).Elem()
+}
+
+type InstanceFleetInput interface {
+	pulumi.Input
+
+	ToInstanceFleetOutput() InstanceFleetOutput
+	ToInstanceFleetOutputWithContext(ctx context.Context) InstanceFleetOutput
+}
+
+func (InstanceFleet) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleet)(nil)).Elem()
+}
+
+func (i InstanceFleet) ToInstanceFleetOutput() InstanceFleetOutput {
+	return i.ToInstanceFleetOutputWithContext(context.Background())
+}
+
+func (i InstanceFleet) ToInstanceFleetOutputWithContext(ctx context.Context) InstanceFleetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetOutput)
+}
+
+type InstanceFleetOutput struct {
+	*pulumi.OutputState
+}
+
+func (InstanceFleetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetOutput)(nil)).Elem()
+}
+
+func (o InstanceFleetOutput) ToInstanceFleetOutput() InstanceFleetOutput {
+	return o
+}
+
+func (o InstanceFleetOutput) ToInstanceFleetOutputWithContext(ctx context.Context) InstanceFleetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InstanceFleetOutput{})
 }

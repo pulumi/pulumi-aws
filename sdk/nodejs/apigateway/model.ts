@@ -26,6 +26,14 @@ import {RestApi} from "./index";
  * `,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_api_gateway_model` can be imported using `REST-API-ID/NAME`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/model:Model example 12345abcde/example
+ * ```
  */
 export class Model extends pulumi.CustomResource {
     /**

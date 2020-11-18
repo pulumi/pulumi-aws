@@ -28,6 +28,14 @@ import * as utilities from "../utilities";
  * }));
  * const example = new aws.glue.ResourcePolicy("example", {policy: glue_example_policy.then(glue_example_policy => glue_example_policy.json)});
  * ```
+ *
+ * ## Import
+ *
+ * Glue Resource Policy can be imported using the account ID
+ *
+ * ```sh
+ *  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+ * ```
  */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**

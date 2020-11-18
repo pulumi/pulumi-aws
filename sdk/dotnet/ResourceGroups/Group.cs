@@ -45,6 +45,14 @@ namespace Pulumi.Aws.ResourceGroups
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Resource groups can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+    /// ```
     /// </summary>
     public partial class Group : Pulumi.CustomResource
     {

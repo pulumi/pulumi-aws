@@ -4,6 +4,7 @@
 package directconnect
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -184,4 +185,43 @@ type BgpPeerArgs struct {
 
 func (BgpPeerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bgpPeerArgs)(nil)).Elem()
+}
+
+type BgpPeerInput interface {
+	pulumi.Input
+
+	ToBgpPeerOutput() BgpPeerOutput
+	ToBgpPeerOutputWithContext(ctx context.Context) BgpPeerOutput
+}
+
+func (BgpPeer) ElementType() reflect.Type {
+	return reflect.TypeOf((*BgpPeer)(nil)).Elem()
+}
+
+func (i BgpPeer) ToBgpPeerOutput() BgpPeerOutput {
+	return i.ToBgpPeerOutputWithContext(context.Background())
+}
+
+func (i BgpPeer) ToBgpPeerOutputWithContext(ctx context.Context) BgpPeerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerOutput)
+}
+
+type BgpPeerOutput struct {
+	*pulumi.OutputState
+}
+
+func (BgpPeerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BgpPeerOutput)(nil)).Elem()
+}
+
+func (o BgpPeerOutput) ToBgpPeerOutput() BgpPeerOutput {
+	return o
+}
+
+func (o BgpPeerOutput) ToBgpPeerOutputWithContext(ctx context.Context) BgpPeerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BgpPeerOutput{})
 }

@@ -34,6 +34,14 @@ class EventBus(pulumi.CustomResource):
         messenger = aws.cloudwatch.EventBus("messenger")
         ```
 
+        ## Import
+
+        EventBridge event buses can be imported using the `name`, e.g. console
+
+        ```sh
+         $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the new event bus.

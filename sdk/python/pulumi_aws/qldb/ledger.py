@@ -35,6 +35,14 @@ class Ledger(pulumi.CustomResource):
         sample_ledger = aws.qldb.Ledger("sample-ledger")
         ```
 
+        ## Import
+
+        QLDB Ledgers can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] deletion_protection: The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.

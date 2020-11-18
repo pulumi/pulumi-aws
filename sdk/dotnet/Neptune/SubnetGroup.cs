@@ -38,6 +38,14 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Neptune Subnet groups can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:neptune/subnetGroup:SubnetGroup default production-subnet-group
+    /// ```
     /// </summary>
     public partial class SubnetGroup : Pulumi.CustomResource
     {

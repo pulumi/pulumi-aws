@@ -61,6 +61,14 @@ namespace Pulumi.Aws.WafRegional
     /// * `type` - (Required) The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
     /// * `data_id` - (Required) The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
     /// * `negated` - (Required) Whether to use the settings or the negated settings that you specified in the objects.
+    /// 
+    /// ## Import
+    /// 
+    /// WAF Regional Rule can be imported using the id, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// ```
     /// </summary>
     public partial class Rule : Pulumi.CustomResource
     {

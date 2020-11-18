@@ -76,6 +76,14 @@ class Role(pulumi.CustomResource):
             assume_role_policy=instance_assume_role_policy.json)
         ```
 
+        ## Import
+
+        IAM Roles can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:iam/role:Role developer developer_name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assume_role_policy: The policy that grants an entity permission to assume the role.

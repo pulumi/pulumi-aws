@@ -130,6 +130,14 @@ class Directory(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        DirectoryService directories can be imported using the directory `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.

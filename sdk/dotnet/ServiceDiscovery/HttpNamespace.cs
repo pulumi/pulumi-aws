@@ -28,6 +28,14 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Service Discovery HTTP Namespace can be imported using the namespace ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
+    /// ```
     /// </summary>
     public partial class HttpNamespace : Pulumi.CustomResource
     {

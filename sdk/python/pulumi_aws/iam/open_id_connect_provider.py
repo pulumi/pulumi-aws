@@ -36,6 +36,14 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             url="https://accounts.google.com")
         ```
 
+        ## Import
+
+        IAM OpenID Connect Providers can be imported using the `arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_id_lists: A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)

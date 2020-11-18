@@ -38,6 +38,14 @@ class TransitGateway(pulumi.CustomResource):
         example = aws.ec2transitgateway.TransitGateway("example", description="example")
         ```
 
+        ## Import
+
+        `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] amazon_side_asn: Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.

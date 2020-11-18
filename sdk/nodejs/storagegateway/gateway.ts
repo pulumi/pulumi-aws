@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -67,6 +65,28 @@ import * as utilities from "../utilities";
  *     gatewayType: "STORED",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_storagegateway_gateway` can be imported by using the gateway Amazon Resource Name (ARN), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
+ * ```
+ *
+ *  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Terraform configuration or use [`ignore_changes`](/docs/configuration/resources.html#ignore_changes) to hide the difference, e.g. hcl resource "aws_storagegateway_gateway" "example" {
+ *
+ * # ... other configuration ...
+ *
+ *  gateway_ip_address = aws_instance.sgw.private_ip
+ *
+ * # There is no Storage Gateway API for reading gateway_ip_address
+ *
+ *  lifecycle {
+ *
+ *  ignore_changes = ["gateway_ip_address"]
+ *
+ *  } }
  */
 export class Gateway extends pulumi.CustomResource {
     /**

@@ -4,6 +4,7 @@
 package glacier
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -71,6 +72,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Glacier Vault Locks can be imported using the Glacier Vault name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
 // ```
 type VaultLock struct {
 	pulumi.CustomResourceState
@@ -172,4 +181,43 @@ type VaultLockArgs struct {
 
 func (VaultLockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultLockArgs)(nil)).Elem()
+}
+
+type VaultLockInput interface {
+	pulumi.Input
+
+	ToVaultLockOutput() VaultLockOutput
+	ToVaultLockOutputWithContext(ctx context.Context) VaultLockOutput
+}
+
+func (VaultLock) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultLock)(nil)).Elem()
+}
+
+func (i VaultLock) ToVaultLockOutput() VaultLockOutput {
+	return i.ToVaultLockOutputWithContext(context.Background())
+}
+
+func (i VaultLock) ToVaultLockOutputWithContext(ctx context.Context) VaultLockOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultLockOutput)
+}
+
+type VaultLockOutput struct {
+	*pulumi.OutputState
+}
+
+func (VaultLockOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultLockOutput)(nil)).Elem()
+}
+
+func (o VaultLockOutput) ToVaultLockOutput() VaultLockOutput {
+	return o
+}
+
+func (o VaultLockOutput) ToVaultLockOutputWithContext(ctx context.Context) VaultLockOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VaultLockOutput{})
 }

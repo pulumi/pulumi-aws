@@ -4,6 +4,7 @@
 package ssm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -83,6 +84,14 @@ import (
 // ```
 //
 // > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
+//
+// ## Import
+//
+// SSM Parameters can be imported using the `parameter store name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+// ```
 type Parameter struct {
 	pulumi.CustomResourceState
 
@@ -261,4 +270,43 @@ type ParameterArgs struct {
 
 func (ParameterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*parameterArgs)(nil)).Elem()
+}
+
+type ParameterInput interface {
+	pulumi.Input
+
+	ToParameterOutput() ParameterOutput
+	ToParameterOutputWithContext(ctx context.Context) ParameterOutput
+}
+
+func (Parameter) ElementType() reflect.Type {
+	return reflect.TypeOf((*Parameter)(nil)).Elem()
+}
+
+func (i Parameter) ToParameterOutput() ParameterOutput {
+	return i.ToParameterOutputWithContext(context.Background())
+}
+
+func (i Parameter) ToParameterOutputWithContext(ctx context.Context) ParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterOutput)
+}
+
+type ParameterOutput struct {
+	*pulumi.OutputState
+}
+
+func (ParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterOutput)(nil)).Elem()
+}
+
+func (o ParameterOutput) ToParameterOutput() ParameterOutput {
+	return o
+}
+
+func (o ParameterOutput) ToParameterOutputWithContext(ctx context.Context) ParameterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ParameterOutput{})
 }

@@ -34,6 +34,14 @@ namespace Pulumi.Aws.Lex
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Bot aliases can be imported using an ID with the format `bot_name:bot_alias_name`.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
+    /// ```
     /// </summary>
     public partial class BotAlias : Pulumi.CustomResource
     {

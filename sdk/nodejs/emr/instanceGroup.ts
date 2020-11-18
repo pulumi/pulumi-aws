@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -26,6 +24,14 @@ import * as utilities from "../utilities";
  *     instanceCount: 1,
  *     instanceType: "m5.xlarge",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:emr/instanceGroup:InstanceGroup task_greoup j-123456ABCDEF/ig-15EK4O09RZLNR
  * ```
  */
 export class InstanceGroup extends pulumi.CustomResource {

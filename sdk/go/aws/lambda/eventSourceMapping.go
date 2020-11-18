@@ -4,6 +4,7 @@
 package lambda
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -87,6 +88,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.
+//
+// ```sh
+//  $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+// ```
+//
+//  [3]https://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSourceMapping.html
 type EventSourceMapping struct {
 	pulumi.CustomResourceState
 
@@ -300,4 +311,43 @@ type EventSourceMappingArgs struct {
 
 func (EventSourceMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventSourceMappingArgs)(nil)).Elem()
+}
+
+type EventSourceMappingInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingOutput() EventSourceMappingOutput
+	ToEventSourceMappingOutputWithContext(ctx context.Context) EventSourceMappingOutput
+}
+
+func (EventSourceMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMapping)(nil)).Elem()
+}
+
+func (i EventSourceMapping) ToEventSourceMappingOutput() EventSourceMappingOutput {
+	return i.ToEventSourceMappingOutputWithContext(context.Background())
+}
+
+func (i EventSourceMapping) ToEventSourceMappingOutputWithContext(ctx context.Context) EventSourceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingOutput)
+}
+
+type EventSourceMappingOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventSourceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingOutput)(nil)).Elem()
+}
+
+func (o EventSourceMappingOutput) ToEventSourceMappingOutput() EventSourceMappingOutput {
+	return o
+}
+
+func (o EventSourceMappingOutput) ToEventSourceMappingOutputWithContext(ctx context.Context) EventSourceMappingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventSourceMappingOutput{})
 }

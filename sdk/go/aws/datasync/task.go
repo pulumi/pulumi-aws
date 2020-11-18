@@ -4,6 +4,7 @@
 package datasync
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
+//
+// ## Import
+//
+// `aws_datasync_task` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.
+//
+// ```sh
+//  $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
+// ```
 type Task struct {
 	pulumi.CustomResourceState
 
@@ -134,4 +143,43 @@ type TaskArgs struct {
 
 func (TaskArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskArgs)(nil)).Elem()
+}
+
+type TaskInput interface {
+	pulumi.Input
+
+	ToTaskOutput() TaskOutput
+	ToTaskOutputWithContext(ctx context.Context) TaskOutput
+}
+
+func (Task) ElementType() reflect.Type {
+	return reflect.TypeOf((*Task)(nil)).Elem()
+}
+
+func (i Task) ToTaskOutput() TaskOutput {
+	return i.ToTaskOutputWithContext(context.Background())
+}
+
+func (i Task) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskOutput)
+}
+
+type TaskOutput struct {
+	*pulumi.OutputState
+}
+
+func (TaskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskOutput)(nil)).Elem()
+}
+
+func (o TaskOutput) ToTaskOutput() TaskOutput {
+	return o
+}
+
+func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TaskOutput{})
 }

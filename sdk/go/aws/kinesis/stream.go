@@ -4,6 +4,7 @@
 package kinesis
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Kinesis Streams can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:kinesis/stream:Stream test_stream kinesis-test
+// ```
+//
+//  [1]https://aws.amazon.com/documentation/kinesis/ [2]https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html [3]https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
 type Stream struct {
 	pulumi.CustomResourceState
 
@@ -194,4 +205,43 @@ type StreamArgs struct {
 
 func (StreamArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamArgs)(nil)).Elem()
+}
+
+type StreamInput interface {
+	pulumi.Input
+
+	ToStreamOutput() StreamOutput
+	ToStreamOutputWithContext(ctx context.Context) StreamOutput
+}
+
+func (Stream) ElementType() reflect.Type {
+	return reflect.TypeOf((*Stream)(nil)).Elem()
+}
+
+func (i Stream) ToStreamOutput() StreamOutput {
+	return i.ToStreamOutputWithContext(context.Background())
+}
+
+func (i Stream) ToStreamOutputWithContext(ctx context.Context) StreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamOutput)
+}
+
+type StreamOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamOutput)(nil)).Elem()
+}
+
+func (o StreamOutput) ToStreamOutput() StreamOutput {
+	return o
+}
+
+func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StreamOutput{})
 }

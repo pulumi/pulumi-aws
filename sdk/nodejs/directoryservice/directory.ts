@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -112,6 +110,14 @@ import * as utilities from "../utilities";
  *         vpcId: main.id,
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * DirectoryService directories can be imported using the directory `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
  * ```
  */
 export class Directory extends pulumi.CustomResource {

@@ -101,6 +101,14 @@ namespace Pulumi.Aws.Dms
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Replication instances can be imported using the `replication_instance_id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
+    /// ```
     /// </summary>
     public partial class ReplicationInstance : Pulumi.CustomResource
     {

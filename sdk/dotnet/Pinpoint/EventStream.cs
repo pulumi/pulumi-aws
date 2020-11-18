@@ -74,6 +74,14 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Pinpoint Event Stream can be imported using the `application-id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
+    /// ```
     /// </summary>
     public partial class EventStream : Pulumi.CustomResource
     {

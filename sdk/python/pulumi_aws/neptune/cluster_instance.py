@@ -66,6 +66,14 @@ class ClusterInstance(pulumi.CustomResource):
                 apply_immediately=True))
         ```
 
+        ## Import
+
+        `aws_neptune_cluster_instance` can be imported by using the instance identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any instance modifications

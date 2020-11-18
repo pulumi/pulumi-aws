@@ -87,6 +87,14 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SSM Maintenance Window targets can be imported using `WINDOW_ID/WINDOW_TARGET_ID`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
+    /// ```
     /// </summary>
     public partial class MaintenanceWindowTarget : Pulumi.CustomResource
     {

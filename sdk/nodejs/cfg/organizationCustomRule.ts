@@ -36,6 +36,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Config Organization Custom Rules can be imported using the name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
+ * ```
  */
 export class OrganizationCustomRule extends pulumi.CustomResource {
     /**

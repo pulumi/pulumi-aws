@@ -52,6 +52,14 @@ class Fleet(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] excess_capacity_termination_policy: Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.

@@ -17,6 +17,14 @@ import * as utilities from "../utilities";
  *     description: "My client certificate",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * API Gateway Client Certificates can be imported using the id, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
+ * ```
  */
 export class ClientCertificate extends pulumi.CustomResource {
     /**

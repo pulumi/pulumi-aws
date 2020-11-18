@@ -94,6 +94,14 @@ class FlowLog(pulumi.CustomResource):
             vpc_id=aws_vpc["example"]["id"])
         ```
 
+        ## Import
+
+        Flow Logs can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
@@ -134,7 +142,7 @@ class FlowLog(pulumi.CustomResource):
             __props__['log_destination_type'] = log_destination_type
             __props__['log_format'] = log_format
             if log_group_name is not None:
-                warnings.warn("use 'log_destination' argument instead", DeprecationWarning)
+                warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
                 pulumi.log.warn("log_group_name is deprecated: use 'log_destination' argument instead")
             __props__['log_group_name'] = log_group_name
             __props__['max_aggregation_interval'] = max_aggregation_interval

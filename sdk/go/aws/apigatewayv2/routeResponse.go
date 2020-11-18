@@ -4,6 +4,7 @@
 package apigatewayv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -39,6 +40,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_apigatewayv2_route_response` can be imported by using the API identifier, route identifier and route response identifier, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
 // ```
 type RouteResponse struct {
 	pulumi.CustomResourceState
@@ -150,4 +159,43 @@ type RouteResponseArgs struct {
 
 func (RouteResponseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeResponseArgs)(nil)).Elem()
+}
+
+type RouteResponseInput interface {
+	pulumi.Input
+
+	ToRouteResponseOutput() RouteResponseOutput
+	ToRouteResponseOutputWithContext(ctx context.Context) RouteResponseOutput
+}
+
+func (RouteResponse) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteResponse)(nil)).Elem()
+}
+
+func (i RouteResponse) ToRouteResponseOutput() RouteResponseOutput {
+	return i.ToRouteResponseOutputWithContext(context.Background())
+}
+
+func (i RouteResponse) ToRouteResponseOutputWithContext(ctx context.Context) RouteResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseOutput)
+}
+
+type RouteResponseOutput struct {
+	*pulumi.OutputState
+}
+
+func (RouteResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteResponseOutput)(nil)).Elem()
+}
+
+func (o RouteResponseOutput) ToRouteResponseOutput() RouteResponseOutput {
+	return o
+}
+
+func (o RouteResponseOutput) ToRouteResponseOutputWithContext(ctx context.Context) RouteResponseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RouteResponseOutput{})
 }

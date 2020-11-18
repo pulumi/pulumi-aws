@@ -87,6 +87,14 @@ class Directory(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Workspaces directory can be imported using the directory ID, e.g.
+
+        ```sh
+         $ pulumi import aws:workspaces/directory:Directory main d-4444444444
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] directory_id: The directory identifier for registration in WorkSpaces service.

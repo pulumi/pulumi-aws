@@ -21,6 +21,14 @@ import * as utilities from "../utilities";
  *     grantName: testSnapshotCopyGrant.snapshotCopyGrantName,
  * }});
  * ```
+ *
+ * ## Import
+ *
+ * Redshift Snapshot Copy Grants support import by name, e.g. console
+ *
+ * ```sh
+ *  $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
+ * ```
  */
 export class SnapshotCopyGrant extends pulumi.CustomResource {
     /**

@@ -4,6 +4,7 @@
 package s3
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -71,6 +72,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// S3 bucket metric configurations can be imported using `bucket:metric`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
 // ```
 type BucketMetric struct {
 	pulumi.CustomResourceState
@@ -156,4 +165,43 @@ type BucketMetricArgs struct {
 
 func (BucketMetricArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketMetricArgs)(nil)).Elem()
+}
+
+type BucketMetricInput interface {
+	pulumi.Input
+
+	ToBucketMetricOutput() BucketMetricOutput
+	ToBucketMetricOutputWithContext(ctx context.Context) BucketMetricOutput
+}
+
+func (BucketMetric) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketMetric)(nil)).Elem()
+}
+
+func (i BucketMetric) ToBucketMetricOutput() BucketMetricOutput {
+	return i.ToBucketMetricOutputWithContext(context.Background())
+}
+
+func (i BucketMetric) ToBucketMetricOutputWithContext(ctx context.Context) BucketMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricOutput)
+}
+
+type BucketMetricOutput struct {
+	*pulumi.OutputState
+}
+
+func (BucketMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketMetricOutput)(nil)).Elem()
+}
+
+func (o BucketMetricOutput) ToBucketMetricOutput() BucketMetricOutput {
+	return o
+}
+
+func (o BucketMetricOutput) ToBucketMetricOutputWithContext(ctx context.Context) BucketMetricOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BucketMetricOutput{})
 }

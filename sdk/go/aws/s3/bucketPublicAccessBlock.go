@@ -4,6 +4,7 @@
 package s3
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -39,6 +40,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_s3_bucket_public_access_block` can be imported by using the bucket name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
 // ```
 type BucketPublicAccessBlock struct {
 	pulumi.CustomResourceState
@@ -169,4 +178,43 @@ type BucketPublicAccessBlockArgs struct {
 
 func (BucketPublicAccessBlockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketPublicAccessBlockArgs)(nil)).Elem()
+}
+
+type BucketPublicAccessBlockInput interface {
+	pulumi.Input
+
+	ToBucketPublicAccessBlockOutput() BucketPublicAccessBlockOutput
+	ToBucketPublicAccessBlockOutputWithContext(ctx context.Context) BucketPublicAccessBlockOutput
+}
+
+func (BucketPublicAccessBlock) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketPublicAccessBlock)(nil)).Elem()
+}
+
+func (i BucketPublicAccessBlock) ToBucketPublicAccessBlockOutput() BucketPublicAccessBlockOutput {
+	return i.ToBucketPublicAccessBlockOutputWithContext(context.Background())
+}
+
+func (i BucketPublicAccessBlock) ToBucketPublicAccessBlockOutputWithContext(ctx context.Context) BucketPublicAccessBlockOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockOutput)
+}
+
+type BucketPublicAccessBlockOutput struct {
+	*pulumi.OutputState
+}
+
+func (BucketPublicAccessBlockOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketPublicAccessBlockOutput)(nil)).Elem()
+}
+
+func (o BucketPublicAccessBlockOutput) ToBucketPublicAccessBlockOutput() BucketPublicAccessBlockOutput {
+	return o
+}
+
+func (o BucketPublicAccessBlockOutput) ToBucketPublicAccessBlockOutputWithContext(ctx context.Context) BucketPublicAccessBlockOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BucketPublicAccessBlockOutput{})
 }

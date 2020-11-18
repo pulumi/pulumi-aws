@@ -57,6 +57,14 @@ import * as utilities from "../utilities";
  *     vpcSecurityGroupIds: ["sg-12345678"],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Replication instances can be imported using the `replication_instance_id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
+ * ```
  */
 export class ReplicationInstance extends pulumi.CustomResource {
     /**

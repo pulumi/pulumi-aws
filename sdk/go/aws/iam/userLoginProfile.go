@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,32 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// IAM User Login Profiles can be imported without password information support via the IAM User name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
+// ```
+//
+//  Since this provider has no method to read the PGP or password information during import, use [`ignore_changes` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore them unless password recreation is desired. e.g. hcl resource "aws_iam_user_login_profile" "example" {
+//
+// # ... other configuration ...
+//
+//  lifecycle {
+//
+//  ignore_changes = [
+//
+//  password_length,
+//
+//  password_reset_required,
+//
+//  pgp_key,
+//
+//  ]
+//
+//  } }
 type UserLoginProfile struct {
 	pulumi.CustomResourceState
 
@@ -154,4 +181,43 @@ type UserLoginProfileArgs struct {
 
 func (UserLoginProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userLoginProfileArgs)(nil)).Elem()
+}
+
+type UserLoginProfileInput interface {
+	pulumi.Input
+
+	ToUserLoginProfileOutput() UserLoginProfileOutput
+	ToUserLoginProfileOutputWithContext(ctx context.Context) UserLoginProfileOutput
+}
+
+func (UserLoginProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserLoginProfile)(nil)).Elem()
+}
+
+func (i UserLoginProfile) ToUserLoginProfileOutput() UserLoginProfileOutput {
+	return i.ToUserLoginProfileOutputWithContext(context.Background())
+}
+
+func (i UserLoginProfile) ToUserLoginProfileOutputWithContext(ctx context.Context) UserLoginProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserLoginProfileOutput)
+}
+
+type UserLoginProfileOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserLoginProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserLoginProfileOutput)(nil)).Elem()
+}
+
+func (o UserLoginProfileOutput) ToUserLoginProfileOutput() UserLoginProfileOutput {
+	return o
+}
+
+func (o UserLoginProfileOutput) ToUserLoginProfileOutputWithContext(ctx context.Context) UserLoginProfileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserLoginProfileOutput{})
 }

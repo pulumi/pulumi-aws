@@ -33,6 +33,16 @@ namespace Pulumi.Aws.Dax
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// DAX Clusters can be imported using the `cluster_name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
+    /// ```
+    /// 
+    ///  [1]http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

@@ -148,6 +148,16 @@ namespace Pulumi.Aws.Ec2
     /// If both VPCs are not in the same AWS account do not enable the `auto_accept` attribute.
     /// The accepter can manage its side of the connection using the `aws.ec2.VpcPeeringConnectionAccepter` resource
     /// or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
+    /// 
+    /// ## Import
+    /// 
+    /// VPC Peering resources can be imported using the `vpc peering id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
+    /// ```
+    /// 
+    ///  [1]/docs/providers/aws/index.html
     /// </summary>
     public partial class VpcPeeringConnection : Pulumi.CustomResource
     {

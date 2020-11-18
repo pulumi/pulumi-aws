@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Pinpoint Baidu Channel can be imported using the `application-id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
 // ```
 type BaiduChannel struct {
 	pulumi.CustomResourceState
@@ -142,4 +151,43 @@ type BaiduChannelArgs struct {
 
 func (BaiduChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*baiduChannelArgs)(nil)).Elem()
+}
+
+type BaiduChannelInput interface {
+	pulumi.Input
+
+	ToBaiduChannelOutput() BaiduChannelOutput
+	ToBaiduChannelOutputWithContext(ctx context.Context) BaiduChannelOutput
+}
+
+func (BaiduChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaiduChannel)(nil)).Elem()
+}
+
+func (i BaiduChannel) ToBaiduChannelOutput() BaiduChannelOutput {
+	return i.ToBaiduChannelOutputWithContext(context.Background())
+}
+
+func (i BaiduChannel) ToBaiduChannelOutputWithContext(ctx context.Context) BaiduChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaiduChannelOutput)
+}
+
+type BaiduChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (BaiduChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaiduChannelOutput)(nil)).Elem()
+}
+
+func (o BaiduChannelOutput) ToBaiduChannelOutput() BaiduChannelOutput {
+	return o
+}
+
+func (o BaiduChannelOutput) ToBaiduChannelOutputWithContext(ctx context.Context) BaiduChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BaiduChannelOutput{})
 }

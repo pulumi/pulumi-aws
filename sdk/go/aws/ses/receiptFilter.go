@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,6 +35,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SES Receipt Filter can be imported using their `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
 // ```
 type ReceiptFilter struct {
 	pulumi.CustomResourceState
@@ -128,4 +137,43 @@ type ReceiptFilterArgs struct {
 
 func (ReceiptFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*receiptFilterArgs)(nil)).Elem()
+}
+
+type ReceiptFilterInput interface {
+	pulumi.Input
+
+	ToReceiptFilterOutput() ReceiptFilterOutput
+	ToReceiptFilterOutputWithContext(ctx context.Context) ReceiptFilterOutput
+}
+
+func (ReceiptFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptFilter)(nil)).Elem()
+}
+
+func (i ReceiptFilter) ToReceiptFilterOutput() ReceiptFilterOutput {
+	return i.ToReceiptFilterOutputWithContext(context.Background())
+}
+
+func (i ReceiptFilter) ToReceiptFilterOutputWithContext(ctx context.Context) ReceiptFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterOutput)
+}
+
+type ReceiptFilterOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReceiptFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptFilterOutput)(nil)).Elem()
+}
+
+func (o ReceiptFilterOutput) ToReceiptFilterOutput() ReceiptFilterOutput {
+	return o
+}
+
+func (o ReceiptFilterOutput) ToReceiptFilterOutputWithContext(ctx context.Context) ReceiptFilterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReceiptFilterOutput{})
 }

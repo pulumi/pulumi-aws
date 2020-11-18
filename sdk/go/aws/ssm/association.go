@@ -4,12 +4,21 @@
 package ssm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Associates an SSM Document to an instance or EC2 tag.
+//
+// ## Import
+//
+// SSM associations can be imported using the `association_id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
+// ```
 type Association struct {
 	pulumi.CustomResourceState
 
@@ -187,4 +196,43 @@ type AssociationArgs struct {
 
 func (AssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*associationArgs)(nil)).Elem()
+}
+
+type AssociationInput interface {
+	pulumi.Input
+
+	ToAssociationOutput() AssociationOutput
+	ToAssociationOutputWithContext(ctx context.Context) AssociationOutput
+}
+
+func (Association) ElementType() reflect.Type {
+	return reflect.TypeOf((*Association)(nil)).Elem()
+}
+
+func (i Association) ToAssociationOutput() AssociationOutput {
+	return i.ToAssociationOutputWithContext(context.Background())
+}
+
+func (i Association) ToAssociationOutputWithContext(ctx context.Context) AssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationOutput)
+}
+
+type AssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationOutput)(nil)).Elem()
+}
+
+func (o AssociationOutput) ToAssociationOutput() AssociationOutput {
+	return o
+}
+
+func (o AssociationOutput) ToAssociationOutputWithContext(ctx context.Context) AssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssociationOutput{})
 }

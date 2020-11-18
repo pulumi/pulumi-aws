@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -47,6 +48,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IAM user policy attachments can be imported using the user name and policy arn separated by `/`.
+//
+// ```sh
+//  $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 // ```
 type UserPolicyAttachment struct {
 	pulumi.CustomResourceState
@@ -125,4 +134,43 @@ type UserPolicyAttachmentArgs struct {
 
 func (UserPolicyAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPolicyAttachmentArgs)(nil)).Elem()
+}
+
+type UserPolicyAttachmentInput interface {
+	pulumi.Input
+
+	ToUserPolicyAttachmentOutput() UserPolicyAttachmentOutput
+	ToUserPolicyAttachmentOutputWithContext(ctx context.Context) UserPolicyAttachmentOutput
+}
+
+func (UserPolicyAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPolicyAttachment)(nil)).Elem()
+}
+
+func (i UserPolicyAttachment) ToUserPolicyAttachmentOutput() UserPolicyAttachmentOutput {
+	return i.ToUserPolicyAttachmentOutputWithContext(context.Background())
+}
+
+func (i UserPolicyAttachment) ToUserPolicyAttachmentOutputWithContext(ctx context.Context) UserPolicyAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyAttachmentOutput)
+}
+
+type UserPolicyAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserPolicyAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPolicyAttachmentOutput)(nil)).Elem()
+}
+
+func (o UserPolicyAttachmentOutput) ToUserPolicyAttachmentOutput() UserPolicyAttachmentOutput {
+	return o
+}
+
+func (o UserPolicyAttachmentOutput) ToUserPolicyAttachmentOutputWithContext(ctx context.Context) UserPolicyAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserPolicyAttachmentOutput{})
 }

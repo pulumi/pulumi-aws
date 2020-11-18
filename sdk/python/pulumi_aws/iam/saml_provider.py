@@ -32,6 +32,14 @@ class SamlProvider(pulumi.CustomResource):
         default = aws.iam.SamlProvider("default", saml_metadata_document=(lambda path: open(path).read())("saml-metadata.xml"))
         ```
 
+        ## Import
+
+        IAM SAML Providers can be imported using the `arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the provider to create.

@@ -68,6 +68,14 @@ class UsagePlan(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        AWS API Gateway Usage Plan can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: The associated API stages of the usage plan.

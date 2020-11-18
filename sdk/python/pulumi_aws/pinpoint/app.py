@@ -45,6 +45,14 @@ class App(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Pinpoint App can be imported using the `application-id`, e.g.
+
+        ```sh
+         $ pulumi import aws:pinpoint/app:App name application-id
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AppCampaignHookArgs']] campaign_hook: The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own

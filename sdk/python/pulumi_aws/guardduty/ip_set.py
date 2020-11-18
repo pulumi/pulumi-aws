@@ -49,6 +49,14 @@ class IPSet(pulumi.CustomResource):
             location=pulumi.Output.all(my_ip_set.bucket, my_ip_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"))
         ```
 
+        ## Import
+
+        GuardDuty IPSet can be imported using the the primary GuardDuty detector ID and IPSet ID, e.g.
+
+        ```sh
+         $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] activate: Specifies whether GuardDuty is to start using the uploaded IPSet.

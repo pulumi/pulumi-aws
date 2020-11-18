@@ -11,6 +11,14 @@ namespace Pulumi.Aws.CodeArtifact
 {
     /// <summary>
     /// Provides a CodeArtifact Repostory Permissions Policy Resource.
+    /// 
+    /// ## Import
+    /// 
+    /// CodeArtifact Repository Permissions Policies can be imported using the CodeArtifact Repository ARN, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+    /// ```
     /// </summary>
     public partial class RepositoryPermissionsPolicy : Pulumi.CustomResource
     {

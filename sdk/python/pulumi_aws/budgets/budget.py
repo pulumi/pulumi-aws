@@ -135,6 +135,14 @@ class Budget(pulumi.CustomResource):
             limit_unit="PERCENTAGE")
         ```
 
+        ## Import
+
+        Budgets can be imported using `AccountID:BudgetName`, e.g.
+
+        ```sh
+         $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget`
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.

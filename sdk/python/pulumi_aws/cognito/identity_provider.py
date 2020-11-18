@@ -49,6 +49,14 @@ class IdentityProvider(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        `aws_cognito_identity_provider` resources can be imported using their User Pool ID and Provider Name, e.g.
+
+        ```sh
+         $ pulumi import aws:cognito/identityProvider:IdentityProvider example xxx_yyyyy:example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attribute_mapping: The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)

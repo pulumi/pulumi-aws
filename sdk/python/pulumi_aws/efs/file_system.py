@@ -53,6 +53,14 @@ class FileSystem(pulumi.CustomResource):
         ))
         ```
 
+        ## Import
+
+        The EFS file systems can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] creation_token: A unique name (a maximum of 64 characters are allowed)

@@ -55,6 +55,14 @@ class ParameterGroup(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        DB Parameter groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the DB parameter group. Defaults to "Managed by Pulumi".

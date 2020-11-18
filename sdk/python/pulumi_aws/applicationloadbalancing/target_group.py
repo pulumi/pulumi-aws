@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['TargetGroup']
 
-warnings.warn("aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup", DeprecationWarning)
+warnings.warn("""aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup""", DeprecationWarning)
 
 
 class TargetGroup(pulumi.CustomResource):
-    warnings.warn("aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup", DeprecationWarning)
+    warnings.warn("""aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -76,6 +76,14 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         lambda_example = aws.lb.TargetGroup("lambda-example", target_type="lambda")
+        ```
+
+        ## Import
+
+        Target Groups can be imported using their ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:applicationloadbalancing/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
         ```
 
         :param str resource_name: The name of the resource.

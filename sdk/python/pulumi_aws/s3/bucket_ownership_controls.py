@@ -23,7 +23,14 @@ class BucketOwnershipControls(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a BucketOwnershipControls resource with the given unique name, props, and options.
+        ## Import
+
+        S3 Bucket Ownership Controls can be imported using S3 Bucket name, e.g.
+
+        ```sh
+         $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The name of the bucket that you want to associate this access point with.

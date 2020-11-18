@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -35,6 +36,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Internet Gateways can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
 // ```
 type InternetGateway struct {
 	pulumi.CustomResourceState
@@ -119,4 +128,43 @@ type InternetGatewayArgs struct {
 
 func (InternetGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*internetGatewayArgs)(nil)).Elem()
+}
+
+type InternetGatewayInput interface {
+	pulumi.Input
+
+	ToInternetGatewayOutput() InternetGatewayOutput
+	ToInternetGatewayOutputWithContext(ctx context.Context) InternetGatewayOutput
+}
+
+func (InternetGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*InternetGateway)(nil)).Elem()
+}
+
+func (i InternetGateway) ToInternetGatewayOutput() InternetGatewayOutput {
+	return i.ToInternetGatewayOutputWithContext(context.Background())
+}
+
+func (i InternetGateway) ToInternetGatewayOutputWithContext(ctx context.Context) InternetGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayOutput)
+}
+
+type InternetGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (InternetGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InternetGatewayOutput)(nil)).Elem()
+}
+
+func (o InternetGatewayOutput) ToInternetGatewayOutput() InternetGatewayOutput {
+	return o
+}
+
+func (o InternetGatewayOutput) ToInternetGatewayOutputWithContext(ctx context.Context) InternetGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InternetGatewayOutput{})
 }

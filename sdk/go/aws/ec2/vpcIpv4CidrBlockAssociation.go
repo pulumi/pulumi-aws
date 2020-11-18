@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_vpc_ipv4_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
 // ```
 type VpcIpv4CidrBlockAssociation struct {
 	pulumi.CustomResourceState
@@ -121,4 +130,43 @@ type VpcIpv4CidrBlockAssociationArgs struct {
 
 func (VpcIpv4CidrBlockAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIpv4CidrBlockAssociationArgs)(nil)).Elem()
+}
+
+type VpcIpv4CidrBlockAssociationInput interface {
+	pulumi.Input
+
+	ToVpcIpv4CidrBlockAssociationOutput() VpcIpv4CidrBlockAssociationOutput
+	ToVpcIpv4CidrBlockAssociationOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationOutput
+}
+
+func (VpcIpv4CidrBlockAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIpv4CidrBlockAssociation)(nil)).Elem()
+}
+
+func (i VpcIpv4CidrBlockAssociation) ToVpcIpv4CidrBlockAssociationOutput() VpcIpv4CidrBlockAssociationOutput {
+	return i.ToVpcIpv4CidrBlockAssociationOutputWithContext(context.Background())
+}
+
+func (i VpcIpv4CidrBlockAssociation) ToVpcIpv4CidrBlockAssociationOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIpv4CidrBlockAssociationOutput)
+}
+
+type VpcIpv4CidrBlockAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcIpv4CidrBlockAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIpv4CidrBlockAssociationOutput)(nil)).Elem()
+}
+
+func (o VpcIpv4CidrBlockAssociationOutput) ToVpcIpv4CidrBlockAssociationOutput() VpcIpv4CidrBlockAssociationOutput {
+	return o
+}
+
+func (o VpcIpv4CidrBlockAssociationOutput) ToVpcIpv4CidrBlockAssociationOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpcIpv4CidrBlockAssociationOutput{})
 }

@@ -4,6 +4,7 @@
 package route53
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -73,6 +74,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Route 53 VPC Association Authorizations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.
+//
+// ```sh
+//  $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
 // ```
 type VpcAssociationAuthorization struct {
 	pulumi.CustomResourceState
@@ -161,4 +170,43 @@ type VpcAssociationAuthorizationArgs struct {
 
 func (VpcAssociationAuthorizationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcAssociationAuthorizationArgs)(nil)).Elem()
+}
+
+type VpcAssociationAuthorizationInput interface {
+	pulumi.Input
+
+	ToVpcAssociationAuthorizationOutput() VpcAssociationAuthorizationOutput
+	ToVpcAssociationAuthorizationOutputWithContext(ctx context.Context) VpcAssociationAuthorizationOutput
+}
+
+func (VpcAssociationAuthorization) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAssociationAuthorization)(nil)).Elem()
+}
+
+func (i VpcAssociationAuthorization) ToVpcAssociationAuthorizationOutput() VpcAssociationAuthorizationOutput {
+	return i.ToVpcAssociationAuthorizationOutputWithContext(context.Background())
+}
+
+func (i VpcAssociationAuthorization) ToVpcAssociationAuthorizationOutputWithContext(ctx context.Context) VpcAssociationAuthorizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAssociationAuthorizationOutput)
+}
+
+type VpcAssociationAuthorizationOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcAssociationAuthorizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAssociationAuthorizationOutput)(nil)).Elem()
+}
+
+func (o VpcAssociationAuthorizationOutput) ToVpcAssociationAuthorizationOutput() VpcAssociationAuthorizationOutput {
+	return o
+}
+
+func (o VpcAssociationAuthorizationOutput) ToVpcAssociationAuthorizationOutputWithContext(ctx context.Context) VpcAssociationAuthorizationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpcAssociationAuthorizationOutput{})
 }

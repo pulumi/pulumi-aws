@@ -47,6 +47,10 @@ import * as utilities from "../utilities";
  *     dependsOn: [withLb],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Target Group Attachments cannot be imported.
  */
 export class TargetGroupAttachment extends pulumi.CustomResource {
     /**

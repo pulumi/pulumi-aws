@@ -17,6 +17,14 @@ import * as utilities from "../utilities";
  *
  * const sample_ledger = new aws.qldb.Ledger("sample-ledger", {});
  * ```
+ *
+ * ## Import
+ *
+ * QLDB Ledgers can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
+ * ```
  */
 export class Ledger extends pulumi.CustomResource {
     /**

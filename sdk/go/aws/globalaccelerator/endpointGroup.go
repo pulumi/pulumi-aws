@@ -4,6 +4,7 @@
 package globalaccelerator
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -39,6 +40,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Global Accelerator endpoint groups can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
 // ```
 type EndpointGroup struct {
 	pulumi.CustomResourceState
@@ -174,4 +183,43 @@ type EndpointGroupArgs struct {
 
 func (EndpointGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointGroupArgs)(nil)).Elem()
+}
+
+type EndpointGroupInput interface {
+	pulumi.Input
+
+	ToEndpointGroupOutput() EndpointGroupOutput
+	ToEndpointGroupOutputWithContext(ctx context.Context) EndpointGroupOutput
+}
+
+func (EndpointGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGroup)(nil)).Elem()
+}
+
+func (i EndpointGroup) ToEndpointGroupOutput() EndpointGroupOutput {
+	return i.ToEndpointGroupOutputWithContext(context.Background())
+}
+
+func (i EndpointGroup) ToEndpointGroupOutputWithContext(ctx context.Context) EndpointGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupOutput)
+}
+
+type EndpointGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (EndpointGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGroupOutput)(nil)).Elem()
+}
+
+func (o EndpointGroupOutput) ToEndpointGroupOutput() EndpointGroupOutput {
+	return o
+}
+
+func (o EndpointGroupOutput) ToEndpointGroupOutputWithContext(ctx context.Context) EndpointGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EndpointGroupOutput{})
 }

@@ -4,6 +4,7 @@
 package cur
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Report Definitions can be imported using the `report_name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
 // ```
 type ReportDefinition struct {
 	pulumi.CustomResourceState
@@ -232,4 +241,43 @@ type ReportDefinitionArgs struct {
 
 func (ReportDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportDefinitionArgs)(nil)).Elem()
+}
+
+type ReportDefinitionInput interface {
+	pulumi.Input
+
+	ToReportDefinitionOutput() ReportDefinitionOutput
+	ToReportDefinitionOutputWithContext(ctx context.Context) ReportDefinitionOutput
+}
+
+func (ReportDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDefinition)(nil)).Elem()
+}
+
+func (i ReportDefinition) ToReportDefinitionOutput() ReportDefinitionOutput {
+	return i.ToReportDefinitionOutputWithContext(context.Background())
+}
+
+func (i ReportDefinition) ToReportDefinitionOutputWithContext(ctx context.Context) ReportDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionOutput)
+}
+
+type ReportDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReportDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDefinitionOutput)(nil)).Elem()
+}
+
+func (o ReportDefinitionOutput) ToReportDefinitionOutput() ReportDefinitionOutput {
+	return o
+}
+
+func (o ReportDefinitionOutput) ToReportDefinitionOutputWithContext(ctx context.Context) ReportDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReportDefinitionOutput{})
 }

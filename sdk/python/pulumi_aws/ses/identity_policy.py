@@ -47,6 +47,14 @@ class IdentityPolicy(pulumi.CustomResource):
             policy=example_policy_document.json)
         ```
 
+        ## Import
+
+        SES Identity Policies can be imported using the identity and policy name, separated by a pipe character (`|`), e.g.
+
+        ```sh
+         $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.

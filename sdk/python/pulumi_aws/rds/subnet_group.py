@@ -42,6 +42,14 @@ class SubnetGroup(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        DB Subnet groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the DB subnet group. Defaults to "Managed by Pulumi".

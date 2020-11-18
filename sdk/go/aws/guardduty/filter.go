@@ -4,6 +4,7 @@
 package guardduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -61,6 +62,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// GuardDuty filters can be imported using the detector ID and filter's name separated by a colon, e.g.
+//
+// ```sh
+//  $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
 // ```
 type Filter struct {
 	pulumi.CustomResourceState
@@ -201,4 +210,43 @@ type FilterArgs struct {
 
 func (FilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*filterArgs)(nil)).Elem()
+}
+
+type FilterInput interface {
+	pulumi.Input
+
+	ToFilterOutput() FilterOutput
+	ToFilterOutputWithContext(ctx context.Context) FilterOutput
+}
+
+func (Filter) ElementType() reflect.Type {
+	return reflect.TypeOf((*Filter)(nil)).Elem()
+}
+
+func (i Filter) ToFilterOutput() FilterOutput {
+	return i.ToFilterOutputWithContext(context.Background())
+}
+
+func (i Filter) ToFilterOutputWithContext(ctx context.Context) FilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterOutput)
+}
+
+type FilterOutput struct {
+	*pulumi.OutputState
+}
+
+func (FilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterOutput)(nil)).Elem()
+}
+
+func (o FilterOutput) ToFilterOutput() FilterOutput {
+	return o
+}
+
+func (o FilterOutput) ToFilterOutputWithContext(ctx context.Context) FilterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FilterOutput{})
 }

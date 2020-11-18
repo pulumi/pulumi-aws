@@ -131,6 +131,14 @@ class Cluster(pulumi.CustomResource):
         pulumi.export("bootstrapBrokersTls", example.bootstrap_brokers_tls)
         ```
 
+        ## Import
+
+        MSK clusters can be imported using the cluster `arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.

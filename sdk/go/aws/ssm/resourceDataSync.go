@@ -4,6 +4,7 @@
 package ssm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -50,6 +51,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SSM resource data sync can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
 // ```
 type ResourceDataSync struct {
 	pulumi.CustomResourceState
@@ -125,4 +134,43 @@ type ResourceDataSyncArgs struct {
 
 func (ResourceDataSyncArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceDataSyncArgs)(nil)).Elem()
+}
+
+type ResourceDataSyncInput interface {
+	pulumi.Input
+
+	ToResourceDataSyncOutput() ResourceDataSyncOutput
+	ToResourceDataSyncOutputWithContext(ctx context.Context) ResourceDataSyncOutput
+}
+
+func (ResourceDataSync) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDataSync)(nil)).Elem()
+}
+
+func (i ResourceDataSync) ToResourceDataSyncOutput() ResourceDataSyncOutput {
+	return i.ToResourceDataSyncOutputWithContext(context.Background())
+}
+
+func (i ResourceDataSync) ToResourceDataSyncOutputWithContext(ctx context.Context) ResourceDataSyncOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncOutput)
+}
+
+type ResourceDataSyncOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceDataSyncOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDataSyncOutput)(nil)).Elem()
+}
+
+func (o ResourceDataSyncOutput) ToResourceDataSyncOutput() ResourceDataSyncOutput {
+	return o
+}
+
+func (o ResourceDataSyncOutput) ToResourceDataSyncOutputWithContext(ctx context.Context) ResourceDataSyncOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourceDataSyncOutput{})
 }

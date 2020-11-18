@@ -49,6 +49,14 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_secretsmanager_secret_policy` can be imported by using the secret Amazon Resource Name (ARN), e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+    /// ```
     /// </summary>
     public partial class SecretPolicy : Pulumi.CustomResource
     {

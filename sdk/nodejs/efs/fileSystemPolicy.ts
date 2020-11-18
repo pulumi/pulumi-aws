@@ -42,6 +42,14 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * The EFS file system policies can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+ * ```
  */
 export class FileSystemPolicy extends pulumi.CustomResource {
     /**

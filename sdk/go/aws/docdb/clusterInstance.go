@@ -4,6 +4,7 @@
 package docdb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -61,6 +62,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// DocDB Cluster Instances can be imported using the `identifier`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
 // ```
 type ClusterInstance struct {
 	pulumi.CustomResourceState
@@ -347,4 +356,43 @@ type ClusterInstanceArgs struct {
 
 func (ClusterInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterInstanceArgs)(nil)).Elem()
+}
+
+type ClusterInstanceInput interface {
+	pulumi.Input
+
+	ToClusterInstanceOutput() ClusterInstanceOutput
+	ToClusterInstanceOutputWithContext(ctx context.Context) ClusterInstanceOutput
+}
+
+func (ClusterInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstance)(nil)).Elem()
+}
+
+func (i ClusterInstance) ToClusterInstanceOutput() ClusterInstanceOutput {
+	return i.ToClusterInstanceOutputWithContext(context.Background())
+}
+
+func (i ClusterInstance) ToClusterInstanceOutputWithContext(ctx context.Context) ClusterInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceOutput)
+}
+
+type ClusterInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClusterInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceOutput)(nil)).Elem()
+}
+
+func (o ClusterInstanceOutput) ToClusterInstanceOutput() ClusterInstanceOutput {
+	return o
+}
+
+func (o ClusterInstanceOutput) ToClusterInstanceOutputWithContext(ctx context.Context) ClusterInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClusterInstanceOutput{})
 }

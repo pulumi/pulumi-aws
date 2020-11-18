@@ -41,6 +41,14 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
             block_public_policy=True)
         ```
 
+        ## Import
+
+        `aws_s3_account_public_access_block` can be imported by using the AWS account ID, e.g.
+
+        ```sh
+         $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.

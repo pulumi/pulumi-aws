@@ -19,6 +19,14 @@ import * as utilities from "../utilities";
  *     expires: "2018-05-03T04:00:00Z",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
+ * ```
  */
 export class ApiKey extends pulumi.CustomResource {
     /**

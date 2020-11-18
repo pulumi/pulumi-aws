@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['Attachment']
 
-warnings.warn("aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment""", DeprecationWarning)
 
 
 class Attachment(pulumi.CustomResource):
-    warnings.warn("aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment", DeprecationWarning)
+    warnings.warn("""aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,

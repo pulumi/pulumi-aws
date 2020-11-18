@@ -32,6 +32,14 @@ class Container(pulumi.CustomResource):
         example = aws.mediastore.Container("example")
         ```
 
+        ## Import
+
+        MediaStore Container can be imported using the MediaStore Container Name, e.g.
+
+        ```sh
+         $ pulumi import aws:mediastore/container:Container example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the container. Must contain alphanumeric characters or underscores.

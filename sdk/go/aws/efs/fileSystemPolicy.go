@@ -4,6 +4,7 @@
 package efs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -40,6 +41,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// The EFS file system policies can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
 // ```
 type FileSystemPolicy struct {
 	pulumi.CustomResourceState
@@ -118,4 +127,43 @@ type FileSystemPolicyArgs struct {
 
 func (FileSystemPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileSystemPolicyArgs)(nil)).Elem()
+}
+
+type FileSystemPolicyInput interface {
+	pulumi.Input
+
+	ToFileSystemPolicyOutput() FileSystemPolicyOutput
+	ToFileSystemPolicyOutputWithContext(ctx context.Context) FileSystemPolicyOutput
+}
+
+func (FileSystemPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemPolicy)(nil)).Elem()
+}
+
+func (i FileSystemPolicy) ToFileSystemPolicyOutput() FileSystemPolicyOutput {
+	return i.ToFileSystemPolicyOutputWithContext(context.Background())
+}
+
+func (i FileSystemPolicy) ToFileSystemPolicyOutputWithContext(ctx context.Context) FileSystemPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemPolicyOutput)
+}
+
+type FileSystemPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (FileSystemPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemPolicyOutput)(nil)).Elem()
+}
+
+func (o FileSystemPolicyOutput) ToFileSystemPolicyOutput() FileSystemPolicyOutput {
+	return o
+}
+
+func (o FileSystemPolicyOutput) ToFileSystemPolicyOutputWithContext(ctx context.Context) FileSystemPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FileSystemPolicyOutput{})
 }

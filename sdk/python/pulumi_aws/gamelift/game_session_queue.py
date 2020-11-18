@@ -51,6 +51,14 @@ class GameSessionQueue(pulumi.CustomResource):
             timeout_in_seconds=60)
         ```
 
+        ## Import
+
+        Gamelift Game Session Queues can be imported by their `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.

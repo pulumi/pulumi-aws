@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -33,6 +31,14 @@ import * as utilities from "../utilities";
  * const example = new aws.apigatewayv2.Api("example", {
  *     protocolType: "HTTP",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_apigatewayv2_api` can be imported by using the API identifier, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
  * ```
  */
 export class Api extends pulumi.CustomResource {

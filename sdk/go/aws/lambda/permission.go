@@ -4,6 +4,7 @@
 package lambda
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -48,6 +49,18 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.
+//
+// ```sh
+//  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
+// ```
+//
+// ```sh
+//  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
 // ```
 type Permission struct {
 	pulumi.CustomResourceState
@@ -239,4 +252,43 @@ type PermissionArgs struct {
 
 func (PermissionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*permissionArgs)(nil)).Elem()
+}
+
+type PermissionInput interface {
+	pulumi.Input
+
+	ToPermissionOutput() PermissionOutput
+	ToPermissionOutputWithContext(ctx context.Context) PermissionOutput
+}
+
+func (Permission) ElementType() reflect.Type {
+	return reflect.TypeOf((*Permission)(nil)).Elem()
+}
+
+func (i Permission) ToPermissionOutput() PermissionOutput {
+	return i.ToPermissionOutputWithContext(context.Background())
+}
+
+func (i Permission) ToPermissionOutputWithContext(ctx context.Context) PermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionOutput)
+}
+
+type PermissionOutput struct {
+	*pulumi.OutputState
+}
+
+func (PermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionOutput)(nil)).Elem()
+}
+
+func (o PermissionOutput) ToPermissionOutput() PermissionOutput {
+	return o
+}
+
+func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) PermissionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PermissionOutput{})
 }

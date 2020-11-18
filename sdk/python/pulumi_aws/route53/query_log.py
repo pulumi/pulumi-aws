@@ -65,6 +65,14 @@ class QueryLog(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[route53_query_logging_policy_log_resource_policy]))
         ```
 
+        ## Import
+
+        Route53 query logging configurations can be imported using their ID, e.g.
+
+        ```sh
+         $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.

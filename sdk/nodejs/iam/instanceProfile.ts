@@ -34,6 +34,14 @@ import {Role} from "./index";
  * });
  * const testProfile = new aws.iam.InstanceProfile("testProfile", {role: role.name});
  * ```
+ *
+ * ## Import
+ *
+ * Instance Profiles can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+ * ```
  */
 export class InstanceProfile extends pulumi.CustomResource {
     /**

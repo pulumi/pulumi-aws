@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,6 +39,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Customer Gateways can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
 // ```
 type CustomerGateway struct {
 	pulumi.CustomResourceState
@@ -150,4 +159,43 @@ type CustomerGatewayArgs struct {
 
 func (CustomerGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customerGatewayArgs)(nil)).Elem()
+}
+
+type CustomerGatewayInput interface {
+	pulumi.Input
+
+	ToCustomerGatewayOutput() CustomerGatewayOutput
+	ToCustomerGatewayOutputWithContext(ctx context.Context) CustomerGatewayOutput
+}
+
+func (CustomerGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerGateway)(nil)).Elem()
+}
+
+func (i CustomerGateway) ToCustomerGatewayOutput() CustomerGatewayOutput {
+	return i.ToCustomerGatewayOutputWithContext(context.Background())
+}
+
+func (i CustomerGateway) ToCustomerGatewayOutputWithContext(ctx context.Context) CustomerGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayOutput)
+}
+
+type CustomerGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomerGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerGatewayOutput)(nil)).Elem()
+}
+
+func (o CustomerGatewayOutput) ToCustomerGatewayOutput() CustomerGatewayOutput {
+	return o
+}
+
+func (o CustomerGatewayOutput) ToCustomerGatewayOutputWithContext(ctx context.Context) CustomerGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomerGatewayOutput{})
 }

@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -339,4 +340,43 @@ type RailsAppLayerArgs struct {
 
 func (RailsAppLayerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*railsAppLayerArgs)(nil)).Elem()
+}
+
+type RailsAppLayerInput interface {
+	pulumi.Input
+
+	ToRailsAppLayerOutput() RailsAppLayerOutput
+	ToRailsAppLayerOutputWithContext(ctx context.Context) RailsAppLayerOutput
+}
+
+func (RailsAppLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*RailsAppLayer)(nil)).Elem()
+}
+
+func (i RailsAppLayer) ToRailsAppLayerOutput() RailsAppLayerOutput {
+	return i.ToRailsAppLayerOutputWithContext(context.Background())
+}
+
+func (i RailsAppLayer) ToRailsAppLayerOutputWithContext(ctx context.Context) RailsAppLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerOutput)
+}
+
+type RailsAppLayerOutput struct {
+	*pulumi.OutputState
+}
+
+func (RailsAppLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RailsAppLayerOutput)(nil)).Elem()
+}
+
+func (o RailsAppLayerOutput) ToRailsAppLayerOutput() RailsAppLayerOutput {
+	return o
+}
+
+func (o RailsAppLayerOutput) ToRailsAppLayerOutputWithContext(ctx context.Context) RailsAppLayerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RailsAppLayerOutput{})
 }

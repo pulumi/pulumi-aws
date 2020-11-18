@@ -4,6 +4,7 @@
 package waf
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -50,6 +51,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// WAF Regex Match Set can be imported using their ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:waf/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type RegexMatchSet struct {
 	pulumi.CustomResourceState
@@ -133,4 +142,43 @@ type RegexMatchSetArgs struct {
 
 func (RegexMatchSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*regexMatchSetArgs)(nil)).Elem()
+}
+
+type RegexMatchSetInput interface {
+	pulumi.Input
+
+	ToRegexMatchSetOutput() RegexMatchSetOutput
+	ToRegexMatchSetOutputWithContext(ctx context.Context) RegexMatchSetOutput
+}
+
+func (RegexMatchSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegexMatchSet)(nil)).Elem()
+}
+
+func (i RegexMatchSet) ToRegexMatchSetOutput() RegexMatchSetOutput {
+	return i.ToRegexMatchSetOutputWithContext(context.Background())
+}
+
+func (i RegexMatchSet) ToRegexMatchSetOutputWithContext(ctx context.Context) RegexMatchSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetOutput)
+}
+
+type RegexMatchSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegexMatchSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegexMatchSetOutput)(nil)).Elem()
+}
+
+func (o RegexMatchSetOutput) ToRegexMatchSetOutput() RegexMatchSetOutput {
+	return o
+}
+
+func (o RegexMatchSetOutput) ToRegexMatchSetOutputWithContext(ctx context.Context) RegexMatchSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RegexMatchSetOutput{})
 }

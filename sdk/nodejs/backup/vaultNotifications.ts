@@ -40,6 +40,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Backup vault notifications can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
+ * ```
  */
 export class VaultNotifications extends pulumi.CustomResource {
     /**

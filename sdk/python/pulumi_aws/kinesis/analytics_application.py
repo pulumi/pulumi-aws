@@ -70,6 +70,14 @@ class AnalyticsApplication(pulumi.CustomResource):
         ))
         ```
 
+        ## Import
+
+        Kinesis Analytics Application can be imported by using ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AnalyticsApplicationCloudwatchLoggingOptionsArgs']] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.

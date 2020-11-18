@@ -34,6 +34,14 @@ class PlacementGroup(pulumi.CustomResource):
         web = aws.ec2.PlacementGroup("web", strategy="cluster")
         ```
 
+        ## Import
+
+        Placement groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the placement group.

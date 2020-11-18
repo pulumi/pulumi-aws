@@ -4,6 +4,7 @@
 package efs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// The EFS mount targets can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
 // ```
 type MountTarget struct {
 	pulumi.CustomResourceState
@@ -199,4 +208,43 @@ type MountTargetArgs struct {
 
 func (MountTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mountTargetArgs)(nil)).Elem()
+}
+
+type MountTargetInput interface {
+	pulumi.Input
+
+	ToMountTargetOutput() MountTargetOutput
+	ToMountTargetOutputWithContext(ctx context.Context) MountTargetOutput
+}
+
+func (MountTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*MountTarget)(nil)).Elem()
+}
+
+func (i MountTarget) ToMountTargetOutput() MountTargetOutput {
+	return i.ToMountTargetOutputWithContext(context.Background())
+}
+
+func (i MountTarget) ToMountTargetOutputWithContext(ctx context.Context) MountTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MountTargetOutput)
+}
+
+type MountTargetOutput struct {
+	*pulumi.OutputState
+}
+
+func (MountTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MountTargetOutput)(nil)).Elem()
+}
+
+func (o MountTargetOutput) ToMountTargetOutput() MountTargetOutput {
+	return o
+}
+
+func (o MountTargetOutput) ToMountTargetOutputWithContext(ctx context.Context) MountTargetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MountTargetOutput{})
 }

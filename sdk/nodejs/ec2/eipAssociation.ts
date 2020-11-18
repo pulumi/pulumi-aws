@@ -33,6 +33,14 @@ import * as utilities from "../utilities";
  *     allocationId: example.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * EIP Assocations can be imported using their association ID.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+ * ```
  */
 export class EipAssociation extends pulumi.CustomResource {
     /**

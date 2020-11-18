@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -148,4 +149,43 @@ type ProxyProtocolPolicyArgs struct {
 
 func (ProxyProtocolPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*proxyProtocolPolicyArgs)(nil)).Elem()
+}
+
+type ProxyProtocolPolicyInput interface {
+	pulumi.Input
+
+	ToProxyProtocolPolicyOutput() ProxyProtocolPolicyOutput
+	ToProxyProtocolPolicyOutputWithContext(ctx context.Context) ProxyProtocolPolicyOutput
+}
+
+func (ProxyProtocolPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyProtocolPolicy)(nil)).Elem()
+}
+
+func (i ProxyProtocolPolicy) ToProxyProtocolPolicyOutput() ProxyProtocolPolicyOutput {
+	return i.ToProxyProtocolPolicyOutputWithContext(context.Background())
+}
+
+func (i ProxyProtocolPolicy) ToProxyProtocolPolicyOutputWithContext(ctx context.Context) ProxyProtocolPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyProtocolPolicyOutput)
+}
+
+type ProxyProtocolPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProxyProtocolPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyProtocolPolicyOutput)(nil)).Elem()
+}
+
+func (o ProxyProtocolPolicyOutput) ToProxyProtocolPolicyOutput() ProxyProtocolPolicyOutput {
+	return o
+}
+
+func (o ProxyProtocolPolicyOutput) ToProxyProtocolPolicyOutputWithContext(ctx context.Context) ProxyProtocolPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProxyProtocolPolicyOutput{})
 }

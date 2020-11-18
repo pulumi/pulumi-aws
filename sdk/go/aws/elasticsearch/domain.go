@@ -4,6 +4,7 @@
 package elasticsearch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -124,6 +125,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Elasticsearch domains can be imported using the `domain_name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:elasticsearch/domain:Domain example domain_name
 // ```
 type Domain struct {
 	pulumi.CustomResourceState
@@ -366,4 +375,43 @@ type DomainArgs struct {
 
 func (DomainArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainArgs)(nil)).Elem()
+}
+
+type DomainInput interface {
+	pulumi.Input
+
+	ToDomainOutput() DomainOutput
+	ToDomainOutputWithContext(ctx context.Context) DomainOutput
+}
+
+func (Domain) ElementType() reflect.Type {
+	return reflect.TypeOf((*Domain)(nil)).Elem()
+}
+
+func (i Domain) ToDomainOutput() DomainOutput {
+	return i.ToDomainOutputWithContext(context.Background())
+}
+
+func (i Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOutput)
+}
+
+type DomainOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOutput)(nil)).Elem()
+}
+
+func (o DomainOutput) ToDomainOutput() DomainOutput {
+	return o
+}
+
+func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DomainOutput{})
 }

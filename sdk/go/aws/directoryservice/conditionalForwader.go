@@ -4,6 +4,7 @@
 package directoryservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,6 +39,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Conditional forwarders can be imported using the directory id and remote_domain_name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
 // ```
 type ConditionalForwader struct {
 	pulumi.CustomResourceState
@@ -129,4 +138,43 @@ type ConditionalForwaderArgs struct {
 
 func (ConditionalForwaderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*conditionalForwaderArgs)(nil)).Elem()
+}
+
+type ConditionalForwaderInput interface {
+	pulumi.Input
+
+	ToConditionalForwaderOutput() ConditionalForwaderOutput
+	ToConditionalForwaderOutputWithContext(ctx context.Context) ConditionalForwaderOutput
+}
+
+func (ConditionalForwader) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionalForwader)(nil)).Elem()
+}
+
+func (i ConditionalForwader) ToConditionalForwaderOutput() ConditionalForwaderOutput {
+	return i.ToConditionalForwaderOutputWithContext(context.Background())
+}
+
+func (i ConditionalForwader) ToConditionalForwaderOutputWithContext(ctx context.Context) ConditionalForwaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionalForwaderOutput)
+}
+
+type ConditionalForwaderOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConditionalForwaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionalForwaderOutput)(nil)).Elem()
+}
+
+func (o ConditionalForwaderOutput) ToConditionalForwaderOutput() ConditionalForwaderOutput {
+	return o
+}
+
+func (o ConditionalForwaderOutput) ToConditionalForwaderOutputWithContext(ctx context.Context) ConditionalForwaderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConditionalForwaderOutput{})
 }

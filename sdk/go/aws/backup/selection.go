@@ -4,6 +4,7 @@
 package backup
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -84,6 +85,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Backup selection can be imported using the role plan_id and id separated by `|`.
+//
+// ```sh
+//  $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
 // ```
 type Selection struct {
 	pulumi.CustomResourceState
@@ -192,4 +201,43 @@ type SelectionArgs struct {
 
 func (SelectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*selectionArgs)(nil)).Elem()
+}
+
+type SelectionInput interface {
+	pulumi.Input
+
+	ToSelectionOutput() SelectionOutput
+	ToSelectionOutputWithContext(ctx context.Context) SelectionOutput
+}
+
+func (Selection) ElementType() reflect.Type {
+	return reflect.TypeOf((*Selection)(nil)).Elem()
+}
+
+func (i Selection) ToSelectionOutput() SelectionOutput {
+	return i.ToSelectionOutputWithContext(context.Background())
+}
+
+func (i Selection) ToSelectionOutputWithContext(ctx context.Context) SelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionOutput)
+}
+
+type SelectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelectionOutput)(nil)).Elem()
+}
+
+func (o SelectionOutput) ToSelectionOutput() SelectionOutput {
+	return o
+}
+
+func (o SelectionOutput) ToSelectionOutputWithContext(ctx context.Context) SelectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SelectionOutput{})
 }

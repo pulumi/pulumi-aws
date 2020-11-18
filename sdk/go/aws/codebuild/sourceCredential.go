@@ -4,6 +4,7 @@
 package codebuild
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -60,6 +61,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// CodeBuild Source Credential can be imported using the CodeBuild Source Credential arn, e.g.
+//
+// ```sh
+//  $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
 // ```
 type SourceCredential struct {
 	pulumi.CustomResourceState
@@ -167,4 +176,43 @@ type SourceCredentialArgs struct {
 
 func (SourceCredentialArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceCredentialArgs)(nil)).Elem()
+}
+
+type SourceCredentialInput interface {
+	pulumi.Input
+
+	ToSourceCredentialOutput() SourceCredentialOutput
+	ToSourceCredentialOutputWithContext(ctx context.Context) SourceCredentialOutput
+}
+
+func (SourceCredential) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceCredential)(nil)).Elem()
+}
+
+func (i SourceCredential) ToSourceCredentialOutput() SourceCredentialOutput {
+	return i.ToSourceCredentialOutputWithContext(context.Background())
+}
+
+func (i SourceCredential) ToSourceCredentialOutputWithContext(ctx context.Context) SourceCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceCredentialOutput)
+}
+
+type SourceCredentialOutput struct {
+	*pulumi.OutputState
+}
+
+func (SourceCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceCredentialOutput)(nil)).Elem()
+}
+
+func (o SourceCredentialOutput) ToSourceCredentialOutput() SourceCredentialOutput {
+	return o
+}
+
+func (o SourceCredentialOutput) ToSourceCredentialOutputWithContext(ctx context.Context) SourceCredentialOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SourceCredentialOutput{})
 }

@@ -69,6 +69,14 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Opsworks Application can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:opsworks/application:Application test &lt;id&gt;
+    /// ```
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {

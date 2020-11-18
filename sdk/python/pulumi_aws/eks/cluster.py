@@ -83,6 +83,14 @@ class Cluster(pulumi.CustomResource):
         # ... other configuration ...
         ```
 
+        ## Import
+
+        EKS Clusters can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)

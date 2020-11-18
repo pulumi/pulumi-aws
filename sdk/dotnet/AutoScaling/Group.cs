@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AutoScaling
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// AutoScaling Groups can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:autoscaling/group:Group web web-asg
+    /// ```
+    /// </summary>
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>

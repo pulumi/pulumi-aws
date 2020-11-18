@@ -42,6 +42,14 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Egress-only Internet gateways can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.

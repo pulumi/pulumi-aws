@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -30,6 +31,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SES Configuration Sets can be imported using their `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
 // ```
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
@@ -98,4 +107,43 @@ type ConfigurationSetArgs struct {
 
 func (ConfigurationSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationSetArgs)(nil)).Elem()
+}
+
+type ConfigurationSetInput interface {
+	pulumi.Input
+
+	ToConfigurationSetOutput() ConfigurationSetOutput
+	ToConfigurationSetOutputWithContext(ctx context.Context) ConfigurationSetOutput
+}
+
+func (ConfigurationSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSet)(nil)).Elem()
+}
+
+func (i ConfigurationSet) ToConfigurationSetOutput() ConfigurationSetOutput {
+	return i.ToConfigurationSetOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSet) ToConfigurationSetOutputWithContext(ctx context.Context) ConfigurationSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetOutput)
+}
+
+type ConfigurationSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetOutput)(nil)).Elem()
+}
+
+func (o ConfigurationSetOutput) ToConfigurationSetOutput() ConfigurationSetOutput {
+	return o
+}
+
+func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.Context) ConfigurationSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationSetOutput{})
 }

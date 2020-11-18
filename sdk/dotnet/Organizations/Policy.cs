@@ -39,6 +39,14 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_organizations_policy` can be imported by using the policy ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:organizations/policy:Policy example p-12345678
+    /// ```
     /// </summary>
     public partial class Policy : Pulumi.CustomResource
     {

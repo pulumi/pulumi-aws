@@ -52,6 +52,14 @@ class Pipeline(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Elastic Transcoder pipelines can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.

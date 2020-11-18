@@ -4,6 +4,7 @@
 package fsx
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -40,6 +41,28 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// FSx File Systems can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
+// ```
+//
+//  Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. hcl resource "aws_fsx_lustre_file_system" "example" {
+//
+// # ... other configuration ...
+//
+//  security_group_ids = [aws_security_group.example.id]
+//
+// # There is no FSx API for reading security_group_ids
+//
+//  lifecycle {
+//
+//  ignore_changes = [security_group_ids]
+//
+//  } }
 type LustreFileSystem struct {
 	pulumi.CustomResourceState
 
@@ -303,4 +326,43 @@ type LustreFileSystemArgs struct {
 
 func (LustreFileSystemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*lustreFileSystemArgs)(nil)).Elem()
+}
+
+type LustreFileSystemInput interface {
+	pulumi.Input
+
+	ToLustreFileSystemOutput() LustreFileSystemOutput
+	ToLustreFileSystemOutputWithContext(ctx context.Context) LustreFileSystemOutput
+}
+
+func (LustreFileSystem) ElementType() reflect.Type {
+	return reflect.TypeOf((*LustreFileSystem)(nil)).Elem()
+}
+
+func (i LustreFileSystem) ToLustreFileSystemOutput() LustreFileSystemOutput {
+	return i.ToLustreFileSystemOutputWithContext(context.Background())
+}
+
+func (i LustreFileSystem) ToLustreFileSystemOutputWithContext(ctx context.Context) LustreFileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemOutput)
+}
+
+type LustreFileSystemOutput struct {
+	*pulumi.OutputState
+}
+
+func (LustreFileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LustreFileSystemOutput)(nil)).Elem()
+}
+
+func (o LustreFileSystemOutput) ToLustreFileSystemOutput() LustreFileSystemOutput {
+	return o
+}
+
+func (o LustreFileSystemOutput) ToLustreFileSystemOutputWithContext(ctx context.Context) LustreFileSystemOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LustreFileSystemOutput{})
 }

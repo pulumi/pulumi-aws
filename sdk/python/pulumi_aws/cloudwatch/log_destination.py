@@ -35,6 +35,14 @@ class LogDestination(pulumi.CustomResource):
             target_arn=aws_kinesis_stream["kinesis_for_cloudwatch"]["arn"])
         ```
 
+        ## Import
+
+        CloudWatch Logs destinations can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: A name for the log destination

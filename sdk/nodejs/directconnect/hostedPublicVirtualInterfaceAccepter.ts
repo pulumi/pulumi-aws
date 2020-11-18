@@ -41,6 +41,14 @@ import * as utilities from "../utilities";
  *     provider: aws.accepter,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Direct Connect hosted public virtual interfaces can be imported using the `vif id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
+ * ```
  */
 export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource {
     /**

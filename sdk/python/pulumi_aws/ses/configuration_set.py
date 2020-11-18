@@ -31,6 +31,14 @@ class ConfigurationSet(pulumi.CustomResource):
         test = aws.ses.ConfigurationSet("test")
         ```
 
+        ## Import
+
+        SES Configuration Sets can be imported using their `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the configuration set

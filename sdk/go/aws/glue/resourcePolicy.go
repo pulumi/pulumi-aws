@@ -4,6 +4,7 @@
 package glue
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -73,6 +74,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Glue Resource Policy can be imported using the account ID
+//
+// ```sh
+//  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+// ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
@@ -137,4 +146,43 @@ type ResourcePolicyArgs struct {
 
 func (ResourcePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourcePolicyArgs)(nil)).Elem()
+}
+
+type ResourcePolicyInput interface {
+	pulumi.Input
+
+	ToResourcePolicyOutput() ResourcePolicyOutput
+	ToResourcePolicyOutputWithContext(ctx context.Context) ResourcePolicyOutput
+}
+
+func (ResourcePolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePolicy)(nil)).Elem()
+}
+
+func (i ResourcePolicy) ToResourcePolicyOutput() ResourcePolicyOutput {
+	return i.ToResourcePolicyOutputWithContext(context.Background())
+}
+
+func (i ResourcePolicy) ToResourcePolicyOutputWithContext(ctx context.Context) ResourcePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyOutput)
+}
+
+type ResourcePolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourcePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePolicyOutput)(nil)).Elem()
+}
+
+func (o ResourcePolicyOutput) ToResourcePolicyOutput() ResourcePolicyOutput {
+	return o
+}
+
+func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Context) ResourcePolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourcePolicyOutput{})
 }

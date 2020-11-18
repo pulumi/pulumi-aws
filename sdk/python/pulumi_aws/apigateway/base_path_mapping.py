@@ -48,6 +48,20 @@ class BasePathMapping(pulumi.CustomResource):
             domain_name=example_domain_name.domain_name)
         ```
 
+        ## Import
+
+        `aws_api_gateway_base_path_mapping` can be imported by using the domain name and base path, e.g. For empty `base_path` (e.g. root path (`/`))
+
+        ```sh
+         $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+        ```
+
+         Otherwise
+
+        ```sh
+         $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.

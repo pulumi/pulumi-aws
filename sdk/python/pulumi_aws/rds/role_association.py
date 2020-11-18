@@ -41,6 +41,14 @@ class RoleAssociation(pulumi.CustomResource):
             role_arn=aws_iam_role["example"]["arn"])
         ```
 
+        ## Import
+
+        `aws_db_instance_role_association` can be imported using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`), e.g.
+
+        ```sh
+         $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_instance_identifier: DB Instance Identifier to associate with the IAM Role.

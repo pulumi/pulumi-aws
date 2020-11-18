@@ -4,6 +4,7 @@
 package ecs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -56,6 +57,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// ECS Capacity Providers can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
 // ```
 type CapacityProvider struct {
 	pulumi.CustomResourceState
@@ -147,4 +156,43 @@ type CapacityProviderArgs struct {
 
 func (CapacityProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityProviderArgs)(nil)).Elem()
+}
+
+type CapacityProviderInput interface {
+	pulumi.Input
+
+	ToCapacityProviderOutput() CapacityProviderOutput
+	ToCapacityProviderOutputWithContext(ctx context.Context) CapacityProviderOutput
+}
+
+func (CapacityProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProvider)(nil)).Elem()
+}
+
+func (i CapacityProvider) ToCapacityProviderOutput() CapacityProviderOutput {
+	return i.ToCapacityProviderOutputWithContext(context.Background())
+}
+
+func (i CapacityProvider) ToCapacityProviderOutputWithContext(ctx context.Context) CapacityProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderOutput)
+}
+
+type CapacityProviderOutput struct {
+	*pulumi.OutputState
+}
+
+func (CapacityProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderOutput)(nil)).Elem()
+}
+
+func (o CapacityProviderOutput) ToCapacityProviderOutput() CapacityProviderOutput {
+	return o
+}
+
+func (o CapacityProviderOutput) ToCapacityProviderOutputWithContext(ctx context.Context) CapacityProviderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CapacityProviderOutput{})
 }

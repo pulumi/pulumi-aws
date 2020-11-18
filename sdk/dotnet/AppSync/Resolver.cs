@@ -109,6 +109,14 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_appsync_resolver` can be imported with their `api_id`, a hyphen, `type`, a hypen and `field` e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+    /// ```
     /// </summary>
     public partial class Resolver : Pulumi.CustomResource
     {

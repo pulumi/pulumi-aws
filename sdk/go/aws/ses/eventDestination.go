@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -107,6 +108,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SES event destinations can be imported using `configuration_set_name` together with the event destination's `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
 // ```
 type EventDestination struct {
 	pulumi.CustomResourceState
@@ -235,4 +244,43 @@ type EventDestinationArgs struct {
 
 func (EventDestinationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventDestinationArgs)(nil)).Elem()
+}
+
+type EventDestinationInput interface {
+	pulumi.Input
+
+	ToEventDestinationOutput() EventDestinationOutput
+	ToEventDestinationOutputWithContext(ctx context.Context) EventDestinationOutput
+}
+
+func (EventDestination) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDestination)(nil)).Elem()
+}
+
+func (i EventDestination) ToEventDestinationOutput() EventDestinationOutput {
+	return i.ToEventDestinationOutputWithContext(context.Background())
+}
+
+func (i EventDestination) ToEventDestinationOutputWithContext(ctx context.Context) EventDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationOutput)
+}
+
+type EventDestinationOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDestinationOutput)(nil)).Elem()
+}
+
+func (o EventDestinationOutput) ToEventDestinationOutput() EventDestinationOutput {
+	return o
+}
+
+func (o EventDestinationOutput) ToEventDestinationOutputWithContext(ctx context.Context) EventDestinationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventDestinationOutput{})
 }

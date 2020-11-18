@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -12,6 +13,14 @@ import (
 
 // Provides a VPC Endpoint connection notification resource.
 // Connection notifications notify subscribers of VPC Endpoint events.
+//
+// ## Import
+//
+// VPC Endpoint connection notifications can be imported using the `VPC endpoint connection notification id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
+// ```
 type VpcEndpointConnectionNotification struct {
 	pulumi.CustomResourceState
 
@@ -121,4 +130,43 @@ type VpcEndpointConnectionNotificationArgs struct {
 
 func (VpcEndpointConnectionNotificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointConnectionNotificationArgs)(nil)).Elem()
+}
+
+type VpcEndpointConnectionNotificationInput interface {
+	pulumi.Input
+
+	ToVpcEndpointConnectionNotificationOutput() VpcEndpointConnectionNotificationOutput
+	ToVpcEndpointConnectionNotificationOutputWithContext(ctx context.Context) VpcEndpointConnectionNotificationOutput
+}
+
+func (VpcEndpointConnectionNotification) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointConnectionNotification)(nil)).Elem()
+}
+
+func (i VpcEndpointConnectionNotification) ToVpcEndpointConnectionNotificationOutput() VpcEndpointConnectionNotificationOutput {
+	return i.ToVpcEndpointConnectionNotificationOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointConnectionNotification) ToVpcEndpointConnectionNotificationOutputWithContext(ctx context.Context) VpcEndpointConnectionNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointConnectionNotificationOutput)
+}
+
+type VpcEndpointConnectionNotificationOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcEndpointConnectionNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointConnectionNotificationOutput)(nil)).Elem()
+}
+
+func (o VpcEndpointConnectionNotificationOutput) ToVpcEndpointConnectionNotificationOutput() VpcEndpointConnectionNotificationOutput {
+	return o
+}
+
+func (o VpcEndpointConnectionNotificationOutput) ToVpcEndpointConnectionNotificationOutputWithContext(ctx context.Context) VpcEndpointConnectionNotificationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpcEndpointConnectionNotificationOutput{})
 }

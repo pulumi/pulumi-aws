@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -33,6 +34,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// OpsWorks PHP Application Layers can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:opsworks/phpAppLayer:PhpAppLayer bar 00000000-0000-0000-0000-000000000000
 // ```
 type PhpAppLayer struct {
 	pulumi.CustomResourceState
@@ -279,4 +288,43 @@ type PhpAppLayerArgs struct {
 
 func (PhpAppLayerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*phpAppLayerArgs)(nil)).Elem()
+}
+
+type PhpAppLayerInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerOutput() PhpAppLayerOutput
+	ToPhpAppLayerOutputWithContext(ctx context.Context) PhpAppLayerOutput
+}
+
+func (PhpAppLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhpAppLayer)(nil)).Elem()
+}
+
+func (i PhpAppLayer) ToPhpAppLayerOutput() PhpAppLayerOutput {
+	return i.ToPhpAppLayerOutputWithContext(context.Background())
+}
+
+func (i PhpAppLayer) ToPhpAppLayerOutputWithContext(ctx context.Context) PhpAppLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerOutput)
+}
+
+type PhpAppLayerOutput struct {
+	*pulumi.OutputState
+}
+
+func (PhpAppLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhpAppLayerOutput)(nil)).Elem()
+}
+
+func (o PhpAppLayerOutput) ToPhpAppLayerOutput() PhpAppLayerOutput {
+	return o
+}
+
+func (o PhpAppLayerOutput) ToPhpAppLayerOutputWithContext(ctx context.Context) PhpAppLayerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PhpAppLayerOutput{})
 }

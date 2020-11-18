@@ -4,6 +4,7 @@
 package lambda
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -25,6 +26,18 @@ import (
 //
 // For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
 // large files efficiently.
+//
+// ## Import
+//
+// Lambda Layers can be imported using `arn`.
+//
+// ```sh
+//  $ pulumi import aws:lambda/layerVersion:LayerVersion \
+// ```
+//
+//  aws_lambda_layer_version.test_layer \
+//
+//  arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
 type LayerVersion struct {
 	pulumi.CustomResourceState
 
@@ -199,4 +212,43 @@ type LayerVersionArgs struct {
 
 func (LayerVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*layerVersionArgs)(nil)).Elem()
+}
+
+type LayerVersionInput interface {
+	pulumi.Input
+
+	ToLayerVersionOutput() LayerVersionOutput
+	ToLayerVersionOutputWithContext(ctx context.Context) LayerVersionOutput
+}
+
+func (LayerVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*LayerVersion)(nil)).Elem()
+}
+
+func (i LayerVersion) ToLayerVersionOutput() LayerVersionOutput {
+	return i.ToLayerVersionOutputWithContext(context.Background())
+}
+
+func (i LayerVersion) ToLayerVersionOutputWithContext(ctx context.Context) LayerVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionOutput)
+}
+
+type LayerVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (LayerVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LayerVersionOutput)(nil)).Elem()
+}
+
+func (o LayerVersionOutput) ToLayerVersionOutput() LayerVersionOutput {
+	return o
+}
+
+func (o LayerVersionOutput) ToLayerVersionOutputWithContext(ctx context.Context) LayerVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LayerVersionOutput{})
 }

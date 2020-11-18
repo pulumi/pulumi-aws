@@ -4,6 +4,7 @@
 package ec2transitgateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -74,6 +75,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_ec2_transit_gateway_peering_attachment` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
 // ```
 type PeeringAttachment struct {
 	pulumi.CustomResourceState
@@ -185,4 +194,43 @@ type PeeringAttachmentArgs struct {
 
 func (PeeringAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*peeringAttachmentArgs)(nil)).Elem()
+}
+
+type PeeringAttachmentInput interface {
+	pulumi.Input
+
+	ToPeeringAttachmentOutput() PeeringAttachmentOutput
+	ToPeeringAttachmentOutputWithContext(ctx context.Context) PeeringAttachmentOutput
+}
+
+func (PeeringAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringAttachment)(nil)).Elem()
+}
+
+func (i PeeringAttachment) ToPeeringAttachmentOutput() PeeringAttachmentOutput {
+	return i.ToPeeringAttachmentOutputWithContext(context.Background())
+}
+
+func (i PeeringAttachment) ToPeeringAttachmentOutputWithContext(ctx context.Context) PeeringAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentOutput)
+}
+
+type PeeringAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (PeeringAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringAttachmentOutput)(nil)).Elem()
+}
+
+func (o PeeringAttachmentOutput) ToPeeringAttachmentOutput() PeeringAttachmentOutput {
+	return o
+}
+
+func (o PeeringAttachmentOutput) ToPeeringAttachmentOutputWithContext(ctx context.Context) PeeringAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PeeringAttachmentOutput{})
 }

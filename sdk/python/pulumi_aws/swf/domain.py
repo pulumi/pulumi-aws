@@ -39,6 +39,14 @@ class Domain(pulumi.CustomResource):
             workflow_execution_retention_period_in_days="30")
         ```
 
+        ## Import
+
+        SWF Domains can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:swf/domain:Domain foo test-domain
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The domain description.

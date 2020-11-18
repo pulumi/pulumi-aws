@@ -100,6 +100,14 @@ class LifecyclePolicy(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        DLM lifecyle policies can be imported by their policy ID
+
+        ```sh
+         $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the DLM lifecycle policy.

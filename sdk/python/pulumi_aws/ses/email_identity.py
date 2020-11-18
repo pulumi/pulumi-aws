@@ -31,6 +31,14 @@ class EmailIdentity(pulumi.CustomResource):
         example = aws.ses.EmailIdentity("example", email="email@example.com")
         ```
 
+        ## Import
+
+        SES email identities can be imported using the email address.
+
+        ```sh
+         $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] email: The email address to assign to SES

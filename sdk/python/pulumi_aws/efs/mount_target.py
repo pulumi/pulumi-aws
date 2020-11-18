@@ -41,6 +41,14 @@ class MountTarget(pulumi.CustomResource):
             subnet_id=alpha_subnet.id)
         ```
 
+        ## Import
+
+        The EFS mount targets can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] file_system_id: The ID of the file system for which the mount target is intended.

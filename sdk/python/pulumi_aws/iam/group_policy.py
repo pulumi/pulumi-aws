@@ -49,6 +49,14 @@ class GroupPolicy(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        IAM Group Policies can be imported using the `group_name:group_policy_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The IAM group to attach to the policy.

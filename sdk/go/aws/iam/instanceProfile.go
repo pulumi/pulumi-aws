@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Instance Profiles can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
 // ```
 type InstanceProfile struct {
 	pulumi.CustomResourceState
@@ -151,4 +160,43 @@ type InstanceProfileArgs struct {
 
 func (InstanceProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceProfileArgs)(nil)).Elem()
+}
+
+type InstanceProfileInput interface {
+	pulumi.Input
+
+	ToInstanceProfileOutput() InstanceProfileOutput
+	ToInstanceProfileOutputWithContext(ctx context.Context) InstanceProfileOutput
+}
+
+func (InstanceProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceProfile)(nil)).Elem()
+}
+
+func (i InstanceProfile) ToInstanceProfileOutput() InstanceProfileOutput {
+	return i.ToInstanceProfileOutputWithContext(context.Background())
+}
+
+func (i InstanceProfile) ToInstanceProfileOutputWithContext(ctx context.Context) InstanceProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileOutput)
+}
+
+type InstanceProfileOutput struct {
+	*pulumi.OutputState
+}
+
+func (InstanceProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceProfileOutput)(nil)).Elem()
+}
+
+func (o InstanceProfileOutput) ToInstanceProfileOutput() InstanceProfileOutput {
+	return o
+}
+
+func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Context) InstanceProfileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InstanceProfileOutput{})
 }

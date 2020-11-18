@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -54,6 +55,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Traffic mirror sessions can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
 // ```
 type TrafficMirrorSession struct {
 	pulumi.CustomResourceState
@@ -204,4 +213,43 @@ type TrafficMirrorSessionArgs struct {
 
 func (TrafficMirrorSessionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficMirrorSessionArgs)(nil)).Elem()
+}
+
+type TrafficMirrorSessionInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorSessionOutput() TrafficMirrorSessionOutput
+	ToTrafficMirrorSessionOutputWithContext(ctx context.Context) TrafficMirrorSessionOutput
+}
+
+func (TrafficMirrorSession) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorSession)(nil)).Elem()
+}
+
+func (i TrafficMirrorSession) ToTrafficMirrorSessionOutput() TrafficMirrorSessionOutput {
+	return i.ToTrafficMirrorSessionOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorSession) ToTrafficMirrorSessionOutputWithContext(ctx context.Context) TrafficMirrorSessionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorSessionOutput)
+}
+
+type TrafficMirrorSessionOutput struct {
+	*pulumi.OutputState
+}
+
+func (TrafficMirrorSessionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorSessionOutput)(nil)).Elem()
+}
+
+func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionOutput() TrafficMirrorSessionOutput {
+	return o
+}
+
+func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionOutputWithContext(ctx context.Context) TrafficMirrorSessionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TrafficMirrorSessionOutput{})
 }

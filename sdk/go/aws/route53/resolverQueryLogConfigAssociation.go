@@ -4,6 +4,7 @@
 package route53
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,6 +35,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+//  Route 53 Resolver query logging configuration associations can be imported using the Route 53 Resolver query logging configuration association ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
 // ```
 type ResolverQueryLogConfigAssociation struct {
 	pulumi.CustomResourceState
@@ -112,4 +121,43 @@ type ResolverQueryLogConfigAssociationArgs struct {
 
 func (ResolverQueryLogConfigAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverQueryLogConfigAssociationArgs)(nil)).Elem()
+}
+
+type ResolverQueryLogConfigAssociationInput interface {
+	pulumi.Input
+
+	ToResolverQueryLogConfigAssociationOutput() ResolverQueryLogConfigAssociationOutput
+	ToResolverQueryLogConfigAssociationOutputWithContext(ctx context.Context) ResolverQueryLogConfigAssociationOutput
+}
+
+func (ResolverQueryLogConfigAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverQueryLogConfigAssociation)(nil)).Elem()
+}
+
+func (i ResolverQueryLogConfigAssociation) ToResolverQueryLogConfigAssociationOutput() ResolverQueryLogConfigAssociationOutput {
+	return i.ToResolverQueryLogConfigAssociationOutputWithContext(context.Background())
+}
+
+func (i ResolverQueryLogConfigAssociation) ToResolverQueryLogConfigAssociationOutputWithContext(ctx context.Context) ResolverQueryLogConfigAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigAssociationOutput)
+}
+
+type ResolverQueryLogConfigAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResolverQueryLogConfigAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverQueryLogConfigAssociationOutput)(nil)).Elem()
+}
+
+func (o ResolverQueryLogConfigAssociationOutput) ToResolverQueryLogConfigAssociationOutput() ResolverQueryLogConfigAssociationOutput {
+	return o
+}
+
+func (o ResolverQueryLogConfigAssociationOutput) ToResolverQueryLogConfigAssociationOutputWithContext(ctx context.Context) ResolverQueryLogConfigAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResolverQueryLogConfigAssociationOutput{})
 }

@@ -32,6 +32,14 @@ class ClientCertificate(pulumi.CustomResource):
         demo = aws.apigateway.ClientCertificate("demo", description="My client certificate")
         ```
 
+        ## Import
+
+        API Gateway Client Certificates can be imported using the id, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the client certificate.

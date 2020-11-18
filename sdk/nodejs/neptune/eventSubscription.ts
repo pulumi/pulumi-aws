@@ -57,6 +57,14 @@ import * as utilities from "../utilities";
  * * `id` - The name of the Neptune event notification subscription.
  * * `arn` - The Amazon Resource Name of the Neptune event notification subscription.
  * * `customerAwsId` - The AWS customer account associated with the Neptune event notification subscription.
+ *
+ * ## Import
+ *
+ * `aws_neptune_event_subscription` can be imported by using the event subscription name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
+ * ```
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**

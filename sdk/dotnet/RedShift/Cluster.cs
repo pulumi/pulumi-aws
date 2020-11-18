@@ -37,6 +37,14 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Redshift Clusters can be imported using the `cluster_identifier`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

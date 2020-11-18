@@ -35,6 +35,14 @@ namespace Pulumi.Aws.Kms
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// KMS aliases can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
+    /// ```
     /// </summary>
     public partial class Alias : Pulumi.CustomResource
     {

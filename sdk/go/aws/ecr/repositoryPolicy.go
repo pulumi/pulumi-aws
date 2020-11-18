@@ -4,6 +4,7 @@
 package ecr
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// ECR Repository Policy can be imported using the repository name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
 // ```
 type RepositoryPolicy struct {
 	pulumi.CustomResourceState
@@ -126,4 +135,43 @@ type RepositoryPolicyArgs struct {
 
 func (RepositoryPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryPolicyArgs)(nil)).Elem()
+}
+
+type RepositoryPolicyInput interface {
+	pulumi.Input
+
+	ToRepositoryPolicyOutput() RepositoryPolicyOutput
+	ToRepositoryPolicyOutputWithContext(ctx context.Context) RepositoryPolicyOutput
+}
+
+func (RepositoryPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPolicy)(nil)).Elem()
+}
+
+func (i RepositoryPolicy) ToRepositoryPolicyOutput() RepositoryPolicyOutput {
+	return i.ToRepositoryPolicyOutputWithContext(context.Background())
+}
+
+func (i RepositoryPolicy) ToRepositoryPolicyOutputWithContext(ctx context.Context) RepositoryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyOutput)
+}
+
+type RepositoryPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPolicyOutput)(nil)).Elem()
+}
+
+func (o RepositoryPolicyOutput) ToRepositoryPolicyOutput() RepositoryPolicyOutput {
+	return o
+}
+
+func (o RepositoryPolicyOutput) ToRepositoryPolicyOutputWithContext(ctx context.Context) RepositoryPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RepositoryPolicyOutput{})
 }

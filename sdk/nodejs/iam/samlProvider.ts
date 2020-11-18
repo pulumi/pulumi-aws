@@ -16,6 +16,14 @@ import * as utilities from "../utilities";
  *
  * const _default = new aws.iam.SamlProvider("default", {samlMetadataDocument: fs.readFileSync("saml-metadata.xml")});
  * ```
+ *
+ * ## Import
+ *
+ * IAM SAML Providers can be imported using the `arn`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+ * ```
  */
 export class SamlProvider extends pulumi.CustomResource {
     /**

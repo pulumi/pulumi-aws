@@ -70,6 +70,14 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Directory Service Log Subscriptions can be imported using the directory id, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
+    /// ```
     /// </summary>
     public partial class LogService : Pulumi.CustomResource
     {

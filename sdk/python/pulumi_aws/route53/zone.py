@@ -74,6 +74,14 @@ class Zone(pulumi.CustomResource):
         )])
         ```
 
+        ## Import
+
+        Route53 Zones can be imported using the `zone id`, e.g.
+
+        ```sh
+         $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.

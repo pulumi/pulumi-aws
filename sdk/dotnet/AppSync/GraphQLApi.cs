@@ -190,6 +190,14 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// AppSync GraphQL API can be imported using the GraphQL API ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
+    /// ```
     /// </summary>
     public partial class GraphQLApi : Pulumi.CustomResource
     {

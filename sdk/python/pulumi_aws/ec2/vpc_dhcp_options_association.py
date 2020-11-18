@@ -38,6 +38,14 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         * You can only associate one DHCP Options Set to a given VPC ID.
         * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
 
+        ## Import
+
+        DHCP associations can be imported by providing the VPC ID associated with the options
+
+        ```sh
+         $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
