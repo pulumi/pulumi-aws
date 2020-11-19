@@ -110,6 +110,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Mediastoredata;
         public readonly string? Mq;
         public readonly string? Neptune;
+        public readonly string? Networkfirewall;
         public readonly string? Networkmanager;
         public readonly string? Opsworks;
         public readonly string? Organizations;
@@ -355,6 +356,8 @@ namespace Pulumi.Aws.Outputs
 
             string? neptune,
 
+            string? networkfirewall,
+
             string? networkmanager,
 
             string? opsworks,
@@ -548,6 +551,7 @@ namespace Pulumi.Aws.Outputs
             Mediastoredata = mediastoredata;
             Mq = mq;
             Neptune = neptune;
+            Networkfirewall = networkfirewall;
             Networkmanager = networkmanager;
             Opsworks = opsworks;
             Organizations = organizations;

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.RouteSpecGrpcRouteMatchMetadataMatch? Match;
         /// <summary>
-        /// The name of the route.
+        /// The name of the route. Must be between 1 and 50 characters in length.
         /// </summary>
         public readonly string Name;
 

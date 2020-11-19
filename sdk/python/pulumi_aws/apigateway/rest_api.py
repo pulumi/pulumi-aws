@@ -71,7 +71,7 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']] endpoint_configuration: Nested argument defining API endpoint configuration including endpoint type. Defined below.
         :param pulumi.Input[int] minimum_compression_size: Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
         :param pulumi.Input[str] name: The name of the REST API
-        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
+        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         if __name__ is not None:
@@ -146,7 +146,7 @@ class RestApi(pulumi.CustomResource):
                e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         :param pulumi.Input[int] minimum_compression_size: Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
         :param pulumi.Input[str] name: The name of the REST API
-        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
+        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
         :param pulumi.Input[str] root_resource_id: The resource ID of the REST API's root
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
@@ -253,9 +253,9 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[Optional[str]]:
+    def policy(self) -> pulumi.Output[str]:
         """
-        JSON formatted policy document that controls access to the API Gateway.
+        JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
         """
         return pulumi.get(self, "policy")
 

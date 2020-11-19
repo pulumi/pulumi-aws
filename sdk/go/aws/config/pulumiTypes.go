@@ -199,6 +199,7 @@ type Endpoints struct {
 	Mediastoredata           *string `pulumi:"mediastoredata"`
 	Mq                       *string `pulumi:"mq"`
 	Neptune                  *string `pulumi:"neptune"`
+	Networkfirewall          *string `pulumi:"networkfirewall"`
 	Networkmanager           *string `pulumi:"networkmanager"`
 	Opsworks                 *string `pulumi:"opsworks"`
 	Organizations            *string `pulumi:"organizations"`
@@ -358,6 +359,7 @@ type EndpointsArgs struct {
 	Mediastoredata           pulumi.StringPtrInput `pulumi:"mediastoredata"`
 	Mq                       pulumi.StringPtrInput `pulumi:"mq"`
 	Neptune                  pulumi.StringPtrInput `pulumi:"neptune"`
+	Networkfirewall          pulumi.StringPtrInput `pulumi:"networkfirewall"`
 	Networkmanager           pulumi.StringPtrInput `pulumi:"networkmanager"`
 	Opsworks                 pulumi.StringPtrInput `pulumi:"opsworks"`
 	Organizations            pulumi.StringPtrInput `pulumi:"organizations"`
@@ -845,6 +847,10 @@ func (o EndpointsOutput) Mq() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Neptune() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Neptune }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Networkfirewall() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Networkfirewall }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Networkmanager() pulumi.StringPtrOutput {

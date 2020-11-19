@@ -313,15 +313,19 @@ class CatalogTableStorageDescriptorColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the SerDe.
         :param pulumi.Input[str] comment: Free-form text comment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
         :param pulumi.Input[str] type: The datatype of data in the Column.
         """
         pulumi.set(__self__, "name", name)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -348,6 +352,18 @@ class CatalogTableStorageDescriptorColumnArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of initialization parameters for the SerDe, in key-value form.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
 
     @property
     @pulumi.getter

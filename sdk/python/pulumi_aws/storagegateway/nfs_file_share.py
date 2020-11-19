@@ -20,6 +20,7 @@ class NfsFileShare(pulumi.CustomResource):
                  cache_attributes: Optional[pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']]] = None,
                  client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
+                 file_share_name: Optional[pulumi.Input[str]] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
                  guess_mime_type_enabled: Optional[pulumi.Input[bool]] = None,
                  kms_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -64,6 +65,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
         :param pulumi.Input[bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         :param pulumi.Input[bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
@@ -99,6 +101,7 @@ class NfsFileShare(pulumi.CustomResource):
                 raise TypeError("Missing required property 'client_lists'")
             __props__['client_lists'] = client_lists
             __props__['default_storage_class'] = default_storage_class
+            __props__['file_share_name'] = file_share_name
             if gateway_arn is None:
                 raise TypeError("Missing required property 'gateway_arn'")
             __props__['gateway_arn'] = gateway_arn
@@ -134,6 +137,7 @@ class NfsFileShare(pulumi.CustomResource):
             cache_attributes: Optional[pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']]] = None,
             client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_storage_class: Optional[pulumi.Input[str]] = None,
+            file_share_name: Optional[pulumi.Input[str]] = None,
             fileshare_id: Optional[pulumi.Input[str]] = None,
             gateway_arn: Optional[pulumi.Input[str]] = None,
             guess_mime_type_enabled: Optional[pulumi.Input[bool]] = None,
@@ -159,6 +163,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         :param pulumi.Input[str] fileshare_id: ID of the NFS File Share.
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
         :param pulumi.Input[bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
@@ -182,6 +187,7 @@ class NfsFileShare(pulumi.CustomResource):
         __props__["cache_attributes"] = cache_attributes
         __props__["client_lists"] = client_lists
         __props__["default_storage_class"] = default_storage_class
+        __props__["file_share_name"] = file_share_name
         __props__["fileshare_id"] = fileshare_id
         __props__["gateway_arn"] = gateway_arn
         __props__["guess_mime_type_enabled"] = guess_mime_type_enabled
@@ -229,6 +235,14 @@ class NfsFileShare(pulumi.CustomResource):
         The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
         """
         return pulumi.get(self, "default_storage_class")
+
+    @property
+    @pulumi.getter(name="fileShareName")
+    def file_share_name(self) -> pulumi.Output[str]:
+        """
+        The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        """
+        return pulumi.get(self, "file_share_name")
 
     @property
     @pulumi.getter(name="fileshareId")

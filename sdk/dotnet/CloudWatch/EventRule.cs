@@ -110,8 +110,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> EventBusName { get; private set; } = null!;
 
         /// <summary>
-        /// The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required.
-        /// See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+        /// The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
         /// </summary>
         [Output("eventPattern")]
         public Output<string?> EventPattern { get; private set; } = null!;
@@ -141,8 +140,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The scheduling expression.
-        /// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus.
+        /// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus.
         /// </summary>
         [Output("scheduleExpression")]
         public Output<string?> ScheduleExpression { get; private set; } = null!;
@@ -212,8 +210,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? EventBusName { get; set; }
 
         /// <summary>
-        /// The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required.
-        /// See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+        /// The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
         /// </summary>
         [Input("eventPattern")]
         public Input<string>? EventPattern { get; set; }
@@ -243,8 +240,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The scheduling expression.
-        /// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus.
+        /// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus.
         /// </summary>
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
@@ -287,8 +283,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? EventBusName { get; set; }
 
         /// <summary>
-        /// The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required.
-        /// See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+        /// The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
         /// </summary>
         [Input("eventPattern")]
         public Input<string>? EventPattern { get; set; }
@@ -318,8 +313,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The scheduling expression.
-        /// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus.
+        /// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus.
         /// </summary>
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }

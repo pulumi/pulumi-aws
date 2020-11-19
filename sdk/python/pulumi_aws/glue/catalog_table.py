@@ -115,7 +115,7 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the SerDe.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
         :param pulumi.Input[int] retention: Retention time for this table.
         :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         :param pulumi.Input[str] table_type: The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
@@ -191,7 +191,7 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the SerDe.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
         :param pulumi.Input[int] retention: Retention time for this table.
         :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         :param pulumi.Input[str] table_type: The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
@@ -277,7 +277,7 @@ class CatalogTable(pulumi.CustomResource):
     @pulumi.getter(name="partitionKeys")
     def partition_keys(self) -> pulumi.Output[Optional[Sequence['outputs.CatalogTablePartitionKey']]]:
         """
-        A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+        A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
         """
         return pulumi.get(self, "partition_keys")
 

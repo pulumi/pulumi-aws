@@ -64,11 +64,11 @@ class Route(pulumi.CustomResource):
                Defaults to `NONE`.
         :param pulumi.Input[str] authorizer_id: The identifier of the `apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
         :param pulumi.Input[str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route.
-        :param pulumi.Input[str] operation_name: The operation name for the route.
+        :param pulumi.Input[str] operation_name: The operation name for the route. Must be between 1 and 64 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: The request models for the route.
         :param pulumi.Input[str] route_key: The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         :param pulumi.Input[str] route_response_selection_expression: The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route.
-        :param pulumi.Input[str] target: The target for the route.
+        :param pulumi.Input[str] target: The target for the route. Must be between 1 and 128 characters in length.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -139,11 +139,11 @@ class Route(pulumi.CustomResource):
                Defaults to `NONE`.
         :param pulumi.Input[str] authorizer_id: The identifier of the `apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
         :param pulumi.Input[str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route.
-        :param pulumi.Input[str] operation_name: The operation name for the route.
+        :param pulumi.Input[str] operation_name: The operation name for the route. Must be between 1 and 64 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: The request models for the route.
         :param pulumi.Input[str] route_key: The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         :param pulumi.Input[str] route_response_selection_expression: The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route.
-        :param pulumi.Input[str] target: The target for the route.
+        :param pulumi.Input[str] target: The target for the route. Must be between 1 and 128 characters in length.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -217,7 +217,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="operationName")
     def operation_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The operation name for the route.
+        The operation name for the route. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "operation_name")
 
@@ -249,7 +249,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter
     def target(self) -> pulumi.Output[Optional[str]]:
         """
-        The target for the route.
+        The target for the route. Must be between 1 and 128 characters in length.
         """
         return pulumi.get(self, "target")
 

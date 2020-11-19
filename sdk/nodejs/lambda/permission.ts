@@ -158,15 +158,11 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly function!: pulumi.Output<string>;
     /**
-     * The principal who is getting this permission.
-     * e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
-     * such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     * The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
     public readonly principal!: pulumi.Output<string>;
     /**
-     * Query parameter to specify function version or alias name.
-     * The permission will then apply to the specific qualified ARN.
-     * e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+     * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
      */
     public readonly qualifier!: pulumi.Output<string | undefined>;
     /**
@@ -260,15 +256,11 @@ export interface PermissionState {
      */
     readonly function?: pulumi.Input<string | Function>;
     /**
-     * The principal who is getting this permission.
-     * e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
-     * such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     * The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
     readonly principal?: pulumi.Input<string>;
     /**
-     * Query parameter to specify function version or alias name.
-     * The permission will then apply to the specific qualified ARN.
-     * e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+     * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
      */
     readonly qualifier?: pulumi.Input<string>;
     /**
@@ -310,15 +302,11 @@ export interface PermissionArgs {
      */
     readonly function: pulumi.Input<string | Function>;
     /**
-     * The principal who is getting this permission.
-     * e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
-     * such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     * The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
     readonly principal: pulumi.Input<string>;
     /**
-     * Query parameter to specify function version or alias name.
-     * The permission will then apply to the specific qualified ARN.
-     * e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+     * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
      */
     readonly qualifier?: pulumi.Input<string>;
     /**

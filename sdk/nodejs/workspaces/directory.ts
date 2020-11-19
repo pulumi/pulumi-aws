@@ -8,23 +8,33 @@ import * as utilities from "../utilities";
 /**
  * Provides a WorkSpaces directory in AWS WorkSpaces Service.
  *
+ * > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
+ *
  * ## Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const workspaces = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["workspaces.amazonaws.com"],
+ *         }],
+ *     }],
+ * });
+ * const workspacesDefault = new aws.iam.Role("workspacesDefault", {assumeRolePolicy: workspaces.then(workspaces => workspaces.json)});
+ * const workspacesDefaultServiceAccess = new aws.iam.RolePolicyAttachment("workspacesDefaultServiceAccess", {
+ *     role: workspacesDefault.name,
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess",
+ * });
+ * const workspacesDefaultSelfServiceAccess = new aws.iam.RolePolicyAttachment("workspacesDefaultSelfServiceAccess", {
+ *     role: workspacesDefault.name,
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess",
+ * });
  * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const exampleA = new aws.ec2.Subnet("exampleA", {
- *     vpcId: exampleVpc.id,
- *     availabilityZone: "us-east-1a",
- *     cidrBlock: "10.0.0.0/24",
- * });
- * const exampleB = new aws.ec2.Subnet("exampleB", {
- *     vpcId: exampleVpc.id,
- *     availabilityZone: "us-east-1b",
- *     cidrBlock: "10.0.1.0/24",
- * });
  * const exampleC = new aws.ec2.Subnet("exampleC", {
  *     vpcId: exampleVpc.id,
  *     availabilityZone: "us-east-1c",
@@ -35,20 +45,8 @@ import * as utilities from "../utilities";
  *     availabilityZone: "us-east-1d",
  *     cidrBlock: "10.0.3.0/24",
  * });
- * const exampleDirectory = new aws.directoryservice.Directory("exampleDirectory", {
- *     name: "corp.example.com",
- *     password: "#S1ncerely",
- *     size: "Small",
- *     vpcSettings: {
- *         vpcId: exampleVpc.id,
- *         subnetIds: [
- *             exampleA.id,
- *             exampleB.id,
- *         ],
- *     },
- * });
- * const exampleWorkspaces_directoryDirectory = new aws.workspaces.Directory("exampleWorkspaces/directoryDirectory", {
- *     directoryId: exampleDirectory.id,
+ * const exampleDirectory = new aws.workspaces.Directory("exampleDirectory", {
+ *     directoryId: exampleDirectoryservice / directoryDirectory.id,
  *     subnetIds: [
  *         exampleC.id,
  *         exampleD.id,
@@ -69,6 +67,33 @@ import * as utilities from "../utilities";
  *         enableInternetAccess: true,
  *         enableMaintenanceMode: true,
  *         userEnabledAsLocalAdministrator: true,
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         workspacesDefaultServiceAccess,
+ *         workspacesDefaultSelfServiceAccess,
+ *     ],
+ * });
+ * const exampleA = new aws.ec2.Subnet("exampleA", {
+ *     vpcId: exampleVpc.id,
+ *     availabilityZone: "us-east-1a",
+ *     cidrBlock: "10.0.0.0/24",
+ * });
+ * const exampleB = new aws.ec2.Subnet("exampleB", {
+ *     vpcId: exampleVpc.id,
+ *     availabilityZone: "us-east-1b",
+ *     cidrBlock: "10.0.1.0/24",
+ * });
+ * const exampleDirectoryservice_directoryDirectory = new aws.directoryservice.Directory("exampleDirectoryservice/directoryDirectory", {
+ *     name: "corp.example.com",
+ *     password: "#S1ncerely",
+ *     size: "Small",
+ *     vpcSettings: {
+ *         vpcId: exampleVpc.id,
+ *         subnetIds: [
+ *             exampleA.id,
+ *             exampleB.id,
+ *         ],
  *     },
  * });
  * ```

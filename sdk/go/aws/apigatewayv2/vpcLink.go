@@ -57,7 +57,7 @@ type VpcLink struct {
 
 	// The VPC Link ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the VPC Link.
+	// The name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
@@ -103,7 +103,7 @@ func GetVpcLink(ctx *pulumi.Context,
 type vpcLinkState struct {
 	// The VPC Link ARN.
 	Arn *string `pulumi:"arn"`
-	// The name of the VPC Link.
+	// The name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -116,7 +116,7 @@ type vpcLinkState struct {
 type VpcLinkState struct {
 	// The VPC Link ARN.
 	Arn pulumi.StringPtrInput
-	// The name of the VPC Link.
+	// The name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -131,7 +131,7 @@ func (VpcLinkState) ElementType() reflect.Type {
 }
 
 type vpcLinkArgs struct {
-	// The name of the VPC Link.
+	// The name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -143,7 +143,7 @@ type vpcLinkArgs struct {
 
 // The set of arguments for constructing a VpcLink resource.
 type VpcLinkArgs struct {
-	// The name of the VPC Link.
+	// The name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds pulumi.StringArrayInput

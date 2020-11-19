@@ -95,8 +95,7 @@ export class EventRule extends pulumi.CustomResource {
      */
     public readonly eventBusName!: pulumi.Output<string | undefined>;
     /**
-     * The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required.
-     * See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+     * The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
      */
     public readonly eventPattern!: pulumi.Output<string | undefined>;
     /**
@@ -116,8 +115,7 @@ export class EventRule extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
-     * The scheduling expression.
-     * For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
+     * The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
      */
     public readonly scheduleExpression!: pulumi.Output<string | undefined>;
     /**
@@ -188,8 +186,7 @@ export interface EventRuleState {
      */
     readonly eventBusName?: pulumi.Input<string>;
     /**
-     * The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required.
-     * See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+     * The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
      */
     readonly eventPattern?: pulumi.Input<string>;
     /**
@@ -209,8 +206,7 @@ export interface EventRuleState {
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
-     * The scheduling expression.
-     * For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
+     * The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
      */
     readonly scheduleExpression?: pulumi.Input<string>;
     /**
@@ -232,8 +228,7 @@ export interface EventRuleArgs {
      */
     readonly eventBusName?: pulumi.Input<string>;
     /**
-     * The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required.
-     * See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+     * The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
      */
     readonly eventPattern?: pulumi.Input<string>;
     /**
@@ -253,8 +248,7 @@ export interface EventRuleArgs {
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
-     * The scheduling expression.
-     * For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
+     * The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
      */
     readonly scheduleExpression?: pulumi.Input<string>;
     /**

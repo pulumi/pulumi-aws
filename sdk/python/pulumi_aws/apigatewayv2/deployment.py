@@ -52,7 +52,7 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.
-        :param pulumi.Input[str] description: The description for the deployment resource.
+        :param pulumi.Input[str] description: The description for the deployment resource. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         if __name__ is not None:
@@ -101,7 +101,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.
         :param pulumi.Input[bool] auto_deployed: Whether the deployment was automatically released.
-        :param pulumi.Input[str] description: The description for the deployment resource.
+        :param pulumi.Input[str] description: The description for the deployment resource. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -134,7 +134,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description for the deployment resource.
+        The description for the deployment resource. Must be less than or equal to 1024 characters in length.
         """
         return pulumi.get(self, "description")
 

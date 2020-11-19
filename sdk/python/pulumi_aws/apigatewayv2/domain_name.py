@@ -56,7 +56,7 @@ class DomainName(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] domain_name: The domain name.
+        :param pulumi.Input[str] domain_name: The domain name. Must be between 1 and 512 characters in length.
         :param pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']] domain_name_configuration: The domain name configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the domain name.
         """
@@ -110,7 +110,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_mapping_selection_expression: The [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
         :param pulumi.Input[str] arn: The ARN of the domain name.
-        :param pulumi.Input[str] domain_name: The domain name.
+        :param pulumi.Input[str] domain_name: The domain name. Must be between 1 and 512 characters in length.
         :param pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']] domain_name_configuration: The domain name configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the domain name.
         """
@@ -145,7 +145,7 @@ class DomainName(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        The domain name.
+        The domain name. Must be between 1 and 512 characters in length.
         """
         return pulumi.get(self, "domain_name")
 

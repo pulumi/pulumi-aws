@@ -232,7 +232,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<string> LastUpdatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the service mesh in which to create the route.
+        /// The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Output("meshName")]
         public Output<string> MeshName { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<string> MeshOwner { get; private set; } = null!;
 
         /// <summary>
-        /// The name to use for the route.
+        /// The name to use for the route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the virtual router in which to create the route.
+        /// The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Output("virtualRouterName")]
         public Output<string> VirtualRouterName { get; private set; } = null!;
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.AppMesh
     public sealed class RouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the service mesh in which to create the route.
+        /// The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("meshName", required: true)]
         public Input<string> MeshName { get; set; } = null!;
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? MeshOwner { get; set; }
 
         /// <summary>
-        /// The name to use for the route.
+        /// The name to use for the route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.AppMesh
         }
 
         /// <summary>
-        /// The name of the virtual router in which to create the route.
+        /// The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("virtualRouterName", required: true)]
         public Input<string> VirtualRouterName { get; set; } = null!;
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? LastUpdatedDate { get; set; }
 
         /// <summary>
-        /// The name of the service mesh in which to create the route.
+        /// The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("meshName")]
         public Input<string>? MeshName { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? MeshOwner { get; set; }
 
         /// <summary>
-        /// The name to use for the route.
+        /// The name to use for the route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.AppMesh
         }
 
         /// <summary>
-        /// The name of the virtual router in which to create the route.
+        /// The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("virtualRouterName")]
         public Input<string>? VirtualRouterName { get; set; }

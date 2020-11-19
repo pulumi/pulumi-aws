@@ -786,7 +786,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 }
 
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension struct {
-	// The name of the policy.
+	// The name of the policy. Must be between 1 and 255 characters in length.
 	Name string `pulumi:"name"`
 	// Value of the dimension.
 	Value string `pulumi:"value"`
@@ -804,7 +804,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 }
 
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs struct {
-	// The name of the policy.
+	// The name of the policy. Must be between 1 and 255 characters in length.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Value of the dimension.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -861,7 +861,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return o
 }
 
-// The name of the policy.
+// The name of the policy. Must be between 1 and 255 characters in length.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension) string {
 		return v.Name
@@ -898,7 +898,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 type PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification struct {
 	// The metric type.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// Reserved for future use.
+	// Reserved for future use. Must be less than or equal to 1023 characters in length.
 	ResourceLabel *string `pulumi:"resourceLabel"`
 }
 
@@ -916,7 +916,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification
 type PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs struct {
 	// The metric type.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// Reserved for future use.
+	// Reserved for future use. Must be less than or equal to 1023 characters in length.
 	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
@@ -1004,7 +1004,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificat
 	}).(pulumi.StringOutput)
 }
 
-// Reserved for future use.
+// Reserved for future use. Must be less than or equal to 1023 characters in length.
 func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification) *string {
 		return v.ResourceLabel
@@ -1041,7 +1041,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reserved for future use.
+// Reserved for future use. Must be less than or equal to 1023 characters in length.
 func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification) *string {
 		if v == nil {

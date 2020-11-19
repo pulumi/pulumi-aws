@@ -105,7 +105,7 @@ export class Authorizer extends pulumi.CustomResource {
     /**
      * The authorizer's Uniform Resource Identifier (URI).
      * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource.
-     * Supported only for `REQUEST` authorizers.
+     * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      */
     public readonly authorizerUri!: pulumi.Output<string | undefined>;
     /**
@@ -125,7 +125,7 @@ export class Authorizer extends pulumi.CustomResource {
      */
     public readonly jwtConfiguration!: pulumi.Output<outputs.apigatewayv2.AuthorizerJwtConfiguration | undefined>;
     /**
-     * The name of the authorizer.
+     * The name of the authorizer. Must be between 1 and 128 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -214,7 +214,7 @@ export interface AuthorizerState {
     /**
      * The authorizer's Uniform Resource Identifier (URI).
      * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource.
-     * Supported only for `REQUEST` authorizers.
+     * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      */
     readonly authorizerUri?: pulumi.Input<string>;
     /**
@@ -234,7 +234,7 @@ export interface AuthorizerState {
      */
     readonly jwtConfiguration?: pulumi.Input<inputs.apigatewayv2.AuthorizerJwtConfiguration>;
     /**
-     * The name of the authorizer.
+     * The name of the authorizer. Must be between 1 and 128 characters in length.
      */
     readonly name?: pulumi.Input<string>;
 }
@@ -272,7 +272,7 @@ export interface AuthorizerArgs {
     /**
      * The authorizer's Uniform Resource Identifier (URI).
      * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource.
-     * Supported only for `REQUEST` authorizers.
+     * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      */
     readonly authorizerUri?: pulumi.Input<string>;
     /**
@@ -292,7 +292,7 @@ export interface AuthorizerArgs {
      */
     readonly jwtConfiguration?: pulumi.Input<inputs.apigatewayv2.AuthorizerJwtConfiguration>;
     /**
-     * The name of the authorizer.
+     * The name of the authorizer. Must be between 1 and 128 characters in length.
      */
     readonly name?: pulumi.Input<string>;
 }

@@ -105,6 +105,10 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public readonly defaultStorageClass!: pulumi.Output<string | undefined>;
     /**
+     * The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
+     */
+    public readonly fileShareName!: pulumi.Output<string>;
+    /**
      * ID of the SMB File Share.
      */
     public /*out*/ readonly fileshareId!: pulumi.Output<string>;
@@ -184,6 +188,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
             inputs["caseSensitivity"] = state ? state.caseSensitivity : undefined;
             inputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
+            inputs["fileShareName"] = state ? state.fileShareName : undefined;
             inputs["fileshareId"] = state ? state.fileshareId : undefined;
             inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
             inputs["guessMimeTypeEnabled"] = state ? state.guessMimeTypeEnabled : undefined;
@@ -216,6 +221,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
             inputs["caseSensitivity"] = args ? args.caseSensitivity : undefined;
             inputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
+            inputs["fileShareName"] = args ? args.fileShareName : undefined;
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
             inputs["guessMimeTypeEnabled"] = args ? args.guessMimeTypeEnabled : undefined;
             inputs["invalidUserLists"] = args ? args.invalidUserLists : undefined;
@@ -276,6 +282,10 @@ export interface SmbFileShareState {
      * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
      */
     readonly defaultStorageClass?: pulumi.Input<string>;
+    /**
+     * The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
+     */
+    readonly fileShareName?: pulumi.Input<string>;
     /**
      * ID of the SMB File Share.
      */
@@ -366,6 +376,10 @@ export interface SmbFileShareArgs {
      * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
      */
     readonly defaultStorageClass?: pulumi.Input<string>;
+    /**
+     * The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
+     */
+    readonly fileShareName?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the file gateway.
      */

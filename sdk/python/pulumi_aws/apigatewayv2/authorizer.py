@@ -86,7 +86,7 @@ class Authorizer(pulumi.CustomResource):
                For HTTP APIs, specify `JWT` to use JSON Web Tokens.
         :param pulumi.Input[str] authorizer_uri: The authorizer's Uniform Resource Identifier (URI).
                For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
-               Supported only for `REQUEST` authorizers.
+               Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         :param pulumi.Input[bool] enable_simple_responses: Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
                Supported only for HTTP APIs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_sources: The identity sources for which authorization is requested.
@@ -94,7 +94,7 @@ class Authorizer(pulumi.CustomResource):
                For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
         :param pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']] jwt_configuration: The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
                Supported only for HTTP APIs.
-        :param pulumi.Input[str] name: The name of the authorizer.
+        :param pulumi.Input[str] name: The name of the authorizer. Must be between 1 and 128 characters in length.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -167,7 +167,7 @@ class Authorizer(pulumi.CustomResource):
                For HTTP APIs, specify `JWT` to use JSON Web Tokens.
         :param pulumi.Input[str] authorizer_uri: The authorizer's Uniform Resource Identifier (URI).
                For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
-               Supported only for `REQUEST` authorizers.
+               Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         :param pulumi.Input[bool] enable_simple_responses: Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
                Supported only for HTTP APIs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_sources: The identity sources for which authorization is requested.
@@ -175,7 +175,7 @@ class Authorizer(pulumi.CustomResource):
                For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
         :param pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']] jwt_configuration: The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
                Supported only for HTTP APIs.
-        :param pulumi.Input[str] name: The name of the authorizer.
+        :param pulumi.Input[str] name: The name of the authorizer. Must be between 1 and 128 characters in length.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -245,7 +245,7 @@ class Authorizer(pulumi.CustomResource):
         """
         The authorizer's Uniform Resource Identifier (URI).
         For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
-        Supported only for `REQUEST` authorizers.
+        Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         """
         return pulumi.get(self, "authorizer_uri")
 
@@ -281,7 +281,7 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the authorizer.
+        The name of the authorizer. Must be between 1 and 128 characters in length.
         """
         return pulumi.get(self, "name")
 

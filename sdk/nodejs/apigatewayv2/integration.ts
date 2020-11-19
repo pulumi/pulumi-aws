@@ -104,7 +104,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
-     * The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+     * The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
      */
     public readonly connectionId!: pulumi.Output<string | undefined>;
     /**
@@ -132,7 +132,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public /*out*/ readonly integrationResponseSelectionExpression!: pulumi.Output<string>;
     /**
-     * Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+     * Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
      */
     public readonly integrationSubtype!: pulumi.Output<string | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface IntegrationState {
      */
     readonly apiId?: pulumi.Input<string>;
     /**
-     * The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+     * The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
      */
     readonly connectionId?: pulumi.Input<string>;
     /**
@@ -278,7 +278,7 @@ export interface IntegrationState {
      */
     readonly integrationResponseSelectionExpression?: pulumi.Input<string>;
     /**
-     * Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+     * Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
      */
     readonly integrationSubtype?: pulumi.Input<string>;
     /**
@@ -329,7 +329,7 @@ export interface IntegrationArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
-     * The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+     * The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
      */
     readonly connectionId?: pulumi.Input<string>;
     /**
@@ -353,7 +353,7 @@ export interface IntegrationArgs {
      */
     readonly integrationMethod?: pulumi.Input<string>;
     /**
-     * Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+     * Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
      */
     readonly integrationSubtype?: pulumi.Input<string>;
     /**

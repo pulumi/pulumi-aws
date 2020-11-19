@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.RouteSpecGrpcRouteMatchMetadataMatchArgs>? Match { get; set; }
 
         /// <summary>
-        /// The name of the route.
+        /// The name of the route. Must be between 1 and 50 characters in length.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

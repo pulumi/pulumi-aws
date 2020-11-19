@@ -14,9 +14,7 @@ namespace Pulumi.Aws.Cfg.Outputs
     public sealed class DeliveryChannelSnapshotDeliveryProperties
     {
         /// <summary>
-        /// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-        /// e.g. `One_Hour` or `Three_Hours`.
-        /// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+        /// - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
         /// </summary>
         public readonly string? DeliveryFrequency;
 

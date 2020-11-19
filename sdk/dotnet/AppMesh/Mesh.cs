@@ -90,7 +90,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<string> MeshOwner { get; private set; } = null!;
 
         /// <summary>
-        /// The name to use for the service mesh.
+        /// The name to use for the service mesh. Must be between 1 and 255 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.AppMesh
     public sealed class MeshArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name to use for the service mesh.
+        /// The name to use for the service mesh. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? MeshOwner { get; set; }
 
         /// <summary>
-        /// The name to use for the service mesh.
+        /// The name to use for the service mesh. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

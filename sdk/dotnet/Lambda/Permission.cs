@@ -178,17 +178,13 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Function { get; private set; } = null!;
 
         /// <summary>
-        /// The principal who is getting this permission.
-        /// e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
-        /// such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        /// The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
 
         /// <summary>
-        /// Query parameter to specify function version or alias name.
-        /// The permission will then apply to the specific qualified ARN.
-        /// e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+        /// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
         /// </summary>
         [Output("qualifier")]
         public Output<string?> Qualifier { get; private set; } = null!;
@@ -286,17 +282,13 @@ namespace Pulumi.Aws.Lambda
         public Input<string> Function { get; set; } = null!;
 
         /// <summary>
-        /// The principal who is getting this permission.
-        /// e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
-        /// such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        /// The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
 
         /// <summary>
-        /// Query parameter to specify function version or alias name.
-        /// The permission will then apply to the specific qualified ARN.
-        /// e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+        /// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
@@ -355,17 +347,13 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Function { get; set; }
 
         /// <summary>
-        /// The principal who is getting this permission.
-        /// e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
-        /// such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        /// The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }
 
         /// <summary>
-        /// Query parameter to specify function version or alias name.
-        /// The permission will then apply to the specific qualified ARN.
-        /// e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+        /// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }

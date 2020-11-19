@@ -70,7 +70,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public /*out*/ readonly autoDeployed!: pulumi.Output<boolean>;
     /**
-     * The description for the deployment resource.
+     * The description for the deployment resource. Must be less than or equal to 1024 characters in length.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -128,7 +128,7 @@ export interface DeploymentState {
      */
     readonly autoDeployed?: pulumi.Input<boolean>;
     /**
-     * The description for the deployment resource.
+     * The description for the deployment resource. Must be less than or equal to 1024 characters in length.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -146,7 +146,7 @@ export interface DeploymentArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
-     * The description for the deployment resource.
+     * The description for the deployment resource. Must be less than or equal to 1024 characters in length.
      */
     readonly description?: pulumi.Input<string>;
     /**

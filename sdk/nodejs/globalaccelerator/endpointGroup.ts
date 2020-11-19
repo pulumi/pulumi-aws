@@ -60,6 +60,10 @@ export class EndpointGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the endpoint group.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The list of endpoint objects. Fields documented below.
      */
     public readonly endpointConfigurations!: pulumi.Output<outputs.globalaccelerator.EndpointGroupEndpointConfiguration[] | undefined>;
@@ -82,6 +86,10 @@ export class EndpointGroup extends pulumi.CustomResource {
      */
     public readonly listenerArn!: pulumi.Output<string>;
     /**
+     * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+     */
+    public readonly portOverrides!: pulumi.Output<outputs.globalaccelerator.EndpointGroupPortOverride[] | undefined>;
+    /**
      * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      */
     public readonly thresholdCount!: pulumi.Output<number | undefined>;
@@ -102,6 +110,7 @@ export class EndpointGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EndpointGroupState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["endpointConfigurations"] = state ? state.endpointConfigurations : undefined;
             inputs["endpointGroupRegion"] = state ? state.endpointGroupRegion : undefined;
             inputs["healthCheckIntervalSeconds"] = state ? state.healthCheckIntervalSeconds : undefined;
@@ -109,6 +118,7 @@ export class EndpointGroup extends pulumi.CustomResource {
             inputs["healthCheckPort"] = state ? state.healthCheckPort : undefined;
             inputs["healthCheckProtocol"] = state ? state.healthCheckProtocol : undefined;
             inputs["listenerArn"] = state ? state.listenerArn : undefined;
+            inputs["portOverrides"] = state ? state.portOverrides : undefined;
             inputs["thresholdCount"] = state ? state.thresholdCount : undefined;
             inputs["trafficDialPercentage"] = state ? state.trafficDialPercentage : undefined;
         } else {
@@ -123,8 +133,10 @@ export class EndpointGroup extends pulumi.CustomResource {
             inputs["healthCheckPort"] = args ? args.healthCheckPort : undefined;
             inputs["healthCheckProtocol"] = args ? args.healthCheckProtocol : undefined;
             inputs["listenerArn"] = args ? args.listenerArn : undefined;
+            inputs["portOverrides"] = args ? args.portOverrides : undefined;
             inputs["thresholdCount"] = args ? args.thresholdCount : undefined;
             inputs["trafficDialPercentage"] = args ? args.trafficDialPercentage : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -141,6 +153,10 @@ export class EndpointGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EndpointGroup resources.
  */
 export interface EndpointGroupState {
+    /**
+     * The Amazon Resource Name (ARN) of the endpoint group.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The list of endpoint objects. Fields documented below.
      */
@@ -163,6 +179,10 @@ export interface EndpointGroupState {
      * The Amazon Resource Name (ARN) of the listener.
      */
     readonly listenerArn?: pulumi.Input<string>;
+    /**
+     * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+     */
+    readonly portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
     /**
      * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      */
@@ -199,6 +219,10 @@ export interface EndpointGroupArgs {
      * The Amazon Resource Name (ARN) of the listener.
      */
     readonly listenerArn: pulumi.Input<string>;
+    /**
+     * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+     */
+    readonly portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
     /**
      * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      */

@@ -47,9 +47,7 @@ type EventBus struct {
 
 	// The Amazon Resource Name (ARN) of the event bus.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the new event bus.
-	// The names of custom event buses can't contain the / character.
-	// Please note that a partner event bus is not supported at the moment.
+	// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -85,9 +83,7 @@ func GetEventBus(ctx *pulumi.Context,
 type eventBusState struct {
 	// The Amazon Resource Name (ARN) of the event bus.
 	Arn *string `pulumi:"arn"`
-	// The name of the new event bus.
-	// The names of custom event buses can't contain the / character.
-	// Please note that a partner event bus is not supported at the moment.
+	// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -96,9 +92,7 @@ type eventBusState struct {
 type EventBusState struct {
 	// The Amazon Resource Name (ARN) of the event bus.
 	Arn pulumi.StringPtrInput
-	// The name of the new event bus.
-	// The names of custom event buses can't contain the / character.
-	// Please note that a partner event bus is not supported at the moment.
+	// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -109,9 +103,7 @@ func (EventBusState) ElementType() reflect.Type {
 }
 
 type eventBusArgs struct {
-	// The name of the new event bus.
-	// The names of custom event buses can't contain the / character.
-	// Please note that a partner event bus is not supported at the moment.
+	// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -119,9 +111,7 @@ type eventBusArgs struct {
 
 // The set of arguments for constructing a EventBus resource.
 type EventBusArgs struct {
-	// The name of the new event bus.
-	// The names of custom event buses can't contain the / character.
-	// Please note that a partner event bus is not supported at the moment.
+	// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput

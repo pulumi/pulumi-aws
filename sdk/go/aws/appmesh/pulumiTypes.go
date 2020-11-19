@@ -594,7 +594,7 @@ func (o GatewayRouteSpecGrpcRouteActionTargetPtrOutput) VirtualService() Gateway
 }
 
 type GatewayRouteSpecGrpcRouteActionTargetVirtualService struct {
-	// The name of the virtual service that traffic is routed to.
+	// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 	VirtualServiceName string `pulumi:"virtualServiceName"`
 }
 
@@ -610,7 +610,7 @@ type GatewayRouteSpecGrpcRouteActionTargetVirtualServiceInput interface {
 }
 
 type GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs struct {
-	// The name of the virtual service that traffic is routed to.
+	// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
 }
 
@@ -691,7 +691,7 @@ func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput) ToGatewayRout
 	}).(GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput)
 }
 
-// The name of the virtual service that traffic is routed to.
+// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayRouteSpecGrpcRouteActionTargetVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
 }
@@ -716,7 +716,7 @@ func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput) Elem() Gat
 	}).(GatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput)
 }
 
-// The name of the virtual service that traffic is routed to.
+// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput) VirtualServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteActionTargetVirtualService) *string {
 		if v == nil {
@@ -1272,7 +1272,7 @@ func (o GatewayRouteSpecHttp2RouteActionTargetPtrOutput) VirtualService() Gatewa
 }
 
 type GatewayRouteSpecHttp2RouteActionTargetVirtualService struct {
-	// The name of the virtual service that traffic is routed to.
+	// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 	VirtualServiceName string `pulumi:"virtualServiceName"`
 }
 
@@ -1288,7 +1288,7 @@ type GatewayRouteSpecHttp2RouteActionTargetVirtualServiceInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs struct {
-	// The name of the virtual service that traffic is routed to.
+	// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
 }
 
@@ -1369,7 +1369,7 @@ func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput) ToGatewayRou
 	}).(GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput)
 }
 
-// The name of the virtual service that traffic is routed to.
+// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionTargetVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
 }
@@ -1394,7 +1394,7 @@ func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput) Elem() Ga
 	}).(GatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput)
 }
 
-// The name of the virtual service that traffic is routed to.
+// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput) VirtualServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionTargetVirtualService) *string {
 		if v == nil {
@@ -1950,7 +1950,7 @@ func (o GatewayRouteSpecHttpRouteActionTargetPtrOutput) VirtualService() Gateway
 }
 
 type GatewayRouteSpecHttpRouteActionTargetVirtualService struct {
-	// The name of the virtual service that traffic is routed to.
+	// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 	VirtualServiceName string `pulumi:"virtualServiceName"`
 }
 
@@ -1966,7 +1966,7 @@ type GatewayRouteSpecHttpRouteActionTargetVirtualServiceInput interface {
 }
 
 type GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs struct {
-	// The name of the virtual service that traffic is routed to.
+	// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
 }
 
@@ -2047,7 +2047,7 @@ func (o GatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput) ToGatewayRout
 	}).(GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput)
 }
 
-// The name of the virtual service that traffic is routed to.
+// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 func (o GatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionTargetVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
 }
@@ -2072,7 +2072,7 @@ func (o GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput) Elem() Gat
 	}).(GatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput)
 }
 
-// The name of the virtual service that traffic is routed to.
+// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 func (o GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput) VirtualServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionTargetVirtualService) *string {
 		if v == nil {
@@ -3014,7 +3014,7 @@ func (o RouteSpecGrpcRouteActionPtrOutput) WeightedTargets() RouteSpecGrpcRouteA
 }
 
 type RouteSpecGrpcRouteActionWeightedTarget struct {
-	// The virtual node to associate with the weighted target.
+	// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
 	// The relative weight of the weighted target. An integer between 0 and 100.
 	Weight int `pulumi:"weight"`
@@ -3032,7 +3032,7 @@ type RouteSpecGrpcRouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecGrpcRouteActionWeightedTargetArgs struct {
-	// The virtual node to associate with the weighted target.
+	// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
 	// The relative weight of the weighted target. An integer between 0 and 100.
 	Weight pulumi.IntInput `pulumi:"weight"`
@@ -3089,7 +3089,7 @@ func (o RouteSpecGrpcRouteActionWeightedTargetOutput) ToRouteSpecGrpcRouteAction
 	return o
 }
 
-// The virtual node to associate with the weighted target.
+// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
 }
@@ -3124,7 +3124,7 @@ type RouteSpecGrpcRouteMatch struct {
 	Metadatas []RouteSpecGrpcRouteMatchMetadata `pulumi:"metadatas"`
 	// The method name to match from the request. If you specify a name, you must also specify a `serviceName`.
 	MethodName *string `pulumi:"methodName"`
-	// The value sent by the client must begin with the specified characters.
+	// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix *string `pulumi:"prefix"`
 	// The fully qualified domain name for the service to match from the request.
@@ -3147,7 +3147,7 @@ type RouteSpecGrpcRouteMatchArgs struct {
 	Metadatas RouteSpecGrpcRouteMatchMetadataArrayInput `pulumi:"metadatas"`
 	// The method name to match from the request. If you specify a name, you must also specify a `serviceName`.
 	MethodName pulumi.StringPtrInput `pulumi:"methodName"`
-	// The value sent by the client must begin with the specified characters.
+	// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// The fully qualified domain name for the service to match from the request.
@@ -3241,7 +3241,7 @@ func (o RouteSpecGrpcRouteMatchOutput) MethodName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *string { return v.MethodName }).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must begin with the specified characters.
+// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecGrpcRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -3290,7 +3290,7 @@ func (o RouteSpecGrpcRouteMatchPtrOutput) MethodName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must begin with the specified characters.
+// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecGrpcRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) *string {
@@ -3316,7 +3316,7 @@ type RouteSpecGrpcRouteMatchMetadata struct {
 	Invert *bool `pulumi:"invert"`
 	// The data to match from the request.
 	Match *RouteSpecGrpcRouteMatchMetadataMatch `pulumi:"match"`
-	// The name of the route.
+	// The name of the route. Must be between 1 and 50 characters in length.
 	Name string `pulumi:"name"`
 }
 
@@ -3336,7 +3336,7 @@ type RouteSpecGrpcRouteMatchMetadataArgs struct {
 	Invert pulumi.BoolPtrInput `pulumi:"invert"`
 	// The data to match from the request.
 	Match RouteSpecGrpcRouteMatchMetadataMatchPtrInput `pulumi:"match"`
-	// The name of the route.
+	// The name of the route. Must be between 1 and 50 characters in length.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -3401,7 +3401,7 @@ func (o RouteSpecGrpcRouteMatchMetadataOutput) Match() RouteSpecGrpcRouteMatchMe
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadata) *RouteSpecGrpcRouteMatchMetadataMatch { return v.Match }).(RouteSpecGrpcRouteMatchMetadataMatchPtrOutput)
 }
 
-// The name of the route.
+// The name of the route. Must be between 1 and 50 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadata) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3427,16 +3427,16 @@ func (o RouteSpecGrpcRouteMatchMetadataArrayOutput) Index(i pulumi.IntInput) Rou
 }
 
 type RouteSpecGrpcRouteMatchMetadataMatch struct {
-	// The value sent by the client must match the specified value exactly.
+	// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 	Exact *string `pulumi:"exact"`
-	// The value sent by the client must begin with the specified characters.
+	// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix *string `pulumi:"prefix"`
 	// The object that specifies the range of numbers that the value sent by the client must be included in.
 	Range *RouteSpecGrpcRouteMatchMetadataMatchRange `pulumi:"range"`
-	// The value sent by the client must include the specified characters.
+	// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 	Regex *string `pulumi:"regex"`
-	// The value sent by the client must end with the specified characters.
+	// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 	Suffix *string `pulumi:"suffix"`
 }
 
@@ -3452,16 +3452,16 @@ type RouteSpecGrpcRouteMatchMetadataMatchInput interface {
 }
 
 type RouteSpecGrpcRouteMatchMetadataMatchArgs struct {
-	// The value sent by the client must match the specified value exactly.
+	// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// The value sent by the client must begin with the specified characters.
+	// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// The object that specifies the range of numbers that the value sent by the client must be included in.
 	Range RouteSpecGrpcRouteMatchMetadataMatchRangePtrInput `pulumi:"range"`
-	// The value sent by the client must include the specified characters.
+	// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
-	// The value sent by the client must end with the specified characters.
+	// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
@@ -3542,12 +3542,12 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) ToRouteSpecGrpcRouteMatchMet
 	}).(RouteSpecGrpcRouteMatchMetadataMatchPtrOutput)
 }
 
-// The value sent by the client must match the specified value exactly.
+// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must begin with the specified characters.
+// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -3560,12 +3560,12 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Range() RouteSpecGrpcRouteMa
 	}).(RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput)
 }
 
-// The value sent by the client must include the specified characters.
+// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must end with the specified characters.
+// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -3588,7 +3588,7 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Elem() RouteSpecGrpcRoute
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) RouteSpecGrpcRouteMatchMetadataMatch { return *v }).(RouteSpecGrpcRouteMatchMetadataMatchOutput)
 }
 
-// The value sent by the client must match the specified value exactly.
+// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
 		if v == nil {
@@ -3598,7 +3598,7 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Exact() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must begin with the specified characters.
+// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
@@ -3619,7 +3619,7 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Range() RouteSpecGrpcRout
 	}).(RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput)
 }
 
-// The value sent by the client must include the specified characters.
+// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
 		if v == nil {
@@ -3629,7 +3629,7 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Regex() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must end with the specified characters.
+// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
 		if v == nil {
@@ -4938,7 +4938,7 @@ func (o RouteSpecHttp2RouteActionPtrOutput) WeightedTargets() RouteSpecHttp2Rout
 }
 
 type RouteSpecHttp2RouteActionWeightedTarget struct {
-	// The virtual node to associate with the weighted target.
+	// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
 	// The relative weight of the weighted target. An integer between 0 and 100.
 	Weight int `pulumi:"weight"`
@@ -4956,7 +4956,7 @@ type RouteSpecHttp2RouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecHttp2RouteActionWeightedTargetArgs struct {
-	// The virtual node to associate with the weighted target.
+	// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
 	// The relative weight of the weighted target. An integer between 0 and 100.
 	Weight pulumi.IntInput `pulumi:"weight"`
@@ -5013,7 +5013,7 @@ func (o RouteSpecHttp2RouteActionWeightedTargetOutput) ToRouteSpecHttp2RouteActi
 	return o
 }
 
-// The virtual node to associate with the weighted target.
+// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
 }
@@ -5048,7 +5048,7 @@ type RouteSpecHttp2RouteMatch struct {
 	Headers []RouteSpecHttp2RouteMatchHeader `pulumi:"headers"`
 	// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method *string `pulumi:"method"`
-	// The value sent by the client must begin with the specified characters.
+	// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix string `pulumi:"prefix"`
 	// The client request header scheme to match on. Valid values: `http`, `https`.
@@ -5071,7 +5071,7 @@ type RouteSpecHttp2RouteMatchArgs struct {
 	Headers RouteSpecHttp2RouteMatchHeaderArrayInput `pulumi:"headers"`
 	// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method pulumi.StringPtrInput `pulumi:"method"`
-	// The value sent by the client must begin with the specified characters.
+	// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
 	// The client request header scheme to match on. Valid values: `http`, `https`.
@@ -5165,7 +5165,7 @@ func (o RouteSpecHttp2RouteMatchOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must begin with the specified characters.
+// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
@@ -5214,7 +5214,7 @@ func (o RouteSpecHttp2RouteMatchPtrOutput) Method() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must begin with the specified characters.
+// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttp2RouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) *string {
@@ -5351,16 +5351,16 @@ func (o RouteSpecHttp2RouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) Rout
 }
 
 type RouteSpecHttp2RouteMatchHeaderMatch struct {
-	// The value sent by the client must match the specified value exactly.
+	// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 	Exact *string `pulumi:"exact"`
-	// The value sent by the client must begin with the specified characters.
+	// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix *string `pulumi:"prefix"`
 	// The object that specifies the range of numbers that the value sent by the client must be included in.
 	Range *RouteSpecHttp2RouteMatchHeaderMatchRange `pulumi:"range"`
-	// The value sent by the client must include the specified characters.
+	// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 	Regex *string `pulumi:"regex"`
-	// The value sent by the client must end with the specified characters.
+	// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 	Suffix *string `pulumi:"suffix"`
 }
 
@@ -5376,16 +5376,16 @@ type RouteSpecHttp2RouteMatchHeaderMatchInput interface {
 }
 
 type RouteSpecHttp2RouteMatchHeaderMatchArgs struct {
-	// The value sent by the client must match the specified value exactly.
+	// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// The value sent by the client must begin with the specified characters.
+	// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// The object that specifies the range of numbers that the value sent by the client must be included in.
 	Range RouteSpecHttp2RouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
-	// The value sent by the client must include the specified characters.
+	// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
-	// The value sent by the client must end with the specified characters.
+	// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
@@ -5466,12 +5466,12 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) ToRouteSpecHttp2RouteMatchHea
 	}).(RouteSpecHttp2RouteMatchHeaderMatchPtrOutput)
 }
 
-// The value sent by the client must match the specified value exactly.
+// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must begin with the specified characters.
+// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -5482,12 +5482,12 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Range() RouteSpecHttp2RouteMa
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *RouteSpecHttp2RouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput)
 }
 
-// The value sent by the client must include the specified characters.
+// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must end with the specified characters.
+// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -5510,7 +5510,7 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Elem() RouteSpecHttp2Route
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) RouteSpecHttp2RouteMatchHeaderMatch { return *v }).(RouteSpecHttp2RouteMatchHeaderMatchOutput)
 }
 
-// The value sent by the client must match the specified value exactly.
+// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -5520,7 +5520,7 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must begin with the specified characters.
+// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
@@ -5541,7 +5541,7 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Range() RouteSpecHttp2Rout
 	}).(RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput)
 }
 
-// The value sent by the client must include the specified characters.
+// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -5551,7 +5551,7 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must end with the specified characters.
+// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -6835,7 +6835,7 @@ func (o RouteSpecHttpRouteActionPtrOutput) WeightedTargets() RouteSpecHttpRouteA
 }
 
 type RouteSpecHttpRouteActionWeightedTarget struct {
-	// The virtual node to associate with the weighted target.
+	// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
 	// The relative weight of the weighted target. An integer between 0 and 100.
 	Weight int `pulumi:"weight"`
@@ -6853,7 +6853,7 @@ type RouteSpecHttpRouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecHttpRouteActionWeightedTargetArgs struct {
-	// The virtual node to associate with the weighted target.
+	// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
 	// The relative weight of the weighted target. An integer between 0 and 100.
 	Weight pulumi.IntInput `pulumi:"weight"`
@@ -6910,7 +6910,7 @@ func (o RouteSpecHttpRouteActionWeightedTargetOutput) ToRouteSpecHttpRouteAction
 	return o
 }
 
-// The virtual node to associate with the weighted target.
+// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
 }
@@ -6945,7 +6945,7 @@ type RouteSpecHttpRouteMatch struct {
 	Headers []RouteSpecHttpRouteMatchHeader `pulumi:"headers"`
 	// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method *string `pulumi:"method"`
-	// The value sent by the client must begin with the specified characters.
+	// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix string `pulumi:"prefix"`
 	// The client request header scheme to match on. Valid values: `http`, `https`.
@@ -6968,7 +6968,7 @@ type RouteSpecHttpRouteMatchArgs struct {
 	Headers RouteSpecHttpRouteMatchHeaderArrayInput `pulumi:"headers"`
 	// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method pulumi.StringPtrInput `pulumi:"method"`
-	// The value sent by the client must begin with the specified characters.
+	// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
 	// The client request header scheme to match on. Valid values: `http`, `https`.
@@ -7062,7 +7062,7 @@ func (o RouteSpecHttpRouteMatchOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must begin with the specified characters.
+// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
@@ -7111,7 +7111,7 @@ func (o RouteSpecHttpRouteMatchPtrOutput) Method() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must begin with the specified characters.
+// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatch) *string {
@@ -7248,16 +7248,16 @@ func (o RouteSpecHttpRouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) Route
 }
 
 type RouteSpecHttpRouteMatchHeaderMatch struct {
-	// The value sent by the client must match the specified value exactly.
+	// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 	Exact *string `pulumi:"exact"`
-	// The value sent by the client must begin with the specified characters.
+	// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix *string `pulumi:"prefix"`
 	// The object that specifies the range of numbers that the value sent by the client must be included in.
 	Range *RouteSpecHttpRouteMatchHeaderMatchRange `pulumi:"range"`
-	// The value sent by the client must include the specified characters.
+	// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 	Regex *string `pulumi:"regex"`
-	// The value sent by the client must end with the specified characters.
+	// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 	Suffix *string `pulumi:"suffix"`
 }
 
@@ -7273,16 +7273,16 @@ type RouteSpecHttpRouteMatchHeaderMatchInput interface {
 }
 
 type RouteSpecHttpRouteMatchHeaderMatchArgs struct {
-	// The value sent by the client must match the specified value exactly.
+	// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// The value sent by the client must begin with the specified characters.
+	// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// The object that specifies the range of numbers that the value sent by the client must be included in.
 	Range RouteSpecHttpRouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
-	// The value sent by the client must include the specified characters.
+	// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
-	// The value sent by the client must end with the specified characters.
+	// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
@@ -7363,12 +7363,12 @@ func (o RouteSpecHttpRouteMatchHeaderMatchOutput) ToRouteSpecHttpRouteMatchHeade
 	}).(RouteSpecHttpRouteMatchHeaderMatchPtrOutput)
 }
 
-// The value sent by the client must match the specified value exactly.
+// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must begin with the specified characters.
+// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -7379,12 +7379,12 @@ func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Range() RouteSpecHttpRouteMatc
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
 
-// The value sent by the client must include the specified characters.
+// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must end with the specified characters.
+// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -7407,7 +7407,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Elem() RouteSpecHttpRouteMa
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) RouteSpecHttpRouteMatchHeaderMatch { return *v }).(RouteSpecHttpRouteMatchHeaderMatchOutput)
 }
 
-// The value sent by the client must match the specified value exactly.
+// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -7417,7 +7417,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must begin with the specified characters.
+// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
@@ -7438,7 +7438,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Range() RouteSpecHttpRouteM
 	}).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
 
-// The value sent by the client must include the specified characters.
+// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -7448,7 +7448,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value sent by the client must end with the specified characters.
+// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -8694,7 +8694,7 @@ func (o RouteSpecTcpRouteActionPtrOutput) WeightedTargets() RouteSpecTcpRouteAct
 }
 
 type RouteSpecTcpRouteActionWeightedTarget struct {
-	// The virtual node to associate with the weighted target.
+	// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
 	// The relative weight of the weighted target. An integer between 0 and 100.
 	Weight int `pulumi:"weight"`
@@ -8712,7 +8712,7 @@ type RouteSpecTcpRouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecTcpRouteActionWeightedTargetArgs struct {
-	// The virtual node to associate with the weighted target.
+	// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
 	// The relative weight of the weighted target. An integer between 0 and 100.
 	Weight pulumi.IntInput `pulumi:"weight"`
@@ -8769,7 +8769,7 @@ func (o RouteSpecTcpRouteActionWeightedTargetOutput) ToRouteSpecTcpRouteActionWe
 	return o
 }
 
-// The virtual node to associate with the weighted target.
+// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecTcpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecTcpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
 }
@@ -10112,7 +10112,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOut
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile struct {
-	// The certificate chain for the certificate.
+	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -10128,7 +10128,7 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileInput in
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs struct {
-	// The certificate chain for the certificate.
+	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -10209,7 +10209,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutpu
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// The certificate chain for the certificate.
+// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile) string {
 		return v.CertificateChain
@@ -10236,7 +10236,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOu
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput)
 }
 
-// The certificate chain for the certificate.
+// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile) *string {
 		if v == nil {
@@ -11248,9 +11248,9 @@ func (o VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput) CertificateArn() p
 }
 
 type VirtualGatewaySpecListenerTlsCertificateFile struct {
-	// The certificate chain for the certificate.
+	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
-	// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+	// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	PrivateKey string `pulumi:"privateKey"`
 }
 
@@ -11266,9 +11266,9 @@ type VirtualGatewaySpecListenerTlsCertificateFileInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsCertificateFileArgs struct {
-	// The certificate chain for the certificate.
+	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+	// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
 }
 
@@ -11349,12 +11349,12 @@ func (o VirtualGatewaySpecListenerTlsCertificateFileOutput) ToVirtualGatewaySpec
 	}).(VirtualGatewaySpecListenerTlsCertificateFilePtrOutput)
 }
 
-// The certificate chain for the certificate.
+// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecListenerTlsCertificateFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificateFile) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
 
-// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecListenerTlsCertificateFileOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
@@ -11379,7 +11379,7 @@ func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) Elem() VirtualGat
 	}).(VirtualGatewaySpecListenerTlsCertificateFileOutput)
 }
 
-// The certificate chain for the certificate.
+// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificateFile) *string {
 		if v == nil {
@@ -11389,7 +11389,7 @@ func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) CertificateChain(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificateFile) *string {
 		if v == nil {
@@ -11662,7 +11662,7 @@ func (o VirtualGatewaySpecLoggingAccessLogPtrOutput) File() VirtualGatewaySpecLo
 }
 
 type VirtualGatewaySpecLoggingAccessLogFile struct {
-	// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+	// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 	Path string `pulumi:"path"`
 }
 
@@ -11678,7 +11678,7 @@ type VirtualGatewaySpecLoggingAccessLogFileInput interface {
 }
 
 type VirtualGatewaySpecLoggingAccessLogFileArgs struct {
-	// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+	// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -11759,7 +11759,7 @@ func (o VirtualGatewaySpecLoggingAccessLogFileOutput) ToVirtualGatewaySpecLoggin
 	}).(VirtualGatewaySpecLoggingAccessLogFilePtrOutput)
 }
 
-// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecLoggingAccessLogFileOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -11782,7 +11782,7 @@ func (o VirtualGatewaySpecLoggingAccessLogFilePtrOutput) Elem() VirtualGatewaySp
 	return o.ApplyT(func(v *VirtualGatewaySpecLoggingAccessLogFile) VirtualGatewaySpecLoggingAccessLogFile { return *v }).(VirtualGatewaySpecLoggingAccessLogFileOutput)
 }
 
-// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecLoggingAccessLogFilePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecLoggingAccessLogFile) *string {
 		if v == nil {
@@ -12959,7 +12959,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile struct {
-	// The certificate chain for the certificate.
+	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -12975,7 +12975,7 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileInput inter
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs struct {
-	// The certificate chain for the certificate.
+	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -13056,7 +13056,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) 
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// The certificate chain for the certificate.
+// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile) string {
 		return v.CertificateChain
@@ -13083,7 +13083,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutpu
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput)
 }
 
-// The certificate chain for the certificate.
+// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile) *string {
 		if v == nil {
@@ -13096,7 +13096,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutpu
 type VirtualNodeSpecBackendVirtualService struct {
 	// The client policy for the backend.
 	ClientPolicy *VirtualNodeSpecBackendVirtualServiceClientPolicy `pulumi:"clientPolicy"`
-	// The name of the virtual service that is acting as a virtual node backend.
+	// The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
 	VirtualServiceName string `pulumi:"virtualServiceName"`
 }
 
@@ -13114,7 +13114,7 @@ type VirtualNodeSpecBackendVirtualServiceInput interface {
 type VirtualNodeSpecBackendVirtualServiceArgs struct {
 	// The client policy for the backend.
 	ClientPolicy VirtualNodeSpecBackendVirtualServiceClientPolicyPtrInput `pulumi:"clientPolicy"`
-	// The name of the virtual service that is acting as a virtual node backend.
+	// The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
 	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
 }
 
@@ -13151,7 +13151,7 @@ func (o VirtualNodeSpecBackendVirtualServiceOutput) ClientPolicy() VirtualNodeSp
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput)
 }
 
-// The name of the virtual service that is acting as a virtual node backend.
+// The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
 }
@@ -13886,7 +13886,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtr
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile struct {
-	// The certificate chain for the certificate.
+	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -13902,7 +13902,7 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileInput
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs struct {
-	// The certificate chain for the certificate.
+	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -13983,7 +13983,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOu
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// The certificate chain for the certificate.
+// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile) string {
 		return v.CertificateChain
@@ -14010,7 +14010,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePt
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput)
 }
 
-// The certificate chain for the certificate.
+// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile) *string {
 		if v == nil {
@@ -16868,9 +16868,9 @@ func (o VirtualNodeSpecListenerTlsCertificateAcmPtrOutput) CertificateArn() pulu
 }
 
 type VirtualNodeSpecListenerTlsCertificateFile struct {
-	// The certificate chain for the certificate.
+	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
-	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
 	PrivateKey string `pulumi:"privateKey"`
 }
 
@@ -16886,9 +16886,9 @@ type VirtualNodeSpecListenerTlsCertificateFileInput interface {
 }
 
 type VirtualNodeSpecListenerTlsCertificateFileArgs struct {
-	// The certificate chain for the certificate.
+	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
 	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
 }
 
@@ -16969,12 +16969,12 @@ func (o VirtualNodeSpecListenerTlsCertificateFileOutput) ToVirtualNodeSpecListen
 	}).(VirtualNodeSpecListenerTlsCertificateFilePtrOutput)
 }
 
-// The certificate chain for the certificate.
+// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecListenerTlsCertificateFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateFile) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
 
-// The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecListenerTlsCertificateFileOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
@@ -16999,7 +16999,7 @@ func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) Elem() VirtualNodeSp
 	}).(VirtualNodeSpecListenerTlsCertificateFileOutput)
 }
 
-// The certificate chain for the certificate.
+// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateFile) *string {
 		if v == nil {
@@ -17009,7 +17009,7 @@ func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) CertificateChain() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateFile) *string {
 		if v == nil {
@@ -17282,7 +17282,7 @@ func (o VirtualNodeSpecLoggingAccessLogPtrOutput) File() VirtualNodeSpecLoggingA
 }
 
 type VirtualNodeSpecLoggingAccessLogFile struct {
-	// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+	// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 	Path string `pulumi:"path"`
 }
 
@@ -17298,7 +17298,7 @@ type VirtualNodeSpecLoggingAccessLogFileInput interface {
 }
 
 type VirtualNodeSpecLoggingAccessLogFileArgs struct {
-	// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+	// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -17379,7 +17379,7 @@ func (o VirtualNodeSpecLoggingAccessLogFileOutput) ToVirtualNodeSpecLoggingAcces
 	}).(VirtualNodeSpecLoggingAccessLogFilePtrOutput)
 }
 
-// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecLoggingAccessLogFileOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -17402,7 +17402,7 @@ func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Elem() VirtualNodeSpecLogg
 	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLogFile) VirtualNodeSpecLoggingAccessLogFile { return *v }).(VirtualNodeSpecLoggingAccessLogFileOutput)
 }
 
-// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLogFile) *string {
 		if v == nil {
@@ -17568,9 +17568,9 @@ type VirtualNodeSpecServiceDiscoveryAwsCloudMap struct {
 	// A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
 	Attributes map[string]string `pulumi:"attributes"`
 	// The name of the AWS Cloud Map namespace to use.
-	// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
+	// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
 	NamespaceName string `pulumi:"namespaceName"`
-	// The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service.
+	// The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
 	ServiceName string `pulumi:"serviceName"`
 }
 
@@ -17589,9 +17589,9 @@ type VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs struct {
 	// A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
 	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 	// The name of the AWS Cloud Map namespace to use.
-	// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
+	// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
 	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
-	// The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service.
+	// The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 }
 
@@ -17678,12 +17678,12 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) Attributes() pulumi.St
 }
 
 // The name of the AWS Cloud Map namespace to use.
-// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
+// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
-// The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service.
+// The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.ServiceName }).(pulumi.StringOutput)
 }
@@ -17719,7 +17719,7 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) Attributes() pulumi
 }
 
 // The name of the AWS Cloud Map namespace to use.
-// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
+// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscoveryAwsCloudMap) *string {
 		if v == nil {
@@ -17729,7 +17729,7 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) NamespaceName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service.
+// The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscoveryAwsCloudMap) *string {
 		if v == nil {
@@ -18568,7 +18568,7 @@ func (o VirtualServiceSpecProviderPtrOutput) VirtualRouter() VirtualServiceSpecP
 }
 
 type VirtualServiceSpecProviderVirtualNode struct {
-	// The name of the virtual node that is acting as a service provider.
+	// The name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
 	VirtualNodeName string `pulumi:"virtualNodeName"`
 }
 
@@ -18584,7 +18584,7 @@ type VirtualServiceSpecProviderVirtualNodeInput interface {
 }
 
 type VirtualServiceSpecProviderVirtualNodeArgs struct {
-	// The name of the virtual node that is acting as a service provider.
+	// The name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
 	VirtualNodeName pulumi.StringInput `pulumi:"virtualNodeName"`
 }
 
@@ -18665,7 +18665,7 @@ func (o VirtualServiceSpecProviderVirtualNodeOutput) ToVirtualServiceSpecProvide
 	}).(VirtualServiceSpecProviderVirtualNodePtrOutput)
 }
 
-// The name of the virtual node that is acting as a service provider.
+// The name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
 func (o VirtualServiceSpecProviderVirtualNodeOutput) VirtualNodeName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualServiceSpecProviderVirtualNode) string { return v.VirtualNodeName }).(pulumi.StringOutput)
 }
@@ -18688,7 +18688,7 @@ func (o VirtualServiceSpecProviderVirtualNodePtrOutput) Elem() VirtualServiceSpe
 	return o.ApplyT(func(v *VirtualServiceSpecProviderVirtualNode) VirtualServiceSpecProviderVirtualNode { return *v }).(VirtualServiceSpecProviderVirtualNodeOutput)
 }
 
-// The name of the virtual node that is acting as a service provider.
+// The name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
 func (o VirtualServiceSpecProviderVirtualNodePtrOutput) VirtualNodeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualServiceSpecProviderVirtualNode) *string {
 		if v == nil {
@@ -18699,7 +18699,7 @@ func (o VirtualServiceSpecProviderVirtualNodePtrOutput) VirtualNodeName() pulumi
 }
 
 type VirtualServiceSpecProviderVirtualRouter struct {
-	// The name of the virtual router that is acting as a service provider.
+	// The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
 	VirtualRouterName string `pulumi:"virtualRouterName"`
 }
 
@@ -18715,7 +18715,7 @@ type VirtualServiceSpecProviderVirtualRouterInput interface {
 }
 
 type VirtualServiceSpecProviderVirtualRouterArgs struct {
-	// The name of the virtual router that is acting as a service provider.
+	// The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
 	VirtualRouterName pulumi.StringInput `pulumi:"virtualRouterName"`
 }
 
@@ -18796,7 +18796,7 @@ func (o VirtualServiceSpecProviderVirtualRouterOutput) ToVirtualServiceSpecProvi
 	}).(VirtualServiceSpecProviderVirtualRouterPtrOutput)
 }
 
-// The name of the virtual router that is acting as a service provider.
+// The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
 func (o VirtualServiceSpecProviderVirtualRouterOutput) VirtualRouterName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualServiceSpecProviderVirtualRouter) string { return v.VirtualRouterName }).(pulumi.StringOutput)
 }
@@ -18819,7 +18819,7 @@ func (o VirtualServiceSpecProviderVirtualRouterPtrOutput) Elem() VirtualServiceS
 	return o.ApplyT(func(v *VirtualServiceSpecProviderVirtualRouter) VirtualServiceSpecProviderVirtualRouter { return *v }).(VirtualServiceSpecProviderVirtualRouterOutput)
 }
 
-// The name of the virtual router that is acting as a service provider.
+// The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
 func (o VirtualServiceSpecProviderVirtualRouterPtrOutput) VirtualRouterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualServiceSpecProviderVirtualRouter) *string {
 		if v == nil {

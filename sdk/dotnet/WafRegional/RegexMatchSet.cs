@@ -68,8 +68,7 @@ namespace Pulumi.Aws.WafRegional
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The regular expression pattern that you want AWS WAF to search for in web requests,
-        /// the location in requests that you want AWS WAF to search, and other settings. See below.
+        /// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
         /// </summary>
         [Output("regexMatchTuples")]
         public Output<ImmutableArray<Outputs.RegexMatchSetRegexMatchTuple>> RegexMatchTuples { get; private set; } = null!;
@@ -130,8 +129,7 @@ namespace Pulumi.Aws.WafRegional
         private InputList<Inputs.RegexMatchSetRegexMatchTupleArgs>? _regexMatchTuples;
 
         /// <summary>
-        /// The regular expression pattern that you want AWS WAF to search for in web requests,
-        /// the location in requests that you want AWS WAF to search, and other settings. See below.
+        /// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
         /// </summary>
         public InputList<Inputs.RegexMatchSetRegexMatchTupleArgs> RegexMatchTuples
         {
@@ -156,8 +154,7 @@ namespace Pulumi.Aws.WafRegional
         private InputList<Inputs.RegexMatchSetRegexMatchTupleGetArgs>? _regexMatchTuples;
 
         /// <summary>
-        /// The regular expression pattern that you want AWS WAF to search for in web requests,
-        /// the location in requests that you want AWS WAF to search, and other settings. See below.
+        /// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
         /// </summary>
         public InputList<Inputs.RegexMatchSetRegexMatchTupleGetArgs> RegexMatchTuples
         {

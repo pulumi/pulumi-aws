@@ -94,6 +94,7 @@ import * as globalaccelerator from "./globalaccelerator";
 import * as glue from "./glue";
 import * as guardduty from "./guardduty";
 import * as iam from "./iam";
+import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
 import * as iot from "./iot";
 import * as kinesis from "./kinesis";
@@ -111,6 +112,7 @@ import * as mediastore from "./mediastore";
 import * as mq from "./mq";
 import * as msk from "./msk";
 import * as neptune from "./neptune";
+import * as networkfirewall from "./networkfirewall";
 import * as opsworks from "./opsworks";
 import * as organizations from "./organizations";
 import * as outposts from "./outposts";
@@ -218,6 +220,7 @@ export {
     glue,
     guardduty,
     iam,
+    imagebuilder,
     inspector,
     iot,
     kinesis,
@@ -235,6 +238,7 @@ export {
     mq,
     msk,
     neptune,
+    networkfirewall,
     opsworks,
     organizations,
     outposts,

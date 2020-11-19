@@ -56,8 +56,7 @@ namespace Pulumi.Aws.Kms
         public Output<string?> CustomerMasterKeySpec { get; private set; } = null!;
 
         /// <summary>
-        /// Duration in days after which the key is deleted
-        /// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
+        /// Duration in days after which the key is deleted after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
         /// </summary>
         [Output("deletionWindowInDays")]
         public Output<int?> DeletionWindowInDays { get; private set; } = null!;
@@ -69,8 +68,7 @@ namespace Pulumi.Aws.Kms
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
-        /// is enabled. Defaults to false.
+        /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
         /// </summary>
         [Output("enableKeyRotation")]
         public Output<bool?> EnableKeyRotation { get; private set; } = null!;
@@ -160,8 +158,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? CustomerMasterKeySpec { get; set; }
 
         /// <summary>
-        /// Duration in days after which the key is deleted
-        /// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
+        /// Duration in days after which the key is deleted after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
         /// </summary>
         [Input("deletionWindowInDays")]
         public Input<int>? DeletionWindowInDays { get; set; }
@@ -173,8 +170,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
-        /// is enabled. Defaults to false.
+        /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
         /// </summary>
         [Input("enableKeyRotation")]
         public Input<bool>? EnableKeyRotation { get; set; }
@@ -231,8 +227,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? CustomerMasterKeySpec { get; set; }
 
         /// <summary>
-        /// Duration in days after which the key is deleted
-        /// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
+        /// Duration in days after which the key is deleted after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
         /// </summary>
         [Input("deletionWindowInDays")]
         public Input<int>? DeletionWindowInDays { get; set; }
@@ -244,8 +239,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
-        /// is enabled. Defaults to false.
+        /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
         /// </summary>
         [Input("enableKeyRotation")]
         public Input<bool>? EnableKeyRotation { get; set; }

@@ -67,8 +67,7 @@ export class LogMetricFilter extends pulumi.CustomResource {
      */
     public readonly logGroupName!: pulumi.Output<string>;
     /**
-     * A block defining collection of information
-     * needed to define how metric data gets emitted. See below.
+     * A block defining collection of information needed to define how metric data gets emitted. See below.
      */
     public readonly metricTransformation!: pulumi.Output<outputs.cloudwatch.LogMetricFilterMetricTransformation>;
     /**
@@ -133,8 +132,7 @@ export interface LogMetricFilterState {
      */
     readonly logGroupName?: pulumi.Input<string>;
     /**
-     * A block defining collection of information
-     * needed to define how metric data gets emitted. See below.
+     * A block defining collection of information needed to define how metric data gets emitted. See below.
      */
     readonly metricTransformation?: pulumi.Input<inputs.cloudwatch.LogMetricFilterMetricTransformation>;
     /**
@@ -157,8 +155,7 @@ export interface LogMetricFilterArgs {
      */
     readonly logGroupName: pulumi.Input<string>;
     /**
-     * A block defining collection of information
-     * needed to define how metric data gets emitted. See below.
+     * A block defining collection of information needed to define how metric data gets emitted. See below.
      */
     readonly metricTransformation: pulumi.Input<inputs.cloudwatch.LogMetricFilterMetricTransformation>;
     /**

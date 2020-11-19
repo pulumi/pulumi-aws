@@ -113,6 +113,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> DefaultStorageClass { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        /// </summary>
+        [Output("fileShareName")]
+        public Output<string> FileShareName { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the SMB File Share.
         /// </summary>
         [Output("fileshareId")]
@@ -291,6 +297,12 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? DefaultStorageClass { get; set; }
 
         /// <summary>
+        /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        /// </summary>
+        [Input("fileShareName")]
+        public Input<string>? FileShareName { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the file gateway.
         /// </summary>
         [Input("gatewayArn", required: true)]
@@ -440,6 +452,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("defaultStorageClass")]
         public Input<string>? DefaultStorageClass { get; set; }
+
+        /// <summary>
+        /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        /// </summary>
+        [Input("fileShareName")]
+        public Input<string>? FileShareName { get; set; }
 
         /// <summary>
         /// ID of the SMB File Share.

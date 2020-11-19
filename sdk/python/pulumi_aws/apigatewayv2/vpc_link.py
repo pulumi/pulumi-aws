@@ -52,7 +52,7 @@ class VpcLink(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the VPC Link.
+        :param pulumi.Input[str] name: The name of the VPC Link. Must be between 1 and 128 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the VPC Link.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Subnet IDs for the VPC Link.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the VPC Link.
@@ -106,7 +106,7 @@ class VpcLink(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The VPC Link ARN.
-        :param pulumi.Input[str] name: The name of the VPC Link.
+        :param pulumi.Input[str] name: The name of the VPC Link. Must be between 1 and 128 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the VPC Link.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Subnet IDs for the VPC Link.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the VPC Link.
@@ -134,7 +134,7 @@ class VpcLink(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the VPC Link.
+        The name of the VPC Link. Must be between 1 and 128 characters in length.
         """
         return pulumi.get(self, "name")
 

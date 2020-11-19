@@ -88,7 +88,7 @@ type Api struct {
 	CorsConfiguration ApiCorsConfigurationPtrOutput `pulumi:"corsConfiguration"`
 	// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
 	CredentialsArn pulumi.StringPtrOutput `pulumi:"credentialsArn"`
-	// The description of the API.
+	// The description of the API. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether clients can invoke the API by using the default `execute-api` endpoint.
 	// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
@@ -98,7 +98,7 @@ type Api struct {
 	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
-	// The name of the API.
+	// The name of the API. Must be less than or equal to 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
 	ProtocolType pulumi.StringOutput `pulumi:"protocolType"`
@@ -113,7 +113,7 @@ type Api struct {
 	// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
 	// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
 	Target pulumi.StringPtrOutput `pulumi:"target"`
-	// A version identifier for the API.
+	// A version identifier for the API. Must be between 1 and 64 characters in length.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
@@ -162,7 +162,7 @@ type apiState struct {
 	CorsConfiguration *ApiCorsConfiguration `pulumi:"corsConfiguration"`
 	// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
 	CredentialsArn *string `pulumi:"credentialsArn"`
-	// The description of the API.
+	// The description of the API. Must be less than or equal to 1024 characters in length.
 	Description *string `pulumi:"description"`
 	// Whether clients can invoke the API by using the default `execute-api` endpoint.
 	// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
@@ -172,7 +172,7 @@ type apiState struct {
 	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 	ExecutionArn *string `pulumi:"executionArn"`
-	// The name of the API.
+	// The name of the API. Must be less than or equal to 128 characters in length.
 	Name *string `pulumi:"name"`
 	// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
 	ProtocolType *string `pulumi:"protocolType"`
@@ -187,7 +187,7 @@ type apiState struct {
 	// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
 	// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
 	Target *string `pulumi:"target"`
-	// A version identifier for the API.
+	// A version identifier for the API. Must be between 1 and 64 characters in length.
 	Version *string `pulumi:"version"`
 }
 
@@ -206,7 +206,7 @@ type ApiState struct {
 	CorsConfiguration ApiCorsConfigurationPtrInput
 	// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
 	CredentialsArn pulumi.StringPtrInput
-	// The description of the API.
+	// The description of the API. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrInput
 	// Whether clients can invoke the API by using the default `execute-api` endpoint.
 	// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
@@ -216,7 +216,7 @@ type ApiState struct {
 	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 	ExecutionArn pulumi.StringPtrInput
-	// The name of the API.
+	// The name of the API. Must be less than or equal to 128 characters in length.
 	Name pulumi.StringPtrInput
 	// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
 	ProtocolType pulumi.StringPtrInput
@@ -231,7 +231,7 @@ type ApiState struct {
 	// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
 	// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
 	Target pulumi.StringPtrInput
-	// A version identifier for the API.
+	// A version identifier for the API. Must be between 1 and 64 characters in length.
 	Version pulumi.StringPtrInput
 }
 
@@ -250,13 +250,13 @@ type apiArgs struct {
 	CorsConfiguration *ApiCorsConfiguration `pulumi:"corsConfiguration"`
 	// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
 	CredentialsArn *string `pulumi:"credentialsArn"`
-	// The description of the API.
+	// The description of the API. Must be less than or equal to 1024 characters in length.
 	Description *string `pulumi:"description"`
 	// Whether clients can invoke the API by using the default `execute-api` endpoint.
 	// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
 	// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
 	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
-	// The name of the API.
+	// The name of the API. Must be less than or equal to 128 characters in length.
 	Name *string `pulumi:"name"`
 	// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
 	ProtocolType string `pulumi:"protocolType"`
@@ -271,7 +271,7 @@ type apiArgs struct {
 	// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
 	// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
 	Target *string `pulumi:"target"`
-	// A version identifier for the API.
+	// A version identifier for the API. Must be between 1 and 64 characters in length.
 	Version *string `pulumi:"version"`
 }
 
@@ -287,13 +287,13 @@ type ApiArgs struct {
 	CorsConfiguration ApiCorsConfigurationPtrInput
 	// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
 	CredentialsArn pulumi.StringPtrInput
-	// The description of the API.
+	// The description of the API. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrInput
 	// Whether clients can invoke the API by using the default `execute-api` endpoint.
 	// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
 	// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
 	DisableExecuteApiEndpoint pulumi.BoolPtrInput
-	// The name of the API.
+	// The name of the API. Must be less than or equal to 128 characters in length.
 	Name pulumi.StringPtrInput
 	// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
 	ProtocolType pulumi.StringInput
@@ -308,7 +308,7 @@ type ApiArgs struct {
 	// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
 	// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
 	Target pulumi.StringPtrInput
-	// A version identifier for the API.
+	// A version identifier for the API. Must be between 1 and 64 characters in length.
 	Version pulumi.StringPtrInput
 }
 

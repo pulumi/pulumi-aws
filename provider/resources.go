@@ -103,6 +103,7 @@ const (
 	glueMod                   = "Glue"                  // Glue
 	guarddutyMod              = "GuardDuty"             // Guard Duty
 	iamMod                    = "Iam"                   // Identity and Access Management (IAM)
+	imageBuilderMod           = "ImageBuilder"          // ImageBuilder
 	inspectorMod              = "Inspector"             // Inspector
 	iotMod                    = "Iot"                   // Internet of Things (IoT)
 	kinesisMod                = "Kinesis"               // Kinesis
@@ -119,6 +120,7 @@ const (
 	mqMod                     = "Mq"                    // MQ
 	mskMod                    = "Msk"                   // MSK
 	neptuneMod                = "Neptune"               // Neptune
+	networkFirewallMod        = "NetworkFirewall"       // Network Firewall
 	opsworksMod               = "OpsWorks"              // OpsWorks
 	organizationsMod          = "Organizations"         // Organizations
 	outpostsMod               = "Outposts"              // Outposts
@@ -491,8 +493,9 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_api_gateway_usage_plan":     {Tok: awsResource(apigatewayMod, "UsagePlan")},
-			"aws_api_gateway_usage_plan_key": {Tok: awsResource(apigatewayMod, "UsagePlanKey")},
+			"aws_api_gateway_usage_plan":      {Tok: awsResource(apigatewayMod, "UsagePlan")},
+			"aws_api_gateway_usage_plan_key":  {Tok: awsResource(apigatewayMod, "UsagePlanKey")},
+			"aws_api_gateway_rest_api_policy": {Tok: awsResource(apigatewayMod, "RestApiPolicy")},
 			"aws_api_gateway_vpc_link": {
 				Tok: awsResource(apigatewayMod, "VpcLink"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -593,6 +596,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_backup_selection":           {Tok: awsResource(backupMod, "Selection")},
 			"aws_backup_vault":               {Tok: awsResource(backupMod, "Vault")},
 			"aws_backup_vault_notifications": {Tok: awsResource(backupMod, "VaultNotifications")},
+			"aws_backup_vault_policy":        {Tok: awsResource(backupMod, "VaultPolicy")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
@@ -1347,6 +1351,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_ml_transform":    {Tok: awsResource(glueMod, "MLTransform")},
 			"aws_glue_partition":       {Tok: awsResource(glueMod, "Partition")},
 			"aws_glue_resource_policy": {Tok: awsResource(glueMod, "ResourcePolicy")},
+			"aws_glue_dev_endpoint":    {Tok: awsResource(glueMod, "DevEndpoint")},
 			// GuardDuty
 			"aws_guardduty_detector":                   {Tok: awsResource(guarddutyMod, "Detector")},
 			"aws_guardduty_invite_accepter":            {Tok: awsResource(guarddutyMod, "InviteAccepter")},
@@ -2291,6 +2296,42 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_codeartifact_domain_permissions_policy": {Tok: awsResource(codeartifactMod, "DomainPermissions")},
 			"aws_codeartifact_repository_permissions_policy": {
 				Tok: awsResource(codeartifactMod, "RepositoryPermissionsPolicy"),
+			},
+
+			// Imagebuilder
+			"aws_imagebuilder_component": {Tok: awsResource(imageBuilderMod, "Component")},
+			"aws_imagebuilder_distribution_configuration": {
+				Tok: awsResource(imageBuilderMod, "DistributionConfiguration"),
+			},
+			"aws_imagebuilder_infrastructure_configuration": {
+				Tok: awsResource(imageBuilderMod, "InfrastructureConfiguration"),
+			},
+
+			// Network firewall
+			"aws_networkfirewall_firewall": {Tok: awsResource(networkFirewallMod, "Firewall")},
+			"aws_networkfirewall_firewall_policy": {
+				Tok: awsResource(networkFirewallMod, "FirewallPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"firewall_policy": {
+						CSharpName: "FirewallPolicyConfiguration",
+					},
+				},
+			},
+			"aws_networkfirewall_logging_configuration": {
+				Tok: awsResource(networkFirewallMod, "LoggingConfiguration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"logging_configuration": {
+						CSharpName: "LoggingConfig",
+					},
+				},
+			},
+			"aws_networkfirewall_rule_group": {
+				Tok: awsResource(networkFirewallMod, "RuleGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"rule_group": {
+						CSharpName: "RuleGroupConfiguration",
+					},
+				},
 			},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
@@ -3429,6 +3470,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_codeartifact_authorization_token": {Tok: awsDataSource(codeartifactMod, "getAuthorizationToken")},
 			"aws_codeartifact_repository_endpoint": {Tok: awsDataSource(codeartifactMod, "getRepositoryEndpoint")},
 			"aws_sagemaker_prebuilt_ecr_image":     {Tok: awsDataSource(sagemakerMod, "getPrebuiltEcrImage")},
+			"aws_imagebuilder_component":           {Tok: awsDataSource(imageBuilderMod, "getComponent")},
+			"aws_imagebuilder_distribution_configuration": {
+				Tok: awsDataSource(imageBuilderMod, "getDistributionConfiguration"),
+			},
+			"aws_imagebuilder_infrastructure_configuration": {
+				Tok: awsDataSource(imageBuilderMod, "getInfrastructureConfiguration"),
+			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

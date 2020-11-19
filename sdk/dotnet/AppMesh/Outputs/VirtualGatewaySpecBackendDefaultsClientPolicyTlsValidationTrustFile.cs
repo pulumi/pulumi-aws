@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile
     {
         /// <summary>
-        /// The certificate chain for the certificate.
+        /// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string CertificateChain;
 

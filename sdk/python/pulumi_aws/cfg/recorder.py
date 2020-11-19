@@ -63,9 +63,7 @@ class Recorder(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[pulumi.InputType['RecorderRecordingGroupArgs']] recording_group: Recording group - see below.
-        :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role.
-               used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
-               See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+        :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,9 +109,7 @@ class Recorder(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[pulumi.InputType['RecorderRecordingGroupArgs']] recording_group: Recording group - see below.
-        :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role.
-               used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
-               See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+        :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -144,9 +140,7 @@ class Recorder(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        Amazon Resource Name (ARN) of the IAM role.
-        used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
-        See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+        Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
         return pulumi.get(self, "role_arn")
 

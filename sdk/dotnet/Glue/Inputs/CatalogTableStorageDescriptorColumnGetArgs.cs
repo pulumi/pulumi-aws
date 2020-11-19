@@ -24,6 +24,18 @@ namespace Pulumi.Aws.Glue.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("parameters")]
+        private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// A map of initialization parameters for the SerDe, in key-value form.
+        /// </summary>
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
+
         /// <summary>
         /// The datatype of data in the Column.
         /// </summary>

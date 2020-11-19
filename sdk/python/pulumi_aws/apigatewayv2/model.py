@@ -58,10 +58,10 @@ class Model(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.
-        :param pulumi.Input[str] content_type: The content-type for the model, for example, `application/json`.
-        :param pulumi.Input[str] description: The description of the model.
-        :param pulumi.Input[str] name: The name of the model. Must be alphanumeric.
-        :param pulumi.Input[str] schema: The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model.
+        :param pulumi.Input[str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+        :param pulumi.Input[str] description: The description of the model. Must be between 1 and 128 characters in length.
+        :param pulumi.Input[str] name: The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+        :param pulumi.Input[str] schema: The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -114,10 +114,10 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.
-        :param pulumi.Input[str] content_type: The content-type for the model, for example, `application/json`.
-        :param pulumi.Input[str] description: The description of the model.
-        :param pulumi.Input[str] name: The name of the model. Must be alphanumeric.
-        :param pulumi.Input[str] schema: The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model.
+        :param pulumi.Input[str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+        :param pulumi.Input[str] description: The description of the model. Must be between 1 and 128 characters in length.
+        :param pulumi.Input[str] name: The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+        :param pulumi.Input[str] schema: The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -142,7 +142,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[str]:
         """
-        The content-type for the model, for example, `application/json`.
+        The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         """
         return pulumi.get(self, "content_type")
 
@@ -150,7 +150,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the model.
+        The description of the model. Must be between 1 and 128 characters in length.
         """
         return pulumi.get(self, "description")
 
@@ -158,7 +158,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the model. Must be alphanumeric.
+        The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -166,7 +166,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
         """
-        The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model.
+        The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
         """
         return pulumi.get(self, "schema")
 

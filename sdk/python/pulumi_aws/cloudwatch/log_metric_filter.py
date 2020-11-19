@@ -55,8 +55,7 @@ class LogMetricFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_group_name: The name of the log group to associate the metric filter with.
-        :param pulumi.Input[pulumi.InputType['LogMetricFilterMetricTransformationArgs']] metric_transformation: A block defining collection of information
-               needed to define how metric data gets emitted. See below.
+        :param pulumi.Input[pulumi.InputType['LogMetricFilterMetricTransformationArgs']] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
         :param pulumi.Input[str] name: A name for the metric filter.
         :param pulumi.Input[str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.
@@ -110,8 +109,7 @@ class LogMetricFilter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_group_name: The name of the log group to associate the metric filter with.
-        :param pulumi.Input[pulumi.InputType['LogMetricFilterMetricTransformationArgs']] metric_transformation: A block defining collection of information
-               needed to define how metric data gets emitted. See below.
+        :param pulumi.Input[pulumi.InputType['LogMetricFilterMetricTransformationArgs']] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
         :param pulumi.Input[str] name: A name for the metric filter.
         :param pulumi.Input[str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.
@@ -138,8 +136,7 @@ class LogMetricFilter(pulumi.CustomResource):
     @pulumi.getter(name="metricTransformation")
     def metric_transformation(self) -> pulumi.Output['outputs.LogMetricFilterMetricTransformation']:
         """
-        A block defining collection of information
-        needed to define how metric data gets emitted. See below.
+        A block defining collection of information needed to define how metric data gets emitted. See below.
         """
         return pulumi.get(self, "metric_transformation")
 

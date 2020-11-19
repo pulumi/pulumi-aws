@@ -91,11 +91,11 @@ type VirtualService struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The last update date of the virtual service.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the virtual service.
+	// The name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringOutput `pulumi:"meshName"`
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
-	// The name to use for the virtual service.
+	// The name to use for the virtual service. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
@@ -145,11 +145,11 @@ type virtualServiceState struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// The last update date of the virtual service.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the virtual service.
+	// The name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
 	MeshName *string `pulumi:"meshName"`
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the virtual service.
+	// The name to use for the virtual service. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
 	// The resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
@@ -166,11 +166,11 @@ type VirtualServiceState struct {
 	CreatedDate pulumi.StringPtrInput
 	// The last update date of the virtual service.
 	LastUpdatedDate pulumi.StringPtrInput
-	// The name of the service mesh in which to create the virtual service.
+	// The name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringPtrInput
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the virtual service.
+	// The name to use for the virtual service. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
 	// The resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
@@ -185,11 +185,11 @@ func (VirtualServiceState) ElementType() reflect.Type {
 }
 
 type virtualServiceArgs struct {
-	// The name of the service mesh in which to create the virtual service.
+	// The name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
 	MeshName string `pulumi:"meshName"`
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the virtual service.
+	// The name to use for the virtual service. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
 	// The virtual service specification to apply.
 	Spec VirtualServiceSpec `pulumi:"spec"`
@@ -199,11 +199,11 @@ type virtualServiceArgs struct {
 
 // The set of arguments for constructing a VirtualService resource.
 type VirtualServiceArgs struct {
-	// The name of the service mesh in which to create the virtual service.
+	// The name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringInput
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the virtual service.
+	// The name to use for the virtual service. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
 	// The virtual service specification to apply.
 	Spec VirtualServiceSpecInput

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.VirtualNodeSpecBackendVirtualServiceClientPolicy? ClientPolicy;
         /// <summary>
-        /// The name of the virtual service that is acting as a virtual node backend.
+        /// The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string VirtualServiceName;
 

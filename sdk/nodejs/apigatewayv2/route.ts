@@ -85,7 +85,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly modelSelectionExpression!: pulumi.Output<string | undefined>;
     /**
-     * The operation name for the route.
+     * The operation name for the route. Must be between 1 and 64 characters in length.
      */
     public readonly operationName!: pulumi.Output<string | undefined>;
     /**
@@ -101,7 +101,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly routeResponseSelectionExpression!: pulumi.Output<string | undefined>;
     /**
-     * The target for the route.
+     * The target for the route. Must be between 1 and 128 characters in length.
      */
     public readonly target!: pulumi.Output<string | undefined>;
 
@@ -191,7 +191,7 @@ export interface RouteState {
      */
     readonly modelSelectionExpression?: pulumi.Input<string>;
     /**
-     * The operation name for the route.
+     * The operation name for the route. Must be between 1 and 64 characters in length.
      */
     readonly operationName?: pulumi.Input<string>;
     /**
@@ -207,7 +207,7 @@ export interface RouteState {
      */
     readonly routeResponseSelectionExpression?: pulumi.Input<string>;
     /**
-     * The target for the route.
+     * The target for the route. Must be between 1 and 128 characters in length.
      */
     readonly target?: pulumi.Input<string>;
 }
@@ -244,7 +244,7 @@ export interface RouteArgs {
      */
     readonly modelSelectionExpression?: pulumi.Input<string>;
     /**
-     * The operation name for the route.
+     * The operation name for the route. Must be between 1 and 64 characters in length.
      */
     readonly operationName?: pulumi.Input<string>;
     /**
@@ -260,7 +260,7 @@ export interface RouteArgs {
      */
     readonly routeResponseSelectionExpression?: pulumi.Input<string>;
     /**
-     * The target for the route.
+     * The target for the route. Must be between 1 and 128 characters in length.
      */
     readonly target?: pulumi.Input<string>;
 }

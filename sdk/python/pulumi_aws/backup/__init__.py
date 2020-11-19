@@ -10,5 +10,6 @@ from .plan import *
 from .selection import *
 from .vault import *
 from .vault_notifications import *
+from .vault_policy import *
 from ._inputs import *
 from . import outputs

@@ -188,6 +188,7 @@ export interface ProviderEndpoint {
     mediastoredata?: pulumi.Input<string>;
     mq?: pulumi.Input<string>;
     neptune?: pulumi.Input<string>;
+    networkfirewall?: pulumi.Input<string>;
     networkmanager?: pulumi.Input<string>;
     opsworks?: pulumi.Input<string>;
     organizations?: pulumi.Input<string>;
@@ -1288,7 +1289,7 @@ export namespace appautoscaling {
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension {
         /**
-         * The name of the policy.
+         * The name of the policy. Must be between 1 and 255 characters in length.
          */
         name: pulumi.Input<string>;
         /**
@@ -1303,7 +1304,7 @@ export namespace appautoscaling {
          */
         predefinedMetricType: pulumi.Input<string>;
         /**
-         * Reserved for future use.
+         * Reserved for future use. Must be less than or equal to 1023 characters in length.
          */
         resourceLabel?: pulumi.Input<string>;
     }
@@ -1899,7 +1900,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecGrpcRouteActionTargetVirtualService {
         /**
-         * The name of the virtual service that traffic is routed to.
+         * The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
          */
         virtualServiceName: pulumi.Input<string>;
     }
@@ -1938,7 +1939,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteActionTargetVirtualService {
         /**
-         * The name of the virtual service that traffic is routed to.
+         * The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
          */
         virtualServiceName: pulumi.Input<string>;
     }
@@ -1977,7 +1978,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteActionTargetVirtualService {
         /**
-         * The name of the virtual service that traffic is routed to.
+         * The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
          */
         virtualServiceName: pulumi.Input<string>;
     }
@@ -2057,7 +2058,7 @@ export namespace appmesh {
 
     export interface RouteSpecGrpcRouteActionWeightedTarget {
         /**
-         * The virtual node to associate with the weighted target.
+         * The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
          */
         virtualNode: pulumi.Input<string>;
         /**
@@ -2076,7 +2077,7 @@ export namespace appmesh {
          */
         methodName?: pulumi.Input<string>;
         /**
-         * The value sent by the client must begin with the specified characters.
+         * The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          */
         prefix?: pulumi.Input<string>;
@@ -2096,18 +2097,18 @@ export namespace appmesh {
          */
         match?: pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteMatchMetadataMatch>;
         /**
-         * The name of the route.
+         * The name of the route. Must be between 1 and 50 characters in length.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RouteSpecGrpcRouteMatchMetadataMatch {
         /**
-         * The value sent by the client must match the specified value exactly.
+         * The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
          */
         exact?: pulumi.Input<string>;
         /**
-         * The value sent by the client must begin with the specified characters.
+         * The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          */
         prefix?: pulumi.Input<string>;
@@ -2116,11 +2117,11 @@ export namespace appmesh {
          */
         range?: pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteMatchMetadataMatchRange>;
         /**
-         * The value sent by the client must include the specified characters.
+         * The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
          */
         regex?: pulumi.Input<string>;
         /**
-         * The value sent by the client must end with the specified characters.
+         * The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
          */
         suffix?: pulumi.Input<string>;
     }
@@ -2235,7 +2236,7 @@ export namespace appmesh {
 
     export interface RouteSpecHttp2RouteActionWeightedTarget {
         /**
-         * The virtual node to associate with the weighted target.
+         * The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
          */
         virtualNode: pulumi.Input<string>;
         /**
@@ -2254,7 +2255,7 @@ export namespace appmesh {
          */
         method?: pulumi.Input<string>;
         /**
-         * The value sent by the client must begin with the specified characters.
+         * The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          */
         prefix: pulumi.Input<string>;
@@ -2281,11 +2282,11 @@ export namespace appmesh {
 
     export interface RouteSpecHttp2RouteMatchHeaderMatch {
         /**
-         * The value sent by the client must match the specified value exactly.
+         * The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
          */
         exact?: pulumi.Input<string>;
         /**
-         * The value sent by the client must begin with the specified characters.
+         * The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          */
         prefix?: pulumi.Input<string>;
@@ -2294,11 +2295,11 @@ export namespace appmesh {
          */
         range?: pulumi.Input<inputs.appmesh.RouteSpecHttp2RouteMatchHeaderMatchRange>;
         /**
-         * The value sent by the client must include the specified characters.
+         * The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
          */
         regex?: pulumi.Input<string>;
         /**
-         * The value sent by the client must end with the specified characters.
+         * The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
          */
         suffix?: pulumi.Input<string>;
     }
@@ -2408,7 +2409,7 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteActionWeightedTarget {
         /**
-         * The virtual node to associate with the weighted target.
+         * The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
          */
         virtualNode: pulumi.Input<string>;
         /**
@@ -2427,7 +2428,7 @@ export namespace appmesh {
          */
         method?: pulumi.Input<string>;
         /**
-         * The value sent by the client must begin with the specified characters.
+         * The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          */
         prefix: pulumi.Input<string>;
@@ -2454,11 +2455,11 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteMatchHeaderMatch {
         /**
-         * The value sent by the client must match the specified value exactly.
+         * The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
          */
         exact?: pulumi.Input<string>;
         /**
-         * The value sent by the client must begin with the specified characters.
+         * The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          */
         prefix?: pulumi.Input<string>;
@@ -2467,11 +2468,11 @@ export namespace appmesh {
          */
         range?: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteMatchHeaderMatchRange>;
         /**
-         * The value sent by the client must include the specified characters.
+         * The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
          */
         regex?: pulumi.Input<string>;
         /**
-         * The value sent by the client must end with the specified characters.
+         * The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
          */
         suffix?: pulumi.Input<string>;
     }
@@ -2573,7 +2574,7 @@ export namespace appmesh {
 
     export interface RouteSpecTcpRouteActionWeightedTarget {
         /**
-         * The virtual node to associate with the weighted target.
+         * The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
          */
         virtualNode: pulumi.Input<string>;
         /**
@@ -2668,7 +2669,7 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile {
         /**
-         * The certificate chain for the certificate.
+         * The certificate chain for the certificate. Must be between 1 and 255 characters in length.
          */
         certificateChain: pulumi.Input<string>;
     }
@@ -2761,11 +2762,11 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecListenerTlsCertificateFile {
         /**
-         * The certificate chain for the certificate.
+         * The certificate chain for the certificate. Must be between 1 and 255 characters in length.
          */
         certificateChain: pulumi.Input<string>;
         /**
-         * The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+         * The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
          */
         privateKey: pulumi.Input<string>;
     }
@@ -2786,7 +2787,7 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecLoggingAccessLogFile {
         /**
-         * The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+         * The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
          */
         path: pulumi.Input<string>;
     }
@@ -2874,7 +2875,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
         /**
-         * The certificate chain for the certificate.
+         * The certificate chain for the certificate. Must be between 1 and 255 characters in length.
          */
         certificateChain: pulumi.Input<string>;
     }
@@ -2885,7 +2886,7 @@ export namespace appmesh {
          */
         clientPolicy?: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicy>;
         /**
-         * The name of the virtual service that is acting as a virtual node backend.
+         * The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
          */
         virtualServiceName: pulumi.Input<string>;
     }
@@ -2936,7 +2937,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
         /**
-         * The certificate chain for the certificate.
+         * The certificate chain for the certificate. Must be between 1 and 255 characters in length.
          */
         certificateChain: pulumi.Input<string>;
     }
@@ -3169,11 +3170,11 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecListenerTlsCertificateFile {
         /**
-         * The certificate chain for the certificate.
+         * The certificate chain for the certificate. Must be between 1 and 255 characters in length.
          */
         certificateChain: pulumi.Input<string>;
         /**
-         * The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+         * The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
          */
         privateKey: pulumi.Input<string>;
     }
@@ -3194,7 +3195,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecLoggingAccessLogFile {
         /**
-         * The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+         * The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
          */
         path: pulumi.Input<string>;
     }
@@ -3217,11 +3218,11 @@ export namespace appmesh {
         attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * The name of the AWS Cloud Map namespace to use.
-         * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
+         * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
          */
         namespaceName: pulumi.Input<string>;
         /**
-         * The name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service.
+         * The name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
          */
         serviceName: pulumi.Input<string>;
     }
@@ -3279,14 +3280,14 @@ export namespace appmesh {
 
     export interface VirtualServiceSpecProviderVirtualNode {
         /**
-         * The name of the virtual node that is acting as a service provider.
+         * The name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
          */
         virtualNodeName: pulumi.Input<string>;
     }
 
     export interface VirtualServiceSpecProviderVirtualRouter {
         /**
-         * The name of the virtual router that is acting as a service provider.
+         * The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
          */
         virtualRouterName: pulumi.Input<string>;
     }
@@ -4205,29 +4206,22 @@ export namespace cfg {
 
     export interface DeliveryChannelSnapshotDeliveryProperties {
         /**
-         * - The frequency with which AWS Config recurringly delivers configuration snapshots.
-         * e.g. `One_Hour` or `Three_Hours`.
-         * Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+         * - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
          */
         deliveryFrequency?: pulumi.Input<string>;
     }
 
     export interface RecorderRecordingGroup {
         /**
-         * Specifies whether AWS Config records configuration changes
-         * for every supported type of regional resource (which includes any new type that will become supported in the future).
-         * Conflicts with `resourceTypes`. Defaults to `true`.
+         * Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
          */
         allSupported?: pulumi.Input<boolean>;
         /**
-         * Specifies whether AWS Config includes all supported types of *global resources*
-         * with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+         * Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
          */
         includeGlobalResourceTypes?: pulumi.Input<boolean>;
         /**
-         * A list that specifies the types of AWS resources for which
-         * AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
-         * See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+         * A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
          */
         resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -4249,19 +4243,15 @@ export namespace cfg {
 
     export interface RuleScope {
         /**
-         * The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
-         * If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
+         * The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
          */
         complianceResourceId?: pulumi.Input<string>;
         /**
-         * A list of resource types of only those AWS resources that you want to trigger an
-         * evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
-         * a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+         * A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
          */
         complianceResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The tag key that is applied to only those AWS resources that you want you
-         * want to trigger an evaluation for the rule.
+         * The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
          */
         tagKey?: pulumi.Input<string>;
         /**
@@ -4287,13 +4277,11 @@ export namespace cfg {
 
     export interface RuleSourceSourceDetail {
         /**
-         * The source of the event, such as an AWS service, that triggers AWS Config
-         * to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+         * The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
          */
         eventSource?: pulumi.Input<string>;
         /**
-         * The frequency that you want AWS Config to run evaluations for a rule that
-         * is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+         * The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
          */
         maximumExecutionFrequency?: pulumi.Input<string>;
         /**
@@ -10084,8 +10072,7 @@ export namespace elasticsearch {
          */
         ebsEnabled: pulumi.Input<boolean>;
         /**
-         * The baseline input/output (I/O) performance of EBS volumes
-         * attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+         * The baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
          */
         iops?: pulumi.Input<number>;
         /**
@@ -10134,8 +10121,7 @@ export namespace elasticsearch {
 
     export interface DomainSnapshotOptions {
         /**
-         * Hour during which the service takes an automated daily
-         * snapshot of the indices in the domain.
+         * Hour during which the service takes an automated daily snapshot of the indices in the domain.
          */
         automatedSnapshotStartHour: pulumi.Input<number>;
     }
@@ -11263,6 +11249,17 @@ export namespace globalaccelerator {
         weight?: pulumi.Input<number>;
     }
 
+    export interface EndpointGroupPortOverride {
+        /**
+         * The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+         */
+        endpointPort: pulumi.Input<number>;
+        /**
+         * The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
+         */
+        listenerPort: pulumi.Input<number>;
+    }
+
     export interface ListenerPortRange {
         /**
          * The first port in the range of ports, inclusive.
@@ -11351,6 +11348,10 @@ export namespace glue {
          * Name of the SerDe.
          */
         name: pulumi.Input<string>;
+        /**
+         * A map of initialization parameters for the SerDe, in key-value form.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * The datatype of data in the Column.
          */
@@ -12088,6 +12089,79 @@ export namespace iam {
          * The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
          */
         type: string;
+    }
+}
+
+export namespace imagebuilder {
+    export interface DistributionConfigurationDistribution {
+        /**
+         * Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+         */
+        amiDistributionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfiguration>;
+        /**
+         * Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+         */
+        licenseConfigurationArns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * AWS Region for the distribution.
+         */
+        region: pulumi.Input<string>;
+    }
+
+    export interface DistributionConfigurationDistributionAmiDistributionConfiguration {
+        /**
+         * Key-value map of tags to apply to the distributed AMI.
+         */
+        amiTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Description to apply to the distributed AMI.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
+         */
+        launchPermission?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission>;
+        /**
+         * Name to apply to the distributed AMI.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Set of AWS Account identifiers to distribute the AMI.
+         */
+        targetAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
+        /**
+         * Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
+         */
+        userGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Set of AWS Account identifiers to assign.
+         */
+        userIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface InfrastructureConfigurationLogging {
+        /**
+         * Configuration block with S3 logging settings. Detailed below.
+         */
+        s3Logs: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLoggingS3Logs>;
+    }
+
+    export interface InfrastructureConfigurationLoggingS3Logs {
+        /**
+         * Name of the S3 Bucket.
+         */
+        s3BucketName: pulumi.Input<string>;
+        /**
+         * Prefix to use for S3 logs. Defaults to `/`.
+         */
+        s3KeyPrefix?: pulumi.Input<string>;
     }
 }
 
@@ -15802,6 +15876,403 @@ export namespace neptune {
     }
 }
 
+export namespace networkfirewall {
+    export interface FirewallPolicyFirewallPolicy {
+        /**
+         * Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
+         */
+        statefulRuleGroupReferences?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyStatefulRuleGroupReference>[]>;
+        /**
+         * Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `statelessDefaultActions`. See Stateless Custom Action below for details.
+         */
+        statelessCustomActions?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomAction>[]>;
+        /**
+         * Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+         * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+         */
+        statelessDefaultActions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+         * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+         */
+        statelessFragmentDefaultActions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
+         */
+        statelessRuleGroupReferences?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReference>[]>;
+    }
+
+    export interface FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
+        /**
+         * The Amazon Resource Name (ARN) of the stateful rule group.
+         */
+        resourceArn: pulumi.Input<string>;
+    }
+
+    export interface FirewallPolicyFirewallPolicyStatelessCustomAction {
+        /**
+         * A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
+         */
+        actionDefinition: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition>;
+        /**
+         * A friendly name of the custom action.
+         */
+        actionName: pulumi.Input<string>;
+    }
+
+    export interface FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition {
+        /**
+         * A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
+         */
+        publishMetricAction: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction>;
+    }
+
+    export interface FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction {
+        /**
+         * Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
+         */
+        dimensions: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension>[]>;
+    }
+
+    export interface FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension {
+        /**
+         * The string value to use in the custom metric dimension.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface FirewallPolicyFirewallPolicyStatelessRuleGroupReference {
+        /**
+         * An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The Amazon Resource Name (ARN) of the stateless rule group.
+         */
+        resourceArn: pulumi.Input<string>;
+    }
+
+    export interface FirewallSubnetMapping {
+        /**
+         * The unique identifier for the subnet.
+         */
+        subnetId: pulumi.Input<string>;
+    }
+
+    export interface LoggingConfigurationLoggingConfiguration {
+        /**
+         * Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+         */
+        logDestinationConfigs: pulumi.Input<pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfig>[]>;
+    }
+
+    export interface LoggingConfigurationLoggingConfigurationLogDestinationConfig {
+        /**
+         * A map describing the logging destination for the chosen `logDestinationType`.
+         * * For an Amazon S3 bucket, specify the key `bucketName` with the URL of the bucket and optionally specify the key `prefix` with a path.
+         * * For a CloudWatch log group, specify the key `logGroup` with the Amazon Resource Name (ARN) of the CloudWatch log group.
+         * * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the Amazon Resource Name (ARN) of the delivery stream.
+         */
+        logDestination: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
+         */
+        logDestinationType: pulumi.Input<string>;
+        /**
+         * The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
+         */
+        logType: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleGroup {
+        /**
+         * A configuration block that defines additional settings available to use in the rules defined in the rule group. See Rule Variables below for details.
+         */
+        ruleVariables?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRuleVariables>;
+        /**
+         * A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
+         */
+        rulesSource: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSource>;
+    }
+
+    export interface RuleGroupRuleGroupRuleVariables {
+        /**
+         * Set of configuration blocks that define IP address information. See IP Sets below for details.
+         */
+        ipSets?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSet>[]>;
+        /**
+         * Set of configuration blocks that define port range information. See Port Sets below for details.
+         */
+        portSets?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSet>[]>;
+    }
+
+    export interface RuleGroupRuleGroupRuleVariablesIpSet {
+        /**
+         * A configuration block that defines a set of IP addresses. See IP Set below for details.
+         */
+        ipSet: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSet>;
+        /**
+         * A unique alphanumeric string to identify the `ipSet`.
+         */
+        key: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleGroupRuleVariablesIpSetIpSet {
+        /**
+         * Set of IP addresses and address ranges, in CIDR notation.
+         */
+        definitions: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleGroupRuleVariablesPortSet {
+        /**
+         * An unique alphanumeric string to identify the `portSet`.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A configuration block that defines a set of port ranges. See Port Set below for details.
+         */
+        portSet: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSet>;
+    }
+
+    export interface RuleGroupRuleGroupRuleVariablesPortSetPortSet {
+        /**
+         * Set of port ranges.
+         */
+        definitions: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSource {
+        /**
+         * A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
+         */
+        rulesSourceList?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceList>;
+        /**
+         * The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+         */
+        rulesString?: pulumi.Input<string>;
+        /**
+         * Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
+         */
+        statefulRules?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRule>[]>;
+        /**
+         * A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
+         */
+        statelessRulesAndCustomActions?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceRulesSourceList {
+        /**
+         * String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+         */
+        generatedRulesType: pulumi.Input<string>;
+        /**
+         * Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+         */
+        targetTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Set of domains that you want to inspect for in your traffic flows.
+         */
+        targets: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatefulRule {
+        /**
+         * Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
+         */
+        header: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleHeader>;
+        /**
+         * Set of configuration blocks containing additional settings for a stateful rule. See Rule Option below for details.
+         */
+        ruleOptions: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption>[]>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatefulRuleHeader {
+        /**
+         * The destination IP address or address range to inspect for, in CIDR notation. If left empty, this matches with any destination address.
+         */
+        destination?: pulumi.Input<string>;
+        /**
+         * The destination port to inspect for. If left empty, this matches with any port.
+         */
+        destinationPort?: pulumi.Input<string>;
+        /**
+         * The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
+         */
+        direction: pulumi.Input<string>;
+        /**
+         * The protocol to inspect. If not specified, this matches with any protocol.
+         * Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
+         */
+        protocol?: pulumi.Input<string>;
+        /**
+         * The source IP address or address range for, in CIDR notation. If left empty, this matches with any source address.
+         */
+        source?: pulumi.Input<string>;
+        /**
+         * The source port to inspect for. If left empty, this matches with any port.
+         */
+        sourcePort?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption {
+        /**
+         * Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
+         * See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
+         */
+        keyword: pulumi.Input<string>;
+        /**
+         * Set of strings for additional settings to use in stateful rule inspection.
+         */
+        settings?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions {
+        /**
+         * Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
+         */
+        customActions?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction>[]>;
+        /**
+         * Set of configuration blocks containing the stateless rules for use in the stateless rule group. See Stateless Rule below for details.
+         */
+        statelessRules: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule>[]>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction {
+        /**
+         * A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
+         */
+        actionDefinition: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition>;
+        /**
+         * A friendly name of the custom action.
+         */
+        actionName: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition {
+        /**
+         * A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
+         */
+        publishMetricAction: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction {
+        /**
+         * Set of configuration blocks containing the dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for details.
+         */
+        dimensions: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension>[]>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension {
+        /**
+         * The value to use in the custom metric dimension.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule {
+        /**
+         * A setting that indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. AWS Network Firewall evaluates the rules in a rule group starting with the lowest priority setting.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * A configuration block defining the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria. See Rule Definition below for details.
+         */
+        ruleDefinition: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition {
+        /**
+         * Set of actions to take on a packet that matches one of the stateless rule definition's `matchAttributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A configuration block containing criteria for AWS Network Firewall to use to inspect an individual packet in stateless rule inspection. See Match Attributes below for details.
+         */
+        matchAttributes: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes {
+        /**
+         * Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Port below for details.
+         */
+        destinationPorts?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort>[]>;
+        /**
+         * Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
+         */
+        destinations?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination>[]>;
+        /**
+         * Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA).
+         */
+        protocols?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
+         */
+        sourcePorts?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort>[]>;
+        /**
+         * Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
+         */
+        sources?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource>[]>;
+        /**
+         * Set of configuration blocks containing the TCP flags and masks to inspect for. If not specified, this matches with any settings.
+         */
+        tcpFlags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag>[]>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination {
+        /**
+         * An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+         */
+        addressDefinition?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort {
+        /**
+         * The lower limit of the port range. This must be less than or equal to the `toPort`.
+         */
+        fromPort: pulumi.Input<number>;
+        /**
+         * The upper limit of the port range. This must be greater than or equal to the `fromPort`.
+         */
+        toPort?: pulumi.Input<number>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource {
+        /**
+         * An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+         */
+        addressDefinition?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort {
+        /**
+         * The lower limit of the port range. This must be less than or equal to the `toPort`.
+         */
+        fromPort: pulumi.Input<number>;
+        /**
+         * The upper limit of the port range. This must be greater than or equal to the `fromPort`.
+         */
+        toPort?: pulumi.Input<number>;
+    }
+
+    export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag {
+        /**
+         * Set of flags to look for in a packet. AWS Network Firewall checks only the part of the packet specified in `masks`.
+         * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
+         */
+        flags: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Set of values describing the part of the packet that you want to check for the flags. To inspect the entire packet, leave this empty.
+         * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
+         */
+        masks?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+}
+
 export namespace opsworks {
     export interface ApplicationAppSource {
         /**
@@ -18196,8 +18667,7 @@ export namespace waf {
          */
         type: pulumi.Input<string>;
         /**
-         * An IPv4 or IPv6 address specified via CIDR notation.
-         * e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
+         * An IPv4 or IPv6 address specified via CIDR notation. e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
          */
         value: pulumi.Input<string>;
     }

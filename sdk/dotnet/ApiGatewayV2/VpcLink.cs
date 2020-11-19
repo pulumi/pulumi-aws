@@ -59,7 +59,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the VPC Link.
+        /// The name of the VPC Link. Must be between 1 and 128 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class VpcLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the VPC Link.
+        /// The name of the VPC Link. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the VPC Link.
+        /// The name of the VPC Link. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

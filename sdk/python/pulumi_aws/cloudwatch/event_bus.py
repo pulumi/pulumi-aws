@@ -44,9 +44,7 @@ class EventBus(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the new event bus.
-               The names of custom event buses can't contain the / character.
-               Please note that a partner event bus is not supported at the moment.
+        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -90,9 +88,7 @@ class EventBus(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the event bus.
-        :param pulumi.Input[str] name: The name of the new event bus.
-               The names of custom event buses can't contain the / character.
-               Please note that a partner event bus is not supported at the moment.
+        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -116,9 +112,7 @@ class EventBus(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the new event bus.
-        The names of custom event buses can't contain the / character.
-        Please note that a partner event bus is not supported at the moment.
+        The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
         """
         return pulumi.get(self, "name")
 

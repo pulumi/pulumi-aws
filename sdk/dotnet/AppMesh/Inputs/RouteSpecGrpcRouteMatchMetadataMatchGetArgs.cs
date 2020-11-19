@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecGrpcRouteMatchMetadataMatchGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The value sent by the client must match the specified value exactly.
+        /// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("exact")]
         public Input<string>? Exact { get; set; }
 
         /// <summary>
-        /// The value sent by the client must begin with the specified characters.
+        /// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
         /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// </summary>
         [Input("prefix")]
@@ -32,13 +32,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.RouteSpecGrpcRouteMatchMetadataMatchRangeGetArgs>? Range { get; set; }
 
         /// <summary>
-        /// The value sent by the client must include the specified characters.
+        /// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("regex")]
         public Input<string>? Regex { get; set; }
 
         /// <summary>
-        /// The value sent by the client must end with the specified characters.
+        /// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("suffix")]
         public Input<string>? Suffix { get; set; }

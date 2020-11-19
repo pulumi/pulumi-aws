@@ -56,12 +56,9 @@ type AccountPasswordPolicy struct {
 
 	// Whether to allow users to change their own password
 	AllowUsersToChangePassword pulumi.BoolPtrOutput `pulumi:"allowUsersToChangePassword"`
-	// Indicates whether passwords in the account expire.
-	// Returns `true` if `maxPasswordAge` contains a value greater than `0`.
-	// Returns `false` if it is `0` or _not present_.
+	// Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
 	ExpirePasswords pulumi.BoolOutput `pulumi:"expirePasswords"`
-	// Whether users are prevented from setting a new password after their password has expired
-	// (i.e. require administrator reset)
+	// Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
 	HardExpiry pulumi.BoolOutput `pulumi:"hardExpiry"`
 	// The number of days that an user password is valid.
 	MaxPasswordAge pulumi.IntOutput `pulumi:"maxPasswordAge"`
@@ -109,12 +106,9 @@ func GetAccountPasswordPolicy(ctx *pulumi.Context,
 type accountPasswordPolicyState struct {
 	// Whether to allow users to change their own password
 	AllowUsersToChangePassword *bool `pulumi:"allowUsersToChangePassword"`
-	// Indicates whether passwords in the account expire.
-	// Returns `true` if `maxPasswordAge` contains a value greater than `0`.
-	// Returns `false` if it is `0` or _not present_.
+	// Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
 	ExpirePasswords *bool `pulumi:"expirePasswords"`
-	// Whether users are prevented from setting a new password after their password has expired
-	// (i.e. require administrator reset)
+	// Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
 	HardExpiry *bool `pulumi:"hardExpiry"`
 	// The number of days that an user password is valid.
 	MaxPasswordAge *int `pulumi:"maxPasswordAge"`
@@ -135,12 +129,9 @@ type accountPasswordPolicyState struct {
 type AccountPasswordPolicyState struct {
 	// Whether to allow users to change their own password
 	AllowUsersToChangePassword pulumi.BoolPtrInput
-	// Indicates whether passwords in the account expire.
-	// Returns `true` if `maxPasswordAge` contains a value greater than `0`.
-	// Returns `false` if it is `0` or _not present_.
+	// Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
 	ExpirePasswords pulumi.BoolPtrInput
-	// Whether users are prevented from setting a new password after their password has expired
-	// (i.e. require administrator reset)
+	// Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
 	HardExpiry pulumi.BoolPtrInput
 	// The number of days that an user password is valid.
 	MaxPasswordAge pulumi.IntPtrInput
@@ -165,8 +156,7 @@ func (AccountPasswordPolicyState) ElementType() reflect.Type {
 type accountPasswordPolicyArgs struct {
 	// Whether to allow users to change their own password
 	AllowUsersToChangePassword *bool `pulumi:"allowUsersToChangePassword"`
-	// Whether users are prevented from setting a new password after their password has expired
-	// (i.e. require administrator reset)
+	// Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
 	HardExpiry *bool `pulumi:"hardExpiry"`
 	// The number of days that an user password is valid.
 	MaxPasswordAge *int `pulumi:"maxPasswordAge"`
@@ -188,8 +178,7 @@ type accountPasswordPolicyArgs struct {
 type AccountPasswordPolicyArgs struct {
 	// Whether to allow users to change their own password
 	AllowUsersToChangePassword pulumi.BoolPtrInput
-	// Whether users are prevented from setting a new password after their password has expired
-	// (i.e. require administrator reset)
+	// Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
 	HardExpiry pulumi.BoolPtrInput
 	// The number of days that an user password is valid.
 	MaxPasswordAge pulumi.IntPtrInput

@@ -102,7 +102,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> CredentialsArn { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the API.
+        /// The description of the API. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> ExecutionArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the API.
+        /// The name of the API. Must be less than or equal to 128 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> Target { get; private set; } = null!;
 
         /// <summary>
-        /// A version identifier for the API.
+        /// A version identifier for the API. Must be between 1 and 64 characters in length.
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? CredentialsArn { get; set; }
 
         /// <summary>
-        /// The description of the API.
+        /// The description of the API. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? DisableExecuteApiEndpoint { get; set; }
 
         /// <summary>
-        /// The name of the API.
+        /// The name of the API. Must be less than or equal to 128 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// A version identifier for the API.
+        /// A version identifier for the API. Must be between 1 and 64 characters in length.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? CredentialsArn { get; set; }
 
         /// <summary>
-        /// The description of the API.
+        /// The description of the API. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -373,7 +373,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ExecutionArn { get; set; }
 
         /// <summary>
-        /// The name of the API.
+        /// The name of the API. Must be less than or equal to 128 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -418,7 +418,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// A version identifier for the API.
+        /// A version identifier for the API. Must be between 1 and 64 characters in length.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

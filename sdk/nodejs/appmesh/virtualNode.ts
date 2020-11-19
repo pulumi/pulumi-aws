@@ -204,7 +204,7 @@ export class VirtualNode extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
-     * The name of the service mesh in which to create the virtual node.
+     * The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
      */
     public readonly meshName!: pulumi.Output<string>;
     /**
@@ -212,7 +212,7 @@ export class VirtualNode extends pulumi.CustomResource {
      */
     public readonly meshOwner!: pulumi.Output<string>;
     /**
-     * The name to use for the virtual node.
+     * The name to use for the virtual node. Must be between 1 and 255 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -295,7 +295,7 @@ export interface VirtualNodeState {
      */
     readonly lastUpdatedDate?: pulumi.Input<string>;
     /**
-     * The name of the service mesh in which to create the virtual node.
+     * The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
      */
     readonly meshName?: pulumi.Input<string>;
     /**
@@ -303,7 +303,7 @@ export interface VirtualNodeState {
      */
     readonly meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the virtual node.
+     * The name to use for the virtual node. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -325,7 +325,7 @@ export interface VirtualNodeState {
  */
 export interface VirtualNodeArgs {
     /**
-     * The name of the service mesh in which to create the virtual node.
+     * The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
      */
     readonly meshName: pulumi.Input<string>;
     /**
@@ -333,7 +333,7 @@ export interface VirtualNodeArgs {
      */
     readonly meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the virtual node.
+     * The name to use for the virtual node. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**

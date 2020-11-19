@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * // ... other configuration, including potentially other tags ...
  * const testGroup = new aws.autoscaling.Group("testGroup", {tags: [{
  *     key: "AmazonECSManaged",
+ *     value: "",
  *     propagateAtLaunch: true,
  * }]});
  * const testCapacityProvider = new aws.ecs.CapacityProvider("testCapacityProvider", {autoScalingGroupProvider: {

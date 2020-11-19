@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Workspaces
     /// <summary>
     /// Provides a WorkSpaces directory in AWS WorkSpaces Service.
     /// 
+    /// &gt; **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -22,21 +24,47 @@ namespace Pulumi.Aws.Workspaces
     /// {
     ///     public MyStack()
     ///     {
+    ///         var workspaces = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         {
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         {
+    ///                             Type = "Service",
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 "workspaces.amazonaws.com",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var workspacesDefault = new Aws.Iam.Role("workspacesDefault", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = workspaces.Apply(workspaces =&gt; workspaces.Json),
+    ///         });
+    ///         var workspacesDefaultServiceAccess = new Aws.Iam.RolePolicyAttachment("workspacesDefaultServiceAccess", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             Role = workspacesDefault.Name,
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess",
+    ///         });
+    ///         var workspacesDefaultSelfServiceAccess = new Aws.Iam.RolePolicyAttachment("workspacesDefaultSelfServiceAccess", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             Role = workspacesDefault.Name,
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess",
+    ///         });
     ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
     ///         {
     ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var exampleA = new Aws.Ec2.Subnet("exampleA", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = exampleVpc.Id,
-    ///             AvailabilityZone = "us-east-1a",
-    ///             CidrBlock = "10.0.0.0/24",
-    ///         });
-    ///         var exampleB = new Aws.Ec2.Subnet("exampleB", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = exampleVpc.Id,
-    ///             AvailabilityZone = "us-east-1b",
-    ///             CidrBlock = "10.0.1.0/24",
     ///         });
     ///         var exampleC = new Aws.Ec2.Subnet("exampleC", new Aws.Ec2.SubnetArgs
     ///         {
@@ -50,24 +78,9 @@ namespace Pulumi.Aws.Workspaces
     ///             AvailabilityZone = "us-east-1d",
     ///             CidrBlock = "10.0.3.0/24",
     ///         });
-    ///         var exampleDirectory = new Aws.DirectoryService.Directory("exampleDirectory", new Aws.DirectoryService.DirectoryArgs
+    ///         var exampleDirectory = new Aws.Workspaces.Directory("exampleDirectory", new Aws.Workspaces.DirectoryArgs
     ///         {
-    ///             Name = "corp.example.com",
-    ///             Password = "#S1ncerely",
-    ///             Size = "Small",
-    ///             VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
-    ///             {
-    ///                 VpcId = exampleVpc.Id,
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     exampleA.Id,
-    ///                     exampleB.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleWorkspaces_directoryDirectory = new Aws.Workspaces.Directory("exampleWorkspaces/directoryDirectory", new Aws.Workspaces.DirectoryArgs
-    ///         {
-    ///             DirectoryId = exampleDirectory.Id,
+    ///             DirectoryId = exampleDirectoryservice / directoryDirectory.Id,
     ///             SubnetIds = 
     ///             {
     ///                 exampleC.Id,
@@ -92,6 +105,40 @@ namespace Pulumi.Aws.Workspaces
     ///                 EnableInternetAccess = true,
     ///                 EnableMaintenanceMode = true,
     ///                 UserEnabledAsLocalAdministrator = true,
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 workspacesDefaultServiceAccess,
+    ///                 workspacesDefaultSelfServiceAccess,
+    ///             },
+    ///         });
+    ///         var exampleA = new Aws.Ec2.Subnet("exampleA", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             VpcId = exampleVpc.Id,
+    ///             AvailabilityZone = "us-east-1a",
+    ///             CidrBlock = "10.0.0.0/24",
+    ///         });
+    ///         var exampleB = new Aws.Ec2.Subnet("exampleB", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             VpcId = exampleVpc.Id,
+    ///             AvailabilityZone = "us-east-1b",
+    ///             CidrBlock = "10.0.1.0/24",
+    ///         });
+    ///         var exampleDirectoryservice_directoryDirectory = new Aws.DirectoryService.Directory("exampleDirectoryservice/directoryDirectory", new Aws.DirectoryService.DirectoryArgs
+    ///         {
+    ///             Name = "corp.example.com",
+    ///             Password = "#S1ncerely",
+    ///             Size = "Small",
+    ///             VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
+    ///             {
+    ///                 VpcId = exampleVpc.Id,
+    ///                 SubnetIds = 
+    ///                 {
+    ///                     exampleA.Id,
+    ///                     exampleB.Id,
+    ///                 },
     ///             },
     ///         });
     ///     }

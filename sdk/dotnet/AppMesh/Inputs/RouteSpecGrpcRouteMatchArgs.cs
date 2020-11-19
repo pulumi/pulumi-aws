@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<string>? MethodName { get; set; }
 
         /// <summary>
-        /// The value sent by the client must begin with the specified characters.
+        /// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
         /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// </summary>
         [Input("prefix")]

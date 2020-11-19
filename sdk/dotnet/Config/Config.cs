@@ -206,6 +206,7 @@ namespace Pulumi.Aws
                 public string? Mediastoredata { get; set; } = null!;
                 public string? Mq { get; set; } = null!;
                 public string? Neptune { get; set; } = null!;
+                public string? Networkfirewall { get; set; } = null!;
                 public string? Networkmanager { get; set; } = null!;
                 public string? Opsworks { get; set; } = null!;
                 public string? Organizations { get; set; } = null!;

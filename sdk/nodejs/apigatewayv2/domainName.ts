@@ -74,7 +74,7 @@ export class DomainName extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The domain name.
+     * The domain name. Must be between 1 and 512 characters in length.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -141,7 +141,7 @@ export interface DomainNameState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The domain name.
+     * The domain name. Must be between 1 and 512 characters in length.
      */
     readonly domainName?: pulumi.Input<string>;
     /**
@@ -159,7 +159,7 @@ export interface DomainNameState {
  */
 export interface DomainNameArgs {
     /**
-     * The domain name.
+     * The domain name. Must be between 1 and 512 characters in length.
      */
     readonly domainName: pulumi.Input<string>;
     /**

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecHttpRouteMatchHeaderMatch
     {
         /// <summary>
-        /// The value sent by the client must match the specified value exactly.
+        /// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string? Exact;
         /// <summary>
-        /// The value sent by the client must begin with the specified characters.
+        /// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
         /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// </summary>
         public readonly string? Prefix;
@@ -27,11 +27,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.RouteSpecHttpRouteMatchHeaderMatchRange? Range;
         /// <summary>
-        /// The value sent by the client must include the specified characters.
+        /// The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string? Regex;
         /// <summary>
-        /// The value sent by the client must end with the specified characters.
+        /// The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string? Suffix;
 

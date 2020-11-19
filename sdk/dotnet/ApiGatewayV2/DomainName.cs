@@ -65,7 +65,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The domain name.
+        /// The domain name. Must be between 1 and 512 characters in length.
         /// </summary>
         [Output("domainName")]
         public Output<string> Domain { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class DomainNameArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The domain name.
+        /// The domain name. Must be between 1 and 512 characters in length.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> Domain { get; set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The domain name.
+        /// The domain name. Must be between 1 and 512 characters in length.
         /// </summary>
         [Input("domainName")]
         public Input<string>? Domain { get; set; }

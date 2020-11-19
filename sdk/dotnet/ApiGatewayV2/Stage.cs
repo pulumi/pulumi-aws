@@ -88,7 +88,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> DeploymentId { get; private set; } = null!;
 
         /// <summary>
-        /// The description for the stage.
+        /// The description for the stage. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> InvokeUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the stage.
+        /// The name of the stage. Must be between 1 and 128 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -217,13 +217,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? DeploymentId { get; set; }
 
         /// <summary>
-        /// The description for the stage.
+        /// The description for the stage. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the stage.
+        /// The name of the stage. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -316,7 +316,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? DeploymentId { get; set; }
 
         /// <summary>
-        /// The description for the stage.
+        /// The description for the stage. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -337,7 +337,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? InvokeUrl { get; set; }
 
         /// <summary>
-        /// The name of the stage.
+        /// The name of the stage. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

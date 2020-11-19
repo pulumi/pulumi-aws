@@ -8,6 +8,7 @@ export * from "./classifier";
 export * from "./connection";
 export * from "./crawler";
 export * from "./dataCatalogEncryptionSettings";
+export * from "./devEndpoint";
 export * from "./getScript";
 export * from "./job";
 export * from "./mltransform";

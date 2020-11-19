@@ -108,8 +108,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['StageAccessLogSettingsArgs']] access_log_settings: Enables access logs for the API stage. Detailed below.
         :param pulumi.Input[bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage
-        :param pulumi.Input[str] cache_cluster_size: The size of the cache cluster for the stage, if enabled.
-               Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+        :param pulumi.Input[str] cache_cluster_size: The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         :param pulumi.Input[str] client_certificate_id: The identifier of a client certificate for the stage.
         :param pulumi.Input[str] deployment: The ID of the deployment that the stage points to
         :param pulumi.Input[str] description: The description of the stage
@@ -193,8 +192,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StageAccessLogSettingsArgs']] access_log_settings: Enables access logs for the API stage. Detailed below.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
         :param pulumi.Input[bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage
-        :param pulumi.Input[str] cache_cluster_size: The size of the cache cluster for the stage, if enabled.
-               Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+        :param pulumi.Input[str] cache_cluster_size: The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         :param pulumi.Input[str] client_certificate_id: The identifier of a client certificate for the stage.
         :param pulumi.Input[str] deployment: The ID of the deployment that the stage points to
         :param pulumi.Input[str] description: The description of the stage
@@ -259,8 +257,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="cacheClusterSize")
     def cache_cluster_size(self) -> pulumi.Output[Optional[str]]:
         """
-        The size of the cache cluster for the stage, if enabled.
-        Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+        The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         """
         return pulumi.get(self, "cache_cluster_size")
 

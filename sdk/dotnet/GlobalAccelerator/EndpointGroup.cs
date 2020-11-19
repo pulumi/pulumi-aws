@@ -50,6 +50,12 @@ namespace Pulumi.Aws.GlobalAccelerator
     public partial class EndpointGroup : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the endpoint group.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The list of endpoint objects. Fields documented below.
         /// </summary>
         [Output("endpointConfigurations")]
@@ -84,6 +90,12 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+        /// </summary>
+        [Output("portOverrides")]
+        public Output<ImmutableArray<Outputs.EndpointGroupPortOverride>> PortOverrides { get; private set; } = null!;
 
         /// <summary>
         /// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
@@ -185,6 +197,18 @@ namespace Pulumi.Aws.GlobalAccelerator
         [Input("listenerArn", required: true)]
         public Input<string> ListenerArn { get; set; } = null!;
 
+        [Input("portOverrides")]
+        private InputList<Inputs.EndpointGroupPortOverrideArgs>? _portOverrides;
+
+        /// <summary>
+        /// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+        /// </summary>
+        public InputList<Inputs.EndpointGroupPortOverrideArgs> PortOverrides
+        {
+            get => _portOverrides ?? (_portOverrides = new InputList<Inputs.EndpointGroupPortOverrideArgs>());
+            set => _portOverrides = value;
+        }
+
         /// <summary>
         /// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         /// </summary>
@@ -204,6 +228,12 @@ namespace Pulumi.Aws.GlobalAccelerator
 
     public sealed class EndpointGroupState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the endpoint group.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("endpointConfigurations")]
         private InputList<Inputs.EndpointGroupEndpointConfigurationGetArgs>? _endpointConfigurations;
 
@@ -245,6 +275,18 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         [Input("listenerArn")]
         public Input<string>? ListenerArn { get; set; }
+
+        [Input("portOverrides")]
+        private InputList<Inputs.EndpointGroupPortOverrideGetArgs>? _portOverrides;
+
+        /// <summary>
+        /// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+        /// </summary>
+        public InputList<Inputs.EndpointGroupPortOverrideGetArgs> PortOverrides
+        {
+            get => _portOverrides ?? (_portOverrides = new InputList<Inputs.EndpointGroupPortOverrideGetArgs>());
+            set => _portOverrides = value;
+        }
 
         /// <summary>
         /// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.

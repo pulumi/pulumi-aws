@@ -128,7 +128,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<string> LastUpdatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the service mesh in which to create the virtual gateway.
+        /// The name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
         /// </summary>
         [Output("meshName")]
         public Output<string> MeshName { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<string> MeshOwner { get; private set; } = null!;
 
         /// <summary>
-        /// The name to use for the virtual gateway.
+        /// The name to use for the virtual gateway. Must be between 1 and 255 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.AppMesh
     public sealed class VirtualGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the service mesh in which to create the virtual gateway.
+        /// The name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("meshName", required: true)]
         public Input<string> MeshName { get; set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? MeshOwner { get; set; }
 
         /// <summary>
-        /// The name to use for the virtual gateway.
+        /// The name to use for the virtual gateway. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? LastUpdatedDate { get; set; }
 
         /// <summary>
-        /// The name of the service mesh in which to create the virtual gateway.
+        /// The name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("meshName")]
         public Input<string>? MeshName { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? MeshOwner { get; set; }
 
         /// <summary>
-        /// The name to use for the virtual gateway.
+        /// The name to use for the virtual gateway. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

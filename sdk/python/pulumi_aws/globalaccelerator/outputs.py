@@ -12,6 +12,7 @@ __all__ = [
     'AcceleratorAttributes',
     'AcceleratorIpSet',
     'EndpointGroupEndpointConfiguration',
+    'EndpointGroupPortOverride',
     'ListenerPortRange',
 ]
 
@@ -132,6 +133,38 @@ class EndpointGroupEndpointConfiguration(dict):
         The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         """
         return pulumi.get(self, "weight")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EndpointGroupPortOverride(dict):
+    def __init__(__self__, *,
+                 endpoint_port: int,
+                 listener_port: int):
+        """
+        :param int endpoint_port: The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+        :param int listener_port: The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
+        """
+        pulumi.set(__self__, "endpoint_port", endpoint_port)
+        pulumi.set(__self__, "listener_port", listener_port)
+
+    @property
+    @pulumi.getter(name="endpointPort")
+    def endpoint_port(self) -> int:
+        """
+        The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+        """
+        return pulumi.get(self, "endpoint_port")
+
+    @property
+    @pulumi.getter(name="listenerPort")
+    def listener_port(self) -> int:
+        """
+        The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
+        """
+        return pulumi.get(self, "listener_port")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

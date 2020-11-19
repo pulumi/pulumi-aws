@@ -13,6 +13,8 @@ import (
 
 // Provides a WorkSpaces directory in AWS WorkSpaces Service.
 //
+// > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
+//
 // ## Example Usage
 //
 // ```go
@@ -21,30 +23,55 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/directoryservice"
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/workspaces"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		workspaces, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			Statements: []iam.GetPolicyDocumentStatement{
+// 				iam.GetPolicyDocumentStatement{
+// 					Actions: []string{
+// 						"sts:AssumeRole",
+// 					},
+// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// 						iam.GetPolicyDocumentStatementPrincipal{
+// 							Type: "Service",
+// 							Identifiers: []string{
+// 								"workspaces.amazonaws.com",
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		workspacesDefault, err := iam.NewRole(ctx, "workspacesDefault", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.String(workspaces.Json),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		workspacesDefaultServiceAccess, err := iam.NewRolePolicyAttachment(ctx, "workspacesDefaultServiceAccess", &iam.RolePolicyAttachmentArgs{
+// 			Role:      workspacesDefault.Name,
+// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		workspacesDefaultSelfServiceAccess, err := iam.NewRolePolicyAttachment(ctx, "workspacesDefaultSelfServiceAccess", &iam.RolePolicyAttachmentArgs{
+// 			Role:      workspacesDefault.Name,
+// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
 // 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleA, err := ec2.NewSubnet(ctx, "exampleA", &ec2.SubnetArgs{
-// 			VpcId:            exampleVpc.ID(),
-// 			AvailabilityZone: pulumi.String("us-east-1a"),
-// 			CidrBlock:        pulumi.String("10.0.0.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleB, err := ec2.NewSubnet(ctx, "exampleB", &ec2.SubnetArgs{
-// 			VpcId:            exampleVpc.ID(),
-// 			AvailabilityZone: pulumi.String("us-east-1b"),
-// 			CidrBlock:        pulumi.String("10.0.1.0/24"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -65,23 +92,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleDirectory, err := directoryservice.NewDirectory(ctx, "exampleDirectory", &directoryservice.DirectoryArgs{
-// 			Name:     pulumi.String("corp.example.com"),
-// 			Password: pulumi.String("#S1ncerely"),
-// 			Size:     pulumi.String("Small"),
-// 			VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-// 				VpcId: exampleVpc.ID(),
-// 				SubnetIds: pulumi.StringArray{
-// 					exampleA.ID(),
-// 					exampleB.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = workspaces.NewDirectory(ctx, "exampleWorkspaces_directoryDirectory", &workspaces.DirectoryArgs{
-// 			DirectoryId: exampleDirectory.ID(),
+// 		_, err = workspaces.NewDirectory(ctx, "exampleDirectory", &workspaces.DirectoryArgs{
+// 			DirectoryId: pulumi.String(exampleDirectoryservice / directoryDirectory.Id),
 // 			SubnetIds: pulumi.StringArray{
 // 				exampleC.ID(),
 // 				exampleD.ID(),
@@ -102,6 +114,40 @@ import (
 // 				EnableInternetAccess:            pulumi.Bool(true),
 // 				EnableMaintenanceMode:           pulumi.Bool(true),
 // 				UserEnabledAsLocalAdministrator: pulumi.Bool(true),
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			workspacesDefaultServiceAccess,
+// 			workspacesDefaultSelfServiceAccess,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleA, err := ec2.NewSubnet(ctx, "exampleA", &ec2.SubnetArgs{
+// 			VpcId:            exampleVpc.ID(),
+// 			AvailabilityZone: pulumi.String("us-east-1a"),
+// 			CidrBlock:        pulumi.String("10.0.0.0/24"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleB, err := ec2.NewSubnet(ctx, "exampleB", &ec2.SubnetArgs{
+// 			VpcId:            exampleVpc.ID(),
+// 			AvailabilityZone: pulumi.String("us-east-1b"),
+// 			CidrBlock:        pulumi.String("10.0.1.0/24"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = directoryservice.NewDirectory(ctx, "exampleDirectoryservice_directoryDirectory", &directoryservice.DirectoryArgs{
+// 			Name:     pulumi.String("corp.example.com"),
+// 			Password: pulumi.String("#S1ncerely"),
+// 			Size:     pulumi.String("Small"),
+// 			VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
+// 				VpcId: exampleVpc.ID(),
+// 				SubnetIds: pulumi.StringArray{
+// 					exampleA.ID(),
+// 					exampleB.ID(),
+// 				},
 // 			},
 // 		})
 // 		if err != nil {

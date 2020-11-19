@@ -105,7 +105,7 @@ type Authorizer struct {
 	AuthorizerType pulumi.StringOutput `pulumi:"authorizerType"`
 	// The authorizer's Uniform Resource Identifier (URI).
 	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
-	// Supported only for `REQUEST` authorizers.
+	// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
 	AuthorizerUri pulumi.StringPtrOutput `pulumi:"authorizerUri"`
 	// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
 	// Supported only for HTTP APIs.
@@ -117,7 +117,7 @@ type Authorizer struct {
 	// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
 	// Supported only for HTTP APIs.
 	JwtConfiguration AuthorizerJwtConfigurationPtrOutput `pulumi:"jwtConfiguration"`
-	// The name of the authorizer.
+	// The name of the authorizer. Must be between 1 and 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -173,7 +173,7 @@ type authorizerState struct {
 	AuthorizerType *string `pulumi:"authorizerType"`
 	// The authorizer's Uniform Resource Identifier (URI).
 	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
-	// Supported only for `REQUEST` authorizers.
+	// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
 	AuthorizerUri *string `pulumi:"authorizerUri"`
 	// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
 	// Supported only for HTTP APIs.
@@ -185,7 +185,7 @@ type authorizerState struct {
 	// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
 	// Supported only for HTTP APIs.
 	JwtConfiguration *AuthorizerJwtConfiguration `pulumi:"jwtConfiguration"`
-	// The name of the authorizer.
+	// The name of the authorizer. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
 }
 
@@ -208,7 +208,7 @@ type AuthorizerState struct {
 	AuthorizerType pulumi.StringPtrInput
 	// The authorizer's Uniform Resource Identifier (URI).
 	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
-	// Supported only for `REQUEST` authorizers.
+	// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
 	AuthorizerUri pulumi.StringPtrInput
 	// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
 	// Supported only for HTTP APIs.
@@ -220,7 +220,7 @@ type AuthorizerState struct {
 	// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
 	// Supported only for HTTP APIs.
 	JwtConfiguration AuthorizerJwtConfigurationPtrInput
-	// The name of the authorizer.
+	// The name of the authorizer. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
 }
 
@@ -247,7 +247,7 @@ type authorizerArgs struct {
 	AuthorizerType string `pulumi:"authorizerType"`
 	// The authorizer's Uniform Resource Identifier (URI).
 	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
-	// Supported only for `REQUEST` authorizers.
+	// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
 	AuthorizerUri *string `pulumi:"authorizerUri"`
 	// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
 	// Supported only for HTTP APIs.
@@ -259,7 +259,7 @@ type authorizerArgs struct {
 	// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
 	// Supported only for HTTP APIs.
 	JwtConfiguration *AuthorizerJwtConfiguration `pulumi:"jwtConfiguration"`
-	// The name of the authorizer.
+	// The name of the authorizer. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
 }
 
@@ -283,7 +283,7 @@ type AuthorizerArgs struct {
 	AuthorizerType pulumi.StringInput
 	// The authorizer's Uniform Resource Identifier (URI).
 	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
-	// Supported only for `REQUEST` authorizers.
+	// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
 	AuthorizerUri pulumi.StringPtrInput
 	// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
 	// Supported only for HTTP APIs.
@@ -295,7 +295,7 @@ type AuthorizerArgs struct {
 	// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
 	// Supported only for HTTP APIs.
 	JwtConfiguration AuthorizerJwtConfigurationPtrInput
-	// The name of the authorizer.
+	// The name of the authorizer. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
 }
 

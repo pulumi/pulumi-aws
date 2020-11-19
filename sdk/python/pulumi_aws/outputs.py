@@ -196,6 +196,7 @@ class ProviderEndpoint(dict):
                  mediastoredata: Optional[str] = None,
                  mq: Optional[str] = None,
                  neptune: Optional[str] = None,
+                 networkfirewall: Optional[str] = None,
                  networkmanager: Optional[str] = None,
                  opsworks: Optional[str] = None,
                  organizations: Optional[str] = None,
@@ -438,6 +439,8 @@ class ProviderEndpoint(dict):
             pulumi.set(__self__, "mq", mq)
         if neptune is not None:
             pulumi.set(__self__, "neptune", neptune)
+        if networkfirewall is not None:
+            pulumi.set(__self__, "networkfirewall", networkfirewall)
         if networkmanager is not None:
             pulumi.set(__self__, "networkmanager", networkmanager)
         if opsworks is not None:
@@ -1019,6 +1022,11 @@ class ProviderEndpoint(dict):
     @pulumi.getter
     def neptune(self) -> Optional[str]:
         return pulumi.get(self, "neptune")
+
+    @property
+    @pulumi.getter
+    def networkfirewall(self) -> Optional[str]:
+        return pulumi.get(self, "networkfirewall")
 
     @property
     @pulumi.getter

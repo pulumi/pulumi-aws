@@ -303,6 +303,9 @@ namespace Pulumi.Aws.Inputs
         [Input("neptune")]
         public Input<string>? Neptune { get; set; }
 
+        [Input("networkfirewall")]
+        public Input<string>? Networkfirewall { get; set; }
+
         [Input("networkmanager")]
         public Input<string>? Networkmanager { get; set; }
 

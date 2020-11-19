@@ -58,8 +58,7 @@ type LogMetricFilter struct {
 
 	// The name of the log group to associate the metric filter with.
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
-	// A block defining collection of information
-	// needed to define how metric data gets emitted. See below.
+	// A block defining collection of information needed to define how metric data gets emitted. See below.
 	MetricTransformation LogMetricFilterMetricTransformationOutput `pulumi:"metricTransformation"`
 	// A name for the metric filter.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -107,8 +106,7 @@ func GetLogMetricFilter(ctx *pulumi.Context,
 type logMetricFilterState struct {
 	// The name of the log group to associate the metric filter with.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// A block defining collection of information
-	// needed to define how metric data gets emitted. See below.
+	// A block defining collection of information needed to define how metric data gets emitted. See below.
 	MetricTransformation *LogMetricFilterMetricTransformation `pulumi:"metricTransformation"`
 	// A name for the metric filter.
 	Name *string `pulumi:"name"`
@@ -120,8 +118,7 @@ type logMetricFilterState struct {
 type LogMetricFilterState struct {
 	// The name of the log group to associate the metric filter with.
 	LogGroupName pulumi.StringPtrInput
-	// A block defining collection of information
-	// needed to define how metric data gets emitted. See below.
+	// A block defining collection of information needed to define how metric data gets emitted. See below.
 	MetricTransformation LogMetricFilterMetricTransformationPtrInput
 	// A name for the metric filter.
 	Name pulumi.StringPtrInput
@@ -137,8 +134,7 @@ func (LogMetricFilterState) ElementType() reflect.Type {
 type logMetricFilterArgs struct {
 	// The name of the log group to associate the metric filter with.
 	LogGroupName string `pulumi:"logGroupName"`
-	// A block defining collection of information
-	// needed to define how metric data gets emitted. See below.
+	// A block defining collection of information needed to define how metric data gets emitted. See below.
 	MetricTransformation LogMetricFilterMetricTransformation `pulumi:"metricTransformation"`
 	// A name for the metric filter.
 	Name *string `pulumi:"name"`
@@ -151,8 +147,7 @@ type logMetricFilterArgs struct {
 type LogMetricFilterArgs struct {
 	// The name of the log group to associate the metric filter with.
 	LogGroupName pulumi.StringInput
-	// A block defining collection of information
-	// needed to define how metric data gets emitted. See below.
+	// A block defining collection of information needed to define how metric data gets emitted. See below.
 	MetricTransformation LogMetricFilterMetricTransformationInput
 	// A name for the metric filter.
 	Name pulumi.StringPtrInput
