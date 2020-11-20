@@ -194,8 +194,7 @@ class IpSetIpSetDescriptor(dict):
                  value: str):
         """
         :param str type: Type of the IP address - `IPV4` or `IPV6`.
-        :param str value: An IPv4 or IPv6 address specified via CIDR notation.
-               e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
+        :param str value: An IPv4 or IPv6 address specified via CIDR notation. e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -212,8 +211,7 @@ class IpSetIpSetDescriptor(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        An IPv4 or IPv6 address specified via CIDR notation.
-        e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
+        An IPv4 or IPv6 address specified via CIDR notation. e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
         """
         return pulumi.get(self, "value")
 

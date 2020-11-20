@@ -18,8 +18,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// </summary>
         public readonly bool EbsEnabled;
         /// <summary>
-        /// The baseline input/output (I/O) performance of EBS volumes
-        /// attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+        /// The baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
         /// </summary>
         public readonly int? Iops;
         /// <summary>

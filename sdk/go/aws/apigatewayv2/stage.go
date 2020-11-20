@@ -64,7 +64,7 @@ type Stage struct {
 	DefaultRouteSettings StageDefaultRouteSettingsPtrOutput `pulumi:"defaultRouteSettings"`
 	// The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
 	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
-	// The description for the stage.
+	// The description for the stage. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ARN prefix to be used in an `lambda.Permission` `sourceArn` attribute.
 	// For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
@@ -73,7 +73,7 @@ type Stage struct {
 	// The URL to invoke the API pointing to the stage,
 	// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
-	// The name of the stage.
+	// The name of the stage. Must be between 1 and 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Route settings for the stage.
 	RouteSettings StageRouteSettingArrayOutput `pulumi:"routeSettings"`
@@ -130,7 +130,7 @@ type stageState struct {
 	DefaultRouteSettings *StageDefaultRouteSettings `pulumi:"defaultRouteSettings"`
 	// The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
 	DeploymentId *string `pulumi:"deploymentId"`
-	// The description for the stage.
+	// The description for the stage. Must be less than or equal to 1024 characters in length.
 	Description *string `pulumi:"description"`
 	// The ARN prefix to be used in an `lambda.Permission` `sourceArn` attribute.
 	// For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
@@ -139,7 +139,7 @@ type stageState struct {
 	// The URL to invoke the API pointing to the stage,
 	// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl *string `pulumi:"invokeUrl"`
-	// The name of the stage.
+	// The name of the stage. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
 	// Route settings for the stage.
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
@@ -166,7 +166,7 @@ type StageState struct {
 	DefaultRouteSettings StageDefaultRouteSettingsPtrInput
 	// The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
 	DeploymentId pulumi.StringPtrInput
-	// The description for the stage.
+	// The description for the stage. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrInput
 	// The ARN prefix to be used in an `lambda.Permission` `sourceArn` attribute.
 	// For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
@@ -175,7 +175,7 @@ type StageState struct {
 	// The URL to invoke the API pointing to the stage,
 	// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl pulumi.StringPtrInput
-	// The name of the stage.
+	// The name of the stage. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
 	// Route settings for the stage.
 	RouteSettings StageRouteSettingArrayInput
@@ -204,9 +204,9 @@ type stageArgs struct {
 	DefaultRouteSettings *StageDefaultRouteSettings `pulumi:"defaultRouteSettings"`
 	// The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
 	DeploymentId *string `pulumi:"deploymentId"`
-	// The description for the stage.
+	// The description for the stage. Must be less than or equal to 1024 characters in length.
 	Description *string `pulumi:"description"`
-	// The name of the stage.
+	// The name of the stage. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
 	// Route settings for the stage.
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
@@ -232,9 +232,9 @@ type StageArgs struct {
 	DefaultRouteSettings StageDefaultRouteSettingsPtrInput
 	// The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
 	DeploymentId pulumi.StringPtrInput
-	// The description for the stage.
+	// The description for the stage. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrInput
-	// The name of the stage.
+	// The name of the stage. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
 	// Route settings for the stage.
 	RouteSettings StageRouteSettingArrayInput

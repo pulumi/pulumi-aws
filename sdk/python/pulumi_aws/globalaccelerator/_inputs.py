@@ -12,6 +12,7 @@ __all__ = [
     'AcceleratorAttributesArgs',
     'AcceleratorIpSetArgs',
     'EndpointGroupEndpointConfigurationArgs',
+    'EndpointGroupPortOverrideArgs',
     'ListenerPortRangeArgs',
 ]
 
@@ -158,6 +159,43 @@ class EndpointGroupEndpointConfigurationArgs:
     @weight.setter
     def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
+
+
+@pulumi.input_type
+class EndpointGroupPortOverrideArgs:
+    def __init__(__self__, *,
+                 endpoint_port: pulumi.Input[int],
+                 listener_port: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] endpoint_port: The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+        :param pulumi.Input[int] listener_port: The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
+        """
+        pulumi.set(__self__, "endpoint_port", endpoint_port)
+        pulumi.set(__self__, "listener_port", listener_port)
+
+    @property
+    @pulumi.getter(name="endpointPort")
+    def endpoint_port(self) -> pulumi.Input[int]:
+        """
+        The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+        """
+        return pulumi.get(self, "endpoint_port")
+
+    @endpoint_port.setter
+    def endpoint_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "endpoint_port", value)
+
+    @property
+    @pulumi.getter(name="listenerPort")
+    def listener_port(self) -> pulumi.Input[int]:
+        """
+        The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
+        """
+        return pulumi.get(self, "listener_port")
+
+    @listener_port.setter
+    def listener_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "listener_port", value)
 
 
 @pulumi.input_type

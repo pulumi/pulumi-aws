@@ -58,7 +58,7 @@ class Mesh(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name to use for the service mesh.
+        :param pulumi.Input[str] name: The name to use for the service mesh. Must be between 1 and 255 characters in length.
         :param pulumi.Input[pulumi.InputType['MeshSpecArgs']] spec: The service mesh specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
@@ -116,7 +116,7 @@ class Mesh(pulumi.CustomResource):
         :param pulumi.Input[str] created_date: The creation date of the service mesh.
         :param pulumi.Input[str] last_updated_date: The last update date of the service mesh.
         :param pulumi.Input[str] mesh_owner: The AWS account ID of the service mesh's owner.
-        :param pulumi.Input[str] name: The name to use for the service mesh.
+        :param pulumi.Input[str] name: The name to use for the service mesh. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] resource_owner: The resource owner's AWS account ID.
         :param pulumi.Input[pulumi.InputType['MeshSpecArgs']] spec: The service mesh specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
@@ -171,7 +171,7 @@ class Mesh(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name to use for the service mesh.
+        The name to use for the service mesh. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "name")
 

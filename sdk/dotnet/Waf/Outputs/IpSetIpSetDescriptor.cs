@@ -18,8 +18,7 @@ namespace Pulumi.Aws.Waf.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// An IPv4 or IPv6 address specified via CIDR notation.
-        /// e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
+        /// An IPv4 or IPv6 address specified via CIDR notation. e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
         /// </summary>
         public readonly string Value;
 

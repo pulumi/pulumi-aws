@@ -288,7 +288,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  name: str,
                  value: str):
         """
-        :param str name: The name of the policy.
+        :param str name: The name of the policy. Must be between 1 and 255 characters in length.
         :param str value: Value of the dimension.
         """
         pulumi.set(__self__, "name", name)
@@ -298,7 +298,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the policy.
+        The name of the policy. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -321,7 +321,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
                  resource_label: Optional[str] = None):
         """
         :param str predefined_metric_type: The metric type.
-        :param str resource_label: Reserved for future use.
+        :param str resource_label: Reserved for future use. Must be less than or equal to 1023 characters in length.
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
@@ -339,7 +339,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
     @pulumi.getter(name="resourceLabel")
     def resource_label(self) -> Optional[str]:
         """
-        Reserved for future use.
+        Reserved for future use. Must be less than or equal to 1023 characters in length.
         """
         return pulumi.get(self, "resource_label")
 

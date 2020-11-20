@@ -102,13 +102,13 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.
-        :param pulumi.Input[str] connection_id: The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+        :param pulumi.Input[str] connection_id: The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
         :param pulumi.Input[str] connection_type: The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
         :param pulumi.Input[str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
         :param pulumi.Input[str] credentials_arn: The credentials required for the integration, if any.
         :param pulumi.Input[str] description: The description of the integration.
         :param pulumi.Input[str] integration_method: The integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
-        :param pulumi.Input[str] integration_subtype: Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+        :param pulumi.Input[str] integration_subtype: Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         :param pulumi.Input[str] integration_type: The integration type of an integration.
                Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
         :param pulumi.Input[str] integration_uri: The URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
@@ -197,14 +197,14 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.
-        :param pulumi.Input[str] connection_id: The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+        :param pulumi.Input[str] connection_id: The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
         :param pulumi.Input[str] connection_type: The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
         :param pulumi.Input[str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
         :param pulumi.Input[str] credentials_arn: The credentials required for the integration, if any.
         :param pulumi.Input[str] description: The description of the integration.
         :param pulumi.Input[str] integration_method: The integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
         :param pulumi.Input[str] integration_response_selection_expression: The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
-        :param pulumi.Input[str] integration_subtype: Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+        :param pulumi.Input[str] integration_subtype: Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         :param pulumi.Input[str] integration_type: The integration type of an integration.
                Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
         :param pulumi.Input[str] integration_uri: The URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
@@ -254,7 +254,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+        The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
         """
         return pulumi.get(self, "connection_id")
 
@@ -310,7 +310,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="integrationSubtype")
     def integration_subtype(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+        Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         """
         return pulumi.get(self, "integration_subtype")
 

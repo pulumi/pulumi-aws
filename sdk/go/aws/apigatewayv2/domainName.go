@@ -60,7 +60,7 @@ type DomainName struct {
 	ApiMappingSelectionExpression pulumi.StringOutput `pulumi:"apiMappingSelectionExpression"`
 	// The ARN of the domain name.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The domain name.
+	// The domain name. Must be between 1 and 512 characters in length.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfigurationOutput `pulumi:"domainNameConfiguration"`
@@ -106,7 +106,7 @@ type domainNameState struct {
 	ApiMappingSelectionExpression *string `pulumi:"apiMappingSelectionExpression"`
 	// The ARN of the domain name.
 	Arn *string `pulumi:"arn"`
-	// The domain name.
+	// The domain name. Must be between 1 and 512 characters in length.
 	DomainName *string `pulumi:"domainName"`
 	// The domain name configuration.
 	DomainNameConfiguration *DomainNameDomainNameConfiguration `pulumi:"domainNameConfiguration"`
@@ -119,7 +119,7 @@ type DomainNameState struct {
 	ApiMappingSelectionExpression pulumi.StringPtrInput
 	// The ARN of the domain name.
 	Arn pulumi.StringPtrInput
-	// The domain name.
+	// The domain name. Must be between 1 and 512 characters in length.
 	DomainName pulumi.StringPtrInput
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfigurationPtrInput
@@ -132,7 +132,7 @@ func (DomainNameState) ElementType() reflect.Type {
 }
 
 type domainNameArgs struct {
-	// The domain name.
+	// The domain name. Must be between 1 and 512 characters in length.
 	DomainName string `pulumi:"domainName"`
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfiguration `pulumi:"domainNameConfiguration"`
@@ -142,7 +142,7 @@ type domainNameArgs struct {
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
-	// The domain name.
+	// The domain name. Must be between 1 and 512 characters in length.
 	DomainName pulumi.StringInput
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfigurationInput

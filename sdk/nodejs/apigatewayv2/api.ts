@@ -96,7 +96,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly credentialsArn!: pulumi.Output<string | undefined>;
     /**
-     * The description of the API.
+     * The description of the API. Must be less than or equal to 1024 characters in length.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -112,7 +112,7 @@ export class Api extends pulumi.CustomResource {
      */
     public /*out*/ readonly executionArn!: pulumi.Output<string>;
     /**
-     * The name of the API.
+     * The name of the API. Must be less than or equal to 128 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly target!: pulumi.Output<string | undefined>;
     /**
-     * A version identifier for the API.
+     * A version identifier for the API. Must be between 1 and 64 characters in length.
      */
     public readonly version!: pulumi.Output<string | undefined>;
 
@@ -235,7 +235,7 @@ export interface ApiState {
      */
     readonly credentialsArn?: pulumi.Input<string>;
     /**
-     * The description of the API.
+     * The description of the API. Must be less than or equal to 1024 characters in length.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -251,7 +251,7 @@ export interface ApiState {
      */
     readonly executionArn?: pulumi.Input<string>;
     /**
-     * The name of the API.
+     * The name of the API. Must be less than or equal to 128 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -278,7 +278,7 @@ export interface ApiState {
      */
     readonly target?: pulumi.Input<string>;
     /**
-     * A version identifier for the API.
+     * A version identifier for the API. Must be between 1 and 64 characters in length.
      */
     readonly version?: pulumi.Input<string>;
 }
@@ -306,7 +306,7 @@ export interface ApiArgs {
      */
     readonly credentialsArn?: pulumi.Input<string>;
     /**
-     * The description of the API.
+     * The description of the API. Must be less than or equal to 1024 characters in length.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -316,7 +316,7 @@ export interface ApiArgs {
      */
     readonly disableExecuteApiEndpoint?: pulumi.Input<boolean>;
     /**
-     * The name of the API.
+     * The name of the API. Must be less than or equal to 128 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -343,7 +343,7 @@ export interface ApiArgs {
      */
     readonly target?: pulumi.Input<string>;
     /**
-     * A version identifier for the API.
+     * A version identifier for the API. Must be between 1 and 64 characters in length.
      */
     readonly version?: pulumi.Input<string>;
 }

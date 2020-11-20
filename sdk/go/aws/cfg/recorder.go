@@ -61,9 +61,7 @@ type Recorder struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Recording group - see below.
 	RecordingGroup RecorderRecordingGroupOutput `pulumi:"recordingGroup"`
-	// Amazon Resource Name (ARN) of the IAM role.
-	// used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
-	// See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
 
@@ -102,9 +100,7 @@ type recorderState struct {
 	Name *string `pulumi:"name"`
 	// Recording group - see below.
 	RecordingGroup *RecorderRecordingGroup `pulumi:"recordingGroup"`
-	// Amazon Resource Name (ARN) of the IAM role.
-	// used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
-	// See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn *string `pulumi:"roleArn"`
 }
 
@@ -113,9 +109,7 @@ type RecorderState struct {
 	Name pulumi.StringPtrInput
 	// Recording group - see below.
 	RecordingGroup RecorderRecordingGroupPtrInput
-	// Amazon Resource Name (ARN) of the IAM role.
-	// used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
-	// See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn pulumi.StringPtrInput
 }
 
@@ -128,9 +122,7 @@ type recorderArgs struct {
 	Name *string `pulumi:"name"`
 	// Recording group - see below.
 	RecordingGroup *RecorderRecordingGroup `pulumi:"recordingGroup"`
-	// Amazon Resource Name (ARN) of the IAM role.
-	// used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
-	// See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -140,9 +132,7 @@ type RecorderArgs struct {
 	Name pulumi.StringPtrInput
 	// Recording group - see below.
 	RecordingGroup RecorderRecordingGroupPtrInput
-	// Amazon Resource Name (ARN) of the IAM role.
-	// used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
-	// See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn pulumi.StringInput
 }
 

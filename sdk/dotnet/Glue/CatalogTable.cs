@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+        /// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
         /// </summary>
         [Output("partitionKeys")]
         public Output<ImmutableArray<Outputs.CatalogTablePartitionKey>> PartitionKeys { get; private set; } = null!;
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogTablePartitionKeyArgs>? _partitionKeys;
 
         /// <summary>
-        /// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+        /// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
         /// </summary>
         public InputList<Inputs.CatalogTablePartitionKeyArgs> PartitionKeys
         {
@@ -381,7 +381,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogTablePartitionKeyGetArgs>? _partitionKeys;
 
         /// <summary>
-        /// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+        /// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
         /// </summary>
         public InputList<Inputs.CatalogTablePartitionKeyGetArgs> PartitionKeys
         {

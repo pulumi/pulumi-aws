@@ -88,7 +88,7 @@ export class GatewayRoute extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
-     * The name of the service mesh in which to create the gateway route.
+     * The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
      */
     public readonly meshName!: pulumi.Output<string>;
     /**
@@ -96,7 +96,7 @@ export class GatewayRoute extends pulumi.CustomResource {
      */
     public readonly meshOwner!: pulumi.Output<string>;
     /**
-     * The name to use for the gateway route.
+     * The name to use for the gateway route. Must be between 1 and 255 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export class GatewayRoute extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with.
+     * The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
      */
     public readonly virtualGatewayName!: pulumi.Output<string>;
 
@@ -188,7 +188,7 @@ export interface GatewayRouteState {
      */
     readonly lastUpdatedDate?: pulumi.Input<string>;
     /**
-     * The name of the service mesh in which to create the gateway route.
+     * The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
      */
     readonly meshName?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface GatewayRouteState {
      */
     readonly meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the gateway route.
+     * The name to use for the gateway route. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -212,7 +212,7 @@ export interface GatewayRouteState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with.
+     * The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
      */
     readonly virtualGatewayName?: pulumi.Input<string>;
 }
@@ -222,7 +222,7 @@ export interface GatewayRouteState {
  */
 export interface GatewayRouteArgs {
     /**
-     * The name of the service mesh in which to create the gateway route.
+     * The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
      */
     readonly meshName: pulumi.Input<string>;
     /**
@@ -230,7 +230,7 @@ export interface GatewayRouteArgs {
      */
     readonly meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the gateway route.
+     * The name to use for the gateway route. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -242,7 +242,7 @@ export interface GatewayRouteArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with.
+     * The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
      */
     readonly virtualGatewayName: pulumi.Input<string>;
 }

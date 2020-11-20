@@ -139,7 +139,7 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+     * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
      */
     public readonly partitionKeys!: pulumi.Output<outputs.glue.CatalogTablePartitionKey[] | undefined>;
     /**
@@ -251,7 +251,7 @@ export interface CatalogTableState {
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+     * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
      */
     readonly partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
     /**
@@ -305,7 +305,7 @@ export interface CatalogTableArgs {
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+     * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
      */
     readonly partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
     /**

@@ -146,7 +146,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name of the policy.
+     * The name of the policy. Must be between 1 and 255 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -234,7 +234,7 @@ export interface PolicyState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The name of the policy.
+     * The name of the policy. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -268,7 +268,7 @@ export interface PolicyState {
  */
 export interface PolicyArgs {
     /**
-     * The name of the policy.
+     * The name of the policy. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**

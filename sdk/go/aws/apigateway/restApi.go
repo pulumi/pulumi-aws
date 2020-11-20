@@ -94,8 +94,8 @@ type RestApi struct {
 	MinimumCompressionSize pulumi.IntPtrOutput `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
 	Name pulumi.StringOutput `pulumi:"name"`
-	// JSON formatted policy document that controls access to the API Gateway.
-	Policy pulumi.StringPtrOutput `pulumi:"policy"`
+	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
+	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The resource ID of the REST API's root
 	RootResourceId pulumi.StringOutput `pulumi:"rootResourceId"`
 	// Key-value map of resource tags
@@ -152,7 +152,7 @@ type restApiState struct {
 	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
 	Name *string `pulumi:"name"`
-	// JSON formatted policy document that controls access to the API Gateway.
+	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
 	Policy *string `pulumi:"policy"`
 	// The resource ID of the REST API's root
 	RootResourceId *string `pulumi:"rootResourceId"`
@@ -183,7 +183,7 @@ type RestApiState struct {
 	MinimumCompressionSize pulumi.IntPtrInput
 	// The name of the REST API
 	Name pulumi.StringPtrInput
-	// JSON formatted policy document that controls access to the API Gateway.
+	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
 	Policy pulumi.StringPtrInput
 	// The resource ID of the REST API's root
 	RootResourceId pulumi.StringPtrInput
@@ -210,7 +210,7 @@ type restApiArgs struct {
 	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
 	Name *string `pulumi:"name"`
-	// JSON formatted policy document that controls access to the API Gateway.
+	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
 	Policy *string `pulumi:"policy"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -232,7 +232,7 @@ type RestApiArgs struct {
 	MinimumCompressionSize pulumi.IntPtrInput
 	// The name of the REST API
 	Name pulumi.StringPtrInput
-	// JSON formatted policy document that controls access to the API Gateway.
+	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
 	Policy pulumi.StringPtrInput
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput

@@ -170,7 +170,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the policy.
+        /// The name of the policy. Must be between 1 and 255 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.AppAutoScaling
     public sealed class PolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the policy.
+        /// The name of the policy. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the policy.
+        /// The name of the policy. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

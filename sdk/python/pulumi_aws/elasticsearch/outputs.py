@@ -374,8 +374,7 @@ class DomainEbsOptions(dict):
                  volume_type: Optional[str] = None):
         """
         :param bool ebs_enabled: Whether EBS volumes are attached to data nodes in the domain.
-        :param int iops: The baseline input/output (I/O) performance of EBS volumes
-               attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+        :param int iops: The baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
         :param int volume_size: The size of EBS volumes attached to data nodes (in GiB).
                **Required** if `ebs_enabled` is set to `true`.
         :param str volume_type: The type of EBS volumes attached to data nodes.
@@ -400,8 +399,7 @@ class DomainEbsOptions(dict):
     @pulumi.getter
     def iops(self) -> Optional[int]:
         """
-        The baseline input/output (I/O) performance of EBS volumes
-        attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+        The baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
         """
         return pulumi.get(self, "iops")
 
@@ -529,8 +527,7 @@ class DomainSnapshotOptions(dict):
     def __init__(__self__, *,
                  automated_snapshot_start_hour: int):
         """
-        :param int automated_snapshot_start_hour: Hour during which the service takes an automated daily
-               snapshot of the indices in the domain.
+        :param int automated_snapshot_start_hour: Hour during which the service takes an automated daily snapshot of the indices in the domain.
         """
         pulumi.set(__self__, "automated_snapshot_start_hour", automated_snapshot_start_hour)
 
@@ -538,8 +535,7 @@ class DomainSnapshotOptions(dict):
     @pulumi.getter(name="automatedSnapshotStartHour")
     def automated_snapshot_start_hour(self) -> int:
         """
-        Hour during which the service takes an automated daily
-        snapshot of the indices in the domain.
+        Hour during which the service takes an automated daily snapshot of the indices in the domain.
         """
         return pulumi.get(self, "automated_snapshot_start_hour")
 
@@ -822,8 +818,7 @@ class GetDomainEbsOptionResult(dict):
                  volume_type: str):
         """
         :param bool ebs_enabled: Whether EBS volumes are attached to data nodes in the domain.
-        :param int iops: The baseline input/output (I/O) performance of EBS volumes
-               attached to data nodes.
+        :param int iops: The baseline input/output (I/O) performance of EBS volumes attached to data nodes.
         :param int volume_size: The size of EBS volumes attached to data nodes (in GB).
         :param str volume_type: The type of EBS volumes attached to data nodes.
         """
@@ -844,8 +839,7 @@ class GetDomainEbsOptionResult(dict):
     @pulumi.getter
     def iops(self) -> int:
         """
-        The baseline input/output (I/O) performance of EBS volumes
-        attached to data nodes.
+        The baseline input/output (I/O) performance of EBS volumes attached to data nodes.
         """
         return pulumi.get(self, "iops")
 
@@ -958,8 +952,7 @@ class GetDomainSnapshotOptionResult(dict):
     def __init__(__self__, *,
                  automated_snapshot_start_hour: int):
         """
-        :param int automated_snapshot_start_hour: Hour during which the service takes an automated daily
-               snapshot of the indices in the domain.
+        :param int automated_snapshot_start_hour: Hour during which the service takes an automated daily snapshot of the indices in the domain.
         """
         pulumi.set(__self__, "automated_snapshot_start_hour", automated_snapshot_start_hour)
 
@@ -967,8 +960,7 @@ class GetDomainSnapshotOptionResult(dict):
     @pulumi.getter(name="automatedSnapshotStartHour")
     def automated_snapshot_start_hour(self) -> int:
         """
-        Hour during which the service takes an automated daily
-        snapshot of the indices in the domain.
+        Hour during which the service takes an automated daily snapshot of the indices in the domain.
         """
         return pulumi.get(self, "automated_snapshot_start_hour")
 

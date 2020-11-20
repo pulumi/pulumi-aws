@@ -128,10 +128,10 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway.
+        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead.
         /// </summary>
         [Output("policy")]
-        public Output<string?> Policy { get; private set; } = null!;
+        public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
         /// The resource ID of the REST API's root
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway.
+        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway.
+        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

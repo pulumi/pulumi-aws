@@ -110,7 +110,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> ApiId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+        /// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
         /// </summary>
         [Output("connectionId")]
         public Output<string?> ConnectionId { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> IntegrationResponseSelectionExpression { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+        /// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         /// </summary>
         [Output("integrationSubtype")]
         public Output<string?> IntegrationSubtype { get; private set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+        /// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
         /// </summary>
         [Input("connectionId")]
         public Input<string>? ConnectionId { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? IntegrationMethod { get; set; }
 
         /// <summary>
-        /// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+        /// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("integrationSubtype")]
         public Input<string>? IntegrationSubtype { get; set; }
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ApiId { get; set; }
 
         /// <summary>
-        /// The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+        /// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
         /// </summary>
         [Input("connectionId")]
         public Input<string>? ConnectionId { get; set; }
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? IntegrationResponseSelectionExpression { get; set; }
 
         /// <summary>
-        /// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+        /// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("integrationSubtype")]
         public Input<string>? IntegrationSubtype { get; set; }

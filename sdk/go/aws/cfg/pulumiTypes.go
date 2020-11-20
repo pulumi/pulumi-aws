@@ -353,9 +353,7 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn()
 }
 
 type DeliveryChannelSnapshotDeliveryProperties struct {
-	// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-	//   e.g. `One_Hour` or `Three_Hours`.
-	//   Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+	// - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 	DeliveryFrequency *string `pulumi:"deliveryFrequency"`
 }
 
@@ -371,9 +369,7 @@ type DeliveryChannelSnapshotDeliveryPropertiesInput interface {
 }
 
 type DeliveryChannelSnapshotDeliveryPropertiesArgs struct {
-	// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-	//   e.g. `One_Hour` or `Three_Hours`.
-	//   Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+	// - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 	DeliveryFrequency pulumi.StringPtrInput `pulumi:"deliveryFrequency"`
 }
 
@@ -454,9 +450,7 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesOutput) ToDeliveryChannelSnapsh
 	}).(DeliveryChannelSnapshotDeliveryPropertiesPtrOutput)
 }
 
-// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-//   e.g. `One_Hour` or `Three_Hours`.
-//   Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+// - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 func (o DeliveryChannelSnapshotDeliveryPropertiesOutput) DeliveryFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryChannelSnapshotDeliveryProperties) *string { return v.DeliveryFrequency }).(pulumi.StringPtrOutput)
 }
@@ -481,9 +475,7 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) Elem() DeliveryChann
 	}).(DeliveryChannelSnapshotDeliveryPropertiesOutput)
 }
 
-// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-//   e.g. `One_Hour` or `Three_Hours`.
-//   Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+// - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) DeliveryFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryChannelSnapshotDeliveryProperties) *string {
 		if v == nil {
@@ -494,16 +486,11 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) DeliveryFrequency() 
 }
 
 type RecorderRecordingGroup struct {
-	// Specifies whether AWS Config records configuration changes
-	// for every supported type of regional resource (which includes any new type that will become supported in the future).
-	// Conflicts with `resourceTypes`. Defaults to `true`.
+	// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
 	AllSupported *bool `pulumi:"allSupported"`
-	// Specifies whether AWS Config includes all supported types of *global resources*
-	// with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+	// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 	IncludeGlobalResourceTypes *bool `pulumi:"includeGlobalResourceTypes"`
-	// A list that specifies the types of AWS resources for which
-	// AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
-	// See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
 
@@ -519,16 +506,11 @@ type RecorderRecordingGroupInput interface {
 }
 
 type RecorderRecordingGroupArgs struct {
-	// Specifies whether AWS Config records configuration changes
-	// for every supported type of regional resource (which includes any new type that will become supported in the future).
-	// Conflicts with `resourceTypes`. Defaults to `true`.
+	// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
 	AllSupported pulumi.BoolPtrInput `pulumi:"allSupported"`
-	// Specifies whether AWS Config includes all supported types of *global resources*
-	// with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+	// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 	IncludeGlobalResourceTypes pulumi.BoolPtrInput `pulumi:"includeGlobalResourceTypes"`
-	// A list that specifies the types of AWS resources for which
-	// AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
-	// See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
 }
 
@@ -609,22 +591,17 @@ func (o RecorderRecordingGroupOutput) ToRecorderRecordingGroupPtrOutputWithConte
 	}).(RecorderRecordingGroupPtrOutput)
 }
 
-// Specifies whether AWS Config records configuration changes
-// for every supported type of regional resource (which includes any new type that will become supported in the future).
-// Conflicts with `resourceTypes`. Defaults to `true`.
+// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
 func (o RecorderRecordingGroupOutput) AllSupported() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.AllSupported }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether AWS Config includes all supported types of *global resources*
-// with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 func (o RecorderRecordingGroupOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.IncludeGlobalResourceTypes }).(pulumi.BoolPtrOutput)
 }
 
-// A list that specifies the types of AWS resources for which
-// AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
-// See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 func (o RecorderRecordingGroupOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecorderRecordingGroup) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
@@ -647,9 +624,7 @@ func (o RecorderRecordingGroupPtrOutput) Elem() RecorderRecordingGroupOutput {
 	return o.ApplyT(func(v *RecorderRecordingGroup) RecorderRecordingGroup { return *v }).(RecorderRecordingGroupOutput)
 }
 
-// Specifies whether AWS Config records configuration changes
-// for every supported type of regional resource (which includes any new type that will become supported in the future).
-// Conflicts with `resourceTypes`. Defaults to `true`.
+// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
 func (o RecorderRecordingGroupPtrOutput) AllSupported() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RecorderRecordingGroup) *bool {
 		if v == nil {
@@ -659,8 +634,7 @@ func (o RecorderRecordingGroupPtrOutput) AllSupported() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether AWS Config includes all supported types of *global resources*
-// with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 func (o RecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RecorderRecordingGroup) *bool {
 		if v == nil {
@@ -670,9 +644,7 @@ func (o RecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A list that specifies the types of AWS resources for which
-// AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
-// See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 func (o RecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RecorderRecordingGroup) []string {
 		if v == nil {
@@ -798,15 +770,11 @@ func (o RemediationConfigurationParameterArrayOutput) Index(i pulumi.IntInput) R
 }
 
 type RuleScope struct {
-	// The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
-	// If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
+	// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
 	ComplianceResourceId *string `pulumi:"complianceResourceId"`
-	// A list of resource types of only those AWS resources that you want to trigger an
-	// evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
-	// a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+	// A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 	ComplianceResourceTypes []string `pulumi:"complianceResourceTypes"`
-	// The tag key that is applied to only those AWS resources that you want you
-	// want to trigger an evaluation for the rule.
+	// The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
 	TagKey *string `pulumi:"tagKey"`
 	// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
 	TagValue *string `pulumi:"tagValue"`
@@ -824,15 +792,11 @@ type RuleScopeInput interface {
 }
 
 type RuleScopeArgs struct {
-	// The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
-	// If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
+	// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
 	ComplianceResourceId pulumi.StringPtrInput `pulumi:"complianceResourceId"`
-	// A list of resource types of only those AWS resources that you want to trigger an
-	// evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
-	// a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+	// A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 	ComplianceResourceTypes pulumi.StringArrayInput `pulumi:"complianceResourceTypes"`
-	// The tag key that is applied to only those AWS resources that you want you
-	// want to trigger an evaluation for the rule.
+	// The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
@@ -915,21 +879,17 @@ func (o RuleScopeOutput) ToRuleScopePtrOutputWithContext(ctx context.Context) Ru
 	}).(RuleScopePtrOutput)
 }
 
-// The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
-// If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
+// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
 func (o RuleScopeOutput) ComplianceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleScope) *string { return v.ComplianceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// A list of resource types of only those AWS resources that you want to trigger an
-// evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
-// a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+// A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 func (o RuleScopeOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleScope) []string { return v.ComplianceResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// The tag key that is applied to only those AWS resources that you want you
-// want to trigger an evaluation for the rule.
+// The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
 func (o RuleScopeOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleScope) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
@@ -957,8 +917,7 @@ func (o RuleScopePtrOutput) Elem() RuleScopeOutput {
 	return o.ApplyT(func(v *RuleScope) RuleScope { return *v }).(RuleScopeOutput)
 }
 
-// The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
-// If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
+// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
 func (o RuleScopePtrOutput) ComplianceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleScope) *string {
 		if v == nil {
@@ -968,9 +927,7 @@ func (o RuleScopePtrOutput) ComplianceResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of resource types of only those AWS resources that you want to trigger an
-// evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
-// a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+// A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 func (o RuleScopePtrOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuleScope) []string {
 		if v == nil {
@@ -980,8 +937,7 @@ func (o RuleScopePtrOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The tag key that is applied to only those AWS resources that you want you
-// want to trigger an evaluation for the rule.
+// The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
 func (o RuleScopePtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleScope) *string {
 		if v == nil {
@@ -1171,11 +1127,9 @@ func (o RuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
 }
 
 type RuleSourceSourceDetail struct {
-	// The source of the event, such as an AWS service, that triggers AWS Config
-	// to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+	// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
 	EventSource *string `pulumi:"eventSource"`
-	// The frequency that you want AWS Config to run evaluations for a rule that
-	// is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+	// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
 	// The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
 	MessageType *string `pulumi:"messageType"`
@@ -1193,11 +1147,9 @@ type RuleSourceSourceDetailInput interface {
 }
 
 type RuleSourceSourceDetailArgs struct {
-	// The source of the event, such as an AWS service, that triggers AWS Config
-	// to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+	// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
 	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
-	// The frequency that you want AWS Config to run evaluations for a rule that
-	// is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+	// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 	MaximumExecutionFrequency pulumi.StringPtrInput `pulumi:"maximumExecutionFrequency"`
 	// The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
 	MessageType pulumi.StringPtrInput `pulumi:"messageType"`
@@ -1254,14 +1206,12 @@ func (o RuleSourceSourceDetailOutput) ToRuleSourceSourceDetailOutputWithContext(
 	return o
 }
 
-// The source of the event, such as an AWS service, that triggers AWS Config
-// to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
 func (o RuleSourceSourceDetailOutput) EventSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleSourceSourceDetail) *string { return v.EventSource }).(pulumi.StringPtrOutput)
 }
 
-// The frequency that you want AWS Config to run evaluations for a rule that
-// is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 func (o RuleSourceSourceDetailOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleSourceSourceDetail) *string { return v.MaximumExecutionFrequency }).(pulumi.StringPtrOutput)
 }

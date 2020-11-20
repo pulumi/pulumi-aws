@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
         /// </summary>
         public readonly string PredefinedMetricType;
         /// <summary>
-        /// Reserved for future use.
+        /// Reserved for future use. Must be less than or equal to 1023 characters in length.
         /// </summary>
         public readonly string? ResourceLabel;
 

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListenerTlsCertificateFile
     {
         /// <summary>
-        /// The certificate chain for the certificate.
+        /// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string CertificateChain;
         /// <summary>
-        /// The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+        /// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string PrivateKey;
 

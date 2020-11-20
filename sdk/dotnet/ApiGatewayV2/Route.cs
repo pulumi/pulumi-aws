@@ -84,7 +84,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> ModelSelectionExpression { get; private set; } = null!;
 
         /// <summary>
-        /// The operation name for the route.
+        /// The operation name for the route. Must be between 1 and 64 characters in length.
         /// </summary>
         [Output("operationName")]
         public Output<string?> OperationName { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> RouteResponseSelectionExpression { get; private set; } = null!;
 
         /// <summary>
-        /// The target for the route.
+        /// The target for the route. Must be between 1 and 128 characters in length.
         /// </summary>
         [Output("target")]
         public Output<string?> Target { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ModelSelectionExpression { get; set; }
 
         /// <summary>
-        /// The operation name for the route.
+        /// The operation name for the route. Must be between 1 and 64 characters in length.
         /// </summary>
         [Input("operationName")]
         public Input<string>? OperationName { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? RouteResponseSelectionExpression { get; set; }
 
         /// <summary>
-        /// The target for the route.
+        /// The target for the route. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ModelSelectionExpression { get; set; }
 
         /// <summary>
-        /// The operation name for the route.
+        /// The operation name for the route. Must be between 1 and 64 characters in length.
         /// </summary>
         [Input("operationName")]
         public Input<string>? OperationName { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? RouteResponseSelectionExpression { get; set; }
 
         /// <summary>
-        /// The target for the route.
+        /// The target for the route. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }

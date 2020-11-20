@@ -13,16 +13,13 @@ namespace Pulumi.Aws.Cfg.Inputs
     public sealed class RecorderRecordingGroupGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether AWS Config records configuration changes
-        /// for every supported type of regional resource (which includes any new type that will become supported in the future).
-        /// Conflicts with `resource_types`. Defaults to `true`.
+        /// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
         /// </summary>
         [Input("allSupported")]
         public Input<bool>? AllSupported { get; set; }
 
         /// <summary>
-        /// Specifies whether AWS Config includes all supported types of *global resources*
-        /// with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+        /// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
         /// </summary>
         [Input("includeGlobalResourceTypes")]
         public Input<bool>? IncludeGlobalResourceTypes { get; set; }
@@ -31,9 +28,7 @@ namespace Pulumi.Aws.Cfg.Inputs
         private InputList<string>? _resourceTypes;
 
         /// <summary>
-        /// A list that specifies the types of AWS resources for which
-        /// AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
-        /// See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+        /// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
         /// </summary>
         public InputList<string> ResourceTypes
         {

@@ -290,8 +290,7 @@ type EventTarget struct {
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input pulumi.StringPtrOutput `pulumi:"input"`
-	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-	// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
+	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
 	InputPath pulumi.StringPtrOutput `pulumi:"inputPath"`
 	// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
 	InputTransformer EventTargetInputTransformerPtrOutput `pulumi:"inputTransformer"`
@@ -353,8 +352,7 @@ type eventTargetState struct {
 	EventBusName *string `pulumi:"eventBusName"`
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input *string `pulumi:"input"`
-	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-	// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
+	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
 	InputPath *string `pulumi:"inputPath"`
 	// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
 	InputTransformer *EventTargetInputTransformer `pulumi:"inputTransformer"`
@@ -383,8 +381,7 @@ type EventTargetState struct {
 	EventBusName pulumi.StringPtrInput
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input pulumi.StringPtrInput
-	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-	// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
+	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
 	InputPath pulumi.StringPtrInput
 	// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
 	InputTransformer EventTargetInputTransformerPtrInput
@@ -417,8 +414,7 @@ type eventTargetArgs struct {
 	EventBusName *string `pulumi:"eventBusName"`
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input *string `pulumi:"input"`
-	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-	// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
+	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
 	InputPath *string `pulumi:"inputPath"`
 	// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
 	InputTransformer *EventTargetInputTransformer `pulumi:"inputTransformer"`
@@ -448,8 +444,7 @@ type EventTargetArgs struct {
 	EventBusName pulumi.StringPtrInput
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input pulumi.StringPtrInput
-	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-	// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
+	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
 	InputPath pulumi.StringPtrInput
 	// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
 	InputTransformer EventTargetInputTransformerPtrInput

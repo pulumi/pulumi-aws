@@ -206,11 +206,11 @@ type Route struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The last update date of the route.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the route.
+	// The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringOutput `pulumi:"meshName"`
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
-	// The name to use for the route.
+	// The name to use for the route. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
@@ -218,7 +218,7 @@ type Route struct {
 	Spec RouteSpecOutput `pulumi:"spec"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The name of the virtual router in which to create the route.
+	// The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
 	VirtualRouterName pulumi.StringOutput `pulumi:"virtualRouterName"`
 }
 
@@ -265,11 +265,11 @@ type routeState struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// The last update date of the route.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the route.
+	// The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
 	MeshName *string `pulumi:"meshName"`
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the route.
+	// The name to use for the route. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
 	// The resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
@@ -277,7 +277,7 @@ type routeState struct {
 	Spec *RouteSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The name of the virtual router in which to create the route.
+	// The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
 	VirtualRouterName *string `pulumi:"virtualRouterName"`
 }
 
@@ -288,11 +288,11 @@ type RouteState struct {
 	CreatedDate pulumi.StringPtrInput
 	// The last update date of the route.
 	LastUpdatedDate pulumi.StringPtrInput
-	// The name of the service mesh in which to create the route.
+	// The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringPtrInput
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the route.
+	// The name to use for the route. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
 	// The resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
@@ -300,7 +300,7 @@ type RouteState struct {
 	Spec RouteSpecPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The name of the virtual router in which to create the route.
+	// The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
 	VirtualRouterName pulumi.StringPtrInput
 }
 
@@ -309,33 +309,33 @@ func (RouteState) ElementType() reflect.Type {
 }
 
 type routeArgs struct {
-	// The name of the service mesh in which to create the route.
+	// The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
 	MeshName string `pulumi:"meshName"`
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the route.
+	// The name to use for the route. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
 	// The route specification to apply.
 	Spec RouteSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The name of the virtual router in which to create the route.
+	// The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
 	VirtualRouterName string `pulumi:"virtualRouterName"`
 }
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
-	// The name of the service mesh in which to create the route.
+	// The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringInput
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the route.
+	// The name to use for the route. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
 	// The route specification to apply.
 	Spec RouteSpecInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The name of the virtual router in which to create the route.
+	// The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
 	VirtualRouterName pulumi.StringInput
 }
 

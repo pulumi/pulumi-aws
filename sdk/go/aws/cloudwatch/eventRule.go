@@ -78,8 +78,7 @@ type EventRule struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
-	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required.
-	// See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
 	EventPattern pulumi.StringPtrOutput `pulumi:"eventPattern"`
 	// Whether the rule should be enabled (defaults to `true`).
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
@@ -89,8 +88,7 @@ type EventRule struct {
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
-	// The scheduling expression.
-	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
+	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -130,8 +128,7 @@ type eventRuleState struct {
 	Description *string `pulumi:"description"`
 	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
 	EventBusName *string `pulumi:"eventBusName"`
-	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required.
-	// See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
 	EventPattern *string `pulumi:"eventPattern"`
 	// Whether the rule should be enabled (defaults to `true`).
 	IsEnabled *bool `pulumi:"isEnabled"`
@@ -141,8 +138,7 @@ type eventRuleState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn *string `pulumi:"roleArn"`
-	// The scheduling expression.
-	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
+	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -155,8 +151,7 @@ type EventRuleState struct {
 	Description pulumi.StringPtrInput
 	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrInput
-	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required.
-	// See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
 	EventPattern pulumi.StringPtrInput
 	// Whether the rule should be enabled (defaults to `true`).
 	IsEnabled pulumi.BoolPtrInput
@@ -166,8 +161,7 @@ type EventRuleState struct {
 	NamePrefix pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn pulumi.StringPtrInput
-	// The scheduling expression.
-	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
+	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
 	ScheduleExpression pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -182,8 +176,7 @@ type eventRuleArgs struct {
 	Description *string `pulumi:"description"`
 	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
 	EventBusName *string `pulumi:"eventBusName"`
-	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required.
-	// See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
 	EventPattern *string `pulumi:"eventPattern"`
 	// Whether the rule should be enabled (defaults to `true`).
 	IsEnabled *bool `pulumi:"isEnabled"`
@@ -193,8 +186,7 @@ type eventRuleArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn *string `pulumi:"roleArn"`
-	// The scheduling expression.
-	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
+	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -206,8 +198,7 @@ type EventRuleArgs struct {
 	Description pulumi.StringPtrInput
 	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrInput
-	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required.
-	// See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
 	EventPattern pulumi.StringPtrInput
 	// Whether the rule should be enabled (defaults to `true`).
 	IsEnabled pulumi.BoolPtrInput
@@ -217,8 +208,7 @@ type EventRuleArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn pulumi.StringPtrInput
-	// The scheduling expression.
-	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
+	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
 	ScheduleExpression pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput

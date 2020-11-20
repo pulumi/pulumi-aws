@@ -115,7 +115,7 @@ export class VirtualGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
-     * The name of the service mesh in which to create the virtual gateway.
+     * The name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
      */
     public readonly meshName!: pulumi.Output<string>;
     /**
@@ -123,7 +123,7 @@ export class VirtualGateway extends pulumi.CustomResource {
      */
     public readonly meshOwner!: pulumi.Output<string>;
     /**
-     * The name to use for the virtual gateway.
+     * The name to use for the virtual gateway. Must be between 1 and 255 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -206,7 +206,7 @@ export interface VirtualGatewayState {
      */
     readonly lastUpdatedDate?: pulumi.Input<string>;
     /**
-     * The name of the service mesh in which to create the virtual gateway.
+     * The name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
      */
     readonly meshName?: pulumi.Input<string>;
     /**
@@ -214,7 +214,7 @@ export interface VirtualGatewayState {
      */
     readonly meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the virtual gateway.
+     * The name to use for the virtual gateway. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -236,7 +236,7 @@ export interface VirtualGatewayState {
  */
 export interface VirtualGatewayArgs {
     /**
-     * The name of the service mesh in which to create the virtual gateway.
+     * The name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
      */
     readonly meshName: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface VirtualGatewayArgs {
      */
     readonly meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the virtual gateway.
+     * The name to use for the virtual gateway. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**

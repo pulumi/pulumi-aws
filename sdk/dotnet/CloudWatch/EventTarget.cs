@@ -354,8 +354,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> Input { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-        /// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
+        /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
         /// </summary>
         [Output("inputPath")]
         public Output<string?> InputPath { get; private set; } = null!;
@@ -479,8 +478,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Input { get; set; }
 
         /// <summary>
-        /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-        /// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
+        /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
         /// </summary>
         [Input("inputPath")]
         public Input<string>? InputPath { get; set; }
@@ -571,8 +569,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Input { get; set; }
 
         /// <summary>
-        /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-        /// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
+        /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
         /// </summary>
         [Input("inputPath")]
         public Input<string>? InputPath { get; set; }

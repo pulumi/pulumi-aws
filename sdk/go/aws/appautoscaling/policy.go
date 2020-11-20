@@ -183,7 +183,7 @@ type Policy struct {
 
 	// The ARN assigned by AWS to the scaling policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the policy.
+	// The name of the policy. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
 	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
@@ -238,7 +238,7 @@ func GetPolicy(ctx *pulumi.Context,
 type policyState struct {
 	// The ARN assigned by AWS to the scaling policy.
 	Arn *string `pulumi:"arn"`
-	// The name of the policy.
+	// The name of the policy. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
 	// The policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
 	PolicyType *string `pulumi:"policyType"`
@@ -257,7 +257,7 @@ type policyState struct {
 type PolicyState struct {
 	// The ARN assigned by AWS to the scaling policy.
 	Arn pulumi.StringPtrInput
-	// The name of the policy.
+	// The name of the policy. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
 	// The policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
 	PolicyType pulumi.StringPtrInput
@@ -278,7 +278,7 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// The name of the policy.
+	// The name of the policy. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
 	// The policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
 	PolicyType *string `pulumi:"policyType"`
@@ -296,7 +296,7 @@ type policyArgs struct {
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// The name of the policy.
+	// The name of the policy. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
 	// The policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
 	PolicyType pulumi.StringPtrInput

@@ -83,7 +83,7 @@ type Integration struct {
 
 	// The API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+	// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
 	ConnectionId pulumi.StringPtrOutput `pulumi:"connectionId"`
 	// The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
 	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
@@ -97,7 +97,7 @@ type Integration struct {
 	IntegrationMethod pulumi.StringPtrOutput `pulumi:"integrationMethod"`
 	// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
 	IntegrationResponseSelectionExpression pulumi.StringOutput `pulumi:"integrationResponseSelectionExpression"`
-	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype pulumi.StringPtrOutput `pulumi:"integrationSubtype"`
 	// The integration type of an integration.
 	// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
@@ -158,7 +158,7 @@ func GetIntegration(ctx *pulumi.Context,
 type integrationState struct {
 	// The API identifier.
 	ApiId *string `pulumi:"apiId"`
-	// The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+	// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
 	ConnectionId *string `pulumi:"connectionId"`
 	// The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
 	ConnectionType *string `pulumi:"connectionType"`
@@ -172,7 +172,7 @@ type integrationState struct {
 	IntegrationMethod *string `pulumi:"integrationMethod"`
 	// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
 	IntegrationResponseSelectionExpression *string `pulumi:"integrationResponseSelectionExpression"`
-	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype *string `pulumi:"integrationSubtype"`
 	// The integration type of an integration.
 	// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
@@ -200,7 +200,7 @@ type integrationState struct {
 type IntegrationState struct {
 	// The API identifier.
 	ApiId pulumi.StringPtrInput
-	// The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+	// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
 	ConnectionId pulumi.StringPtrInput
 	// The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
 	ConnectionType pulumi.StringPtrInput
@@ -214,7 +214,7 @@ type IntegrationState struct {
 	IntegrationMethod pulumi.StringPtrInput
 	// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
 	IntegrationResponseSelectionExpression pulumi.StringPtrInput
-	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype pulumi.StringPtrInput
 	// The integration type of an integration.
 	// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
@@ -246,7 +246,7 @@ func (IntegrationState) ElementType() reflect.Type {
 type integrationArgs struct {
 	// The API identifier.
 	ApiId string `pulumi:"apiId"`
-	// The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+	// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
 	ConnectionId *string `pulumi:"connectionId"`
 	// The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
 	ConnectionType *string `pulumi:"connectionType"`
@@ -258,7 +258,7 @@ type integrationArgs struct {
 	Description *string `pulumi:"description"`
 	// The integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
 	IntegrationMethod *string `pulumi:"integrationMethod"`
-	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype *string `pulumi:"integrationSubtype"`
 	// The integration type of an integration.
 	// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
@@ -287,7 +287,7 @@ type integrationArgs struct {
 type IntegrationArgs struct {
 	// The API identifier.
 	ApiId pulumi.StringInput
-	// The ID of the VPC link for a private integration. Supported only for HTTP APIs.
+	// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
 	ConnectionId pulumi.StringPtrInput
 	// The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
 	ConnectionType pulumi.StringPtrInput
@@ -299,7 +299,7 @@ type IntegrationArgs struct {
 	Description pulumi.StringPtrInput
 	// The integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
 	IntegrationMethod pulumi.StringPtrInput
-	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype pulumi.StringPtrInput
 	// The integration type of an integration.
 	// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.

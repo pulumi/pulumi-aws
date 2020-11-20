@@ -13,15 +13,13 @@ namespace Pulumi.Aws.Cfg.Inputs
     public sealed class RuleSourceSourceDetailArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The source of the event, such as an AWS service, that triggers AWS Config
-        /// to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+        /// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
         /// </summary>
         [Input("eventSource")]
         public Input<string>? EventSource { get; set; }
 
         /// <summary>
-        /// The frequency that you want AWS Config to run evaluations for a rule that
-        /// is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        /// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         /// </summary>
         [Input("maximumExecutionFrequency")]
         public Input<string>? MaximumExecutionFrequency { get; set; }

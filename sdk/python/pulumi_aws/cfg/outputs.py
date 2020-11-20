@@ -115,9 +115,7 @@ class DeliveryChannelSnapshotDeliveryProperties(dict):
     def __init__(__self__, *,
                  delivery_frequency: Optional[str] = None):
         """
-        :param str delivery_frequency: - The frequency with which AWS Config recurringly delivers configuration snapshots.
-               e.g. `One_Hour` or `Three_Hours`.
-               Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+        :param str delivery_frequency: - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
         """
         if delivery_frequency is not None:
             pulumi.set(__self__, "delivery_frequency", delivery_frequency)
@@ -126,9 +124,7 @@ class DeliveryChannelSnapshotDeliveryProperties(dict):
     @pulumi.getter(name="deliveryFrequency")
     def delivery_frequency(self) -> Optional[str]:
         """
-        - The frequency with which AWS Config recurringly delivers configuration snapshots.
-        e.g. `One_Hour` or `Three_Hours`.
-        Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+        - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
         """
         return pulumi.get(self, "delivery_frequency")
 
@@ -143,14 +139,9 @@ class RecorderRecordingGroup(dict):
                  include_global_resource_types: Optional[bool] = None,
                  resource_types: Optional[Sequence[str]] = None):
         """
-        :param bool all_supported: Specifies whether AWS Config records configuration changes
-               for every supported type of regional resource (which includes any new type that will become supported in the future).
-               Conflicts with `resource_types`. Defaults to `true`.
-        :param bool include_global_resource_types: Specifies whether AWS Config includes all supported types of *global resources*
-               with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
-        :param Sequence[str] resource_types: A list that specifies the types of AWS resources for which
-               AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
-               See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+        :param bool all_supported: Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
+        :param bool include_global_resource_types: Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+        :param Sequence[str] resource_types: A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
         """
         if all_supported is not None:
             pulumi.set(__self__, "all_supported", all_supported)
@@ -163,9 +154,7 @@ class RecorderRecordingGroup(dict):
     @pulumi.getter(name="allSupported")
     def all_supported(self) -> Optional[bool]:
         """
-        Specifies whether AWS Config records configuration changes
-        for every supported type of regional resource (which includes any new type that will become supported in the future).
-        Conflicts with `resource_types`. Defaults to `true`.
+        Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
         """
         return pulumi.get(self, "all_supported")
 
@@ -173,8 +162,7 @@ class RecorderRecordingGroup(dict):
     @pulumi.getter(name="includeGlobalResourceTypes")
     def include_global_resource_types(self) -> Optional[bool]:
         """
-        Specifies whether AWS Config includes all supported types of *global resources*
-        with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+        Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
         """
         return pulumi.get(self, "include_global_resource_types")
 
@@ -182,9 +170,7 @@ class RecorderRecordingGroup(dict):
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[Sequence[str]]:
         """
-        A list that specifies the types of AWS resources for which
-        AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
-        See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+        A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
         """
         return pulumi.get(self, "resource_types")
 
@@ -245,13 +231,9 @@ class RuleScope(dict):
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
-        :param str compliance_resource_id: The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
-               If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
-        :param Sequence[str] compliance_resource_types: A list of resource types of only those AWS resources that you want to trigger an
-               evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
-               a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
-        :param str tag_key: The tag key that is applied to only those AWS resources that you want you
-               want to trigger an evaluation for the rule.
+        :param str compliance_resource_id: The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
+        :param Sequence[str] compliance_resource_types: A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+        :param str tag_key: The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
         :param str tag_value: The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
         """
         if compliance_resource_id is not None:
@@ -267,8 +249,7 @@ class RuleScope(dict):
     @pulumi.getter(name="complianceResourceId")
     def compliance_resource_id(self) -> Optional[str]:
         """
-        The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
-        If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
+        The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
         """
         return pulumi.get(self, "compliance_resource_id")
 
@@ -276,9 +257,7 @@ class RuleScope(dict):
     @pulumi.getter(name="complianceResourceTypes")
     def compliance_resource_types(self) -> Optional[Sequence[str]]:
         """
-        A list of resource types of only those AWS resources that you want to trigger an
-        evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
-        a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+        A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
         """
         return pulumi.get(self, "compliance_resource_types")
 
@@ -286,8 +265,7 @@ class RuleScope(dict):
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[str]:
         """
-        The tag key that is applied to only those AWS resources that you want you
-        want to trigger an evaluation for the rule.
+        The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
         """
         return pulumi.get(self, "tag_key")
 
@@ -354,10 +332,8 @@ class RuleSourceSourceDetail(dict):
                  maximum_execution_frequency: Optional[str] = None,
                  message_type: Optional[str] = None):
         """
-        :param str event_source: The source of the event, such as an AWS service, that triggers AWS Config
-               to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
-        :param str maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that
-               is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        :param str event_source: The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+        :param str maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         :param str message_type: The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
         """
         if event_source is not None:
@@ -371,8 +347,7 @@ class RuleSourceSourceDetail(dict):
     @pulumi.getter(name="eventSource")
     def event_source(self) -> Optional[str]:
         """
-        The source of the event, such as an AWS service, that triggers AWS Config
-        to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+        The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
         """
         return pulumi.get(self, "event_source")
 
@@ -380,8 +355,7 @@ class RuleSourceSourceDetail(dict):
     @pulumi.getter(name="maximumExecutionFrequency")
     def maximum_execution_frequency(self) -> Optional[str]:
         """
-        The frequency that you want AWS Config to run evaluations for a rule that
-        is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         """
         return pulumi.get(self, "maximum_execution_frequency")
 

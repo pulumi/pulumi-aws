@@ -57,16 +57,13 @@ namespace Pulumi.Aws.Iam
         public Output<bool?> AllowUsersToChangePassword { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether passwords in the account expire.
-        /// Returns `true` if `max_password_age` contains a value greater than `0`.
-        /// Returns `false` if it is `0` or _not present_.
+        /// Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
         /// </summary>
         [Output("expirePasswords")]
         public Output<bool> ExpirePasswords { get; private set; } = null!;
 
         /// <summary>
-        /// Whether users are prevented from setting a new password after their password has expired
-        /// (i.e. require administrator reset)
+        /// Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
         /// </summary>
         [Output("hardExpiry")]
         public Output<bool> HardExpiry { get; private set; } = null!;
@@ -166,8 +163,7 @@ namespace Pulumi.Aws.Iam
         public Input<bool>? AllowUsersToChangePassword { get; set; }
 
         /// <summary>
-        /// Whether users are prevented from setting a new password after their password has expired
-        /// (i.e. require administrator reset)
+        /// Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
         /// </summary>
         [Input("hardExpiry")]
         public Input<bool>? HardExpiry { get; set; }
@@ -228,16 +224,13 @@ namespace Pulumi.Aws.Iam
         public Input<bool>? AllowUsersToChangePassword { get; set; }
 
         /// <summary>
-        /// Indicates whether passwords in the account expire.
-        /// Returns `true` if `max_password_age` contains a value greater than `0`.
-        /// Returns `false` if it is `0` or _not present_.
+        /// Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
         /// </summary>
         [Input("expirePasswords")]
         public Input<bool>? ExpirePasswords { get; set; }
 
         /// <summary>
-        /// Whether users are prevented from setting a new password after their password has expired
-        /// (i.e. require administrator reset)
+        /// Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
         /// </summary>
         [Input("hardExpiry")]
         public Input<bool>? HardExpiry { get; set; }

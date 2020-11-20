@@ -236,11 +236,11 @@ type VirtualNode struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The last update date of the virtual node.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the virtual node.
+	// The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringOutput `pulumi:"meshName"`
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
-	// The name to use for the virtual node.
+	// The name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
@@ -290,11 +290,11 @@ type virtualNodeState struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// The last update date of the virtual node.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the virtual node.
+	// The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
 	MeshName *string `pulumi:"meshName"`
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the virtual node.
+	// The name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
 	// The resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
@@ -311,11 +311,11 @@ type VirtualNodeState struct {
 	CreatedDate pulumi.StringPtrInput
 	// The last update date of the virtual node.
 	LastUpdatedDate pulumi.StringPtrInput
-	// The name of the service mesh in which to create the virtual node.
+	// The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringPtrInput
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the virtual node.
+	// The name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
 	// The resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
@@ -330,11 +330,11 @@ func (VirtualNodeState) ElementType() reflect.Type {
 }
 
 type virtualNodeArgs struct {
-	// The name of the service mesh in which to create the virtual node.
+	// The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
 	MeshName string `pulumi:"meshName"`
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the virtual node.
+	// The name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
 	// The virtual node specification to apply.
 	Spec VirtualNodeSpec `pulumi:"spec"`
@@ -344,11 +344,11 @@ type virtualNodeArgs struct {
 
 // The set of arguments for constructing a VirtualNode resource.
 type VirtualNodeArgs struct {
-	// The name of the service mesh in which to create the virtual node.
+	// The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringInput
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the virtual node.
+	// The name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
 	// The virtual node specification to apply.
 	Spec VirtualNodeSpecInput

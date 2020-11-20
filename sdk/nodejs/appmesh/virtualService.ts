@@ -95,7 +95,7 @@ export class VirtualService extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
-     * The name of the service mesh in which to create the virtual service.
+     * The name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
      */
     public readonly meshName!: pulumi.Output<string>;
     /**
@@ -103,7 +103,7 @@ export class VirtualService extends pulumi.CustomResource {
      */
     public readonly meshOwner!: pulumi.Output<string>;
     /**
-     * The name to use for the virtual service.
+     * The name to use for the virtual service. Must be between 1 and 255 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -186,7 +186,7 @@ export interface VirtualServiceState {
      */
     readonly lastUpdatedDate?: pulumi.Input<string>;
     /**
-     * The name of the service mesh in which to create the virtual service.
+     * The name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
      */
     readonly meshName?: pulumi.Input<string>;
     /**
@@ -194,7 +194,7 @@ export interface VirtualServiceState {
      */
     readonly meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the virtual service.
+     * The name to use for the virtual service. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -216,7 +216,7 @@ export interface VirtualServiceState {
  */
 export interface VirtualServiceArgs {
     /**
-     * The name of the service mesh in which to create the virtual service.
+     * The name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
      */
     readonly meshName: pulumi.Input<string>;
     /**
@@ -224,7 +224,7 @@ export interface VirtualServiceArgs {
      */
     readonly meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the virtual service.
+     * The name to use for the virtual service. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**

@@ -63,8 +63,8 @@ class Stage(pulumi.CustomResource):
                Supported only for WebSocket APIs.
         :param pulumi.Input[pulumi.InputType['StageDefaultRouteSettingsArgs']] default_route_settings: The default route settings for the stage.
         :param pulumi.Input[str] deployment_id: The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
-        :param pulumi.Input[str] description: The description for the stage.
-        :param pulumi.Input[str] name: The name of the stage.
+        :param pulumi.Input[str] description: The description for the stage. Must be less than or equal to 1024 characters in length.
+        :param pulumi.Input[str] name: The name of the stage. Must be between 1 and 128 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variables: A map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the stage.
@@ -142,13 +142,13 @@ class Stage(pulumi.CustomResource):
                Supported only for WebSocket APIs.
         :param pulumi.Input[pulumi.InputType['StageDefaultRouteSettingsArgs']] default_route_settings: The default route settings for the stage.
         :param pulumi.Input[str] deployment_id: The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
-        :param pulumi.Input[str] description: The description for the stage.
+        :param pulumi.Input[str] description: The description for the stage. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[str] execution_arn: The ARN prefix to be used in an `lambda.Permission` `source_arn` attribute.
                For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
                See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
                e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
-        :param pulumi.Input[str] name: The name of the stage.
+        :param pulumi.Input[str] name: The name of the stage. Must be between 1 and 128 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variables: A map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the stage.
@@ -235,7 +235,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description for the stage.
+        The description for the stage. Must be less than or equal to 1024 characters in length.
         """
         return pulumi.get(self, "description")
 
@@ -262,7 +262,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the stage.
+        The name of the stage. Must be between 1 and 128 characters in length.
         """
         return pulumi.get(self, "name")
 

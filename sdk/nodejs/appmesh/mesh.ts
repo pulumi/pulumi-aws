@@ -85,7 +85,7 @@ export class Mesh extends pulumi.CustomResource {
      */
     public /*out*/ readonly meshOwner!: pulumi.Output<string>;
     /**
-     * The name to use for the service mesh.
+     * The name to use for the service mesh. Must be between 1 and 255 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -164,7 +164,7 @@ export interface MeshState {
      */
     readonly meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the service mesh.
+     * The name to use for the service mesh. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -186,7 +186,7 @@ export interface MeshState {
  */
 export interface MeshArgs {
     /**
-     * The name to use for the service mesh.
+     * The name to use for the service mesh. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**

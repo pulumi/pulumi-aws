@@ -23,39 +23,32 @@ namespace Pulumi.Aws.ApiGateway
     public partial class Authorizer : Pulumi.CustomResource
     {
         /// <summary>
-        /// The credentials required for the authorizer.
-        /// To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
+        /// The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         /// </summary>
         [Output("authorizerCredentials")]
         public Output<string?> AuthorizerCredentials { get; private set; } = null!;
 
         /// <summary>
-        /// The TTL of cached authorizer results in seconds.
-        /// Defaults to `300`.
+        /// The TTL of cached authorizer results in seconds. Defaults to `300`.
         /// </summary>
         [Output("authorizerResultTtlInSeconds")]
         public Output<int?> AuthorizerResultTtlInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// The authorizer's Uniform Resource Identifier (URI).
-        /// This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
+        /// The authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
         /// e.g. `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         /// </summary>
         [Output("authorizerUri")]
         public Output<string?> AuthorizerUri { get; private set; } = null!;
 
         /// <summary>
-        /// The source of the identity in an incoming request.
-        /// Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g. `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
+        /// The source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g. `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
         /// </summary>
         [Output("identitySource")]
         public Output<string?> IdentitySource { get; private set; } = null!;
 
         /// <summary>
-        /// A validation expression for the incoming identity.
-        /// For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched
-        /// against this expression, and will proceed if the token matches. If the token doesn't match,
-        /// the client receives a 401 Unauthorized response.
+        /// A validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         /// </summary>
         [Output("identityValidationExpression")]
         public Output<string?> IdentityValidationExpression { get; private set; } = null!;
@@ -67,8 +60,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of the Amazon Cognito user pool ARNs.
-        /// Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
+        /// A list of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
         /// </summary>
         [Output("providerArns")]
         public Output<ImmutableArray<string>> ProviderArns { get; private set; } = null!;
@@ -80,8 +72,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> RestApi { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
-        /// Defaults to `TOKEN`.
+        /// The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -133,39 +124,32 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class AuthorizerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The credentials required for the authorizer.
-        /// To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
+        /// The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         /// </summary>
         [Input("authorizerCredentials")]
         public Input<string>? AuthorizerCredentials { get; set; }
 
         /// <summary>
-        /// The TTL of cached authorizer results in seconds.
-        /// Defaults to `300`.
+        /// The TTL of cached authorizer results in seconds. Defaults to `300`.
         /// </summary>
         [Input("authorizerResultTtlInSeconds")]
         public Input<int>? AuthorizerResultTtlInSeconds { get; set; }
 
         /// <summary>
-        /// The authorizer's Uniform Resource Identifier (URI).
-        /// This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
+        /// The authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
         /// e.g. `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         /// </summary>
         [Input("authorizerUri")]
         public Input<string>? AuthorizerUri { get; set; }
 
         /// <summary>
-        /// The source of the identity in an incoming request.
-        /// Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g. `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
+        /// The source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g. `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
         /// </summary>
         [Input("identitySource")]
         public Input<string>? IdentitySource { get; set; }
 
         /// <summary>
-        /// A validation expression for the incoming identity.
-        /// For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched
-        /// against this expression, and will proceed if the token matches. If the token doesn't match,
-        /// the client receives a 401 Unauthorized response.
+        /// A validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         /// </summary>
         [Input("identityValidationExpression")]
         public Input<string>? IdentityValidationExpression { get; set; }
@@ -180,8 +164,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputList<string>? _providerArns;
 
         /// <summary>
-        /// A list of the Amazon Cognito user pool ARNs.
-        /// Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
+        /// A list of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
         /// </summary>
         public InputList<string> ProviderArns
         {
@@ -196,8 +179,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> RestApi { get; set; } = null!;
 
         /// <summary>
-        /// The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
-        /// Defaults to `TOKEN`.
+        /// The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -210,39 +192,32 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class AuthorizerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The credentials required for the authorizer.
-        /// To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
+        /// The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         /// </summary>
         [Input("authorizerCredentials")]
         public Input<string>? AuthorizerCredentials { get; set; }
 
         /// <summary>
-        /// The TTL of cached authorizer results in seconds.
-        /// Defaults to `300`.
+        /// The TTL of cached authorizer results in seconds. Defaults to `300`.
         /// </summary>
         [Input("authorizerResultTtlInSeconds")]
         public Input<int>? AuthorizerResultTtlInSeconds { get; set; }
 
         /// <summary>
-        /// The authorizer's Uniform Resource Identifier (URI).
-        /// This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
+        /// The authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
         /// e.g. `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         /// </summary>
         [Input("authorizerUri")]
         public Input<string>? AuthorizerUri { get; set; }
 
         /// <summary>
-        /// The source of the identity in an incoming request.
-        /// Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g. `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
+        /// The source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g. `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
         /// </summary>
         [Input("identitySource")]
         public Input<string>? IdentitySource { get; set; }
 
         /// <summary>
-        /// A validation expression for the incoming identity.
-        /// For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched
-        /// against this expression, and will proceed if the token matches. If the token doesn't match,
-        /// the client receives a 401 Unauthorized response.
+        /// A validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         /// </summary>
         [Input("identityValidationExpression")]
         public Input<string>? IdentityValidationExpression { get; set; }
@@ -257,8 +232,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputList<string>? _providerArns;
 
         /// <summary>
-        /// A list of the Amazon Cognito user pool ARNs.
-        /// Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
+        /// A list of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
         /// </summary>
         public InputList<string> ProviderArns
         {
@@ -273,8 +247,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? RestApi { get; set; }
 
         /// <summary>
-        /// The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
-        /// Defaults to `TOKEN`.
+        /// The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -153,8 +153,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<bool?> CacheClusterEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The size of the cache cluster for the stage, if enabled.
-        /// Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+        /// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         /// </summary>
         [Output("cacheClusterSize")]
         public Output<string?> CacheClusterSize { get; private set; } = null!;
@@ -287,8 +286,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<bool>? CacheClusterEnabled { get; set; }
 
         /// <summary>
-        /// The size of the cache cluster for the stage, if enabled.
-        /// Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+        /// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         /// </summary>
         [Input("cacheClusterSize")]
         public Input<string>? CacheClusterSize { get; set; }
@@ -385,8 +383,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<bool>? CacheClusterEnabled { get; set; }
 
         /// <summary>
-        /// The size of the cache cluster for the stage, if enabled.
-        /// Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+        /// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         /// </summary>
         [Input("cacheClusterSize")]
         public Input<string>? CacheClusterSize { get; set; }

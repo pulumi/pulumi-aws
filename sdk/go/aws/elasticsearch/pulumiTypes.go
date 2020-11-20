@@ -1126,8 +1126,7 @@ func (o DomainDomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringP
 type DomainEbsOptions struct {
 	// Whether EBS volumes are attached to data nodes in the domain.
 	EbsEnabled bool `pulumi:"ebsEnabled"`
-	// The baseline input/output (I/O) performance of EBS volumes
-	// attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+	// The baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
 	Iops *int `pulumi:"iops"`
 	// The size of EBS volumes attached to data nodes (in GiB).
 	// **Required** if `ebsEnabled` is set to `true`.
@@ -1150,8 +1149,7 @@ type DomainEbsOptionsInput interface {
 type DomainEbsOptionsArgs struct {
 	// Whether EBS volumes are attached to data nodes in the domain.
 	EbsEnabled pulumi.BoolInput `pulumi:"ebsEnabled"`
-	// The baseline input/output (I/O) performance of EBS volumes
-	// attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+	// The baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// The size of EBS volumes attached to data nodes (in GiB).
 	// **Required** if `ebsEnabled` is set to `true`.
@@ -1242,8 +1240,7 @@ func (o DomainEbsOptionsOutput) EbsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainEbsOptions) bool { return v.EbsEnabled }).(pulumi.BoolOutput)
 }
 
-// The baseline input/output (I/O) performance of EBS volumes
-// attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+// The baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
 func (o DomainEbsOptionsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainEbsOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -1287,8 +1284,7 @@ func (o DomainEbsOptionsPtrOutput) EbsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The baseline input/output (I/O) performance of EBS volumes
-// attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+// The baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
 func (o DomainEbsOptionsPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainEbsOptions) *int {
 		if v == nil {
@@ -1716,8 +1712,7 @@ func (o DomainNodeToNodeEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type DomainSnapshotOptions struct {
-	// Hour during which the service takes an automated daily
-	// snapshot of the indices in the domain.
+	// Hour during which the service takes an automated daily snapshot of the indices in the domain.
 	AutomatedSnapshotStartHour int `pulumi:"automatedSnapshotStartHour"`
 }
 
@@ -1733,8 +1728,7 @@ type DomainSnapshotOptionsInput interface {
 }
 
 type DomainSnapshotOptionsArgs struct {
-	// Hour during which the service takes an automated daily
-	// snapshot of the indices in the domain.
+	// Hour during which the service takes an automated daily snapshot of the indices in the domain.
 	AutomatedSnapshotStartHour pulumi.IntInput `pulumi:"automatedSnapshotStartHour"`
 }
 
@@ -1815,8 +1809,7 @@ func (o DomainSnapshotOptionsOutput) ToDomainSnapshotOptionsPtrOutputWithContext
 	}).(DomainSnapshotOptionsPtrOutput)
 }
 
-// Hour during which the service takes an automated daily
-// snapshot of the indices in the domain.
+// Hour during which the service takes an automated daily snapshot of the indices in the domain.
 func (o DomainSnapshotOptionsOutput) AutomatedSnapshotStartHour() pulumi.IntOutput {
 	return o.ApplyT(func(v DomainSnapshotOptions) int { return v.AutomatedSnapshotStartHour }).(pulumi.IntOutput)
 }
@@ -1839,8 +1832,7 @@ func (o DomainSnapshotOptionsPtrOutput) Elem() DomainSnapshotOptionsOutput {
 	return o.ApplyT(func(v *DomainSnapshotOptions) DomainSnapshotOptions { return *v }).(DomainSnapshotOptionsOutput)
 }
 
-// Hour during which the service takes an automated daily
-// snapshot of the indices in the domain.
+// Hour during which the service takes an automated daily snapshot of the indices in the domain.
 func (o DomainSnapshotOptionsPtrOutput) AutomatedSnapshotStartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainSnapshotOptions) *int {
 		if v == nil {
@@ -2539,8 +2531,7 @@ func (o GetDomainCognitoOptionArrayOutput) Index(i pulumi.IntInput) GetDomainCog
 type GetDomainEbsOption struct {
 	// Whether EBS volumes are attached to data nodes in the domain.
 	EbsEnabled bool `pulumi:"ebsEnabled"`
-	// The baseline input/output (I/O) performance of EBS volumes
-	// attached to data nodes.
+	// The baseline input/output (I/O) performance of EBS volumes attached to data nodes.
 	Iops int `pulumi:"iops"`
 	// The size of EBS volumes attached to data nodes (in GB).
 	VolumeSize int `pulumi:"volumeSize"`
@@ -2562,8 +2553,7 @@ type GetDomainEbsOptionInput interface {
 type GetDomainEbsOptionArgs struct {
 	// Whether EBS volumes are attached to data nodes in the domain.
 	EbsEnabled pulumi.BoolInput `pulumi:"ebsEnabled"`
-	// The baseline input/output (I/O) performance of EBS volumes
-	// attached to data nodes.
+	// The baseline input/output (I/O) performance of EBS volumes attached to data nodes.
 	Iops pulumi.IntInput `pulumi:"iops"`
 	// The size of EBS volumes attached to data nodes (in GB).
 	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
@@ -2627,8 +2617,7 @@ func (o GetDomainEbsOptionOutput) EbsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainEbsOption) bool { return v.EbsEnabled }).(pulumi.BoolOutput)
 }
 
-// The baseline input/output (I/O) performance of EBS volumes
-// attached to data nodes.
+// The baseline input/output (I/O) performance of EBS volumes attached to data nodes.
 func (o GetDomainEbsOptionOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainEbsOption) int { return v.Iops }).(pulumi.IntOutput)
 }
@@ -2982,8 +2971,7 @@ func (o GetDomainNodeToNodeEncryptionArrayOutput) Index(i pulumi.IntInput) GetDo
 }
 
 type GetDomainSnapshotOption struct {
-	// Hour during which the service takes an automated daily
-	// snapshot of the indices in the domain.
+	// Hour during which the service takes an automated daily snapshot of the indices in the domain.
 	AutomatedSnapshotStartHour int `pulumi:"automatedSnapshotStartHour"`
 }
 
@@ -2999,8 +2987,7 @@ type GetDomainSnapshotOptionInput interface {
 }
 
 type GetDomainSnapshotOptionArgs struct {
-	// Hour during which the service takes an automated daily
-	// snapshot of the indices in the domain.
+	// Hour during which the service takes an automated daily snapshot of the indices in the domain.
 	AutomatedSnapshotStartHour pulumi.IntInput `pulumi:"automatedSnapshotStartHour"`
 }
 
@@ -3055,8 +3042,7 @@ func (o GetDomainSnapshotOptionOutput) ToGetDomainSnapshotOptionOutputWithContex
 	return o
 }
 
-// Hour during which the service takes an automated daily
-// snapshot of the indices in the domain.
+// Hour during which the service takes an automated daily snapshot of the indices in the domain.
 func (o GetDomainSnapshotOptionOutput) AutomatedSnapshotStartHour() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainSnapshotOption) int { return v.AutomatedSnapshotStartHour }).(pulumi.IntOutput)
 }

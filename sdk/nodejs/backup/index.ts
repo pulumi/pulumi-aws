@@ -9,3 +9,4 @@ export * from "./plan";
 export * from "./selection";
 export * from "./vault";
 export * from "./vaultNotifications";
+export * from "./vaultPolicy";

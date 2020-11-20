@@ -25,6 +25,7 @@ export * from "./requestValidator";
 export * from "./resource";
 export * from "./response";
 export * from "./restApi";
+export * from "./restApiPolicy";
 export * from "./stage";
 export * from "./usagePlan";
 export * from "./usagePlanKey";

@@ -176,7 +176,7 @@ export class Route extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
-     * The name of the service mesh in which to create the route.
+     * The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
      */
     public readonly meshName!: pulumi.Output<string>;
     /**
@@ -184,7 +184,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly meshOwner!: pulumi.Output<string>;
     /**
-     * The name to use for the route.
+     * The name to use for the route. Must be between 1 and 255 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -200,7 +200,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The name of the virtual router in which to create the route.
+     * The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
      */
     public readonly virtualRouterName!: pulumi.Output<string>;
 
@@ -276,7 +276,7 @@ export interface RouteState {
      */
     readonly lastUpdatedDate?: pulumi.Input<string>;
     /**
-     * The name of the service mesh in which to create the route.
+     * The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
      */
     readonly meshName?: pulumi.Input<string>;
     /**
@@ -284,7 +284,7 @@ export interface RouteState {
      */
     readonly meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the route.
+     * The name to use for the route. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -300,7 +300,7 @@ export interface RouteState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the virtual router in which to create the route.
+     * The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
      */
     readonly virtualRouterName?: pulumi.Input<string>;
 }
@@ -310,7 +310,7 @@ export interface RouteState {
  */
 export interface RouteArgs {
     /**
-     * The name of the service mesh in which to create the route.
+     * The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
      */
     readonly meshName: pulumi.Input<string>;
     /**
@@ -318,7 +318,7 @@ export interface RouteArgs {
      */
     readonly meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the route.
+     * The name to use for the route. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -330,7 +330,7 @@ export interface RouteArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the virtual router in which to create the route.
+     * The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
      */
     readonly virtualRouterName: pulumi.Input<string>;
 }

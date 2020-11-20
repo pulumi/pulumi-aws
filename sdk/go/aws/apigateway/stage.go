@@ -158,8 +158,7 @@ type Stage struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies whether a cache cluster is enabled for the stage
 	CacheClusterEnabled pulumi.BoolPtrOutput `pulumi:"cacheClusterEnabled"`
-	// The size of the cache cluster for the stage, if enabled.
-	// Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize pulumi.StringPtrOutput `pulumi:"cacheClusterSize"`
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrOutput `pulumi:"clientCertificateId"`
@@ -231,8 +230,7 @@ type stageState struct {
 	Arn *string `pulumi:"arn"`
 	// Specifies whether a cache cluster is enabled for the stage
 	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
-	// The size of the cache cluster for the stage, if enabled.
-	// Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize *string `pulumi:"cacheClusterSize"`
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
@@ -268,8 +266,7 @@ type StageState struct {
 	Arn pulumi.StringPtrInput
 	// Specifies whether a cache cluster is enabled for the stage
 	CacheClusterEnabled pulumi.BoolPtrInput
-	// The size of the cache cluster for the stage, if enabled.
-	// Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize pulumi.StringPtrInput
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput
@@ -307,8 +304,7 @@ type stageArgs struct {
 	AccessLogSettings *StageAccessLogSettings `pulumi:"accessLogSettings"`
 	// Specifies whether a cache cluster is enabled for the stage
 	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
-	// The size of the cache cluster for the stage, if enabled.
-	// Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize *string `pulumi:"cacheClusterSize"`
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
@@ -336,8 +332,7 @@ type StageArgs struct {
 	AccessLogSettings StageAccessLogSettingsPtrInput
 	// Specifies whether a cache cluster is enabled for the stage
 	CacheClusterEnabled pulumi.BoolPtrInput
-	// The size of the cache cluster for the stage, if enabled.
-	// Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize pulumi.StringPtrInput
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput

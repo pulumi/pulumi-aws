@@ -90,7 +90,7 @@ export class VirtualRouter extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
-     * The name of the service mesh in which to create the virtual router.
+     * The name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
      */
     public readonly meshName!: pulumi.Output<string>;
     /**
@@ -98,7 +98,7 @@ export class VirtualRouter extends pulumi.CustomResource {
      */
     public readonly meshOwner!: pulumi.Output<string>;
     /**
-     * The name to use for the virtual router.
+     * The name to use for the virtual router. Must be between 1 and 255 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -181,7 +181,7 @@ export interface VirtualRouterState {
      */
     readonly lastUpdatedDate?: pulumi.Input<string>;
     /**
-     * The name of the service mesh in which to create the virtual router.
+     * The name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
      */
     readonly meshName?: pulumi.Input<string>;
     /**
@@ -189,7 +189,7 @@ export interface VirtualRouterState {
      */
     readonly meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the virtual router.
+     * The name to use for the virtual router. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -211,7 +211,7 @@ export interface VirtualRouterState {
  */
 export interface VirtualRouterArgs {
     /**
-     * The name of the service mesh in which to create the virtual router.
+     * The name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
      */
     readonly meshName: pulumi.Input<string>;
     /**
@@ -219,7 +219,7 @@ export interface VirtualRouterArgs {
      */
     readonly meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the virtual router.
+     * The name to use for the virtual router. Must be between 1 and 255 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**

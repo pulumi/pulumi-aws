@@ -26,13 +26,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
         /// <summary>
         /// The name of the AWS Cloud Map namespace to use.
-        /// Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
+        /// Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service.
+        /// The name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;

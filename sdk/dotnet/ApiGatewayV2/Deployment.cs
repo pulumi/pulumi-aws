@@ -61,7 +61,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<bool> AutoDeployed { get; private set; } = null!;
 
         /// <summary>
-        /// The description for the deployment resource.
+        /// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The description for the deployment resource.
+        /// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? AutoDeployed { get; set; }
 
         /// <summary>
-        /// The description for the deployment resource.
+        /// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

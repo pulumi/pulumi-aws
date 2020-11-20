@@ -28,21 +28,29 @@ class Directory(pulumi.CustomResource):
         """
         Provides a WorkSpaces directory in AWS WorkSpaces Service.
 
+        > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
+
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
+        workspaces = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["workspaces.amazonaws.com"],
+            )],
+        )])
+        workspaces_default = aws.iam.Role("workspacesDefault", assume_role_policy=workspaces.json)
+        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspacesDefaultServiceAccess",
+            role=workspaces_default.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
+        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspacesDefaultSelfServiceAccess",
+            role=workspaces_default.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
         example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_a = aws.ec2.Subnet("exampleA",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1a",
-            cidr_block="10.0.0.0/24")
-        example_b = aws.ec2.Subnet("exampleB",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1b",
-            cidr_block="10.0.1.0/24")
         example_c = aws.ec2.Subnet("exampleC",
             vpc_id=example_vpc.id,
             availability_zone="us-east-1c",
@@ -51,19 +59,8 @@ class Directory(pulumi.CustomResource):
             vpc_id=example_vpc.id,
             availability_zone="us-east-1d",
             cidr_block="10.0.3.0/24")
-        example_directory = aws.directoryservice.Directory("exampleDirectory",
-            name="corp.example.com",
-            password="#S1ncerely",
-            size="Small",
-            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=example_vpc.id,
-                subnet_ids=[
-                    example_a.id,
-                    example_b.id,
-                ],
-            ))
-        example_workspaces_directory_directory = aws.workspaces.Directory("exampleWorkspaces/directoryDirectory",
-            directory_id=example_directory.id,
+        example_directory = aws.workspaces.Directory("exampleDirectory",
+            directory_id=example_directoryservice / directory_directory["id"],
             subnet_ids=[
                 example_c.id,
                 example_d.id,
@@ -84,6 +81,29 @@ class Directory(pulumi.CustomResource):
                 enable_internet_access=True,
                 enable_maintenance_mode=True,
                 user_enabled_as_local_administrator=True,
+            ),
+            opts=ResourceOptions(depends_on=[
+                    workspaces_default_service_access,
+                    workspaces_default_self_service_access,
+                ]))
+        example_a = aws.ec2.Subnet("exampleA",
+            vpc_id=example_vpc.id,
+            availability_zone="us-east-1a",
+            cidr_block="10.0.0.0/24")
+        example_b = aws.ec2.Subnet("exampleB",
+            vpc_id=example_vpc.id,
+            availability_zone="us-east-1b",
+            cidr_block="10.0.1.0/24")
+        example_directoryservice_directory_directory = aws.directoryservice.Directory("exampleDirectoryservice/directoryDirectory",
+            name="corp.example.com",
+            password="#S1ncerely",
+            size="Small",
+            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
+                vpc_id=example_vpc.id,
+                subnet_ids=[
+                    example_a.id,
+                    example_b.id,
+                ],
             ))
         ```
 

@@ -59,9 +59,7 @@ export class EventBus extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name of the new event bus.
-     * The names of custom event buses can't contain the / character.
-     * Please note that a partner event bus is not supported at the moment.
+     * The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -110,9 +108,7 @@ export interface EventBusState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The name of the new event bus.
-     * The names of custom event buses can't contain the / character.
-     * Please note that a partner event bus is not supported at the moment.
+     * The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -126,9 +122,7 @@ export interface EventBusState {
  */
 export interface EventBusArgs {
     /**
-     * The name of the new event bus.
-     * The names of custom event buses can't contain the / character.
-     * Please note that a partner event bus is not supported at the moment.
+     * The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
      */
     readonly name?: pulumi.Input<string>;
     /**

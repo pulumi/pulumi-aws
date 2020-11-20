@@ -93,6 +93,8 @@ type SmbFileShare struct {
 	CaseSensitivity pulumi.StringPtrOutput `pulumi:"caseSensitivity"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
 	DefaultStorageClass pulumi.StringPtrOutput `pulumi:"defaultStorageClass"`
+	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
+	FileShareName pulumi.StringOutput `pulumi:"fileShareName"`
 	// ID of the SMB File Share.
 	FileshareId pulumi.StringOutput `pulumi:"fileshareId"`
 	// Amazon Resource Name (ARN) of the file gateway.
@@ -176,6 +178,8 @@ type smbFileShareState struct {
 	CaseSensitivity *string `pulumi:"caseSensitivity"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
 	DefaultStorageClass *string `pulumi:"defaultStorageClass"`
+	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
+	FileShareName *string `pulumi:"fileShareName"`
 	// ID of the SMB File Share.
 	FileshareId *string `pulumi:"fileshareId"`
 	// Amazon Resource Name (ARN) of the file gateway.
@@ -223,6 +227,8 @@ type SmbFileShareState struct {
 	CaseSensitivity pulumi.StringPtrInput
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
 	DefaultStorageClass pulumi.StringPtrInput
+	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
+	FileShareName pulumi.StringPtrInput
 	// ID of the SMB File Share.
 	FileshareId pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the file gateway.
@@ -272,6 +278,8 @@ type smbFileShareArgs struct {
 	CaseSensitivity *string `pulumi:"caseSensitivity"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
 	DefaultStorageClass *string `pulumi:"defaultStorageClass"`
+	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
+	FileShareName *string `pulumi:"fileShareName"`
 	// Amazon Resource Name (ARN) of the file gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
@@ -314,6 +322,8 @@ type SmbFileShareArgs struct {
 	CaseSensitivity pulumi.StringPtrInput
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
 	DefaultStorageClass pulumi.StringPtrInput
+	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
+	FileShareName pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the file gateway.
 	GatewayArn pulumi.StringInput
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.

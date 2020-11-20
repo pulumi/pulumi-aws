@@ -263,7 +263,7 @@ class GatewayRouteSpecGrpcRouteActionTargetVirtualService(dict):
     def __init__(__self__, *,
                  virtual_service_name: str):
         """
-        :param str virtual_service_name: The name of the virtual service that traffic is routed to.
+        :param str virtual_service_name: The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
@@ -271,7 +271,7 @@ class GatewayRouteSpecGrpcRouteActionTargetVirtualService(dict):
     @pulumi.getter(name="virtualServiceName")
     def virtual_service_name(self) -> str:
         """
-        The name of the virtual service that traffic is routed to.
+        The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_service_name")
 
@@ -379,7 +379,7 @@ class GatewayRouteSpecHttp2RouteActionTargetVirtualService(dict):
     def __init__(__self__, *,
                  virtual_service_name: str):
         """
-        :param str virtual_service_name: The name of the virtual service that traffic is routed to.
+        :param str virtual_service_name: The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
@@ -387,7 +387,7 @@ class GatewayRouteSpecHttp2RouteActionTargetVirtualService(dict):
     @pulumi.getter(name="virtualServiceName")
     def virtual_service_name(self) -> str:
         """
-        The name of the virtual service that traffic is routed to.
+        The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_service_name")
 
@@ -495,7 +495,7 @@ class GatewayRouteSpecHttpRouteActionTargetVirtualService(dict):
     def __init__(__self__, *,
                  virtual_service_name: str):
         """
-        :param str virtual_service_name: The name of the virtual service that traffic is routed to.
+        :param str virtual_service_name: The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
@@ -503,7 +503,7 @@ class GatewayRouteSpecHttpRouteActionTargetVirtualService(dict):
     @pulumi.getter(name="virtualServiceName")
     def virtual_service_name(self) -> str:
         """
-        The name of the virtual service that traffic is routed to.
+        The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_service_name")
 
@@ -735,7 +735,7 @@ class RouteSpecGrpcRouteActionWeightedTarget(dict):
                  virtual_node: str,
                  weight: int):
         """
-        :param str virtual_node: The virtual node to associate with the weighted target.
+        :param str virtual_node: The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         :param int weight: The relative weight of the weighted target. An integer between 0 and 100.
         """
         pulumi.set(__self__, "virtual_node", virtual_node)
@@ -745,7 +745,7 @@ class RouteSpecGrpcRouteActionWeightedTarget(dict):
     @pulumi.getter(name="virtualNode")
     def virtual_node(self) -> str:
         """
-        The virtual node to associate with the weighted target.
+        The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_node")
 
@@ -771,7 +771,7 @@ class RouteSpecGrpcRouteMatch(dict):
         """
         :param Sequence['RouteSpecGrpcRouteMatchMetadataArgs'] metadatas: The data to match from the gRPC request.
         :param str method_name: The method name to match from the request. If you specify a name, you must also specify a `service_name`.
-        :param str prefix: The value sent by the client must begin with the specified characters.
+        :param str prefix: The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         :param str service_name: The fully qualified domain name for the service to match from the request.
         """
@@ -804,7 +804,7 @@ class RouteSpecGrpcRouteMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        The value sent by the client must begin with the specified characters.
+        The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
         This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         """
         return pulumi.get(self, "prefix")
@@ -828,7 +828,7 @@ class RouteSpecGrpcRouteMatchMetadata(dict):
                  invert: Optional[bool] = None,
                  match: Optional['outputs.RouteSpecGrpcRouteMatchMetadataMatch'] = None):
         """
-        :param str name: The name of the route.
+        :param str name: The name of the route. Must be between 1 and 50 characters in length.
         :param bool invert: If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
         :param 'RouteSpecGrpcRouteMatchMetadataMatchArgs' match: The data to match from the request.
         """
@@ -842,7 +842,7 @@ class RouteSpecGrpcRouteMatchMetadata(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the route.
+        The name of the route. Must be between 1 and 50 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -875,12 +875,12 @@ class RouteSpecGrpcRouteMatchMetadataMatch(dict):
                  regex: Optional[str] = None,
                  suffix: Optional[str] = None):
         """
-        :param str exact: The value sent by the client must match the specified value exactly.
-        :param str prefix: The value sent by the client must begin with the specified characters.
+        :param str exact: The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+        :param str prefix: The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         :param 'RouteSpecGrpcRouteMatchMetadataMatchRangeArgs' range: The object that specifies the range of numbers that the value sent by the client must be included in.
-        :param str regex: The value sent by the client must include the specified characters.
-        :param str suffix: The value sent by the client must end with the specified characters.
+        :param str regex: The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+        :param str suffix: The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -897,7 +897,7 @@ class RouteSpecGrpcRouteMatchMetadataMatch(dict):
     @pulumi.getter
     def exact(self) -> Optional[str]:
         """
-        The value sent by the client must match the specified value exactly.
+        The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "exact")
 
@@ -905,7 +905,7 @@ class RouteSpecGrpcRouteMatchMetadataMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        The value sent by the client must begin with the specified characters.
+        The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
         This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         """
         return pulumi.get(self, "prefix")
@@ -922,7 +922,7 @@ class RouteSpecGrpcRouteMatchMetadataMatch(dict):
     @pulumi.getter
     def regex(self) -> Optional[str]:
         """
-        The value sent by the client must include the specified characters.
+        The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "regex")
 
@@ -930,7 +930,7 @@ class RouteSpecGrpcRouteMatchMetadataMatch(dict):
     @pulumi.getter
     def suffix(self) -> Optional[str]:
         """
-        The value sent by the client must end with the specified characters.
+        The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "suffix")
 
@@ -1259,7 +1259,7 @@ class RouteSpecHttp2RouteActionWeightedTarget(dict):
                  virtual_node: str,
                  weight: int):
         """
-        :param str virtual_node: The virtual node to associate with the weighted target.
+        :param str virtual_node: The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         :param int weight: The relative weight of the weighted target. An integer between 0 and 100.
         """
         pulumi.set(__self__, "virtual_node", virtual_node)
@@ -1269,7 +1269,7 @@ class RouteSpecHttp2RouteActionWeightedTarget(dict):
     @pulumi.getter(name="virtualNode")
     def virtual_node(self) -> str:
         """
-        The virtual node to associate with the weighted target.
+        The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_node")
 
@@ -1293,7 +1293,7 @@ class RouteSpecHttp2RouteMatch(dict):
                  method: Optional[str] = None,
                  scheme: Optional[str] = None):
         """
-        :param str prefix: The value sent by the client must begin with the specified characters.
+        :param str prefix: The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         :param Sequence['RouteSpecHttp2RouteMatchHeaderArgs'] headers: The client request headers to match on.
         :param str method: The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
@@ -1311,7 +1311,7 @@ class RouteSpecHttp2RouteMatch(dict):
     @pulumi.getter
     def prefix(self) -> str:
         """
-        The value sent by the client must begin with the specified characters.
+        The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
         This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         """
         return pulumi.get(self, "prefix")
@@ -1398,12 +1398,12 @@ class RouteSpecHttp2RouteMatchHeaderMatch(dict):
                  regex: Optional[str] = None,
                  suffix: Optional[str] = None):
         """
-        :param str exact: The value sent by the client must match the specified value exactly.
-        :param str prefix: The value sent by the client must begin with the specified characters.
+        :param str exact: The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+        :param str prefix: The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         :param 'RouteSpecHttp2RouteMatchHeaderMatchRangeArgs' range: The object that specifies the range of numbers that the value sent by the client must be included in.
-        :param str regex: The value sent by the client must include the specified characters.
-        :param str suffix: The value sent by the client must end with the specified characters.
+        :param str regex: The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+        :param str suffix: The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -1420,7 +1420,7 @@ class RouteSpecHttp2RouteMatchHeaderMatch(dict):
     @pulumi.getter
     def exact(self) -> Optional[str]:
         """
-        The value sent by the client must match the specified value exactly.
+        The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "exact")
 
@@ -1428,7 +1428,7 @@ class RouteSpecHttp2RouteMatchHeaderMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        The value sent by the client must begin with the specified characters.
+        The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
         This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         """
         return pulumi.get(self, "prefix")
@@ -1445,7 +1445,7 @@ class RouteSpecHttp2RouteMatchHeaderMatch(dict):
     @pulumi.getter
     def regex(self) -> Optional[str]:
         """
-        The value sent by the client must include the specified characters.
+        The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "regex")
 
@@ -1453,7 +1453,7 @@ class RouteSpecHttp2RouteMatchHeaderMatch(dict):
     @pulumi.getter
     def suffix(self) -> Optional[str]:
         """
-        The value sent by the client must end with the specified characters.
+        The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "suffix")
 
@@ -1768,7 +1768,7 @@ class RouteSpecHttpRouteActionWeightedTarget(dict):
                  virtual_node: str,
                  weight: int):
         """
-        :param str virtual_node: The virtual node to associate with the weighted target.
+        :param str virtual_node: The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         :param int weight: The relative weight of the weighted target. An integer between 0 and 100.
         """
         pulumi.set(__self__, "virtual_node", virtual_node)
@@ -1778,7 +1778,7 @@ class RouteSpecHttpRouteActionWeightedTarget(dict):
     @pulumi.getter(name="virtualNode")
     def virtual_node(self) -> str:
         """
-        The virtual node to associate with the weighted target.
+        The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_node")
 
@@ -1802,7 +1802,7 @@ class RouteSpecHttpRouteMatch(dict):
                  method: Optional[str] = None,
                  scheme: Optional[str] = None):
         """
-        :param str prefix: The value sent by the client must begin with the specified characters.
+        :param str prefix: The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         :param Sequence['RouteSpecHttpRouteMatchHeaderArgs'] headers: The client request headers to match on.
         :param str method: The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
@@ -1820,7 +1820,7 @@ class RouteSpecHttpRouteMatch(dict):
     @pulumi.getter
     def prefix(self) -> str:
         """
-        The value sent by the client must begin with the specified characters.
+        The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
         This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         """
         return pulumi.get(self, "prefix")
@@ -1907,12 +1907,12 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
                  regex: Optional[str] = None,
                  suffix: Optional[str] = None):
         """
-        :param str exact: The value sent by the client must match the specified value exactly.
-        :param str prefix: The value sent by the client must begin with the specified characters.
+        :param str exact: The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+        :param str prefix: The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         :param 'RouteSpecHttpRouteMatchHeaderMatchRangeArgs' range: The object that specifies the range of numbers that the value sent by the client must be included in.
-        :param str regex: The value sent by the client must include the specified characters.
-        :param str suffix: The value sent by the client must end with the specified characters.
+        :param str regex: The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+        :param str suffix: The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -1929,7 +1929,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
     @pulumi.getter
     def exact(self) -> Optional[str]:
         """
-        The value sent by the client must match the specified value exactly.
+        The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "exact")
 
@@ -1937,7 +1937,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        The value sent by the client must begin with the specified characters.
+        The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
         This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         """
         return pulumi.get(self, "prefix")
@@ -1954,7 +1954,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
     @pulumi.getter
     def regex(self) -> Optional[str]:
         """
-        The value sent by the client must include the specified characters.
+        The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "regex")
 
@@ -1962,7 +1962,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
     @pulumi.getter
     def suffix(self) -> Optional[str]:
         """
-        The value sent by the client must end with the specified characters.
+        The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "suffix")
 
@@ -2254,7 +2254,7 @@ class RouteSpecTcpRouteActionWeightedTarget(dict):
                  virtual_node: str,
                  weight: int):
         """
-        :param str virtual_node: The virtual node to associate with the weighted target.
+        :param str virtual_node: The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         :param int weight: The relative weight of the weighted target. An integer between 0 and 100.
         """
         pulumi.set(__self__, "virtual_node", virtual_node)
@@ -2264,7 +2264,7 @@ class RouteSpecTcpRouteActionWeightedTarget(dict):
     @pulumi.getter(name="virtualNode")
     def virtual_node(self) -> str:
         """
-        The virtual node to associate with the weighted target.
+        The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_node")
 
@@ -2545,7 +2545,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
         """
-        :param str certificate_chain: The certificate chain for the certificate.
+        :param str certificate_chain: The certificate chain for the certificate. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
 
@@ -2553,7 +2553,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
         """
-        The certificate chain for the certificate.
+        The certificate chain for the certificate. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -2820,8 +2820,8 @@ class VirtualGatewaySpecListenerTlsCertificateFile(dict):
                  certificate_chain: str,
                  private_key: str):
         """
-        :param str certificate_chain: The certificate chain for the certificate.
-        :param str private_key: The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        :param str certificate_chain: The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+        :param str private_key: The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
         pulumi.set(__self__, "private_key", private_key)
@@ -2830,7 +2830,7 @@ class VirtualGatewaySpecListenerTlsCertificateFile(dict):
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
         """
-        The certificate chain for the certificate.
+        The certificate chain for the certificate. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -2838,7 +2838,7 @@ class VirtualGatewaySpecListenerTlsCertificateFile(dict):
     @pulumi.getter(name="privateKey")
     def private_key(self) -> str:
         """
-        The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "private_key")
 
@@ -2895,7 +2895,7 @@ class VirtualGatewaySpecLoggingAccessLogFile(dict):
     def __init__(__self__, *,
                  path: str):
         """
-        :param str path: The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+        :param str path: The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "path", path)
 
@@ -2903,7 +2903,7 @@ class VirtualGatewaySpecLoggingAccessLogFile(dict):
     @pulumi.getter
     def path(self) -> str:
         """
-        The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+        The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "path")
 
@@ -3168,7 +3168,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
         """
-        :param str certificate_chain: The certificate chain for the certificate.
+        :param str certificate_chain: The certificate chain for the certificate. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
 
@@ -3176,7 +3176,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
         """
-        The certificate chain for the certificate.
+        The certificate chain for the certificate. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -3190,7 +3190,7 @@ class VirtualNodeSpecBackendVirtualService(dict):
                  virtual_service_name: str,
                  client_policy: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicy'] = None):
         """
-        :param str virtual_service_name: The name of the virtual service that is acting as a virtual node backend.
+        :param str virtual_service_name: The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyArgs' client_policy: The client policy for the backend.
         """
         pulumi.set(__self__, "virtual_service_name", virtual_service_name)
@@ -3201,7 +3201,7 @@ class VirtualNodeSpecBackendVirtualService(dict):
     @pulumi.getter(name="virtualServiceName")
     def virtual_service_name(self) -> str:
         """
-        The name of the virtual service that is acting as a virtual node backend.
+        The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_service_name")
 
@@ -3361,7 +3361,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(dic
     def __init__(__self__, *,
                  certificate_chain: str):
         """
-        :param str certificate_chain: The certificate chain for the certificate.
+        :param str certificate_chain: The certificate chain for the certificate. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
 
@@ -3369,7 +3369,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(dic
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
         """
-        The certificate chain for the certificate.
+        The certificate chain for the certificate. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -4054,8 +4054,8 @@ class VirtualNodeSpecListenerTlsCertificateFile(dict):
                  certificate_chain: str,
                  private_key: str):
         """
-        :param str certificate_chain: The certificate chain for the certificate.
-        :param str private_key: The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+        :param str certificate_chain: The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+        :param str private_key: The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
         pulumi.set(__self__, "private_key", private_key)
@@ -4064,7 +4064,7 @@ class VirtualNodeSpecListenerTlsCertificateFile(dict):
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
         """
-        The certificate chain for the certificate.
+        The certificate chain for the certificate. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -4072,7 +4072,7 @@ class VirtualNodeSpecListenerTlsCertificateFile(dict):
     @pulumi.getter(name="privateKey")
     def private_key(self) -> str:
         """
-        The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+        The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "private_key")
 
@@ -4129,7 +4129,7 @@ class VirtualNodeSpecLoggingAccessLogFile(dict):
     def __init__(__self__, *,
                  path: str):
         """
-        :param str path: The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+        :param str path: The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "path", path)
 
@@ -4137,7 +4137,7 @@ class VirtualNodeSpecLoggingAccessLogFile(dict):
     @pulumi.getter
     def path(self) -> str:
         """
-        The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+        The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "path")
 
@@ -4187,8 +4187,8 @@ class VirtualNodeSpecServiceDiscoveryAwsCloudMap(dict):
                  attributes: Optional[Mapping[str, str]] = None):
         """
         :param str namespace_name: The name of the AWS Cloud Map namespace to use.
-               Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
-        :param str service_name: The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service.
+               Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
+        :param str service_name: The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
         :param Mapping[str, str] attributes: A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -4201,7 +4201,7 @@ class VirtualNodeSpecServiceDiscoveryAwsCloudMap(dict):
     def namespace_name(self) -> str:
         """
         The name of the AWS Cloud Map namespace to use.
-        Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
+        Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
         """
         return pulumi.get(self, "namespace_name")
 
@@ -4209,7 +4209,7 @@ class VirtualNodeSpecServiceDiscoveryAwsCloudMap(dict):
     @pulumi.getter(name="serviceName")
     def service_name(self) -> str:
         """
-        The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service.
+        The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
         """
         return pulumi.get(self, "service_name")
 
@@ -4383,7 +4383,7 @@ class VirtualServiceSpecProviderVirtualNode(dict):
     def __init__(__self__, *,
                  virtual_node_name: str):
         """
-        :param str virtual_node_name: The name of the virtual node that is acting as a service provider.
+        :param str virtual_node_name: The name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "virtual_node_name", virtual_node_name)
 
@@ -4391,7 +4391,7 @@ class VirtualServiceSpecProviderVirtualNode(dict):
     @pulumi.getter(name="virtualNodeName")
     def virtual_node_name(self) -> str:
         """
-        The name of the virtual node that is acting as a service provider.
+        The name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_node_name")
 
@@ -4404,7 +4404,7 @@ class VirtualServiceSpecProviderVirtualRouter(dict):
     def __init__(__self__, *,
                  virtual_router_name: str):
         """
-        :param str virtual_router_name: The name of the virtual router that is acting as a service provider.
+        :param str virtual_router_name: The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "virtual_router_name", virtual_router_name)
 
@@ -4412,7 +4412,7 @@ class VirtualServiceSpecProviderVirtualRouter(dict):
     @pulumi.getter(name="virtualRouterName")
     def virtual_router_name(self) -> str:
         """
-        The name of the virtual router that is acting as a service provider.
+        The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_router_name")
 

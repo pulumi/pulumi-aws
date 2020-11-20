@@ -66,7 +66,7 @@ export class VpcLink extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name of the VPC Link.
+     * The name of the VPC Link. Must be between 1 and 128 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -133,7 +133,7 @@ export interface VpcLinkState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The name of the VPC Link.
+     * The name of the VPC Link. Must be between 1 and 128 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -155,7 +155,7 @@ export interface VpcLinkState {
  */
 export interface VpcLinkArgs {
     /**
-     * The name of the VPC Link.
+     * The name of the VPC Link. Must be between 1 and 128 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**

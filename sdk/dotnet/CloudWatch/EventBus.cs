@@ -49,9 +49,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the new event bus.
-        /// The names of custom event buses can't contain the / character.
-        /// Please note that a partner event bus is not supported at the moment.
+        /// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -109,9 +107,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class EventBusArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the new event bus.
-        /// The names of custom event buses can't contain the / character.
-        /// Please note that a partner event bus is not supported at the moment.
+        /// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -142,9 +138,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the new event bus.
-        /// The names of custom event buses can't contain the / character.
-        /// Please note that a partner event bus is not supported at the moment.
+        /// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

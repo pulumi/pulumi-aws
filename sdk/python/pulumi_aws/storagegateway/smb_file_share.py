@@ -23,6 +23,7 @@ class SmbFileShare(pulumi.CustomResource):
                  cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
                  case_sensitivity: Optional[pulumi.Input[str]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
+                 file_share_name: Optional[pulumi.Input[str]] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
                  guess_mime_type_enabled: Optional[pulumi.Input[bool]] = None,
                  invalid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -88,6 +89,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
         :param pulumi.Input[bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] invalid_user_lists: A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
@@ -125,6 +127,7 @@ class SmbFileShare(pulumi.CustomResource):
             __props__['cache_attributes'] = cache_attributes
             __props__['case_sensitivity'] = case_sensitivity
             __props__['default_storage_class'] = default_storage_class
+            __props__['file_share_name'] = file_share_name
             if gateway_arn is None:
                 raise TypeError("Missing required property 'gateway_arn'")
             __props__['gateway_arn'] = gateway_arn
@@ -164,6 +167,7 @@ class SmbFileShare(pulumi.CustomResource):
             cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
             case_sensitivity: Optional[pulumi.Input[str]] = None,
             default_storage_class: Optional[pulumi.Input[str]] = None,
+            file_share_name: Optional[pulumi.Input[str]] = None,
             fileshare_id: Optional[pulumi.Input[str]] = None,
             gateway_arn: Optional[pulumi.Input[str]] = None,
             guess_mime_type_enabled: Optional[pulumi.Input[bool]] = None,
@@ -193,6 +197,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         :param pulumi.Input[str] fileshare_id: ID of the SMB File Share.
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
         :param pulumi.Input[bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
@@ -220,6 +225,7 @@ class SmbFileShare(pulumi.CustomResource):
         __props__["cache_attributes"] = cache_attributes
         __props__["case_sensitivity"] = case_sensitivity
         __props__["default_storage_class"] = default_storage_class
+        __props__["file_share_name"] = file_share_name
         __props__["fileshare_id"] = fileshare_id
         __props__["gateway_arn"] = gateway_arn
         __props__["guess_mime_type_enabled"] = guess_mime_type_enabled
@@ -292,6 +298,14 @@ class SmbFileShare(pulumi.CustomResource):
         The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
         """
         return pulumi.get(self, "default_storage_class")
+
+    @property
+    @pulumi.getter(name="fileShareName")
+    def file_share_name(self) -> pulumi.Output[str]:
+        """
+        The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        """
+        return pulumi.get(self, "file_share_name")
 
     @property
     @pulumi.getter(name="fileshareId")

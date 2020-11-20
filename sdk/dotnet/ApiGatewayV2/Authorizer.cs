@@ -119,7 +119,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// The authorizer's Uniform Resource Identifier (URI).
         /// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
-        /// Supported only for `REQUEST` authorizers.
+        /// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         /// </summary>
         [Output("authorizerUri")]
         public Output<string?> AuthorizerUri { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<Outputs.AuthorizerJwtConfiguration?> JwtConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the authorizer.
+        /// The name of the authorizer. Must be between 1 and 128 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// The authorizer's Uniform Resource Identifier (URI).
         /// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
-        /// Supported only for `REQUEST` authorizers.
+        /// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         /// </summary>
         [Input("authorizerUri")]
         public Input<string>? AuthorizerUri { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<Inputs.AuthorizerJwtConfigurationArgs>? JwtConfiguration { get; set; }
 
         /// <summary>
-        /// The name of the authorizer.
+        /// The name of the authorizer. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// The authorizer's Uniform Resource Identifier (URI).
         /// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
-        /// Supported only for `REQUEST` authorizers.
+        /// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         /// </summary>
         [Input("authorizerUri")]
         public Input<string>? AuthorizerUri { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<Inputs.AuthorizerJwtConfigurationGetArgs>? JwtConfiguration { get; set; }
 
         /// <summary>
-        /// The name of the authorizer.
+        /// The name of the authorizer. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

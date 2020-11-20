@@ -57,7 +57,7 @@ type Deployment struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// Whether the deployment was automatically released.
 	AutoDeployed pulumi.BoolOutput `pulumi:"autoDeployed"`
-	// The description for the deployment resource.
+	// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
@@ -98,7 +98,7 @@ type deploymentState struct {
 	ApiId *string `pulumi:"apiId"`
 	// Whether the deployment was automatically released.
 	AutoDeployed *bool `pulumi:"autoDeployed"`
-	// The description for the deployment resource.
+	// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
 	Description *string `pulumi:"description"`
 	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
@@ -109,7 +109,7 @@ type DeploymentState struct {
 	ApiId pulumi.StringPtrInput
 	// Whether the deployment was automatically released.
 	AutoDeployed pulumi.BoolPtrInput
-	// The description for the deployment resource.
+	// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrInput
 	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput
@@ -122,7 +122,7 @@ func (DeploymentState) ElementType() reflect.Type {
 type deploymentArgs struct {
 	// The API identifier.
 	ApiId string `pulumi:"apiId"`
-	// The description for the deployment resource.
+	// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
 	Description *string `pulumi:"description"`
 	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
@@ -132,7 +132,7 @@ type deploymentArgs struct {
 type DeploymentArgs struct {
 	// The API identifier.
 	ApiId pulumi.StringInput
-	// The description for the deployment resource.
+	// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrInput
 	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput

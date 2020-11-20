@@ -70,9 +70,9 @@ class VirtualRouter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual router.
+        :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] mesh_owner: The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
-        :param pulumi.Input[str] name: The name to use for the virtual router.
+        :param pulumi.Input[str] name: The name to use for the virtual router. Must be between 1 and 255 characters in length.
         :param pulumi.Input[pulumi.InputType['VirtualRouterSpecArgs']] spec: The virtual router specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
@@ -135,9 +135,9 @@ class VirtualRouter(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the virtual router.
         :param pulumi.Input[str] created_date: The creation date of the virtual router.
         :param pulumi.Input[str] last_updated_date: The last update date of the virtual router.
-        :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual router.
+        :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] mesh_owner: The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
-        :param pulumi.Input[str] name: The name to use for the virtual router.
+        :param pulumi.Input[str] name: The name to use for the virtual router. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] resource_owner: The resource owner's AWS account ID.
         :param pulumi.Input[pulumi.InputType['VirtualRouterSpecArgs']] spec: The virtual router specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
@@ -185,7 +185,7 @@ class VirtualRouter(pulumi.CustomResource):
     @pulumi.getter(name="meshName")
     def mesh_name(self) -> pulumi.Output[str]:
         """
-        The name of the service mesh in which to create the virtual router.
+        The name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "mesh_name")
 
@@ -201,7 +201,7 @@ class VirtualRouter(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name to use for the virtual router.
+        The name to use for the virtual router. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "name")
 

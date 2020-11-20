@@ -244,8 +244,7 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly input!: pulumi.Output<string | undefined>;
     /**
-     * The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-     * that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
+     * The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
      */
     public readonly inputPath!: pulumi.Output<string | undefined>;
     /**
@@ -360,8 +359,7 @@ export interface EventTargetState {
      */
     readonly input?: pulumi.Input<string>;
     /**
-     * The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-     * that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
+     * The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
      */
     readonly inputPath?: pulumi.Input<string>;
     /**
@@ -419,8 +417,7 @@ export interface EventTargetArgs {
      */
     readonly input?: pulumi.Input<string>;
     /**
-     * The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-     * that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
+     * The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
      */
     readonly inputPath?: pulumi.Input<string>;
     /**

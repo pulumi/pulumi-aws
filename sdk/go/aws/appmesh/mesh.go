@@ -78,7 +78,7 @@ type Mesh struct {
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
 	// The AWS account ID of the service mesh's owner.
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
-	// The name to use for the service mesh.
+	// The name to use for the service mesh. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
@@ -124,7 +124,7 @@ type meshState struct {
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
 	// The AWS account ID of the service mesh's owner.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the service mesh.
+	// The name to use for the service mesh. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
 	// The resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
@@ -143,7 +143,7 @@ type MeshState struct {
 	LastUpdatedDate pulumi.StringPtrInput
 	// The AWS account ID of the service mesh's owner.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the service mesh.
+	// The name to use for the service mesh. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
 	// The resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
@@ -158,7 +158,7 @@ func (MeshState) ElementType() reflect.Type {
 }
 
 type meshArgs struct {
-	// The name to use for the service mesh.
+	// The name to use for the service mesh. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
 	// The service mesh specification to apply.
 	Spec *MeshSpec `pulumi:"spec"`
@@ -168,7 +168,7 @@ type meshArgs struct {
 
 // The set of arguments for constructing a Mesh resource.
 type MeshArgs struct {
-	// The name to use for the service mesh.
+	// The name to use for the service mesh. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
 	// The service mesh specification to apply.
 	Spec MeshSpecPtrInput

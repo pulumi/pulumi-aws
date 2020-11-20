@@ -13,8 +13,7 @@ namespace Pulumi.Aws.Cfg.Inputs
     public sealed class RuleScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
-        /// If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
+        /// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
         /// </summary>
         [Input("complianceResourceId")]
         public Input<string>? ComplianceResourceId { get; set; }
@@ -23,9 +22,7 @@ namespace Pulumi.Aws.Cfg.Inputs
         private InputList<string>? _complianceResourceTypes;
 
         /// <summary>
-        /// A list of resource types of only those AWS resources that you want to trigger an
-        /// evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
-        /// a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+        /// A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
         /// </summary>
         public InputList<string> ComplianceResourceTypes
         {
@@ -34,8 +31,7 @@ namespace Pulumi.Aws.Cfg.Inputs
         }
 
         /// <summary>
-        /// The tag key that is applied to only those AWS resources that you want you
-        /// want to trigger an evaluation for the rule.
+        /// The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
         /// </summary>
         [Input("tagKey")]
         public Input<string>? TagKey { get; set; }

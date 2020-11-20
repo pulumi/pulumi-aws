@@ -72,11 +72,11 @@ type GatewayRoute struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The last update date of the gateway route.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the gateway route.
+	// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringOutput `pulumi:"meshName"`
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
-	// The name to use for the gateway route.
+	// The name to use for the gateway route. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
@@ -84,7 +84,7 @@ type GatewayRoute struct {
 	Spec GatewayRouteSpecOutput `pulumi:"spec"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with.
+	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringOutput `pulumi:"virtualGatewayName"`
 }
 
@@ -131,11 +131,11 @@ type gatewayRouteState struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// The last update date of the gateway route.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the gateway route.
+	// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
 	MeshName *string `pulumi:"meshName"`
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the gateway route.
+	// The name to use for the gateway route. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
 	// The resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
@@ -143,7 +143,7 @@ type gatewayRouteState struct {
 	Spec *GatewayRouteSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with.
+	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName *string `pulumi:"virtualGatewayName"`
 }
 
@@ -154,11 +154,11 @@ type GatewayRouteState struct {
 	CreatedDate pulumi.StringPtrInput
 	// The last update date of the gateway route.
 	LastUpdatedDate pulumi.StringPtrInput
-	// The name of the service mesh in which to create the gateway route.
+	// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringPtrInput
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the gateway route.
+	// The name to use for the gateway route. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
 	// The resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
@@ -166,7 +166,7 @@ type GatewayRouteState struct {
 	Spec GatewayRouteSpecPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with.
+	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringPtrInput
 }
 
@@ -175,33 +175,33 @@ func (GatewayRouteState) ElementType() reflect.Type {
 }
 
 type gatewayRouteArgs struct {
-	// The name of the service mesh in which to create the gateway route.
+	// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
 	MeshName string `pulumi:"meshName"`
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the gateway route.
+	// The name to use for the gateway route. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
 	// The gateway route specification to apply.
 	Spec GatewayRouteSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with.
+	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName string `pulumi:"virtualGatewayName"`
 }
 
 // The set of arguments for constructing a GatewayRoute resource.
 type GatewayRouteArgs struct {
-	// The name of the service mesh in which to create the gateway route.
+	// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringInput
 	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the gateway route.
+	// The name to use for the gateway route. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
 	// The gateway route specification to apply.
 	Spec GatewayRouteSpecInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with.
+	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringInput
 }
 

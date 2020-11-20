@@ -126,8 +126,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly cacheClusterEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The size of the cache cluster for the stage, if enabled.
-     * Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+     * The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
     public readonly cacheClusterSize!: pulumi.Output<string | undefined>;
     /**
@@ -260,8 +259,7 @@ export interface StageState {
      */
     readonly cacheClusterEnabled?: pulumi.Input<boolean>;
     /**
-     * The size of the cache cluster for the stage, if enabled.
-     * Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+     * The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
     readonly cacheClusterSize?: pulumi.Input<string>;
     /**
@@ -326,8 +324,7 @@ export interface StageArgs {
      */
     readonly cacheClusterEnabled?: pulumi.Input<boolean>;
     /**
-     * The size of the cache cluster for the stage, if enabled.
-     * Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+     * The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
     readonly cacheClusterSize?: pulumi.Input<string>;
     /**

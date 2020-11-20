@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         public Input<string> PredefinedMetricType { get; set; } = null!;
 
         /// <summary>
-        /// Reserved for future use.
+        /// Reserved for future use. Must be less than or equal to 1023 characters in length.
         /// </summary>
         [Input("resourceLabel")]
         public Input<string>? ResourceLabel { get; set; }

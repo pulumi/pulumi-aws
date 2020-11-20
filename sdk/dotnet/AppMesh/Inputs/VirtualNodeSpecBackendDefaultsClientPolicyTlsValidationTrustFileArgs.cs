@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The certificate chain for the certificate.
+        /// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("certificateChain", required: true)]
         public Input<string> CertificateChain { get; set; } = null!;

@@ -52,6 +52,8 @@ import (
 type EndpointGroup struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the endpoint group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The list of endpoint objects. Fields documented below.
 	EndpointConfigurations EndpointGroupEndpointConfigurationArrayOutput `pulumi:"endpointConfigurations"`
 	// The name of the AWS Region where the endpoint group is located.
@@ -64,6 +66,8 @@ type EndpointGroup struct {
 	HealthCheckProtocol pulumi.StringPtrOutput `pulumi:"healthCheckProtocol"`
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
+	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	PortOverrides EndpointGroupPortOverrideArrayOutput `pulumi:"portOverrides"`
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount pulumi.IntPtrOutput `pulumi:"thresholdCount"`
 	// The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
@@ -101,6 +105,8 @@ func GetEndpointGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointGroup resources.
 type endpointGroupState struct {
+	// The Amazon Resource Name (ARN) of the endpoint group.
+	Arn *string `pulumi:"arn"`
 	// The list of endpoint objects. Fields documented below.
 	EndpointConfigurations []EndpointGroupEndpointConfiguration `pulumi:"endpointConfigurations"`
 	// The name of the AWS Region where the endpoint group is located.
@@ -113,6 +119,8 @@ type endpointGroupState struct {
 	HealthCheckProtocol *string `pulumi:"healthCheckProtocol"`
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn *string `pulumi:"listenerArn"`
+	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	PortOverrides []EndpointGroupPortOverride `pulumi:"portOverrides"`
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount *int `pulumi:"thresholdCount"`
 	// The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
@@ -120,6 +128,8 @@ type endpointGroupState struct {
 }
 
 type EndpointGroupState struct {
+	// The Amazon Resource Name (ARN) of the endpoint group.
+	Arn pulumi.StringPtrInput
 	// The list of endpoint objects. Fields documented below.
 	EndpointConfigurations EndpointGroupEndpointConfigurationArrayInput
 	// The name of the AWS Region where the endpoint group is located.
@@ -132,6 +142,8 @@ type EndpointGroupState struct {
 	HealthCheckProtocol pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn pulumi.StringPtrInput
+	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	PortOverrides EndpointGroupPortOverrideArrayInput
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount pulumi.IntPtrInput
 	// The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
@@ -155,6 +167,8 @@ type endpointGroupArgs struct {
 	HealthCheckProtocol *string `pulumi:"healthCheckProtocol"`
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn string `pulumi:"listenerArn"`
+	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	PortOverrides []EndpointGroupPortOverride `pulumi:"portOverrides"`
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount *int `pulumi:"thresholdCount"`
 	// The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
@@ -175,6 +189,8 @@ type EndpointGroupArgs struct {
 	HealthCheckProtocol pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn pulumi.StringInput
+	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	PortOverrides EndpointGroupPortOverrideArrayInput
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount pulumi.IntPtrInput
 	// The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.

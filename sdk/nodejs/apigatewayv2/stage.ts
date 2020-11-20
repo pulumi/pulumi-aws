@@ -86,7 +86,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly deploymentId!: pulumi.Output<string>;
     /**
-     * The description for the stage.
+     * The description for the stage. Must be less than or equal to 1024 characters in length.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -101,7 +101,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public /*out*/ readonly invokeUrl!: pulumi.Output<string>;
     /**
-     * The name of the stage.
+     * The name of the stage. Must be between 1 and 128 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -209,7 +209,7 @@ export interface StageState {
      */
     readonly deploymentId?: pulumi.Input<string>;
     /**
-     * The description for the stage.
+     * The description for the stage. Must be less than or equal to 1024 characters in length.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -224,7 +224,7 @@ export interface StageState {
      */
     readonly invokeUrl?: pulumi.Input<string>;
     /**
-     * The name of the stage.
+     * The name of the stage. Must be between 1 and 128 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -272,11 +272,11 @@ export interface StageArgs {
      */
     readonly deploymentId?: pulumi.Input<string>;
     /**
-     * The description for the stage.
+     * The description for the stage. Must be less than or equal to 1024 characters in length.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The name of the stage.
+     * The name of the stage. Must be between 1 and 128 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**

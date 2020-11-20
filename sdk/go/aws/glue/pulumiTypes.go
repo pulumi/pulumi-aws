@@ -470,6 +470,8 @@ type CatalogTableStorageDescriptorColumn struct {
 	Comment *string `pulumi:"comment"`
 	// Name of the SerDe.
 	Name string `pulumi:"name"`
+	// A map of initialization parameters for the SerDe, in key-value form.
+	Parameters map[string]string `pulumi:"parameters"`
 	// The datatype of data in the Column.
 	Type *string `pulumi:"type"`
 }
@@ -490,6 +492,8 @@ type CatalogTableStorageDescriptorColumnArgs struct {
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
 	// Name of the SerDe.
 	Name pulumi.StringInput `pulumi:"name"`
+	// A map of initialization parameters for the SerDe, in key-value form.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// The datatype of data in the Column.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -553,6 +557,11 @@ func (o CatalogTableStorageDescriptorColumnOutput) Comment() pulumi.StringPtrOut
 // Name of the SerDe.
 func (o CatalogTableStorageDescriptorColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of initialization parameters for the SerDe, in key-value form.
+func (o CatalogTableStorageDescriptorColumnOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CatalogTableStorageDescriptorColumn) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // The datatype of data in the Column.
