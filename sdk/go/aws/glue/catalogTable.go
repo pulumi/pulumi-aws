@@ -127,6 +127,8 @@ type CatalogTable struct {
 	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// A map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// A list of partition indexes. see Partition Index below.
+	PartitionIndices CatalogTablePartitionIndexArrayOutput `pulumi:"partitionIndices"`
 	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
 	PartitionKeys CatalogTablePartitionKeyArrayOutput `pulumi:"partitionKeys"`
 	// Retention time for this table.
@@ -186,6 +188,8 @@ type catalogTableState struct {
 	Owner *string `pulumi:"owner"`
 	// A map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
+	// A list of partition indexes. see Partition Index below.
+	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
 	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
 	PartitionKeys []CatalogTablePartitionKey `pulumi:"partitionKeys"`
 	// Retention time for this table.
@@ -215,6 +219,8 @@ type CatalogTableState struct {
 	Owner pulumi.StringPtrInput
 	// A map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapInput
+	// A list of partition indexes. see Partition Index below.
+	PartitionIndices CatalogTablePartitionIndexArrayInput
 	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
 	PartitionKeys CatalogTablePartitionKeyArrayInput
 	// Retention time for this table.
@@ -246,6 +252,8 @@ type catalogTableArgs struct {
 	Owner *string `pulumi:"owner"`
 	// A map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
+	// A list of partition indexes. see Partition Index below.
+	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
 	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
 	PartitionKeys []CatalogTablePartitionKey `pulumi:"partitionKeys"`
 	// Retention time for this table.
@@ -274,6 +282,8 @@ type CatalogTableArgs struct {
 	Owner pulumi.StringPtrInput
 	// A map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapInput
+	// A list of partition indexes. see Partition Index below.
+	PartitionIndices CatalogTablePartitionIndexArrayInput
 	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
 	PartitionKeys CatalogTablePartitionKeyArrayInput
 	// Retention time for this table.

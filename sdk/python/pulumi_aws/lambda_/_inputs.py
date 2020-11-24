@@ -10,6 +10,8 @@ from .. import _utilities, _tables
 
 __all__ = [
     'AliasRoutingConfigArgs',
+    'CodeSigningConfigAllowedPublishersArgs',
+    'CodeSigningConfigPoliciesArgs',
     'EventSourceMappingDestinationConfigArgs',
     'EventSourceMappingDestinationConfigOnFailureArgs',
     'FunctionDeadLetterConfigArgs',
@@ -43,6 +45,50 @@ class AliasRoutingConfigArgs:
     @additional_version_weights.setter
     def additional_version_weights(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]]):
         pulumi.set(self, "additional_version_weights", value)
+
+
+@pulumi.input_type
+class CodeSigningConfigAllowedPublishersArgs:
+    def __init__(__self__, *,
+                 signing_profile_version_arns: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] signing_profile_version_arns: The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+        """
+        pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
+
+    @property
+    @pulumi.getter(name="signingProfileVersionArns")
+    def signing_profile_version_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+        """
+        return pulumi.get(self, "signing_profile_version_arns")
+
+    @signing_profile_version_arns.setter
+    def signing_profile_version_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "signing_profile_version_arns", value)
+
+
+@pulumi.input_type
+class CodeSigningConfigPoliciesArgs:
+    def __init__(__self__, *,
+                 untrusted_artifact_on_deployment: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] untrusted_artifact_on_deployment: Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
+        """
+        pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
+
+    @property
+    @pulumi.getter(name="untrustedArtifactOnDeployment")
+    def untrusted_artifact_on_deployment(self) -> pulumi.Input[str]:
+        """
+        Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
+        """
+        return pulumi.get(self, "untrusted_artifact_on_deployment")
+
+    @untrusted_artifact_on_deployment.setter
+    def untrusted_artifact_on_deployment(self, value: pulumi.Input[str]):
+        pulumi.set(self, "untrusted_artifact_on_deployment", value)
 
 
 @pulumi.input_type

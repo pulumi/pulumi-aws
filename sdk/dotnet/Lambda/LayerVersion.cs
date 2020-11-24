@@ -130,6 +130,18 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> S3ObjectVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of a signing job.
+        /// </summary>
+        [Output("signingJobArn")]
+        public Output<string> SigningJobArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for a signing profile version.
+        /// </summary>
+        [Output("signingProfileVersionArn")]
+        public Output<string> SigningProfileVersionArn { get; private set; } = null!;
+
+        /// <summary>
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
         /// </summary>
         [Output("sourceCodeHash")]
@@ -331,6 +343,18 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a signing job.
+        /// </summary>
+        [Input("signingJobArn")]
+        public Input<string>? SigningJobArn { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for a signing profile version.
+        /// </summary>
+        [Input("signingProfileVersionArn")]
+        public Input<string>? SigningProfileVersionArn { get; set; }
 
         /// <summary>
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.

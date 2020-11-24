@@ -237,6 +237,7 @@ namespace Pulumi.Aws
                 public string? Servicequotas { get; set; } = null!;
                 public string? Ses { get; set; } = null!;
                 public string? Shield { get; set; } = null!;
+                public string? Signer { get; set; } = null!;
                 public string? Sns { get; set; } = null!;
                 public string? Sqs { get; set; } = null!;
                 public string? Ssm { get; set; } = null!;

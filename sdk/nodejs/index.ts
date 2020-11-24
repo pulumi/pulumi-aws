@@ -138,6 +138,7 @@ import * as servicequotas from "./servicequotas";
 import * as ses from "./ses";
 import * as sfn from "./sfn";
 import * as shield from "./shield";
+import * as signer from "./signer";
 import * as simpledb from "./simpledb";
 import * as sns from "./sns";
 import * as sqs from "./sqs";
@@ -264,6 +265,7 @@ export {
     ses,
     sfn,
     shield,
+    signer,
     simpledb,
     sns,
     sqs,

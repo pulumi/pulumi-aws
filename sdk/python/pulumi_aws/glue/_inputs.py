@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'CatalogTablePartitionIndexArgs',
     'CatalogTablePartitionKeyArgs',
     'CatalogTableStorageDescriptorArgs',
     'CatalogTableStorageDescriptorColumnArgs',
@@ -54,6 +55,55 @@ __all__ = [
     'GetScriptDagNodeArgs',
     'GetScriptDagNodeArgArgs',
 ]
+
+@pulumi.input_type
+class CatalogTablePartitionIndexArgs:
+    def __init__(__self__, *,
+                 index_name: pulumi.Input[str],
+                 keys: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 index_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] index_name: The name of the partition index.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: The keys for the partition index.
+        """
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "keys", keys)
+        if index_status is not None:
+            pulumi.set(__self__, "index_status", index_status)
+
+    @property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> pulumi.Input[str]:
+        """
+        The name of the partition index.
+        """
+        return pulumi.get(self, "index_name")
+
+    @index_name.setter
+    def index_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "index_name", value)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The keys for the partition index.
+        """
+        return pulumi.get(self, "keys")
+
+    @keys.setter
+    def keys(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "keys", value)
+
+    @property
+    @pulumi.getter(name="indexStatus")
+    def index_status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "index_status")
+
+    @index_status.setter
+    def index_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "index_status", value)
+
 
 @pulumi.input_type
 class CatalogTablePartitionKeyArgs:

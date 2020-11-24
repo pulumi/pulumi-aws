@@ -28,13 +28,13 @@ namespace Pulumi.Aws.StorageGateway.Inputs
         /// The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         /// </summary>
         [Input("groupId")]
-        public Input<int>? GroupId { get; set; }
+        public Input<string>? GroupId { get; set; }
 
         /// <summary>
         /// The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         /// </summary>
         [Input("ownerId")]
-        public Input<int>? OwnerId { get; set; }
+        public Input<string>? OwnerId { get; set; }
 
         public NfsFileShareNfsFileShareDefaultsArgs()
         {

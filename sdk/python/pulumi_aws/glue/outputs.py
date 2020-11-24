@@ -10,6 +10,7 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'CatalogTablePartitionIndex',
     'CatalogTablePartitionKey',
     'CatalogTableStorageDescriptor',
     'CatalogTableStorageDescriptorColumn',
@@ -55,6 +56,46 @@ __all__ = [
     'GetScriptDagNodeResult',
     'GetScriptDagNodeArgResult',
 ]
+
+@pulumi.output_type
+class CatalogTablePartitionIndex(dict):
+    def __init__(__self__, *,
+                 index_name: str,
+                 keys: Sequence[str],
+                 index_status: Optional[str] = None):
+        """
+        :param str index_name: The name of the partition index.
+        :param Sequence[str] keys: The keys for the partition index.
+        """
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "keys", keys)
+        if index_status is not None:
+            pulumi.set(__self__, "index_status", index_status)
+
+    @property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> str:
+        """
+        The name of the partition index.
+        """
+        return pulumi.get(self, "index_name")
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Sequence[str]:
+        """
+        The keys for the partition index.
+        """
+        return pulumi.get(self, "keys")
+
+    @property
+    @pulumi.getter(name="indexStatus")
+    def index_status(self) -> Optional[str]:
+        return pulumi.get(self, "index_status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class CatalogTablePartitionKey(dict):

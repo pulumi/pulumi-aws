@@ -157,6 +157,35 @@ import (
 // 	})
 // }
 // ```
+// ### IP Groups
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/workspaces"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleIpGroup, err := workspaces.NewIpGroup(ctx, "exampleIpGroup", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = workspaces.NewDirectory(ctx, "exampleDirectory", &workspaces.DirectoryArgs{
+// 			DirectoryId: pulumi.Any(aws_directory_service_directory.Example.Id),
+// 			IpGroupIds: pulumi.StringArray{
+// 				exampleIpGroup.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -188,7 +217,7 @@ type Directory struct {
 	RegistrationCode pulumi.StringOutput `pulumi:"registrationCode"`
 	// Permissions to enable or disable self-service capabilities. Defined below.
 	SelfServicePermissions DirectorySelfServicePermissionsOutput `pulumi:"selfServicePermissions"`
-	// The subnets identifiers where the workspaces are created.
+	// The identifiers of the subnets where the directory resides.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -249,7 +278,7 @@ type directoryState struct {
 	RegistrationCode *string `pulumi:"registrationCode"`
 	// Permissions to enable or disable self-service capabilities. Defined below.
 	SelfServicePermissions *DirectorySelfServicePermissions `pulumi:"selfServicePermissions"`
-	// The subnets identifiers where the workspaces are created.
+	// The identifiers of the subnets where the directory resides.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags map[string]string `pulumi:"tags"`
@@ -280,7 +309,7 @@ type DirectoryState struct {
 	RegistrationCode pulumi.StringPtrInput
 	// Permissions to enable or disable self-service capabilities. Defined below.
 	SelfServicePermissions DirectorySelfServicePermissionsPtrInput
-	// The subnets identifiers where the workspaces are created.
+	// The identifiers of the subnets where the directory resides.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags pulumi.StringMapInput
@@ -297,9 +326,11 @@ func (DirectoryState) ElementType() reflect.Type {
 type directoryArgs struct {
 	// The directory identifier for registration in WorkSpaces service.
 	DirectoryId string `pulumi:"directoryId"`
+	// The identifiers of the IP access control groups associated with the directory.
+	IpGroupIds []string `pulumi:"ipGroupIds"`
 	// Permissions to enable or disable self-service capabilities. Defined below.
 	SelfServicePermissions *DirectorySelfServicePermissions `pulumi:"selfServicePermissions"`
-	// The subnets identifiers where the workspaces are created.
+	// The identifiers of the subnets where the directory resides.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags map[string]string `pulumi:"tags"`
@@ -311,9 +342,11 @@ type directoryArgs struct {
 type DirectoryArgs struct {
 	// The directory identifier for registration in WorkSpaces service.
 	DirectoryId pulumi.StringInput
+	// The identifiers of the IP access control groups associated with the directory.
+	IpGroupIds pulumi.StringArrayInput
 	// Permissions to enable or disable self-service capabilities. Defined below.
 	SelfServicePermissions DirectorySelfServicePermissionsPtrInput
-	// The subnets identifiers where the workspaces are created.
+	// The identifiers of the subnets where the directory resides.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags pulumi.StringMapInput

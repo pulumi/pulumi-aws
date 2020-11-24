@@ -80,6 +80,10 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Arn;
         /// <summary>
+        /// Amazon Resource Name (ARN) for a Code Signing Configuration.
+        /// </summary>
+        public readonly string CodeSigningConfigArn;
+        /// <summary>
         /// Configure the function's *dead letter queue*.
         /// </summary>
         public readonly Outputs.GetFunctionDeadLetterConfigResult DeadLetterConfig;
@@ -138,9 +142,17 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Role;
         /// <summary>
-        /// The runtime environment for the Lambda function..
+        /// The runtime environment for the Lambda function.
         /// </summary>
         public readonly string Runtime;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a signing job.
+        /// </summary>
+        public readonly string SigningJobArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for a signing profile version.
+        /// </summary>
+        public readonly string SigningProfileVersionArn;
         /// <summary>
         /// Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
@@ -170,6 +182,8 @@ namespace Pulumi.Aws.Lambda
         [OutputConstructor]
         private GetFunctionResult(
             string arn,
+
+            string codeSigningConfigArn,
 
             Outputs.GetFunctionDeadLetterConfigResult deadLetterConfig,
 
@@ -205,6 +219,10 @@ namespace Pulumi.Aws.Lambda
 
             string runtime,
 
+            string signingJobArn,
+
+            string signingProfileVersionArn,
+
             string sourceCodeHash,
 
             int sourceCodeSize,
@@ -220,6 +238,7 @@ namespace Pulumi.Aws.Lambda
             Outputs.GetFunctionVpcConfigResult vpcConfig)
         {
             Arn = arn;
+            CodeSigningConfigArn = codeSigningConfigArn;
             DeadLetterConfig = deadLetterConfig;
             Description = description;
             Environment = environment;
@@ -237,6 +256,8 @@ namespace Pulumi.Aws.Lambda
             ReservedConcurrentExecutions = reservedConcurrentExecutions;
             Role = role;
             Runtime = runtime;
+            SigningJobArn = signingJobArn;
+            SigningProfileVersionArn = signingProfileVersionArn;
             SourceCodeHash = sourceCodeHash;
             SourceCodeSize = sourceCodeSize;
             Tags = tags;

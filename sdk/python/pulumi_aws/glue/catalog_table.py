@@ -23,6 +23,7 @@ class CatalogTable(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]]] = None,
                  partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]]] = None,
                  retention: Optional[pulumi.Input[int]] = None,
                  storage_descriptor: Optional[pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']]] = None,
@@ -115,6 +116,7 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the SerDe.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]] partition_indices: A list of partition indexes. see Partition Index below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
         :param pulumi.Input[int] retention: Retention time for this table.
         :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
@@ -147,6 +149,7 @@ class CatalogTable(pulumi.CustomResource):
             __props__['name'] = name
             __props__['owner'] = owner
             __props__['parameters'] = parameters
+            __props__['partition_indices'] = partition_indices
             __props__['partition_keys'] = partition_keys
             __props__['retention'] = retention
             __props__['storage_descriptor'] = storage_descriptor
@@ -171,6 +174,7 @@ class CatalogTable(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]]] = None,
             partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]]] = None,
             retention: Optional[pulumi.Input[int]] = None,
             storage_descriptor: Optional[pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']]] = None,
@@ -191,6 +195,7 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the SerDe.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]] partition_indices: A list of partition indexes. see Partition Index below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
         :param pulumi.Input[int] retention: Retention time for this table.
         :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
@@ -209,6 +214,7 @@ class CatalogTable(pulumi.CustomResource):
         __props__["name"] = name
         __props__["owner"] = owner
         __props__["parameters"] = parameters
+        __props__["partition_indices"] = partition_indices
         __props__["partition_keys"] = partition_keys
         __props__["retention"] = retention
         __props__["storage_descriptor"] = storage_descriptor
@@ -272,6 +278,14 @@ class CatalogTable(pulumi.CustomResource):
         A map of initialization parameters for the SerDe, in key-value form.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="partitionIndices")
+    def partition_indices(self) -> pulumi.Output[Optional[Sequence['outputs.CatalogTablePartitionIndex']]]:
+        """
+        A list of partition indexes. see Partition Index below.
+        """
+        return pulumi.get(self, "partition_indices")
 
     @property
     @pulumi.getter(name="partitionKeys")

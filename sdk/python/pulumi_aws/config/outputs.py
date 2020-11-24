@@ -217,6 +217,7 @@ class Endpoints(dict):
                  servicequotas: Optional[str] = None,
                  ses: Optional[str] = None,
                  shield: Optional[str] = None,
+                 signer: Optional[str] = None,
                  sns: Optional[str] = None,
                  sqs: Optional[str] = None,
                  ssm: Optional[str] = None,
@@ -491,6 +492,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "ses", ses)
         if shield is not None:
             pulumi.set(__self__, "shield", shield)
+        if signer is not None:
+            pulumi.set(__self__, "signer", signer)
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
         if sqs is not None:
@@ -1167,6 +1170,11 @@ class Endpoints(dict):
     @pulumi.getter
     def shield(self) -> Optional[str]:
         return pulumi.get(self, "shield")
+
+    @property
+    @pulumi.getter
+    def signer(self) -> Optional[str]:
+        return pulumi.get(self, "signer")
 
     @property
     @pulumi.getter

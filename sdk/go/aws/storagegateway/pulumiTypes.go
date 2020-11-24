@@ -324,9 +324,9 @@ type NfsFileShareNfsFileShareDefaults struct {
 	// The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
 	FileMode *string `pulumi:"fileMode"`
 	// The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-	GroupId *int `pulumi:"groupId"`
+	GroupId *string `pulumi:"groupId"`
 	// The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-	OwnerId *int `pulumi:"ownerId"`
+	OwnerId *string `pulumi:"ownerId"`
 }
 
 // NfsFileShareNfsFileShareDefaultsInput is an input type that accepts NfsFileShareNfsFileShareDefaultsArgs and NfsFileShareNfsFileShareDefaultsOutput values.
@@ -346,9 +346,9 @@ type NfsFileShareNfsFileShareDefaultsArgs struct {
 	// The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
 	FileMode pulumi.StringPtrInput `pulumi:"fileMode"`
 	// The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-	GroupId pulumi.IntPtrInput `pulumi:"groupId"`
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
 	// The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-	OwnerId pulumi.IntPtrInput `pulumi:"ownerId"`
+	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
 }
 
 func (NfsFileShareNfsFileShareDefaultsArgs) ElementType() reflect.Type {
@@ -439,13 +439,13 @@ func (o NfsFileShareNfsFileShareDefaultsOutput) FileMode() pulumi.StringPtrOutpu
 }
 
 // The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-func (o NfsFileShareNfsFileShareDefaultsOutput) GroupId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *int { return v.GroupId }).(pulumi.IntPtrOutput)
+func (o NfsFileShareNfsFileShareDefaultsOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
 // The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-func (o NfsFileShareNfsFileShareDefaultsOutput) OwnerId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *int { return v.OwnerId }).(pulumi.IntPtrOutput)
+func (o NfsFileShareNfsFileShareDefaultsOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 type NfsFileShareNfsFileShareDefaultsPtrOutput struct{ *pulumi.OutputState }
@@ -487,23 +487,23 @@ func (o NfsFileShareNfsFileShareDefaultsPtrOutput) FileMode() pulumi.StringPtrOu
 }
 
 // The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-func (o NfsFileShareNfsFileShareDefaultsPtrOutput) GroupId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *int {
+func (o NfsFileShareNfsFileShareDefaultsPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *string {
 		if v == nil {
 			return nil
 		}
 		return v.GroupId
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-func (o NfsFileShareNfsFileShareDefaultsPtrOutput) OwnerId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *int {
+func (o NfsFileShareNfsFileShareDefaultsPtrOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *string {
 		if v == nil {
 			return nil
 		}
 		return v.OwnerId
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type SmbFileShareCacheAttributes struct {

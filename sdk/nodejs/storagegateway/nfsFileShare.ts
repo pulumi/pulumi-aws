@@ -107,6 +107,10 @@ export class NfsFileShare extends pulumi.CustomResource {
      */
     public readonly nfsFileShareDefaults!: pulumi.Output<outputs.storagegateway.NfsFileShareNfsFileShareDefaults | undefined>;
     /**
+     * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+     */
+    public readonly notificationPolicy!: pulumi.Output<string | undefined>;
+    /**
      * Access Control List permission for S3 bucket objects. Defaults to `private`.
      */
     public readonly objectAcl!: pulumi.Output<string | undefined>;
@@ -159,6 +163,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             inputs["locationArn"] = state ? state.locationArn : undefined;
             inputs["nfsFileShareDefaults"] = state ? state.nfsFileShareDefaults : undefined;
+            inputs["notificationPolicy"] = state ? state.notificationPolicy : undefined;
             inputs["objectAcl"] = state ? state.objectAcl : undefined;
             inputs["path"] = state ? state.path : undefined;
             inputs["readOnly"] = state ? state.readOnly : undefined;
@@ -190,6 +195,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             inputs["locationArn"] = args ? args.locationArn : undefined;
             inputs["nfsFileShareDefaults"] = args ? args.nfsFileShareDefaults : undefined;
+            inputs["notificationPolicy"] = args ? args.notificationPolicy : undefined;
             inputs["objectAcl"] = args ? args.objectAcl : undefined;
             inputs["readOnly"] = args ? args.readOnly : undefined;
             inputs["requesterPays"] = args ? args.requesterPays : undefined;
@@ -264,6 +270,10 @@ export interface NfsFileShareState {
      */
     readonly nfsFileShareDefaults?: pulumi.Input<inputs.storagegateway.NfsFileShareNfsFileShareDefaults>;
     /**
+     * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+     */
+    readonly notificationPolicy?: pulumi.Input<string>;
+    /**
      * Access Control List permission for S3 bucket objects. Defaults to `private`.
      */
     readonly objectAcl?: pulumi.Input<string>;
@@ -337,6 +347,10 @@ export interface NfsFileShareArgs {
      * Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
      */
     readonly nfsFileShareDefaults?: pulumi.Input<inputs.storagegateway.NfsFileShareNfsFileShareDefaults>;
+    /**
+     * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+     */
+    readonly notificationPolicy?: pulumi.Input<string>;
     /**
      * Access Control List permission for S3 bucket objects. Defaults to `private`.
      */

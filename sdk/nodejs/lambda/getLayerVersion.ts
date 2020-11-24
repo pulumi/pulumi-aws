@@ -89,6 +89,14 @@ export interface GetLayerVersionResult {
      */
     readonly licenseInfo: string;
     /**
+     * The Amazon Resource Name (ARN) of a signing job.
+     */
+    readonly signingJobArn: string;
+    /**
+     * The Amazon Resource Name (ARN) for a signing profile version.
+     */
+    readonly signingProfileVersionArn: string;
+    /**
      * Base64-encoded representation of raw SHA-256 sum of the zip file.
      */
     readonly sourceCodeHash: string;

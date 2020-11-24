@@ -97,6 +97,18 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### IP Groups
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleIpGroup = new aws.workspaces.IpGroup("exampleIpGroup", {});
+ * const exampleDirectory = new aws.workspaces.Directory("exampleDirectory", {
+ *     directoryId: aws_directory_service_directory.example.id,
+ *     ipGroupIds: [exampleIpGroup.id],
+ * });
+ * ```
  *
  * ## Import
  *
@@ -165,7 +177,7 @@ export class Directory extends pulumi.CustomResource {
     /**
      * The identifiers of the IP access control groups associated with the directory.
      */
-    public /*out*/ readonly ipGroupIds!: pulumi.Output<string[]>;
+    public readonly ipGroupIds!: pulumi.Output<string[]>;
     /**
      * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      */
@@ -175,7 +187,7 @@ export class Directory extends pulumi.CustomResource {
      */
     public readonly selfServicePermissions!: pulumi.Output<outputs.workspaces.DirectorySelfServicePermissions>;
     /**
-     * The subnets identifiers where the workspaces are created.
+     * The identifiers of the subnets where the directory resides.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
@@ -223,6 +235,7 @@ export class Directory extends pulumi.CustomResource {
                 throw new Error("Missing required property 'directoryId'");
             }
             inputs["directoryId"] = args ? args.directoryId : undefined;
+            inputs["ipGroupIds"] = args ? args.ipGroupIds : undefined;
             inputs["selfServicePermissions"] = args ? args.selfServicePermissions : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -233,7 +246,6 @@ export class Directory extends pulumi.CustomResource {
             inputs["directoryType"] = undefined /*out*/;
             inputs["dnsIpAddresses"] = undefined /*out*/;
             inputs["iamRoleId"] = undefined /*out*/;
-            inputs["ipGroupIds"] = undefined /*out*/;
             inputs["registrationCode"] = undefined /*out*/;
             inputs["workspaceSecurityGroupId"] = undefined /*out*/;
         }
@@ -293,7 +305,7 @@ export interface DirectoryState {
      */
     readonly selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions>;
     /**
-     * The subnets identifiers where the workspaces are created.
+     * The identifiers of the subnets where the directory resides.
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -319,11 +331,15 @@ export interface DirectoryArgs {
      */
     readonly directoryId: pulumi.Input<string>;
     /**
+     * The identifiers of the IP access control groups associated with the directory.
+     */
+    readonly ipGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      */
     readonly selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions>;
     /**
-     * The subnets identifiers where the workspaces are created.
+     * The identifiers of the subnets where the directory resides.
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

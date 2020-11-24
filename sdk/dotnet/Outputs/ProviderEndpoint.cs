@@ -141,6 +141,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Servicequotas;
         public readonly string? Ses;
         public readonly string? Shield;
+        public readonly string? Signer;
         public readonly string? Sns;
         public readonly string? Sqs;
         public readonly string? Ssm;
@@ -418,6 +419,8 @@ namespace Pulumi.Aws.Outputs
 
             string? shield,
 
+            string? signer,
+
             string? sns,
 
             string? sqs,
@@ -582,6 +585,7 @@ namespace Pulumi.Aws.Outputs
             Servicequotas = servicequotas;
             Ses = ses;
             Shield = shield;
+            Signer = signer;
             Sns = sns;
             Sqs = sqs;
             Ssm = ssm;

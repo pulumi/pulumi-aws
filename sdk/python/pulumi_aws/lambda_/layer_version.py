@@ -110,6 +110,8 @@ class LayerVersion(pulumi.CustomResource):
             __props__['arn'] = None
             __props__['created_date'] = None
             __props__['layer_arn'] = None
+            __props__['signing_job_arn'] = None
+            __props__['signing_profile_version_arn'] = None
             __props__['source_code_size'] = None
             __props__['version'] = None
         super(LayerVersion, __self__).__init__(
@@ -133,6 +135,8 @@ class LayerVersion(pulumi.CustomResource):
             s3_bucket: Optional[pulumi.Input[str]] = None,
             s3_key: Optional[pulumi.Input[str]] = None,
             s3_object_version: Optional[pulumi.Input[str]] = None,
+            signing_job_arn: Optional[pulumi.Input[str]] = None,
+            signing_profile_version_arn: Optional[pulumi.Input[str]] = None,
             source_code_hash: Optional[pulumi.Input[str]] = None,
             source_code_size: Optional[pulumi.Input[int]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'LayerVersion':
@@ -154,6 +158,8 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket: The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         :param pulumi.Input[str] s3_key: The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[str] s3_object_version: The object version containing the function's deployment package. Conflicts with `filename`.
+        :param pulumi.Input[str] signing_job_arn: The Amazon Resource Name (ARN) of a signing job.
+        :param pulumi.Input[str] signing_profile_version_arn: The Amazon Resource Name (ARN) for a signing profile version.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
         :param pulumi.Input[int] source_code_size: The size in bytes of the function .zip file.
         :param pulumi.Input[str] version: This Lamba Layer version.
@@ -173,6 +179,8 @@ class LayerVersion(pulumi.CustomResource):
         __props__["s3_bucket"] = s3_bucket
         __props__["s3_key"] = s3_key
         __props__["s3_object_version"] = s3_object_version
+        __props__["signing_job_arn"] = signing_job_arn
+        __props__["signing_profile_version_arn"] = signing_profile_version_arn
         __props__["source_code_hash"] = source_code_hash
         __props__["source_code_size"] = source_code_size
         __props__["version"] = version
@@ -265,6 +273,22 @@ class LayerVersion(pulumi.CustomResource):
         The object version containing the function's deployment package. Conflicts with `filename`.
         """
         return pulumi.get(self, "s3_object_version")
+
+    @property
+    @pulumi.getter(name="signingJobArn")
+    def signing_job_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of a signing job.
+        """
+        return pulumi.get(self, "signing_job_arn")
+
+    @property
+    @pulumi.getter(name="signingProfileVersionArn")
+    def signing_profile_version_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for a signing profile version.
+        """
+        return pulumi.get(self, "signing_profile_version_arn")
 
     @property
     @pulumi.getter(name="sourceCodeHash")

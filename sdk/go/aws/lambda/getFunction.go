@@ -56,6 +56,8 @@ type LookupFunctionArgs struct {
 type LookupFunctionResult struct {
 	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
 	Arn string `pulumi:"arn"`
+	// Amazon Resource Name (ARN) for a Code Signing Configuration.
+	CodeSigningConfigArn string `pulumi:"codeSigningConfigArn"`
 	// Configure the function's *dead letter queue*.
 	DeadLetterConfig GetFunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Description of what your Lambda Function does.
@@ -86,8 +88,12 @@ type LookupFunctionResult struct {
 	ReservedConcurrentExecutions int `pulumi:"reservedConcurrentExecutions"`
 	// IAM role attached to the Lambda Function.
 	Role string `pulumi:"role"`
-	// The runtime environment for the Lambda function..
+	// The runtime environment for the Lambda function.
 	Runtime string `pulumi:"runtime"`
+	// The Amazon Resource Name (ARN) of a signing job.
+	SigningJobArn string `pulumi:"signingJobArn"`
+	// The Amazon Resource Name (ARN) for a signing profile version.
+	SigningProfileVersionArn string `pulumi:"signingProfileVersionArn"`
 	// Base64-encoded representation of raw SHA-256 sum of the zip file.
 	SourceCodeHash string `pulumi:"sourceCodeHash"`
 	// The size in bytes of the function .zip file.

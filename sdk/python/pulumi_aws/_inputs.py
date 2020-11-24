@@ -254,6 +254,7 @@ class ProviderEndpointArgs:
                  servicequotas: Optional[pulumi.Input[str]] = None,
                  ses: Optional[pulumi.Input[str]] = None,
                  shield: Optional[pulumi.Input[str]] = None,
+                 signer: Optional[pulumi.Input[str]] = None,
                  sns: Optional[pulumi.Input[str]] = None,
                  sqs: Optional[pulumi.Input[str]] = None,
                  ssm: Optional[pulumi.Input[str]] = None,
@@ -528,6 +529,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "ses", ses)
         if shield is not None:
             pulumi.set(__self__, "shield", shield)
+        if signer is not None:
+            pulumi.set(__self__, "signer", signer)
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
         if sqs is not None:
@@ -1716,6 +1719,15 @@ class ProviderEndpointArgs:
     @shield.setter
     def shield(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "shield", value)
+
+    @property
+    @pulumi.getter
+    def signer(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "signer")
+
+    @signer.setter
+    def signer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signer", value)
 
     @property
     @pulumi.getter

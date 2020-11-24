@@ -219,6 +219,7 @@ export interface ProviderEndpoint {
     servicequotas?: pulumi.Input<string>;
     ses?: pulumi.Input<string>;
     shield?: pulumi.Input<string>;
+    signer?: pulumi.Input<string>;
     sns?: pulumi.Input<string>;
     sqs?: pulumi.Input<string>;
     ssm?: pulumi.Input<string>;
@@ -5119,7 +5120,7 @@ export namespace codebuild {
          */
         environmentVariables?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectEnvironmentEnvironmentVariable>[]>;
         /**
-         * The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+         * The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
          */
         image: pulumi.Input<string>;
         /**
@@ -5135,7 +5136,7 @@ export namespace codebuild {
          */
         registryCredential?: pulumi.Input<inputs.codebuild.ProjectEnvironmentRegistryCredential>;
         /**
-         * The type of build environment to use for related builds. Available values are: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` or `ARM_CONTAINER`.
+         * The type of build environment to use for related builds. Available values are: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER` or `ARM_CONTAINER`. For additional information, see the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
          */
         type: pulumi.Input<string>;
     }
@@ -11273,6 +11274,18 @@ export namespace globalaccelerator {
 }
 
 export namespace glue {
+    export interface CatalogTablePartitionIndex {
+        /**
+         * The name of the partition index.
+         */
+        indexName: pulumi.Input<string>;
+        indexStatus?: pulumi.Input<string>;
+        /**
+         * The keys for the partition index.
+         */
+        keys: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface CatalogTablePartitionKey {
         /**
          * Free-form text comment.
@@ -14503,6 +14516,20 @@ export namespace lambda {
         additionalVersionWeights?: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
     }
 
+    export interface CodeSigningConfigAllowedPublishers {
+        /**
+         * The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+         */
+        signingProfileVersionArns: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CodeSigningConfigPolicies {
+        /**
+         * Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
+         */
+        untrustedArtifactOnDeployment: pulumi.Input<string>;
+    }
+
     export interface EventSourceMappingDestinationConfig {
         /**
          * The destination configuration for failed invocations. Detailed below.
@@ -15970,7 +15997,7 @@ export namespace networkfirewall {
         /**
          * A map describing the logging destination for the chosen `logDestinationType`.
          * * For an Amazon S3 bucket, specify the key `bucketName` with the URL of the bucket and optionally specify the key `prefix` with a path.
-         * * For a CloudWatch log group, specify the key `logGroup` with the Amazon Resource Name (ARN) of the CloudWatch log group.
+         * * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
          * * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the Amazon Resource Name (ARN) of the delivery stream.
          */
         logDestination: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -18268,6 +18295,83 @@ export namespace ses {
     }
 }
 
+export namespace signer {
+    export interface SigningJobDestination {
+        /**
+         * A configuration block describing the S3 Destination object: See S3 Destination below for details.
+         */
+        s3: pulumi.Input<inputs.signer.SigningJobDestinationS3>;
+    }
+
+    export interface SigningJobDestinationS3 {
+        /**
+         * Name of the S3 bucket.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+         */
+        prefix?: pulumi.Input<string>;
+    }
+
+    export interface SigningJobRevocationRecord {
+        reason?: pulumi.Input<string>;
+        revokedAt?: pulumi.Input<string>;
+        revokedBy?: pulumi.Input<string>;
+    }
+
+    export interface SigningJobSignedObject {
+        /**
+         * A configuration block describing the S3 Destination object: See S3 Destination below for details.
+         */
+        s3s?: pulumi.Input<pulumi.Input<inputs.signer.SigningJobSignedObjectS3>[]>;
+    }
+
+    export interface SigningJobSignedObjectS3 {
+        /**
+         * Name of the S3 bucket.
+         */
+        bucket?: pulumi.Input<string>;
+        /**
+         * Key name of the bucket object that contains your unsigned code.
+         */
+        key?: pulumi.Input<string>;
+    }
+
+    export interface SigningJobSource {
+        /**
+         * A configuration block describing the S3 Destination object: See S3 Destination below for details.
+         */
+        s3: pulumi.Input<inputs.signer.SigningJobSourceS3>;
+    }
+
+    export interface SigningJobSourceS3 {
+        /**
+         * Name of the S3 bucket.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * Key name of the bucket object that contains your unsigned code.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Version of your source image in your version enabled S3 bucket.
+         */
+        version: pulumi.Input<string>;
+    }
+
+    export interface SigningProfileRevocationRecord {
+        revocationEffectiveFrom?: pulumi.Input<string>;
+        revokedAt?: pulumi.Input<string>;
+        revokedBy?: pulumi.Input<string>;
+    }
+
+    export interface SigningProfileSignatureValidityPeriod {
+        type: pulumi.Input<string>;
+        value: pulumi.Input<number>;
+    }
+}
+
 export namespace ssm {
     export interface AssociationOutputLocation {
         /**
@@ -18554,11 +18658,11 @@ export namespace storagegateway {
         /**
          * The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
          */
-        groupId?: pulumi.Input<number>;
+        groupId?: pulumi.Input<string>;
         /**
          * The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
          */
-        ownerId?: pulumi.Input<number>;
+        ownerId?: pulumi.Input<string>;
     }
 
     export interface SmbFileShareCacheAttributes {

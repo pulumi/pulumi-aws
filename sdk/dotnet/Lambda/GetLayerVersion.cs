@@ -104,6 +104,14 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string LicenseInfo;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of a signing job.
+        /// </summary>
+        public readonly string SigningJobArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for a signing profile version.
+        /// </summary>
+        public readonly string SigningProfileVersionArn;
+        /// <summary>
         /// Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
         public readonly string SourceCodeHash;
@@ -136,6 +144,10 @@ namespace Pulumi.Aws.Lambda
 
             string licenseInfo,
 
+            string signingJobArn,
+
+            string signingProfileVersionArn,
+
             string sourceCodeHash,
 
             int sourceCodeSize,
@@ -151,6 +163,8 @@ namespace Pulumi.Aws.Lambda
             LayerArn = layerArn;
             LayerName = layerName;
             LicenseInfo = licenseInfo;
+            SigningJobArn = signingJobArn;
+            SigningProfileVersionArn = signingProfileVersionArn;
             SourceCodeHash = sourceCodeHash;
             SourceCodeSize = sourceCodeSize;
             Version = version;

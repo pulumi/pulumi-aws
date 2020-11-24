@@ -11,6 +11,8 @@ from . import outputs
 
 __all__ = [
     'AliasRoutingConfig',
+    'CodeSigningConfigAllowedPublishers',
+    'CodeSigningConfigPolicies',
     'EventSourceMappingDestinationConfig',
     'EventSourceMappingDestinationConfigOnFailure',
     'FunctionDeadLetterConfig',
@@ -21,6 +23,8 @@ __all__ = [
     'FunctionFileSystemConfig',
     'FunctionTracingConfig',
     'FunctionVpcConfig',
+    'GetCodeSigningConfigAllowedPublisherResult',
+    'GetCodeSigningConfigPolicyResult',
     'GetFunctionDeadLetterConfigResult',
     'GetFunctionEnvironmentResult',
     'GetFunctionFileSystemConfigResult',
@@ -45,6 +49,48 @@ class AliasRoutingConfig(dict):
         A map that defines the proportion of events that should be sent to different versions of a lambda function.
         """
         return pulumi.get(self, "additional_version_weights")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CodeSigningConfigAllowedPublishers(dict):
+    def __init__(__self__, *,
+                 signing_profile_version_arns: Sequence[str]):
+        """
+        :param Sequence[str] signing_profile_version_arns: The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+        """
+        pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
+
+    @property
+    @pulumi.getter(name="signingProfileVersionArns")
+    def signing_profile_version_arns(self) -> Sequence[str]:
+        """
+        The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+        """
+        return pulumi.get(self, "signing_profile_version_arns")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CodeSigningConfigPolicies(dict):
+    def __init__(__self__, *,
+                 untrusted_artifact_on_deployment: str):
+        """
+        :param str untrusted_artifact_on_deployment: Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
+        """
+        pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
+
+    @property
+    @pulumi.getter(name="untrustedArtifactOnDeployment")
+    def untrusted_artifact_on_deployment(self) -> str:
+        """
+        Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
+        """
+        return pulumi.get(self, "untrusted_artifact_on_deployment")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -317,6 +363,42 @@ class FunctionVpcConfig(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetCodeSigningConfigAllowedPublisherResult(dict):
+    def __init__(__self__, *,
+                 signing_profile_version_arns: Sequence[str]):
+        """
+        :param Sequence[str] signing_profile_version_arns: The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+        """
+        pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
+
+    @property
+    @pulumi.getter(name="signingProfileVersionArns")
+    def signing_profile_version_arns(self) -> Sequence[str]:
+        """
+        The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+        """
+        return pulumi.get(self, "signing_profile_version_arns")
+
+
+@pulumi.output_type
+class GetCodeSigningConfigPolicyResult(dict):
+    def __init__(__self__, *,
+                 untrusted_artifact_on_deployment: str):
+        """
+        :param str untrusted_artifact_on_deployment: Code signing configuration policy for deployment validation failure.
+        """
+        pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
+
+    @property
+    @pulumi.getter(name="untrustedArtifactOnDeployment")
+    def untrusted_artifact_on_deployment(self) -> str:
+        """
+        Code signing configuration policy for deployment validation failure.
+        """
+        return pulumi.get(self, "untrusted_artifact_on_deployment")
 
 
 @pulumi.output_type

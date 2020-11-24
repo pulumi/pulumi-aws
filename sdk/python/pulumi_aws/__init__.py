@@ -133,6 +133,7 @@ from . import (
     ses,
     sfn,
     shield,
+    signer,
     simpledb,
     sns,
     sqs,

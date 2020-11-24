@@ -396,6 +396,9 @@ namespace Pulumi.Aws.Inputs
         [Input("shield")]
         public Input<string>? Shield { get; set; }
 
+        [Input("signer")]
+        public Input<string>? Signer { get; set; }
+
         [Input("sns")]
         public Input<string>? Sns { get; set; }
 
