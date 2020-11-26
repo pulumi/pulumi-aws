@@ -54,6 +54,8 @@ type LookupClusterResult struct {
 	Arn string `pulumi:"arn"`
 	// A comma separated list of one or more hostname:port pairs of Kafka brokers suitable to boostrap connectivity to the Kafka cluster.
 	BootstrapBrokers string `pulumi:"bootstrapBrokers"`
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster.
+	BootstrapBrokersSaslScram string `pulumi:"bootstrapBrokersSaslScram"`
 	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
 	BootstrapBrokersTls string `pulumi:"bootstrapBrokersTls"`
 	ClusterName         string `pulumi:"clusterName"`

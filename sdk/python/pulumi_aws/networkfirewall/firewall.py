@@ -103,6 +103,7 @@ class Firewall(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
             __props__['arn'] = None
+            __props__['firewall_statuses'] = None
             __props__['update_token'] = None
         super(Firewall, __self__).__init__(
             'aws:networkfirewall/firewall:Firewall',
@@ -119,6 +120,7 @@ class Firewall(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             firewall_policy_arn: Optional[pulumi.Input[str]] = None,
             firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
+            firewall_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFirewallStatusArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             subnet_change_protection: Optional[pulumi.Input[bool]] = None,
             subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallSubnetMappingArgs']]]]] = None,
@@ -137,6 +139,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] description: A friendly description of the firewall.
         :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
         :param pulumi.Input[bool] firewall_policy_change_protection: A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFirewallStatusArgs']]]] firewall_statuses: Nested list of information about the current status of the firewall.
         :param pulumi.Input[str] name: A friendly name of the firewall.
         :param pulumi.Input[bool] subnet_change_protection: A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallSubnetMappingArgs']]]] subnet_mappings: Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
@@ -153,6 +156,7 @@ class Firewall(pulumi.CustomResource):
         __props__["description"] = description
         __props__["firewall_policy_arn"] = firewall_policy_arn
         __props__["firewall_policy_change_protection"] = firewall_policy_change_protection
+        __props__["firewall_statuses"] = firewall_statuses
         __props__["name"] = name
         __props__["subnet_change_protection"] = subnet_change_protection
         __props__["subnet_mappings"] = subnet_mappings
@@ -200,6 +204,14 @@ class Firewall(pulumi.CustomResource):
         A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         """
         return pulumi.get(self, "firewall_policy_change_protection")
+
+    @property
+    @pulumi.getter(name="firewallStatuses")
+    def firewall_statuses(self) -> pulumi.Output[Sequence['outputs.FirewallFirewallStatus']]:
+        """
+        Nested list of information about the current status of the firewall.
+        """
+        return pulumi.get(self, "firewall_statuses")
 
     @property
     @pulumi.getter

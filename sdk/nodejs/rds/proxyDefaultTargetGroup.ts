@@ -77,9 +77,6 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ProxyDefaultTargetGroupArgs | undefined;
-            if (!args || args.connectionPoolConfig === undefined) {
-                throw new Error("Missing required property 'connectionPoolConfig'");
-            }
             if (!args || args.dbProxyName === undefined) {
                 throw new Error("Missing required property 'dbProxyName'");
             }
@@ -128,7 +125,7 @@ export interface ProxyDefaultTargetGroupArgs {
     /**
      * The settings that determine the size and behavior of the connection pool for the target group.
      */
-    readonly connectionPoolConfig: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
+    readonly connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
     /**
      * Name of the RDS DB Proxy.
      */

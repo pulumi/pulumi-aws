@@ -135,6 +135,7 @@ const (
 	route53Mod                = "Route53"               // Route 53 (DNS)
 	sagemakerMod              = "Sagemaker"             // Sagemaker
 	securityhubMod            = "SecurityHub"           // SecurityHub
+	serverlessRepositoryMod   = "ServerlessRepository"  // ServerlessRepository
 	sesMod                    = "Ses"                   // Simple Email Service (SES)
 	signerMod                 = "Signer"                // Signer
 	s3Mod                     = "S3"                    // Simple Storage (S3)
@@ -598,6 +599,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_backup_vault":               {Tok: awsResource(backupMod, "Vault")},
 			"aws_backup_vault_notifications": {Tok: awsResource(backupMod, "VaultNotifications")},
 			"aws_backup_vault_policy":        {Tok: awsResource(backupMod, "VaultPolicy")},
+			"aws_backup_region_settings":     {Tok: awsResource(backupMod, "RegionSettings")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
@@ -2191,7 +2193,8 @@ func Provider() tfbridge.ProviderInfo {
 					"cluster_name": tfbridge.AutoName("clusterName", 255, "-"),
 				},
 			},
-			"aws_msk_configuration": {Tok: awsResource(mskMod, "Configuration")},
+			"aws_msk_configuration":            {Tok: awsResource(mskMod, "Configuration")},
+			"aws_msk_scram_secret_association": {Tok: awsResource(mskMod, "ScramSecretAssociation")},
 			// Datapipeline
 			"aws_datapipeline_pipeline": {Tok: awsResource(datapipelineMod, "Pipeline")},
 			// Quicksight
@@ -2301,7 +2304,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// Imagebuilder
-			"aws_imagebuilder_component": {Tok: awsResource(imageBuilderMod, "Component")},
+			"aws_imagebuilder_component":      {Tok: awsResource(imageBuilderMod, "Component")},
+			"aws_imagebuilder_image_pipeline": {Tok: awsResource(imageBuilderMod, "ImagePipeline")},
+			"aws_imagebuilder_image_recipe":   {Tok: awsResource(imageBuilderMod, "ImageRecipe")},
 			"aws_imagebuilder_distribution_configuration": {
 				Tok: awsResource(imageBuilderMod, "DistributionConfiguration"),
 			},
@@ -2335,11 +2340,15 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_networkfirewall_resource_policy": {Tok: awsResource(networkFirewallMod, "ResourcePolicy")},
 
 			// signer
 			"aws_signer_signing_job":                {Tok: awsResource(signerMod, "SigningJob")},
 			"aws_signer_signing_profile":            {Tok: awsResource(signerMod, "SigningProfile")},
 			"aws_signer_signing_profile_permission": {Tok: awsResource(signerMod, "SigningProfilePermission")},
+
+			// ServerlessRepository
+			"aws_serverlessrepository_stack": {Tok: awsResource(serverlessRepositoryMod, "Stack")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws::Region": {
@@ -3485,9 +3494,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_imagebuilder_infrastructure_configuration": {
 				Tok: awsDataSource(imageBuilderMod, "getInfrastructureConfiguration"),
 			},
+			"aws_imagebuilder_image_pipeline": {Tok: awsDataSource(imageBuilderMod, "getImagePipeline")},
+			"aws_imagebuilder_image_recipe":   {Tok: awsDataSource(imageBuilderMod, "getImageRecipe")},
 			//signer
 			"aws_signer_signing_job":     {Tok: awsDataSource(signerMod, "getSigningJob")},
 			"aws_signer_signing_profile": {Tok: awsDataSource(signerMod, "getSigningProfile")},
+			//serverless repository
+			"aws_serverlessrepository_application": {Tok: awsDataSource(serverlessRepositoryMod, "getApplication")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

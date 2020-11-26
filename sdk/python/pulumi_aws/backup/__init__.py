@@ -7,6 +7,7 @@ from .get_plan import *
 from .get_selection import *
 from .get_vault import *
 from .plan import *
+from .region_settings import *
 from .selection import *
 from .vault import *
 from .vault_notifications import *

@@ -25,6 +25,8 @@ __all__ = [
     'FleetLaunchTemplateConfigOverrideArgs',
     'FleetOnDemandOptionsArgs',
     'FleetSpotOptionsArgs',
+    'FleetSpotOptionsMaintenanceStrategiesArgs',
+    'FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs',
     'FleetTargetCapacitySpecificationArgs',
     'InstanceCreditSpecificationArgs',
     'InstanceEbsBlockDeviceArgs',
@@ -68,6 +70,8 @@ __all__ = [
     'SpotFleetRequestLaunchTemplateConfigArgs',
     'SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs',
     'SpotFleetRequestLaunchTemplateConfigOverrideArgs',
+    'SpotFleetRequestSpotMaintenanceStrategiesArgs',
+    'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs',
     'SpotInstanceRequestCreditSpecificationArgs',
     'SpotInstanceRequestEbsBlockDeviceArgs',
     'SpotInstanceRequestEphemeralBlockDeviceArgs',
@@ -1629,11 +1633,13 @@ class FleetSpotOptionsArgs:
     def __init__(__self__, *,
                  allocation_strategy: Optional[pulumi.Input[str]] = None,
                  instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
-                 instance_pools_to_use_count: Optional[pulumi.Input[int]] = None):
+                 instance_pools_to_use_count: Optional[pulumi.Input[int]] = None,
+                 maintenance_strategies: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArgs']] = None):
         """
         :param pulumi.Input[str] allocation_strategy: How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
         :param pulumi.Input[str] instance_interruption_behavior: Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
         :param pulumi.Input[int] instance_pools_to_use_count: Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
+        :param pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArgs'] maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         """
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
@@ -1641,6 +1647,8 @@ class FleetSpotOptionsArgs:
             pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
         if instance_pools_to_use_count is not None:
             pulumi.set(__self__, "instance_pools_to_use_count", instance_pools_to_use_count)
+        if maintenance_strategies is not None:
+            pulumi.set(__self__, "maintenance_strategies", maintenance_strategies)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -1677,6 +1685,64 @@ class FleetSpotOptionsArgs:
     @instance_pools_to_use_count.setter
     def instance_pools_to_use_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "instance_pools_to_use_count", value)
+
+    @property
+    @pulumi.getter(name="maintenanceStrategies")
+    def maintenance_strategies(self) -> Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArgs']]:
+        """
+        Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        """
+        return pulumi.get(self, "maintenance_strategies")
+
+    @maintenance_strategies.setter
+    def maintenance_strategies(self, value: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArgs']]):
+        pulumi.set(self, "maintenance_strategies", value)
+
+
+@pulumi.input_type
+class FleetSpotOptionsMaintenanceStrategiesArgs:
+    def __init__(__self__, *,
+                 capacity_rebalance: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs']] = None):
+        """
+        :param pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs'] capacity_rebalance: Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        """
+        if capacity_rebalance is not None:
+            pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+
+    @property
+    @pulumi.getter(name="capacityRebalance")
+    def capacity_rebalance(self) -> Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs']]:
+        """
+        Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        """
+        return pulumi.get(self, "capacity_rebalance")
+
+    @capacity_rebalance.setter
+    def capacity_rebalance(self, value: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs']]):
+        pulumi.set(self, "capacity_rebalance", value)
+
+
+@pulumi.input_type
+class FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs:
+    def __init__(__self__, *,
+                 replacement_strategy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] replacement_strategy: The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
+        """
+        if replacement_strategy is not None:
+            pulumi.set(__self__, "replacement_strategy", replacement_strategy)
+
+    @property
+    @pulumi.getter(name="replacementStrategy")
+    def replacement_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
+        """
+        return pulumi.get(self, "replacement_strategy")
+
+    @replacement_strategy.setter
+    def replacement_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replacement_strategy", value)
 
 
 @pulumi.input_type
@@ -5081,6 +5147,52 @@ class SpotFleetRequestLaunchTemplateConfigOverrideArgs:
     @weighted_capacity.setter
     def weighted_capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "weighted_capacity", value)
+
+
+@pulumi.input_type
+class SpotFleetRequestSpotMaintenanceStrategiesArgs:
+    def __init__(__self__, *,
+                 capacity_rebalance: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs']] = None):
+        """
+        :param pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs'] capacity_rebalance: Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        """
+        if capacity_rebalance is not None:
+            pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+
+    @property
+    @pulumi.getter(name="capacityRebalance")
+    def capacity_rebalance(self) -> Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs']]:
+        """
+        Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        """
+        return pulumi.get(self, "capacity_rebalance")
+
+    @capacity_rebalance.setter
+    def capacity_rebalance(self, value: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs']]):
+        pulumi.set(self, "capacity_rebalance", value)
+
+
+@pulumi.input_type
+class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs:
+    def __init__(__self__, *,
+                 replacement_strategy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] replacement_strategy: The replacement strategy to use. Only available for spot fleets with `fleet_type` set to `maintain`. Valid values: `launch`.
+        """
+        if replacement_strategy is not None:
+            pulumi.set(__self__, "replacement_strategy", replacement_strategy)
+
+    @property
+    @pulumi.getter(name="replacementStrategy")
+    def replacement_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The replacement strategy to use. Only available for spot fleets with `fleet_type` set to `maintain`. Valid values: `launch`.
+        """
+        return pulumi.get(self, "replacement_strategy")
+
+    @replacement_strategy.setter
+    def replacement_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replacement_strategy", value)
 
 
 @pulumi.input_type

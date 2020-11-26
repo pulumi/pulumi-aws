@@ -13,11 +13,21 @@ __all__ = [
     'DistributionConfigurationDistribution',
     'DistributionConfigurationDistributionAmiDistributionConfiguration',
     'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission',
+    'ImagePipelineImageTestsConfiguration',
+    'ImagePipelineSchedule',
+    'ImageRecipeBlockDeviceMapping',
+    'ImageRecipeBlockDeviceMappingEbs',
+    'ImageRecipeComponent',
     'InfrastructureConfigurationLogging',
     'InfrastructureConfigurationLoggingS3Logs',
     'GetDistributionConfigurationDistributionResult',
     'GetDistributionConfigurationDistributionAmiDistributionConfigurationResult',
     'GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult',
+    'GetImagePipelineImageTestsConfigurationResult',
+    'GetImagePipelineScheduleResult',
+    'GetImageRecipeBlockDeviceMappingResult',
+    'GetImageRecipeBlockDeviceMappingEbResult',
+    'GetImageRecipeComponentResult',
     'GetInfrastructureConfigurationLoggingResult',
     'GetInfrastructureConfigurationLoggingS3LogResult',
 ]
@@ -178,6 +188,246 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPer
         Set of AWS Account identifiers to assign.
         """
         return pulumi.get(self, "user_ids")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImagePipelineImageTestsConfiguration(dict):
+    def __init__(__self__, *,
+                 image_tests_enabled: Optional[bool] = None,
+                 timeout_minutes: Optional[int] = None):
+        """
+        :param bool image_tests_enabled: Whether image tests are enabled. Defaults to `true`.
+        :param int timeout_minutes: Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+        """
+        if image_tests_enabled is not None:
+            pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @property
+    @pulumi.getter(name="imageTestsEnabled")
+    def image_tests_enabled(self) -> Optional[bool]:
+        """
+        Whether image tests are enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "image_tests_enabled")
+
+    @property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[int]:
+        """
+        Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImagePipelineSchedule(dict):
+    def __init__(__self__, *,
+                 schedule_expression: str,
+                 pipeline_execution_start_condition: Optional[str] = None):
+        """
+        :param str schedule_expression: Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * *)` is evaluated every day at midnight UTC.
+        :param str pipeline_execution_start_condition: Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
+        """
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if pipeline_execution_start_condition is not None:
+            pulumi.set(__self__, "pipeline_execution_start_condition", pipeline_execution_start_condition)
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> str:
+        """
+        Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * *)` is evaluated every day at midnight UTC.
+        """
+        return pulumi.get(self, "schedule_expression")
+
+    @property
+    @pulumi.getter(name="pipelineExecutionStartCondition")
+    def pipeline_execution_start_condition(self) -> Optional[str]:
+        """
+        Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
+        """
+        return pulumi.get(self, "pipeline_execution_start_condition")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImageRecipeBlockDeviceMapping(dict):
+    def __init__(__self__, *,
+                 device_name: Optional[str] = None,
+                 ebs: Optional['outputs.ImageRecipeBlockDeviceMappingEbs'] = None,
+                 no_device: Optional[bool] = None,
+                 virtual_name: Optional[str] = None):
+        """
+        :param str device_name: Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        :param 'ImageRecipeBlockDeviceMappingEbsArgs' ebs: Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+        :param bool no_device: Set to `true` to remove a mapping from the parent image.
+        :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if ebs is not None:
+            pulumi.set(__self__, "ebs", ebs)
+        if no_device is not None:
+            pulumi.set(__self__, "no_device", no_device)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> Optional[str]:
+        """
+        Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        """
+        return pulumi.get(self, "device_name")
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> Optional['outputs.ImageRecipeBlockDeviceMappingEbs']:
+        """
+        Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+        """
+        return pulumi.get(self, "ebs")
+
+    @property
+    @pulumi.getter(name="noDevice")
+    def no_device(self) -> Optional[bool]:
+        """
+        Set to `true` to remove a mapping from the parent image.
+        """
+        return pulumi.get(self, "no_device")
+
+    @property
+    @pulumi.getter(name="virtualName")
+    def virtual_name(self) -> Optional[str]:
+        """
+        Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
+        return pulumi.get(self, "virtual_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImageRecipeBlockDeviceMappingEbs(dict):
+    def __init__(__self__, *,
+                 delete_on_termination: Optional[str] = None,
+                 encrypted: Optional[str] = None,
+                 iops: Optional[int] = None,
+                 kms_key_id: Optional[str] = None,
+                 snapshot_id: Optional[str] = None,
+                 volume_size: Optional[int] = None,
+                 volume_type: Optional[str] = None):
+        """
+        :param str delete_on_termination: Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        :param str encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        :param int iops: Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        :param str kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        :param str snapshot_id: Identifier of the EC2 Volume Snapshot.
+        :param int volume_size: Size of the volume, in GiB.
+        :param str volume_type: Type of the volume. For example, `gp2` or `io2`.
+        """
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[str]:
+        """
+        Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        """
+        return pulumi.get(self, "delete_on_termination")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[str]:
+        """
+        Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        """
+        Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[str]:
+        """
+        Identifier of the EC2 Volume Snapshot.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> Optional[int]:
+        """
+        Size of the volume, in GiB.
+        """
+        return pulumi.get(self, "volume_size")
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional[str]:
+        """
+        Type of the volume. For example, `gp2` or `io2`.
+        """
+        return pulumi.get(self, "volume_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImageRecipeComponent(dict):
+    def __init__(__self__, *,
+                 component_arn: str):
+        """
+        :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        """
+        pulumi.set(__self__, "component_arn", component_arn)
+
+    @property
+    @pulumi.getter(name="componentArn")
+    def component_arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        """
+        return pulumi.get(self, "component_arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -377,6 +627,217 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunch
         Set of AWS Account identifiers.
         """
         return pulumi.get(self, "user_ids")
+
+
+@pulumi.output_type
+class GetImagePipelineImageTestsConfigurationResult(dict):
+    def __init__(__self__, *,
+                 image_tests_enabled: bool,
+                 timeout_minutes: int):
+        """
+        :param bool image_tests_enabled: Whether image tests are enabled.
+        :param int timeout_minutes: Number of minutes before image tests time out.
+        """
+        pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
+        pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @property
+    @pulumi.getter(name="imageTestsEnabled")
+    def image_tests_enabled(self) -> bool:
+        """
+        Whether image tests are enabled.
+        """
+        return pulumi.get(self, "image_tests_enabled")
+
+    @property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> int:
+        """
+        Number of minutes before image tests time out.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+
+@pulumi.output_type
+class GetImagePipelineScheduleResult(dict):
+    def __init__(__self__, *,
+                 pipeline_execution_start_condition: str,
+                 schedule_expression: str):
+        """
+        :param str pipeline_execution_start_condition: Condition when the pipeline should trigger a new image build.
+        :param str schedule_expression: Cron expression of how often the pipeline start condition is evaluated.
+        """
+        pulumi.set(__self__, "pipeline_execution_start_condition", pipeline_execution_start_condition)
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
+
+    @property
+    @pulumi.getter(name="pipelineExecutionStartCondition")
+    def pipeline_execution_start_condition(self) -> str:
+        """
+        Condition when the pipeline should trigger a new image build.
+        """
+        return pulumi.get(self, "pipeline_execution_start_condition")
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> str:
+        """
+        Cron expression of how often the pipeline start condition is evaluated.
+        """
+        return pulumi.get(self, "schedule_expression")
+
+
+@pulumi.output_type
+class GetImageRecipeBlockDeviceMappingResult(dict):
+    def __init__(__self__, *,
+                 device_name: str,
+                 ebs: Sequence['outputs.GetImageRecipeBlockDeviceMappingEbResult'],
+                 no_device: str,
+                 virtual_name: str):
+        """
+        :param str device_name: Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        :param Sequence['GetImageRecipeBlockDeviceMappingEbArgs'] ebs: Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+        :param str no_device: Whether to remove a mapping from the parent image.
+        :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
+        pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "ebs", ebs)
+        pulumi.set(__self__, "no_device", no_device)
+        pulumi.set(__self__, "virtual_name", virtual_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> str:
+        """
+        Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        """
+        return pulumi.get(self, "device_name")
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> Sequence['outputs.GetImageRecipeBlockDeviceMappingEbResult']:
+        """
+        Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+        """
+        return pulumi.get(self, "ebs")
+
+    @property
+    @pulumi.getter(name="noDevice")
+    def no_device(self) -> str:
+        """
+        Whether to remove a mapping from the parent image.
+        """
+        return pulumi.get(self, "no_device")
+
+    @property
+    @pulumi.getter(name="virtualName")
+    def virtual_name(self) -> str:
+        """
+        Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
+        return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class GetImageRecipeBlockDeviceMappingEbResult(dict):
+    def __init__(__self__, *,
+                 delete_on_termination: bool,
+                 encrypted: bool,
+                 iops: int,
+                 kms_key_id: str,
+                 snapshot_id: str,
+                 volume_size: int,
+                 volume_type: str):
+        """
+        :param bool delete_on_termination: Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        :param bool encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        :param int iops: Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        :param str kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        :param str snapshot_id: Identifier of the EC2 Volume Snapshot.
+        :param int volume_size: Size of the volume, in GiB.
+        :param str volume_type: Type of the volume. For example, `gp2` or `io2`.
+        """
+        pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "iops", iops)
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        pulumi.set(__self__, "snapshot_id", snapshot_id)
+        pulumi.set(__self__, "volume_size", volume_size)
+        pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> bool:
+        """
+        Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        """
+        return pulumi.get(self, "delete_on_termination")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> bool:
+        """
+        Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def iops(self) -> int:
+        """
+        Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> str:
+        """
+        Identifier of the EC2 Volume Snapshot.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> int:
+        """
+        Size of the volume, in GiB.
+        """
+        return pulumi.get(self, "volume_size")
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> str:
+        """
+        Type of the volume. For example, `gp2` or `io2`.
+        """
+        return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class GetImageRecipeComponentResult(dict):
+    def __init__(__self__, *,
+                 component_arn: str):
+        """
+        :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component.
+        """
+        pulumi.set(__self__, "component_arn", component_arn)
+
+    @property
+    @pulumi.getter(name="componentArn")
+    def component_arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Component.
+        """
+        return pulumi.get(self, "component_arn")
 
 
 @pulumi.output_type

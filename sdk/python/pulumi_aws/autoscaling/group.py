@@ -18,6 +18,7 @@ class Group(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  default_cooldown: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -62,6 +63,7 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+        :param pulumi.Input[bool] capacity_rebalance: Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
@@ -139,6 +141,7 @@ class Group(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['availability_zones'] = availability_zones
+            __props__['capacity_rebalance'] = capacity_rebalance
             __props__['default_cooldown'] = default_cooldown
             __props__['desired_capacity'] = desired_capacity
             __props__['enabled_metrics'] = enabled_metrics
@@ -185,6 +188,7 @@ class Group(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            capacity_rebalance: Optional[pulumi.Input[bool]] = None,
             default_cooldown: Optional[pulumi.Input[int]] = None,
             desired_capacity: Optional[pulumi.Input[int]] = None,
             enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -223,6 +227,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN for this AutoScaling Group
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+        :param pulumi.Input[bool] capacity_rebalance: Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
@@ -288,6 +293,7 @@ class Group(pulumi.CustomResource):
 
         __props__["arn"] = arn
         __props__["availability_zones"] = availability_zones
+        __props__["capacity_rebalance"] = capacity_rebalance
         __props__["default_cooldown"] = default_cooldown
         __props__["desired_capacity"] = desired_capacity
         __props__["enabled_metrics"] = enabled_metrics
@@ -334,6 +340,14 @@ class Group(pulumi.CustomResource):
         A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         """
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="capacityRebalance")
+    def capacity_rebalance(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        """
+        return pulumi.get(self, "capacity_rebalance")
 
     @property
     @pulumi.getter(name="defaultCooldown")

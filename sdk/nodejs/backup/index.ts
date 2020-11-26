@@ -6,6 +6,7 @@ export * from "./getPlan";
 export * from "./getSelection";
 export * from "./getVault";
 export * from "./plan";
+export * from "./regionSettings";
 export * from "./selection";
 export * from "./vault";
 export * from "./vaultNotifications";

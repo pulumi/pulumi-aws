@@ -26,6 +26,8 @@ __all__ = [
     'FleetLaunchTemplateConfigOverride',
     'FleetOnDemandOptions',
     'FleetSpotOptions',
+    'FleetSpotOptionsMaintenanceStrategies',
+    'FleetSpotOptionsMaintenanceStrategiesCapacityRebalance',
     'FleetTargetCapacitySpecification',
     'InstanceCreditSpecification',
     'InstanceEbsBlockDevice',
@@ -69,6 +71,8 @@ __all__ = [
     'SpotFleetRequestLaunchTemplateConfig',
     'SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification',
     'SpotFleetRequestLaunchTemplateConfigOverride',
+    'SpotFleetRequestSpotMaintenanceStrategies',
+    'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance',
     'SpotInstanceRequestCreditSpecification',
     'SpotInstanceRequestEbsBlockDevice',
     'SpotInstanceRequestEphemeralBlockDevice',
@@ -1363,11 +1367,13 @@ class FleetSpotOptions(dict):
     def __init__(__self__, *,
                  allocation_strategy: Optional[str] = None,
                  instance_interruption_behavior: Optional[str] = None,
-                 instance_pools_to_use_count: Optional[int] = None):
+                 instance_pools_to_use_count: Optional[int] = None,
+                 maintenance_strategies: Optional['outputs.FleetSpotOptionsMaintenanceStrategies'] = None):
         """
         :param str allocation_strategy: How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
         :param str instance_interruption_behavior: Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
         :param int instance_pools_to_use_count: Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
+        :param 'FleetSpotOptionsMaintenanceStrategiesArgs' maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         """
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
@@ -1375,6 +1381,8 @@ class FleetSpotOptions(dict):
             pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
         if instance_pools_to_use_count is not None:
             pulumi.set(__self__, "instance_pools_to_use_count", instance_pools_to_use_count)
+        if maintenance_strategies is not None:
+            pulumi.set(__self__, "maintenance_strategies", maintenance_strategies)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -1399,6 +1407,58 @@ class FleetSpotOptions(dict):
         Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
         """
         return pulumi.get(self, "instance_pools_to_use_count")
+
+    @property
+    @pulumi.getter(name="maintenanceStrategies")
+    def maintenance_strategies(self) -> Optional['outputs.FleetSpotOptionsMaintenanceStrategies']:
+        """
+        Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        """
+        return pulumi.get(self, "maintenance_strategies")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FleetSpotOptionsMaintenanceStrategies(dict):
+    def __init__(__self__, *,
+                 capacity_rebalance: Optional['outputs.FleetSpotOptionsMaintenanceStrategiesCapacityRebalance'] = None):
+        """
+        :param 'FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs' capacity_rebalance: Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        """
+        if capacity_rebalance is not None:
+            pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+
+    @property
+    @pulumi.getter(name="capacityRebalance")
+    def capacity_rebalance(self) -> Optional['outputs.FleetSpotOptionsMaintenanceStrategiesCapacityRebalance']:
+        """
+        Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        """
+        return pulumi.get(self, "capacity_rebalance")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance(dict):
+    def __init__(__self__, *,
+                 replacement_strategy: Optional[str] = None):
+        """
+        :param str replacement_strategy: The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
+        """
+        if replacement_strategy is not None:
+            pulumi.set(__self__, "replacement_strategy", replacement_strategy)
+
+    @property
+    @pulumi.getter(name="replacementStrategy")
+    def replacement_strategy(self) -> Optional[str]:
+        """
+        The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
+        """
+        return pulumi.get(self, "replacement_strategy")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4116,6 +4176,50 @@ class SpotFleetRequestLaunchTemplateConfigOverride(dict):
         The capacity added to the fleet by a fulfilled request.
         """
         return pulumi.get(self, "weighted_capacity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SpotFleetRequestSpotMaintenanceStrategies(dict):
+    def __init__(__self__, *,
+                 capacity_rebalance: Optional['outputs.SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance'] = None):
+        """
+        :param 'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs' capacity_rebalance: Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        """
+        if capacity_rebalance is not None:
+            pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+
+    @property
+    @pulumi.getter(name="capacityRebalance")
+    def capacity_rebalance(self) -> Optional['outputs.SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance']:
+        """
+        Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        """
+        return pulumi.get(self, "capacity_rebalance")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance(dict):
+    def __init__(__self__, *,
+                 replacement_strategy: Optional[str] = None):
+        """
+        :param str replacement_strategy: The replacement strategy to use. Only available for spot fleets with `fleet_type` set to `maintain`. Valid values: `launch`.
+        """
+        if replacement_strategy is not None:
+            pulumi.set(__self__, "replacement_strategy", replacement_strategy)
+
+    @property
+    @pulumi.getter(name="replacementStrategy")
+    def replacement_strategy(self) -> Optional[str]:
+        """
+        The replacement strategy to use. Only available for spot fleets with `fleet_type` set to `maintain`. Valid values: `launch`.
+        """
+        return pulumi.get(self, "replacement_strategy")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -189,6 +189,7 @@ class Cluster(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['arn'] = None
             __props__['bootstrap_brokers'] = None
+            __props__['bootstrap_brokers_sasl_scram'] = None
             __props__['bootstrap_brokers_tls'] = None
             __props__['current_version'] = None
             __props__['zookeeper_connect_string'] = None
@@ -204,6 +205,7 @@ class Cluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             bootstrap_brokers: Optional[pulumi.Input[str]] = None,
+            bootstrap_brokers_sasl_scram: Optional[pulumi.Input[str]] = None,
             bootstrap_brokers_tls: Optional[pulumi.Input[str]] = None,
             broker_node_group_info: Optional[pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']]] = None,
             client_authentication: Optional[pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']]] = None,
@@ -226,8 +228,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-        :param pulumi.Input[str] bootstrap_brokers: A comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
-        :param pulumi.Input[str] bootstrap_brokers_tls: A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+        :param pulumi.Input[str] bootstrap_brokers: A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+        :param pulumi.Input[str] bootstrap_brokers_sasl_scram: A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication` is set to `sasl`.
+        :param pulumi.Input[str] bootstrap_brokers_tls: A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
         :param pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
         :param pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']] client_authentication: Configuration block for specifying a client authentication. See below.
         :param pulumi.Input[str] cluster_name: Name of the MSK cluster.
@@ -249,6 +252,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__["arn"] = arn
         __props__["bootstrap_brokers"] = bootstrap_brokers
+        __props__["bootstrap_brokers_sasl_scram"] = bootstrap_brokers_sasl_scram
         __props__["bootstrap_brokers_tls"] = bootstrap_brokers_tls
         __props__["broker_node_group_info"] = broker_node_group_info
         __props__["client_authentication"] = client_authentication
@@ -277,15 +281,23 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="bootstrapBrokers")
     def bootstrap_brokers(self) -> pulumi.Output[str]:
         """
-        A comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+        A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
         """
         return pulumi.get(self, "bootstrap_brokers")
+
+    @property
+    @pulumi.getter(name="bootstrapBrokersSaslScram")
+    def bootstrap_brokers_sasl_scram(self) -> pulumi.Output[str]:
+        """
+        A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication` is set to `sasl`.
+        """
+        return pulumi.get(self, "bootstrap_brokers_sasl_scram")
 
     @property
     @pulumi.getter(name="bootstrapBrokersTls")
     def bootstrap_brokers_tls(self) -> pulumi.Output[str]:
         """
-        A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+        A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
         """
         return pulumi.get(self, "bootstrap_brokers_tls")
 

@@ -48,7 +48,7 @@ type GetRepositoryEndpointArgs struct {
 	Domain string `pulumi:"domain"`
 	// The account number of the AWS account that owns the domain.
 	DomainOwner *string `pulumi:"domainOwner"`
-	// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, and `maven`.
+	// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
 	Format string `pulumi:"format"`
 	// The name of the repository.
 	Repository string `pulumi:"repository"`

@@ -261,6 +261,8 @@ type SpotFleetRequest struct {
 	LoadBalancers pulumi.StringArrayOutput `pulumi:"loadBalancers"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrOutput `pulumi:"replaceUnhealthyInstances"`
+	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+	SpotMaintenanceStrategies SpotFleetRequestSpotMaintenanceStrategiesPtrOutput `pulumi:"spotMaintenanceStrategies"`
 	// The maximum spot bid for this override request.
 	SpotPrice pulumi.StringPtrOutput `pulumi:"spotPrice"`
 	// The state of the Spot fleet request.
@@ -356,6 +358,8 @@ type spotFleetRequestState struct {
 	LoadBalancers []string `pulumi:"loadBalancers"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
+	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+	SpotMaintenanceStrategies *SpotFleetRequestSpotMaintenanceStrategies `pulumi:"spotMaintenanceStrategies"`
 	// The maximum spot bid for this override request.
 	SpotPrice *string `pulumi:"spotPrice"`
 	// The state of the Spot fleet request.
@@ -418,6 +422,8 @@ type SpotFleetRequestState struct {
 	LoadBalancers pulumi.StringArrayInput
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
+	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+	SpotMaintenanceStrategies SpotFleetRequestSpotMaintenanceStrategiesPtrInput
 	// The maximum spot bid for this override request.
 	SpotPrice pulumi.StringPtrInput
 	// The state of the Spot fleet request.
@@ -483,6 +489,8 @@ type spotFleetRequestArgs struct {
 	LoadBalancers []string `pulumi:"loadBalancers"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
+	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+	SpotMaintenanceStrategies *SpotFleetRequestSpotMaintenanceStrategies `pulumi:"spotMaintenanceStrategies"`
 	// The maximum spot bid for this override request.
 	SpotPrice *string `pulumi:"spotPrice"`
 	// A map of tags to assign to the resource.
@@ -543,6 +551,8 @@ type SpotFleetRequestArgs struct {
 	LoadBalancers pulumi.StringArrayInput
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
+	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+	SpotMaintenanceStrategies SpotFleetRequestSpotMaintenanceStrategiesPtrInput
 	// The maximum spot bid for this override request.
 	SpotPrice pulumi.StringPtrInput
 	// A map of tags to assign to the resource.

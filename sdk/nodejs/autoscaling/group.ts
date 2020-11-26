@@ -54,6 +54,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
+     * Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+     */
+    public readonly capacityRebalance!: pulumi.Output<boolean | undefined>;
+    /**
      * The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      */
     public readonly defaultCooldown!: pulumi.Output<number>;
@@ -213,6 +217,7 @@ export class Group extends pulumi.CustomResource {
             const state = argsOrState as GroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
+            inputs["capacityRebalance"] = state ? state.capacityRebalance : undefined;
             inputs["defaultCooldown"] = state ? state.defaultCooldown : undefined;
             inputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
             inputs["enabledMetrics"] = state ? state.enabledMetrics : undefined;
@@ -251,6 +256,7 @@ export class Group extends pulumi.CustomResource {
                 throw new Error("Missing required property 'minSize'");
             }
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            inputs["capacityRebalance"] = args ? args.capacityRebalance : undefined;
             inputs["defaultCooldown"] = args ? args.defaultCooldown : undefined;
             inputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
             inputs["enabledMetrics"] = args ? args.enabledMetrics : undefined;
@@ -305,6 +311,10 @@ export interface GroupState {
      * A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+     */
+    readonly capacityRebalance?: pulumi.Input<boolean>;
     /**
      * The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      */
@@ -460,6 +470,10 @@ export interface GroupArgs {
      * A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+     */
+    readonly capacityRebalance?: pulumi.Input<boolean>;
     /**
      * The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      */

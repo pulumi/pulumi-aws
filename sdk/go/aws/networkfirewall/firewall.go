@@ -66,6 +66,8 @@ type Firewall struct {
 	FirewallPolicyArn pulumi.StringOutput `pulumi:"firewallPolicyArn"`
 	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
 	FirewallPolicyChangeProtection pulumi.BoolPtrOutput `pulumi:"firewallPolicyChangeProtection"`
+	// Nested list of information about the current status of the firewall.
+	FirewallStatuses FirewallFirewallStatusArrayOutput `pulumi:"firewallStatuses"`
 	// A friendly name of the firewall.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
@@ -127,6 +129,8 @@ type firewallState struct {
 	FirewallPolicyArn *string `pulumi:"firewallPolicyArn"`
 	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
 	FirewallPolicyChangeProtection *bool `pulumi:"firewallPolicyChangeProtection"`
+	// Nested list of information about the current status of the firewall.
+	FirewallStatuses []FirewallFirewallStatus `pulumi:"firewallStatuses"`
 	// A friendly name of the firewall.
 	Name *string `pulumi:"name"`
 	// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
@@ -152,6 +156,8 @@ type FirewallState struct {
 	FirewallPolicyArn pulumi.StringPtrInput
 	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
 	FirewallPolicyChangeProtection pulumi.BoolPtrInput
+	// Nested list of information about the current status of the firewall.
+	FirewallStatuses FirewallFirewallStatusArrayInput
 	// A friendly name of the firewall.
 	Name pulumi.StringPtrInput
 	// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.

@@ -10,6 +10,9 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'FirewallFirewallStatus',
+    'FirewallFirewallStatusSyncState',
+    'FirewallFirewallStatusSyncStateAttachment',
     'FirewallPolicyFirewallPolicy',
     'FirewallPolicyFirewallPolicyStatefulRuleGroupReference',
     'FirewallPolicyFirewallPolicyStatelessCustomAction',
@@ -45,6 +48,96 @@ __all__ = [
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag',
 ]
+
+@pulumi.output_type
+class FirewallFirewallStatus(dict):
+    def __init__(__self__, *,
+                 sync_states: Optional[Sequence['outputs.FirewallFirewallStatusSyncState']] = None):
+        """
+        :param Sequence['FirewallFirewallStatusSyncStateArgs'] sync_states: Set of subnets configured for use by the firewall.
+        """
+        if sync_states is not None:
+            pulumi.set(__self__, "sync_states", sync_states)
+
+    @property
+    @pulumi.getter(name="syncStates")
+    def sync_states(self) -> Optional[Sequence['outputs.FirewallFirewallStatusSyncState']]:
+        """
+        Set of subnets configured for use by the firewall.
+        """
+        return pulumi.get(self, "sync_states")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FirewallFirewallStatusSyncState(dict):
+    def __init__(__self__, *,
+                 attachments: Optional[Sequence['outputs.FirewallFirewallStatusSyncStateAttachment']] = None,
+                 availability_zone: Optional[str] = None):
+        """
+        :param Sequence['FirewallFirewallStatusSyncStateAttachmentArgs'] attachments: Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+        :param str availability_zone: The Availability Zone where the subnet is configured.
+        """
+        if attachments is not None:
+            pulumi.set(__self__, "attachments", attachments)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+
+    @property
+    @pulumi.getter
+    def attachments(self) -> Optional[Sequence['outputs.FirewallFirewallStatusSyncStateAttachment']]:
+        """
+        Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+        """
+        return pulumi.get(self, "attachments")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        """
+        The Availability Zone where the subnet is configured.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FirewallFirewallStatusSyncStateAttachment(dict):
+    def __init__(__self__, *,
+                 endpoint_id: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
+        """
+        :param str endpoint_id: The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+        :param str subnet_id: The unique identifier for the subnet.
+        """
+        if endpoint_id is not None:
+            pulumi.set(__self__, "endpoint_id", endpoint_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="endpointId")
+    def endpoint_id(self) -> Optional[str]:
+        """
+        The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+        """
+        return pulumi.get(self, "endpoint_id")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The unique identifier for the subnet.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class FirewallPolicyFirewallPolicy(dict):
@@ -316,9 +409,9 @@ class LoggingConfigurationLoggingConfigurationLogDestinationConfig(dict):
                  log_type: str):
         """
         :param Mapping[str, str] log_destination: A map describing the logging destination for the chosen `log_destination_type`.
-               * For an Amazon S3 bucket, specify the key `bucketName` with the URL of the bucket and optionally specify the key `prefix` with a path.
+               * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
                * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
-               * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the Amazon Resource Name (ARN) of the delivery stream.
+               * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
         :param str log_destination_type: The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
         :param str log_type: The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
         """
@@ -331,9 +424,9 @@ class LoggingConfigurationLoggingConfigurationLogDestinationConfig(dict):
     def log_destination(self) -> Mapping[str, str]:
         """
         A map describing the logging destination for the chosen `log_destination_type`.
-        * For an Amazon S3 bucket, specify the key `bucketName` with the URL of the bucket and optionally specify the key `prefix` with a path.
+        * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
         * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
-        * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the Amazon Resource Name (ARN) of the delivery stream.
+        * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
         """
         return pulumi.get(self, "log_destination")
 

@@ -80,6 +80,10 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly string BootstrapBrokers;
         /// <summary>
+        /// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster.
+        /// </summary>
+        public readonly string BootstrapBrokersSaslScram;
+        /// <summary>
         /// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
         /// </summary>
         public readonly string BootstrapBrokersTls;
@@ -111,6 +115,8 @@ namespace Pulumi.Aws.Msk
 
             string bootstrapBrokers,
 
+            string bootstrapBrokersSaslScram,
+
             string bootstrapBrokersTls,
 
             string clusterName,
@@ -127,6 +133,7 @@ namespace Pulumi.Aws.Msk
         {
             Arn = arn;
             BootstrapBrokers = bootstrapBrokers;
+            BootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
             BootstrapBrokersTls = bootstrapBrokersTls;
             ClusterName = clusterName;
             Id = id;

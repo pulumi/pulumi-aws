@@ -218,6 +218,8 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) SecurityGroups() pulumi.StringArray
 }
 
 type ClusterClientAuthentication struct {
+	// Configuration block for specifying SASL client authentication. See below.
+	Sasl *ClusterClientAuthenticationSasl `pulumi:"sasl"`
 	// Configuration block for specifying TLS client authentication. See below.
 	Tls *ClusterClientAuthenticationTls `pulumi:"tls"`
 }
@@ -234,6 +236,8 @@ type ClusterClientAuthenticationInput interface {
 }
 
 type ClusterClientAuthenticationArgs struct {
+	// Configuration block for specifying SASL client authentication. See below.
+	Sasl ClusterClientAuthenticationSaslPtrInput `pulumi:"sasl"`
 	// Configuration block for specifying TLS client authentication. See below.
 	Tls ClusterClientAuthenticationTlsPtrInput `pulumi:"tls"`
 }
@@ -315,6 +319,11 @@ func (o ClusterClientAuthenticationOutput) ToClusterClientAuthenticationPtrOutpu
 	}).(ClusterClientAuthenticationPtrOutput)
 }
 
+// Configuration block for specifying SASL client authentication. See below.
+func (o ClusterClientAuthenticationOutput) Sasl() ClusterClientAuthenticationSaslPtrOutput {
+	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterClientAuthenticationSasl { return v.Sasl }).(ClusterClientAuthenticationSaslPtrOutput)
+}
+
 // Configuration block for specifying TLS client authentication. See below.
 func (o ClusterClientAuthenticationOutput) Tls() ClusterClientAuthenticationTlsPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterClientAuthenticationTls { return v.Tls }).(ClusterClientAuthenticationTlsPtrOutput)
@@ -338,6 +347,16 @@ func (o ClusterClientAuthenticationPtrOutput) Elem() ClusterClientAuthentication
 	return o.ApplyT(func(v *ClusterClientAuthentication) ClusterClientAuthentication { return *v }).(ClusterClientAuthenticationOutput)
 }
 
+// Configuration block for specifying SASL client authentication. See below.
+func (o ClusterClientAuthenticationPtrOutput) Sasl() ClusterClientAuthenticationSaslPtrOutput {
+	return o.ApplyT(func(v *ClusterClientAuthentication) *ClusterClientAuthenticationSasl {
+		if v == nil {
+			return nil
+		}
+		return v.Sasl
+	}).(ClusterClientAuthenticationSaslPtrOutput)
+}
+
 // Configuration block for specifying TLS client authentication. See below.
 func (o ClusterClientAuthenticationPtrOutput) Tls() ClusterClientAuthenticationTlsPtrOutput {
 	return o.ApplyT(func(v *ClusterClientAuthentication) *ClusterClientAuthenticationTls {
@@ -346,6 +365,137 @@ func (o ClusterClientAuthenticationPtrOutput) Tls() ClusterClientAuthenticationT
 		}
 		return v.Tls
 	}).(ClusterClientAuthenticationTlsPtrOutput)
+}
+
+type ClusterClientAuthenticationSasl struct {
+	// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+	Scram *bool `pulumi:"scram"`
+}
+
+// ClusterClientAuthenticationSaslInput is an input type that accepts ClusterClientAuthenticationSaslArgs and ClusterClientAuthenticationSaslOutput values.
+// You can construct a concrete instance of `ClusterClientAuthenticationSaslInput` via:
+//
+//          ClusterClientAuthenticationSaslArgs{...}
+type ClusterClientAuthenticationSaslInput interface {
+	pulumi.Input
+
+	ToClusterClientAuthenticationSaslOutput() ClusterClientAuthenticationSaslOutput
+	ToClusterClientAuthenticationSaslOutputWithContext(context.Context) ClusterClientAuthenticationSaslOutput
+}
+
+type ClusterClientAuthenticationSaslArgs struct {
+	// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+	Scram pulumi.BoolPtrInput `pulumi:"scram"`
+}
+
+func (ClusterClientAuthenticationSaslArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (i ClusterClientAuthenticationSaslArgs) ToClusterClientAuthenticationSaslOutput() ClusterClientAuthenticationSaslOutput {
+	return i.ToClusterClientAuthenticationSaslOutputWithContext(context.Background())
+}
+
+func (i ClusterClientAuthenticationSaslArgs) ToClusterClientAuthenticationSaslOutputWithContext(ctx context.Context) ClusterClientAuthenticationSaslOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientAuthenticationSaslOutput)
+}
+
+func (i ClusterClientAuthenticationSaslArgs) ToClusterClientAuthenticationSaslPtrOutput() ClusterClientAuthenticationSaslPtrOutput {
+	return i.ToClusterClientAuthenticationSaslPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterClientAuthenticationSaslArgs) ToClusterClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ClusterClientAuthenticationSaslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientAuthenticationSaslOutput).ToClusterClientAuthenticationSaslPtrOutputWithContext(ctx)
+}
+
+// ClusterClientAuthenticationSaslPtrInput is an input type that accepts ClusterClientAuthenticationSaslArgs, ClusterClientAuthenticationSaslPtr and ClusterClientAuthenticationSaslPtrOutput values.
+// You can construct a concrete instance of `ClusterClientAuthenticationSaslPtrInput` via:
+//
+//          ClusterClientAuthenticationSaslArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterClientAuthenticationSaslPtrInput interface {
+	pulumi.Input
+
+	ToClusterClientAuthenticationSaslPtrOutput() ClusterClientAuthenticationSaslPtrOutput
+	ToClusterClientAuthenticationSaslPtrOutputWithContext(context.Context) ClusterClientAuthenticationSaslPtrOutput
+}
+
+type clusterClientAuthenticationSaslPtrType ClusterClientAuthenticationSaslArgs
+
+func ClusterClientAuthenticationSaslPtr(v *ClusterClientAuthenticationSaslArgs) ClusterClientAuthenticationSaslPtrInput {
+	return (*clusterClientAuthenticationSaslPtrType)(v)
+}
+
+func (*clusterClientAuthenticationSaslPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (i *clusterClientAuthenticationSaslPtrType) ToClusterClientAuthenticationSaslPtrOutput() ClusterClientAuthenticationSaslPtrOutput {
+	return i.ToClusterClientAuthenticationSaslPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterClientAuthenticationSaslPtrType) ToClusterClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ClusterClientAuthenticationSaslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientAuthenticationSaslPtrOutput)
+}
+
+type ClusterClientAuthenticationSaslOutput struct{ *pulumi.OutputState }
+
+func (ClusterClientAuthenticationSaslOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (o ClusterClientAuthenticationSaslOutput) ToClusterClientAuthenticationSaslOutput() ClusterClientAuthenticationSaslOutput {
+	return o
+}
+
+func (o ClusterClientAuthenticationSaslOutput) ToClusterClientAuthenticationSaslOutputWithContext(ctx context.Context) ClusterClientAuthenticationSaslOutput {
+	return o
+}
+
+func (o ClusterClientAuthenticationSaslOutput) ToClusterClientAuthenticationSaslPtrOutput() ClusterClientAuthenticationSaslPtrOutput {
+	return o.ToClusterClientAuthenticationSaslPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterClientAuthenticationSaslOutput) ToClusterClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ClusterClientAuthenticationSaslPtrOutput {
+	return o.ApplyT(func(v ClusterClientAuthenticationSasl) *ClusterClientAuthenticationSasl {
+		return &v
+	}).(ClusterClientAuthenticationSaslPtrOutput)
+}
+
+// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+func (o ClusterClientAuthenticationSaslOutput) Scram() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterClientAuthenticationSasl) *bool { return v.Scram }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterClientAuthenticationSaslPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterClientAuthenticationSaslPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (o ClusterClientAuthenticationSaslPtrOutput) ToClusterClientAuthenticationSaslPtrOutput() ClusterClientAuthenticationSaslPtrOutput {
+	return o
+}
+
+func (o ClusterClientAuthenticationSaslPtrOutput) ToClusterClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ClusterClientAuthenticationSaslPtrOutput {
+	return o
+}
+
+func (o ClusterClientAuthenticationSaslPtrOutput) Elem() ClusterClientAuthenticationSaslOutput {
+	return o.ApplyT(func(v *ClusterClientAuthenticationSasl) ClusterClientAuthenticationSasl { return *v }).(ClusterClientAuthenticationSaslOutput)
+}
+
+// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+func (o ClusterClientAuthenticationSaslPtrOutput) Scram() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterClientAuthenticationSasl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Scram
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ClusterClientAuthenticationTls struct {
@@ -2245,6 +2395,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterClientAuthenticationSaslOutput{})
+	pulumi.RegisterOutputType(ClusterClientAuthenticationSaslPtrOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationTlsOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationTlsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterConfigurationInfoOutput{})

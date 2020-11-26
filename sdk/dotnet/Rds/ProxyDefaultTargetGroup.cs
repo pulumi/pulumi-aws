@@ -93,8 +93,8 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// The settings that determine the size and behavior of the connection pool for the target group.
         /// </summary>
-        [Input("connectionPoolConfig", required: true)]
-        public Input<Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs> ConnectionPoolConfig { get; set; } = null!;
+        [Input("connectionPoolConfig")]
+        public Input<Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs>? ConnectionPoolConfig { get; set; }
 
         /// <summary>
         /// Name of the RDS DB Proxy.

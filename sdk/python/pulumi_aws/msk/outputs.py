@@ -12,6 +12,7 @@ from . import outputs
 __all__ = [
     'ClusterBrokerNodeGroupInfo',
     'ClusterClientAuthentication',
+    'ClusterClientAuthenticationSasl',
     'ClusterClientAuthenticationTls',
     'ClusterConfigurationInfo',
     'ClusterEncryptionInfo',
@@ -96,12 +97,24 @@ class ClusterBrokerNodeGroupInfo(dict):
 @pulumi.output_type
 class ClusterClientAuthentication(dict):
     def __init__(__self__, *,
+                 sasl: Optional['outputs.ClusterClientAuthenticationSasl'] = None,
                  tls: Optional['outputs.ClusterClientAuthenticationTls'] = None):
         """
+        :param 'ClusterClientAuthenticationSaslArgs' sasl: Configuration block for specifying SASL client authentication. See below.
         :param 'ClusterClientAuthenticationTlsArgs' tls: Configuration block for specifying TLS client authentication. See below.
         """
+        if sasl is not None:
+            pulumi.set(__self__, "sasl", sasl)
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def sasl(self) -> Optional['outputs.ClusterClientAuthenticationSasl']:
+        """
+        Configuration block for specifying SASL client authentication. See below.
+        """
+        return pulumi.get(self, "sasl")
 
     @property
     @pulumi.getter
@@ -110,6 +123,28 @@ class ClusterClientAuthentication(dict):
         Configuration block for specifying TLS client authentication. See below.
         """
         return pulumi.get(self, "tls")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterClientAuthenticationSasl(dict):
+    def __init__(__self__, *,
+                 scram: Optional[bool] = None):
+        """
+        :param bool scram: Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+        """
+        if scram is not None:
+            pulumi.set(__self__, "scram", scram)
+
+    @property
+    @pulumi.getter
+    def scram(self) -> Optional[bool]:
+        """
+        Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+        """
+        return pulumi.get(self, "scram")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

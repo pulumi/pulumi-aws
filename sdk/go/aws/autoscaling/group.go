@@ -25,6 +25,8 @@ type Group struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
+	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+	CapacityRebalance pulumi.BoolPtrOutput `pulumi:"capacityRebalance"`
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown pulumi.IntOutput `pulumi:"defaultCooldown"`
 	// The number of Amazon EC2 instances that
@@ -152,6 +154,8 @@ type groupState struct {
 	Arn *string `pulumi:"arn"`
 	// A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+	CapacityRebalance *bool `pulumi:"capacityRebalance"`
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown *int `pulumi:"defaultCooldown"`
 	// The number of Amazon EC2 instances that
@@ -246,6 +250,8 @@ type GroupState struct {
 	Arn pulumi.StringPtrInput
 	// A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones pulumi.StringArrayInput
+	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+	CapacityRebalance pulumi.BoolPtrInput
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown pulumi.IntPtrInput
 	// The number of Amazon EC2 instances that
@@ -342,6 +348,8 @@ func (GroupState) ElementType() reflect.Type {
 type groupArgs struct {
 	// A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+	CapacityRebalance *bool `pulumi:"capacityRebalance"`
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown *int `pulumi:"defaultCooldown"`
 	// The number of Amazon EC2 instances that
@@ -435,6 +443,8 @@ type groupArgs struct {
 type GroupArgs struct {
 	// A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones pulumi.StringArrayInput
+	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+	CapacityRebalance pulumi.BoolPtrInput
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown pulumi.IntPtrInput
 	// The number of Amazon EC2 instances that

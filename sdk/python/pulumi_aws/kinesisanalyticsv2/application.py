@@ -242,7 +242,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApplicationCloudwatchLoggingOptionsArgs']] cloudwatch_logging_options: A [CloudWatch log stream](https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_stream.html) to monitor application configuration errors.
         :param pulumi.Input[str] description: A summary description of the application.
         :param pulumi.Input[str] name: The name of the application.
-        :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`.
+        :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
         :param pulumi.Input[str] service_execution_role: The ARN of the [IAM role](https://www.terraform.io/docs/providers/aws/r/iam_role.html) used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the application.
         """
@@ -315,7 +315,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] description: A summary description of the application.
         :param pulumi.Input[str] last_update_timestamp: The current timestamp when the application was last updated.
         :param pulumi.Input[str] name: The name of the application.
-        :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`.
+        :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
         :param pulumi.Input[str] service_execution_role: The ARN of the [IAM role](https://www.terraform.io/docs/providers/aws/r/iam_role.html) used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[str] status: The status of the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the application.
@@ -399,7 +399,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> pulumi.Output[str]:
         """
-        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`.
+        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
         """
         return pulumi.get(self, "runtime_environment")
 

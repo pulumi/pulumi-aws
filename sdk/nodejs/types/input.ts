@@ -7108,6 +7108,24 @@ export namespace ec2 {
          * Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
          */
         instancePoolsToUseCount?: pulumi.Input<number>;
+        /**
+         * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+         */
+        maintenanceStrategies?: pulumi.Input<inputs.ec2.FleetSpotOptionsMaintenanceStrategies>;
+    }
+
+    export interface FleetSpotOptionsMaintenanceStrategies {
+        /**
+         * Nested argument containing the capacity rebalance for your fleet request. Defined below.
+         */
+        capacityRebalance?: pulumi.Input<inputs.ec2.FleetSpotOptionsMaintenanceStrategiesCapacityRebalance>;
+    }
+
+    export interface FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
+        /**
+         * The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
+         */
+        replacementStrategy?: pulumi.Input<string>;
     }
 
     export interface FleetTargetCapacitySpecification {
@@ -8379,6 +8397,20 @@ export namespace ec2 {
          * The capacity added to the fleet by a fulfilled request.
          */
         weightedCapacity?: pulumi.Input<number>;
+    }
+
+    export interface SpotFleetRequestSpotMaintenanceStrategies {
+        /**
+         * Nested argument containing the capacity rebalance for your fleet request. Defined below.
+         */
+        capacityRebalance?: pulumi.Input<inputs.ec2.SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance>;
+    }
+
+    export interface SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance {
+        /**
+         * The replacement strategy to use. Only available for spot fleets with `fleetType` set to `maintain`. Valid values: `launch`.
+         */
+        replacementStrategy?: pulumi.Input<string>;
     }
 
     export interface SpotInstanceRequestCreditSpecification {
@@ -12159,6 +12191,85 @@ export namespace imagebuilder {
         userIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface ImagePipelineImageTestsConfiguration {
+        /**
+         * Whether image tests are enabled. Defaults to `true`.
+         */
+        imageTestsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+         */
+        timeoutMinutes?: pulumi.Input<number>;
+    }
+
+    export interface ImagePipelineSchedule {
+        /**
+         * Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
+         */
+        pipelineExecutionStartCondition?: pulumi.Input<string>;
+        /**
+         * Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * *)` is evaluated every day at midnight UTC.
+         */
+        scheduleExpression: pulumi.Input<string>;
+    }
+
+    export interface ImageRecipeBlockDeviceMapping {
+        /**
+         * Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+         */
+        deviceName?: pulumi.Input<string>;
+        /**
+         * Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+         */
+        ebs?: pulumi.Input<inputs.imagebuilder.ImageRecipeBlockDeviceMappingEbs>;
+        /**
+         * Set to `true` to remove a mapping from the parent image.
+         */
+        noDevice?: pulumi.Input<boolean>;
+        /**
+         * Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+         */
+        virtualName?: pulumi.Input<string>;
+    }
+
+    export interface ImageRecipeBlockDeviceMappingEbs {
+        /**
+         * Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+         */
+        deleteOnTermination?: pulumi.Input<string>;
+        /**
+         * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+         */
+        encrypted?: pulumi.Input<string>;
+        /**
+         * Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * Identifier of the EC2 Volume Snapshot.
+         */
+        snapshotId?: pulumi.Input<string>;
+        /**
+         * Size of the volume, in GiB.
+         */
+        volumeSize?: pulumi.Input<number>;
+        /**
+         * Type of the volume. For example, `gp2` or `io2`.
+         */
+        volumeType?: pulumi.Input<string>;
+    }
+
+    export interface ImageRecipeComponent {
+        /**
+         * Amazon Resource Name (ARN) of the Image Builder Component to associate.
+         */
+        componentArn: pulumi.Input<string>;
+    }
+
     export interface InfrastructureConfigurationLogging {
         /**
          * Configuration block with S3 logging settings. Detailed below.
@@ -15743,9 +15854,20 @@ export namespace msk {
 
     export interface ClusterClientAuthentication {
         /**
+         * Configuration block for specifying SASL client authentication. See below.
+         */
+        sasl?: pulumi.Input<inputs.msk.ClusterClientAuthenticationSasl>;
+        /**
          * Configuration block for specifying TLS client authentication. See below.
          */
         tls?: pulumi.Input<inputs.msk.ClusterClientAuthenticationTls>;
+    }
+
+    export interface ClusterClientAuthenticationSasl {
+        /**
+         * Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+         */
+        scram?: pulumi.Input<boolean>;
     }
 
     export interface ClusterClientAuthenticationTls {
@@ -15904,6 +16026,35 @@ export namespace neptune {
 }
 
 export namespace networkfirewall {
+    export interface FirewallFirewallStatus {
+        /**
+         * Set of subnets configured for use by the firewall.
+         */
+        syncStates?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallFirewallStatusSyncState>[]>;
+    }
+
+    export interface FirewallFirewallStatusSyncState {
+        /**
+         * Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+         */
+        attachments?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallFirewallStatusSyncStateAttachment>[]>;
+        /**
+         * The Availability Zone where the subnet is configured.
+         */
+        availabilityZone?: pulumi.Input<string>;
+    }
+
+    export interface FirewallFirewallStatusSyncStateAttachment {
+        /**
+         * The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+         */
+        endpointId?: pulumi.Input<string>;
+        /**
+         * The unique identifier for the subnet.
+         */
+        subnetId?: pulumi.Input<string>;
+    }
+
     export interface FirewallPolicyFirewallPolicy {
         /**
          * Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
@@ -15996,9 +16147,9 @@ export namespace networkfirewall {
     export interface LoggingConfigurationLoggingConfigurationLogDestinationConfig {
         /**
          * A map describing the logging destination for the chosen `logDestinationType`.
-         * * For an Amazon S3 bucket, specify the key `bucketName` with the URL of the bucket and optionally specify the key `prefix` with a path.
+         * * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
          * * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
-         * * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the Amazon Resource Name (ARN) of the delivery stream.
+         * * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
          */
         logDestination: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
