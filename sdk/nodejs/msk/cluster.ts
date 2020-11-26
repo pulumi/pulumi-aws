@@ -153,11 +153,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+     * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
      */
     public /*out*/ readonly bootstrapBrokers!: pulumi.Output<string>;
     /**
-     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `clientAuthentication` is set to `sasl`.
+     */
+    public /*out*/ readonly bootstrapBrokersSaslScram!: pulumi.Output<string>;
+    /**
+     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
      */
     public /*out*/ readonly bootstrapBrokersTls!: pulumi.Output<string>;
     /**
@@ -228,6 +232,7 @@ export class Cluster extends pulumi.CustomResource {
             const state = argsOrState as ClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["bootstrapBrokers"] = state ? state.bootstrapBrokers : undefined;
+            inputs["bootstrapBrokersSaslScram"] = state ? state.bootstrapBrokersSaslScram : undefined;
             inputs["bootstrapBrokersTls"] = state ? state.bootstrapBrokersTls : undefined;
             inputs["brokerNodeGroupInfo"] = state ? state.brokerNodeGroupInfo : undefined;
             inputs["clientAuthentication"] = state ? state.clientAuthentication : undefined;
@@ -266,6 +271,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["bootstrapBrokers"] = undefined /*out*/;
+            inputs["bootstrapBrokersSaslScram"] = undefined /*out*/;
             inputs["bootstrapBrokersTls"] = undefined /*out*/;
             inputs["currentVersion"] = undefined /*out*/;
             inputs["zookeeperConnectString"] = undefined /*out*/;
@@ -290,11 +296,15 @@ export interface ClusterState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+     * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
      */
     readonly bootstrapBrokers?: pulumi.Input<string>;
     /**
-     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `clientAuthentication` is set to `sasl`.
+     */
+    readonly bootstrapBrokersSaslScram?: pulumi.Input<string>;
+    /**
+     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
      */
     readonly bootstrapBrokersTls?: pulumi.Input<string>;
     /**

@@ -10,6 +10,317 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type FirewallFirewallStatus struct {
+	// Set of subnets configured for use by the firewall.
+	SyncStates []FirewallFirewallStatusSyncState `pulumi:"syncStates"`
+}
+
+// FirewallFirewallStatusInput is an input type that accepts FirewallFirewallStatusArgs and FirewallFirewallStatusOutput values.
+// You can construct a concrete instance of `FirewallFirewallStatusInput` via:
+//
+//          FirewallFirewallStatusArgs{...}
+type FirewallFirewallStatusInput interface {
+	pulumi.Input
+
+	ToFirewallFirewallStatusOutput() FirewallFirewallStatusOutput
+	ToFirewallFirewallStatusOutputWithContext(context.Context) FirewallFirewallStatusOutput
+}
+
+type FirewallFirewallStatusArgs struct {
+	// Set of subnets configured for use by the firewall.
+	SyncStates FirewallFirewallStatusSyncStateArrayInput `pulumi:"syncStates"`
+}
+
+func (FirewallFirewallStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallFirewallStatus)(nil)).Elem()
+}
+
+func (i FirewallFirewallStatusArgs) ToFirewallFirewallStatusOutput() FirewallFirewallStatusOutput {
+	return i.ToFirewallFirewallStatusOutputWithContext(context.Background())
+}
+
+func (i FirewallFirewallStatusArgs) ToFirewallFirewallStatusOutputWithContext(ctx context.Context) FirewallFirewallStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusOutput)
+}
+
+// FirewallFirewallStatusArrayInput is an input type that accepts FirewallFirewallStatusArray and FirewallFirewallStatusArrayOutput values.
+// You can construct a concrete instance of `FirewallFirewallStatusArrayInput` via:
+//
+//          FirewallFirewallStatusArray{ FirewallFirewallStatusArgs{...} }
+type FirewallFirewallStatusArrayInput interface {
+	pulumi.Input
+
+	ToFirewallFirewallStatusArrayOutput() FirewallFirewallStatusArrayOutput
+	ToFirewallFirewallStatusArrayOutputWithContext(context.Context) FirewallFirewallStatusArrayOutput
+}
+
+type FirewallFirewallStatusArray []FirewallFirewallStatusInput
+
+func (FirewallFirewallStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallFirewallStatus)(nil)).Elem()
+}
+
+func (i FirewallFirewallStatusArray) ToFirewallFirewallStatusArrayOutput() FirewallFirewallStatusArrayOutput {
+	return i.ToFirewallFirewallStatusArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallFirewallStatusArray) ToFirewallFirewallStatusArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusArrayOutput)
+}
+
+type FirewallFirewallStatusOutput struct{ *pulumi.OutputState }
+
+func (FirewallFirewallStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallFirewallStatus)(nil)).Elem()
+}
+
+func (o FirewallFirewallStatusOutput) ToFirewallFirewallStatusOutput() FirewallFirewallStatusOutput {
+	return o
+}
+
+func (o FirewallFirewallStatusOutput) ToFirewallFirewallStatusOutputWithContext(ctx context.Context) FirewallFirewallStatusOutput {
+	return o
+}
+
+// Set of subnets configured for use by the firewall.
+func (o FirewallFirewallStatusOutput) SyncStates() FirewallFirewallStatusSyncStateArrayOutput {
+	return o.ApplyT(func(v FirewallFirewallStatus) []FirewallFirewallStatusSyncState { return v.SyncStates }).(FirewallFirewallStatusSyncStateArrayOutput)
+}
+
+type FirewallFirewallStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallFirewallStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallFirewallStatus)(nil)).Elem()
+}
+
+func (o FirewallFirewallStatusArrayOutput) ToFirewallFirewallStatusArrayOutput() FirewallFirewallStatusArrayOutput {
+	return o
+}
+
+func (o FirewallFirewallStatusArrayOutput) ToFirewallFirewallStatusArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusArrayOutput {
+	return o
+}
+
+func (o FirewallFirewallStatusArrayOutput) Index(i pulumi.IntInput) FirewallFirewallStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallFirewallStatus {
+		return vs[0].([]FirewallFirewallStatus)[vs[1].(int)]
+	}).(FirewallFirewallStatusOutput)
+}
+
+type FirewallFirewallStatusSyncState struct {
+	// Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+	Attachments []FirewallFirewallStatusSyncStateAttachment `pulumi:"attachments"`
+	// The Availability Zone where the subnet is configured.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+}
+
+// FirewallFirewallStatusSyncStateInput is an input type that accepts FirewallFirewallStatusSyncStateArgs and FirewallFirewallStatusSyncStateOutput values.
+// You can construct a concrete instance of `FirewallFirewallStatusSyncStateInput` via:
+//
+//          FirewallFirewallStatusSyncStateArgs{...}
+type FirewallFirewallStatusSyncStateInput interface {
+	pulumi.Input
+
+	ToFirewallFirewallStatusSyncStateOutput() FirewallFirewallStatusSyncStateOutput
+	ToFirewallFirewallStatusSyncStateOutputWithContext(context.Context) FirewallFirewallStatusSyncStateOutput
+}
+
+type FirewallFirewallStatusSyncStateArgs struct {
+	// Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+	Attachments FirewallFirewallStatusSyncStateAttachmentArrayInput `pulumi:"attachments"`
+	// The Availability Zone where the subnet is configured.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+}
+
+func (FirewallFirewallStatusSyncStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallFirewallStatusSyncState)(nil)).Elem()
+}
+
+func (i FirewallFirewallStatusSyncStateArgs) ToFirewallFirewallStatusSyncStateOutput() FirewallFirewallStatusSyncStateOutput {
+	return i.ToFirewallFirewallStatusSyncStateOutputWithContext(context.Background())
+}
+
+func (i FirewallFirewallStatusSyncStateArgs) ToFirewallFirewallStatusSyncStateOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusSyncStateOutput)
+}
+
+// FirewallFirewallStatusSyncStateArrayInput is an input type that accepts FirewallFirewallStatusSyncStateArray and FirewallFirewallStatusSyncStateArrayOutput values.
+// You can construct a concrete instance of `FirewallFirewallStatusSyncStateArrayInput` via:
+//
+//          FirewallFirewallStatusSyncStateArray{ FirewallFirewallStatusSyncStateArgs{...} }
+type FirewallFirewallStatusSyncStateArrayInput interface {
+	pulumi.Input
+
+	ToFirewallFirewallStatusSyncStateArrayOutput() FirewallFirewallStatusSyncStateArrayOutput
+	ToFirewallFirewallStatusSyncStateArrayOutputWithContext(context.Context) FirewallFirewallStatusSyncStateArrayOutput
+}
+
+type FirewallFirewallStatusSyncStateArray []FirewallFirewallStatusSyncStateInput
+
+func (FirewallFirewallStatusSyncStateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallFirewallStatusSyncState)(nil)).Elem()
+}
+
+func (i FirewallFirewallStatusSyncStateArray) ToFirewallFirewallStatusSyncStateArrayOutput() FirewallFirewallStatusSyncStateArrayOutput {
+	return i.ToFirewallFirewallStatusSyncStateArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallFirewallStatusSyncStateArray) ToFirewallFirewallStatusSyncStateArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusSyncStateArrayOutput)
+}
+
+type FirewallFirewallStatusSyncStateOutput struct{ *pulumi.OutputState }
+
+func (FirewallFirewallStatusSyncStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallFirewallStatusSyncState)(nil)).Elem()
+}
+
+func (o FirewallFirewallStatusSyncStateOutput) ToFirewallFirewallStatusSyncStateOutput() FirewallFirewallStatusSyncStateOutput {
+	return o
+}
+
+func (o FirewallFirewallStatusSyncStateOutput) ToFirewallFirewallStatusSyncStateOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateOutput {
+	return o
+}
+
+// Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+func (o FirewallFirewallStatusSyncStateOutput) Attachments() FirewallFirewallStatusSyncStateAttachmentArrayOutput {
+	return o.ApplyT(func(v FirewallFirewallStatusSyncState) []FirewallFirewallStatusSyncStateAttachment {
+		return v.Attachments
+	}).(FirewallFirewallStatusSyncStateAttachmentArrayOutput)
+}
+
+// The Availability Zone where the subnet is configured.
+func (o FirewallFirewallStatusSyncStateOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallFirewallStatusSyncState) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+type FirewallFirewallStatusSyncStateArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallFirewallStatusSyncStateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallFirewallStatusSyncState)(nil)).Elem()
+}
+
+func (o FirewallFirewallStatusSyncStateArrayOutput) ToFirewallFirewallStatusSyncStateArrayOutput() FirewallFirewallStatusSyncStateArrayOutput {
+	return o
+}
+
+func (o FirewallFirewallStatusSyncStateArrayOutput) ToFirewallFirewallStatusSyncStateArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateArrayOutput {
+	return o
+}
+
+func (o FirewallFirewallStatusSyncStateArrayOutput) Index(i pulumi.IntInput) FirewallFirewallStatusSyncStateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallFirewallStatusSyncState {
+		return vs[0].([]FirewallFirewallStatusSyncState)[vs[1].(int)]
+	}).(FirewallFirewallStatusSyncStateOutput)
+}
+
+type FirewallFirewallStatusSyncStateAttachment struct {
+	// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+	EndpointId *string `pulumi:"endpointId"`
+	// The unique identifier for the subnet.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// FirewallFirewallStatusSyncStateAttachmentInput is an input type that accepts FirewallFirewallStatusSyncStateAttachmentArgs and FirewallFirewallStatusSyncStateAttachmentOutput values.
+// You can construct a concrete instance of `FirewallFirewallStatusSyncStateAttachmentInput` via:
+//
+//          FirewallFirewallStatusSyncStateAttachmentArgs{...}
+type FirewallFirewallStatusSyncStateAttachmentInput interface {
+	pulumi.Input
+
+	ToFirewallFirewallStatusSyncStateAttachmentOutput() FirewallFirewallStatusSyncStateAttachmentOutput
+	ToFirewallFirewallStatusSyncStateAttachmentOutputWithContext(context.Context) FirewallFirewallStatusSyncStateAttachmentOutput
+}
+
+type FirewallFirewallStatusSyncStateAttachmentArgs struct {
+	// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
+	// The unique identifier for the subnet.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (FirewallFirewallStatusSyncStateAttachmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallFirewallStatusSyncStateAttachment)(nil)).Elem()
+}
+
+func (i FirewallFirewallStatusSyncStateAttachmentArgs) ToFirewallFirewallStatusSyncStateAttachmentOutput() FirewallFirewallStatusSyncStateAttachmentOutput {
+	return i.ToFirewallFirewallStatusSyncStateAttachmentOutputWithContext(context.Background())
+}
+
+func (i FirewallFirewallStatusSyncStateAttachmentArgs) ToFirewallFirewallStatusSyncStateAttachmentOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusSyncStateAttachmentOutput)
+}
+
+// FirewallFirewallStatusSyncStateAttachmentArrayInput is an input type that accepts FirewallFirewallStatusSyncStateAttachmentArray and FirewallFirewallStatusSyncStateAttachmentArrayOutput values.
+// You can construct a concrete instance of `FirewallFirewallStatusSyncStateAttachmentArrayInput` via:
+//
+//          FirewallFirewallStatusSyncStateAttachmentArray{ FirewallFirewallStatusSyncStateAttachmentArgs{...} }
+type FirewallFirewallStatusSyncStateAttachmentArrayInput interface {
+	pulumi.Input
+
+	ToFirewallFirewallStatusSyncStateAttachmentArrayOutput() FirewallFirewallStatusSyncStateAttachmentArrayOutput
+	ToFirewallFirewallStatusSyncStateAttachmentArrayOutputWithContext(context.Context) FirewallFirewallStatusSyncStateAttachmentArrayOutput
+}
+
+type FirewallFirewallStatusSyncStateAttachmentArray []FirewallFirewallStatusSyncStateAttachmentInput
+
+func (FirewallFirewallStatusSyncStateAttachmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallFirewallStatusSyncStateAttachment)(nil)).Elem()
+}
+
+func (i FirewallFirewallStatusSyncStateAttachmentArray) ToFirewallFirewallStatusSyncStateAttachmentArrayOutput() FirewallFirewallStatusSyncStateAttachmentArrayOutput {
+	return i.ToFirewallFirewallStatusSyncStateAttachmentArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallFirewallStatusSyncStateAttachmentArray) ToFirewallFirewallStatusSyncStateAttachmentArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateAttachmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusSyncStateAttachmentArrayOutput)
+}
+
+type FirewallFirewallStatusSyncStateAttachmentOutput struct{ *pulumi.OutputState }
+
+func (FirewallFirewallStatusSyncStateAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallFirewallStatusSyncStateAttachment)(nil)).Elem()
+}
+
+func (o FirewallFirewallStatusSyncStateAttachmentOutput) ToFirewallFirewallStatusSyncStateAttachmentOutput() FirewallFirewallStatusSyncStateAttachmentOutput {
+	return o
+}
+
+func (o FirewallFirewallStatusSyncStateAttachmentOutput) ToFirewallFirewallStatusSyncStateAttachmentOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateAttachmentOutput {
+	return o
+}
+
+// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+func (o FirewallFirewallStatusSyncStateAttachmentOutput) EndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallFirewallStatusSyncStateAttachment) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the subnet.
+func (o FirewallFirewallStatusSyncStateAttachmentOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallFirewallStatusSyncStateAttachment) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type FirewallFirewallStatusSyncStateAttachmentArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallFirewallStatusSyncStateAttachmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallFirewallStatusSyncStateAttachment)(nil)).Elem()
+}
+
+func (o FirewallFirewallStatusSyncStateAttachmentArrayOutput) ToFirewallFirewallStatusSyncStateAttachmentArrayOutput() FirewallFirewallStatusSyncStateAttachmentArrayOutput {
+	return o
+}
+
+func (o FirewallFirewallStatusSyncStateAttachmentArrayOutput) ToFirewallFirewallStatusSyncStateAttachmentArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateAttachmentArrayOutput {
+	return o
+}
+
+func (o FirewallFirewallStatusSyncStateAttachmentArrayOutput) Index(i pulumi.IntInput) FirewallFirewallStatusSyncStateAttachmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallFirewallStatusSyncStateAttachment {
+		return vs[0].([]FirewallFirewallStatusSyncStateAttachment)[vs[1].(int)]
+	}).(FirewallFirewallStatusSyncStateAttachmentOutput)
+}
+
 type FirewallPolicyFirewallPolicy struct {
 	// Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
 	StatefulRuleGroupReferences []FirewallPolicyFirewallPolicyStatefulRuleGroupReference `pulumi:"statefulRuleGroupReferences"`
@@ -981,9 +1292,9 @@ func (o LoggingConfigurationLoggingConfigurationPtrOutput) LogDestinationConfigs
 
 type LoggingConfigurationLoggingConfigurationLogDestinationConfig struct {
 	// A map describing the logging destination for the chosen `logDestinationType`.
-	// * For an Amazon S3 bucket, specify the key `bucketName` with the URL of the bucket and optionally specify the key `prefix` with a path.
+	// * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
 	// * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
-	// * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the Amazon Resource Name (ARN) of the delivery stream.
+	// * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
 	LogDestination map[string]string `pulumi:"logDestination"`
 	// The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
 	LogDestinationType string `pulumi:"logDestinationType"`
@@ -1004,9 +1315,9 @@ type LoggingConfigurationLoggingConfigurationLogDestinationConfigInput interface
 
 type LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs struct {
 	// A map describing the logging destination for the chosen `logDestinationType`.
-	// * For an Amazon S3 bucket, specify the key `bucketName` with the URL of the bucket and optionally specify the key `prefix` with a path.
+	// * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
 	// * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
-	// * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the Amazon Resource Name (ARN) of the delivery stream.
+	// * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
 	LogDestination pulumi.StringMapInput `pulumi:"logDestination"`
 	// The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
 	LogDestinationType pulumi.StringInput `pulumi:"logDestinationType"`
@@ -1066,9 +1377,9 @@ func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput) ToLo
 }
 
 // A map describing the logging destination for the chosen `logDestinationType`.
-// * For an Amazon S3 bucket, specify the key `bucketName` with the URL of the bucket and optionally specify the key `prefix` with a path.
+// * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
 // * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
-// * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the Amazon Resource Name (ARN) of the delivery stream.
+// * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
 func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput) LogDestination() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LoggingConfigurationLoggingConfigurationLogDestinationConfig) map[string]string {
 		return v.LogDestination
@@ -3710,6 +4021,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 }
 
 func init() {
+	pulumi.RegisterOutputType(FirewallFirewallStatusOutput{})
+	pulumi.RegisterOutputType(FirewallFirewallStatusArrayOutput{})
+	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateOutput{})
+	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateArrayOutput{})
+	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateAttachmentOutput{})
+	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput{})

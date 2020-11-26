@@ -5,4 +5,5 @@
 export * from "./firewall";
 export * from "./firewallPolicy";
 export * from "./loggingConfiguration";
+export * from "./resourcePolicy";
 export * from "./ruleGroup";

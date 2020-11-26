@@ -50,7 +50,7 @@ export interface GetRepositoryEndpointArgs {
      */
     readonly domainOwner?: string;
     /**
-     * Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, and `maven`.
+     * Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
      */
     readonly format: string;
     /**

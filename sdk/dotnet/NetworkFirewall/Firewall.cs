@@ -85,6 +85,12 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<bool?> FirewallPolicyChangeProtection { get; private set; } = null!;
 
         /// <summary>
+        /// Nested list of information about the current status of the firewall.
+        /// </summary>
+        [Output("firewallStatuses")]
+        public Output<ImmutableArray<Outputs.FirewallFirewallStatus>> FirewallStatuses { get; private set; } = null!;
+
+        /// <summary>
         /// A friendly name of the firewall.
         /// </summary>
         [Output("name")]
@@ -268,6 +274,18 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Input("firewallPolicyChangeProtection")]
         public Input<bool>? FirewallPolicyChangeProtection { get; set; }
+
+        [Input("firewallStatuses")]
+        private InputList<Inputs.FirewallFirewallStatusGetArgs>? _firewallStatuses;
+
+        /// <summary>
+        /// Nested list of information about the current status of the firewall.
+        /// </summary>
+        public InputList<Inputs.FirewallFirewallStatusGetArgs> FirewallStatuses
+        {
+            get => _firewallStatuses ?? (_firewallStatuses = new InputList<Inputs.FirewallFirewallStatusGetArgs>());
+            set => _firewallStatuses = value;
+        }
 
         /// <summary>
         /// A friendly name of the firewall.

@@ -554,8 +554,8 @@ github.com/pulumi/pulumi/sdk/v2 v2.13.3-0.20201109230029-a6f8b9b205cd h1:acvoTtW
 github.com/pulumi/pulumi/sdk/v2 v2.13.3-0.20201109230029-a6f8b9b205cd/go.mod h1:Z9ifPo/Q0+hUpAyguVx2gp5Sx+CBumnWvYQDhrM8l3E=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20200910230100-328eb4ff41df h1:kXSvfAz43o0D0gfxUqVCOP3NrfnGbptJBshVsqZlBqA=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20200910230100-328eb4ff41df/go.mod h1:pVZLnLuSe/yv0XqTHFPb8xRGWPwgANT77jHeHqjXS5o=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20201124132544-e98c8e798ae4 h1:L7oTH4tO/1o+T2Ss4U1ootsVniPKFsF06VbhpIqX2Vw=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20201124132544-e98c8e798ae4/go.mod h1:YUDxVVdcBoz4iCISY1LpymaHpwSS4sd26l8qqVtiW6M=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20201126134105-bfe746072457 h1:itmwGor+j9TvHQRHOhi6R4ujcC4j2JhPqmv9WnZ8nBo=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20201126134105-bfe746072457/go.mod h1:YUDxVVdcBoz4iCISY1LpymaHpwSS4sd26l8qqVtiW6M=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6SoW27p1b0cqNHllgS5HIMJraePCO15w5zCzIWYg=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=

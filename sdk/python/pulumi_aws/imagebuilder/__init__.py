@@ -7,7 +7,11 @@ from .component import *
 from .distribution_configuration import *
 from .get_component import *
 from .get_distribution_configuration import *
+from .get_image_pipeline import *
+from .get_image_recipe import *
 from .get_infrastructure_configuration import *
+from .image_pipeline import *
+from .image_recipe import *
 from .infrastructure_configuration import *
 from ._inputs import *
 from . import outputs

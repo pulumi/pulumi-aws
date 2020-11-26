@@ -60,6 +60,10 @@ export interface GetClusterResult {
      */
     readonly bootstrapBrokers: string;
     /**
+     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster.
+     */
+    readonly bootstrapBrokersSaslScram: string;
+    /**
      * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
      */
     readonly bootstrapBrokersTls: string;

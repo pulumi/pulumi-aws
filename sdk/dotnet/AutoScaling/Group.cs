@@ -33,6 +33,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        /// </summary>
+        [Output("capacityRebalance")]
+        public Output<bool?> CapacityRebalance { get; private set; } = null!;
+
+        /// <summary>
         /// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         /// </summary>
         [Output("defaultCooldown")]
@@ -292,6 +298,12 @@ namespace Pulumi.Aws.AutoScaling
             get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
             set => _availabilityZones = value;
         }
+
+        /// <summary>
+        /// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        /// </summary>
+        [Input("capacityRebalance")]
+        public Input<bool>? CapacityRebalance { get; set; }
 
         /// <summary>
         /// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -574,6 +586,12 @@ namespace Pulumi.Aws.AutoScaling
             get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
             set => _availabilityZones = value;
         }
+
+        /// <summary>
+        /// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        /// </summary>
+        [Input("capacityRebalance")]
+        public Input<bool>? CapacityRebalance { get; set; }
 
         /// <summary>
         /// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.

@@ -84,6 +84,10 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly firewallPolicyChangeProtection!: pulumi.Output<boolean | undefined>;
     /**
+     * Nested list of information about the current status of the firewall.
+     */
+    public /*out*/ readonly firewallStatuses!: pulumi.Output<outputs.networkfirewall.FirewallFirewallStatus[]>;
+    /**
      * A friendly name of the firewall.
      */
     public readonly name!: pulumi.Output<string>;
@@ -125,6 +129,7 @@ export class Firewall extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["firewallPolicyArn"] = state ? state.firewallPolicyArn : undefined;
             inputs["firewallPolicyChangeProtection"] = state ? state.firewallPolicyChangeProtection : undefined;
+            inputs["firewallStatuses"] = state ? state.firewallStatuses : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["subnetChangeProtection"] = state ? state.subnetChangeProtection : undefined;
             inputs["subnetMappings"] = state ? state.subnetMappings : undefined;
@@ -152,6 +157,7 @@ export class Firewall extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["firewallStatuses"] = undefined /*out*/;
             inputs["updateToken"] = undefined /*out*/;
         }
         if (!opts) {
@@ -189,6 +195,10 @@ export interface FirewallState {
      * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
      */
     readonly firewallPolicyChangeProtection?: pulumi.Input<boolean>;
+    /**
+     * Nested list of information about the current status of the firewall.
+     */
+    readonly firewallStatuses?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallFirewallStatus>[]>;
     /**
      * A friendly name of the firewall.
      */

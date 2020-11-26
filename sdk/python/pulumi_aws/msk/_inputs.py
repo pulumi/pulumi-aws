@@ -11,6 +11,7 @@ from .. import _utilities, _tables
 __all__ = [
     'ClusterBrokerNodeGroupInfoArgs',
     'ClusterClientAuthenticationArgs',
+    'ClusterClientAuthenticationSaslArgs',
     'ClusterClientAuthenticationTlsArgs',
     'ClusterConfigurationInfoArgs',
     'ClusterEncryptionInfoArgs',
@@ -112,12 +113,28 @@ class ClusterBrokerNodeGroupInfoArgs:
 @pulumi.input_type
 class ClusterClientAuthenticationArgs:
     def __init__(__self__, *,
+                 sasl: Optional[pulumi.Input['ClusterClientAuthenticationSaslArgs']] = None,
                  tls: Optional[pulumi.Input['ClusterClientAuthenticationTlsArgs']] = None):
         """
+        :param pulumi.Input['ClusterClientAuthenticationSaslArgs'] sasl: Configuration block for specifying SASL client authentication. See below.
         :param pulumi.Input['ClusterClientAuthenticationTlsArgs'] tls: Configuration block for specifying TLS client authentication. See below.
         """
+        if sasl is not None:
+            pulumi.set(__self__, "sasl", sasl)
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def sasl(self) -> Optional[pulumi.Input['ClusterClientAuthenticationSaslArgs']]:
+        """
+        Configuration block for specifying SASL client authentication. See below.
+        """
+        return pulumi.get(self, "sasl")
+
+    @sasl.setter
+    def sasl(self, value: Optional[pulumi.Input['ClusterClientAuthenticationSaslArgs']]):
+        pulumi.set(self, "sasl", value)
 
     @property
     @pulumi.getter
@@ -130,6 +147,29 @@ class ClusterClientAuthenticationArgs:
     @tls.setter
     def tls(self, value: Optional[pulumi.Input['ClusterClientAuthenticationTlsArgs']]):
         pulumi.set(self, "tls", value)
+
+
+@pulumi.input_type
+class ClusterClientAuthenticationSaslArgs:
+    def __init__(__self__, *,
+                 scram: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] scram: Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+        """
+        if scram is not None:
+            pulumi.set(__self__, "scram", scram)
+
+    @property
+    @pulumi.getter
+    def scram(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+        """
+        return pulumi.get(self, "scram")
+
+    @scram.setter
+    def scram(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scram", value)
 
 
 @pulumi.input_type

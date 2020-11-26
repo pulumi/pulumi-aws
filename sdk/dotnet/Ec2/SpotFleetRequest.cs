@@ -309,6 +309,12 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> ReplaceUnhealthyInstances { get; private set; } = null!;
 
         /// <summary>
+        /// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        /// </summary>
+        [Output("spotMaintenanceStrategies")]
+        public Output<Outputs.SpotFleetRequestSpotMaintenanceStrategies?> SpotMaintenanceStrategies { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum spot bid for this override request.
         /// </summary>
         [Output("spotPrice")]
@@ -507,6 +513,12 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
 
         /// <summary>
+        /// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        /// </summary>
+        [Input("spotMaintenanceStrategies")]
+        public Input<Inputs.SpotFleetRequestSpotMaintenanceStrategiesArgs>? SpotMaintenanceStrategies { get; set; }
+
+        /// <summary>
         /// The maximum spot bid for this override request.
         /// </summary>
         [Input("spotPrice")]
@@ -673,6 +685,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("replaceUnhealthyInstances")]
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
+
+        /// <summary>
+        /// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        /// </summary>
+        [Input("spotMaintenanceStrategies")]
+        public Input<Inputs.SpotFleetRequestSpotMaintenanceStrategiesGetArgs>? SpotMaintenanceStrategies { get; set; }
 
         /// <summary>
         /// The maximum spot bid for this override request.

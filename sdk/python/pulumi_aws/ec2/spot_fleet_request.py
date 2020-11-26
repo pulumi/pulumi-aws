@@ -27,6 +27,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]]] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
+                 spot_maintenance_strategies: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
@@ -206,6 +207,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
+        :param pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[int] target_capacity: The number of units to request. You can choose to set the
@@ -249,6 +251,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             __props__['launch_template_configs'] = launch_template_configs
             __props__['load_balancers'] = load_balancers
             __props__['replace_unhealthy_instances'] = replace_unhealthy_instances
+            __props__['spot_maintenance_strategies'] = spot_maintenance_strategies
             __props__['spot_price'] = spot_price
             __props__['tags'] = tags
             if target_capacity is None:
@@ -282,6 +285,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]]] = None,
             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
+            spot_maintenance_strategies: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']]] = None,
             spot_price: Optional[pulumi.Input[str]] = None,
             spot_request_state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -323,6 +327,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
+        :param pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
         :param pulumi.Input[str] spot_request_state: The state of the Spot fleet request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
@@ -353,6 +358,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__["launch_template_configs"] = launch_template_configs
         __props__["load_balancers"] = load_balancers
         __props__["replace_unhealthy_instances"] = replace_unhealthy_instances
+        __props__["spot_maintenance_strategies"] = spot_maintenance_strategies
         __props__["spot_price"] = spot_price
         __props__["spot_request_state"] = spot_request_state
         __props__["tags"] = tags
@@ -463,6 +469,14 @@ class SpotFleetRequest(pulumi.CustomResource):
         Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         """
         return pulumi.get(self, "replace_unhealthy_instances")
+
+    @property
+    @pulumi.getter(name="spotMaintenanceStrategies")
+    def spot_maintenance_strategies(self) -> pulumi.Output[Optional['outputs.SpotFleetRequestSpotMaintenanceStrategies']]:
+        """
+        Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        """
+        return pulumi.get(self, "spot_maintenance_strategies")
 
     @property
     @pulumi.getter(name="spotPrice")

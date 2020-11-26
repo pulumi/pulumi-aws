@@ -276,7 +276,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`.
+     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
      */
     public readonly runtimeEnvironment!: pulumi.Output<string>;
     /**
@@ -385,7 +385,7 @@ export interface ApplicationState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`.
+     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
      */
     readonly runtimeEnvironment?: pulumi.Input<string>;
     /**
@@ -427,7 +427,7 @@ export interface ApplicationArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`.
+     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
      */
     readonly runtimeEnvironment: pulumi.Input<string>;
     /**

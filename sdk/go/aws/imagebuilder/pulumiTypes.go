@@ -519,6 +519,772 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 	}).(pulumi.StringArrayOutput)
 }
 
+type ImagePipelineImageTestsConfiguration struct {
+	// Whether image tests are enabled. Defaults to `true`.
+	ImageTestsEnabled *bool `pulumi:"imageTestsEnabled"`
+	// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+}
+
+// ImagePipelineImageTestsConfigurationInput is an input type that accepts ImagePipelineImageTestsConfigurationArgs and ImagePipelineImageTestsConfigurationOutput values.
+// You can construct a concrete instance of `ImagePipelineImageTestsConfigurationInput` via:
+//
+//          ImagePipelineImageTestsConfigurationArgs{...}
+type ImagePipelineImageTestsConfigurationInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageTestsConfigurationOutput() ImagePipelineImageTestsConfigurationOutput
+	ToImagePipelineImageTestsConfigurationOutputWithContext(context.Context) ImagePipelineImageTestsConfigurationOutput
+}
+
+type ImagePipelineImageTestsConfigurationArgs struct {
+	// Whether image tests are enabled. Defaults to `true`.
+	ImageTestsEnabled pulumi.BoolPtrInput `pulumi:"imageTestsEnabled"`
+	// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (ImagePipelineImageTestsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageTestsConfiguration)(nil)).Elem()
+}
+
+func (i ImagePipelineImageTestsConfigurationArgs) ToImagePipelineImageTestsConfigurationOutput() ImagePipelineImageTestsConfigurationOutput {
+	return i.ToImagePipelineImageTestsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineImageTestsConfigurationArgs) ToImagePipelineImageTestsConfigurationOutputWithContext(ctx context.Context) ImagePipelineImageTestsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageTestsConfigurationOutput)
+}
+
+func (i ImagePipelineImageTestsConfigurationArgs) ToImagePipelineImageTestsConfigurationPtrOutput() ImagePipelineImageTestsConfigurationPtrOutput {
+	return i.ToImagePipelineImageTestsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineImageTestsConfigurationArgs) ToImagePipelineImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageTestsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageTestsConfigurationOutput).ToImagePipelineImageTestsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImagePipelineImageTestsConfigurationPtrInput is an input type that accepts ImagePipelineImageTestsConfigurationArgs, ImagePipelineImageTestsConfigurationPtr and ImagePipelineImageTestsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImagePipelineImageTestsConfigurationPtrInput` via:
+//
+//          ImagePipelineImageTestsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ImagePipelineImageTestsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageTestsConfigurationPtrOutput() ImagePipelineImageTestsConfigurationPtrOutput
+	ToImagePipelineImageTestsConfigurationPtrOutputWithContext(context.Context) ImagePipelineImageTestsConfigurationPtrOutput
+}
+
+type imagePipelineImageTestsConfigurationPtrType ImagePipelineImageTestsConfigurationArgs
+
+func ImagePipelineImageTestsConfigurationPtr(v *ImagePipelineImageTestsConfigurationArgs) ImagePipelineImageTestsConfigurationPtrInput {
+	return (*imagePipelineImageTestsConfigurationPtrType)(v)
+}
+
+func (*imagePipelineImageTestsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineImageTestsConfiguration)(nil)).Elem()
+}
+
+func (i *imagePipelineImageTestsConfigurationPtrType) ToImagePipelineImageTestsConfigurationPtrOutput() ImagePipelineImageTestsConfigurationPtrOutput {
+	return i.ToImagePipelineImageTestsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelineImageTestsConfigurationPtrType) ToImagePipelineImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageTestsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageTestsConfigurationPtrOutput)
+}
+
+type ImagePipelineImageTestsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageTestsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageTestsConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineImageTestsConfigurationOutput) ToImagePipelineImageTestsConfigurationOutput() ImagePipelineImageTestsConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineImageTestsConfigurationOutput) ToImagePipelineImageTestsConfigurationOutputWithContext(ctx context.Context) ImagePipelineImageTestsConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineImageTestsConfigurationOutput) ToImagePipelineImageTestsConfigurationPtrOutput() ImagePipelineImageTestsConfigurationPtrOutput {
+	return o.ToImagePipelineImageTestsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineImageTestsConfigurationOutput) ToImagePipelineImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageTestsConfigurationPtrOutput {
+	return o.ApplyT(func(v ImagePipelineImageTestsConfiguration) *ImagePipelineImageTestsConfiguration {
+		return &v
+	}).(ImagePipelineImageTestsConfigurationPtrOutput)
+}
+
+// Whether image tests are enabled. Defaults to `true`.
+func (o ImagePipelineImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImagePipelineImageTestsConfiguration) *bool { return v.ImageTestsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+func (o ImagePipelineImageTestsConfigurationOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ImagePipelineImageTestsConfiguration) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+type ImagePipelineImageTestsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageTestsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineImageTestsConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineImageTestsConfigurationPtrOutput) ToImagePipelineImageTestsConfigurationPtrOutput() ImagePipelineImageTestsConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageTestsConfigurationPtrOutput) ToImagePipelineImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageTestsConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageTestsConfigurationPtrOutput) Elem() ImagePipelineImageTestsConfigurationOutput {
+	return o.ApplyT(func(v *ImagePipelineImageTestsConfiguration) ImagePipelineImageTestsConfiguration { return *v }).(ImagePipelineImageTestsConfigurationOutput)
+}
+
+// Whether image tests are enabled. Defaults to `true`.
+func (o ImagePipelineImageTestsConfigurationPtrOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineImageTestsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ImageTestsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+func (o ImagePipelineImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineImageTestsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type ImagePipelineSchedule struct {
+	// Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
+	PipelineExecutionStartCondition *string `pulumi:"pipelineExecutionStartCondition"`
+	// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * *)` is evaluated every day at midnight UTC.
+	ScheduleExpression string `pulumi:"scheduleExpression"`
+}
+
+// ImagePipelineScheduleInput is an input type that accepts ImagePipelineScheduleArgs and ImagePipelineScheduleOutput values.
+// You can construct a concrete instance of `ImagePipelineScheduleInput` via:
+//
+//          ImagePipelineScheduleArgs{...}
+type ImagePipelineScheduleInput interface {
+	pulumi.Input
+
+	ToImagePipelineScheduleOutput() ImagePipelineScheduleOutput
+	ToImagePipelineScheduleOutputWithContext(context.Context) ImagePipelineScheduleOutput
+}
+
+type ImagePipelineScheduleArgs struct {
+	// Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
+	PipelineExecutionStartCondition pulumi.StringPtrInput `pulumi:"pipelineExecutionStartCondition"`
+	// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * *)` is evaluated every day at midnight UTC.
+	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+}
+
+func (ImagePipelineScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineSchedule)(nil)).Elem()
+}
+
+func (i ImagePipelineScheduleArgs) ToImagePipelineScheduleOutput() ImagePipelineScheduleOutput {
+	return i.ToImagePipelineScheduleOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineScheduleArgs) ToImagePipelineScheduleOutputWithContext(ctx context.Context) ImagePipelineScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineScheduleOutput)
+}
+
+func (i ImagePipelineScheduleArgs) ToImagePipelineSchedulePtrOutput() ImagePipelineSchedulePtrOutput {
+	return i.ToImagePipelineSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineScheduleArgs) ToImagePipelineSchedulePtrOutputWithContext(ctx context.Context) ImagePipelineSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineScheduleOutput).ToImagePipelineSchedulePtrOutputWithContext(ctx)
+}
+
+// ImagePipelineSchedulePtrInput is an input type that accepts ImagePipelineScheduleArgs, ImagePipelineSchedulePtr and ImagePipelineSchedulePtrOutput values.
+// You can construct a concrete instance of `ImagePipelineSchedulePtrInput` via:
+//
+//          ImagePipelineScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type ImagePipelineSchedulePtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineSchedulePtrOutput() ImagePipelineSchedulePtrOutput
+	ToImagePipelineSchedulePtrOutputWithContext(context.Context) ImagePipelineSchedulePtrOutput
+}
+
+type imagePipelineSchedulePtrType ImagePipelineScheduleArgs
+
+func ImagePipelineSchedulePtr(v *ImagePipelineScheduleArgs) ImagePipelineSchedulePtrInput {
+	return (*imagePipelineSchedulePtrType)(v)
+}
+
+func (*imagePipelineSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineSchedule)(nil)).Elem()
+}
+
+func (i *imagePipelineSchedulePtrType) ToImagePipelineSchedulePtrOutput() ImagePipelineSchedulePtrOutput {
+	return i.ToImagePipelineSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelineSchedulePtrType) ToImagePipelineSchedulePtrOutputWithContext(ctx context.Context) ImagePipelineSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineSchedulePtrOutput)
+}
+
+type ImagePipelineScheduleOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineSchedule)(nil)).Elem()
+}
+
+func (o ImagePipelineScheduleOutput) ToImagePipelineScheduleOutput() ImagePipelineScheduleOutput {
+	return o
+}
+
+func (o ImagePipelineScheduleOutput) ToImagePipelineScheduleOutputWithContext(ctx context.Context) ImagePipelineScheduleOutput {
+	return o
+}
+
+func (o ImagePipelineScheduleOutput) ToImagePipelineSchedulePtrOutput() ImagePipelineSchedulePtrOutput {
+	return o.ToImagePipelineSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineScheduleOutput) ToImagePipelineSchedulePtrOutputWithContext(ctx context.Context) ImagePipelineSchedulePtrOutput {
+	return o.ApplyT(func(v ImagePipelineSchedule) *ImagePipelineSchedule {
+		return &v
+	}).(ImagePipelineSchedulePtrOutput)
+}
+
+// Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
+func (o ImagePipelineScheduleOutput) PipelineExecutionStartCondition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelineSchedule) *string { return v.PipelineExecutionStartCondition }).(pulumi.StringPtrOutput)
+}
+
+// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * *)` is evaluated every day at midnight UTC.
+func (o ImagePipelineScheduleOutput) ScheduleExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v ImagePipelineSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
+}
+
+type ImagePipelineSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineSchedule)(nil)).Elem()
+}
+
+func (o ImagePipelineSchedulePtrOutput) ToImagePipelineSchedulePtrOutput() ImagePipelineSchedulePtrOutput {
+	return o
+}
+
+func (o ImagePipelineSchedulePtrOutput) ToImagePipelineSchedulePtrOutputWithContext(ctx context.Context) ImagePipelineSchedulePtrOutput {
+	return o
+}
+
+func (o ImagePipelineSchedulePtrOutput) Elem() ImagePipelineScheduleOutput {
+	return o.ApplyT(func(v *ImagePipelineSchedule) ImagePipelineSchedule { return *v }).(ImagePipelineScheduleOutput)
+}
+
+// Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
+func (o ImagePipelineSchedulePtrOutput) PipelineExecutionStartCondition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineExecutionStartCondition
+	}).(pulumi.StringPtrOutput)
+}
+
+// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * *)` is evaluated every day at midnight UTC.
+func (o ImagePipelineSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImageRecipeBlockDeviceMapping struct {
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName *string `pulumi:"deviceName"`
+	// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+	Ebs *ImageRecipeBlockDeviceMappingEbs `pulumi:"ebs"`
+	// Set to `true` to remove a mapping from the parent image.
+	NoDevice *bool `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName *string `pulumi:"virtualName"`
+}
+
+// ImageRecipeBlockDeviceMappingInput is an input type that accepts ImageRecipeBlockDeviceMappingArgs and ImageRecipeBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `ImageRecipeBlockDeviceMappingInput` via:
+//
+//          ImageRecipeBlockDeviceMappingArgs{...}
+type ImageRecipeBlockDeviceMappingInput interface {
+	pulumi.Input
+
+	ToImageRecipeBlockDeviceMappingOutput() ImageRecipeBlockDeviceMappingOutput
+	ToImageRecipeBlockDeviceMappingOutputWithContext(context.Context) ImageRecipeBlockDeviceMappingOutput
+}
+
+type ImageRecipeBlockDeviceMappingArgs struct {
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+	Ebs ImageRecipeBlockDeviceMappingEbsPtrInput `pulumi:"ebs"`
+	// Set to `true` to remove a mapping from the parent image.
+	NoDevice pulumi.BoolPtrInput `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
+}
+
+func (ImageRecipeBlockDeviceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i ImageRecipeBlockDeviceMappingArgs) ToImageRecipeBlockDeviceMappingOutput() ImageRecipeBlockDeviceMappingOutput {
+	return i.ToImageRecipeBlockDeviceMappingOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeBlockDeviceMappingArgs) ToImageRecipeBlockDeviceMappingOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeBlockDeviceMappingOutput)
+}
+
+// ImageRecipeBlockDeviceMappingArrayInput is an input type that accepts ImageRecipeBlockDeviceMappingArray and ImageRecipeBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `ImageRecipeBlockDeviceMappingArrayInput` via:
+//
+//          ImageRecipeBlockDeviceMappingArray{ ImageRecipeBlockDeviceMappingArgs{...} }
+type ImageRecipeBlockDeviceMappingArrayInput interface {
+	pulumi.Input
+
+	ToImageRecipeBlockDeviceMappingArrayOutput() ImageRecipeBlockDeviceMappingArrayOutput
+	ToImageRecipeBlockDeviceMappingArrayOutputWithContext(context.Context) ImageRecipeBlockDeviceMappingArrayOutput
+}
+
+type ImageRecipeBlockDeviceMappingArray []ImageRecipeBlockDeviceMappingInput
+
+func (ImageRecipeBlockDeviceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageRecipeBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i ImageRecipeBlockDeviceMappingArray) ToImageRecipeBlockDeviceMappingArrayOutput() ImageRecipeBlockDeviceMappingArrayOutput {
+	return i.ToImageRecipeBlockDeviceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeBlockDeviceMappingArray) ToImageRecipeBlockDeviceMappingArrayOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeBlockDeviceMappingArrayOutput)
+}
+
+type ImageRecipeBlockDeviceMappingOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeBlockDeviceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o ImageRecipeBlockDeviceMappingOutput) ToImageRecipeBlockDeviceMappingOutput() ImageRecipeBlockDeviceMappingOutput {
+	return o
+}
+
+func (o ImageRecipeBlockDeviceMappingOutput) ToImageRecipeBlockDeviceMappingOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingOutput {
+	return o
+}
+
+// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+func (o ImageRecipeBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRecipeBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+func (o ImageRecipeBlockDeviceMappingOutput) Ebs() ImageRecipeBlockDeviceMappingEbsPtrOutput {
+	return o.ApplyT(func(v ImageRecipeBlockDeviceMapping) *ImageRecipeBlockDeviceMappingEbs { return v.Ebs }).(ImageRecipeBlockDeviceMappingEbsPtrOutput)
+}
+
+// Set to `true` to remove a mapping from the parent image.
+func (o ImageRecipeBlockDeviceMappingOutput) NoDevice() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImageRecipeBlockDeviceMapping) *bool { return v.NoDevice }).(pulumi.BoolPtrOutput)
+}
+
+// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+func (o ImageRecipeBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRecipeBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
+}
+
+type ImageRecipeBlockDeviceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeBlockDeviceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageRecipeBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o ImageRecipeBlockDeviceMappingArrayOutput) ToImageRecipeBlockDeviceMappingArrayOutput() ImageRecipeBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o ImageRecipeBlockDeviceMappingArrayOutput) ToImageRecipeBlockDeviceMappingArrayOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o ImageRecipeBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) ImageRecipeBlockDeviceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageRecipeBlockDeviceMapping {
+		return vs[0].([]ImageRecipeBlockDeviceMapping)[vs[1].(int)]
+	}).(ImageRecipeBlockDeviceMappingOutput)
+}
+
+type ImageRecipeBlockDeviceMappingEbs struct {
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted *string `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops *int `pulumi:"iops"`
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// Size of the volume, in GiB.
+	VolumeSize *int `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType *string `pulumi:"volumeType"`
+}
+
+// ImageRecipeBlockDeviceMappingEbsInput is an input type that accepts ImageRecipeBlockDeviceMappingEbsArgs and ImageRecipeBlockDeviceMappingEbsOutput values.
+// You can construct a concrete instance of `ImageRecipeBlockDeviceMappingEbsInput` via:
+//
+//          ImageRecipeBlockDeviceMappingEbsArgs{...}
+type ImageRecipeBlockDeviceMappingEbsInput interface {
+	pulumi.Input
+
+	ToImageRecipeBlockDeviceMappingEbsOutput() ImageRecipeBlockDeviceMappingEbsOutput
+	ToImageRecipeBlockDeviceMappingEbsOutputWithContext(context.Context) ImageRecipeBlockDeviceMappingEbsOutput
+}
+
+type ImageRecipeBlockDeviceMappingEbsArgs struct {
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// Size of the volume, in GiB.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
+}
+
+func (ImageRecipeBlockDeviceMappingEbsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeBlockDeviceMappingEbs)(nil)).Elem()
+}
+
+func (i ImageRecipeBlockDeviceMappingEbsArgs) ToImageRecipeBlockDeviceMappingEbsOutput() ImageRecipeBlockDeviceMappingEbsOutput {
+	return i.ToImageRecipeBlockDeviceMappingEbsOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeBlockDeviceMappingEbsArgs) ToImageRecipeBlockDeviceMappingEbsOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingEbsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeBlockDeviceMappingEbsOutput)
+}
+
+func (i ImageRecipeBlockDeviceMappingEbsArgs) ToImageRecipeBlockDeviceMappingEbsPtrOutput() ImageRecipeBlockDeviceMappingEbsPtrOutput {
+	return i.ToImageRecipeBlockDeviceMappingEbsPtrOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeBlockDeviceMappingEbsArgs) ToImageRecipeBlockDeviceMappingEbsPtrOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingEbsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeBlockDeviceMappingEbsOutput).ToImageRecipeBlockDeviceMappingEbsPtrOutputWithContext(ctx)
+}
+
+// ImageRecipeBlockDeviceMappingEbsPtrInput is an input type that accepts ImageRecipeBlockDeviceMappingEbsArgs, ImageRecipeBlockDeviceMappingEbsPtr and ImageRecipeBlockDeviceMappingEbsPtrOutput values.
+// You can construct a concrete instance of `ImageRecipeBlockDeviceMappingEbsPtrInput` via:
+//
+//          ImageRecipeBlockDeviceMappingEbsArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageRecipeBlockDeviceMappingEbsPtrInput interface {
+	pulumi.Input
+
+	ToImageRecipeBlockDeviceMappingEbsPtrOutput() ImageRecipeBlockDeviceMappingEbsPtrOutput
+	ToImageRecipeBlockDeviceMappingEbsPtrOutputWithContext(context.Context) ImageRecipeBlockDeviceMappingEbsPtrOutput
+}
+
+type imageRecipeBlockDeviceMappingEbsPtrType ImageRecipeBlockDeviceMappingEbsArgs
+
+func ImageRecipeBlockDeviceMappingEbsPtr(v *ImageRecipeBlockDeviceMappingEbsArgs) ImageRecipeBlockDeviceMappingEbsPtrInput {
+	return (*imageRecipeBlockDeviceMappingEbsPtrType)(v)
+}
+
+func (*imageRecipeBlockDeviceMappingEbsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageRecipeBlockDeviceMappingEbs)(nil)).Elem()
+}
+
+func (i *imageRecipeBlockDeviceMappingEbsPtrType) ToImageRecipeBlockDeviceMappingEbsPtrOutput() ImageRecipeBlockDeviceMappingEbsPtrOutput {
+	return i.ToImageRecipeBlockDeviceMappingEbsPtrOutputWithContext(context.Background())
+}
+
+func (i *imageRecipeBlockDeviceMappingEbsPtrType) ToImageRecipeBlockDeviceMappingEbsPtrOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingEbsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeBlockDeviceMappingEbsPtrOutput)
+}
+
+type ImageRecipeBlockDeviceMappingEbsOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeBlockDeviceMappingEbsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeBlockDeviceMappingEbs)(nil)).Elem()
+}
+
+func (o ImageRecipeBlockDeviceMappingEbsOutput) ToImageRecipeBlockDeviceMappingEbsOutput() ImageRecipeBlockDeviceMappingEbsOutput {
+	return o
+}
+
+func (o ImageRecipeBlockDeviceMappingEbsOutput) ToImageRecipeBlockDeviceMappingEbsOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingEbsOutput {
+	return o
+}
+
+func (o ImageRecipeBlockDeviceMappingEbsOutput) ToImageRecipeBlockDeviceMappingEbsPtrOutput() ImageRecipeBlockDeviceMappingEbsPtrOutput {
+	return o.ToImageRecipeBlockDeviceMappingEbsPtrOutputWithContext(context.Background())
+}
+
+func (o ImageRecipeBlockDeviceMappingEbsOutput) ToImageRecipeBlockDeviceMappingEbsPtrOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingEbsPtrOutput {
+	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *ImageRecipeBlockDeviceMappingEbs {
+		return &v
+	}).(ImageRecipeBlockDeviceMappingEbsPtrOutput)
+}
+
+// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+func (o ImageRecipeBlockDeviceMappingEbsOutput) DeleteOnTermination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *string { return v.DeleteOnTermination }).(pulumi.StringPtrOutput)
+}
+
+// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+func (o ImageRecipeBlockDeviceMappingEbsOutput) Encrypted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
+}
+
+// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+func (o ImageRecipeBlockDeviceMappingEbsOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+func (o ImageRecipeBlockDeviceMappingEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the EC2 Volume Snapshot.
+func (o ImageRecipeBlockDeviceMappingEbsOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// Size of the volume, in GiB.
+func (o ImageRecipeBlockDeviceMappingEbsOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+}
+
+// Type of the volume. For example, `gp2` or `io2`.
+func (o ImageRecipeBlockDeviceMappingEbsOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
+type ImageRecipeBlockDeviceMappingEbsPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeBlockDeviceMappingEbsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageRecipeBlockDeviceMappingEbs)(nil)).Elem()
+}
+
+func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) ToImageRecipeBlockDeviceMappingEbsPtrOutput() ImageRecipeBlockDeviceMappingEbsPtrOutput {
+	return o
+}
+
+func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) ToImageRecipeBlockDeviceMappingEbsPtrOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingEbsPtrOutput {
+	return o
+}
+
+func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Elem() ImageRecipeBlockDeviceMappingEbsOutput {
+	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) ImageRecipeBlockDeviceMappingEbs { return *v }).(ImageRecipeBlockDeviceMappingEbsOutput)
+}
+
+// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) DeleteOnTermination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteOnTermination
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Encrypted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the EC2 Volume Snapshot.
+func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Size of the volume, in GiB.
+func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Type of the volume. For example, `gp2` or `io2`.
+func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImageRecipeComponent struct {
+	// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+	ComponentArn string `pulumi:"componentArn"`
+}
+
+// ImageRecipeComponentInput is an input type that accepts ImageRecipeComponentArgs and ImageRecipeComponentOutput values.
+// You can construct a concrete instance of `ImageRecipeComponentInput` via:
+//
+//          ImageRecipeComponentArgs{...}
+type ImageRecipeComponentInput interface {
+	pulumi.Input
+
+	ToImageRecipeComponentOutput() ImageRecipeComponentOutput
+	ToImageRecipeComponentOutputWithContext(context.Context) ImageRecipeComponentOutput
+}
+
+type ImageRecipeComponentArgs struct {
+	// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+	ComponentArn pulumi.StringInput `pulumi:"componentArn"`
+}
+
+func (ImageRecipeComponentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeComponent)(nil)).Elem()
+}
+
+func (i ImageRecipeComponentArgs) ToImageRecipeComponentOutput() ImageRecipeComponentOutput {
+	return i.ToImageRecipeComponentOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeComponentArgs) ToImageRecipeComponentOutputWithContext(ctx context.Context) ImageRecipeComponentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentOutput)
+}
+
+// ImageRecipeComponentArrayInput is an input type that accepts ImageRecipeComponentArray and ImageRecipeComponentArrayOutput values.
+// You can construct a concrete instance of `ImageRecipeComponentArrayInput` via:
+//
+//          ImageRecipeComponentArray{ ImageRecipeComponentArgs{...} }
+type ImageRecipeComponentArrayInput interface {
+	pulumi.Input
+
+	ToImageRecipeComponentArrayOutput() ImageRecipeComponentArrayOutput
+	ToImageRecipeComponentArrayOutputWithContext(context.Context) ImageRecipeComponentArrayOutput
+}
+
+type ImageRecipeComponentArray []ImageRecipeComponentInput
+
+func (ImageRecipeComponentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageRecipeComponent)(nil)).Elem()
+}
+
+func (i ImageRecipeComponentArray) ToImageRecipeComponentArrayOutput() ImageRecipeComponentArrayOutput {
+	return i.ToImageRecipeComponentArrayOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeComponentArray) ToImageRecipeComponentArrayOutputWithContext(ctx context.Context) ImageRecipeComponentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentArrayOutput)
+}
+
+type ImageRecipeComponentOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeComponentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeComponent)(nil)).Elem()
+}
+
+func (o ImageRecipeComponentOutput) ToImageRecipeComponentOutput() ImageRecipeComponentOutput {
+	return o
+}
+
+func (o ImageRecipeComponentOutput) ToImageRecipeComponentOutputWithContext(ctx context.Context) ImageRecipeComponentOutput {
+	return o
+}
+
+// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+func (o ImageRecipeComponentOutput) ComponentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageRecipeComponent) string { return v.ComponentArn }).(pulumi.StringOutput)
+}
+
+type ImageRecipeComponentArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeComponentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageRecipeComponent)(nil)).Elem()
+}
+
+func (o ImageRecipeComponentArrayOutput) ToImageRecipeComponentArrayOutput() ImageRecipeComponentArrayOutput {
+	return o
+}
+
+func (o ImageRecipeComponentArrayOutput) ToImageRecipeComponentArrayOutputWithContext(ctx context.Context) ImageRecipeComponentArrayOutput {
+	return o
+}
+
+func (o ImageRecipeComponentArrayOutput) Index(i pulumi.IntInput) ImageRecipeComponentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageRecipeComponent {
+		return vs[0].([]ImageRecipeComponent)[vs[1].(int)]
+	}).(ImageRecipeComponentOutput)
+}
+
 type InfrastructureConfigurationLogging struct {
 	// Configuration block with S3 logging settings. Detailed below.
 	S3Logs InfrastructureConfigurationLoggingS3Logs `pulumi:"s3Logs"`
@@ -1177,6 +1943,590 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaun
 	}).(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput)
 }
 
+type GetImagePipelineImageTestsConfiguration struct {
+	// Whether image tests are enabled.
+	ImageTestsEnabled bool `pulumi:"imageTestsEnabled"`
+	// Number of minutes before image tests time out.
+	TimeoutMinutes int `pulumi:"timeoutMinutes"`
+}
+
+// GetImagePipelineImageTestsConfigurationInput is an input type that accepts GetImagePipelineImageTestsConfigurationArgs and GetImagePipelineImageTestsConfigurationOutput values.
+// You can construct a concrete instance of `GetImagePipelineImageTestsConfigurationInput` via:
+//
+//          GetImagePipelineImageTestsConfigurationArgs{...}
+type GetImagePipelineImageTestsConfigurationInput interface {
+	pulumi.Input
+
+	ToGetImagePipelineImageTestsConfigurationOutput() GetImagePipelineImageTestsConfigurationOutput
+	ToGetImagePipelineImageTestsConfigurationOutputWithContext(context.Context) GetImagePipelineImageTestsConfigurationOutput
+}
+
+type GetImagePipelineImageTestsConfigurationArgs struct {
+	// Whether image tests are enabled.
+	ImageTestsEnabled pulumi.BoolInput `pulumi:"imageTestsEnabled"`
+	// Number of minutes before image tests time out.
+	TimeoutMinutes pulumi.IntInput `pulumi:"timeoutMinutes"`
+}
+
+func (GetImagePipelineImageTestsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelineImageTestsConfiguration)(nil)).Elem()
+}
+
+func (i GetImagePipelineImageTestsConfigurationArgs) ToGetImagePipelineImageTestsConfigurationOutput() GetImagePipelineImageTestsConfigurationOutput {
+	return i.ToGetImagePipelineImageTestsConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelineImageTestsConfigurationArgs) ToGetImagePipelineImageTestsConfigurationOutputWithContext(ctx context.Context) GetImagePipelineImageTestsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageTestsConfigurationOutput)
+}
+
+// GetImagePipelineImageTestsConfigurationArrayInput is an input type that accepts GetImagePipelineImageTestsConfigurationArray and GetImagePipelineImageTestsConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetImagePipelineImageTestsConfigurationArrayInput` via:
+//
+//          GetImagePipelineImageTestsConfigurationArray{ GetImagePipelineImageTestsConfigurationArgs{...} }
+type GetImagePipelineImageTestsConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetImagePipelineImageTestsConfigurationArrayOutput() GetImagePipelineImageTestsConfigurationArrayOutput
+	ToGetImagePipelineImageTestsConfigurationArrayOutputWithContext(context.Context) GetImagePipelineImageTestsConfigurationArrayOutput
+}
+
+type GetImagePipelineImageTestsConfigurationArray []GetImagePipelineImageTestsConfigurationInput
+
+func (GetImagePipelineImageTestsConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelineImageTestsConfiguration)(nil)).Elem()
+}
+
+func (i GetImagePipelineImageTestsConfigurationArray) ToGetImagePipelineImageTestsConfigurationArrayOutput() GetImagePipelineImageTestsConfigurationArrayOutput {
+	return i.ToGetImagePipelineImageTestsConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelineImageTestsConfigurationArray) ToGetImagePipelineImageTestsConfigurationArrayOutputWithContext(ctx context.Context) GetImagePipelineImageTestsConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageTestsConfigurationArrayOutput)
+}
+
+type GetImagePipelineImageTestsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelineImageTestsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelineImageTestsConfiguration)(nil)).Elem()
+}
+
+func (o GetImagePipelineImageTestsConfigurationOutput) ToGetImagePipelineImageTestsConfigurationOutput() GetImagePipelineImageTestsConfigurationOutput {
+	return o
+}
+
+func (o GetImagePipelineImageTestsConfigurationOutput) ToGetImagePipelineImageTestsConfigurationOutputWithContext(ctx context.Context) GetImagePipelineImageTestsConfigurationOutput {
+	return o
+}
+
+// Whether image tests are enabled.
+func (o GetImagePipelineImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetImagePipelineImageTestsConfiguration) bool { return v.ImageTestsEnabled }).(pulumi.BoolOutput)
+}
+
+// Number of minutes before image tests time out.
+func (o GetImagePipelineImageTestsConfigurationOutput) TimeoutMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImagePipelineImageTestsConfiguration) int { return v.TimeoutMinutes }).(pulumi.IntOutput)
+}
+
+type GetImagePipelineImageTestsConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelineImageTestsConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelineImageTestsConfiguration)(nil)).Elem()
+}
+
+func (o GetImagePipelineImageTestsConfigurationArrayOutput) ToGetImagePipelineImageTestsConfigurationArrayOutput() GetImagePipelineImageTestsConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImagePipelineImageTestsConfigurationArrayOutput) ToGetImagePipelineImageTestsConfigurationArrayOutputWithContext(ctx context.Context) GetImagePipelineImageTestsConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImagePipelineImageTestsConfigurationArrayOutput) Index(i pulumi.IntInput) GetImagePipelineImageTestsConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagePipelineImageTestsConfiguration {
+		return vs[0].([]GetImagePipelineImageTestsConfiguration)[vs[1].(int)]
+	}).(GetImagePipelineImageTestsConfigurationOutput)
+}
+
+type GetImagePipelineSchedule struct {
+	// Condition when the pipeline should trigger a new image build.
+	PipelineExecutionStartCondition string `pulumi:"pipelineExecutionStartCondition"`
+	// Cron expression of how often the pipeline start condition is evaluated.
+	ScheduleExpression string `pulumi:"scheduleExpression"`
+}
+
+// GetImagePipelineScheduleInput is an input type that accepts GetImagePipelineScheduleArgs and GetImagePipelineScheduleOutput values.
+// You can construct a concrete instance of `GetImagePipelineScheduleInput` via:
+//
+//          GetImagePipelineScheduleArgs{...}
+type GetImagePipelineScheduleInput interface {
+	pulumi.Input
+
+	ToGetImagePipelineScheduleOutput() GetImagePipelineScheduleOutput
+	ToGetImagePipelineScheduleOutputWithContext(context.Context) GetImagePipelineScheduleOutput
+}
+
+type GetImagePipelineScheduleArgs struct {
+	// Condition when the pipeline should trigger a new image build.
+	PipelineExecutionStartCondition pulumi.StringInput `pulumi:"pipelineExecutionStartCondition"`
+	// Cron expression of how often the pipeline start condition is evaluated.
+	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+}
+
+func (GetImagePipelineScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelineSchedule)(nil)).Elem()
+}
+
+func (i GetImagePipelineScheduleArgs) ToGetImagePipelineScheduleOutput() GetImagePipelineScheduleOutput {
+	return i.ToGetImagePipelineScheduleOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelineScheduleArgs) ToGetImagePipelineScheduleOutputWithContext(ctx context.Context) GetImagePipelineScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineScheduleOutput)
+}
+
+// GetImagePipelineScheduleArrayInput is an input type that accepts GetImagePipelineScheduleArray and GetImagePipelineScheduleArrayOutput values.
+// You can construct a concrete instance of `GetImagePipelineScheduleArrayInput` via:
+//
+//          GetImagePipelineScheduleArray{ GetImagePipelineScheduleArgs{...} }
+type GetImagePipelineScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetImagePipelineScheduleArrayOutput() GetImagePipelineScheduleArrayOutput
+	ToGetImagePipelineScheduleArrayOutputWithContext(context.Context) GetImagePipelineScheduleArrayOutput
+}
+
+type GetImagePipelineScheduleArray []GetImagePipelineScheduleInput
+
+func (GetImagePipelineScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelineSchedule)(nil)).Elem()
+}
+
+func (i GetImagePipelineScheduleArray) ToGetImagePipelineScheduleArrayOutput() GetImagePipelineScheduleArrayOutput {
+	return i.ToGetImagePipelineScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelineScheduleArray) ToGetImagePipelineScheduleArrayOutputWithContext(ctx context.Context) GetImagePipelineScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineScheduleArrayOutput)
+}
+
+type GetImagePipelineScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelineScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelineSchedule)(nil)).Elem()
+}
+
+func (o GetImagePipelineScheduleOutput) ToGetImagePipelineScheduleOutput() GetImagePipelineScheduleOutput {
+	return o
+}
+
+func (o GetImagePipelineScheduleOutput) ToGetImagePipelineScheduleOutputWithContext(ctx context.Context) GetImagePipelineScheduleOutput {
+	return o
+}
+
+// Condition when the pipeline should trigger a new image build.
+func (o GetImagePipelineScheduleOutput) PipelineExecutionStartCondition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagePipelineSchedule) string { return v.PipelineExecutionStartCondition }).(pulumi.StringOutput)
+}
+
+// Cron expression of how often the pipeline start condition is evaluated.
+func (o GetImagePipelineScheduleOutput) ScheduleExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagePipelineSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
+}
+
+type GetImagePipelineScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelineScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelineSchedule)(nil)).Elem()
+}
+
+func (o GetImagePipelineScheduleArrayOutput) ToGetImagePipelineScheduleArrayOutput() GetImagePipelineScheduleArrayOutput {
+	return o
+}
+
+func (o GetImagePipelineScheduleArrayOutput) ToGetImagePipelineScheduleArrayOutputWithContext(ctx context.Context) GetImagePipelineScheduleArrayOutput {
+	return o
+}
+
+func (o GetImagePipelineScheduleArrayOutput) Index(i pulumi.IntInput) GetImagePipelineScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagePipelineSchedule {
+		return vs[0].([]GetImagePipelineSchedule)[vs[1].(int)]
+	}).(GetImagePipelineScheduleOutput)
+}
+
+type GetImageRecipeBlockDeviceMapping struct {
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName string `pulumi:"deviceName"`
+	// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+	Ebs []GetImageRecipeBlockDeviceMappingEb `pulumi:"ebs"`
+	// Whether to remove a mapping from the parent image.
+	NoDevice string `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName string `pulumi:"virtualName"`
+}
+
+// GetImageRecipeBlockDeviceMappingInput is an input type that accepts GetImageRecipeBlockDeviceMappingArgs and GetImageRecipeBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingInput` via:
+//
+//          GetImageRecipeBlockDeviceMappingArgs{...}
+type GetImageRecipeBlockDeviceMappingInput interface {
+	pulumi.Input
+
+	ToGetImageRecipeBlockDeviceMappingOutput() GetImageRecipeBlockDeviceMappingOutput
+	ToGetImageRecipeBlockDeviceMappingOutputWithContext(context.Context) GetImageRecipeBlockDeviceMappingOutput
+}
+
+type GetImageRecipeBlockDeviceMappingArgs struct {
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+	Ebs GetImageRecipeBlockDeviceMappingEbArrayInput `pulumi:"ebs"`
+	// Whether to remove a mapping from the parent image.
+	NoDevice pulumi.StringInput `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName pulumi.StringInput `pulumi:"virtualName"`
+}
+
+func (GetImageRecipeBlockDeviceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageRecipeBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i GetImageRecipeBlockDeviceMappingArgs) ToGetImageRecipeBlockDeviceMappingOutput() GetImageRecipeBlockDeviceMappingOutput {
+	return i.ToGetImageRecipeBlockDeviceMappingOutputWithContext(context.Background())
+}
+
+func (i GetImageRecipeBlockDeviceMappingArgs) ToGetImageRecipeBlockDeviceMappingOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeBlockDeviceMappingOutput)
+}
+
+// GetImageRecipeBlockDeviceMappingArrayInput is an input type that accepts GetImageRecipeBlockDeviceMappingArray and GetImageRecipeBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingArrayInput` via:
+//
+//          GetImageRecipeBlockDeviceMappingArray{ GetImageRecipeBlockDeviceMappingArgs{...} }
+type GetImageRecipeBlockDeviceMappingArrayInput interface {
+	pulumi.Input
+
+	ToGetImageRecipeBlockDeviceMappingArrayOutput() GetImageRecipeBlockDeviceMappingArrayOutput
+	ToGetImageRecipeBlockDeviceMappingArrayOutputWithContext(context.Context) GetImageRecipeBlockDeviceMappingArrayOutput
+}
+
+type GetImageRecipeBlockDeviceMappingArray []GetImageRecipeBlockDeviceMappingInput
+
+func (GetImageRecipeBlockDeviceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageRecipeBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i GetImageRecipeBlockDeviceMappingArray) ToGetImageRecipeBlockDeviceMappingArrayOutput() GetImageRecipeBlockDeviceMappingArrayOutput {
+	return i.ToGetImageRecipeBlockDeviceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageRecipeBlockDeviceMappingArray) ToGetImageRecipeBlockDeviceMappingArrayOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeBlockDeviceMappingArrayOutput)
+}
+
+type GetImageRecipeBlockDeviceMappingOutput struct{ *pulumi.OutputState }
+
+func (GetImageRecipeBlockDeviceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageRecipeBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o GetImageRecipeBlockDeviceMappingOutput) ToGetImageRecipeBlockDeviceMappingOutput() GetImageRecipeBlockDeviceMappingOutput {
+	return o
+}
+
+func (o GetImageRecipeBlockDeviceMappingOutput) ToGetImageRecipeBlockDeviceMappingOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingOutput {
+	return o
+}
+
+// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+func (o GetImageRecipeBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
+}
+
+// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+func (o GetImageRecipeBlockDeviceMappingOutput) Ebs() GetImageRecipeBlockDeviceMappingEbArrayOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMapping) []GetImageRecipeBlockDeviceMappingEb { return v.Ebs }).(GetImageRecipeBlockDeviceMappingEbArrayOutput)
+}
+
+// Whether to remove a mapping from the parent image.
+func (o GetImageRecipeBlockDeviceMappingOutput) NoDevice() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMapping) string { return v.NoDevice }).(pulumi.StringOutput)
+}
+
+// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+func (o GetImageRecipeBlockDeviceMappingOutput) VirtualName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMapping) string { return v.VirtualName }).(pulumi.StringOutput)
+}
+
+type GetImageRecipeBlockDeviceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageRecipeBlockDeviceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageRecipeBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o GetImageRecipeBlockDeviceMappingArrayOutput) ToGetImageRecipeBlockDeviceMappingArrayOutput() GetImageRecipeBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o GetImageRecipeBlockDeviceMappingArrayOutput) ToGetImageRecipeBlockDeviceMappingArrayOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o GetImageRecipeBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) GetImageRecipeBlockDeviceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageRecipeBlockDeviceMapping {
+		return vs[0].([]GetImageRecipeBlockDeviceMapping)[vs[1].(int)]
+	}).(GetImageRecipeBlockDeviceMappingOutput)
+}
+
+type GetImageRecipeBlockDeviceMappingEb struct {
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted bool `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops int `pulumi:"iops"`
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId string `pulumi:"snapshotId"`
+	// Size of the volume, in GiB.
+	VolumeSize int `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType string `pulumi:"volumeType"`
+}
+
+// GetImageRecipeBlockDeviceMappingEbInput is an input type that accepts GetImageRecipeBlockDeviceMappingEbArgs and GetImageRecipeBlockDeviceMappingEbOutput values.
+// You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingEbInput` via:
+//
+//          GetImageRecipeBlockDeviceMappingEbArgs{...}
+type GetImageRecipeBlockDeviceMappingEbInput interface {
+	pulumi.Input
+
+	ToGetImageRecipeBlockDeviceMappingEbOutput() GetImageRecipeBlockDeviceMappingEbOutput
+	ToGetImageRecipeBlockDeviceMappingEbOutputWithContext(context.Context) GetImageRecipeBlockDeviceMappingEbOutput
+}
+
+type GetImageRecipeBlockDeviceMappingEbArgs struct {
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops pulumi.IntInput `pulumi:"iops"`
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	// Size of the volume, in GiB.
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (GetImageRecipeBlockDeviceMappingEbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageRecipeBlockDeviceMappingEb)(nil)).Elem()
+}
+
+func (i GetImageRecipeBlockDeviceMappingEbArgs) ToGetImageRecipeBlockDeviceMappingEbOutput() GetImageRecipeBlockDeviceMappingEbOutput {
+	return i.ToGetImageRecipeBlockDeviceMappingEbOutputWithContext(context.Background())
+}
+
+func (i GetImageRecipeBlockDeviceMappingEbArgs) ToGetImageRecipeBlockDeviceMappingEbOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingEbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeBlockDeviceMappingEbOutput)
+}
+
+// GetImageRecipeBlockDeviceMappingEbArrayInput is an input type that accepts GetImageRecipeBlockDeviceMappingEbArray and GetImageRecipeBlockDeviceMappingEbArrayOutput values.
+// You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingEbArrayInput` via:
+//
+//          GetImageRecipeBlockDeviceMappingEbArray{ GetImageRecipeBlockDeviceMappingEbArgs{...} }
+type GetImageRecipeBlockDeviceMappingEbArrayInput interface {
+	pulumi.Input
+
+	ToGetImageRecipeBlockDeviceMappingEbArrayOutput() GetImageRecipeBlockDeviceMappingEbArrayOutput
+	ToGetImageRecipeBlockDeviceMappingEbArrayOutputWithContext(context.Context) GetImageRecipeBlockDeviceMappingEbArrayOutput
+}
+
+type GetImageRecipeBlockDeviceMappingEbArray []GetImageRecipeBlockDeviceMappingEbInput
+
+func (GetImageRecipeBlockDeviceMappingEbArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageRecipeBlockDeviceMappingEb)(nil)).Elem()
+}
+
+func (i GetImageRecipeBlockDeviceMappingEbArray) ToGetImageRecipeBlockDeviceMappingEbArrayOutput() GetImageRecipeBlockDeviceMappingEbArrayOutput {
+	return i.ToGetImageRecipeBlockDeviceMappingEbArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageRecipeBlockDeviceMappingEbArray) ToGetImageRecipeBlockDeviceMappingEbArrayOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingEbArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeBlockDeviceMappingEbArrayOutput)
+}
+
+type GetImageRecipeBlockDeviceMappingEbOutput struct{ *pulumi.OutputState }
+
+func (GetImageRecipeBlockDeviceMappingEbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageRecipeBlockDeviceMappingEb)(nil)).Elem()
+}
+
+func (o GetImageRecipeBlockDeviceMappingEbOutput) ToGetImageRecipeBlockDeviceMappingEbOutput() GetImageRecipeBlockDeviceMappingEbOutput {
+	return o
+}
+
+func (o GetImageRecipeBlockDeviceMappingEbOutput) ToGetImageRecipeBlockDeviceMappingEbOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingEbOutput {
+	return o
+}
+
+// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+func (o GetImageRecipeBlockDeviceMappingEbOutput) DeleteOnTermination() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) bool { return v.DeleteOnTermination }).(pulumi.BoolOutput)
+}
+
+// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+func (o GetImageRecipeBlockDeviceMappingEbOutput) Encrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) bool { return v.Encrypted }).(pulumi.BoolOutput)
+}
+
+// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+func (o GetImageRecipeBlockDeviceMappingEbOutput) Iops() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) int { return v.Iops }).(pulumi.IntOutput)
+}
+
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+func (o GetImageRecipeBlockDeviceMappingEbOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// Identifier of the EC2 Volume Snapshot.
+func (o GetImageRecipeBlockDeviceMappingEbOutput) SnapshotId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) string { return v.SnapshotId }).(pulumi.StringOutput)
+}
+
+// Size of the volume, in GiB.
+func (o GetImageRecipeBlockDeviceMappingEbOutput) VolumeSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) int { return v.VolumeSize }).(pulumi.IntOutput)
+}
+
+// Type of the volume. For example, `gp2` or `io2`.
+func (o GetImageRecipeBlockDeviceMappingEbOutput) VolumeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) string { return v.VolumeType }).(pulumi.StringOutput)
+}
+
+type GetImageRecipeBlockDeviceMappingEbArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageRecipeBlockDeviceMappingEbArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageRecipeBlockDeviceMappingEb)(nil)).Elem()
+}
+
+func (o GetImageRecipeBlockDeviceMappingEbArrayOutput) ToGetImageRecipeBlockDeviceMappingEbArrayOutput() GetImageRecipeBlockDeviceMappingEbArrayOutput {
+	return o
+}
+
+func (o GetImageRecipeBlockDeviceMappingEbArrayOutput) ToGetImageRecipeBlockDeviceMappingEbArrayOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingEbArrayOutput {
+	return o
+}
+
+func (o GetImageRecipeBlockDeviceMappingEbArrayOutput) Index(i pulumi.IntInput) GetImageRecipeBlockDeviceMappingEbOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageRecipeBlockDeviceMappingEb {
+		return vs[0].([]GetImageRecipeBlockDeviceMappingEb)[vs[1].(int)]
+	}).(GetImageRecipeBlockDeviceMappingEbOutput)
+}
+
+type GetImageRecipeComponent struct {
+	// Amazon Resource Name (ARN) of the Image Builder Component.
+	ComponentArn string `pulumi:"componentArn"`
+}
+
+// GetImageRecipeComponentInput is an input type that accepts GetImageRecipeComponentArgs and GetImageRecipeComponentOutput values.
+// You can construct a concrete instance of `GetImageRecipeComponentInput` via:
+//
+//          GetImageRecipeComponentArgs{...}
+type GetImageRecipeComponentInput interface {
+	pulumi.Input
+
+	ToGetImageRecipeComponentOutput() GetImageRecipeComponentOutput
+	ToGetImageRecipeComponentOutputWithContext(context.Context) GetImageRecipeComponentOutput
+}
+
+type GetImageRecipeComponentArgs struct {
+	// Amazon Resource Name (ARN) of the Image Builder Component.
+	ComponentArn pulumi.StringInput `pulumi:"componentArn"`
+}
+
+func (GetImageRecipeComponentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageRecipeComponent)(nil)).Elem()
+}
+
+func (i GetImageRecipeComponentArgs) ToGetImageRecipeComponentOutput() GetImageRecipeComponentOutput {
+	return i.ToGetImageRecipeComponentOutputWithContext(context.Background())
+}
+
+func (i GetImageRecipeComponentArgs) ToGetImageRecipeComponentOutputWithContext(ctx context.Context) GetImageRecipeComponentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeComponentOutput)
+}
+
+// GetImageRecipeComponentArrayInput is an input type that accepts GetImageRecipeComponentArray and GetImageRecipeComponentArrayOutput values.
+// You can construct a concrete instance of `GetImageRecipeComponentArrayInput` via:
+//
+//          GetImageRecipeComponentArray{ GetImageRecipeComponentArgs{...} }
+type GetImageRecipeComponentArrayInput interface {
+	pulumi.Input
+
+	ToGetImageRecipeComponentArrayOutput() GetImageRecipeComponentArrayOutput
+	ToGetImageRecipeComponentArrayOutputWithContext(context.Context) GetImageRecipeComponentArrayOutput
+}
+
+type GetImageRecipeComponentArray []GetImageRecipeComponentInput
+
+func (GetImageRecipeComponentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageRecipeComponent)(nil)).Elem()
+}
+
+func (i GetImageRecipeComponentArray) ToGetImageRecipeComponentArrayOutput() GetImageRecipeComponentArrayOutput {
+	return i.ToGetImageRecipeComponentArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageRecipeComponentArray) ToGetImageRecipeComponentArrayOutputWithContext(ctx context.Context) GetImageRecipeComponentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeComponentArrayOutput)
+}
+
+type GetImageRecipeComponentOutput struct{ *pulumi.OutputState }
+
+func (GetImageRecipeComponentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageRecipeComponent)(nil)).Elem()
+}
+
+func (o GetImageRecipeComponentOutput) ToGetImageRecipeComponentOutput() GetImageRecipeComponentOutput {
+	return o
+}
+
+func (o GetImageRecipeComponentOutput) ToGetImageRecipeComponentOutputWithContext(ctx context.Context) GetImageRecipeComponentOutput {
+	return o
+}
+
+// Amazon Resource Name (ARN) of the Image Builder Component.
+func (o GetImageRecipeComponentOutput) ComponentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageRecipeComponent) string { return v.ComponentArn }).(pulumi.StringOutput)
+}
+
+type GetImageRecipeComponentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageRecipeComponentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageRecipeComponent)(nil)).Elem()
+}
+
+func (o GetImageRecipeComponentArrayOutput) ToGetImageRecipeComponentArrayOutput() GetImageRecipeComponentArrayOutput {
+	return o
+}
+
+func (o GetImageRecipeComponentArrayOutput) ToGetImageRecipeComponentArrayOutputWithContext(ctx context.Context) GetImageRecipeComponentArrayOutput {
+	return o
+}
+
+func (o GetImageRecipeComponentArrayOutput) Index(i pulumi.IntInput) GetImageRecipeComponentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageRecipeComponent {
+		return vs[0].([]GetImageRecipeComponent)[vs[1].(int)]
+	}).(GetImageRecipeComponentOutput)
+}
+
 type GetInfrastructureConfigurationLogging struct {
 	// Nested list of S3 logs settings.
 	S3Logs []GetInfrastructureConfigurationLoggingS3Log `pulumi:"s3Logs"`
@@ -1389,6 +2739,16 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineScheduleOutput{})
+	pulumi.RegisterOutputType(ImagePipelineSchedulePtrOutput{})
+	pulumi.RegisterOutputType(ImageRecipeBlockDeviceMappingOutput{})
+	pulumi.RegisterOutputType(ImageRecipeBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(ImageRecipeBlockDeviceMappingEbsOutput{})
+	pulumi.RegisterOutputType(ImageRecipeBlockDeviceMappingEbsPtrOutput{})
+	pulumi.RegisterOutputType(ImageRecipeComponentOutput{})
+	pulumi.RegisterOutputType(ImageRecipeComponentArrayOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingS3LogsOutput{})
@@ -1399,6 +2759,16 @@ func init() {
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetImagePipelineImageTestsConfigurationOutput{})
+	pulumi.RegisterOutputType(GetImagePipelineImageTestsConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetImagePipelineScheduleOutput{})
+	pulumi.RegisterOutputType(GetImagePipelineScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetImageRecipeBlockDeviceMappingOutput{})
+	pulumi.RegisterOutputType(GetImageRecipeBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(GetImageRecipeBlockDeviceMappingEbOutput{})
+	pulumi.RegisterOutputType(GetImageRecipeBlockDeviceMappingEbArrayOutput{})
+	pulumi.RegisterOutputType(GetImageRecipeComponentOutput{})
+	pulumi.RegisterOutputType(GetImageRecipeComponentArrayOutput{})
 	pulumi.RegisterOutputType(GetInfrastructureConfigurationLoggingOutput{})
 	pulumi.RegisterOutputType(GetInfrastructureConfigurationLoggingArrayOutput{})
 	pulumi.RegisterOutputType(GetInfrastructureConfigurationLoggingS3LogOutput{})

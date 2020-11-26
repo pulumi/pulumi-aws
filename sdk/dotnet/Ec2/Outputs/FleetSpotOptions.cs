@@ -25,6 +25,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
         /// </summary>
         public readonly int? InstancePoolsToUseCount;
+        /// <summary>
+        /// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        /// </summary>
+        public readonly Outputs.FleetSpotOptionsMaintenanceStrategies? MaintenanceStrategies;
 
         [OutputConstructor]
         private FleetSpotOptions(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? instanceInterruptionBehavior,
 
-            int? instancePoolsToUseCount)
+            int? instancePoolsToUseCount,
+
+            Outputs.FleetSpotOptionsMaintenanceStrategies? maintenanceStrategies)
         {
             AllocationStrategy = allocationStrategy;
             InstanceInterruptionBehavior = instanceInterruptionBehavior;
             InstancePoolsToUseCount = instancePoolsToUseCount;
+            MaintenanceStrategies = maintenanceStrategies;
         }
     }
 }

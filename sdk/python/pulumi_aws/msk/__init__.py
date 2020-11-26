@@ -7,5 +7,6 @@ from .cluster import *
 from .configuration import *
 from .get_cluster import *
 from .get_configuration import *
+from .scram_secret_association import *
 from ._inputs import *
 from . import outputs

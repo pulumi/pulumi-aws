@@ -146,6 +146,35 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * ### Gateway Load Balancer Listener
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLoadBalancer = new aws.lb.LoadBalancer("exampleLoadBalancer", {
+ *     loadBalancerType: "gateway",
+ *     subnetMappings: [{
+ *         subnetId: aws_subnet.example.id,
+ *     }],
+ * });
+ * const exampleTargetGroup = new aws.lb.TargetGroup("exampleTargetGroup", {
+ *     port: 6081,
+ *     protocol: "GENEVE",
+ *     vpcId: aws_vpc.example.id,
+ *     healthCheck: {
+ *         port: 80,
+ *         protocol: "HTTP",
+ *     },
+ * });
+ * const exampleListener = new aws.lb.Listener("exampleListener", {
+ *     loadBalancerArn: exampleLoadBalancer.id,
+ *     defaultActions: [{
+ *         targetGroupArn: exampleTargetGroup.id,
+ *         type: "forward",
+ *     }],
+ * });
+ * ```
  *
  * ## Import
  *
@@ -203,13 +232,13 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly loadBalancerArn!: pulumi.Output<string>;
     /**
-     * The port on which the load balancer is listening.
+     * The port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      */
-    public readonly port!: pulumi.Output<number>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
-     * The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * The protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
      */
-    public readonly protocol!: pulumi.Output<string | undefined>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
      */
@@ -244,9 +273,6 @@ export class Listener extends pulumi.CustomResource {
             }
             if (!args || args.loadBalancerArn === undefined) {
                 throw new Error("Missing required property 'loadBalancerArn'");
-            }
-            if (!args || args.port === undefined) {
-                throw new Error("Missing required property 'port'");
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
             inputs["defaultActions"] = args ? args.defaultActions : undefined;
@@ -288,11 +314,11 @@ export interface ListenerState {
      */
     readonly loadBalancerArn?: pulumi.Input<string>;
     /**
-     * The port on which the load balancer is listening.
+     * The port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * The protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -318,11 +344,11 @@ export interface ListenerArgs {
      */
     readonly loadBalancerArn: pulumi.Input<string>;
     /**
-     * The port on which the load balancer is listening.
+     * The port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      */
-    readonly port: pulumi.Input<number>;
+    readonly port?: pulumi.Input<number>;
     /**
-     * The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * The protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
      */
     readonly protocol?: pulumi.Input<string>;
     /**

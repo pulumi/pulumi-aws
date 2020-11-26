@@ -30,6 +30,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("instancePoolsToUseCount")]
         public Input<int>? InstancePoolsToUseCount { get; set; }
 
+        /// <summary>
+        /// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        /// </summary>
+        [Input("maintenanceStrategies")]
+        public Input<Inputs.FleetSpotOptionsMaintenanceStrategiesGetArgs>? MaintenanceStrategies { get; set; }
+
         public FleetSpotOptionsGetArgs()
         {
         }

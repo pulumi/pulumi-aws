@@ -112,7 +112,7 @@ def get_repository_endpoint(domain: Optional[str] = None,
 
     :param str domain: The name of the domain that contains the repository.
     :param str domain_owner: The account number of the AWS account that owns the domain.
-    :param str format: Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, and `maven`.
+    :param str format: Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
     :param str repository: The name of the repository.
     """
     __args__ = dict()

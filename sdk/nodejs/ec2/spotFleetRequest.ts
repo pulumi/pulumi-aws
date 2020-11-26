@@ -241,6 +241,10 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
     /**
+     * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+     */
+    public readonly spotMaintenanceStrategies!: pulumi.Output<outputs.ec2.SpotFleetRequestSpotMaintenanceStrategies | undefined>;
+    /**
      * The maximum spot bid for this override request.
      */
     public readonly spotPrice!: pulumi.Output<string | undefined>;
@@ -305,6 +309,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["launchTemplateConfigs"] = state ? state.launchTemplateConfigs : undefined;
             inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
             inputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
+            inputs["spotMaintenanceStrategies"] = state ? state.spotMaintenanceStrategies : undefined;
             inputs["spotPrice"] = state ? state.spotPrice : undefined;
             inputs["spotRequestState"] = state ? state.spotRequestState : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -332,6 +337,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["launchTemplateConfigs"] = args ? args.launchTemplateConfigs : undefined;
             inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
             inputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
+            inputs["spotMaintenanceStrategies"] = args ? args.spotMaintenanceStrategies : undefined;
             inputs["spotPrice"] = args ? args.spotPrice : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetCapacity"] = args ? args.targetCapacity : undefined;
@@ -414,6 +420,10 @@ export interface SpotFleetRequestState {
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      */
     readonly replaceUnhealthyInstances?: pulumi.Input<boolean>;
+    /**
+     * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+     */
+    readonly spotMaintenanceStrategies?: pulumi.Input<inputs.ec2.SpotFleetRequestSpotMaintenanceStrategies>;
     /**
      * The maximum spot bid for this override request.
      */
@@ -516,6 +526,10 @@ export interface SpotFleetRequestArgs {
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      */
     readonly replaceUnhealthyInstances?: pulumi.Input<boolean>;
+    /**
+     * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+     */
+    readonly spotMaintenanceStrategies?: pulumi.Input<inputs.ec2.SpotFleetRequestSpotMaintenanceStrategies>;
     /**
      * The maximum spot bid for this override request.
      */

@@ -34,9 +34,6 @@ type ProxyDefaultTargetGroup struct {
 // NewProxyDefaultTargetGroup registers a new resource with the given unique name, arguments, and options.
 func NewProxyDefaultTargetGroup(ctx *pulumi.Context,
 	name string, args *ProxyDefaultTargetGroupArgs, opts ...pulumi.ResourceOption) (*ProxyDefaultTargetGroup, error) {
-	if args == nil || args.ConnectionPoolConfig == nil {
-		return nil, errors.New("missing required argument 'ConnectionPoolConfig'")
-	}
 	if args == nil || args.DbProxyName == nil {
 		return nil, errors.New("missing required argument 'DbProxyName'")
 	}
@@ -92,7 +89,7 @@ func (ProxyDefaultTargetGroupState) ElementType() reflect.Type {
 
 type proxyDefaultTargetGroupArgs struct {
 	// The settings that determine the size and behavior of the connection pool for the target group.
-	ConnectionPoolConfig ProxyDefaultTargetGroupConnectionPoolConfig `pulumi:"connectionPoolConfig"`
+	ConnectionPoolConfig *ProxyDefaultTargetGroupConnectionPoolConfig `pulumi:"connectionPoolConfig"`
 	// Name of the RDS DB Proxy.
 	DbProxyName string `pulumi:"dbProxyName"`
 }
@@ -100,7 +97,7 @@ type proxyDefaultTargetGroupArgs struct {
 // The set of arguments for constructing a ProxyDefaultTargetGroup resource.
 type ProxyDefaultTargetGroupArgs struct {
 	// The settings that determine the size and behavior of the connection pool for the target group.
-	ConnectionPoolConfig ProxyDefaultTargetGroupConnectionPoolConfigInput
+	ConnectionPoolConfig ProxyDefaultTargetGroupConnectionPoolConfigPtrInput
 	// Name of the RDS DB Proxy.
 	DbProxyName pulumi.StringInput
 }

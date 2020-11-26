@@ -19,13 +19,16 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_tls=None, cluster_name=None, id=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None):
+    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, cluster_name=None, id=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if bootstrap_brokers and not isinstance(bootstrap_brokers, str):
             raise TypeError("Expected argument 'bootstrap_brokers' to be a str")
         pulumi.set(__self__, "bootstrap_brokers", bootstrap_brokers)
+        if bootstrap_brokers_sasl_scram and not isinstance(bootstrap_brokers_sasl_scram, str):
+            raise TypeError("Expected argument 'bootstrap_brokers_sasl_scram' to be a str")
+        pulumi.set(__self__, "bootstrap_brokers_sasl_scram", bootstrap_brokers_sasl_scram)
         if bootstrap_brokers_tls and not isinstance(bootstrap_brokers_tls, str):
             raise TypeError("Expected argument 'bootstrap_brokers_tls' to be a str")
         pulumi.set(__self__, "bootstrap_brokers_tls", bootstrap_brokers_tls)
@@ -63,6 +66,14 @@ class GetClusterResult:
         A comma separated list of one or more hostname:port pairs of Kafka brokers suitable to boostrap connectivity to the Kafka cluster.
         """
         return pulumi.get(self, "bootstrap_brokers")
+
+    @property
+    @pulumi.getter(name="bootstrapBrokersSaslScram")
+    def bootstrap_brokers_sasl_scram(self) -> str:
+        """
+        A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster.
+        """
+        return pulumi.get(self, "bootstrap_brokers_sasl_scram")
 
     @property
     @pulumi.getter(name="bootstrapBrokersTls")
@@ -126,6 +137,7 @@ class AwaitableGetClusterResult(GetClusterResult):
         return GetClusterResult(
             arn=self.arn,
             bootstrap_brokers=self.bootstrap_brokers,
+            bootstrap_brokers_sasl_scram=self.bootstrap_brokers_sasl_scram,
             bootstrap_brokers_tls=self.bootstrap_brokers_tls,
             cluster_name=self.cluster_name,
             id=self.id,
@@ -166,6 +178,7 @@ def get_cluster(cluster_name: Optional[str] = None,
     return AwaitableGetClusterResult(
         arn=__ret__.arn,
         bootstrap_brokers=__ret__.bootstrap_brokers,
+        bootstrap_brokers_sasl_scram=__ret__.bootstrap_brokers_sasl_scram,
         bootstrap_brokers_tls=__ret__.bootstrap_brokers_tls,
         cluster_name=__ret__.cluster_name,
         id=__ret__.id,
