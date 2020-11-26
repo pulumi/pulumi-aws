@@ -27,6 +27,7 @@ class NfsFileShare(pulumi.CustomResource):
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  location_arn: Optional[pulumi.Input[str]] = None,
                  nfs_file_share_defaults: Optional[pulumi.Input[pulumi.InputType['NfsFileShareNfsFileShareDefaultsArgs']]] = None,
+                 notification_policy: Optional[pulumi.Input[str]] = None,
                  object_acl: Optional[pulumi.Input[str]] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
                  requester_pays: Optional[pulumi.Input[bool]] = None,
@@ -72,6 +73,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[pulumi.InputType['NfsFileShareNfsFileShareDefaultsArgs']] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
+        :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
@@ -112,6 +114,7 @@ class NfsFileShare(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location_arn'")
             __props__['location_arn'] = location_arn
             __props__['nfs_file_share_defaults'] = nfs_file_share_defaults
+            __props__['notification_policy'] = notification_policy
             __props__['object_acl'] = object_acl
             __props__['read_only'] = read_only
             __props__['requester_pays'] = requester_pays
@@ -145,6 +148,7 @@ class NfsFileShare(pulumi.CustomResource):
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             location_arn: Optional[pulumi.Input[str]] = None,
             nfs_file_share_defaults: Optional[pulumi.Input[pulumi.InputType['NfsFileShareNfsFileShareDefaultsArgs']]] = None,
+            notification_policy: Optional[pulumi.Input[str]] = None,
             object_acl: Optional[pulumi.Input[str]] = None,
             path: Optional[pulumi.Input[str]] = None,
             read_only: Optional[pulumi.Input[bool]] = None,
@@ -171,6 +175,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[pulumi.InputType['NfsFileShareNfsFileShareDefaultsArgs']] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
+        :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
         :param pulumi.Input[str] path: File share path used by the NFS client to identify the mount point.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
@@ -195,6 +200,7 @@ class NfsFileShare(pulumi.CustomResource):
         __props__["kms_key_arn"] = kms_key_arn
         __props__["location_arn"] = location_arn
         __props__["nfs_file_share_defaults"] = nfs_file_share_defaults
+        __props__["notification_policy"] = notification_policy
         __props__["object_acl"] = object_acl
         __props__["path"] = path
         __props__["read_only"] = read_only
@@ -299,6 +305,14 @@ class NfsFileShare(pulumi.CustomResource):
         Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         """
         return pulumi.get(self, "nfs_file_share_defaults")
+
+    @property
+    @pulumi.getter(name="notificationPolicy")
+    def notification_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+        """
+        return pulumi.get(self, "notification_policy")
 
     @property
     @pulumi.getter(name="objectAcl")

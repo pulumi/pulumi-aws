@@ -19,7 +19,7 @@ class GetLayerVersionResult:
     """
     A collection of values returned by getLayerVersion.
     """
-    def __init__(__self__, arn=None, compatible_runtime=None, compatible_runtimes=None, created_date=None, description=None, id=None, layer_arn=None, layer_name=None, license_info=None, source_code_hash=None, source_code_size=None, version=None):
+    def __init__(__self__, arn=None, compatible_runtime=None, compatible_runtimes=None, created_date=None, description=None, id=None, layer_arn=None, layer_name=None, license_info=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,12 @@ class GetLayerVersionResult:
         if license_info and not isinstance(license_info, str):
             raise TypeError("Expected argument 'license_info' to be a str")
         pulumi.set(__self__, "license_info", license_info)
+        if signing_job_arn and not isinstance(signing_job_arn, str):
+            raise TypeError("Expected argument 'signing_job_arn' to be a str")
+        pulumi.set(__self__, "signing_job_arn", signing_job_arn)
+        if signing_profile_version_arn and not isinstance(signing_profile_version_arn, str):
+            raise TypeError("Expected argument 'signing_profile_version_arn' to be a str")
+        pulumi.set(__self__, "signing_profile_version_arn", signing_profile_version_arn)
         if source_code_hash and not isinstance(source_code_hash, str):
             raise TypeError("Expected argument 'source_code_hash' to be a str")
         pulumi.set(__self__, "source_code_hash", source_code_hash)
@@ -124,6 +130,22 @@ class GetLayerVersionResult:
         return pulumi.get(self, "license_info")
 
     @property
+    @pulumi.getter(name="signingJobArn")
+    def signing_job_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of a signing job.
+        """
+        return pulumi.get(self, "signing_job_arn")
+
+    @property
+    @pulumi.getter(name="signingProfileVersionArn")
+    def signing_profile_version_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) for a signing profile version.
+        """
+        return pulumi.get(self, "signing_profile_version_arn")
+
+    @property
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> str:
         """
@@ -163,6 +185,8 @@ class AwaitableGetLayerVersionResult(GetLayerVersionResult):
             layer_arn=self.layer_arn,
             layer_name=self.layer_name,
             license_info=self.license_info,
+            signing_job_arn=self.signing_job_arn,
+            signing_profile_version_arn=self.signing_profile_version_arn,
             source_code_hash=self.source_code_hash,
             source_code_size=self.source_code_size,
             version=self.version)
@@ -211,6 +235,8 @@ def get_layer_version(compatible_runtime: Optional[str] = None,
         layer_arn=__ret__.layer_arn,
         layer_name=__ret__.layer_name,
         license_info=__ret__.license_info,
+        signing_job_arn=__ret__.signing_job_arn,
+        signing_profile_version_arn=__ret__.signing_profile_version_arn,
         source_code_hash=__ret__.source_code_hash,
         source_code_size=__ret__.source_code_size,
         version=__ret__.version)

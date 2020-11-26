@@ -20,10 +20,13 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, arn=None, dead_letter_config=None, description=None, environment=None, file_system_configs=None, function_name=None, handler=None, id=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def __init__(__self__, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, file_system_configs=None, function_name=None, handler=None, id=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if code_signing_config_arn and not isinstance(code_signing_config_arn, str):
+            raise TypeError("Expected argument 'code_signing_config_arn' to be a str")
+        pulumi.set(__self__, "code_signing_config_arn", code_signing_config_arn)
         if dead_letter_config and not isinstance(dead_letter_config, dict):
             raise TypeError("Expected argument 'dead_letter_config' to be a dict")
         pulumi.set(__self__, "dead_letter_config", dead_letter_config)
@@ -75,6 +78,12 @@ class GetFunctionResult:
         if runtime and not isinstance(runtime, str):
             raise TypeError("Expected argument 'runtime' to be a str")
         pulumi.set(__self__, "runtime", runtime)
+        if signing_job_arn and not isinstance(signing_job_arn, str):
+            raise TypeError("Expected argument 'signing_job_arn' to be a str")
+        pulumi.set(__self__, "signing_job_arn", signing_job_arn)
+        if signing_profile_version_arn and not isinstance(signing_profile_version_arn, str):
+            raise TypeError("Expected argument 'signing_profile_version_arn' to be a str")
+        pulumi.set(__self__, "signing_profile_version_arn", signing_profile_version_arn)
         if source_code_hash and not isinstance(source_code_hash, str):
             raise TypeError("Expected argument 'source_code_hash' to be a str")
         pulumi.set(__self__, "source_code_hash", source_code_hash)
@@ -104,6 +113,14 @@ class GetFunctionResult:
         Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="codeSigningConfigArn")
+    def code_signing_config_arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) for a Code Signing Configuration.
+        """
+        return pulumi.get(self, "code_signing_config_arn")
 
     @property
     @pulumi.getter(name="deadLetterConfig")
@@ -231,9 +248,25 @@ class GetFunctionResult:
     @pulumi.getter
     def runtime(self) -> str:
         """
-        The runtime environment for the Lambda function..
+        The runtime environment for the Lambda function.
         """
         return pulumi.get(self, "runtime")
+
+    @property
+    @pulumi.getter(name="signingJobArn")
+    def signing_job_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of a signing job.
+        """
+        return pulumi.get(self, "signing_job_arn")
+
+    @property
+    @pulumi.getter(name="signingProfileVersionArn")
+    def signing_profile_version_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) for a signing profile version.
+        """
+        return pulumi.get(self, "signing_profile_version_arn")
 
     @property
     @pulumi.getter(name="sourceCodeHash")
@@ -296,6 +329,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             yield self
         return GetFunctionResult(
             arn=self.arn,
+            code_signing_config_arn=self.code_signing_config_arn,
             dead_letter_config=self.dead_letter_config,
             description=self.description,
             environment=self.environment,
@@ -313,6 +347,8 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             reserved_concurrent_executions=self.reserved_concurrent_executions,
             role=self.role,
             runtime=self.runtime,
+            signing_job_arn=self.signing_job_arn,
+            signing_profile_version_arn=self.signing_profile_version_arn,
             source_code_hash=self.source_code_hash,
             source_code_size=self.source_code_size,
             tags=self.tags,
@@ -356,6 +392,7 @@ def get_function(function_name: Optional[str] = None,
 
     return AwaitableGetFunctionResult(
         arn=__ret__.arn,
+        code_signing_config_arn=__ret__.code_signing_config_arn,
         dead_letter_config=__ret__.dead_letter_config,
         description=__ret__.description,
         environment=__ret__.environment,
@@ -373,6 +410,8 @@ def get_function(function_name: Optional[str] = None,
         reserved_concurrent_executions=__ret__.reserved_concurrent_executions,
         role=__ret__.role,
         runtime=__ret__.runtime,
+        signing_job_arn=__ret__.signing_job_arn,
+        signing_profile_version_arn=__ret__.signing_profile_version_arn,
         source_code_hash=__ret__.source_code_hash,
         source_code_size=__ret__.source_code_size,
         tags=__ret__.tags,

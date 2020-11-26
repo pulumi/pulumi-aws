@@ -157,6 +157,12 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// A list of partition indexes. see Partition Index below.
+        /// </summary>
+        [Output("partitionIndices")]
+        public Output<ImmutableArray<Outputs.CatalogTablePartitionIndex>> PartitionIndices { get; private set; } = null!;
+
+        /// <summary>
         /// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
         /// </summary>
         [Output("partitionKeys")]
@@ -280,6 +286,18 @@ namespace Pulumi.Aws.Glue
             set => _parameters = value;
         }
 
+        [Input("partitionIndices")]
+        private InputList<Inputs.CatalogTablePartitionIndexArgs>? _partitionIndices;
+
+        /// <summary>
+        /// A list of partition indexes. see Partition Index below.
+        /// </summary>
+        public InputList<Inputs.CatalogTablePartitionIndexArgs> PartitionIndices
+        {
+            get => _partitionIndices ?? (_partitionIndices = new InputList<Inputs.CatalogTablePartitionIndexArgs>());
+            set => _partitionIndices = value;
+        }
+
         [Input("partitionKeys")]
         private InputList<Inputs.CatalogTablePartitionKeyArgs>? _partitionKeys;
 
@@ -375,6 +393,18 @@ namespace Pulumi.Aws.Glue
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
+        }
+
+        [Input("partitionIndices")]
+        private InputList<Inputs.CatalogTablePartitionIndexGetArgs>? _partitionIndices;
+
+        /// <summary>
+        /// A list of partition indexes. see Partition Index below.
+        /// </summary>
+        public InputList<Inputs.CatalogTablePartitionIndexGetArgs> PartitionIndices
+        {
+            get => _partitionIndices ?? (_partitionIndices = new InputList<Inputs.CatalogTablePartitionIndexGetArgs>());
+            set => _partitionIndices = value;
         }
 
         [Input("partitionKeys")]

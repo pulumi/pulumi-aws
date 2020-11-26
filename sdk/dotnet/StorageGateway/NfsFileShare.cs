@@ -120,6 +120,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<Outputs.NfsFileShareNfsFileShareDefaults?> NfsFileShareDefaults { get; private set; } = null!;
 
         /// <summary>
+        /// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+        /// </summary>
+        [Output("notificationPolicy")]
+        public Output<string?> NotificationPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Access Control List permission for S3 bucket objects. Defaults to `private`.
         /// </summary>
         [Output("objectAcl")]
@@ -274,6 +280,12 @@ namespace Pulumi.Aws.StorageGateway
         public Input<Inputs.NfsFileShareNfsFileShareDefaultsArgs>? NfsFileShareDefaults { get; set; }
 
         /// <summary>
+        /// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+        /// </summary>
+        [Input("notificationPolicy")]
+        public Input<string>? NotificationPolicy { get; set; }
+
+        /// <summary>
         /// Access Control List permission for S3 bucket objects. Defaults to `private`.
         /// </summary>
         [Input("objectAcl")]
@@ -399,6 +411,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("nfsFileShareDefaults")]
         public Input<Inputs.NfsFileShareNfsFileShareDefaultsGetArgs>? NfsFileShareDefaults { get; set; }
+
+        /// <summary>
+        /// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+        /// </summary>
+        [Input("notificationPolicy")]
+        public Input<string>? NotificationPolicy { get; set; }
 
         /// <summary>
         /// Access Control List permission for S3 bucket objects. Defaults to `private`.

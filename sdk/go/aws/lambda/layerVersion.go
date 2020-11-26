@@ -63,6 +63,10 @@ type LayerVersion struct {
 	S3Key pulumi.StringPtrOutput `pulumi:"s3Key"`
 	// The object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion pulumi.StringPtrOutput `pulumi:"s3ObjectVersion"`
+	// The Amazon Resource Name (ARN) of a signing job.
+	SigningJobArn pulumi.StringOutput `pulumi:"signingJobArn"`
+	// The Amazon Resource Name (ARN) for a signing profile version.
+	SigningProfileVersionArn pulumi.StringOutput `pulumi:"signingProfileVersionArn"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
 	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
 	// The size in bytes of the function .zip file.
@@ -124,6 +128,10 @@ type layerVersionState struct {
 	S3Key *string `pulumi:"s3Key"`
 	// The object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
+	// The Amazon Resource Name (ARN) of a signing job.
+	SigningJobArn *string `pulumi:"signingJobArn"`
+	// The Amazon Resource Name (ARN) for a signing profile version.
+	SigningProfileVersionArn *string `pulumi:"signingProfileVersionArn"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// The size in bytes of the function .zip file.
@@ -155,6 +163,10 @@ type LayerVersionState struct {
 	S3Key pulumi.StringPtrInput
 	// The object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of a signing job.
+	SigningJobArn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) for a signing profile version.
+	SigningProfileVersionArn pulumi.StringPtrInput
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
 	SourceCodeHash pulumi.StringPtrInput
 	// The size in bytes of the function .zip file.

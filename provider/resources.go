@@ -136,6 +136,7 @@ const (
 	sagemakerMod              = "Sagemaker"             // Sagemaker
 	securityhubMod            = "SecurityHub"           // SecurityHub
 	sesMod                    = "Ses"                   // Simple Email Service (SES)
+	signerMod                 = "Signer"                // Signer
 	s3Mod                     = "S3"                    // Simple Storage (S3)
 	s3ControlMod              = "S3Control"             // S3 Control
 	s3OutpostsMod             = "S3Outposts"            // S3 Outposts
@@ -1657,6 +1658,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_lambda_provisioned_concurrency_config": {Tok: awsResource(lambdaMod, "ProvisionedConcurrencyConfig")},
 			"aws_lambda_function_event_invoke_config":   {Tok: awsResource(lambdaMod, "FunctionEventInvokeConfig")},
+			"aws_lambda_code_signing_config":            {Tok: awsResource(lambdaMod, "CodeSigningConfig")},
 			// License Manager
 			"aws_licensemanager_association":           {Tok: awsResource(licensemanagerMod, "Association")},
 			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
@@ -2333,6 +2335,11 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+
+			// signer
+			"aws_signer_signing_job":                {Tok: awsResource(signerMod, "SigningJob")},
+			"aws_signer_signing_profile":            {Tok: awsResource(signerMod, "SigningProfile")},
+			"aws_signer_signing_profile_permission": {Tok: awsResource(signerMod, "SigningProfilePermission")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws::Region": {
@@ -3327,9 +3334,10 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_lambda_invocation":    {Tok: awsDataSource(lambdaMod, "getInvocation")},
-			"aws_lambda_layer_version": {Tok: awsDataSource(lambdaMod, "getLayerVersion")},
-			"aws_lambda_alias":         {Tok: awsDataSource(lambdaMod, "getAlias")},
+			"aws_lambda_invocation":          {Tok: awsDataSource(lambdaMod, "getInvocation")},
+			"aws_lambda_layer_version":       {Tok: awsDataSource(lambdaMod, "getLayerVersion")},
+			"aws_lambda_alias":               {Tok: awsDataSource(lambdaMod, "getAlias")},
+			"aws_lambda_code_signing_config": {Tok: awsDataSource(lambdaMod, "getCodeSigningConfig")},
 			// MQ
 			"aws_mq_broker": {
 				Tok: awsDataSource(mqMod, "getBroker"),
@@ -3477,6 +3485,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_imagebuilder_infrastructure_configuration": {
 				Tok: awsDataSource(imageBuilderMod, "getInfrastructureConfiguration"),
 			},
+			//signer
+			"aws_signer_signing_job":     {Tok: awsDataSource(signerMod, "getSigningJob")},
+			"aws_signer_signing_profile": {Tok: awsDataSource(signerMod, "getSigningProfile")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

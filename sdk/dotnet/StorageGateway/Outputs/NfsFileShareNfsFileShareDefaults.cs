@@ -24,11 +24,11 @@ namespace Pulumi.Aws.StorageGateway.Outputs
         /// <summary>
         /// The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         /// </summary>
-        public readonly int? GroupId;
+        public readonly string? GroupId;
         /// <summary>
         /// The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         /// </summary>
-        public readonly int? OwnerId;
+        public readonly string? OwnerId;
 
         [OutputConstructor]
         private NfsFileShareNfsFileShareDefaults(
@@ -36,9 +36,9 @@ namespace Pulumi.Aws.StorageGateway.Outputs
 
             string? fileMode,
 
-            int? groupId,
+            string? groupId,
 
-            int? ownerId)
+            string? ownerId)
         {
             DirectoryMode = directoryMode;
             FileMode = fileMode;

@@ -71,6 +71,10 @@ type LookupLayerVersionResult struct {
 	LayerName string `pulumi:"layerName"`
 	// License info associated with the specific Lambda Layer version.
 	LicenseInfo string `pulumi:"licenseInfo"`
+	// The Amazon Resource Name (ARN) of a signing job.
+	SigningJobArn string `pulumi:"signingJobArn"`
+	// The Amazon Resource Name (ARN) for a signing profile version.
+	SigningProfileVersionArn string `pulumi:"signingProfileVersionArn"`
 	// Base64-encoded representation of raw SHA-256 sum of the zip file.
 	SourceCodeHash string `pulumi:"sourceCodeHash"`
 	// The size in bytes of the function .zip file.

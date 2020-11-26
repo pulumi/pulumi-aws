@@ -141,6 +141,268 @@ func (o AliasRoutingConfigPtrOutput) AdditionalVersionWeights() pulumi.Float64Ma
 	}).(pulumi.Float64MapOutput)
 }
 
+type CodeSigningConfigAllowedPublishers struct {
+	// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+	SigningProfileVersionArns []string `pulumi:"signingProfileVersionArns"`
+}
+
+// CodeSigningConfigAllowedPublishersInput is an input type that accepts CodeSigningConfigAllowedPublishersArgs and CodeSigningConfigAllowedPublishersOutput values.
+// You can construct a concrete instance of `CodeSigningConfigAllowedPublishersInput` via:
+//
+//          CodeSigningConfigAllowedPublishersArgs{...}
+type CodeSigningConfigAllowedPublishersInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigAllowedPublishersOutput() CodeSigningConfigAllowedPublishersOutput
+	ToCodeSigningConfigAllowedPublishersOutputWithContext(context.Context) CodeSigningConfigAllowedPublishersOutput
+}
+
+type CodeSigningConfigAllowedPublishersArgs struct {
+	// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+	SigningProfileVersionArns pulumi.StringArrayInput `pulumi:"signingProfileVersionArns"`
+}
+
+func (CodeSigningConfigAllowedPublishersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSigningConfigAllowedPublishers)(nil)).Elem()
+}
+
+func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublishersOutput() CodeSigningConfigAllowedPublishersOutput {
+	return i.ToCodeSigningConfigAllowedPublishersOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublishersOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersOutput)
+}
+
+func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
+	return i.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersOutput).ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx)
+}
+
+// CodeSigningConfigAllowedPublishersPtrInput is an input type that accepts CodeSigningConfigAllowedPublishersArgs, CodeSigningConfigAllowedPublishersPtr and CodeSigningConfigAllowedPublishersPtrOutput values.
+// You can construct a concrete instance of `CodeSigningConfigAllowedPublishersPtrInput` via:
+//
+//          CodeSigningConfigAllowedPublishersArgs{...}
+//
+//  or:
+//
+//          nil
+type CodeSigningConfigAllowedPublishersPtrInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput
+	ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Context) CodeSigningConfigAllowedPublishersPtrOutput
+}
+
+type codeSigningConfigAllowedPublishersPtrType CodeSigningConfigAllowedPublishersArgs
+
+func CodeSigningConfigAllowedPublishersPtr(v *CodeSigningConfigAllowedPublishersArgs) CodeSigningConfigAllowedPublishersPtrInput {
+	return (*codeSigningConfigAllowedPublishersPtrType)(v)
+}
+
+func (*codeSigningConfigAllowedPublishersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfigAllowedPublishers)(nil)).Elem()
+}
+
+func (i *codeSigningConfigAllowedPublishersPtrType) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
+	return i.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSigningConfigAllowedPublishersPtrType) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersPtrOutput)
+}
+
+type CodeSigningConfigAllowedPublishersOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigAllowedPublishersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSigningConfigAllowedPublishers)(nil)).Elem()
+}
+
+func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPublishersOutput() CodeSigningConfigAllowedPublishersOutput {
+	return o
+}
+
+func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPublishersOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersOutput {
+	return o
+}
+
+func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
+	return o.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
+	return o.ApplyT(func(v CodeSigningConfigAllowedPublishers) *CodeSigningConfigAllowedPublishers {
+		return &v
+	}).(CodeSigningConfigAllowedPublishersPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+func (o CodeSigningConfigAllowedPublishersOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CodeSigningConfigAllowedPublishers) []string { return v.SigningProfileVersionArns }).(pulumi.StringArrayOutput)
+}
+
+type CodeSigningConfigAllowedPublishersPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigAllowedPublishersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfigAllowedPublishers)(nil)).Elem()
+}
+
+func (o CodeSigningConfigAllowedPublishersPtrOutput) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigAllowedPublishersPtrOutput) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigAllowedPublishersPtrOutput) Elem() CodeSigningConfigAllowedPublishersOutput {
+	return o.ApplyT(func(v *CodeSigningConfigAllowedPublishers) CodeSigningConfigAllowedPublishers { return *v }).(CodeSigningConfigAllowedPublishersOutput)
+}
+
+// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+func (o CodeSigningConfigAllowedPublishersPtrOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CodeSigningConfigAllowedPublishers) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SigningProfileVersionArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type CodeSigningConfigPolicies struct {
+	// Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
+	UntrustedArtifactOnDeployment string `pulumi:"untrustedArtifactOnDeployment"`
+}
+
+// CodeSigningConfigPoliciesInput is an input type that accepts CodeSigningConfigPoliciesArgs and CodeSigningConfigPoliciesOutput values.
+// You can construct a concrete instance of `CodeSigningConfigPoliciesInput` via:
+//
+//          CodeSigningConfigPoliciesArgs{...}
+type CodeSigningConfigPoliciesInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigPoliciesOutput() CodeSigningConfigPoliciesOutput
+	ToCodeSigningConfigPoliciesOutputWithContext(context.Context) CodeSigningConfigPoliciesOutput
+}
+
+type CodeSigningConfigPoliciesArgs struct {
+	// Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
+	UntrustedArtifactOnDeployment pulumi.StringInput `pulumi:"untrustedArtifactOnDeployment"`
+}
+
+func (CodeSigningConfigPoliciesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSigningConfigPolicies)(nil)).Elem()
+}
+
+func (i CodeSigningConfigPoliciesArgs) ToCodeSigningConfigPoliciesOutput() CodeSigningConfigPoliciesOutput {
+	return i.ToCodeSigningConfigPoliciesOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigPoliciesArgs) ToCodeSigningConfigPoliciesOutputWithContext(ctx context.Context) CodeSigningConfigPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigPoliciesOutput)
+}
+
+func (i CodeSigningConfigPoliciesArgs) ToCodeSigningConfigPoliciesPtrOutput() CodeSigningConfigPoliciesPtrOutput {
+	return i.ToCodeSigningConfigPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigPoliciesArgs) ToCodeSigningConfigPoliciesPtrOutputWithContext(ctx context.Context) CodeSigningConfigPoliciesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigPoliciesOutput).ToCodeSigningConfigPoliciesPtrOutputWithContext(ctx)
+}
+
+// CodeSigningConfigPoliciesPtrInput is an input type that accepts CodeSigningConfigPoliciesArgs, CodeSigningConfigPoliciesPtr and CodeSigningConfigPoliciesPtrOutput values.
+// You can construct a concrete instance of `CodeSigningConfigPoliciesPtrInput` via:
+//
+//          CodeSigningConfigPoliciesArgs{...}
+//
+//  or:
+//
+//          nil
+type CodeSigningConfigPoliciesPtrInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigPoliciesPtrOutput() CodeSigningConfigPoliciesPtrOutput
+	ToCodeSigningConfigPoliciesPtrOutputWithContext(context.Context) CodeSigningConfigPoliciesPtrOutput
+}
+
+type codeSigningConfigPoliciesPtrType CodeSigningConfigPoliciesArgs
+
+func CodeSigningConfigPoliciesPtr(v *CodeSigningConfigPoliciesArgs) CodeSigningConfigPoliciesPtrInput {
+	return (*codeSigningConfigPoliciesPtrType)(v)
+}
+
+func (*codeSigningConfigPoliciesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfigPolicies)(nil)).Elem()
+}
+
+func (i *codeSigningConfigPoliciesPtrType) ToCodeSigningConfigPoliciesPtrOutput() CodeSigningConfigPoliciesPtrOutput {
+	return i.ToCodeSigningConfigPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSigningConfigPoliciesPtrType) ToCodeSigningConfigPoliciesPtrOutputWithContext(ctx context.Context) CodeSigningConfigPoliciesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigPoliciesPtrOutput)
+}
+
+type CodeSigningConfigPoliciesOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigPoliciesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSigningConfigPolicies)(nil)).Elem()
+}
+
+func (o CodeSigningConfigPoliciesOutput) ToCodeSigningConfigPoliciesOutput() CodeSigningConfigPoliciesOutput {
+	return o
+}
+
+func (o CodeSigningConfigPoliciesOutput) ToCodeSigningConfigPoliciesOutputWithContext(ctx context.Context) CodeSigningConfigPoliciesOutput {
+	return o
+}
+
+func (o CodeSigningConfigPoliciesOutput) ToCodeSigningConfigPoliciesPtrOutput() CodeSigningConfigPoliciesPtrOutput {
+	return o.ToCodeSigningConfigPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSigningConfigPoliciesOutput) ToCodeSigningConfigPoliciesPtrOutputWithContext(ctx context.Context) CodeSigningConfigPoliciesPtrOutput {
+	return o.ApplyT(func(v CodeSigningConfigPolicies) *CodeSigningConfigPolicies {
+		return &v
+	}).(CodeSigningConfigPoliciesPtrOutput)
+}
+
+// Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
+func (o CodeSigningConfigPoliciesOutput) UntrustedArtifactOnDeployment() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeSigningConfigPolicies) string { return v.UntrustedArtifactOnDeployment }).(pulumi.StringOutput)
+}
+
+type CodeSigningConfigPoliciesPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigPoliciesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfigPolicies)(nil)).Elem()
+}
+
+func (o CodeSigningConfigPoliciesPtrOutput) ToCodeSigningConfigPoliciesPtrOutput() CodeSigningConfigPoliciesPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigPoliciesPtrOutput) ToCodeSigningConfigPoliciesPtrOutputWithContext(ctx context.Context) CodeSigningConfigPoliciesPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigPoliciesPtrOutput) Elem() CodeSigningConfigPoliciesOutput {
+	return o.ApplyT(func(v *CodeSigningConfigPolicies) CodeSigningConfigPolicies { return *v }).(CodeSigningConfigPoliciesOutput)
+}
+
+// Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
+func (o CodeSigningConfigPoliciesPtrOutput) UntrustedArtifactOnDeployment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfigPolicies) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UntrustedArtifactOnDeployment
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventSourceMappingDestinationConfig struct {
 	// The destination configuration for failed invocations. Detailed below.
 	OnFailure *EventSourceMappingDestinationConfigOnFailure `pulumi:"onFailure"`
@@ -1565,6 +1827,200 @@ func (o FunctionVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetCodeSigningConfigAllowedPublisher struct {
+	// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+	SigningProfileVersionArns []string `pulumi:"signingProfileVersionArns"`
+}
+
+// GetCodeSigningConfigAllowedPublisherInput is an input type that accepts GetCodeSigningConfigAllowedPublisherArgs and GetCodeSigningConfigAllowedPublisherOutput values.
+// You can construct a concrete instance of `GetCodeSigningConfigAllowedPublisherInput` via:
+//
+//          GetCodeSigningConfigAllowedPublisherArgs{...}
+type GetCodeSigningConfigAllowedPublisherInput interface {
+	pulumi.Input
+
+	ToGetCodeSigningConfigAllowedPublisherOutput() GetCodeSigningConfigAllowedPublisherOutput
+	ToGetCodeSigningConfigAllowedPublisherOutputWithContext(context.Context) GetCodeSigningConfigAllowedPublisherOutput
+}
+
+type GetCodeSigningConfigAllowedPublisherArgs struct {
+	// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+	SigningProfileVersionArns pulumi.StringArrayInput `pulumi:"signingProfileVersionArns"`
+}
+
+func (GetCodeSigningConfigAllowedPublisherArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCodeSigningConfigAllowedPublisher)(nil)).Elem()
+}
+
+func (i GetCodeSigningConfigAllowedPublisherArgs) ToGetCodeSigningConfigAllowedPublisherOutput() GetCodeSigningConfigAllowedPublisherOutput {
+	return i.ToGetCodeSigningConfigAllowedPublisherOutputWithContext(context.Background())
+}
+
+func (i GetCodeSigningConfigAllowedPublisherArgs) ToGetCodeSigningConfigAllowedPublisherOutputWithContext(ctx context.Context) GetCodeSigningConfigAllowedPublisherOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCodeSigningConfigAllowedPublisherOutput)
+}
+
+// GetCodeSigningConfigAllowedPublisherArrayInput is an input type that accepts GetCodeSigningConfigAllowedPublisherArray and GetCodeSigningConfigAllowedPublisherArrayOutput values.
+// You can construct a concrete instance of `GetCodeSigningConfigAllowedPublisherArrayInput` via:
+//
+//          GetCodeSigningConfigAllowedPublisherArray{ GetCodeSigningConfigAllowedPublisherArgs{...} }
+type GetCodeSigningConfigAllowedPublisherArrayInput interface {
+	pulumi.Input
+
+	ToGetCodeSigningConfigAllowedPublisherArrayOutput() GetCodeSigningConfigAllowedPublisherArrayOutput
+	ToGetCodeSigningConfigAllowedPublisherArrayOutputWithContext(context.Context) GetCodeSigningConfigAllowedPublisherArrayOutput
+}
+
+type GetCodeSigningConfigAllowedPublisherArray []GetCodeSigningConfigAllowedPublisherInput
+
+func (GetCodeSigningConfigAllowedPublisherArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCodeSigningConfigAllowedPublisher)(nil)).Elem()
+}
+
+func (i GetCodeSigningConfigAllowedPublisherArray) ToGetCodeSigningConfigAllowedPublisherArrayOutput() GetCodeSigningConfigAllowedPublisherArrayOutput {
+	return i.ToGetCodeSigningConfigAllowedPublisherArrayOutputWithContext(context.Background())
+}
+
+func (i GetCodeSigningConfigAllowedPublisherArray) ToGetCodeSigningConfigAllowedPublisherArrayOutputWithContext(ctx context.Context) GetCodeSigningConfigAllowedPublisherArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCodeSigningConfigAllowedPublisherArrayOutput)
+}
+
+type GetCodeSigningConfigAllowedPublisherOutput struct{ *pulumi.OutputState }
+
+func (GetCodeSigningConfigAllowedPublisherOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCodeSigningConfigAllowedPublisher)(nil)).Elem()
+}
+
+func (o GetCodeSigningConfigAllowedPublisherOutput) ToGetCodeSigningConfigAllowedPublisherOutput() GetCodeSigningConfigAllowedPublisherOutput {
+	return o
+}
+
+func (o GetCodeSigningConfigAllowedPublisherOutput) ToGetCodeSigningConfigAllowedPublisherOutputWithContext(ctx context.Context) GetCodeSigningConfigAllowedPublisherOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+func (o GetCodeSigningConfigAllowedPublisherOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCodeSigningConfigAllowedPublisher) []string { return v.SigningProfileVersionArns }).(pulumi.StringArrayOutput)
+}
+
+type GetCodeSigningConfigAllowedPublisherArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCodeSigningConfigAllowedPublisherArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCodeSigningConfigAllowedPublisher)(nil)).Elem()
+}
+
+func (o GetCodeSigningConfigAllowedPublisherArrayOutput) ToGetCodeSigningConfigAllowedPublisherArrayOutput() GetCodeSigningConfigAllowedPublisherArrayOutput {
+	return o
+}
+
+func (o GetCodeSigningConfigAllowedPublisherArrayOutput) ToGetCodeSigningConfigAllowedPublisherArrayOutputWithContext(ctx context.Context) GetCodeSigningConfigAllowedPublisherArrayOutput {
+	return o
+}
+
+func (o GetCodeSigningConfigAllowedPublisherArrayOutput) Index(i pulumi.IntInput) GetCodeSigningConfigAllowedPublisherOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCodeSigningConfigAllowedPublisher {
+		return vs[0].([]GetCodeSigningConfigAllowedPublisher)[vs[1].(int)]
+	}).(GetCodeSigningConfigAllowedPublisherOutput)
+}
+
+type GetCodeSigningConfigPolicy struct {
+	// Code signing configuration policy for deployment validation failure.
+	UntrustedArtifactOnDeployment string `pulumi:"untrustedArtifactOnDeployment"`
+}
+
+// GetCodeSigningConfigPolicyInput is an input type that accepts GetCodeSigningConfigPolicyArgs and GetCodeSigningConfigPolicyOutput values.
+// You can construct a concrete instance of `GetCodeSigningConfigPolicyInput` via:
+//
+//          GetCodeSigningConfigPolicyArgs{...}
+type GetCodeSigningConfigPolicyInput interface {
+	pulumi.Input
+
+	ToGetCodeSigningConfigPolicyOutput() GetCodeSigningConfigPolicyOutput
+	ToGetCodeSigningConfigPolicyOutputWithContext(context.Context) GetCodeSigningConfigPolicyOutput
+}
+
+type GetCodeSigningConfigPolicyArgs struct {
+	// Code signing configuration policy for deployment validation failure.
+	UntrustedArtifactOnDeployment pulumi.StringInput `pulumi:"untrustedArtifactOnDeployment"`
+}
+
+func (GetCodeSigningConfigPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCodeSigningConfigPolicy)(nil)).Elem()
+}
+
+func (i GetCodeSigningConfigPolicyArgs) ToGetCodeSigningConfigPolicyOutput() GetCodeSigningConfigPolicyOutput {
+	return i.ToGetCodeSigningConfigPolicyOutputWithContext(context.Background())
+}
+
+func (i GetCodeSigningConfigPolicyArgs) ToGetCodeSigningConfigPolicyOutputWithContext(ctx context.Context) GetCodeSigningConfigPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCodeSigningConfigPolicyOutput)
+}
+
+// GetCodeSigningConfigPolicyArrayInput is an input type that accepts GetCodeSigningConfigPolicyArray and GetCodeSigningConfigPolicyArrayOutput values.
+// You can construct a concrete instance of `GetCodeSigningConfigPolicyArrayInput` via:
+//
+//          GetCodeSigningConfigPolicyArray{ GetCodeSigningConfigPolicyArgs{...} }
+type GetCodeSigningConfigPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetCodeSigningConfigPolicyArrayOutput() GetCodeSigningConfigPolicyArrayOutput
+	ToGetCodeSigningConfigPolicyArrayOutputWithContext(context.Context) GetCodeSigningConfigPolicyArrayOutput
+}
+
+type GetCodeSigningConfigPolicyArray []GetCodeSigningConfigPolicyInput
+
+func (GetCodeSigningConfigPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCodeSigningConfigPolicy)(nil)).Elem()
+}
+
+func (i GetCodeSigningConfigPolicyArray) ToGetCodeSigningConfigPolicyArrayOutput() GetCodeSigningConfigPolicyArrayOutput {
+	return i.ToGetCodeSigningConfigPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCodeSigningConfigPolicyArray) ToGetCodeSigningConfigPolicyArrayOutputWithContext(ctx context.Context) GetCodeSigningConfigPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCodeSigningConfigPolicyArrayOutput)
+}
+
+type GetCodeSigningConfigPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetCodeSigningConfigPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCodeSigningConfigPolicy)(nil)).Elem()
+}
+
+func (o GetCodeSigningConfigPolicyOutput) ToGetCodeSigningConfigPolicyOutput() GetCodeSigningConfigPolicyOutput {
+	return o
+}
+
+func (o GetCodeSigningConfigPolicyOutput) ToGetCodeSigningConfigPolicyOutputWithContext(ctx context.Context) GetCodeSigningConfigPolicyOutput {
+	return o
+}
+
+// Code signing configuration policy for deployment validation failure.
+func (o GetCodeSigningConfigPolicyOutput) UntrustedArtifactOnDeployment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodeSigningConfigPolicy) string { return v.UntrustedArtifactOnDeployment }).(pulumi.StringOutput)
+}
+
+type GetCodeSigningConfigPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCodeSigningConfigPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCodeSigningConfigPolicy)(nil)).Elem()
+}
+
+func (o GetCodeSigningConfigPolicyArrayOutput) ToGetCodeSigningConfigPolicyArrayOutput() GetCodeSigningConfigPolicyArrayOutput {
+	return o
+}
+
+func (o GetCodeSigningConfigPolicyArrayOutput) ToGetCodeSigningConfigPolicyArrayOutputWithContext(ctx context.Context) GetCodeSigningConfigPolicyArrayOutput {
+	return o
+}
+
+func (o GetCodeSigningConfigPolicyArrayOutput) Index(i pulumi.IntInput) GetCodeSigningConfigPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCodeSigningConfigPolicy {
+		return vs[0].([]GetCodeSigningConfigPolicy)[vs[1].(int)]
+	}).(GetCodeSigningConfigPolicyOutput)
+}
+
 type GetFunctionDeadLetterConfig struct {
 	TargetArn string `pulumi:"targetArn"`
 }
@@ -1879,6 +2335,10 @@ func (o GetFunctionVpcConfigOutput) VpcId() pulumi.StringOutput {
 func init() {
 	pulumi.RegisterOutputType(AliasRoutingConfigOutput{})
 	pulumi.RegisterOutputType(AliasRoutingConfigPtrOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersPtrOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigPoliciesOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigPoliciesPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigOnFailureOutput{})
@@ -1899,6 +2359,10 @@ func init() {
 	pulumi.RegisterOutputType(FunctionTracingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(GetCodeSigningConfigAllowedPublisherOutput{})
+	pulumi.RegisterOutputType(GetCodeSigningConfigAllowedPublisherArrayOutput{})
+	pulumi.RegisterOutputType(GetCodeSigningConfigPolicyOutput{})
+	pulumi.RegisterOutputType(GetCodeSigningConfigPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionDeadLetterConfigOutput{})
 	pulumi.RegisterOutputType(GetFunctionEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetFunctionFileSystemConfigOutput{})

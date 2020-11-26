@@ -230,6 +230,7 @@ type Endpoints struct {
 	Servicequotas            *string `pulumi:"servicequotas"`
 	Ses                      *string `pulumi:"ses"`
 	Shield                   *string `pulumi:"shield"`
+	Signer                   *string `pulumi:"signer"`
 	Sns                      *string `pulumi:"sns"`
 	Sqs                      *string `pulumi:"sqs"`
 	Ssm                      *string `pulumi:"ssm"`
@@ -390,6 +391,7 @@ type EndpointsArgs struct {
 	Servicequotas            pulumi.StringPtrInput `pulumi:"servicequotas"`
 	Ses                      pulumi.StringPtrInput `pulumi:"ses"`
 	Shield                   pulumi.StringPtrInput `pulumi:"shield"`
+	Signer                   pulumi.StringPtrInput `pulumi:"signer"`
 	Sns                      pulumi.StringPtrInput `pulumi:"sns"`
 	Sqs                      pulumi.StringPtrInput `pulumi:"sqs"`
 	Ssm                      pulumi.StringPtrInput `pulumi:"ssm"`
@@ -971,6 +973,10 @@ func (o EndpointsOutput) Ses() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Shield() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Shield }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Signer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Signer }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Sns() pulumi.StringPtrOutput {

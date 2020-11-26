@@ -160,6 +160,51 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
+    /// ### Configuration Settings
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var eventsCrawler = new Aws.Glue.Crawler("eventsCrawler", new Aws.Glue.CrawlerArgs
+    ///         {
+    ///             DatabaseName = aws_glue_catalog_database.Glue_database.Name,
+    ///             Schedule = "cron(0 1 * * ? *)",
+    ///             Role = aws_iam_role.Glue_role.Arn,
+    ///             Tags = @var.Tags,
+    ///             Configuration = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "Grouping", new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     { "TableGroupingPolicy", "CombineCompatibleSchemas" },
+    ///                 } },
+    ///                 { "CrawlerOutput", new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     { "Partitions", new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         { "AddOrUpdateBehavior", "InheritFromTable" },
+    ///                     } },
+    ///                 } },
+    ///                 { "Version", 1 },
+    ///             }),
+    ///             S3Targets = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.CrawlerS3TargetArgs
+    ///                 {
+    ///                     Path = $"s3://{aws_s3_bucket.Data_lake_bucket.Bucket}",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -187,7 +232,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableArray<string>> Classifiers { get; private set; } = null!;
 
         /// <summary>
-        /// JSON string of configuration information.
+        /// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         /// </summary>
         [Output("configuration")]
         public Output<string?> Configuration { get; private set; } = null!;
@@ -337,7 +382,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// JSON string of configuration information.
+        /// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         /// </summary>
         [Input("configuration")]
         public Input<string>? Configuration { get; set; }
@@ -484,7 +529,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// JSON string of configuration information.
+        /// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         /// </summary>
         [Input("configuration")]
         public Input<string>? Configuration { get; set; }

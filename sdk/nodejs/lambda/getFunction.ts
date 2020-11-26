@@ -60,6 +60,10 @@ export interface GetFunctionResult {
      */
     readonly arn: string;
     /**
+     * Amazon Resource Name (ARN) for a Code Signing Configuration.
+     */
+    readonly codeSigningConfigArn: string;
+    /**
      * Configure the function's *dead letter queue*.
      */
     readonly deadLetterConfig: outputs.lambda.GetFunctionDeadLetterConfig;
@@ -118,9 +122,17 @@ export interface GetFunctionResult {
      */
     readonly role: string;
     /**
-     * The runtime environment for the Lambda function..
+     * The runtime environment for the Lambda function.
      */
     readonly runtime: string;
+    /**
+     * The Amazon Resource Name (ARN) of a signing job.
+     */
+    readonly signingJobArn: string;
+    /**
+     * The Amazon Resource Name (ARN) for a signing profile version.
+     */
+    readonly signingProfileVersionArn: string;
     /**
      * Base64-encoded representation of raw SHA-256 sum of the zip file.
      */

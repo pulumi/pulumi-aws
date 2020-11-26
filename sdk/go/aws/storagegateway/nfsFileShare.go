@@ -75,6 +75,8 @@ type NfsFileShare struct {
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
 	NfsFileShareDefaults NfsFileShareNfsFileShareDefaultsPtrOutput `pulumi:"nfsFileShareDefaults"`
+	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+	NotificationPolicy pulumi.StringPtrOutput `pulumi:"notificationPolicy"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrOutput `pulumi:"objectAcl"`
 	// File share path used by the NFS client to identify the mount point.
@@ -155,6 +157,8 @@ type nfsFileShareState struct {
 	LocationArn *string `pulumi:"locationArn"`
 	// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
 	NfsFileShareDefaults *NfsFileShareNfsFileShareDefaults `pulumi:"nfsFileShareDefaults"`
+	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+	NotificationPolicy *string `pulumi:"notificationPolicy"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl *string `pulumi:"objectAcl"`
 	// File share path used by the NFS client to identify the mount point.
@@ -196,6 +200,8 @@ type NfsFileShareState struct {
 	LocationArn pulumi.StringPtrInput
 	// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
 	NfsFileShareDefaults NfsFileShareNfsFileShareDefaultsPtrInput
+	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+	NotificationPolicy pulumi.StringPtrInput
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrInput
 	// File share path used by the NFS client to identify the mount point.
@@ -237,6 +243,8 @@ type nfsFileShareArgs struct {
 	LocationArn string `pulumi:"locationArn"`
 	// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
 	NfsFileShareDefaults *NfsFileShareNfsFileShareDefaults `pulumi:"nfsFileShareDefaults"`
+	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+	NotificationPolicy *string `pulumi:"notificationPolicy"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl *string `pulumi:"objectAcl"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
@@ -273,6 +281,8 @@ type NfsFileShareArgs struct {
 	LocationArn pulumi.StringInput
 	// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
 	NfsFileShareDefaults NfsFileShareNfsFileShareDefaultsPtrInput
+	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+	NotificationPolicy pulumi.StringPtrInput
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrInput
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.

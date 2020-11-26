@@ -139,6 +139,10 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A list of partition indexes. see Partition Index below.
+     */
+    public readonly partitionIndices!: pulumi.Output<outputs.glue.CatalogTablePartitionIndex[] | undefined>;
+    /**
      * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
      */
     public readonly partitionKeys!: pulumi.Output<outputs.glue.CatalogTablePartitionKey[] | undefined>;
@@ -182,6 +186,7 @@ export class CatalogTable extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["owner"] = state ? state.owner : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
+            inputs["partitionIndices"] = state ? state.partitionIndices : undefined;
             inputs["partitionKeys"] = state ? state.partitionKeys : undefined;
             inputs["retention"] = state ? state.retention : undefined;
             inputs["storageDescriptor"] = state ? state.storageDescriptor : undefined;
@@ -199,6 +204,7 @@ export class CatalogTable extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["owner"] = args ? args.owner : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["partitionIndices"] = args ? args.partitionIndices : undefined;
             inputs["partitionKeys"] = args ? args.partitionKeys : undefined;
             inputs["retention"] = args ? args.retention : undefined;
             inputs["storageDescriptor"] = args ? args.storageDescriptor : undefined;
@@ -250,6 +256,10 @@ export interface CatalogTableState {
      * A map of initialization parameters for the SerDe, in key-value form.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A list of partition indexes. see Partition Index below.
+     */
+    readonly partitionIndices?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionIndex>[]>;
     /**
      * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
      */
@@ -304,6 +314,10 @@ export interface CatalogTableArgs {
      * A map of initialization parameters for the SerDe, in key-value form.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A list of partition indexes. see Partition Index below.
+     */
+    readonly partitionIndices?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionIndex>[]>;
     /**
      * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
      */

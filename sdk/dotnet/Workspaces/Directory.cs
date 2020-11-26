@@ -145,6 +145,31 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// }
     /// ```
+    /// ### IP Groups
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleIpGroup = new Aws.Workspaces.IpGroup("exampleIpGroup", new Aws.Workspaces.IpGroupArgs
+    ///         {
+    ///         });
+    ///         var exampleDirectory = new Aws.Workspaces.Directory("exampleDirectory", new Aws.Workspaces.DirectoryArgs
+    ///         {
+    ///             DirectoryId = aws_directory_service_directory.Example.Id,
+    ///             IpGroupIds = 
+    ///             {
+    ///                 exampleIpGroup.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -217,7 +242,7 @@ namespace Pulumi.Aws.Workspaces
         public Output<Outputs.DirectorySelfServicePermissions> SelfServicePermissions { get; private set; } = null!;
 
         /// <summary>
-        /// The subnets identifiers where the workspaces are created.
+        /// The identifiers of the subnets where the directory resides.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -292,6 +317,18 @@ namespace Pulumi.Aws.Workspaces
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
 
+        [Input("ipGroupIds")]
+        private InputList<string>? _ipGroupIds;
+
+        /// <summary>
+        /// The identifiers of the IP access control groups associated with the directory.
+        /// </summary>
+        public InputList<string> IpGroupIds
+        {
+            get => _ipGroupIds ?? (_ipGroupIds = new InputList<string>());
+            set => _ipGroupIds = value;
+        }
+
         /// <summary>
         /// Permissions to enable or disable self-service capabilities. Defined below.
         /// </summary>
@@ -302,7 +339,7 @@ namespace Pulumi.Aws.Workspaces
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The subnets identifiers where the workspaces are created.
+        /// The identifiers of the subnets where the directory resides.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -411,7 +448,7 @@ namespace Pulumi.Aws.Workspaces
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The subnets identifiers where the workspaces are created.
+        /// The identifiers of the subnets where the directory resides.
         /// </summary>
         public InputList<string> SubnetIds
         {

@@ -10,6 +10,118 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type CatalogTablePartitionIndex struct {
+	// The name of the partition index.
+	IndexName   string  `pulumi:"indexName"`
+	IndexStatus *string `pulumi:"indexStatus"`
+	// The keys for the partition index.
+	Keys []string `pulumi:"keys"`
+}
+
+// CatalogTablePartitionIndexInput is an input type that accepts CatalogTablePartitionIndexArgs and CatalogTablePartitionIndexOutput values.
+// You can construct a concrete instance of `CatalogTablePartitionIndexInput` via:
+//
+//          CatalogTablePartitionIndexArgs{...}
+type CatalogTablePartitionIndexInput interface {
+	pulumi.Input
+
+	ToCatalogTablePartitionIndexOutput() CatalogTablePartitionIndexOutput
+	ToCatalogTablePartitionIndexOutputWithContext(context.Context) CatalogTablePartitionIndexOutput
+}
+
+type CatalogTablePartitionIndexArgs struct {
+	// The name of the partition index.
+	IndexName   pulumi.StringInput    `pulumi:"indexName"`
+	IndexStatus pulumi.StringPtrInput `pulumi:"indexStatus"`
+	// The keys for the partition index.
+	Keys pulumi.StringArrayInput `pulumi:"keys"`
+}
+
+func (CatalogTablePartitionIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTablePartitionIndex)(nil)).Elem()
+}
+
+func (i CatalogTablePartitionIndexArgs) ToCatalogTablePartitionIndexOutput() CatalogTablePartitionIndexOutput {
+	return i.ToCatalogTablePartitionIndexOutputWithContext(context.Background())
+}
+
+func (i CatalogTablePartitionIndexArgs) ToCatalogTablePartitionIndexOutputWithContext(ctx context.Context) CatalogTablePartitionIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTablePartitionIndexOutput)
+}
+
+// CatalogTablePartitionIndexArrayInput is an input type that accepts CatalogTablePartitionIndexArray and CatalogTablePartitionIndexArrayOutput values.
+// You can construct a concrete instance of `CatalogTablePartitionIndexArrayInput` via:
+//
+//          CatalogTablePartitionIndexArray{ CatalogTablePartitionIndexArgs{...} }
+type CatalogTablePartitionIndexArrayInput interface {
+	pulumi.Input
+
+	ToCatalogTablePartitionIndexArrayOutput() CatalogTablePartitionIndexArrayOutput
+	ToCatalogTablePartitionIndexArrayOutputWithContext(context.Context) CatalogTablePartitionIndexArrayOutput
+}
+
+type CatalogTablePartitionIndexArray []CatalogTablePartitionIndexInput
+
+func (CatalogTablePartitionIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogTablePartitionIndex)(nil)).Elem()
+}
+
+func (i CatalogTablePartitionIndexArray) ToCatalogTablePartitionIndexArrayOutput() CatalogTablePartitionIndexArrayOutput {
+	return i.ToCatalogTablePartitionIndexArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogTablePartitionIndexArray) ToCatalogTablePartitionIndexArrayOutputWithContext(ctx context.Context) CatalogTablePartitionIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTablePartitionIndexArrayOutput)
+}
+
+type CatalogTablePartitionIndexOutput struct{ *pulumi.OutputState }
+
+func (CatalogTablePartitionIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTablePartitionIndex)(nil)).Elem()
+}
+
+func (o CatalogTablePartitionIndexOutput) ToCatalogTablePartitionIndexOutput() CatalogTablePartitionIndexOutput {
+	return o
+}
+
+func (o CatalogTablePartitionIndexOutput) ToCatalogTablePartitionIndexOutputWithContext(ctx context.Context) CatalogTablePartitionIndexOutput {
+	return o
+}
+
+// The name of the partition index.
+func (o CatalogTablePartitionIndexOutput) IndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTablePartitionIndex) string { return v.IndexName }).(pulumi.StringOutput)
+}
+
+func (o CatalogTablePartitionIndexOutput) IndexStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTablePartitionIndex) *string { return v.IndexStatus }).(pulumi.StringPtrOutput)
+}
+
+// The keys for the partition index.
+func (o CatalogTablePartitionIndexOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CatalogTablePartitionIndex) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+type CatalogTablePartitionIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogTablePartitionIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogTablePartitionIndex)(nil)).Elem()
+}
+
+func (o CatalogTablePartitionIndexArrayOutput) ToCatalogTablePartitionIndexArrayOutput() CatalogTablePartitionIndexArrayOutput {
+	return o
+}
+
+func (o CatalogTablePartitionIndexArrayOutput) ToCatalogTablePartitionIndexArrayOutputWithContext(ctx context.Context) CatalogTablePartitionIndexArrayOutput {
+	return o
+}
+
+func (o CatalogTablePartitionIndexArrayOutput) Index(i pulumi.IntInput) CatalogTablePartitionIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogTablePartitionIndex {
+		return vs[0].([]CatalogTablePartitionIndex)[vs[1].(int)]
+	}).(CatalogTablePartitionIndexOutput)
+}
+
 type CatalogTablePartitionKey struct {
 	// Free-form text comment.
 	Comment *string `pulumi:"comment"`
@@ -6611,6 +6723,8 @@ func (o GetScriptDagNodeArgArrayOutput) Index(i pulumi.IntInput) GetScriptDagNod
 }
 
 func init() {
+	pulumi.RegisterOutputType(CatalogTablePartitionIndexOutput{})
+	pulumi.RegisterOutputType(CatalogTablePartitionIndexArrayOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionKeyOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionKeyArrayOutput{})
 	pulumi.RegisterOutputType(CatalogTableStorageDescriptorOutput{})

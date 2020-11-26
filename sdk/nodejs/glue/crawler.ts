@@ -92,6 +92,33 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### Configuration Settings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const eventsCrawler = new aws.glue.Crawler("eventsCrawler", {
+ *     databaseName: aws_glue_catalog_database.glue_database.name,
+ *     schedule: "cron(0 1 * * ? *)",
+ *     role: aws_iam_role.glue_role.arn,
+ *     tags: _var.tags,
+ *     configuration: JSON.stringify({
+ *         Grouping: {
+ *             TableGroupingPolicy: "CombineCompatibleSchemas",
+ *         },
+ *         CrawlerOutput: {
+ *             Partitions: {
+ *                 AddOrUpdateBehavior: "InheritFromTable",
+ *             },
+ *         },
+ *         Version: 1,
+ *     }),
+ *     s3Targets: [{
+ *         path: `s3://${aws_s3_bucket.data_lake_bucket.bucket}`,
+ *     }],
+ * });
+ * ```
  *
  * ## Import
  *
@@ -139,7 +166,7 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly classifiers!: pulumi.Output<string[] | undefined>;
     /**
-     * JSON string of configuration information.
+     * JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
      */
     public readonly configuration!: pulumi.Output<string | undefined>;
     /**
@@ -275,7 +302,7 @@ export interface CrawlerState {
      */
     readonly classifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * JSON string of configuration information.
+     * JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
      */
     readonly configuration?: pulumi.Input<string>;
     /**
@@ -342,7 +369,7 @@ export interface CrawlerArgs {
      */
     readonly classifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * JSON string of configuration information.
+     * JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
      */
     readonly configuration?: pulumi.Input<string>;
     /**
