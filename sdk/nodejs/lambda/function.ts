@@ -49,7 +49,7 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `imageUri` cannot be used.
      */
     public readonly code!: pulumi.Output<pulumi.asset.Archive | undefined>;
     /**
@@ -75,7 +75,15 @@ export class Function extends pulumi.CustomResource {
     /**
      * The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      */
-    public readonly handler!: pulumi.Output<string>;
+    public readonly handler!: pulumi.Output<string | undefined>;
+    /**
+     * The Lambda OCI image configurations. Fields documented below. See [Using container images with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)
+     */
+    public readonly imageConfig!: pulumi.Output<outputs.lambda.FunctionImageConfig | undefined>;
+    /**
+     * The ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
+     */
+    public readonly imageUri!: pulumi.Output<string | undefined>;
     /**
      * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
      */
@@ -100,6 +108,7 @@ export class Function extends pulumi.CustomResource {
      * A unique name for your Lambda Function.
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly packageType!: pulumi.Output<string | undefined>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
@@ -120,17 +129,17 @@ export class Function extends pulumi.CustomResource {
     /**
      * See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      */
-    public readonly runtime!: pulumi.Output<string>;
+    public readonly runtime!: pulumi.Output<string | undefined>;
     /**
-     * The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * The S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */
     public readonly s3Bucket!: pulumi.Output<string | undefined>;
     /**
-     * The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+     * The S3 key of an object containing the function's deployment package. Conflicts with `filename` and `imageUri`.
      */
     public readonly s3Key!: pulumi.Output<string | undefined>;
     /**
-     * The object version containing the function's deployment package. Conflicts with `filename`.
+     * The object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
      */
     public readonly s3ObjectVersion!: pulumi.Output<string | undefined>;
     /**
@@ -187,12 +196,15 @@ export class Function extends pulumi.CustomResource {
             inputs["environment"] = state ? state.environment : undefined;
             inputs["fileSystemConfig"] = state ? state.fileSystemConfig : undefined;
             inputs["handler"] = state ? state.handler : undefined;
+            inputs["imageConfig"] = state ? state.imageConfig : undefined;
+            inputs["imageUri"] = state ? state.imageUri : undefined;
             inputs["invokeArn"] = state ? state.invokeArn : undefined;
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             inputs["lastModified"] = state ? state.lastModified : undefined;
             inputs["layers"] = state ? state.layers : undefined;
             inputs["memorySize"] = state ? state.memorySize : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["packageType"] = state ? state.packageType : undefined;
             inputs["publish"] = state ? state.publish : undefined;
             inputs["qualifiedArn"] = state ? state.qualifiedArn : undefined;
             inputs["reservedConcurrentExecutions"] = state ? state.reservedConcurrentExecutions : undefined;
@@ -212,14 +224,8 @@ export class Function extends pulumi.CustomResource {
             inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as FunctionArgs | undefined;
-            if (!args || args.handler === undefined) {
-                throw new Error("Missing required property 'handler'");
-            }
             if (!args || args.role === undefined) {
                 throw new Error("Missing required property 'role'");
-            }
-            if (!args || args.runtime === undefined) {
-                throw new Error("Missing required property 'runtime'");
             }
             inputs["code"] = args ? args.code : undefined;
             inputs["codeSigningConfigArn"] = args ? args.codeSigningConfigArn : undefined;
@@ -228,10 +234,13 @@ export class Function extends pulumi.CustomResource {
             inputs["environment"] = args ? args.environment : undefined;
             inputs["fileSystemConfig"] = args ? args.fileSystemConfig : undefined;
             inputs["handler"] = args ? args.handler : undefined;
+            inputs["imageConfig"] = args ? args.imageConfig : undefined;
+            inputs["imageUri"] = args ? args.imageUri : undefined;
             inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             inputs["layers"] = args ? args.layers : undefined;
             inputs["memorySize"] = args ? args.memorySize : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["packageType"] = args ? args.packageType : undefined;
             inputs["publish"] = args ? args.publish : undefined;
             inputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
             inputs["role"] = args ? args.role : undefined;
@@ -273,7 +282,7 @@ export interface FunctionState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `imageUri` cannot be used.
      */
     readonly code?: pulumi.Input<pulumi.asset.Archive>;
     /**
@@ -301,6 +310,14 @@ export interface FunctionState {
      */
     readonly handler?: pulumi.Input<string>;
     /**
+     * The Lambda OCI image configurations. Fields documented below. See [Using container images with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)
+     */
+    readonly imageConfig?: pulumi.Input<inputs.lambda.FunctionImageConfig>;
+    /**
+     * The ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
+     */
+    readonly imageUri?: pulumi.Input<string>;
+    /**
      * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
      */
     readonly invokeArn?: pulumi.Input<string>;
@@ -324,6 +341,7 @@ export interface FunctionState {
      * A unique name for your Lambda Function.
      */
     readonly name?: pulumi.Input<string>;
+    readonly packageType?: pulumi.Input<string>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
@@ -346,15 +364,15 @@ export interface FunctionState {
      */
     readonly runtime?: pulumi.Input<string>;
     /**
-     * The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * The S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */
     readonly s3Bucket?: pulumi.Input<string>;
     /**
-     * The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+     * The S3 key of an object containing the function's deployment package. Conflicts with `filename` and `imageUri`.
      */
     readonly s3Key?: pulumi.Input<string>;
     /**
-     * The object version containing the function's deployment package. Conflicts with `filename`.
+     * The object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
      */
     readonly s3ObjectVersion?: pulumi.Input<string>;
     /**
@@ -397,7 +415,7 @@ export interface FunctionState {
  */
 export interface FunctionArgs {
     /**
-     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `imageUri` cannot be used.
      */
     readonly code?: pulumi.Input<pulumi.asset.Archive>;
     /**
@@ -423,7 +441,15 @@ export interface FunctionArgs {
     /**
      * The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      */
-    readonly handler: pulumi.Input<string>;
+    readonly handler?: pulumi.Input<string>;
+    /**
+     * The Lambda OCI image configurations. Fields documented below. See [Using container images with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)
+     */
+    readonly imageConfig?: pulumi.Input<inputs.lambda.FunctionImageConfig>;
+    /**
+     * The ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
+     */
+    readonly imageUri?: pulumi.Input<string>;
     /**
      * (Optional) The ARN for the KMS encryption key.
      */
@@ -440,6 +466,7 @@ export interface FunctionArgs {
      * A unique name for your Lambda Function.
      */
     readonly name?: pulumi.Input<string>;
+    readonly packageType?: pulumi.Input<string>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
@@ -455,17 +482,17 @@ export interface FunctionArgs {
     /**
      * See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      */
-    readonly runtime: pulumi.Input<string>;
+    readonly runtime?: pulumi.Input<string>;
     /**
-     * The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * The S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */
     readonly s3Bucket?: pulumi.Input<string>;
     /**
-     * The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+     * The S3 key of an object containing the function's deployment package. Conflicts with `filename` and `imageUri`.
      */
     readonly s3Key?: pulumi.Input<string>;
     /**
-     * The object version containing the function's deployment package. Conflicts with `filename`.
+     * The object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
      */
     readonly s3ObjectVersion?: pulumi.Input<string>;
     /**

@@ -16168,6 +16168,21 @@ export namespace lambda {
         localMountPath: string;
     }
 
+    export interface FunctionImageConfig {
+        /**
+         * The CMD for the docker image.
+         */
+        commands?: string[];
+        /**
+         * The ENTRYPOINT for the docker image.
+         */
+        entryPoints?: string[];
+        /**
+         * The working directory for the docker image.
+         */
+        workingDirectory?: string;
+    }
+
     export interface FunctionTracingConfig {
         /**
          * Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
