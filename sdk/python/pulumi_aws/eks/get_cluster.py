@@ -20,7 +20,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, name=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None):
+    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetClusterResult:
         if identities and not isinstance(identities, list):
             raise TypeError("Expected argument 'identities' to be a list")
         pulumi.set(__self__, "identities", identities)
+        if kubernetes_network_configs and not isinstance(kubernetes_network_configs, list):
+            raise TypeError("Expected argument 'kubernetes_network_configs' to be a list")
+        pulumi.set(__self__, "kubernetes_network_configs", kubernetes_network_configs)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -121,6 +124,14 @@ class GetClusterResult:
         return pulumi.get(self, "identities")
 
     @property
+    @pulumi.getter(name="kubernetesNetworkConfigs")
+    def kubernetes_network_configs(self) -> Sequence['outputs.GetClusterKubernetesNetworkConfigResult']:
+        """
+        Nested list containing Kubernetes Network Configuration.
+        """
+        return pulumi.get(self, "kubernetes_network_configs")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
@@ -187,6 +198,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             endpoint=self.endpoint,
             id=self.id,
             identities=self.identities,
+            kubernetes_network_configs=self.kubernetes_network_configs,
             name=self.name,
             platform_version=self.platform_version,
             role_arn=self.role_arn,
@@ -223,6 +235,7 @@ def get_cluster(name: Optional[str] = None,
         endpoint=__ret__.endpoint,
         id=__ret__.id,
         identities=__ret__.identities,
+        kubernetes_network_configs=__ret__.kubernetes_network_configs,
         name=__ret__.name,
         platform_version=__ret__.platform_version,
         role_arn=__ret__.role_arn,

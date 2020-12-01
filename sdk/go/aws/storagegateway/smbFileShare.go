@@ -79,6 +79,8 @@ import (
 type SmbFileShare struct {
 	pulumi.CustomResourceState
 
+	// The files and folders on this share will only be visible to users with read access. Default value is `false`.
+	AccessBasedEnumeration pulumi.BoolPtrOutput `pulumi:"accessBasedEnumeration"`
 	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	AdminUserLists pulumi.StringArrayOutput `pulumi:"adminUserLists"`
 	// Amazon Resource Name (ARN) of the SMB File Share.
@@ -109,6 +111,8 @@ type SmbFileShare struct {
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
+	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+	NotificationPolicy pulumi.StringPtrOutput `pulumi:"notificationPolicy"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrOutput `pulumi:"objectAcl"`
 	// File share path used by the NFS client to identify the mount point.
@@ -164,6 +168,8 @@ func GetSmbFileShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SmbFileShare resources.
 type smbFileShareState struct {
+	// The files and folders on this share will only be visible to users with read access. Default value is `false`.
+	AccessBasedEnumeration *bool `pulumi:"accessBasedEnumeration"`
 	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	AdminUserLists []string `pulumi:"adminUserLists"`
 	// Amazon Resource Name (ARN) of the SMB File Share.
@@ -194,6 +200,8 @@ type smbFileShareState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
 	LocationArn *string `pulumi:"locationArn"`
+	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+	NotificationPolicy *string `pulumi:"notificationPolicy"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl *string `pulumi:"objectAcl"`
 	// File share path used by the NFS client to identify the mount point.
@@ -213,6 +221,8 @@ type smbFileShareState struct {
 }
 
 type SmbFileShareState struct {
+	// The files and folders on this share will only be visible to users with read access. Default value is `false`.
+	AccessBasedEnumeration pulumi.BoolPtrInput
 	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	AdminUserLists pulumi.StringArrayInput
 	// Amazon Resource Name (ARN) of the SMB File Share.
@@ -243,6 +253,8 @@ type SmbFileShareState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// The ARN of the backed storage used for storing file data.
 	LocationArn pulumi.StringPtrInput
+	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+	NotificationPolicy pulumi.StringPtrInput
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrInput
 	// File share path used by the NFS client to identify the mount point.
@@ -266,6 +278,8 @@ func (SmbFileShareState) ElementType() reflect.Type {
 }
 
 type smbFileShareArgs struct {
+	// The files and folders on this share will only be visible to users with read access. Default value is `false`.
+	AccessBasedEnumeration *bool `pulumi:"accessBasedEnumeration"`
 	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	AdminUserLists []string `pulumi:"adminUserLists"`
 	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
@@ -292,6 +306,8 @@ type smbFileShareArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
 	LocationArn string `pulumi:"locationArn"`
+	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+	NotificationPolicy *string `pulumi:"notificationPolicy"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl *string `pulumi:"objectAcl"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
@@ -310,6 +326,8 @@ type smbFileShareArgs struct {
 
 // The set of arguments for constructing a SmbFileShare resource.
 type SmbFileShareArgs struct {
+	// The files and folders on this share will only be visible to users with read access. Default value is `false`.
+	AccessBasedEnumeration pulumi.BoolPtrInput
 	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	AdminUserLists pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
@@ -336,6 +354,8 @@ type SmbFileShareArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// The ARN of the backed storage used for storing file data.
 	LocationArn pulumi.StringInput
+	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+	NotificationPolicy pulumi.StringPtrInput
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrInput
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.

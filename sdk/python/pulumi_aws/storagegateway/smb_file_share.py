@@ -17,6 +17,7 @@ class SmbFileShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_based_enumeration: Optional[pulumi.Input[bool]] = None,
                  admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,7 @@ class SmbFileShare(pulumi.CustomResource):
                  kms_encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  location_arn: Optional[pulumi.Input[str]] = None,
+                 notification_policy: Optional[pulumi.Input[str]] = None,
                  object_acl: Optional[pulumi.Input[str]] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
                  requester_pays: Optional[pulumi.Input[bool]] = None,
@@ -83,6 +85,7 @@ class SmbFileShare(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] access_based_enumeration: The files and folders on this share will only be visible to users with read access. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_user_lists: A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
@@ -96,6 +99,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
+        :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
@@ -121,6 +125,7 @@ class SmbFileShare(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['access_based_enumeration'] = access_based_enumeration
             __props__['admin_user_lists'] = admin_user_lists
             __props__['audit_destination_arn'] = audit_destination_arn
             __props__['authentication'] = authentication
@@ -138,6 +143,7 @@ class SmbFileShare(pulumi.CustomResource):
             if location_arn is None:
                 raise TypeError("Missing required property 'location_arn'")
             __props__['location_arn'] = location_arn
+            __props__['notification_policy'] = notification_policy
             __props__['object_acl'] = object_acl
             __props__['read_only'] = read_only
             __props__['requester_pays'] = requester_pays
@@ -160,6 +166,7 @@ class SmbFileShare(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            access_based_enumeration: Optional[pulumi.Input[bool]] = None,
             admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             audit_destination_arn: Optional[pulumi.Input[str]] = None,
@@ -175,6 +182,7 @@ class SmbFileShare(pulumi.CustomResource):
             kms_encrypted: Optional[pulumi.Input[bool]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             location_arn: Optional[pulumi.Input[str]] = None,
+            notification_policy: Optional[pulumi.Input[str]] = None,
             object_acl: Optional[pulumi.Input[str]] = None,
             path: Optional[pulumi.Input[str]] = None,
             read_only: Optional[pulumi.Input[bool]] = None,
@@ -190,6 +198,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] access_based_enumeration: The files and folders on this share will only be visible to users with read access. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_user_lists: A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the SMB File Share.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
@@ -205,6 +214,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
+        :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
         :param pulumi.Input[str] path: File share path used by the NFS client to identify the mount point.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
@@ -218,6 +228,7 @@ class SmbFileShare(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_based_enumeration"] = access_based_enumeration
         __props__["admin_user_lists"] = admin_user_lists
         __props__["arn"] = arn
         __props__["audit_destination_arn"] = audit_destination_arn
@@ -233,6 +244,7 @@ class SmbFileShare(pulumi.CustomResource):
         __props__["kms_encrypted"] = kms_encrypted
         __props__["kms_key_arn"] = kms_key_arn
         __props__["location_arn"] = location_arn
+        __props__["notification_policy"] = notification_policy
         __props__["object_acl"] = object_acl
         __props__["path"] = path
         __props__["read_only"] = read_only
@@ -242,6 +254,14 @@ class SmbFileShare(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["valid_user_lists"] = valid_user_lists
         return SmbFileShare(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accessBasedEnumeration")
+    def access_based_enumeration(self) -> pulumi.Output[Optional[bool]]:
+        """
+        The files and folders on this share will only be visible to users with read access. Default value is `false`.
+        """
+        return pulumi.get(self, "access_based_enumeration")
 
     @property
     @pulumi.getter(name="adminUserLists")
@@ -362,6 +382,14 @@ class SmbFileShare(pulumi.CustomResource):
         The ARN of the backed storage used for storing file data.
         """
         return pulumi.get(self, "location_arn")
+
+    @property
+    @pulumi.getter(name="notificationPolicy")
+    def notification_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+        """
+        return pulumi.get(self, "notification_policy")
 
     @property
     @pulumi.getter(name="objectAcl")

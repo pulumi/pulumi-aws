@@ -82,6 +82,10 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly domainNameConfiguration!: pulumi.Output<outputs.apigatewayv2.DomainNameDomainNameConfiguration>;
     /**
+     * The mutual TLS authentication configuration for the domain name.
+     */
+    public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigatewayv2.DomainNameMutualTlsAuthentication | undefined>;
+    /**
      * A map of tags to assign to the domain name.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -102,6 +106,7 @@ export class DomainName extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["domainNameConfiguration"] = state ? state.domainNameConfiguration : undefined;
+            inputs["mutualTlsAuthentication"] = state ? state.mutualTlsAuthentication : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DomainNameArgs | undefined;
@@ -113,6 +118,7 @@ export class DomainName extends pulumi.CustomResource {
             }
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["domainNameConfiguration"] = args ? args.domainNameConfiguration : undefined;
+            inputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["apiMappingSelectionExpression"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
@@ -149,6 +155,10 @@ export interface DomainNameState {
      */
     readonly domainNameConfiguration?: pulumi.Input<inputs.apigatewayv2.DomainNameDomainNameConfiguration>;
     /**
+     * The mutual TLS authentication configuration for the domain name.
+     */
+    readonly mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthentication>;
+    /**
      * A map of tags to assign to the domain name.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -166,6 +176,10 @@ export interface DomainNameArgs {
      * The domain name configuration.
      */
     readonly domainNameConfiguration: pulumi.Input<inputs.apigatewayv2.DomainNameDomainNameConfiguration>;
+    /**
+     * The mutual TLS authentication configuration for the domain name.
+     */
+    readonly mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthentication>;
     /**
      * A map of tags to assign to the domain name.
      */

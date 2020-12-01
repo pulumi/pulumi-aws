@@ -71,6 +71,12 @@ namespace Pulumi.Aws.StorageGateway
     public partial class SmbFileShare : Pulumi.CustomResource
     {
         /// <summary>
+        /// The files and folders on this share will only be visible to users with read access. Default value is `false`.
+        /// </summary>
+        [Output("accessBasedEnumeration")]
+        public Output<bool?> AccessBasedEnumeration { get; private set; } = null!;
+
+        /// <summary>
         /// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         /// </summary>
         [Output("adminUserLists")]
@@ -159,6 +165,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Output("locationArn")]
         public Output<string> LocationArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+        /// </summary>
+        [Output("notificationPolicy")]
+        public Output<string?> NotificationPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Access Control List permission for S3 bucket objects. Defaults to `private`.
@@ -254,6 +266,12 @@ namespace Pulumi.Aws.StorageGateway
 
     public sealed class SmbFileShareArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The files and folders on this share will only be visible to users with read access. Default value is `false`.
+        /// </summary>
+        [Input("accessBasedEnumeration")]
+        public Input<bool>? AccessBasedEnumeration { get; set; }
+
         [Input("adminUserLists")]
         private InputList<string>? _adminUserLists;
 
@@ -345,6 +363,12 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string> LocationArn { get; set; } = null!;
 
         /// <summary>
+        /// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+        /// </summary>
+        [Input("notificationPolicy")]
+        public Input<string>? NotificationPolicy { get; set; }
+
+        /// <summary>
         /// Access Control List permission for S3 bucket objects. Defaults to `private`.
         /// </summary>
         [Input("objectAcl")]
@@ -405,6 +429,12 @@ namespace Pulumi.Aws.StorageGateway
 
     public sealed class SmbFileShareState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The files and folders on this share will only be visible to users with read access. Default value is `false`.
+        /// </summary>
+        [Input("accessBasedEnumeration")]
+        public Input<bool>? AccessBasedEnumeration { get; set; }
+
         [Input("adminUserLists")]
         private InputList<string>? _adminUserLists;
 
@@ -506,6 +536,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("locationArn")]
         public Input<string>? LocationArn { get; set; }
+
+        /// <summary>
+        /// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+        /// </summary>
+        [Input("notificationPolicy")]
+        public Input<string>? NotificationPolicy { get; set; }
 
         /// <summary>
         /// Access Control List permission for S3 bucket objects. Defaults to `private`.

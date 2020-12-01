@@ -77,6 +77,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<Outputs.DomainNameDomainNameConfiguration> DomainNameConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The mutual TLS authentication configuration for the domain name.
+        /// </summary>
+        [Output("mutualTlsAuthentication")]
+        public Output<Outputs.DomainNameMutualTlsAuthentication?> MutualTlsAuthentication { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the domain name.
         /// </summary>
         [Output("tags")]
@@ -140,6 +146,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("domainNameConfiguration", required: true)]
         public Input<Inputs.DomainNameDomainNameConfigurationArgs> DomainNameConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The mutual TLS authentication configuration for the domain name.
+        /// </summary>
+        [Input("mutualTlsAuthentication")]
+        public Input<Inputs.DomainNameMutualTlsAuthenticationArgs>? MutualTlsAuthentication { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -182,6 +194,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("domainNameConfiguration")]
         public Input<Inputs.DomainNameDomainNameConfigurationGetArgs>? DomainNameConfiguration { get; set; }
+
+        /// <summary>
+        /// The mutual TLS authentication configuration for the domain name.
+        /// </summary>
+        [Input("mutualTlsAuthentication")]
+        public Input<Inputs.DomainNameMutualTlsAuthenticationGetArgs>? MutualTlsAuthentication { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -23,7 +23,7 @@ type Function struct {
 
 	// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `imageUri` cannot be used.
+	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `imageUri` cannot be used.
 	Code pulumi.ArchiveOutput `pulumi:"code"`
 	// Amazon Resource Name (ARN) for a Code Signing Configuration.
 	CodeSigningConfigArn pulumi.StringPtrOutput `pulumi:"codeSigningConfigArn"`
@@ -52,7 +52,8 @@ type Function struct {
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	MemorySize pulumi.IntPtrOutput `pulumi:"memorySize"`
 	// A unique name for your Lambda Function.
-	Name        pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
 	PackageType pulumi.StringPtrOutput `pulumi:"packageType"`
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish pulumi.BoolPtrOutput `pulumi:"publish"`
@@ -123,7 +124,7 @@ func GetFunction(ctx *pulumi.Context,
 type functionState struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn *string `pulumi:"arn"`
-	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `imageUri` cannot be used.
+	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `imageUri` cannot be used.
 	Code pulumi.Archive `pulumi:"code"`
 	// Amazon Resource Name (ARN) for a Code Signing Configuration.
 	CodeSigningConfigArn *string `pulumi:"codeSigningConfigArn"`
@@ -152,7 +153,8 @@ type functionState struct {
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	MemorySize *int `pulumi:"memorySize"`
 	// A unique name for your Lambda Function.
-	Name        *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
 	PackageType *string `pulumi:"packageType"`
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish *bool `pulumi:"publish"`
@@ -193,7 +195,7 @@ type functionState struct {
 type FunctionState struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn pulumi.StringPtrInput
-	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `imageUri` cannot be used.
+	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `imageUri` cannot be used.
 	Code pulumi.ArchiveInput
 	// Amazon Resource Name (ARN) for a Code Signing Configuration.
 	CodeSigningConfigArn pulumi.StringPtrInput
@@ -222,7 +224,8 @@ type FunctionState struct {
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	MemorySize pulumi.IntPtrInput
 	// A unique name for your Lambda Function.
-	Name        pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
 	PackageType pulumi.StringPtrInput
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish pulumi.BoolPtrInput
@@ -265,7 +268,7 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
-	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `imageUri` cannot be used.
+	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `imageUri` cannot be used.
 	Code pulumi.Archive `pulumi:"code"`
 	// Amazon Resource Name (ARN) for a Code Signing Configuration.
 	CodeSigningConfigArn *string `pulumi:"codeSigningConfigArn"`
@@ -290,7 +293,8 @@ type functionArgs struct {
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	MemorySize *int `pulumi:"memorySize"`
 	// A unique name for your Lambda Function.
-	Name        *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
 	PackageType *string `pulumi:"packageType"`
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish *bool `pulumi:"publish"`
@@ -319,7 +323,7 @@ type functionArgs struct {
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
-	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `imageUri` cannot be used.
+	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `imageUri` cannot be used.
 	Code pulumi.ArchiveInput
 	// Amazon Resource Name (ARN) for a Code Signing Configuration.
 	CodeSigningConfigArn pulumi.StringPtrInput
@@ -344,7 +348,8 @@ type FunctionArgs struct {
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	MemorySize pulumi.IntPtrInput
 	// A unique name for your Lambda Function.
-	Name        pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
 	PackageType pulumi.StringPtrInput
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish pulumi.BoolPtrInput

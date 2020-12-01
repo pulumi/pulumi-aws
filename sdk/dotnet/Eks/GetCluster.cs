@@ -76,6 +76,10 @@ namespace Pulumi.Aws.Eks
         /// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `aws.eks.Cluster` resource documentation.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterIdentityResult> Identities;
+        /// <summary>
+        /// Nested list containing Kubernetes Network Configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterKubernetesNetworkConfigResult> KubernetesNetworkConfigs;
         public readonly string Name;
         /// <summary>
         /// The platform version for the cluster.
@@ -118,6 +122,8 @@ namespace Pulumi.Aws.Eks
 
             ImmutableArray<Outputs.GetClusterIdentityResult> identities,
 
+            ImmutableArray<Outputs.GetClusterKubernetesNetworkConfigResult> kubernetesNetworkConfigs,
+
             string name,
 
             string platformVersion,
@@ -139,6 +145,7 @@ namespace Pulumi.Aws.Eks
             Endpoint = endpoint;
             Id = id;
             Identities = identities;
+            KubernetesNetworkConfigs = kubernetesNetworkConfigs;
             Name = name;
             PlatformVersion = platformVersion;
             RoleArn = roleArn;

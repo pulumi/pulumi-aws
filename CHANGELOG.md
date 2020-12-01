@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add support for AWS Lambda Container Images
+* Upgrade to v3.19.0 of the AWS Terraform Provider
 
 ---
 

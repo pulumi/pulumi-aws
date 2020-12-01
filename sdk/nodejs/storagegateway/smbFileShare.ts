@@ -77,6 +77,10 @@ export class SmbFileShare extends pulumi.CustomResource {
     }
 
     /**
+     * The files and folders on this share will only be visible to users with read access. Default value is `false`.
+     */
+    public readonly accessBasedEnumeration!: pulumi.Output<boolean | undefined>;
+    /**
      * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
     public readonly adminUserLists!: pulumi.Output<string[] | undefined>;
@@ -137,6 +141,10 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public readonly locationArn!: pulumi.Output<string>;
     /**
+     * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+     */
+    public readonly notificationPolicy!: pulumi.Output<string | undefined>;
+    /**
      * Access Control List permission for S3 bucket objects. Defaults to `private`.
      */
     public readonly objectAcl!: pulumi.Output<string | undefined>;
@@ -181,6 +189,7 @@ export class SmbFileShare extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SmbFileShareState | undefined;
+            inputs["accessBasedEnumeration"] = state ? state.accessBasedEnumeration : undefined;
             inputs["adminUserLists"] = state ? state.adminUserLists : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
@@ -196,6 +205,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             inputs["locationArn"] = state ? state.locationArn : undefined;
+            inputs["notificationPolicy"] = state ? state.notificationPolicy : undefined;
             inputs["objectAcl"] = state ? state.objectAcl : undefined;
             inputs["path"] = state ? state.path : undefined;
             inputs["readOnly"] = state ? state.readOnly : undefined;
@@ -215,6 +225,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             if (!args || args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            inputs["accessBasedEnumeration"] = args ? args.accessBasedEnumeration : undefined;
             inputs["adminUserLists"] = args ? args.adminUserLists : undefined;
             inputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
             inputs["authentication"] = args ? args.authentication : undefined;
@@ -228,6 +239,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
             inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             inputs["locationArn"] = args ? args.locationArn : undefined;
+            inputs["notificationPolicy"] = args ? args.notificationPolicy : undefined;
             inputs["objectAcl"] = args ? args.objectAcl : undefined;
             inputs["readOnly"] = args ? args.readOnly : undefined;
             inputs["requesterPays"] = args ? args.requesterPays : undefined;
@@ -254,6 +266,10 @@ export class SmbFileShare extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SmbFileShare resources.
  */
 export interface SmbFileShareState {
+    /**
+     * The files and folders on this share will only be visible to users with read access. Default value is `false`.
+     */
+    readonly accessBasedEnumeration?: pulumi.Input<boolean>;
     /**
      * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
@@ -315,6 +331,10 @@ export interface SmbFileShareState {
      */
     readonly locationArn?: pulumi.Input<string>;
     /**
+     * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+     */
+    readonly notificationPolicy?: pulumi.Input<string>;
+    /**
      * Access Control List permission for S3 bucket objects. Defaults to `private`.
      */
     readonly objectAcl?: pulumi.Input<string>;
@@ -352,6 +372,10 @@ export interface SmbFileShareState {
  * The set of arguments for constructing a SmbFileShare resource.
  */
 export interface SmbFileShareArgs {
+    /**
+     * The files and folders on this share will only be visible to users with read access. Default value is `false`.
+     */
+    readonly accessBasedEnumeration?: pulumi.Input<boolean>;
     /**
      * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
@@ -404,6 +428,10 @@ export interface SmbFileShareArgs {
      * The ARN of the backed storage used for storing file data.
      */
     readonly locationArn: pulumi.Input<string>;
+    /**
+     * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+     */
+    readonly notificationPolicy?: pulumi.Input<string>;
     /**
      * Access Control List permission for S3 bucket objects. Defaults to `private`.
      */

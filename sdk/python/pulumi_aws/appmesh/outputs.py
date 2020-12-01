@@ -79,6 +79,10 @@ __all__ = [
     'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm',
     'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile',
     'VirtualGatewaySpecListener',
+    'VirtualGatewaySpecListenerConnectionPool',
+    'VirtualGatewaySpecListenerConnectionPoolGrpc',
+    'VirtualGatewaySpecListenerConnectionPoolHttp2',
+    'VirtualGatewaySpecListenerConnectionPoolHttp',
     'VirtualGatewaySpecListenerHealthCheck',
     'VirtualGatewaySpecListenerPortMapping',
     'VirtualGatewaySpecListenerTls',
@@ -2565,14 +2569,18 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
 class VirtualGatewaySpecListener(dict):
     def __init__(__self__, *,
                  port_mapping: 'outputs.VirtualGatewaySpecListenerPortMapping',
+                 connection_pool: Optional['outputs.VirtualGatewaySpecListenerConnectionPool'] = None,
                  health_check: Optional['outputs.VirtualGatewaySpecListenerHealthCheck'] = None,
                  tls: Optional['outputs.VirtualGatewaySpecListenerTls'] = None):
         """
         :param 'VirtualGatewaySpecListenerPortMappingArgs' port_mapping: The port mapping information for the listener.
+        :param 'VirtualGatewaySpecListenerConnectionPoolArgs' connection_pool: The connection pool information for the listener.
         :param 'VirtualGatewaySpecListenerHealthCheckArgs' health_check: The health check information for the listener.
         :param 'VirtualGatewaySpecListenerTlsArgs' tls: The Transport Layer Security (TLS) properties for the listener
         """
         pulumi.set(__self__, "port_mapping", port_mapping)
+        if connection_pool is not None:
+            pulumi.set(__self__, "connection_pool", connection_pool)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
         if tls is not None:
@@ -2585,6 +2593,14 @@ class VirtualGatewaySpecListener(dict):
         The port mapping information for the listener.
         """
         return pulumi.get(self, "port_mapping")
+
+    @property
+    @pulumi.getter(name="connectionPool")
+    def connection_pool(self) -> Optional['outputs.VirtualGatewaySpecListenerConnectionPool']:
+        """
+        The connection pool information for the listener.
+        """
+        return pulumi.get(self, "connection_pool")
 
     @property
     @pulumi.getter(name="healthCheck")
@@ -2601,6 +2617,127 @@ class VirtualGatewaySpecListener(dict):
         The Transport Layer Security (TLS) properties for the listener
         """
         return pulumi.get(self, "tls")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerConnectionPool(dict):
+    def __init__(__self__, *,
+                 grpc: Optional['outputs.VirtualGatewaySpecListenerConnectionPoolGrpc'] = None,
+                 http: Optional['outputs.VirtualGatewaySpecListenerConnectionPoolHttp'] = None,
+                 http2: Optional['outputs.VirtualGatewaySpecListenerConnectionPoolHttp2'] = None):
+        """
+        :param 'VirtualGatewaySpecListenerConnectionPoolGrpcArgs' grpc: Connection pool information for gRPC listeners.
+        :param 'VirtualGatewaySpecListenerConnectionPoolHttpArgs' http: Connection pool information for HTTP listeners.
+        :param 'VirtualGatewaySpecListenerConnectionPoolHttp2Args' http2: Connection pool information for HTTP2 listeners.
+        """
+        if grpc is not None:
+            pulumi.set(__self__, "grpc", grpc)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if http2 is not None:
+            pulumi.set(__self__, "http2", http2)
+
+    @property
+    @pulumi.getter
+    def grpc(self) -> Optional['outputs.VirtualGatewaySpecListenerConnectionPoolGrpc']:
+        """
+        Connection pool information for gRPC listeners.
+        """
+        return pulumi.get(self, "grpc")
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional['outputs.VirtualGatewaySpecListenerConnectionPoolHttp']:
+        """
+        Connection pool information for HTTP listeners.
+        """
+        return pulumi.get(self, "http")
+
+    @property
+    @pulumi.getter
+    def http2(self) -> Optional['outputs.VirtualGatewaySpecListenerConnectionPoolHttp2']:
+        """
+        Connection pool information for HTTP2 listeners.
+        """
+        return pulumi.get(self, "http2")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerConnectionPoolGrpc(dict):
+    def __init__(__self__, *,
+                 max_requests: int):
+        """
+        :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_requests", max_requests)
+
+    @property
+    @pulumi.getter(name="maxRequests")
+    def max_requests(self) -> int:
+        """
+        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_requests")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerConnectionPoolHttp2(dict):
+    def __init__(__self__, *,
+                 max_requests: int):
+        """
+        :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_requests", max_requests)
+
+    @property
+    @pulumi.getter(name="maxRequests")
+    def max_requests(self) -> int:
+        """
+        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_requests")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerConnectionPoolHttp(dict):
+    def __init__(__self__, *,
+                 max_connections: int,
+                 max_pending_requests: Optional[int] = None):
+        """
+        :param int max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        :param int max_pending_requests: Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_connections", max_connections)
+        if max_pending_requests is not None:
+            pulumi.set(__self__, "max_pending_requests", max_pending_requests)
+
+    @property
+    @pulumi.getter(name="maxConnections")
+    def max_connections(self) -> int:
+        """
+        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_connections")
+
+    @property
+    @pulumi.getter(name="maxPendingRequests")
+    def max_pending_requests(self) -> Optional[int]:
+        """
+        Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_pending_requests")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

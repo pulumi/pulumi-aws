@@ -63,6 +63,39 @@ import (
 // 	})
 // }
 // ```
+// ### Using Account Recovery Setting
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cognito"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cognito.NewUserPool(ctx, "test", &cognito.UserPoolArgs{
+// 			AccountRecoverySetting: &cognito.UserPoolAccountRecoverySettingArgs{
+// 				RecoveryMechanisms: cognito.UserPoolAccountRecoverySettingRecoveryMechanismArray{
+// 					&cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs{
+// 						Name:     pulumi.String("verified_email"),
+// 						Priority: pulumi.Int(1),
+// 					},
+// 					&cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs{
+// 						Name:     pulumi.String("verified_phone_number"),
+// 						Priority: pulumi.Int(2),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -74,6 +107,8 @@ import (
 type UserPool struct {
 	pulumi.CustomResourceState
 
+	// The accountRecoverySetting configuration.
+	AccountRecoverySetting UserPoolAccountRecoverySettingPtrOutput `pulumi:"accountRecoverySetting"`
 	// The configuration for AdminCreateUser requests.
 	AdminCreateUserConfig UserPoolAdminCreateUserConfigOutput `pulumi:"adminCreateUserConfig"`
 	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
@@ -100,7 +135,7 @@ type UserPool struct {
 	LastModifiedDate pulumi.StringOutput `pulumi:"lastModifiedDate"`
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
 	MfaConfiguration pulumi.StringPtrOutput `pulumi:"mfaConfiguration"`
-	// The name of the attribute.
+	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A container for information about the user pool password policy.
 	PasswordPolicy UserPoolPasswordPolicyOutput `pulumi:"passwordPolicy"`
@@ -154,6 +189,8 @@ func GetUserPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserPool resources.
 type userPoolState struct {
+	// The accountRecoverySetting configuration.
+	AccountRecoverySetting *UserPoolAccountRecoverySetting `pulumi:"accountRecoverySetting"`
 	// The configuration for AdminCreateUser requests.
 	AdminCreateUserConfig *UserPoolAdminCreateUserConfig `pulumi:"adminCreateUserConfig"`
 	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
@@ -180,7 +217,7 @@ type userPoolState struct {
 	LastModifiedDate *string `pulumi:"lastModifiedDate"`
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
 	MfaConfiguration *string `pulumi:"mfaConfiguration"`
-	// The name of the attribute.
+	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
 	Name *string `pulumi:"name"`
 	// A container for information about the user pool password policy.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
@@ -207,6 +244,8 @@ type userPoolState struct {
 }
 
 type UserPoolState struct {
+	// The accountRecoverySetting configuration.
+	AccountRecoverySetting UserPoolAccountRecoverySettingPtrInput
 	// The configuration for AdminCreateUser requests.
 	AdminCreateUserConfig UserPoolAdminCreateUserConfigPtrInput
 	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
@@ -233,7 +272,7 @@ type UserPoolState struct {
 	LastModifiedDate pulumi.StringPtrInput
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
 	MfaConfiguration pulumi.StringPtrInput
-	// The name of the attribute.
+	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
 	Name pulumi.StringPtrInput
 	// A container for information about the user pool password policy.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput
@@ -264,6 +303,8 @@ func (UserPoolState) ElementType() reflect.Type {
 }
 
 type userPoolArgs struct {
+	// The accountRecoverySetting configuration.
+	AccountRecoverySetting *UserPoolAccountRecoverySetting `pulumi:"accountRecoverySetting"`
 	// The configuration for AdminCreateUser requests.
 	AdminCreateUserConfig *UserPoolAdminCreateUserConfig `pulumi:"adminCreateUserConfig"`
 	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
@@ -282,7 +323,7 @@ type userPoolArgs struct {
 	LambdaConfig *UserPoolLambdaConfig `pulumi:"lambdaConfig"`
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
 	MfaConfiguration *string `pulumi:"mfaConfiguration"`
-	// The name of the attribute.
+	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
 	Name *string `pulumi:"name"`
 	// A container for information about the user pool password policy.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
@@ -310,6 +351,8 @@ type userPoolArgs struct {
 
 // The set of arguments for constructing a UserPool resource.
 type UserPoolArgs struct {
+	// The accountRecoverySetting configuration.
+	AccountRecoverySetting UserPoolAccountRecoverySettingPtrInput
 	// The configuration for AdminCreateUser requests.
 	AdminCreateUserConfig UserPoolAdminCreateUserConfigPtrInput
 	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
@@ -328,7 +371,7 @@ type UserPoolArgs struct {
 	LambdaConfig UserPoolLambdaConfigPtrInput
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
 	MfaConfiguration pulumi.StringPtrInput
-	// The name of the attribute.
+	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
 	Name pulumi.StringPtrInput
 	// A container for information about the user pool password policy.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput

@@ -1355,6 +1355,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_partition":       {Tok: awsResource(glueMod, "Partition")},
 			"aws_glue_resource_policy": {Tok: awsResource(glueMod, "ResourcePolicy")},
 			"aws_glue_dev_endpoint":    {Tok: awsResource(glueMod, "DevEndpoint")},
+			"aws_glue_registry":        {Tok: awsResource(glueMod, "Registry")},
 			// GuardDuty
 			"aws_guardduty_detector":                   {Tok: awsResource(guarddutyMod, "Detector")},
 			"aws_guardduty_invite_accepter":            {Tok: awsResource(guarddutyMod, "InviteAccepter")},

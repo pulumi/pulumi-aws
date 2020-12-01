@@ -616,6 +616,137 @@ func (o ClusterIdentityOidcArrayOutput) Index(i pulumi.IntInput) ClusterIdentity
 	}).(ClusterIdentityOidcOutput)
 }
 
+type ClusterKubernetesNetworkConfig struct {
+	// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+	ServiceIpv4Cidr *string `pulumi:"serviceIpv4Cidr"`
+}
+
+// ClusterKubernetesNetworkConfigInput is an input type that accepts ClusterKubernetesNetworkConfigArgs and ClusterKubernetesNetworkConfigOutput values.
+// You can construct a concrete instance of `ClusterKubernetesNetworkConfigInput` via:
+//
+//          ClusterKubernetesNetworkConfigArgs{...}
+type ClusterKubernetesNetworkConfigInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesNetworkConfigOutput() ClusterKubernetesNetworkConfigOutput
+	ToClusterKubernetesNetworkConfigOutputWithContext(context.Context) ClusterKubernetesNetworkConfigOutput
+}
+
+type ClusterKubernetesNetworkConfigArgs struct {
+	// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+	ServiceIpv4Cidr pulumi.StringPtrInput `pulumi:"serviceIpv4Cidr"`
+}
+
+func (ClusterKubernetesNetworkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigOutput() ClusterKubernetesNetworkConfigOutput {
+	return i.ToClusterKubernetesNetworkConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigOutput)
+}
+
+func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput {
+	return i.ToClusterKubernetesNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigOutput).ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterKubernetesNetworkConfigPtrInput is an input type that accepts ClusterKubernetesNetworkConfigArgs, ClusterKubernetesNetworkConfigPtr and ClusterKubernetesNetworkConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterKubernetesNetworkConfigPtrInput` via:
+//
+//          ClusterKubernetesNetworkConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterKubernetesNetworkConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput
+	ToClusterKubernetesNetworkConfigPtrOutputWithContext(context.Context) ClusterKubernetesNetworkConfigPtrOutput
+}
+
+type clusterKubernetesNetworkConfigPtrType ClusterKubernetesNetworkConfigArgs
+
+func ClusterKubernetesNetworkConfigPtr(v *ClusterKubernetesNetworkConfigArgs) ClusterKubernetesNetworkConfigPtrInput {
+	return (*clusterKubernetesNetworkConfigPtrType)(v)
+}
+
+func (*clusterKubernetesNetworkConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (i *clusterKubernetesNetworkConfigPtrType) ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput {
+	return i.ToClusterKubernetesNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubernetesNetworkConfigPtrType) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigPtrOutput)
+}
+
+type ClusterKubernetesNetworkConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesNetworkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigOutput() ClusterKubernetesNetworkConfigOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput {
+	return o.ToClusterKubernetesNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
+	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *ClusterKubernetesNetworkConfig {
+		return &v
+	}).(ClusterKubernetesNetworkConfigPtrOutput)
+}
+
+// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+func (o ClusterKubernetesNetworkConfigOutput) ServiceIpv4Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.ServiceIpv4Cidr }).(pulumi.StringPtrOutput)
+}
+
+type ClusterKubernetesNetworkConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesNetworkConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (o ClusterKubernetesNetworkConfigPtrOutput) ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigPtrOutput) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigPtrOutput) Elem() ClusterKubernetesNetworkConfigOutput {
+	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) ClusterKubernetesNetworkConfig { return *v }).(ClusterKubernetesNetworkConfigOutput)
+}
+
+// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv4Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceIpv4Cidr
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterVpcConfig struct {
 	// The cluster security group that was created by Amazon EKS for the cluster.
 	ClusterSecurityGroupId *string `pulumi:"clusterSecurityGroupId"`
@@ -971,8 +1102,9 @@ type NodeGroupLaunchTemplate struct {
 	// Identifier of the EC2 Launch Template. Conflicts with `name`.
 	Id *string `pulumi:"id"`
 	// Name of the EC2 Launch Template. Conflicts with `id`.
-	Name    *string `pulumi:"name"`
-	Version string  `pulumi:"version"`
+	Name *string `pulumi:"name"`
+	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+	Version string `pulumi:"version"`
 }
 
 // NodeGroupLaunchTemplateInput is an input type that accepts NodeGroupLaunchTemplateArgs and NodeGroupLaunchTemplateOutput values.
@@ -990,8 +1122,9 @@ type NodeGroupLaunchTemplateArgs struct {
 	// Identifier of the EC2 Launch Template. Conflicts with `name`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the EC2 Launch Template. Conflicts with `id`.
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Version pulumi.StringInput    `pulumi:"version"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (NodeGroupLaunchTemplateArgs) ElementType() reflect.Type {
@@ -1081,6 +1214,7 @@ func (o NodeGroupLaunchTemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeGroupLaunchTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 func (o NodeGroupLaunchTemplateOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v NodeGroupLaunchTemplate) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1123,6 +1257,7 @@ func (o NodeGroupLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 func (o NodeGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodeGroupLaunchTemplate) *string {
 		if v == nil {
@@ -1900,6 +2035,103 @@ func (o GetClusterIdentityOidcArrayOutput) Index(i pulumi.IntInput) GetClusterId
 	}).(GetClusterIdentityOidcOutput)
 }
 
+type GetClusterKubernetesNetworkConfig struct {
+	// The CIDR block to assign Kubernetes service IP addresses from.
+	ServiceIpv4Cidr string `pulumi:"serviceIpv4Cidr"`
+}
+
+// GetClusterKubernetesNetworkConfigInput is an input type that accepts GetClusterKubernetesNetworkConfigArgs and GetClusterKubernetesNetworkConfigOutput values.
+// You can construct a concrete instance of `GetClusterKubernetesNetworkConfigInput` via:
+//
+//          GetClusterKubernetesNetworkConfigArgs{...}
+type GetClusterKubernetesNetworkConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterKubernetesNetworkConfigOutput() GetClusterKubernetesNetworkConfigOutput
+	ToGetClusterKubernetesNetworkConfigOutputWithContext(context.Context) GetClusterKubernetesNetworkConfigOutput
+}
+
+type GetClusterKubernetesNetworkConfigArgs struct {
+	// The CIDR block to assign Kubernetes service IP addresses from.
+	ServiceIpv4Cidr pulumi.StringInput `pulumi:"serviceIpv4Cidr"`
+}
+
+func (GetClusterKubernetesNetworkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (i GetClusterKubernetesNetworkConfigArgs) ToGetClusterKubernetesNetworkConfigOutput() GetClusterKubernetesNetworkConfigOutput {
+	return i.ToGetClusterKubernetesNetworkConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubernetesNetworkConfigArgs) ToGetClusterKubernetesNetworkConfigOutputWithContext(ctx context.Context) GetClusterKubernetesNetworkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubernetesNetworkConfigOutput)
+}
+
+// GetClusterKubernetesNetworkConfigArrayInput is an input type that accepts GetClusterKubernetesNetworkConfigArray and GetClusterKubernetesNetworkConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterKubernetesNetworkConfigArrayInput` via:
+//
+//          GetClusterKubernetesNetworkConfigArray{ GetClusterKubernetesNetworkConfigArgs{...} }
+type GetClusterKubernetesNetworkConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterKubernetesNetworkConfigArrayOutput() GetClusterKubernetesNetworkConfigArrayOutput
+	ToGetClusterKubernetesNetworkConfigArrayOutputWithContext(context.Context) GetClusterKubernetesNetworkConfigArrayOutput
+}
+
+type GetClusterKubernetesNetworkConfigArray []GetClusterKubernetesNetworkConfigInput
+
+func (GetClusterKubernetesNetworkConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (i GetClusterKubernetesNetworkConfigArray) ToGetClusterKubernetesNetworkConfigArrayOutput() GetClusterKubernetesNetworkConfigArrayOutput {
+	return i.ToGetClusterKubernetesNetworkConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubernetesNetworkConfigArray) ToGetClusterKubernetesNetworkConfigArrayOutputWithContext(ctx context.Context) GetClusterKubernetesNetworkConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubernetesNetworkConfigArrayOutput)
+}
+
+type GetClusterKubernetesNetworkConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubernetesNetworkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (o GetClusterKubernetesNetworkConfigOutput) ToGetClusterKubernetesNetworkConfigOutput() GetClusterKubernetesNetworkConfigOutput {
+	return o
+}
+
+func (o GetClusterKubernetesNetworkConfigOutput) ToGetClusterKubernetesNetworkConfigOutputWithContext(ctx context.Context) GetClusterKubernetesNetworkConfigOutput {
+	return o
+}
+
+// The CIDR block to assign Kubernetes service IP addresses from.
+func (o GetClusterKubernetesNetworkConfigOutput) ServiceIpv4Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterKubernetesNetworkConfig) string { return v.ServiceIpv4Cidr }).(pulumi.StringOutput)
+}
+
+type GetClusterKubernetesNetworkConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubernetesNetworkConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (o GetClusterKubernetesNetworkConfigArrayOutput) ToGetClusterKubernetesNetworkConfigArrayOutput() GetClusterKubernetesNetworkConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterKubernetesNetworkConfigArrayOutput) ToGetClusterKubernetesNetworkConfigArrayOutputWithContext(ctx context.Context) GetClusterKubernetesNetworkConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterKubernetesNetworkConfigArrayOutput) Index(i pulumi.IntInput) GetClusterKubernetesNetworkConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterKubernetesNetworkConfig {
+		return vs[0].([]GetClusterKubernetesNetworkConfig)[vs[1].(int)]
+	}).(GetClusterKubernetesNetworkConfigOutput)
+}
+
 type GetClusterVpcConfig struct {
 	// The cluster security group that was created by Amazon EKS for the cluster.
 	ClusterSecurityGroupId string `pulumi:"clusterSecurityGroupId"`
@@ -2017,6 +2249,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterIdentityArrayOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOidcOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOidcArrayOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorOutput{})
@@ -2036,5 +2270,7 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOidcOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOidcArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterKubernetesNetworkConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterKubernetesNetworkConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVpcConfigOutput{})
 }

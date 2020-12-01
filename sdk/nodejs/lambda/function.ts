@@ -49,7 +49,7 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `imageUri` cannot be used.
+     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `imageUri` cannot be used.
      */
     public readonly code!: pulumi.Output<pulumi.asset.Archive | undefined>;
     /**
@@ -108,6 +108,9 @@ export class Function extends pulumi.CustomResource {
      * A unique name for your Lambda Function.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+     */
     public readonly packageType!: pulumi.Output<string | undefined>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
@@ -282,7 +285,7 @@ export interface FunctionState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `imageUri` cannot be used.
+     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `imageUri` cannot be used.
      */
     readonly code?: pulumi.Input<pulumi.asset.Archive>;
     /**
@@ -341,6 +344,9 @@ export interface FunctionState {
      * A unique name for your Lambda Function.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+     */
     readonly packageType?: pulumi.Input<string>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
@@ -415,7 +421,7 @@ export interface FunctionState {
  */
 export interface FunctionArgs {
     /**
-     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `imageUri` cannot be used.
+     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `imageUri` cannot be used.
      */
     readonly code?: pulumi.Input<pulumi.asset.Archive>;
     /**
@@ -466,6 +472,9 @@ export interface FunctionArgs {
      * A unique name for your Lambda Function.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+     */
     readonly packageType?: pulumi.Input<string>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.

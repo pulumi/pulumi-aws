@@ -123,6 +123,7 @@ export class Cluster extends pulumi.CustomResource {
      * Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
      */
     public /*out*/ readonly identities!: pulumi.Output<outputs.eks.ClusterIdentity[]>;
+    public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig>;
     /**
      * Name of the cluster.
      */
@@ -171,6 +172,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["encryptionConfig"] = state ? state.encryptionConfig : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["identities"] = state ? state.identities : undefined;
+            inputs["kubernetesNetworkConfig"] = state ? state.kubernetesNetworkConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["platformVersion"] = state ? state.platformVersion : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
@@ -188,6 +190,7 @@ export class Cluster extends pulumi.CustomResource {
             }
             inputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
             inputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
+            inputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -241,6 +244,7 @@ export interface ClusterState {
      * Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
      */
     readonly identities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterIdentity>[]>;
+    readonly kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
     /**
      * Name of the cluster.
      */
@@ -283,6 +287,7 @@ export interface ClusterArgs {
      * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
      */
     readonly encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
+    readonly kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
     /**
      * Name of the cluster.
      */

@@ -15,6 +15,7 @@ __all__ = [
     'ClusterEncryptionConfigProvider',
     'ClusterIdentity',
     'ClusterIdentityOidc',
+    'ClusterKubernetesNetworkConfig',
     'ClusterVpcConfig',
     'FargateProfileSelector',
     'NodeGroupLaunchTemplate',
@@ -25,6 +26,7 @@ __all__ = [
     'GetClusterCertificateAuthorityResult',
     'GetClusterIdentityResult',
     'GetClusterIdentityOidcResult',
+    'GetClusterKubernetesNetworkConfigResult',
     'GetClusterVpcConfigResult',
 ]
 
@@ -142,6 +144,28 @@ class ClusterIdentityOidc(dict):
         Issuer URL for the OpenID Connect identity provider.
         """
         return pulumi.get(self, "issuer")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterKubernetesNetworkConfig(dict):
+    def __init__(__self__, *,
+                 service_ipv4_cidr: Optional[str] = None):
+        """
+        :param str service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+        """
+        if service_ipv4_cidr is not None:
+            pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
+
+    @property
+    @pulumi.getter(name="serviceIpv4Cidr")
+    def service_ipv4_cidr(self) -> Optional[str]:
+        """
+        The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+        """
+        return pulumi.get(self, "service_ipv4_cidr")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -280,6 +304,7 @@ class NodeGroupLaunchTemplate(dict):
                  id: Optional[str] = None,
                  name: Optional[str] = None):
         """
+        :param str version: EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
         :param str id: Identifier of the EC2 Launch Template. Conflicts with `name`.
         :param str name: Name of the EC2 Launch Template. Conflicts with `id`.
         """
@@ -292,6 +317,9 @@ class NodeGroupLaunchTemplate(dict):
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+        """
         return pulumi.get(self, "version")
 
     @property
@@ -499,6 +527,24 @@ class GetClusterIdentityOidcResult(dict):
         Issuer URL for the OpenID Connect identity provider.
         """
         return pulumi.get(self, "issuer")
+
+
+@pulumi.output_type
+class GetClusterKubernetesNetworkConfigResult(dict):
+    def __init__(__self__, *,
+                 service_ipv4_cidr: str):
+        """
+        :param str service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from.
+        """
+        pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
+
+    @property
+    @pulumi.getter(name="serviceIpv4Cidr")
+    def service_ipv4_cidr(self) -> str:
+        """
+        The CIDR block to assign Kubernetes service IP addresses from.
+        """
+        return pulumi.get(self, "service_ipv4_cidr")
 
 
 @pulumi.output_type

@@ -1126,6 +1126,18 @@ export namespace apigatewayv2 {
         targetDomainName?: pulumi.Input<string>;
     }
 
+    export interface DomainNameMutualTlsAuthentication {
+        /**
+         * An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+         * The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+         */
+        truststoreUri: pulumi.Input<string>;
+        /**
+         * The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+         */
+        truststoreVersion?: pulumi.Input<string>;
+    }
+
     export interface IntegrationTlsConfig {
         /**
          * If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
@@ -2677,6 +2689,10 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecListener {
         /**
+         * The connection pool information for the listener.
+         */
+        connectionPool?: pulumi.Input<inputs.appmesh.VirtualGatewaySpecListenerConnectionPool>;
+        /**
          * The health check information for the listener.
          */
         healthCheck?: pulumi.Input<inputs.appmesh.VirtualGatewaySpecListenerHealthCheck>;
@@ -2688,6 +2704,46 @@ export namespace appmesh {
          * The Transport Layer Security (TLS) properties for the listener
          */
         tls?: pulumi.Input<inputs.appmesh.VirtualGatewaySpecListenerTls>;
+    }
+
+    export interface VirtualGatewaySpecListenerConnectionPool {
+        /**
+         * Connection pool information for gRPC listeners.
+         */
+        grpc?: pulumi.Input<inputs.appmesh.VirtualGatewaySpecListenerConnectionPoolGrpc>;
+        /**
+         * Connection pool information for HTTP listeners.
+         */
+        http?: pulumi.Input<inputs.appmesh.VirtualGatewaySpecListenerConnectionPoolHttp>;
+        /**
+         * Connection pool information for HTTP2 listeners.
+         */
+        http2?: pulumi.Input<inputs.appmesh.VirtualGatewaySpecListenerConnectionPoolHttp2>;
+    }
+
+    export interface VirtualGatewaySpecListenerConnectionPoolGrpc {
+        /**
+         * Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+         */
+        maxRequests: pulumi.Input<number>;
+    }
+
+    export interface VirtualGatewaySpecListenerConnectionPoolHttp {
+        /**
+         * Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+         */
+        maxConnections: pulumi.Input<number>;
+        /**
+         * Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+         */
+        maxPendingRequests?: pulumi.Input<number>;
+    }
+
+    export interface VirtualGatewaySpecListenerConnectionPoolHttp2 {
+        /**
+         * Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+         */
+        maxRequests: pulumi.Input<number>;
     }
 
     export interface VirtualGatewaySpecListenerHealthCheck {
@@ -5938,6 +5994,24 @@ export namespace cognito {
         scopeName: pulumi.Input<string>;
     }
 
+    export interface UserPoolAccountRecoverySetting {
+        /**
+         * The list of Account Recovery Options of the following structure:
+         */
+        recoveryMechanisms: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolAccountRecoverySettingRecoveryMechanism>[]>;
+    }
+
+    export interface UserPoolAccountRecoverySettingRecoveryMechanism {
+        /**
+         * Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A positive integer specifying priority of a method with 1 being the highest priority.
+         */
+        priority: pulumi.Input<number>;
+    }
+
     export interface UserPoolAdminCreateUserConfig {
         /**
          * Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
@@ -6097,7 +6171,7 @@ export namespace cognito {
          */
         mutable?: pulumi.Input<boolean>;
         /**
-         * The name of the attribute.
+         * Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
          */
         name: pulumi.Input<string>;
         /**
@@ -9173,6 +9247,13 @@ export namespace eks {
         issuer?: pulumi.Input<string>;
     }
 
+    export interface ClusterKubernetesNetworkConfig {
+        /**
+         * The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+         */
+        serviceIpv4Cidr?: pulumi.Input<string>;
+    }
+
     export interface ClusterVpcConfig {
         /**
          * The cluster security group that was created by Amazon EKS for the cluster.
@@ -9224,6 +9305,9 @@ export namespace eks {
          * Name of the EC2 Launch Template. Conflicts with `id`.
          */
         name?: pulumi.Input<string>;
+        /**
+         * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+         */
         version: pulumi.Input<string>;
     }
 

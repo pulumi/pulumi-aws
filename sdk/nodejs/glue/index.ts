@@ -13,6 +13,7 @@ export * from "./getScript";
 export * from "./job";
 export * from "./mltransform";
 export * from "./partition";
+export * from "./registry";
 export * from "./resourcePolicy";
 export * from "./securityConfiguration";
 export * from "./trigger";

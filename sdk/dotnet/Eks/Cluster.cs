@@ -145,6 +145,9 @@ namespace Pulumi.Aws.Eks
         [Output("identities")]
         public Output<ImmutableArray<Outputs.ClusterIdentity>> Identities { get; private set; } = null!;
 
+        [Output("kubernetesNetworkConfig")]
+        public Output<Outputs.ClusterKubernetesNetworkConfig> KubernetesNetworkConfig { get; private set; } = null!;
+
         /// <summary>
         /// Name of the cluster.
         /// </summary>
@@ -251,6 +254,9 @@ namespace Pulumi.Aws.Eks
         [Input("encryptionConfig")]
         public Input<Inputs.ClusterEncryptionConfigArgs>? EncryptionConfig { get; set; }
 
+        [Input("kubernetesNetworkConfig")]
+        public Input<Inputs.ClusterKubernetesNetworkConfigArgs>? KubernetesNetworkConfig { get; set; }
+
         /// <summary>
         /// Name of the cluster.
         /// </summary>
@@ -344,6 +350,9 @@ namespace Pulumi.Aws.Eks
             get => _identities ?? (_identities = new InputList<Inputs.ClusterIdentityGetArgs>());
             set => _identities = value;
         }
+
+        [Input("kubernetesNetworkConfig")]
+        public Input<Inputs.ClusterKubernetesNetworkConfigGetArgs>? KubernetesNetworkConfig { get; set; }
 
         /// <summary>
         /// Name of the cluster.

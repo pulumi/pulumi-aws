@@ -12,6 +12,7 @@ __all__ = [
     'ApiCorsConfiguration',
     'AuthorizerJwtConfiguration',
     'DomainNameDomainNameConfiguration',
+    'DomainNameMutualTlsAuthentication',
     'IntegrationTlsConfig',
     'StageAccessLogSettings',
     'StageDefaultRouteSettings',
@@ -198,6 +199,41 @@ class DomainNameDomainNameConfiguration(dict):
         The target domain name.
         """
         return pulumi.get(self, "target_domain_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DomainNameMutualTlsAuthentication(dict):
+    def __init__(__self__, *,
+                 truststore_uri: str,
+                 truststore_version: Optional[str] = None):
+        """
+        :param str truststore_uri: An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+               The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        :param str truststore_version: The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        """
+        pulumi.set(__self__, "truststore_uri", truststore_uri)
+        if truststore_version is not None:
+            pulumi.set(__self__, "truststore_version", truststore_version)
+
+    @property
+    @pulumi.getter(name="truststoreUri")
+    def truststore_uri(self) -> str:
+        """
+        An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+        The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        """
+        return pulumi.get(self, "truststore_uri")
+
+    @property
+    @pulumi.getter(name="truststoreVersion")
+    def truststore_version(self) -> Optional[str]:
+        """
+        The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        """
+        return pulumi.get(self, "truststore_version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

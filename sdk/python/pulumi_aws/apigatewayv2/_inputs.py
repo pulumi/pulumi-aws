@@ -12,6 +12,7 @@ __all__ = [
     'ApiCorsConfigurationArgs',
     'AuthorizerJwtConfigurationArgs',
     'DomainNameDomainNameConfigurationArgs',
+    'DomainNameMutualTlsAuthenticationArgs',
     'IntegrationTlsConfigArgs',
     'StageAccessLogSettingsArgs',
     'StageDefaultRouteSettingsArgs',
@@ -244,6 +245,46 @@ class DomainNameDomainNameConfigurationArgs:
     @target_domain_name.setter
     def target_domain_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_domain_name", value)
+
+
+@pulumi.input_type
+class DomainNameMutualTlsAuthenticationArgs:
+    def __init__(__self__, *,
+                 truststore_uri: pulumi.Input[str],
+                 truststore_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] truststore_uri: An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+               The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        :param pulumi.Input[str] truststore_version: The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        """
+        pulumi.set(__self__, "truststore_uri", truststore_uri)
+        if truststore_version is not None:
+            pulumi.set(__self__, "truststore_version", truststore_version)
+
+    @property
+    @pulumi.getter(name="truststoreUri")
+    def truststore_uri(self) -> pulumi.Input[str]:
+        """
+        An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+        The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        """
+        return pulumi.get(self, "truststore_uri")
+
+    @truststore_uri.setter
+    def truststore_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "truststore_uri", value)
+
+    @property
+    @pulumi.getter(name="truststoreVersion")
+    def truststore_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        """
+        return pulumi.get(self, "truststore_version")
+
+    @truststore_version.setter
+    def truststore_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "truststore_version", value)
 
 
 @pulumi.input_type

@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `image_uri` cannot be used.
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `image_uri` cannot be used.
         /// </summary>
         [Output("code")]
         public Output<Archive?> Code { get; private set; } = null!;
@@ -116,6 +116,9 @@ namespace Pulumi.Aws.Lambda
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+        /// </summary>
         [Output("packageType")]
         public Output<string?> PackageType { get; private set; } = null!;
 
@@ -163,7 +166,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> S3Key { get; private set; } = null!;
 
         /// <summary>
-        /// The object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
+        /// The object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         /// </summary>
         [Output("s3ObjectVersion")]
         public Output<string?> S3ObjectVersion { get; private set; } = null!;
@@ -266,7 +269,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class FunctionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `image_uri` cannot be used.
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `image_uri` cannot be used.
         /// </summary>
         [Input("code")]
         public Input<Archive>? Code { get; set; }
@@ -349,6 +352,9 @@ namespace Pulumi.Aws.Lambda
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+        /// </summary>
         [Input("packageType")]
         public Input<string>? PackageType { get; set; }
 
@@ -389,7 +395,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? S3Key { get; set; }
 
         /// <summary>
-        /// The object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
+        /// The object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         /// </summary>
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }
@@ -441,7 +447,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `image_uri` cannot be used.
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `image_uri` cannot be used.
         /// </summary>
         [Input("code")]
         public Input<Archive>? Code { get; set; }
@@ -536,6 +542,9 @@ namespace Pulumi.Aws.Lambda
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+        /// </summary>
         [Input("packageType")]
         public Input<string>? PackageType { get; set; }
 
@@ -583,7 +592,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? S3Key { get; set; }
 
         /// <summary>
-        /// The object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
+        /// The object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         /// </summary>
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }

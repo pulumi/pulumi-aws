@@ -57,7 +57,7 @@ class Function(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `image_uri` cannot be used.
+        :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `image_uri` cannot be used.
         :param pulumi.Input[str] code_signing_config_arn: Amazon Resource Name (ARN) for a Code Signing Configuration.
         :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: Nested block to configure the function's *dead letter queue*. See details below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
@@ -70,13 +70,14 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: A unique name for your Lambda Function.
+        :param pulumi.Input[str] package_type: The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[int] reserved_concurrent_executions: The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[str] role: IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details.
         :param pulumi.Input[str] runtime: See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         :param pulumi.Input[str] s3_bucket: The S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         :param pulumi.Input[str] s3_key: The S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
-        :param pulumi.Input[str] s3_object_version: The object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
+        :param pulumi.Input[str] s3_object_version: The object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[str] source_code_hash: Base64-encoded representation of raw SHA-256 sum of the zip file, provided either via `filename` or `s3_*` parameters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
         :param pulumi.Input[int] timeout: The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
@@ -187,7 +188,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
-        :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `image_uri` cannot be used.
+        :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `image_uri` cannot be used.
         :param pulumi.Input[str] code_signing_config_arn: Amazon Resource Name (ARN) for a Code Signing Configuration.
         :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: Nested block to configure the function's *dead letter queue*. See details below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
@@ -202,6 +203,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: A unique name for your Lambda Function.
+        :param pulumi.Input[str] package_type: The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[str] qualified_arn: The Amazon Resource Name (ARN) identifying your Lambda Function Version
                (if versioning is enabled via `publish = true`).
@@ -210,7 +212,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] runtime: See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         :param pulumi.Input[str] s3_bucket: The S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         :param pulumi.Input[str] s3_key: The S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
-        :param pulumi.Input[str] s3_object_version: The object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
+        :param pulumi.Input[str] s3_object_version: The object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[str] signing_job_arn: The Amazon Resource Name (ARN) of a signing job.
         :param pulumi.Input[str] signing_profile_version_arn: The Amazon Resource Name (ARN) for a signing profile version.
         :param pulumi.Input[str] source_code_hash: Base64-encoded representation of raw SHA-256 sum of the zip file, provided either via `filename` or `s3_*` parameters.
@@ -272,7 +274,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def code(self) -> pulumi.Output[Optional[pulumi.Archive]]:
         """
-        The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `image_uri` cannot be used.
+        The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options and `image_uri` cannot be used.
         """
         return pulumi.get(self, "code")
 
@@ -391,6 +393,9 @@ class Function(pulumi.CustomResource):
     @property
     @pulumi.getter(name="packageType")
     def package_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+        """
         return pulumi.get(self, "package_type")
 
     @property
@@ -454,7 +459,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
+        The object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         """
         return pulumi.get(self, "s3_object_version")
 

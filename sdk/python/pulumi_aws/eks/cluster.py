@@ -19,6 +19,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]] = None,
+                 kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -120,6 +121,7 @@ class Cluster(pulumi.CustomResource):
 
             __props__['enabled_cluster_log_types'] = enabled_cluster_log_types
             __props__['encryption_config'] = encryption_config
+            __props__['kubernetes_network_config'] = kubernetes_network_config
             __props__['name'] = name
             if role_arn is None:
                 raise TypeError("Missing required property 'role_arn'")
@@ -153,6 +155,7 @@ class Cluster(pulumi.CustomResource):
             encryption_config: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]]]] = None,
+            kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             platform_version: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
@@ -192,6 +195,7 @@ class Cluster(pulumi.CustomResource):
         __props__["encryption_config"] = encryption_config
         __props__["endpoint"] = endpoint
         __props__["identities"] = identities
+        __props__["kubernetes_network_config"] = kubernetes_network_config
         __props__["name"] = name
         __props__["platform_version"] = platform_version
         __props__["role_arn"] = role_arn
@@ -253,6 +257,11 @@ class Cluster(pulumi.CustomResource):
         Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
         """
         return pulumi.get(self, "identities")
+
+    @property
+    @pulumi.getter(name="kubernetesNetworkConfig")
+    def kubernetes_network_config(self) -> pulumi.Output['outputs.ClusterKubernetesNetworkConfig']:
+        return pulumi.get(self, "kubernetes_network_config")
 
     @property
     @pulumi.getter
