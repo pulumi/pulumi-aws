@@ -1515,6 +1515,175 @@ func (o FunctionFileSystemConfigPtrOutput) LocalMountPath() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionImageConfig struct {
+	// The CMD for the docker image.
+	Commands []string `pulumi:"commands"`
+	// The ENTRYPOINT for the docker image.
+	EntryPoints []string `pulumi:"entryPoints"`
+	// The working directory for the docker image.
+	WorkingDirectory *string `pulumi:"workingDirectory"`
+}
+
+// FunctionImageConfigInput is an input type that accepts FunctionImageConfigArgs and FunctionImageConfigOutput values.
+// You can construct a concrete instance of `FunctionImageConfigInput` via:
+//
+//          FunctionImageConfigArgs{...}
+type FunctionImageConfigInput interface {
+	pulumi.Input
+
+	ToFunctionImageConfigOutput() FunctionImageConfigOutput
+	ToFunctionImageConfigOutputWithContext(context.Context) FunctionImageConfigOutput
+}
+
+type FunctionImageConfigArgs struct {
+	// The CMD for the docker image.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The ENTRYPOINT for the docker image.
+	EntryPoints pulumi.StringArrayInput `pulumi:"entryPoints"`
+	// The working directory for the docker image.
+	WorkingDirectory pulumi.StringPtrInput `pulumi:"workingDirectory"`
+}
+
+func (FunctionImageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionImageConfig)(nil)).Elem()
+}
+
+func (i FunctionImageConfigArgs) ToFunctionImageConfigOutput() FunctionImageConfigOutput {
+	return i.ToFunctionImageConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionImageConfigArgs) ToFunctionImageConfigOutputWithContext(ctx context.Context) FunctionImageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionImageConfigOutput)
+}
+
+func (i FunctionImageConfigArgs) ToFunctionImageConfigPtrOutput() FunctionImageConfigPtrOutput {
+	return i.ToFunctionImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionImageConfigArgs) ToFunctionImageConfigPtrOutputWithContext(ctx context.Context) FunctionImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionImageConfigOutput).ToFunctionImageConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionImageConfigPtrInput is an input type that accepts FunctionImageConfigArgs, FunctionImageConfigPtr and FunctionImageConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionImageConfigPtrInput` via:
+//
+//          FunctionImageConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionImageConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionImageConfigPtrOutput() FunctionImageConfigPtrOutput
+	ToFunctionImageConfigPtrOutputWithContext(context.Context) FunctionImageConfigPtrOutput
+}
+
+type functionImageConfigPtrType FunctionImageConfigArgs
+
+func FunctionImageConfigPtr(v *FunctionImageConfigArgs) FunctionImageConfigPtrInput {
+	return (*functionImageConfigPtrType)(v)
+}
+
+func (*functionImageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionImageConfig)(nil)).Elem()
+}
+
+func (i *functionImageConfigPtrType) ToFunctionImageConfigPtrOutput() FunctionImageConfigPtrOutput {
+	return i.ToFunctionImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionImageConfigPtrType) ToFunctionImageConfigPtrOutputWithContext(ctx context.Context) FunctionImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionImageConfigPtrOutput)
+}
+
+type FunctionImageConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionImageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionImageConfig)(nil)).Elem()
+}
+
+func (o FunctionImageConfigOutput) ToFunctionImageConfigOutput() FunctionImageConfigOutput {
+	return o
+}
+
+func (o FunctionImageConfigOutput) ToFunctionImageConfigOutputWithContext(ctx context.Context) FunctionImageConfigOutput {
+	return o
+}
+
+func (o FunctionImageConfigOutput) ToFunctionImageConfigPtrOutput() FunctionImageConfigPtrOutput {
+	return o.ToFunctionImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionImageConfigOutput) ToFunctionImageConfigPtrOutputWithContext(ctx context.Context) FunctionImageConfigPtrOutput {
+	return o.ApplyT(func(v FunctionImageConfig) *FunctionImageConfig {
+		return &v
+	}).(FunctionImageConfigPtrOutput)
+}
+
+// The CMD for the docker image.
+func (o FunctionImageConfigOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionImageConfig) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The ENTRYPOINT for the docker image.
+func (o FunctionImageConfigOutput) EntryPoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionImageConfig) []string { return v.EntryPoints }).(pulumi.StringArrayOutput)
+}
+
+// The working directory for the docker image.
+func (o FunctionImageConfigOutput) WorkingDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionImageConfig) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
+}
+
+type FunctionImageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionImageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionImageConfig)(nil)).Elem()
+}
+
+func (o FunctionImageConfigPtrOutput) ToFunctionImageConfigPtrOutput() FunctionImageConfigPtrOutput {
+	return o
+}
+
+func (o FunctionImageConfigPtrOutput) ToFunctionImageConfigPtrOutputWithContext(ctx context.Context) FunctionImageConfigPtrOutput {
+	return o
+}
+
+func (o FunctionImageConfigPtrOutput) Elem() FunctionImageConfigOutput {
+	return o.ApplyT(func(v *FunctionImageConfig) FunctionImageConfig { return *v }).(FunctionImageConfigOutput)
+}
+
+// The CMD for the docker image.
+func (o FunctionImageConfigPtrOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionImageConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Commands
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ENTRYPOINT for the docker image.
+func (o FunctionImageConfigPtrOutput) EntryPoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionImageConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EntryPoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// The working directory for the docker image.
+func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionImageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkingDirectory
+	}).(pulumi.StringPtrOutput)
+}
+
 type FunctionTracingConfig struct {
 	// Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
 	// the request from an upstream service if it contains a tracing header with
@@ -2355,6 +2524,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput{})
 	pulumi.RegisterOutputType(FunctionFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(FunctionFileSystemConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionImageConfigOutput{})
+	pulumi.RegisterOutputType(FunctionImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigOutput{})

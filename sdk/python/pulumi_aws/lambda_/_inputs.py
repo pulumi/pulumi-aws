@@ -20,6 +20,7 @@ __all__ = [
     'FunctionEventInvokeConfigDestinationConfigOnFailureArgs',
     'FunctionEventInvokeConfigDestinationConfigOnSuccessArgs',
     'FunctionFileSystemConfigArgs',
+    'FunctionImageConfigArgs',
     'FunctionTracingConfigArgs',
     'FunctionVpcConfigArgs',
 ]
@@ -305,6 +306,61 @@ class FunctionFileSystemConfigArgs:
     @local_mount_path.setter
     def local_mount_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "local_mount_path", value)
+
+
+@pulumi.input_type
+class FunctionImageConfigArgs:
+    def __init__(__self__, *,
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 entry_points: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 working_directory: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The CMD for the docker image.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entry_points: The ENTRYPOINT for the docker image.
+        :param pulumi.Input[str] working_directory: The working directory for the docker image.
+        """
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if entry_points is not None:
+            pulumi.set(__self__, "entry_points", entry_points)
+        if working_directory is not None:
+            pulumi.set(__self__, "working_directory", working_directory)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The CMD for the docker image.
+        """
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "commands", value)
+
+    @property
+    @pulumi.getter(name="entryPoints")
+    def entry_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ENTRYPOINT for the docker image.
+        """
+        return pulumi.get(self, "entry_points")
+
+    @entry_points.setter
+    def entry_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "entry_points", value)
+
+    @property
+    @pulumi.getter(name="workingDirectory")
+    def working_directory(self) -> Optional[pulumi.Input[str]]:
+        """
+        The working directory for the docker image.
+        """
+        return pulumi.get(self, "working_directory")
+
+    @working_directory.setter
+    def working_directory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "working_directory", value)
 
 
 @pulumi.input_type

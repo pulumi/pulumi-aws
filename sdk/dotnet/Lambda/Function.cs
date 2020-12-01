@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `image_uri` cannot be used.
         /// </summary>
         [Output("code")]
         public Output<Archive?> Code { get; private set; } = null!;
@@ -66,7 +66,19 @@ namespace Pulumi.Aws.Lambda
         /// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         /// </summary>
         [Output("handler")]
-        public Output<string> Handler { get; private set; } = null!;
+        public Output<string?> Handler { get; private set; } = null!;
+
+        /// <summary>
+        /// The Lambda OCI image configurations. Fields documented below. See [Using container images with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)
+        /// </summary>
+        [Output("imageConfig")]
+        public Output<Outputs.FunctionImageConfig?> ImageConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// The ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        /// </summary>
+        [Output("imageUri")]
+        public Output<string?> ImageUri { get; private set; } = null!;
 
         /// <summary>
         /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
@@ -104,6 +116,9 @@ namespace Pulumi.Aws.Lambda
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("packageType")]
+        public Output<string?> PackageType { get; private set; } = null!;
+
         /// <summary>
         /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         /// </summary>
@@ -133,22 +148,22 @@ namespace Pulumi.Aws.Lambda
         /// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
         [Output("runtime")]
-        public Output<string> Runtime { get; private set; } = null!;
+        public Output<string?> Runtime { get; private set; } = null!;
 
         /// <summary>
-        /// The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        /// The S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         /// </summary>
         [Output("s3Bucket")]
         public Output<string?> S3Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+        /// The S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         /// </summary>
         [Output("s3Key")]
         public Output<string?> S3Key { get; private set; } = null!;
 
         /// <summary>
-        /// The object version containing the function's deployment package. Conflicts with `filename`.
+        /// The object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
         /// </summary>
         [Output("s3ObjectVersion")]
         public Output<string?> S3ObjectVersion { get; private set; } = null!;
@@ -251,7 +266,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class FunctionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `image_uri` cannot be used.
         /// </summary>
         [Input("code")]
         public Input<Archive>? Code { get; set; }
@@ -289,8 +304,20 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         /// </summary>
-        [Input("handler", required: true)]
-        public Input<string> Handler { get; set; } = null!;
+        [Input("handler")]
+        public Input<string>? Handler { get; set; }
+
+        /// <summary>
+        /// The Lambda OCI image configurations. Fields documented below. See [Using container images with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)
+        /// </summary>
+        [Input("imageConfig")]
+        public Input<Inputs.FunctionImageConfigArgs>? ImageConfig { get; set; }
+
+        /// <summary>
+        /// The ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        /// </summary>
+        [Input("imageUri")]
+        public Input<string>? ImageUri { get; set; }
 
         /// <summary>
         /// (Optional) The ARN for the KMS encryption key.
@@ -322,6 +349,9 @@ namespace Pulumi.Aws.Lambda
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("packageType")]
+        public Input<string>? PackageType { get; set; }
+
         /// <summary>
         /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         /// </summary>
@@ -343,23 +373,23 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
-        [Input("runtime", required: true)]
-        public Input<string> Runtime { get; set; } = null!;
+        [Input("runtime")]
+        public Input<string>? Runtime { get; set; }
 
         /// <summary>
-        /// The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        /// The S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         /// </summary>
         [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
-        /// The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+        /// The S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         /// </summary>
         [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
 
         /// <summary>
-        /// The object version containing the function's deployment package. Conflicts with `filename`.
+        /// The object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
         /// </summary>
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }
@@ -411,7 +441,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options or `image_uri` cannot be used.
         /// </summary>
         [Input("code")]
         public Input<Archive>? Code { get; set; }
@@ -451,6 +481,18 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("handler")]
         public Input<string>? Handler { get; set; }
+
+        /// <summary>
+        /// The Lambda OCI image configurations. Fields documented below. See [Using container images with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)
+        /// </summary>
+        [Input("imageConfig")]
+        public Input<Inputs.FunctionImageConfigGetArgs>? ImageConfig { get; set; }
+
+        /// <summary>
+        /// The ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        /// </summary>
+        [Input("imageUri")]
+        public Input<string>? ImageUri { get; set; }
 
         /// <summary>
         /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
@@ -494,6 +536,9 @@ namespace Pulumi.Aws.Lambda
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("packageType")]
+        public Input<string>? PackageType { get; set; }
+
         /// <summary>
         /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         /// </summary>
@@ -526,19 +571,19 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Runtime { get; set; }
 
         /// <summary>
-        /// The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        /// The S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         /// </summary>
         [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
-        /// The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+        /// The S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         /// </summary>
         [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
 
         /// <summary>
-        /// The object version containing the function's deployment package. Conflicts with `filename`.
+        /// The object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
         /// </summary>
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }
