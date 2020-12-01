@@ -14,6 +14,7 @@ __all__ = [
     'ClusterEncryptionConfigProviderArgs',
     'ClusterIdentityArgs',
     'ClusterIdentityOidcArgs',
+    'ClusterKubernetesNetworkConfigArgs',
     'ClusterVpcConfigArgs',
     'FargateProfileSelectorArgs',
     'NodeGroupLaunchTemplateArgs',
@@ -149,6 +150,29 @@ class ClusterIdentityOidcArgs:
     @issuer.setter
     def issuer(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "issuer", value)
+
+
+@pulumi.input_type
+class ClusterKubernetesNetworkConfigArgs:
+    def __init__(__self__, *,
+                 service_ipv4_cidr: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+        """
+        if service_ipv4_cidr is not None:
+            pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
+
+    @property
+    @pulumi.getter(name="serviceIpv4Cidr")
+    def service_ipv4_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+        """
+        return pulumi.get(self, "service_ipv4_cidr")
+
+    @service_ipv4_cidr.setter
+    def service_ipv4_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_ipv4_cidr", value)
 
 
 @pulumi.input_type
@@ -314,6 +338,7 @@ class NodeGroupLaunchTemplateArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] version: EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
         :param pulumi.Input[str] id: Identifier of the EC2 Launch Template. Conflicts with `name`.
         :param pulumi.Input[str] name: Name of the EC2 Launch Template. Conflicts with `id`.
         """
@@ -326,6 +351,9 @@ class NodeGroupLaunchTemplateArgs:
     @property
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
+        """
+        EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+        """
         return pulumi.get(self, "version")
 
     @version.setter

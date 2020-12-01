@@ -146,6 +146,12 @@ namespace Pulumi.Aws.Eks
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Type of capacity associated with the EKS Node Group. Defaults to `ON_DEMAND`. Valid values: `ON_DEMAND`, `SPOT`.
+        /// </summary>
+        [Output("capacityType")]
+        public Output<string?> CapacityType { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
         [Output("clusterName")]
@@ -164,10 +170,10 @@ namespace Pulumi.Aws.Eks
         public Output<bool?> ForceUpdateVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
+        /// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("instanceTypes")]
-        public Output<string> InstanceTypes { get; private set; } = null!;
+        public Output<ImmutableArray<string>> InstanceTypes { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
@@ -235,6 +241,9 @@ namespace Pulumi.Aws.Eks
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -291,6 +300,12 @@ namespace Pulumi.Aws.Eks
         public Input<string>? AmiType { get; set; }
 
         /// <summary>
+        /// Type of capacity associated with the EKS Node Group. Defaults to `ON_DEMAND`. Valid values: `ON_DEMAND`, `SPOT`.
+        /// </summary>
+        [Input("capacityType")]
+        public Input<string>? CapacityType { get; set; }
+
+        /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
         [Input("clusterName", required: true)]
@@ -308,11 +323,17 @@ namespace Pulumi.Aws.Eks
         [Input("forceUpdateVersion")]
         public Input<bool>? ForceUpdateVersion { get; set; }
 
-        /// <summary>
-        /// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
-        /// </summary>
         [Input("instanceTypes")]
-        public Input<string>? InstanceTypes { get; set; }
+        private InputList<string>? _instanceTypes;
+
+        /// <summary>
+        /// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
+        public InputList<string> InstanceTypes
+        {
+            get => _instanceTypes ?? (_instanceTypes = new InputList<string>());
+            set => _instanceTypes = value;
+        }
 
         [Input("labels")]
         private InputMap<string>? _labels;
@@ -386,6 +407,9 @@ namespace Pulumi.Aws.Eks
             set => _tags = value;
         }
 
+        /// <summary>
+        /// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -409,6 +433,12 @@ namespace Pulumi.Aws.Eks
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// Type of capacity associated with the EKS Node Group. Defaults to `ON_DEMAND`. Valid values: `ON_DEMAND`, `SPOT`.
+        /// </summary>
+        [Input("capacityType")]
+        public Input<string>? CapacityType { get; set; }
+
+        /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
         [Input("clusterName")]
@@ -426,11 +456,17 @@ namespace Pulumi.Aws.Eks
         [Input("forceUpdateVersion")]
         public Input<bool>? ForceUpdateVersion { get; set; }
 
-        /// <summary>
-        /// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
-        /// </summary>
         [Input("instanceTypes")]
-        public Input<string>? InstanceTypes { get; set; }
+        private InputList<string>? _instanceTypes;
+
+        /// <summary>
+        /// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
+        public InputList<string> InstanceTypes
+        {
+            get => _instanceTypes ?? (_instanceTypes = new InputList<string>());
+            set => _instanceTypes = value;
+        }
 
         [Input("labels")]
         private InputMap<string>? _labels;
@@ -522,6 +558,9 @@ namespace Pulumi.Aws.Eks
             set => _tags = value;
         }
 
+        /// <summary>
+        /// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

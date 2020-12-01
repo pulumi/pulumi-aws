@@ -14,6 +14,7 @@ from .get_script import *
 from .job import *
 from .ml_transform import *
 from .partition import *
+from .registry import *
 from .resource_policy import *
 from .security_configuration import *
 from .trigger import *

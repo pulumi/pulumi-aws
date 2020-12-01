@@ -64,6 +64,8 @@ type DomainName struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfigurationOutput `pulumi:"domainNameConfiguration"`
+	// The mutual TLS authentication configuration for the domain name.
+	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
 	// A map of tags to assign to the domain name.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -110,6 +112,8 @@ type domainNameState struct {
 	DomainName *string `pulumi:"domainName"`
 	// The domain name configuration.
 	DomainNameConfiguration *DomainNameDomainNameConfiguration `pulumi:"domainNameConfiguration"`
+	// The mutual TLS authentication configuration for the domain name.
+	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
 	// A map of tags to assign to the domain name.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -123,6 +127,8 @@ type DomainNameState struct {
 	DomainName pulumi.StringPtrInput
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfigurationPtrInput
+	// The mutual TLS authentication configuration for the domain name.
+	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
 	// A map of tags to assign to the domain name.
 	Tags pulumi.StringMapInput
 }
@@ -136,6 +142,8 @@ type domainNameArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfiguration `pulumi:"domainNameConfiguration"`
+	// The mutual TLS authentication configuration for the domain name.
+	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
 	// A map of tags to assign to the domain name.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -146,6 +154,8 @@ type DomainNameArgs struct {
 	DomainName pulumi.StringInput
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfigurationInput
+	// The mutual TLS authentication configuration for the domain name.
+	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
 	// A map of tags to assign to the domain name.
 	Tags pulumi.StringMapInput
 }

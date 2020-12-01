@@ -13,6 +13,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualGatewaySpecListenerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The connection pool information for the listener.
+        /// </summary>
+        [Input("connectionPool")]
+        public Input<Inputs.VirtualGatewaySpecListenerConnectionPoolArgs>? ConnectionPool { get; set; }
+
+        /// <summary>
         /// The health check information for the listener.
         /// </summary>
         [Input("healthCheck")]

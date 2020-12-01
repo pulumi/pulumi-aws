@@ -13,6 +13,8 @@ __all__ = [
     'IdentityPoolRoleAttachmentRoleMappingArgs',
     'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs',
     'ResourceServerScopeArgs',
+    'UserPoolAccountRecoverySettingArgs',
+    'UserPoolAccountRecoverySettingRecoveryMechanismArgs',
     'UserPoolAdminCreateUserConfigArgs',
     'UserPoolAdminCreateUserConfigInviteMessageTemplateArgs',
     'UserPoolClientAnalyticsConfigurationArgs',
@@ -256,6 +258,65 @@ class ResourceServerScopeArgs:
     @scope_name.setter
     def scope_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "scope_name", value)
+
+
+@pulumi.input_type
+class UserPoolAccountRecoverySettingArgs:
+    def __init__(__self__, *,
+                 recovery_mechanisms: pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]] recovery_mechanisms: The list of Account Recovery Options of the following structure:
+        """
+        pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
+
+    @property
+    @pulumi.getter(name="recoveryMechanisms")
+    def recovery_mechanisms(self) -> pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]:
+        """
+        The list of Account Recovery Options of the following structure:
+        """
+        return pulumi.get(self, "recovery_mechanisms")
+
+    @recovery_mechanisms.setter
+    def recovery_mechanisms(self, value: pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]):
+        pulumi.set(self, "recovery_mechanisms", value)
+
+
+@pulumi.input_type
+class UserPoolAccountRecoverySettingRecoveryMechanismArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 priority: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] name: Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
+        :param pulumi.Input[int] priority: A positive integer specifying priority of a method with 1 being the highest priority.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        A positive integer specifying priority of a method with 1 being the highest priority.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
 
 
 @pulumi.input_type
@@ -812,7 +873,7 @@ class UserPoolSchemaArgs:
                  string_attribute_constraints: Optional[pulumi.Input['UserPoolSchemaStringAttributeConstraintsArgs']] = None):
         """
         :param pulumi.Input[str] attribute_data_type: The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
-        :param pulumi.Input[str] name: The name of the attribute.
+        :param pulumi.Input[str] name: Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         :param pulumi.Input[bool] developer_only_attribute: Specifies whether the attribute type is developer only.
         :param pulumi.Input[bool] mutable: Specifies whether the attribute can be changed once it has been created.
         :param pulumi.Input['UserPoolSchemaNumberAttributeConstraintsArgs'] number_attribute_constraints: Specifies the constraints for an attribute of the number type.
@@ -848,7 +909,7 @@ class UserPoolSchemaArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the attribute.
+        Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         """
         return pulumi.get(self, "name")
 

@@ -481,6 +481,245 @@ func (o ResourceServerScopeArrayOutput) Index(i pulumi.IntInput) ResourceServerS
 	}).(ResourceServerScopeOutput)
 }
 
+type UserPoolAccountRecoverySetting struct {
+	// The list of Account Recovery Options of the following structure:
+	RecoveryMechanisms []UserPoolAccountRecoverySettingRecoveryMechanism `pulumi:"recoveryMechanisms"`
+}
+
+// UserPoolAccountRecoverySettingInput is an input type that accepts UserPoolAccountRecoverySettingArgs and UserPoolAccountRecoverySettingOutput values.
+// You can construct a concrete instance of `UserPoolAccountRecoverySettingInput` via:
+//
+//          UserPoolAccountRecoverySettingArgs{...}
+type UserPoolAccountRecoverySettingInput interface {
+	pulumi.Input
+
+	ToUserPoolAccountRecoverySettingOutput() UserPoolAccountRecoverySettingOutput
+	ToUserPoolAccountRecoverySettingOutputWithContext(context.Context) UserPoolAccountRecoverySettingOutput
+}
+
+type UserPoolAccountRecoverySettingArgs struct {
+	// The list of Account Recovery Options of the following structure:
+	RecoveryMechanisms UserPoolAccountRecoverySettingRecoveryMechanismArrayInput `pulumi:"recoveryMechanisms"`
+}
+
+func (UserPoolAccountRecoverySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolAccountRecoverySetting)(nil)).Elem()
+}
+
+func (i UserPoolAccountRecoverySettingArgs) ToUserPoolAccountRecoverySettingOutput() UserPoolAccountRecoverySettingOutput {
+	return i.ToUserPoolAccountRecoverySettingOutputWithContext(context.Background())
+}
+
+func (i UserPoolAccountRecoverySettingArgs) ToUserPoolAccountRecoverySettingOutputWithContext(ctx context.Context) UserPoolAccountRecoverySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAccountRecoverySettingOutput)
+}
+
+func (i UserPoolAccountRecoverySettingArgs) ToUserPoolAccountRecoverySettingPtrOutput() UserPoolAccountRecoverySettingPtrOutput {
+	return i.ToUserPoolAccountRecoverySettingPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolAccountRecoverySettingArgs) ToUserPoolAccountRecoverySettingPtrOutputWithContext(ctx context.Context) UserPoolAccountRecoverySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAccountRecoverySettingOutput).ToUserPoolAccountRecoverySettingPtrOutputWithContext(ctx)
+}
+
+// UserPoolAccountRecoverySettingPtrInput is an input type that accepts UserPoolAccountRecoverySettingArgs, UserPoolAccountRecoverySettingPtr and UserPoolAccountRecoverySettingPtrOutput values.
+// You can construct a concrete instance of `UserPoolAccountRecoverySettingPtrInput` via:
+//
+//          UserPoolAccountRecoverySettingArgs{...}
+//
+//  or:
+//
+//          nil
+type UserPoolAccountRecoverySettingPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolAccountRecoverySettingPtrOutput() UserPoolAccountRecoverySettingPtrOutput
+	ToUserPoolAccountRecoverySettingPtrOutputWithContext(context.Context) UserPoolAccountRecoverySettingPtrOutput
+}
+
+type userPoolAccountRecoverySettingPtrType UserPoolAccountRecoverySettingArgs
+
+func UserPoolAccountRecoverySettingPtr(v *UserPoolAccountRecoverySettingArgs) UserPoolAccountRecoverySettingPtrInput {
+	return (*userPoolAccountRecoverySettingPtrType)(v)
+}
+
+func (*userPoolAccountRecoverySettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolAccountRecoverySetting)(nil)).Elem()
+}
+
+func (i *userPoolAccountRecoverySettingPtrType) ToUserPoolAccountRecoverySettingPtrOutput() UserPoolAccountRecoverySettingPtrOutput {
+	return i.ToUserPoolAccountRecoverySettingPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolAccountRecoverySettingPtrType) ToUserPoolAccountRecoverySettingPtrOutputWithContext(ctx context.Context) UserPoolAccountRecoverySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAccountRecoverySettingPtrOutput)
+}
+
+type UserPoolAccountRecoverySettingOutput struct{ *pulumi.OutputState }
+
+func (UserPoolAccountRecoverySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolAccountRecoverySetting)(nil)).Elem()
+}
+
+func (o UserPoolAccountRecoverySettingOutput) ToUserPoolAccountRecoverySettingOutput() UserPoolAccountRecoverySettingOutput {
+	return o
+}
+
+func (o UserPoolAccountRecoverySettingOutput) ToUserPoolAccountRecoverySettingOutputWithContext(ctx context.Context) UserPoolAccountRecoverySettingOutput {
+	return o
+}
+
+func (o UserPoolAccountRecoverySettingOutput) ToUserPoolAccountRecoverySettingPtrOutput() UserPoolAccountRecoverySettingPtrOutput {
+	return o.ToUserPoolAccountRecoverySettingPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolAccountRecoverySettingOutput) ToUserPoolAccountRecoverySettingPtrOutputWithContext(ctx context.Context) UserPoolAccountRecoverySettingPtrOutput {
+	return o.ApplyT(func(v UserPoolAccountRecoverySetting) *UserPoolAccountRecoverySetting {
+		return &v
+	}).(UserPoolAccountRecoverySettingPtrOutput)
+}
+
+// The list of Account Recovery Options of the following structure:
+func (o UserPoolAccountRecoverySettingOutput) RecoveryMechanisms() UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput {
+	return o.ApplyT(func(v UserPoolAccountRecoverySetting) []UserPoolAccountRecoverySettingRecoveryMechanism {
+		return v.RecoveryMechanisms
+	}).(UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput)
+}
+
+type UserPoolAccountRecoverySettingPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolAccountRecoverySettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolAccountRecoverySetting)(nil)).Elem()
+}
+
+func (o UserPoolAccountRecoverySettingPtrOutput) ToUserPoolAccountRecoverySettingPtrOutput() UserPoolAccountRecoverySettingPtrOutput {
+	return o
+}
+
+func (o UserPoolAccountRecoverySettingPtrOutput) ToUserPoolAccountRecoverySettingPtrOutputWithContext(ctx context.Context) UserPoolAccountRecoverySettingPtrOutput {
+	return o
+}
+
+func (o UserPoolAccountRecoverySettingPtrOutput) Elem() UserPoolAccountRecoverySettingOutput {
+	return o.ApplyT(func(v *UserPoolAccountRecoverySetting) UserPoolAccountRecoverySetting { return *v }).(UserPoolAccountRecoverySettingOutput)
+}
+
+// The list of Account Recovery Options of the following structure:
+func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput {
+	return o.ApplyT(func(v *UserPoolAccountRecoverySetting) []UserPoolAccountRecoverySettingRecoveryMechanism {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryMechanisms
+	}).(UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput)
+}
+
+type UserPoolAccountRecoverySettingRecoveryMechanism struct {
+	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+	Name string `pulumi:"name"`
+	// A positive integer specifying priority of a method with 1 being the highest priority.
+	Priority int `pulumi:"priority"`
+}
+
+// UserPoolAccountRecoverySettingRecoveryMechanismInput is an input type that accepts UserPoolAccountRecoverySettingRecoveryMechanismArgs and UserPoolAccountRecoverySettingRecoveryMechanismOutput values.
+// You can construct a concrete instance of `UserPoolAccountRecoverySettingRecoveryMechanismInput` via:
+//
+//          UserPoolAccountRecoverySettingRecoveryMechanismArgs{...}
+type UserPoolAccountRecoverySettingRecoveryMechanismInput interface {
+	pulumi.Input
+
+	ToUserPoolAccountRecoverySettingRecoveryMechanismOutput() UserPoolAccountRecoverySettingRecoveryMechanismOutput
+	ToUserPoolAccountRecoverySettingRecoveryMechanismOutputWithContext(context.Context) UserPoolAccountRecoverySettingRecoveryMechanismOutput
+}
+
+type UserPoolAccountRecoverySettingRecoveryMechanismArgs struct {
+	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A positive integer specifying priority of a method with 1 being the highest priority.
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (UserPoolAccountRecoverySettingRecoveryMechanismArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolAccountRecoverySettingRecoveryMechanism)(nil)).Elem()
+}
+
+func (i UserPoolAccountRecoverySettingRecoveryMechanismArgs) ToUserPoolAccountRecoverySettingRecoveryMechanismOutput() UserPoolAccountRecoverySettingRecoveryMechanismOutput {
+	return i.ToUserPoolAccountRecoverySettingRecoveryMechanismOutputWithContext(context.Background())
+}
+
+func (i UserPoolAccountRecoverySettingRecoveryMechanismArgs) ToUserPoolAccountRecoverySettingRecoveryMechanismOutputWithContext(ctx context.Context) UserPoolAccountRecoverySettingRecoveryMechanismOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAccountRecoverySettingRecoveryMechanismOutput)
+}
+
+// UserPoolAccountRecoverySettingRecoveryMechanismArrayInput is an input type that accepts UserPoolAccountRecoverySettingRecoveryMechanismArray and UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput values.
+// You can construct a concrete instance of `UserPoolAccountRecoverySettingRecoveryMechanismArrayInput` via:
+//
+//          UserPoolAccountRecoverySettingRecoveryMechanismArray{ UserPoolAccountRecoverySettingRecoveryMechanismArgs{...} }
+type UserPoolAccountRecoverySettingRecoveryMechanismArrayInput interface {
+	pulumi.Input
+
+	ToUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput() UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput
+	ToUserPoolAccountRecoverySettingRecoveryMechanismArrayOutputWithContext(context.Context) UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput
+}
+
+type UserPoolAccountRecoverySettingRecoveryMechanismArray []UserPoolAccountRecoverySettingRecoveryMechanismInput
+
+func (UserPoolAccountRecoverySettingRecoveryMechanismArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserPoolAccountRecoverySettingRecoveryMechanism)(nil)).Elem()
+}
+
+func (i UserPoolAccountRecoverySettingRecoveryMechanismArray) ToUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput() UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput {
+	return i.ToUserPoolAccountRecoverySettingRecoveryMechanismArrayOutputWithContext(context.Background())
+}
+
+func (i UserPoolAccountRecoverySettingRecoveryMechanismArray) ToUserPoolAccountRecoverySettingRecoveryMechanismArrayOutputWithContext(ctx context.Context) UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput)
+}
+
+type UserPoolAccountRecoverySettingRecoveryMechanismOutput struct{ *pulumi.OutputState }
+
+func (UserPoolAccountRecoverySettingRecoveryMechanismOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolAccountRecoverySettingRecoveryMechanism)(nil)).Elem()
+}
+
+func (o UserPoolAccountRecoverySettingRecoveryMechanismOutput) ToUserPoolAccountRecoverySettingRecoveryMechanismOutput() UserPoolAccountRecoverySettingRecoveryMechanismOutput {
+	return o
+}
+
+func (o UserPoolAccountRecoverySettingRecoveryMechanismOutput) ToUserPoolAccountRecoverySettingRecoveryMechanismOutputWithContext(ctx context.Context) UserPoolAccountRecoverySettingRecoveryMechanismOutput {
+	return o
+}
+
+// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+func (o UserPoolAccountRecoverySettingRecoveryMechanismOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolAccountRecoverySettingRecoveryMechanism) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A positive integer specifying priority of a method with 1 being the highest priority.
+func (o UserPoolAccountRecoverySettingRecoveryMechanismOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v UserPoolAccountRecoverySettingRecoveryMechanism) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput struct{ *pulumi.OutputState }
+
+func (UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserPoolAccountRecoverySettingRecoveryMechanism)(nil)).Elem()
+}
+
+func (o UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput) ToUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput() UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput {
+	return o
+}
+
+func (o UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput) ToUserPoolAccountRecoverySettingRecoveryMechanismArrayOutputWithContext(ctx context.Context) UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput {
+	return o
+}
+
+func (o UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput) Index(i pulumi.IntInput) UserPoolAccountRecoverySettingRecoveryMechanismOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserPoolAccountRecoverySettingRecoveryMechanism {
+		return vs[0].([]UserPoolAccountRecoverySettingRecoveryMechanism)[vs[1].(int)]
+	}).(UserPoolAccountRecoverySettingRecoveryMechanismOutput)
+}
+
 type UserPoolAdminCreateUserConfig struct {
 	// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
 	AllowAdminCreateUserOnly *bool `pulumi:"allowAdminCreateUserOnly"`
@@ -1865,7 +2104,7 @@ type UserPoolSchema struct {
 	DeveloperOnlyAttribute *bool `pulumi:"developerOnlyAttribute"`
 	// Specifies whether the attribute can be changed once it has been created.
 	Mutable *bool `pulumi:"mutable"`
-	// The name of the attribute.
+	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
 	Name string `pulumi:"name"`
 	// Specifies the constraints for an attribute of the number type.
 	NumberAttributeConstraints *UserPoolSchemaNumberAttributeConstraints `pulumi:"numberAttributeConstraints"`
@@ -1893,7 +2132,7 @@ type UserPoolSchemaArgs struct {
 	DeveloperOnlyAttribute pulumi.BoolPtrInput `pulumi:"developerOnlyAttribute"`
 	// Specifies whether the attribute can be changed once it has been created.
 	Mutable pulumi.BoolPtrInput `pulumi:"mutable"`
-	// The name of the attribute.
+	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the constraints for an attribute of the number type.
 	NumberAttributeConstraints UserPoolSchemaNumberAttributeConstraintsPtrInput `pulumi:"numberAttributeConstraints"`
@@ -1969,7 +2208,7 @@ func (o UserPoolSchemaOutput) Mutable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolSchema) *bool { return v.Mutable }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the attribute.
+// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
 func (o UserPoolSchemaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolSchema) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3087,6 +3326,10 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayOutput{})
 	pulumi.RegisterOutputType(ResourceServerScopeOutput{})
 	pulumi.RegisterOutputType(ResourceServerScopeArrayOutput{})
+	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingOutput{})
+	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingRecoveryMechanismOutput{})
+	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput{})
 	pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigOutput{})
 	pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigInviteMessageTemplateOutput{})

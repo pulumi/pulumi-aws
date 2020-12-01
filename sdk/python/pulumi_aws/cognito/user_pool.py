@@ -17,6 +17,7 @@ class UserPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_recovery_setting: Optional[pulumi.Input[pulumi.InputType['UserPoolAccountRecoverySettingArgs']]] = None,
                  admin_create_user_config: Optional[pulumi.Input[pulumi.InputType['UserPoolAdminCreateUserConfigArgs']]] = None,
                  alias_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -71,6 +72,25 @@ class UserPool(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        ### Using Account Recovery Setting
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.cognito.UserPool("test", account_recovery_setting=aws.cognito.UserPoolAccountRecoverySettingArgs(
+            recovery_mechanisms=[
+                aws.cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs(
+                    name="verified_email",
+                    priority=1,
+                ),
+                aws.cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs(
+                    name="verified_phone_number",
+                    priority=2,
+                ),
+            ],
+        ))
+        ```
 
         ## Import
 
@@ -82,6 +102,7 @@ class UserPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['UserPoolAccountRecoverySettingArgs']] account_recovery_setting: The account_recovery_setting configuration.
         :param pulumi.Input[pulumi.InputType['UserPoolAdminCreateUserConfigArgs']] admin_create_user_config: The configuration for AdminCreateUser requests.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `username_attributes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: The attributes to be auto-verified. Possible values: email, phone_number.
@@ -91,7 +112,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[str] email_verification_subject: A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
         :param pulumi.Input[pulumi.InputType['UserPoolLambdaConfigArgs']] lambda_config: A container for the AWS Lambda triggers associated with the user pool.
         :param pulumi.Input[str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
-        :param pulumi.Input[str] name: The name of the attribute.
+        :param pulumi.Input[str] name: Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         :param pulumi.Input[pulumi.InputType['UserPoolPasswordPolicyArgs']] password_policy: A container for information about the user pool password policy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolSchemaArgs']]]] schemas: A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
         :param pulumi.Input[str] sms_authentication_message: A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
@@ -121,6 +142,7 @@ class UserPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['account_recovery_setting'] = account_recovery_setting
             __props__['admin_create_user_config'] = admin_create_user_config
             __props__['alias_attributes'] = alias_attributes
             __props__['auto_verified_attributes'] = auto_verified_attributes
@@ -156,6 +178,7 @@ class UserPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            account_recovery_setting: Optional[pulumi.Input[pulumi.InputType['UserPoolAccountRecoverySettingArgs']]] = None,
             admin_create_user_config: Optional[pulumi.Input[pulumi.InputType['UserPoolAdminCreateUserConfigArgs']]] = None,
             alias_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
@@ -188,6 +211,7 @@ class UserPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['UserPoolAccountRecoverySettingArgs']] account_recovery_setting: The account_recovery_setting configuration.
         :param pulumi.Input[pulumi.InputType['UserPoolAdminCreateUserConfigArgs']] admin_create_user_config: The configuration for AdminCreateUser requests.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `username_attributes`.
         :param pulumi.Input[str] arn: The ARN of the user pool.
@@ -201,7 +225,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserPoolLambdaConfigArgs']] lambda_config: A container for the AWS Lambda triggers associated with the user pool.
         :param pulumi.Input[str] last_modified_date: The date the user pool was last modified.
         :param pulumi.Input[str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
-        :param pulumi.Input[str] name: The name of the attribute.
+        :param pulumi.Input[str] name: Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         :param pulumi.Input[pulumi.InputType['UserPoolPasswordPolicyArgs']] password_policy: A container for information about the user pool password policy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolSchemaArgs']]]] schemas: A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
         :param pulumi.Input[str] sms_authentication_message: A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
@@ -218,6 +242,7 @@ class UserPool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["account_recovery_setting"] = account_recovery_setting
         __props__["admin_create_user_config"] = admin_create_user_config
         __props__["alias_attributes"] = alias_attributes
         __props__["arn"] = arn
@@ -244,6 +269,14 @@ class UserPool(pulumi.CustomResource):
         __props__["username_configuration"] = username_configuration
         __props__["verification_message_template"] = verification_message_template
         return UserPool(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accountRecoverySetting")
+    def account_recovery_setting(self) -> pulumi.Output[Optional['outputs.UserPoolAccountRecoverySetting']]:
+        """
+        The account_recovery_setting configuration.
+        """
+        return pulumi.get(self, "account_recovery_setting")
 
     @property
     @pulumi.getter(name="adminCreateUserConfig")
@@ -353,7 +386,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the attribute.
+        Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         """
         return pulumi.get(self, "name")
 

@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly bool? Mutable;
         /// <summary>
-        /// The name of the attribute.
+        /// Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         /// </summary>
         public readonly string Name;
         /// <summary>

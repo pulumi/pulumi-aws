@@ -68,6 +68,10 @@ export interface GetClusterResult {
      * Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `aws.eks.Cluster` resource documentation.
      */
     readonly identities: outputs.eks.GetClusterIdentity[];
+    /**
+     * Nested list containing Kubernetes Network Configuration.
+     */
+    readonly kubernetesNetworkConfigs: outputs.eks.GetClusterKubernetesNetworkConfig[];
     readonly name: string;
     /**
      * The platform version for the cluster.

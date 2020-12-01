@@ -19,6 +19,7 @@ class DomainName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_name_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']]] = None,
+                 mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -58,6 +59,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The domain name. Must be between 1 and 512 characters in length.
         :param pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']] domain_name_configuration: The domain name configuration.
+        :param pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']] mutual_tls_authentication: The mutual TLS authentication configuration for the domain name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the domain name.
         """
         if __name__ is not None:
@@ -83,6 +85,7 @@ class DomainName(pulumi.CustomResource):
             if domain_name_configuration is None:
                 raise TypeError("Missing required property 'domain_name_configuration'")
             __props__['domain_name_configuration'] = domain_name_configuration
+            __props__['mutual_tls_authentication'] = mutual_tls_authentication
             __props__['tags'] = tags
             __props__['api_mapping_selection_expression'] = None
             __props__['arn'] = None
@@ -100,6 +103,7 @@ class DomainName(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             domain_name_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']]] = None,
+            mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'DomainName':
         """
         Get an existing DomainName resource's state with the given name, id, and optional extra
@@ -112,6 +116,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the domain name.
         :param pulumi.Input[str] domain_name: The domain name. Must be between 1 and 512 characters in length.
         :param pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']] domain_name_configuration: The domain name configuration.
+        :param pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']] mutual_tls_authentication: The mutual TLS authentication configuration for the domain name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the domain name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -122,6 +127,7 @@ class DomainName(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["domain_name"] = domain_name
         __props__["domain_name_configuration"] = domain_name_configuration
+        __props__["mutual_tls_authentication"] = mutual_tls_authentication
         __props__["tags"] = tags
         return DomainName(resource_name, opts=opts, __props__=__props__)
 
@@ -156,6 +162,14 @@ class DomainName(pulumi.CustomResource):
         The domain name configuration.
         """
         return pulumi.get(self, "domain_name_configuration")
+
+    @property
+    @pulumi.getter(name="mutualTlsAuthentication")
+    def mutual_tls_authentication(self) -> pulumi.Output[Optional['outputs.DomainNameMutualTlsAuthentication']]:
+        """
+        The mutual TLS authentication configuration for the domain name.
+        """
+        return pulumi.get(self, "mutual_tls_authentication")
 
     @property
     @pulumi.getter

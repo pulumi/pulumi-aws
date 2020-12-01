@@ -597,6 +597,160 @@ func (o DomainNameDomainNameConfigurationPtrOutput) TargetDomainName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainNameMutualTlsAuthentication struct {
+	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+	// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+	TruststoreUri string `pulumi:"truststoreUri"`
+	// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+	TruststoreVersion *string `pulumi:"truststoreVersion"`
+}
+
+// DomainNameMutualTlsAuthenticationInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs and DomainNameMutualTlsAuthenticationOutput values.
+// You can construct a concrete instance of `DomainNameMutualTlsAuthenticationInput` via:
+//
+//          DomainNameMutualTlsAuthenticationArgs{...}
+type DomainNameMutualTlsAuthenticationInput interface {
+	pulumi.Input
+
+	ToDomainNameMutualTlsAuthenticationOutput() DomainNameMutualTlsAuthenticationOutput
+	ToDomainNameMutualTlsAuthenticationOutputWithContext(context.Context) DomainNameMutualTlsAuthenticationOutput
+}
+
+type DomainNameMutualTlsAuthenticationArgs struct {
+	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+	// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+	TruststoreUri pulumi.StringInput `pulumi:"truststoreUri"`
+	// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+	TruststoreVersion pulumi.StringPtrInput `pulumi:"truststoreVersion"`
+}
+
+func (DomainNameMutualTlsAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationOutput() DomainNameMutualTlsAuthenticationOutput {
+	return i.ToDomainNameMutualTlsAuthenticationOutputWithContext(context.Background())
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationOutput)
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return i.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationOutput).ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx)
+}
+
+// DomainNameMutualTlsAuthenticationPtrInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs, DomainNameMutualTlsAuthenticationPtr and DomainNameMutualTlsAuthenticationPtrOutput values.
+// You can construct a concrete instance of `DomainNameMutualTlsAuthenticationPtrInput` via:
+//
+//          DomainNameMutualTlsAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainNameMutualTlsAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput
+	ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Context) DomainNameMutualTlsAuthenticationPtrOutput
+}
+
+type domainNameMutualTlsAuthenticationPtrType DomainNameMutualTlsAuthenticationArgs
+
+func DomainNameMutualTlsAuthenticationPtr(v *DomainNameMutualTlsAuthenticationArgs) DomainNameMutualTlsAuthenticationPtrInput {
+	return (*domainNameMutualTlsAuthenticationPtrType)(v)
+}
+
+func (*domainNameMutualTlsAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (i *domainNameMutualTlsAuthenticationPtrType) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return i.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainNameMutualTlsAuthenticationPtrType) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationPtrOutput)
+}
+
+type DomainNameMutualTlsAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (DomainNameMutualTlsAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationOutput() DomainNameMutualTlsAuthenticationOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *DomainNameMutualTlsAuthentication {
+		return &v
+	}).(DomainNameMutualTlsAuthenticationPtrOutput)
+}
+
+// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+func (o DomainNameMutualTlsAuthenticationOutput) TruststoreUri() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) string { return v.TruststoreUri }).(pulumi.StringOutput)
+}
+
+// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+func (o DomainNameMutualTlsAuthenticationOutput) TruststoreVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreVersion }).(pulumi.StringPtrOutput)
+}
+
+type DomainNameMutualTlsAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainNameMutualTlsAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAuthenticationOutput {
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) DomainNameMutualTlsAuthentication { return *v }).(DomainNameMutualTlsAuthenticationOutput)
+}
+
+// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TruststoreUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TruststoreVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 type IntegrationTlsConfig struct {
 	// If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
 	ServerNameToVerify *string `pulumi:"serverNameToVerify"`
@@ -1248,6 +1402,8 @@ func init() {
 	pulumi.RegisterOutputType(AuthorizerJwtConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameDomainNameConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainNameDomainNameConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
+	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsOutput{})

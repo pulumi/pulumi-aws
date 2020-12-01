@@ -14,6 +14,8 @@ __all__ = [
     'IdentityPoolRoleAttachmentRoleMapping',
     'IdentityPoolRoleAttachmentRoleMappingMappingRule',
     'ResourceServerScope',
+    'UserPoolAccountRecoverySetting',
+    'UserPoolAccountRecoverySettingRecoveryMechanism',
     'UserPoolAdminCreateUserConfig',
     'UserPoolAdminCreateUserConfigInviteMessageTemplate',
     'UserPoolClientAnalyticsConfiguration',
@@ -214,6 +216,59 @@ class ResourceServerScope(dict):
         The scope name.
         """
         return pulumi.get(self, "scope_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserPoolAccountRecoverySetting(dict):
+    def __init__(__self__, *,
+                 recovery_mechanisms: Sequence['outputs.UserPoolAccountRecoverySettingRecoveryMechanism']):
+        """
+        :param Sequence['UserPoolAccountRecoverySettingRecoveryMechanismArgs'] recovery_mechanisms: The list of Account Recovery Options of the following structure:
+        """
+        pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
+
+    @property
+    @pulumi.getter(name="recoveryMechanisms")
+    def recovery_mechanisms(self) -> Sequence['outputs.UserPoolAccountRecoverySettingRecoveryMechanism']:
+        """
+        The list of Account Recovery Options of the following structure:
+        """
+        return pulumi.get(self, "recovery_mechanisms")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserPoolAccountRecoverySettingRecoveryMechanism(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 priority: int):
+        """
+        :param str name: Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
+        :param int priority: A positive integer specifying priority of a method with 1 being the highest priority.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        A positive integer specifying priority of a method with 1 being the highest priority.
+        """
+        return pulumi.get(self, "priority")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -670,7 +725,7 @@ class UserPoolSchema(dict):
                  string_attribute_constraints: Optional['outputs.UserPoolSchemaStringAttributeConstraints'] = None):
         """
         :param str attribute_data_type: The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
-        :param str name: The name of the attribute.
+        :param str name: Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         :param bool developer_only_attribute: Specifies whether the attribute type is developer only.
         :param bool mutable: Specifies whether the attribute can be changed once it has been created.
         :param 'UserPoolSchemaNumberAttributeConstraintsArgs' number_attribute_constraints: Specifies the constraints for an attribute of the number type.
@@ -702,7 +757,7 @@ class UserPoolSchema(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the attribute.
+        Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         """
         return pulumi.get(self, "name")
 

@@ -10247,6 +10247,8 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOu
 }
 
 type VirtualGatewaySpecListener struct {
+	// The connection pool information for the listener.
+	ConnectionPool *VirtualGatewaySpecListenerConnectionPool `pulumi:"connectionPool"`
 	// The health check information for the listener.
 	HealthCheck *VirtualGatewaySpecListenerHealthCheck `pulumi:"healthCheck"`
 	// The port mapping information for the listener.
@@ -10267,6 +10269,8 @@ type VirtualGatewaySpecListenerInput interface {
 }
 
 type VirtualGatewaySpecListenerArgs struct {
+	// The connection pool information for the listener.
+	ConnectionPool VirtualGatewaySpecListenerConnectionPoolPtrInput `pulumi:"connectionPool"`
 	// The health check information for the listener.
 	HealthCheck VirtualGatewaySpecListenerHealthCheckPtrInput `pulumi:"healthCheck"`
 	// The port mapping information for the listener.
@@ -10352,6 +10356,11 @@ func (o VirtualGatewaySpecListenerOutput) ToVirtualGatewaySpecListenerPtrOutputW
 	}).(VirtualGatewaySpecListenerPtrOutput)
 }
 
+// The connection pool information for the listener.
+func (o VirtualGatewaySpecListenerOutput) ConnectionPool() VirtualGatewaySpecListenerConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListener) *VirtualGatewaySpecListenerConnectionPool { return v.ConnectionPool }).(VirtualGatewaySpecListenerConnectionPoolPtrOutput)
+}
+
 // The health check information for the listener.
 func (o VirtualGatewaySpecListenerOutput) HealthCheck() VirtualGatewaySpecListenerHealthCheckPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListener) *VirtualGatewaySpecListenerHealthCheck { return v.HealthCheck }).(VirtualGatewaySpecListenerHealthCheckPtrOutput)
@@ -10385,6 +10394,16 @@ func (o VirtualGatewaySpecListenerPtrOutput) Elem() VirtualGatewaySpecListenerOu
 	return o.ApplyT(func(v *VirtualGatewaySpecListener) VirtualGatewaySpecListener { return *v }).(VirtualGatewaySpecListenerOutput)
 }
 
+// The connection pool information for the listener.
+func (o VirtualGatewaySpecListenerPtrOutput) ConnectionPool() VirtualGatewaySpecListenerConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListener) *VirtualGatewaySpecListenerConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionPool
+	}).(VirtualGatewaySpecListenerConnectionPoolPtrOutput)
+}
+
 // The health check information for the listener.
 func (o VirtualGatewaySpecListenerPtrOutput) HealthCheck() VirtualGatewaySpecListenerHealthCheckPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListener) *VirtualGatewaySpecListenerHealthCheck {
@@ -10413,6 +10432,599 @@ func (o VirtualGatewaySpecListenerPtrOutput) Tls() VirtualGatewaySpecListenerTls
 		}
 		return v.Tls
 	}).(VirtualGatewaySpecListenerTlsPtrOutput)
+}
+
+type VirtualGatewaySpecListenerConnectionPool struct {
+	// Connection pool information for gRPC listeners.
+	Grpc *VirtualGatewaySpecListenerConnectionPoolGrpc `pulumi:"grpc"`
+	// Connection pool information for HTTP listeners.
+	Http *VirtualGatewaySpecListenerConnectionPoolHttp `pulumi:"http"`
+	// Connection pool information for HTTP2 listeners.
+	Http2 *VirtualGatewaySpecListenerConnectionPoolHttp2 `pulumi:"http2"`
+}
+
+// VirtualGatewaySpecListenerConnectionPoolInput is an input type that accepts VirtualGatewaySpecListenerConnectionPoolArgs and VirtualGatewaySpecListenerConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerConnectionPoolInput` via:
+//
+//          VirtualGatewaySpecListenerConnectionPoolArgs{...}
+type VirtualGatewaySpecListenerConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerConnectionPoolOutput() VirtualGatewaySpecListenerConnectionPoolOutput
+	ToVirtualGatewaySpecListenerConnectionPoolOutputWithContext(context.Context) VirtualGatewaySpecListenerConnectionPoolOutput
+}
+
+type VirtualGatewaySpecListenerConnectionPoolArgs struct {
+	// Connection pool information for gRPC listeners.
+	Grpc VirtualGatewaySpecListenerConnectionPoolGrpcPtrInput `pulumi:"grpc"`
+	// Connection pool information for HTTP listeners.
+	Http VirtualGatewaySpecListenerConnectionPoolHttpPtrInput `pulumi:"http"`
+	// Connection pool information for HTTP2 listeners.
+	Http2 VirtualGatewaySpecListenerConnectionPoolHttp2PtrInput `pulumi:"http2"`
+}
+
+func (VirtualGatewaySpecListenerConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolArgs) ToVirtualGatewaySpecListenerConnectionPoolOutput() VirtualGatewaySpecListenerConnectionPoolOutput {
+	return i.ToVirtualGatewaySpecListenerConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolArgs) ToVirtualGatewaySpecListenerConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerConnectionPoolOutput)
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolArgs) ToVirtualGatewaySpecListenerConnectionPoolPtrOutput() VirtualGatewaySpecListenerConnectionPoolPtrOutput {
+	return i.ToVirtualGatewaySpecListenerConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolArgs) ToVirtualGatewaySpecListenerConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerConnectionPoolOutput).ToVirtualGatewaySpecListenerConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecListenerConnectionPoolPtrInput is an input type that accepts VirtualGatewaySpecListenerConnectionPoolArgs, VirtualGatewaySpecListenerConnectionPoolPtr and VirtualGatewaySpecListenerConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerConnectionPoolPtrInput` via:
+//
+//          VirtualGatewaySpecListenerConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecListenerConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerConnectionPoolPtrOutput() VirtualGatewaySpecListenerConnectionPoolPtrOutput
+	ToVirtualGatewaySpecListenerConnectionPoolPtrOutputWithContext(context.Context) VirtualGatewaySpecListenerConnectionPoolPtrOutput
+}
+
+type virtualGatewaySpecListenerConnectionPoolPtrType VirtualGatewaySpecListenerConnectionPoolArgs
+
+func VirtualGatewaySpecListenerConnectionPoolPtr(v *VirtualGatewaySpecListenerConnectionPoolArgs) VirtualGatewaySpecListenerConnectionPoolPtrInput {
+	return (*virtualGatewaySpecListenerConnectionPoolPtrType)(v)
+}
+
+func (*virtualGatewaySpecListenerConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecListenerConnectionPoolPtrType) ToVirtualGatewaySpecListenerConnectionPoolPtrOutput() VirtualGatewaySpecListenerConnectionPoolPtrOutput {
+	return i.ToVirtualGatewaySpecListenerConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecListenerConnectionPoolPtrType) ToVirtualGatewaySpecListenerConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerConnectionPoolPtrOutput)
+}
+
+type VirtualGatewaySpecListenerConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolOutput) ToVirtualGatewaySpecListenerConnectionPoolOutput() VirtualGatewaySpecListenerConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolOutput) ToVirtualGatewaySpecListenerConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolOutput) ToVirtualGatewaySpecListenerConnectionPoolPtrOutput() VirtualGatewaySpecListenerConnectionPoolPtrOutput {
+	return o.ToVirtualGatewaySpecListenerConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolOutput) ToVirtualGatewaySpecListenerConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPool {
+		return &v
+	}).(VirtualGatewaySpecListenerConnectionPoolPtrOutput)
+}
+
+// Connection pool information for gRPC listeners.
+func (o VirtualGatewaySpecListenerConnectionPoolOutput) Grpc() VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPoolGrpc {
+		return v.Grpc
+	}).(VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput)
+}
+
+// Connection pool information for HTTP listeners.
+func (o VirtualGatewaySpecListenerConnectionPoolOutput) Http() VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPoolHttp {
+		return v.Http
+	}).(VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput)
+}
+
+// Connection pool information for HTTP2 listeners.
+func (o VirtualGatewaySpecListenerConnectionPoolOutput) Http2() VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPoolHttp2 {
+		return v.Http2
+	}).(VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput)
+}
+
+type VirtualGatewaySpecListenerConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) ToVirtualGatewaySpecListenerConnectionPoolPtrOutput() VirtualGatewaySpecListenerConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) ToVirtualGatewaySpecListenerConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) Elem() VirtualGatewaySpecListenerConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPool) VirtualGatewaySpecListenerConnectionPool { return *v }).(VirtualGatewaySpecListenerConnectionPoolOutput)
+}
+
+// Connection pool information for gRPC listeners.
+func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) Grpc() VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPoolGrpc {
+		if v == nil {
+			return nil
+		}
+		return v.Grpc
+	}).(VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput)
+}
+
+// Connection pool information for HTTP listeners.
+func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) Http() VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPoolHttp {
+		if v == nil {
+			return nil
+		}
+		return v.Http
+	}).(VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput)
+}
+
+// Connection pool information for HTTP2 listeners.
+func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) Http2() VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPoolHttp2 {
+		if v == nil {
+			return nil
+		}
+		return v.Http2
+	}).(VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput)
+}
+
+type VirtualGatewaySpecListenerConnectionPoolGrpc struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+	MaxRequests int `pulumi:"maxRequests"`
+}
+
+// VirtualGatewaySpecListenerConnectionPoolGrpcInput is an input type that accepts VirtualGatewaySpecListenerConnectionPoolGrpcArgs and VirtualGatewaySpecListenerConnectionPoolGrpcOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerConnectionPoolGrpcInput` via:
+//
+//          VirtualGatewaySpecListenerConnectionPoolGrpcArgs{...}
+type VirtualGatewaySpecListenerConnectionPoolGrpcInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerConnectionPoolGrpcOutput() VirtualGatewaySpecListenerConnectionPoolGrpcOutput
+	ToVirtualGatewaySpecListenerConnectionPoolGrpcOutputWithContext(context.Context) VirtualGatewaySpecListenerConnectionPoolGrpcOutput
+}
+
+type VirtualGatewaySpecListenerConnectionPoolGrpcArgs struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+}
+
+func (VirtualGatewaySpecListenerConnectionPoolGrpcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerConnectionPoolGrpc)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolGrpcArgs) ToVirtualGatewaySpecListenerConnectionPoolGrpcOutput() VirtualGatewaySpecListenerConnectionPoolGrpcOutput {
+	return i.ToVirtualGatewaySpecListenerConnectionPoolGrpcOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolGrpcArgs) ToVirtualGatewaySpecListenerConnectionPoolGrpcOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolGrpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerConnectionPoolGrpcOutput)
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolGrpcArgs) ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput() VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput {
+	return i.ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolGrpcArgs) ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerConnectionPoolGrpcOutput).ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecListenerConnectionPoolGrpcPtrInput is an input type that accepts VirtualGatewaySpecListenerConnectionPoolGrpcArgs, VirtualGatewaySpecListenerConnectionPoolGrpcPtr and VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerConnectionPoolGrpcPtrInput` via:
+//
+//          VirtualGatewaySpecListenerConnectionPoolGrpcArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecListenerConnectionPoolGrpcPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput() VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput
+	ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutputWithContext(context.Context) VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput
+}
+
+type virtualGatewaySpecListenerConnectionPoolGrpcPtrType VirtualGatewaySpecListenerConnectionPoolGrpcArgs
+
+func VirtualGatewaySpecListenerConnectionPoolGrpcPtr(v *VirtualGatewaySpecListenerConnectionPoolGrpcArgs) VirtualGatewaySpecListenerConnectionPoolGrpcPtrInput {
+	return (*virtualGatewaySpecListenerConnectionPoolGrpcPtrType)(v)
+}
+
+func (*virtualGatewaySpecListenerConnectionPoolGrpcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerConnectionPoolGrpc)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecListenerConnectionPoolGrpcPtrType) ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput() VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput {
+	return i.ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecListenerConnectionPoolGrpcPtrType) ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput)
+}
+
+type VirtualGatewaySpecListenerConnectionPoolGrpcOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerConnectionPoolGrpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerConnectionPoolGrpc)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolGrpcOutput) ToVirtualGatewaySpecListenerConnectionPoolGrpcOutput() VirtualGatewaySpecListenerConnectionPoolGrpcOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolGrpcOutput) ToVirtualGatewaySpecListenerConnectionPoolGrpcOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolGrpcOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolGrpcOutput) ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput() VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput {
+	return o.ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolGrpcOutput) ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolGrpc) *VirtualGatewaySpecListenerConnectionPoolGrpc {
+		return &v
+	}).(VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput)
+}
+
+// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualGatewaySpecListenerConnectionPoolGrpcOutput) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolGrpc) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerConnectionPoolGrpc)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput) ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput() VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput) ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput) Elem() VirtualGatewaySpecListenerConnectionPoolGrpcOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolGrpc) VirtualGatewaySpecListenerConnectionPoolGrpc {
+		return *v
+	}).(VirtualGatewaySpecListenerConnectionPoolGrpcOutput)
+}
+
+// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolGrpc) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualGatewaySpecListenerConnectionPoolHttp2 struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+	MaxRequests int `pulumi:"maxRequests"`
+}
+
+// VirtualGatewaySpecListenerConnectionPoolHttp2Input is an input type that accepts VirtualGatewaySpecListenerConnectionPoolHttp2Args and VirtualGatewaySpecListenerConnectionPoolHttp2Output values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerConnectionPoolHttp2Input` via:
+//
+//          VirtualGatewaySpecListenerConnectionPoolHttp2Args{...}
+type VirtualGatewaySpecListenerConnectionPoolHttp2Input interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerConnectionPoolHttp2Output() VirtualGatewaySpecListenerConnectionPoolHttp2Output
+	ToVirtualGatewaySpecListenerConnectionPoolHttp2OutputWithContext(context.Context) VirtualGatewaySpecListenerConnectionPoolHttp2Output
+}
+
+type VirtualGatewaySpecListenerConnectionPoolHttp2Args struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+}
+
+func (VirtualGatewaySpecListenerConnectionPoolHttp2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerConnectionPoolHttp2)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolHttp2Args) ToVirtualGatewaySpecListenerConnectionPoolHttp2Output() VirtualGatewaySpecListenerConnectionPoolHttp2Output {
+	return i.ToVirtualGatewaySpecListenerConnectionPoolHttp2OutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolHttp2Args) ToVirtualGatewaySpecListenerConnectionPoolHttp2OutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttp2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerConnectionPoolHttp2Output)
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolHttp2Args) ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput() VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput {
+	return i.ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolHttp2Args) ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerConnectionPoolHttp2Output).ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecListenerConnectionPoolHttp2PtrInput is an input type that accepts VirtualGatewaySpecListenerConnectionPoolHttp2Args, VirtualGatewaySpecListenerConnectionPoolHttp2Ptr and VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerConnectionPoolHttp2PtrInput` via:
+//
+//          VirtualGatewaySpecListenerConnectionPoolHttp2Args{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecListenerConnectionPoolHttp2PtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput() VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput
+	ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutputWithContext(context.Context) VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput
+}
+
+type virtualGatewaySpecListenerConnectionPoolHttp2PtrType VirtualGatewaySpecListenerConnectionPoolHttp2Args
+
+func VirtualGatewaySpecListenerConnectionPoolHttp2Ptr(v *VirtualGatewaySpecListenerConnectionPoolHttp2Args) VirtualGatewaySpecListenerConnectionPoolHttp2PtrInput {
+	return (*virtualGatewaySpecListenerConnectionPoolHttp2PtrType)(v)
+}
+
+func (*virtualGatewaySpecListenerConnectionPoolHttp2PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerConnectionPoolHttp2)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecListenerConnectionPoolHttp2PtrType) ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput() VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput {
+	return i.ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecListenerConnectionPoolHttp2PtrType) ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput)
+}
+
+type VirtualGatewaySpecListenerConnectionPoolHttp2Output struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerConnectionPoolHttp2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerConnectionPoolHttp2)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttp2Output) ToVirtualGatewaySpecListenerConnectionPoolHttp2Output() VirtualGatewaySpecListenerConnectionPoolHttp2Output {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttp2Output) ToVirtualGatewaySpecListenerConnectionPoolHttp2OutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttp2Output {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttp2Output) ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput() VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput {
+	return o.ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttp2Output) ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolHttp2) *VirtualGatewaySpecListenerConnectionPoolHttp2 {
+		return &v
+	}).(VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput)
+}
+
+// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualGatewaySpecListenerConnectionPoolHttp2Output) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolHttp2) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerConnectionPoolHttp2)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput) ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput() VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput) ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput) Elem() VirtualGatewaySpecListenerConnectionPoolHttp2Output {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolHttp2) VirtualGatewaySpecListenerConnectionPoolHttp2 {
+		return *v
+	}).(VirtualGatewaySpecListenerConnectionPoolHttp2Output)
+}
+
+// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolHttp2) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualGatewaySpecListenerConnectionPoolHttp struct {
+	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+	MaxConnections int `pulumi:"maxConnections"`
+	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
+}
+
+// VirtualGatewaySpecListenerConnectionPoolHttpInput is an input type that accepts VirtualGatewaySpecListenerConnectionPoolHttpArgs and VirtualGatewaySpecListenerConnectionPoolHttpOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerConnectionPoolHttpInput` via:
+//
+//          VirtualGatewaySpecListenerConnectionPoolHttpArgs{...}
+type VirtualGatewaySpecListenerConnectionPoolHttpInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerConnectionPoolHttpOutput() VirtualGatewaySpecListenerConnectionPoolHttpOutput
+	ToVirtualGatewaySpecListenerConnectionPoolHttpOutputWithContext(context.Context) VirtualGatewaySpecListenerConnectionPoolHttpOutput
+}
+
+type VirtualGatewaySpecListenerConnectionPoolHttpArgs struct {
+	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
+	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
+}
+
+func (VirtualGatewaySpecListenerConnectionPoolHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerConnectionPoolHttp)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolHttpArgs) ToVirtualGatewaySpecListenerConnectionPoolHttpOutput() VirtualGatewaySpecListenerConnectionPoolHttpOutput {
+	return i.ToVirtualGatewaySpecListenerConnectionPoolHttpOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolHttpArgs) ToVirtualGatewaySpecListenerConnectionPoolHttpOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerConnectionPoolHttpOutput)
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolHttpArgs) ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutput() VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput {
+	return i.ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerConnectionPoolHttpArgs) ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerConnectionPoolHttpOutput).ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecListenerConnectionPoolHttpPtrInput is an input type that accepts VirtualGatewaySpecListenerConnectionPoolHttpArgs, VirtualGatewaySpecListenerConnectionPoolHttpPtr and VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerConnectionPoolHttpPtrInput` via:
+//
+//          VirtualGatewaySpecListenerConnectionPoolHttpArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecListenerConnectionPoolHttpPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutput() VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput
+	ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutputWithContext(context.Context) VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput
+}
+
+type virtualGatewaySpecListenerConnectionPoolHttpPtrType VirtualGatewaySpecListenerConnectionPoolHttpArgs
+
+func VirtualGatewaySpecListenerConnectionPoolHttpPtr(v *VirtualGatewaySpecListenerConnectionPoolHttpArgs) VirtualGatewaySpecListenerConnectionPoolHttpPtrInput {
+	return (*virtualGatewaySpecListenerConnectionPoolHttpPtrType)(v)
+}
+
+func (*virtualGatewaySpecListenerConnectionPoolHttpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerConnectionPoolHttp)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecListenerConnectionPoolHttpPtrType) ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutput() VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput {
+	return i.ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecListenerConnectionPoolHttpPtrType) ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput)
+}
+
+type VirtualGatewaySpecListenerConnectionPoolHttpOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerConnectionPoolHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerConnectionPoolHttp)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) ToVirtualGatewaySpecListenerConnectionPoolHttpOutput() VirtualGatewaySpecListenerConnectionPoolHttpOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) ToVirtualGatewaySpecListenerConnectionPoolHttpOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttpOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutput() VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput {
+	return o.ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolHttp) *VirtualGatewaySpecListenerConnectionPoolHttp {
+		return &v
+	}).(VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput)
+}
+
+// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxConnections() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolHttp) int { return v.MaxConnections }).(pulumi.IntOutput)
+}
+
+// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolHttp) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
+}
+
+type VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerConnectionPoolHttp)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutput() VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) Elem() VirtualGatewaySpecListenerConnectionPoolHttpOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolHttp) VirtualGatewaySpecListenerConnectionPoolHttp {
+		return *v
+	}).(VirtualGatewaySpecListenerConnectionPoolHttpOutput)
+}
+
+// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) MaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolHttp) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxConnections
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolHttp) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPendingRequests
+	}).(pulumi.IntPtrOutput)
 }
 
 type VirtualGatewaySpecListenerHealthCheck struct {
@@ -18968,6 +19580,14 @@ func init() {
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerConnectionPoolGrpcOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerConnectionPoolHttp2Output{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerConnectionPoolHttpOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerHealthCheckOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerHealthCheckPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerPortMappingOutput{})

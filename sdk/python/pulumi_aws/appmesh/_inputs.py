@@ -78,6 +78,10 @@ __all__ = [
     'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs',
     'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs',
     'VirtualGatewaySpecListenerArgs',
+    'VirtualGatewaySpecListenerConnectionPoolArgs',
+    'VirtualGatewaySpecListenerConnectionPoolGrpcArgs',
+    'VirtualGatewaySpecListenerConnectionPoolHttp2Args',
+    'VirtualGatewaySpecListenerConnectionPoolHttpArgs',
     'VirtualGatewaySpecListenerHealthCheckArgs',
     'VirtualGatewaySpecListenerPortMappingArgs',
     'VirtualGatewaySpecListenerTlsArgs',
@@ -2956,14 +2960,18 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs:
 class VirtualGatewaySpecListenerArgs:
     def __init__(__self__, *,
                  port_mapping: pulumi.Input['VirtualGatewaySpecListenerPortMappingArgs'],
+                 connection_pool: Optional[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolArgs']] = None,
                  health_check: Optional[pulumi.Input['VirtualGatewaySpecListenerHealthCheckArgs']] = None,
                  tls: Optional[pulumi.Input['VirtualGatewaySpecListenerTlsArgs']] = None):
         """
         :param pulumi.Input['VirtualGatewaySpecListenerPortMappingArgs'] port_mapping: The port mapping information for the listener.
+        :param pulumi.Input['VirtualGatewaySpecListenerConnectionPoolArgs'] connection_pool: The connection pool information for the listener.
         :param pulumi.Input['VirtualGatewaySpecListenerHealthCheckArgs'] health_check: The health check information for the listener.
         :param pulumi.Input['VirtualGatewaySpecListenerTlsArgs'] tls: The Transport Layer Security (TLS) properties for the listener
         """
         pulumi.set(__self__, "port_mapping", port_mapping)
+        if connection_pool is not None:
+            pulumi.set(__self__, "connection_pool", connection_pool)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
         if tls is not None:
@@ -2980,6 +2988,18 @@ class VirtualGatewaySpecListenerArgs:
     @port_mapping.setter
     def port_mapping(self, value: pulumi.Input['VirtualGatewaySpecListenerPortMappingArgs']):
         pulumi.set(self, "port_mapping", value)
+
+    @property
+    @pulumi.getter(name="connectionPool")
+    def connection_pool(self) -> Optional[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolArgs']]:
+        """
+        The connection pool information for the listener.
+        """
+        return pulumi.get(self, "connection_pool")
+
+    @connection_pool.setter
+    def connection_pool(self, value: Optional[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolArgs']]):
+        pulumi.set(self, "connection_pool", value)
 
     @property
     @pulumi.getter(name="healthCheck")
@@ -3004,6 +3024,143 @@ class VirtualGatewaySpecListenerArgs:
     @tls.setter
     def tls(self, value: Optional[pulumi.Input['VirtualGatewaySpecListenerTlsArgs']]):
         pulumi.set(self, "tls", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecListenerConnectionPoolArgs:
+    def __init__(__self__, *,
+                 grpc: Optional[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolGrpcArgs']] = None,
+                 http: Optional[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolHttpArgs']] = None,
+                 http2: Optional[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolHttp2Args']] = None):
+        """
+        :param pulumi.Input['VirtualGatewaySpecListenerConnectionPoolGrpcArgs'] grpc: Connection pool information for gRPC listeners.
+        :param pulumi.Input['VirtualGatewaySpecListenerConnectionPoolHttpArgs'] http: Connection pool information for HTTP listeners.
+        :param pulumi.Input['VirtualGatewaySpecListenerConnectionPoolHttp2Args'] http2: Connection pool information for HTTP2 listeners.
+        """
+        if grpc is not None:
+            pulumi.set(__self__, "grpc", grpc)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if http2 is not None:
+            pulumi.set(__self__, "http2", http2)
+
+    @property
+    @pulumi.getter
+    def grpc(self) -> Optional[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolGrpcArgs']]:
+        """
+        Connection pool information for gRPC listeners.
+        """
+        return pulumi.get(self, "grpc")
+
+    @grpc.setter
+    def grpc(self, value: Optional[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolGrpcArgs']]):
+        pulumi.set(self, "grpc", value)
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolHttpArgs']]:
+        """
+        Connection pool information for HTTP listeners.
+        """
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: Optional[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolHttpArgs']]):
+        pulumi.set(self, "http", value)
+
+    @property
+    @pulumi.getter
+    def http2(self) -> Optional[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolHttp2Args']]:
+        """
+        Connection pool information for HTTP2 listeners.
+        """
+        return pulumi.get(self, "http2")
+
+    @http2.setter
+    def http2(self, value: Optional[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolHttp2Args']]):
+        pulumi.set(self, "http2", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecListenerConnectionPoolGrpcArgs:
+    def __init__(__self__, *,
+                 max_requests: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_requests", max_requests)
+
+    @property
+    @pulumi.getter(name="maxRequests")
+    def max_requests(self) -> pulumi.Input[int]:
+        """
+        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_requests")
+
+    @max_requests.setter
+    def max_requests(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_requests", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecListenerConnectionPoolHttp2Args:
+    def __init__(__self__, *,
+                 max_requests: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_requests", max_requests)
+
+    @property
+    @pulumi.getter(name="maxRequests")
+    def max_requests(self) -> pulumi.Input[int]:
+        """
+        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_requests")
+
+    @max_requests.setter
+    def max_requests(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_requests", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecListenerConnectionPoolHttpArgs:
+    def __init__(__self__, *,
+                 max_connections: pulumi.Input[int],
+                 max_pending_requests: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        :param pulumi.Input[int] max_pending_requests: Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_connections", max_connections)
+        if max_pending_requests is not None:
+            pulumi.set(__self__, "max_pending_requests", max_pending_requests)
+
+    @property
+    @pulumi.getter(name="maxConnections")
+    def max_connections(self) -> pulumi.Input[int]:
+        """
+        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_connections")
+
+    @max_connections.setter
+    def max_connections(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_connections", value)
+
+    @property
+    @pulumi.getter(name="maxPendingRequests")
+    def max_pending_requests(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_pending_requests")
+
+    @max_pending_requests.setter
+    def max_pending_requests(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_pending_requests", value)
 
 
 @pulumi.input_type

@@ -59,6 +59,39 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// }
     /// ```
+    /// ### Using Account Recovery Setting
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.Cognito.UserPool("test", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///             AccountRecoverySetting = new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingArgs
+    ///             {
+    ///                 RecoveryMechanisms = 
+    ///                 {
+    ///                     new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs
+    ///                     {
+    ///                         Name = "verified_email",
+    ///                         Priority = 1,
+    ///                     },
+    ///                     new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs
+    ///                     {
+    ///                         Name = "verified_phone_number",
+    ///                         Priority = 2,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -70,6 +103,12 @@ namespace Pulumi.Aws.Cognito
     /// </summary>
     public partial class UserPool : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The account_recovery_setting configuration.
+        /// </summary>
+        [Output("accountRecoverySetting")]
+        public Output<Outputs.UserPoolAccountRecoverySetting?> AccountRecoverySetting { get; private set; } = null!;
+
         /// <summary>
         /// The configuration for AdminCreateUser requests.
         /// </summary>
@@ -149,7 +188,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string?> MfaConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the attribute.
+        /// Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -267,6 +306,12 @@ namespace Pulumi.Aws.Cognito
     public sealed class UserPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The account_recovery_setting configuration.
+        /// </summary>
+        [Input("accountRecoverySetting")]
+        public Input<Inputs.UserPoolAccountRecoverySettingArgs>? AccountRecoverySetting { get; set; }
+
+        /// <summary>
         /// The configuration for AdminCreateUser requests.
         /// </summary>
         [Input("adminCreateUserConfig")]
@@ -333,7 +378,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? MfaConfiguration { get; set; }
 
         /// <summary>
-        /// The name of the attribute.
+        /// Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -430,6 +475,12 @@ namespace Pulumi.Aws.Cognito
     public sealed class UserPoolState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The account_recovery_setting configuration.
+        /// </summary>
+        [Input("accountRecoverySetting")]
+        public Input<Inputs.UserPoolAccountRecoverySettingGetArgs>? AccountRecoverySetting { get; set; }
+
+        /// <summary>
         /// The configuration for AdminCreateUser requests.
         /// </summary>
         [Input("adminCreateUserConfig")]
@@ -520,7 +571,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? MfaConfiguration { get; set; }
 
         /// <summary>
-        /// The name of the attribute.
+        /// Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
