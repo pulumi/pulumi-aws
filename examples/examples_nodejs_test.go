@@ -146,6 +146,17 @@ func TestAccLambdaLayer(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccLambdaContainerImages(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			RunUpdateTest: false, // new feature!
+			Dir:           filepath.Join(getCwd(t), "lambda-container-image"),
+			RunUpdateTest: true,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccLambdaLayerNewEnums(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{

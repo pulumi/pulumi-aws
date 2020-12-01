@@ -14708,6 +14708,21 @@ export namespace lambda {
         localMountPath: pulumi.Input<string>;
     }
 
+    export interface FunctionImageConfig {
+        /**
+         * The CMD for the docker image.
+         */
+        commands?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ENTRYPOINT for the docker image.
+         */
+        entryPoints?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The working directory for the docker image.
+         */
+        workingDirectory?: pulumi.Input<string>;
+    }
+
     export interface FunctionTracingConfig {
         /**
          * Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace

@@ -21,6 +21,7 @@ __all__ = [
     'FunctionEventInvokeConfigDestinationConfigOnFailure',
     'FunctionEventInvokeConfigDestinationConfigOnSuccess',
     'FunctionFileSystemConfig',
+    'FunctionImageConfig',
     'FunctionTracingConfig',
     'FunctionVpcConfig',
     'GetCodeSigningConfigAllowedPublisherResult',
@@ -291,6 +292,52 @@ class FunctionFileSystemConfig(dict):
         The path where the function can access the file system, starting with /mnt/.
         """
         return pulumi.get(self, "local_mount_path")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FunctionImageConfig(dict):
+    def __init__(__self__, *,
+                 commands: Optional[Sequence[str]] = None,
+                 entry_points: Optional[Sequence[str]] = None,
+                 working_directory: Optional[str] = None):
+        """
+        :param Sequence[str] commands: The CMD for the docker image.
+        :param Sequence[str] entry_points: The ENTRYPOINT for the docker image.
+        :param str working_directory: The working directory for the docker image.
+        """
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if entry_points is not None:
+            pulumi.set(__self__, "entry_points", entry_points)
+        if working_directory is not None:
+            pulumi.set(__self__, "working_directory", working_directory)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[Sequence[str]]:
+        """
+        The CMD for the docker image.
+        """
+        return pulumi.get(self, "commands")
+
+    @property
+    @pulumi.getter(name="entryPoints")
+    def entry_points(self) -> Optional[Sequence[str]]:
+        """
+        The ENTRYPOINT for the docker image.
+        """
+        return pulumi.get(self, "entry_points")
+
+    @property
+    @pulumi.getter(name="workingDirectory")
+    def working_directory(self) -> Optional[str]:
+        """
+        The working directory for the docker image.
+        """
+        return pulumi.get(self, "working_directory")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
