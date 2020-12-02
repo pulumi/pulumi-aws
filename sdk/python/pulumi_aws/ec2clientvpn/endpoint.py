@@ -91,18 +91,18 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if authentication_options is None:
+            if authentication_options is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_options'")
             __props__['authentication_options'] = authentication_options
-            if client_cidr_block is None:
+            if client_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'client_cidr_block'")
             __props__['client_cidr_block'] = client_cidr_block
-            if connection_log_options is None:
+            if connection_log_options is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_log_options'")
             __props__['connection_log_options'] = connection_log_options
             __props__['description'] = description
             __props__['dns_servers'] = dns_servers
-            if server_certificate_arn is None:
+            if server_certificate_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'server_certificate_arn'")
             __props__['server_certificate_arn'] = server_certificate_arn
             __props__['split_tunnel'] = split_tunnel

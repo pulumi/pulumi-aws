@@ -81,6 +81,7 @@ func NewVideoStream(ctx *pulumi.Context,
 	if args == nil {
 		args = &VideoStreamArgs{}
 	}
+
 	var resource VideoStream
 	err := ctx.RegisterResource("aws:kinesis/videoStream:VideoStream", name, args, &resource, opts...)
 	if err != nil {

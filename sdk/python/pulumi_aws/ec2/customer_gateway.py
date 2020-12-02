@@ -73,14 +73,14 @@ class CustomerGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if bgp_asn is None:
+            if bgp_asn is None and not opts.urn:
                 raise TypeError("Missing required property 'bgp_asn'")
             __props__['bgp_asn'] = bgp_asn
-            if ip_address is None:
+            if ip_address is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_address'")
             __props__['ip_address'] = ip_address
             __props__['tags'] = tags
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['arn'] = None

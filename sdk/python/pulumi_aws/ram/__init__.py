@@ -10,3 +10,31 @@ from .resource_share import *
 from .resource_share_accepter import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:ram/principalAssociation:PrincipalAssociation":
+                return PrincipalAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ram/resourceAssociation:ResourceAssociation":
+                return ResourceAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ram/resourceShare:ResourceShare":
+                return ResourceShare(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ram/resourceShareAccepter:ResourceShareAccepter":
+                return ResourceShareAccepter(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "ram/principalAssociation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ram/resourceAssociation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ram/resourceShare", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ram/resourceShareAccepter", _module_instance)
+
+_register_module()

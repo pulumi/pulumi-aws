@@ -6,6 +6,9 @@ package aws
 import (
 	"os"
 	"strconv"
+	"strings"
+
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type envParser func(v string) interface{}
@@ -32,6 +35,14 @@ func parseEnvFloat(v string) interface{} {
 		return nil
 	}
 	return f
+}
+
+func parseEnvStringArray(v string) interface{} {
+	var result pulumi.StringArray
+	for _, item := range strings.Split(v, ";") {
+		result = append(result, pulumi.String(item))
+	}
+	return result
 }
 
 func getEnvOrDefault(def interface{}, parser envParser, vars ...string) interface{} {

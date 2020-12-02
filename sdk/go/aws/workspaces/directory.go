@@ -230,11 +230,12 @@ type Directory struct {
 // NewDirectory registers a new resource with the given unique name, arguments, and options.
 func NewDirectory(ctx *pulumi.Context,
 	name string, args *DirectoryArgs, opts ...pulumi.ResourceOption) (*Directory, error) {
-	if args == nil || args.DirectoryId == nil {
-		return nil, errors.New("missing required argument 'DirectoryId'")
-	}
 	if args == nil {
-		args = &DirectoryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DirectoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DirectoryId'")
 	}
 	var resource Directory
 	err := ctx.RegisterResource("aws:workspaces/directory:Directory", name, args, &resource, opts...)

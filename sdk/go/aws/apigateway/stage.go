@@ -190,17 +190,18 @@ type Stage struct {
 // NewStage registers a new resource with the given unique name, arguments, and options.
 func NewStage(ctx *pulumi.Context,
 	name string, args *StageArgs, opts ...pulumi.ResourceOption) (*Stage, error) {
-	if args == nil || args.Deployment == nil {
-		return nil, errors.New("missing required argument 'Deployment'")
-	}
-	if args == nil || args.RestApi == nil {
-		return nil, errors.New("missing required argument 'RestApi'")
-	}
-	if args == nil || args.StageName == nil {
-		return nil, errors.New("missing required argument 'StageName'")
-	}
 	if args == nil {
-		args = &StageArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Deployment == nil {
+		return nil, errors.New("invalid value for required argument 'Deployment'")
+	}
+	if args.RestApi == nil {
+		return nil, errors.New("invalid value for required argument 'RestApi'")
+	}
+	if args.StageName == nil {
+		return nil, errors.New("invalid value for required argument 'StageName'")
 	}
 	var resource Stage
 	err := ctx.RegisterResource("aws:apigateway/stage:Stage", name, args, &resource, opts...)

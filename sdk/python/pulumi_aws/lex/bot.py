@@ -114,10 +114,10 @@ class Bot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if abort_statement is None:
+            if abort_statement is None and not opts.urn:
                 raise TypeError("Missing required property 'abort_statement'")
             __props__['abort_statement'] = abort_statement
-            if child_directed is None:
+            if child_directed is None and not opts.urn:
                 raise TypeError("Missing required property 'child_directed'")
             __props__['child_directed'] = child_directed
             __props__['clarification_prompt'] = clarification_prompt
@@ -126,7 +126,7 @@ class Bot(pulumi.CustomResource):
             __props__['detect_sentiment'] = detect_sentiment
             __props__['enable_model_improvements'] = enable_model_improvements
             __props__['idle_session_ttl_in_seconds'] = idle_session_ttl_in_seconds
-            if intents is None:
+            if intents is None and not opts.urn:
                 raise TypeError("Missing required property 'intents'")
             __props__['intents'] = intents
             __props__['locale'] = locale

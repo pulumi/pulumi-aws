@@ -67,6 +67,7 @@ func NewThing(ctx *pulumi.Context,
 	if args == nil {
 		args = &ThingArgs{}
 	}
+
 	var resource Thing
 	err := ctx.RegisterResource("aws:iot/thing:Thing", name, args, &resource, opts...)
 	if err != nil {

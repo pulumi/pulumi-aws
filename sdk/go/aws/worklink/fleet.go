@@ -50,6 +50,7 @@ func NewFleet(ctx *pulumi.Context,
 	if args == nil {
 		args = &FleetArgs{}
 	}
+
 	var resource Fleet
 	err := ctx.RegisterResource("aws:worklink/fleet:Fleet", name, args, &resource, opts...)
 	if err != nil {

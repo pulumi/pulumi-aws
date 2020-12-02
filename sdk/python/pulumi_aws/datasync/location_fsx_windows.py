@@ -77,18 +77,18 @@ class LocationFsxWindows(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['domain'] = domain
-            if fsx_filesystem_arn is None:
+            if fsx_filesystem_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'fsx_filesystem_arn'")
             __props__['fsx_filesystem_arn'] = fsx_filesystem_arn
-            if password is None:
+            if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
             __props__['password'] = password
-            if security_group_arns is None:
+            if security_group_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_arns'")
             __props__['security_group_arns'] = security_group_arns
             __props__['subdirectory'] = subdirectory
             __props__['tags'] = tags
-            if user is None:
+            if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
             __props__['user'] = user
             __props__['arn'] = None

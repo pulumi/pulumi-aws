@@ -60,11 +60,11 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if hsm_type is None:
+            if hsm_type is None and not opts.urn:
                 raise TypeError("Missing required property 'hsm_type'")
             __props__['hsm_type'] = hsm_type
             __props__['source_backup_identifier'] = source_backup_identifier
-            if subnet_ids is None:
+            if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__['subnet_ids'] = subnet_ids
             __props__['tags'] = tags

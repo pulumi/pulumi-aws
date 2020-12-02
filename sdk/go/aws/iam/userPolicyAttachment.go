@@ -69,14 +69,15 @@ type UserPolicyAttachment struct {
 // NewUserPolicyAttachment registers a new resource with the given unique name, arguments, and options.
 func NewUserPolicyAttachment(ctx *pulumi.Context,
 	name string, args *UserPolicyAttachmentArgs, opts ...pulumi.ResourceOption) (*UserPolicyAttachment, error) {
-	if args == nil || args.PolicyArn == nil {
-		return nil, errors.New("missing required argument 'PolicyArn'")
-	}
-	if args == nil || args.User == nil {
-		return nil, errors.New("missing required argument 'User'")
-	}
 	if args == nil {
-		args = &UserPolicyAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PolicyArn == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyArn'")
+	}
+	if args.User == nil {
+		return nil, errors.New("invalid value for required argument 'User'")
 	}
 	var resource UserPolicyAttachment
 	err := ctx.RegisterResource("aws:iam/userPolicyAttachment:UserPolicyAttachment", name, args, &resource, opts...)

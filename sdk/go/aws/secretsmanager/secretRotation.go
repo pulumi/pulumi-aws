@@ -72,17 +72,18 @@ type SecretRotation struct {
 // NewSecretRotation registers a new resource with the given unique name, arguments, and options.
 func NewSecretRotation(ctx *pulumi.Context,
 	name string, args *SecretRotationArgs, opts ...pulumi.ResourceOption) (*SecretRotation, error) {
-	if args == nil || args.RotationLambdaArn == nil {
-		return nil, errors.New("missing required argument 'RotationLambdaArn'")
-	}
-	if args == nil || args.RotationRules == nil {
-		return nil, errors.New("missing required argument 'RotationRules'")
-	}
-	if args == nil || args.SecretId == nil {
-		return nil, errors.New("missing required argument 'SecretId'")
-	}
 	if args == nil {
-		args = &SecretRotationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RotationLambdaArn == nil {
+		return nil, errors.New("invalid value for required argument 'RotationLambdaArn'")
+	}
+	if args.RotationRules == nil {
+		return nil, errors.New("invalid value for required argument 'RotationRules'")
+	}
+	if args.SecretId == nil {
+		return nil, errors.New("invalid value for required argument 'SecretId'")
 	}
 	var resource SecretRotation
 	err := ctx.RegisterResource("aws:secretsmanager/secretRotation:SecretRotation", name, args, &resource, opts...)

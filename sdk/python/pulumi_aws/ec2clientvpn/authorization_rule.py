@@ -78,11 +78,11 @@ class AuthorizationRule(pulumi.CustomResource):
 
             __props__['access_group_id'] = access_group_id
             __props__['authorize_all_groups'] = authorize_all_groups
-            if client_vpn_endpoint_id is None:
+            if client_vpn_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_vpn_endpoint_id'")
             __props__['client_vpn_endpoint_id'] = client_vpn_endpoint_id
             __props__['description'] = description
-            if target_network_cidr is None:
+            if target_network_cidr is None and not opts.urn:
                 raise TypeError("Missing required property 'target_network_cidr'")
             __props__['target_network_cidr'] = target_network_cidr
         super(AuthorizationRule, __self__).__init__(

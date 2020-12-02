@@ -58,14 +58,15 @@ type ResourceAssociation struct {
 // NewResourceAssociation registers a new resource with the given unique name, arguments, and options.
 func NewResourceAssociation(ctx *pulumi.Context,
 	name string, args *ResourceAssociationArgs, opts ...pulumi.ResourceOption) (*ResourceAssociation, error) {
-	if args == nil || args.ResourceArn == nil {
-		return nil, errors.New("missing required argument 'ResourceArn'")
-	}
-	if args == nil || args.ResourceShareArn == nil {
-		return nil, errors.New("missing required argument 'ResourceShareArn'")
-	}
 	if args == nil {
-		args = &ResourceAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceArn == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceArn'")
+	}
+	if args.ResourceShareArn == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceShareArn'")
 	}
 	var resource ResourceAssociation
 	err := ctx.RegisterResource("aws:ram/resourceAssociation:ResourceAssociation", name, args, &resource, opts...)

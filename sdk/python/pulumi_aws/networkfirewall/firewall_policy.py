@@ -105,7 +105,7 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if firewall_policy is None:
+            if firewall_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_policy'")
             __props__['firewall_policy'] = firewall_policy
             __props__['name'] = name

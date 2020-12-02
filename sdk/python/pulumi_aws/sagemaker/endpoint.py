@@ -70,7 +70,7 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if endpoint_config_name is None:
+            if endpoint_config_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_config_name'")
             __props__['endpoint_config_name'] = endpoint_config_name
             __props__['name'] = name

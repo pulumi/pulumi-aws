@@ -71,11 +71,12 @@ type PrivateDnsNamespace struct {
 // NewPrivateDnsNamespace registers a new resource with the given unique name, arguments, and options.
 func NewPrivateDnsNamespace(ctx *pulumi.Context,
 	name string, args *PrivateDnsNamespaceArgs, opts ...pulumi.ResourceOption) (*PrivateDnsNamespace, error) {
-	if args == nil || args.Vpc == nil {
-		return nil, errors.New("missing required argument 'Vpc'")
-	}
 	if args == nil {
-		args = &PrivateDnsNamespaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Vpc == nil {
+		return nil, errors.New("invalid value for required argument 'Vpc'")
 	}
 	var resource PrivateDnsNamespace
 	err := ctx.RegisterResource("aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace", name, args, &resource, opts...)

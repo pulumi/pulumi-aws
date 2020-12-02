@@ -75,10 +75,10 @@ class VpcLink(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if security_group_ids is None:
+            if security_group_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_ids'")
             __props__['security_group_ids'] = security_group_ids
-            if subnet_ids is None:
+            if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__['subnet_ids'] = subnet_ids
             __props__['tags'] = tags

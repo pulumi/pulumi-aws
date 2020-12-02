@@ -93,7 +93,7 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if autoscaling_group_name is None:
+            if autoscaling_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'autoscaling_group_name'")
             __props__['autoscaling_group_name'] = autoscaling_group_name
             __props__['desired_capacity'] = desired_capacity
@@ -101,7 +101,7 @@ class Schedule(pulumi.CustomResource):
             __props__['max_size'] = max_size
             __props__['min_size'] = min_size
             __props__['recurrence'] = recurrence
-            if scheduled_action_name is None:
+            if scheduled_action_name is None and not opts.urn:
                 raise TypeError("Missing required property 'scheduled_action_name'")
             __props__['scheduled_action_name'] = scheduled_action_name
             __props__['start_time'] = start_time

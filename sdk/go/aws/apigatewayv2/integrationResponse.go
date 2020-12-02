@@ -67,17 +67,18 @@ type IntegrationResponse struct {
 // NewIntegrationResponse registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationResponse(ctx *pulumi.Context,
 	name string, args *IntegrationResponseArgs, opts ...pulumi.ResourceOption) (*IntegrationResponse, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
-	if args == nil || args.IntegrationId == nil {
-		return nil, errors.New("missing required argument 'IntegrationId'")
-	}
-	if args == nil || args.IntegrationResponseKey == nil {
-		return nil, errors.New("missing required argument 'IntegrationResponseKey'")
-	}
 	if args == nil {
-		args = &IntegrationResponseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
+	}
+	if args.IntegrationId == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationId'")
+	}
+	if args.IntegrationResponseKey == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationResponseKey'")
 	}
 	var resource IntegrationResponse
 	err := ctx.RegisterResource("aws:apigatewayv2/integrationResponse:IntegrationResponse", name, args, &resource, opts...)

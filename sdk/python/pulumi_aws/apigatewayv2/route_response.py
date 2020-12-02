@@ -73,15 +73,15 @@ class RouteResponse(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_id is None:
+            if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
             __props__['model_selection_expression'] = model_selection_expression
             __props__['response_models'] = response_models
-            if route_id is None:
+            if route_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_id'")
             __props__['route_id'] = route_id
-            if route_response_key is None:
+            if route_response_key is None and not opts.urn:
                 raise TypeError("Missing required property 'route_response_key'")
             __props__['route_response_key'] = route_response_key
         super(RouteResponse, __self__).__init__(

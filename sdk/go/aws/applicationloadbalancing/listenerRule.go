@@ -266,17 +266,18 @@ type ListenerRule struct {
 // NewListenerRule registers a new resource with the given unique name, arguments, and options.
 func NewListenerRule(ctx *pulumi.Context,
 	name string, args *ListenerRuleArgs, opts ...pulumi.ResourceOption) (*ListenerRule, error) {
-	if args == nil || args.Actions == nil {
-		return nil, errors.New("missing required argument 'Actions'")
-	}
-	if args == nil || args.Conditions == nil {
-		return nil, errors.New("missing required argument 'Conditions'")
-	}
-	if args == nil || args.ListenerArn == nil {
-		return nil, errors.New("missing required argument 'ListenerArn'")
-	}
 	if args == nil {
-		args = &ListenerRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Actions == nil {
+		return nil, errors.New("invalid value for required argument 'Actions'")
+	}
+	if args.Conditions == nil {
+		return nil, errors.New("invalid value for required argument 'Conditions'")
+	}
+	if args.ListenerArn == nil {
+		return nil, errors.New("invalid value for required argument 'ListenerArn'")
 	}
 	var resource ListenerRule
 	err := ctx.RegisterResource("aws:applicationloadbalancing/listenerRule:ListenerRule", name, args, &resource, opts...)

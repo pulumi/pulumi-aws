@@ -88,13 +88,13 @@ class Component(pulumi.CustomResource):
             __props__['description'] = description
             __props__['kms_key_id'] = kms_key_id
             __props__['name'] = name
-            if platform is None:
+            if platform is None and not opts.urn:
                 raise TypeError("Missing required property 'platform'")
             __props__['platform'] = platform
             __props__['supported_os_versions'] = supported_os_versions
             __props__['tags'] = tags
             __props__['uri'] = uri
-            if version is None:
+            if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__['version'] = version
             __props__['arn'] = None

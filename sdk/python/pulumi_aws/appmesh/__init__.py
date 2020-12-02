@@ -12,3 +12,40 @@ from .virtual_router import *
 from .virtual_service import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:appmesh/gatewayRoute:GatewayRoute":
+                return GatewayRoute(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:appmesh/mesh:Mesh":
+                return Mesh(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:appmesh/route:Route":
+                return Route(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:appmesh/virtualGateway:VirtualGateway":
+                return VirtualGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:appmesh/virtualNode:VirtualNode":
+                return VirtualNode(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:appmesh/virtualRouter:VirtualRouter":
+                return VirtualRouter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:appmesh/virtualService:VirtualService":
+                return VirtualService(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "appmesh/gatewayRoute", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "appmesh/mesh", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "appmesh/route", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "appmesh/virtualGateway", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "appmesh/virtualNode", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "appmesh/virtualRouter", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "appmesh/virtualService", _module_instance)
+
+_register_module()

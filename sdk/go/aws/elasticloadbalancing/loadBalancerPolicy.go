@@ -30,17 +30,18 @@ type LoadBalancerPolicy struct {
 // NewLoadBalancerPolicy registers a new resource with the given unique name, arguments, and options.
 func NewLoadBalancerPolicy(ctx *pulumi.Context,
 	name string, args *LoadBalancerPolicyArgs, opts ...pulumi.ResourceOption) (*LoadBalancerPolicy, error) {
-	if args == nil || args.LoadBalancerName == nil {
-		return nil, errors.New("missing required argument 'LoadBalancerName'")
-	}
-	if args == nil || args.PolicyName == nil {
-		return nil, errors.New("missing required argument 'PolicyName'")
-	}
-	if args == nil || args.PolicyTypeName == nil {
-		return nil, errors.New("missing required argument 'PolicyTypeName'")
-	}
 	if args == nil {
-		args = &LoadBalancerPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LoadBalancerName == nil {
+		return nil, errors.New("invalid value for required argument 'LoadBalancerName'")
+	}
+	if args.PolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyName'")
+	}
+	if args.PolicyTypeName == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyTypeName'")
 	}
 	var resource LoadBalancerPolicy
 	err := ctx.RegisterResource("aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy", name, args, &resource, opts...)

@@ -86,10 +86,10 @@ class MailFrom(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['behavior_on_mx_failure'] = behavior_on_mx_failure
-            if domain is None:
+            if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
             __props__['domain'] = domain
-            if mail_from_domain is None:
+            if mail_from_domain is None and not opts.urn:
                 raise TypeError("Missing required property 'mail_from_domain'")
             __props__['mail_from_domain'] = mail_from_domain
         super(MailFrom, __self__).__init__(

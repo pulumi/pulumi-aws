@@ -83,14 +83,14 @@ class Listener(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if accelerator_arn is None:
+            if accelerator_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'accelerator_arn'")
             __props__['accelerator_arn'] = accelerator_arn
             __props__['client_affinity'] = client_affinity
-            if port_ranges is None:
+            if port_ranges is None and not opts.urn:
                 raise TypeError("Missing required property 'port_ranges'")
             __props__['port_ranges'] = port_ranges
-            if protocol is None:
+            if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__['protocol'] = protocol
         super(Listener, __self__).__init__(

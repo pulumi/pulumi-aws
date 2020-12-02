@@ -262,14 +262,15 @@ type Application struct {
 // NewApplication registers a new resource with the given unique name, arguments, and options.
 func NewApplication(ctx *pulumi.Context,
 	name string, args *ApplicationArgs, opts ...pulumi.ResourceOption) (*Application, error) {
-	if args == nil || args.RuntimeEnvironment == nil {
-		return nil, errors.New("missing required argument 'RuntimeEnvironment'")
-	}
-	if args == nil || args.ServiceExecutionRole == nil {
-		return nil, errors.New("missing required argument 'ServiceExecutionRole'")
-	}
 	if args == nil {
-		args = &ApplicationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RuntimeEnvironment == nil {
+		return nil, errors.New("invalid value for required argument 'RuntimeEnvironment'")
+	}
+	if args.ServiceExecutionRole == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceExecutionRole'")
 	}
 	var resource Application
 	err := ctx.RegisterResource("aws:kinesisanalyticsv2/application:Application", name, args, &resource, opts...)

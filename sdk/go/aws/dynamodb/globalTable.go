@@ -116,11 +116,12 @@ type GlobalTable struct {
 // NewGlobalTable registers a new resource with the given unique name, arguments, and options.
 func NewGlobalTable(ctx *pulumi.Context,
 	name string, args *GlobalTableArgs, opts ...pulumi.ResourceOption) (*GlobalTable, error) {
-	if args == nil || args.Replicas == nil {
-		return nil, errors.New("missing required argument 'Replicas'")
-	}
 	if args == nil {
-		args = &GlobalTableArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Replicas == nil {
+		return nil, errors.New("invalid value for required argument 'Replicas'")
 	}
 	var resource GlobalTable
 	err := ctx.RegisterResource("aws:dynamodb/globalTable:GlobalTable", name, args, &resource, opts...)

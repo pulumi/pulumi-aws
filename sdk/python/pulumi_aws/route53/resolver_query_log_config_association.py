@@ -64,10 +64,10 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if resolver_query_log_config_id is None:
+            if resolver_query_log_config_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resolver_query_log_config_id'")
             __props__['resolver_query_log_config_id'] = resolver_query_log_config_id
-            if resource_id is None:
+            if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__['resource_id'] = resource_id
         super(ResolverQueryLogConfigAssociation, __self__).__init__(

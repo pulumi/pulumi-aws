@@ -74,11 +74,12 @@ type CodeSigningConfig struct {
 // NewCodeSigningConfig registers a new resource with the given unique name, arguments, and options.
 func NewCodeSigningConfig(ctx *pulumi.Context,
 	name string, args *CodeSigningConfigArgs, opts ...pulumi.ResourceOption) (*CodeSigningConfig, error) {
-	if args == nil || args.AllowedPublishers == nil {
-		return nil, errors.New("missing required argument 'AllowedPublishers'")
-	}
 	if args == nil {
-		args = &CodeSigningConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AllowedPublishers == nil {
+		return nil, errors.New("invalid value for required argument 'AllowedPublishers'")
 	}
 	var resource CodeSigningConfig
 	err := ctx.RegisterResource("aws:lambda/codeSigningConfig:CodeSigningConfig", name, args, &resource, opts...)

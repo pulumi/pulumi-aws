@@ -70,12 +70,12 @@ class TapePool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if pool_name is None:
+            if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
             __props__['retention_lock_time_in_days'] = retention_lock_time_in_days
             __props__['retention_lock_type'] = retention_lock_type
-            if storage_class is None:
+            if storage_class is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_class'")
             __props__['storage_class'] = storage_class
             __props__['tags'] = tags

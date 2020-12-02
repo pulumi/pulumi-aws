@@ -20,3 +20,67 @@ from .link_aggregation_group import *
 from .private_virtual_interface import *
 from .public_virtual_interface import *
 from .transit_virtual_interface import *
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:directconnect/bgpPeer:BgpPeer":
+                return BgpPeer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/connection:Connection":
+                return Connection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/connectionAssociation:ConnectionAssociation":
+                return ConnectionAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/gateway:Gateway":
+                return Gateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/gatewayAssociation:GatewayAssociation":
+                return GatewayAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal":
+                return GatewayAssociationProposal(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface":
+                return HostedPrivateVirtualInterface(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter":
+                return HostedPrivateVirtualInterfaceAccepter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface":
+                return HostedPublicVirtualInterface(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter":
+                return HostedPublicVirtualInterfaceAccepter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface":
+                return HostedTransitVirtualInterface(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor":
+                return HostedTransitVirtualInterfaceAcceptor(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/linkAggregationGroup:LinkAggregationGroup":
+                return LinkAggregationGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/privateVirtualInterface:PrivateVirtualInterface":
+                return PrivateVirtualInterface(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/publicVirtualInterface:PublicVirtualInterface":
+                return PublicVirtualInterface(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:directconnect/transitVirtualInterface:TransitVirtualInterface":
+                return TransitVirtualInterface(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "directconnect/bgpPeer", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/connection", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/connectionAssociation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/gateway", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/gatewayAssociation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/gatewayAssociationProposal", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/hostedPrivateVirtualInterface", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/hostedPrivateVirtualInterfaceAccepter", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/hostedPublicVirtualInterface", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/hostedPublicVirtualInterfaceAccepter", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/hostedTransitVirtualInterface", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/hostedTransitVirtualInterfaceAcceptor", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/linkAggregationGroup", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/privateVirtualInterface", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/publicVirtualInterface", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "directconnect/transitVirtualInterface", _module_instance)
+
+_register_module()

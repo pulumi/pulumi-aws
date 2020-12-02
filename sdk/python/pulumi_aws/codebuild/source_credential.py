@@ -81,13 +81,13 @@ class SourceCredential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if auth_type is None:
+            if auth_type is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_type'")
             __props__['auth_type'] = auth_type
-            if server_type is None:
+            if server_type is None and not opts.urn:
                 raise TypeError("Missing required property 'server_type'")
             __props__['server_type'] = server_type
-            if token is None:
+            if token is None and not opts.urn:
                 raise TypeError("Missing required property 'token'")
             __props__['token'] = token
             __props__['user_name'] = user_name

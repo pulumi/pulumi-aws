@@ -66,14 +66,15 @@ type Ciphertext struct {
 // NewCiphertext registers a new resource with the given unique name, arguments, and options.
 func NewCiphertext(ctx *pulumi.Context,
 	name string, args *CiphertextArgs, opts ...pulumi.ResourceOption) (*Ciphertext, error) {
-	if args == nil || args.KeyId == nil {
-		return nil, errors.New("missing required argument 'KeyId'")
-	}
-	if args == nil || args.Plaintext == nil {
-		return nil, errors.New("missing required argument 'Plaintext'")
-	}
 	if args == nil {
-		args = &CiphertextArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KeyId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyId'")
+	}
+	if args.Plaintext == nil {
+		return nil, errors.New("invalid value for required argument 'Plaintext'")
 	}
 	var resource Ciphertext
 	err := ctx.RegisterResource("aws:kms/ciphertext:Ciphertext", name, args, &resource, opts...)

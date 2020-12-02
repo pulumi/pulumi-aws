@@ -94,12 +94,12 @@ class Webhook(pulumi.CustomResource):
         # Wire the CodePipeline webhook into a GitHub repository.
         bar_repository_webhook = github.RepositoryWebhook("barRepositoryWebhook",
             repository=github_repository["repo"]["name"],
-            configuration={
-                "url": bar_webhook.url,
-                "contentType": "json",
-                "insecureSsl": True,
-                "secret": webhook_secret,
-            },
+            configuration=github.RepositoryWebhookConfigurationArgs(
+                url=bar_webhook.url,
+                content_type="json",
+                insecure_ssl=True,
+                secret=webhook_secret,
+            ),
             events=["push"])
         ```
 
@@ -138,19 +138,19 @@ class Webhook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if authentication is None:
+            if authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication'")
             __props__['authentication'] = authentication
             __props__['authentication_configuration'] = authentication_configuration
-            if filters is None:
+            if filters is None and not opts.urn:
                 raise TypeError("Missing required property 'filters'")
             __props__['filters'] = filters
             __props__['name'] = name
             __props__['tags'] = tags
-            if target_action is None:
+            if target_action is None and not opts.urn:
                 raise TypeError("Missing required property 'target_action'")
             __props__['target_action'] = target_action
-            if target_pipeline is None:
+            if target_pipeline is None and not opts.urn:
                 raise TypeError("Missing required property 'target_pipeline'")
             __props__['target_pipeline'] = target_pipeline
             __props__['url'] = None

@@ -62,7 +62,7 @@ class AccountAlias(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_alias is None:
+            if account_alias is None and not opts.urn:
                 raise TypeError("Missing required property 'account_alias'")
             __props__['account_alias'] = account_alias
         super(AccountAlias, __self__).__init__(

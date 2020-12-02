@@ -19,3 +19,58 @@ from .log_subscription_filter import *
 from .metric_alarm import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:cloudwatch/dashboard:Dashboard":
+                return Dashboard(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/eventBus:EventBus":
+                return EventBus(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/eventPermission:EventPermission":
+                return EventPermission(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/eventRule:EventRule":
+                return EventRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/eventTarget:EventTarget":
+                return EventTarget(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/logDestination:LogDestination":
+                return LogDestination(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy":
+                return LogDestinationPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/logGroup:LogGroup":
+                return LogGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/logMetricFilter:LogMetricFilter":
+                return LogMetricFilter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/logResourcePolicy:LogResourcePolicy":
+                return LogResourcePolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/logStream:LogStream":
+                return LogStream(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter":
+                return LogSubscriptionFilter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/metricAlarm:MetricAlarm":
+                return MetricAlarm(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/dashboard", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/eventBus", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/eventPermission", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/eventRule", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/eventTarget", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/logDestination", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/logDestinationPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/logGroup", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/logMetricFilter", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/logResourcePolicy", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/logStream", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/logSubscriptionFilter", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/metricAlarm", _module_instance)
+
+_register_module()

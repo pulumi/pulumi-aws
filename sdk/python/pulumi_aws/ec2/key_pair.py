@@ -76,7 +76,7 @@ class KeyPair(pulumi.CustomResource):
 
             __props__['key_name'] = key_name
             __props__['key_name_prefix'] = key_name_prefix
-            if public_key is None:
+            if public_key is None and not opts.urn:
                 raise TypeError("Missing required property 'public_key'")
             __props__['public_key'] = public_key
             __props__['tags'] = tags

@@ -75,10 +75,10 @@ class EfsLocation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if ec2_config is None:
+            if ec2_config is None and not opts.urn:
                 raise TypeError("Missing required property 'ec2_config'")
             __props__['ec2_config'] = ec2_config
-            if efs_file_system_arn is None:
+            if efs_file_system_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'efs_file_system_arn'")
             __props__['efs_file_system_arn'] = efs_file_system_arn
             __props__['subdirectory'] = subdirectory

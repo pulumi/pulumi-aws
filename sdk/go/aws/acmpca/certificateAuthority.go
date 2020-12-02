@@ -144,11 +144,12 @@ type CertificateAuthority struct {
 // NewCertificateAuthority registers a new resource with the given unique name, arguments, and options.
 func NewCertificateAuthority(ctx *pulumi.Context,
 	name string, args *CertificateAuthorityArgs, opts ...pulumi.ResourceOption) (*CertificateAuthority, error) {
-	if args == nil || args.CertificateAuthorityConfiguration == nil {
-		return nil, errors.New("missing required argument 'CertificateAuthorityConfiguration'")
-	}
 	if args == nil {
-		args = &CertificateAuthorityArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CertificateAuthorityConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'CertificateAuthorityConfiguration'")
 	}
 	var resource CertificateAuthority
 	err := ctx.RegisterResource("aws:acmpca/certificateAuthority:CertificateAuthority", name, args, &resource, opts...)

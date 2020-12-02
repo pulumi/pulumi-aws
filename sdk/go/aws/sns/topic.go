@@ -142,6 +142,7 @@ func NewTopic(ctx *pulumi.Context,
 	if args == nil {
 		args = &TopicArgs{}
 	}
+
 	var resource Topic
 	err := ctx.RegisterResource("aws:sns/topic:Topic", name, args, &resource, opts...)
 	if err != nil {

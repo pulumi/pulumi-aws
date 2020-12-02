@@ -88,16 +88,16 @@ class ImageRecipe(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['block_device_mappings'] = block_device_mappings
-            if components is None:
+            if components is None and not opts.urn:
                 raise TypeError("Missing required property 'components'")
             __props__['components'] = components
             __props__['description'] = description
             __props__['name'] = name
-            if parent_image is None:
+            if parent_image is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_image'")
             __props__['parent_image'] = parent_image
             __props__['tags'] = tags
-            if version is None:
+            if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__['version'] = version
             __props__['arn'] = None

@@ -77,14 +77,14 @@ class LogMetricFilter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if log_group_name is None:
+            if log_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'log_group_name'")
             __props__['log_group_name'] = log_group_name
-            if metric_transformation is None:
+            if metric_transformation is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_transformation'")
             __props__['metric_transformation'] = metric_transformation
             __props__['name'] = name
-            if pattern is None:
+            if pattern is None and not opts.urn:
                 raise TypeError("Missing required property 'pattern'")
             __props__['pattern'] = pattern
         super(LogMetricFilter, __self__).__init__(

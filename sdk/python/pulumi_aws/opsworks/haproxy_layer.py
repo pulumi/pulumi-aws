@@ -122,11 +122,11 @@ class HaproxyLayer(pulumi.CustomResource):
             __props__['install_updates_on_boot'] = install_updates_on_boot
             __props__['instance_shutdown_timeout'] = instance_shutdown_timeout
             __props__['name'] = name
-            if stack_id is None:
+            if stack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_id'")
             __props__['stack_id'] = stack_id
             __props__['stats_enabled'] = stats_enabled
-            if stats_password is None:
+            if stats_password is None and not opts.urn:
                 raise TypeError("Missing required property 'stats_password'")
             __props__['stats_password'] = stats_password
             __props__['stats_url'] = stats_url

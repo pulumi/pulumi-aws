@@ -68,6 +68,7 @@ func NewParameterGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &ParameterGroupArgs{}
 	}
+
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws:dax/parameterGroup:ParameterGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -202,14 +202,15 @@ type SpotInstanceRequest struct {
 // NewSpotInstanceRequest registers a new resource with the given unique name, arguments, and options.
 func NewSpotInstanceRequest(ctx *pulumi.Context,
 	name string, args *SpotInstanceRequestArgs, opts ...pulumi.ResourceOption) (*SpotInstanceRequest, error) {
-	if args == nil || args.Ami == nil {
-		return nil, errors.New("missing required argument 'Ami'")
-	}
-	if args == nil || args.InstanceType == nil {
-		return nil, errors.New("missing required argument 'InstanceType'")
-	}
 	if args == nil {
-		args = &SpotInstanceRequestArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Ami == nil {
+		return nil, errors.New("invalid value for required argument 'Ami'")
+	}
+	if args.InstanceType == nil {
+		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
 	var resource SpotInstanceRequest
 	err := ctx.RegisterResource("aws:ec2/spotInstanceRequest:SpotInstanceRequest", name, args, &resource, opts...)

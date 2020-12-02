@@ -77,6 +77,7 @@ func NewAccelerator(ctx *pulumi.Context,
 	if args == nil {
 		args = &AcceleratorArgs{}
 	}
+
 	var resource Accelerator
 	err := ctx.RegisterResource("aws:globalaccelerator/accelerator:Accelerator", name, args, &resource, opts...)
 	if err != nil {

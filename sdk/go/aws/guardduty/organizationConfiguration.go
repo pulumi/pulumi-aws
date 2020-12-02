@@ -64,14 +64,15 @@ type OrganizationConfiguration struct {
 // NewOrganizationConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewOrganizationConfiguration(ctx *pulumi.Context,
 	name string, args *OrganizationConfigurationArgs, opts ...pulumi.ResourceOption) (*OrganizationConfiguration, error) {
-	if args == nil || args.AutoEnable == nil {
-		return nil, errors.New("missing required argument 'AutoEnable'")
-	}
-	if args == nil || args.DetectorId == nil {
-		return nil, errors.New("missing required argument 'DetectorId'")
-	}
 	if args == nil {
-		args = &OrganizationConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutoEnable == nil {
+		return nil, errors.New("invalid value for required argument 'AutoEnable'")
+	}
+	if args.DetectorId == nil {
+		return nil, errors.New("invalid value for required argument 'DetectorId'")
 	}
 	var resource OrganizationConfiguration
 	err := ctx.RegisterResource("aws:guardduty/organizationConfiguration:OrganizationConfiguration", name, args, &resource, opts...)

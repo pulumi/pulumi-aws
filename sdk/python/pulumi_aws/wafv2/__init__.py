@@ -15,3 +15,37 @@ from .web_acl_association import *
 from .web_acl_logging_configuration import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:wafv2/ipSet:IpSet":
+                return IpSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:wafv2/regexPatternSet:RegexPatternSet":
+                return RegexPatternSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:wafv2/ruleGroup:RuleGroup":
+                return RuleGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:wafv2/webAcl:WebAcl":
+                return WebAcl(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:wafv2/webAclAssociation:WebAclAssociation":
+                return WebAclAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration":
+                return WebAclLoggingConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "wafv2/ipSet", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "wafv2/regexPatternSet", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "wafv2/ruleGroup", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "wafv2/webAcl", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "wafv2/webAclAssociation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "wafv2/webAclLoggingConfiguration", _module_instance)
+
+_register_module()

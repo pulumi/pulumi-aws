@@ -66,14 +66,15 @@ type Bucket struct {
 // NewBucket registers a new resource with the given unique name, arguments, and options.
 func NewBucket(ctx *pulumi.Context,
 	name string, args *BucketArgs, opts ...pulumi.ResourceOption) (*Bucket, error) {
-	if args == nil || args.Bucket == nil {
-		return nil, errors.New("missing required argument 'Bucket'")
-	}
-	if args == nil || args.OutpostId == nil {
-		return nil, errors.New("missing required argument 'OutpostId'")
-	}
 	if args == nil {
-		args = &BucketArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Bucket == nil {
+		return nil, errors.New("invalid value for required argument 'Bucket'")
+	}
+	if args.OutpostId == nil {
+		return nil, errors.New("invalid value for required argument 'OutpostId'")
 	}
 	var resource Bucket
 	err := ctx.RegisterResource("aws:s3control/bucket:Bucket", name, args, &resource, opts...)

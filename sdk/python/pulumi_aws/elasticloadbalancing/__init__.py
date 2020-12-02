@@ -16,3 +16,43 @@ from .load_balancer_policy import *
 from .ssl_negotiation_policy import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy":
+                return AppCookieStickinessPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:elasticloadbalancing/attachment:Attachment":
+                return Attachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:elasticloadbalancing/listenerPolicy:ListenerPolicy":
+                return ListenerPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:elasticloadbalancing/loadBalancer:LoadBalancer":
+                return LoadBalancer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy":
+                return LoadBalancerBackendServerPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy":
+                return LoadBalancerCookieStickinessPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy":
+                return LoadBalancerPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy":
+                return SslNegotiationPolicy(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancing/appCookieStickinessPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancing/attachment", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancing/listenerPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancing/loadBalancer", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancing/loadBalancerBackendServerPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancing/loadBalancerCookieStickinessPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancing/loadBalancerPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancing/sslNegotiationPolicy", _module_instance)
+
+_register_module()

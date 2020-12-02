@@ -14,3 +14,46 @@ from .remediation_configuration import *
 from .rule import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:cfg/aggregateAuthorization:AggregateAuthorization":
+                return AggregateAuthorization(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cfg/configurationAggregator:ConfigurationAggregator":
+                return ConfigurationAggregator(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cfg/deliveryChannel:DeliveryChannel":
+                return DeliveryChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cfg/organizationCustomRule:OrganizationCustomRule":
+                return OrganizationCustomRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cfg/organizationManagedRule:OrganizationManagedRule":
+                return OrganizationManagedRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cfg/recorder:Recorder":
+                return Recorder(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cfg/recorderStatus:RecorderStatus":
+                return RecorderStatus(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cfg/remediationConfiguration:RemediationConfiguration":
+                return RemediationConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cfg/rule:Rule":
+                return Rule(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "cfg/aggregateAuthorization", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cfg/configurationAggregator", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cfg/deliveryChannel", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cfg/organizationCustomRule", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cfg/organizationManagedRule", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cfg/recorder", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cfg/recorderStatus", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cfg/remediationConfiguration", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cfg/rule", _module_instance)
+
+_register_module()

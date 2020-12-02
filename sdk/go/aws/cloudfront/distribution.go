@@ -130,23 +130,24 @@ type Distribution struct {
 // NewDistribution registers a new resource with the given unique name, arguments, and options.
 func NewDistribution(ctx *pulumi.Context,
 	name string, args *DistributionArgs, opts ...pulumi.ResourceOption) (*Distribution, error) {
-	if args == nil || args.DefaultCacheBehavior == nil {
-		return nil, errors.New("missing required argument 'DefaultCacheBehavior'")
-	}
-	if args == nil || args.Enabled == nil {
-		return nil, errors.New("missing required argument 'Enabled'")
-	}
-	if args == nil || args.Origins == nil {
-		return nil, errors.New("missing required argument 'Origins'")
-	}
-	if args == nil || args.Restrictions == nil {
-		return nil, errors.New("missing required argument 'Restrictions'")
-	}
-	if args == nil || args.ViewerCertificate == nil {
-		return nil, errors.New("missing required argument 'ViewerCertificate'")
-	}
 	if args == nil {
-		args = &DistributionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DefaultCacheBehavior == nil {
+		return nil, errors.New("invalid value for required argument 'DefaultCacheBehavior'")
+	}
+	if args.Enabled == nil {
+		return nil, errors.New("invalid value for required argument 'Enabled'")
+	}
+	if args.Origins == nil {
+		return nil, errors.New("invalid value for required argument 'Origins'")
+	}
+	if args.Restrictions == nil {
+		return nil, errors.New("invalid value for required argument 'Restrictions'")
+	}
+	if args.ViewerCertificate == nil {
+		return nil, errors.New("invalid value for required argument 'ViewerCertificate'")
 	}
 	var resource Distribution
 	err := ctx.RegisterResource("aws:cloudfront/distribution:Distribution", name, args, &resource, opts...)

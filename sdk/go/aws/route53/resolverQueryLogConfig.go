@@ -69,11 +69,12 @@ type ResolverQueryLogConfig struct {
 // NewResolverQueryLogConfig registers a new resource with the given unique name, arguments, and options.
 func NewResolverQueryLogConfig(ctx *pulumi.Context,
 	name string, args *ResolverQueryLogConfigArgs, opts ...pulumi.ResourceOption) (*ResolverQueryLogConfig, error) {
-	if args == nil || args.DestinationArn == nil {
-		return nil, errors.New("missing required argument 'DestinationArn'")
-	}
 	if args == nil {
-		args = &ResolverQueryLogConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DestinationArn == nil {
+		return nil, errors.New("invalid value for required argument 'DestinationArn'")
 	}
 	var resource ResolverQueryLogConfig
 	err := ctx.RegisterResource("aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig", name, args, &resource, opts...)

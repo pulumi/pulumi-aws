@@ -175,10 +175,10 @@ class Directory(pulumi.CustomResource):
             __props__['description'] = description
             __props__['edition'] = edition
             __props__['enable_sso'] = enable_sso
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if password is None:
+            if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
             __props__['password'] = password
             __props__['short_name'] = short_name

@@ -42,7 +42,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
             ttl=600,
             records=[example.verification_token])
         example_verification = aws.ses.DomainIdentityVerification("exampleVerification", domain=example.id,
-        opts=ResourceOptions(depends_on=[example_amazonses_verification_record]))
+        opts=pulumi.ResourceOptions(depends_on=[example_amazonses_verification_record]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -66,7 +66,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if domain is None:
+            if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
             __props__['domain'] = domain
             __props__['arn'] = None

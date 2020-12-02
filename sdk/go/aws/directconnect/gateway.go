@@ -57,11 +57,12 @@ type Gateway struct {
 // NewGateway registers a new resource with the given unique name, arguments, and options.
 func NewGateway(ctx *pulumi.Context,
 	name string, args *GatewayArgs, opts ...pulumi.ResourceOption) (*Gateway, error) {
-	if args == nil || args.AmazonSideAsn == nil {
-		return nil, errors.New("missing required argument 'AmazonSideAsn'")
-	}
 	if args == nil {
-		args = &GatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AmazonSideAsn == nil {
+		return nil, errors.New("invalid value for required argument 'AmazonSideAsn'")
 	}
 	var resource Gateway
 	err := ctx.RegisterResource("aws:directconnect/gateway:Gateway", name, args, &resource, opts...)

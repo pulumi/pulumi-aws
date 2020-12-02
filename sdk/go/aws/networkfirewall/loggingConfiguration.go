@@ -134,14 +134,15 @@ type LoggingConfiguration struct {
 // NewLoggingConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewLoggingConfiguration(ctx *pulumi.Context,
 	name string, args *LoggingConfigurationArgs, opts ...pulumi.ResourceOption) (*LoggingConfiguration, error) {
-	if args == nil || args.FirewallArn == nil {
-		return nil, errors.New("missing required argument 'FirewallArn'")
-	}
-	if args == nil || args.LoggingConfiguration == nil {
-		return nil, errors.New("missing required argument 'LoggingConfiguration'")
-	}
 	if args == nil {
-		args = &LoggingConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FirewallArn == nil {
+		return nil, errors.New("invalid value for required argument 'FirewallArn'")
+	}
+	if args.LoggingConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'LoggingConfiguration'")
 	}
 	var resource LoggingConfiguration
 	err := ctx.RegisterResource("aws:networkfirewall/loggingConfiguration:LoggingConfiguration", name, args, &resource, opts...)

@@ -100,10 +100,10 @@ class PlatformApplication(pulumi.CustomResource):
             __props__['event_endpoint_updated_topic_arn'] = event_endpoint_updated_topic_arn
             __props__['failure_feedback_role_arn'] = failure_feedback_role_arn
             __props__['name'] = name
-            if platform is None:
+            if platform is None and not opts.urn:
                 raise TypeError("Missing required property 'platform'")
             __props__['platform'] = platform
-            if platform_credential is None:
+            if platform_credential is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_credential'")
             __props__['platform_credential'] = platform_credential
             __props__['platform_principal'] = platform_principal

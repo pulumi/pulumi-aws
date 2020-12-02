@@ -227,11 +227,12 @@ type ReplicationGroup struct {
 // NewReplicationGroup registers a new resource with the given unique name, arguments, and options.
 func NewReplicationGroup(ctx *pulumi.Context,
 	name string, args *ReplicationGroupArgs, opts ...pulumi.ResourceOption) (*ReplicationGroup, error) {
-	if args == nil || args.ReplicationGroupDescription == nil {
-		return nil, errors.New("missing required argument 'ReplicationGroupDescription'")
-	}
 	if args == nil {
-		args = &ReplicationGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ReplicationGroupDescription == nil {
+		return nil, errors.New("invalid value for required argument 'ReplicationGroupDescription'")
 	}
 	var resource ReplicationGroup
 	err := ctx.RegisterResource("aws:elasticache/replicationGroup:ReplicationGroup", name, args, &resource, opts...)

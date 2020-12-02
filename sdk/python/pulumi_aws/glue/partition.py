@@ -63,15 +63,15 @@ class Partition(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['catalog_id'] = catalog_id
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['parameters'] = parameters
-            if partition_values is None:
+            if partition_values is None and not opts.urn:
                 raise TypeError("Missing required property 'partition_values'")
             __props__['partition_values'] = partition_values
             __props__['storage_descriptor'] = storage_descriptor
-            if table_name is None:
+            if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__['table_name'] = table_name
             __props__['creation_time'] = None

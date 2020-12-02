@@ -100,20 +100,21 @@ type NetworkAclRule struct {
 // NewNetworkAclRule registers a new resource with the given unique name, arguments, and options.
 func NewNetworkAclRule(ctx *pulumi.Context,
 	name string, args *NetworkAclRuleArgs, opts ...pulumi.ResourceOption) (*NetworkAclRule, error) {
-	if args == nil || args.NetworkAclId == nil {
-		return nil, errors.New("missing required argument 'NetworkAclId'")
-	}
-	if args == nil || args.Protocol == nil {
-		return nil, errors.New("missing required argument 'Protocol'")
-	}
-	if args == nil || args.RuleAction == nil {
-		return nil, errors.New("missing required argument 'RuleAction'")
-	}
-	if args == nil || args.RuleNumber == nil {
-		return nil, errors.New("missing required argument 'RuleNumber'")
-	}
 	if args == nil {
-		args = &NetworkAclRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkAclId == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkAclId'")
+	}
+	if args.Protocol == nil {
+		return nil, errors.New("invalid value for required argument 'Protocol'")
+	}
+	if args.RuleAction == nil {
+		return nil, errors.New("invalid value for required argument 'RuleAction'")
+	}
+	if args.RuleNumber == nil {
+		return nil, errors.New("invalid value for required argument 'RuleNumber'")
 	}
 	var resource NetworkAclRule
 	err := ctx.RegisterResource("aws:ec2/networkAclRule:NetworkAclRule", name, args, &resource, opts...)

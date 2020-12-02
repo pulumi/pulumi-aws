@@ -75,6 +75,7 @@ func NewAccount(ctx *pulumi.Context,
 	if args == nil {
 		args = &AccountArgs{}
 	}
+
 	var resource Account
 	err := ctx.RegisterResource("aws:apigateway/account:Account", name, args, &resource, opts...)
 	if err != nil {

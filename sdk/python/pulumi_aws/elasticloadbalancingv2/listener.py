@@ -229,10 +229,10 @@ class Listener(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['certificate_arn'] = certificate_arn
-            if default_actions is None:
+            if default_actions is None and not opts.urn:
                 raise TypeError("Missing required property 'default_actions'")
             __props__['default_actions'] = default_actions
-            if load_balancer_arn is None:
+            if load_balancer_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_arn'")
             __props__['load_balancer_arn'] = load_balancer_arn
             __props__['port'] = port

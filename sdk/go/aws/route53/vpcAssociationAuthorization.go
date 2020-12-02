@@ -97,14 +97,15 @@ type VpcAssociationAuthorization struct {
 // NewVpcAssociationAuthorization registers a new resource with the given unique name, arguments, and options.
 func NewVpcAssociationAuthorization(ctx *pulumi.Context,
 	name string, args *VpcAssociationAuthorizationArgs, opts ...pulumi.ResourceOption) (*VpcAssociationAuthorization, error) {
-	if args == nil || args.VpcId == nil {
-		return nil, errors.New("missing required argument 'VpcId'")
-	}
-	if args == nil || args.ZoneId == nil {
-		return nil, errors.New("missing required argument 'ZoneId'")
-	}
 	if args == nil {
-		args = &VpcAssociationAuthorizationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.VpcId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcId'")
+	}
+	if args.ZoneId == nil {
+		return nil, errors.New("invalid value for required argument 'ZoneId'")
 	}
 	var resource VpcAssociationAuthorization
 	err := ctx.RegisterResource("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization", name, args, &resource, opts...)

@@ -51,10 +51,10 @@ class ScramSecretAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_arn is None:
+            if cluster_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_arn'")
             __props__['cluster_arn'] = cluster_arn
-            if secret_arn_lists is None:
+            if secret_arn_lists is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_arn_lists'")
             __props__['secret_arn_lists'] = secret_arn_lists
         super(ScramSecretAssociation, __self__).__init__(

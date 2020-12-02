@@ -88,7 +88,7 @@ class PublishingDestination(pulumi.CustomResource):
             detector_id=test_gd.id,
             destination_arn=gd_bucket.arn,
             kms_key_arn=gd_key.arn,
-            opts=ResourceOptions(depends_on=[gd_bucket_policy]))
+            opts=pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
         ```
 
         > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
@@ -125,14 +125,14 @@ class PublishingDestination(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if destination_arn is None:
+            if destination_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_arn'")
             __props__['destination_arn'] = destination_arn
             __props__['destination_type'] = destination_type
-            if detector_id is None:
+            if detector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_id'")
             __props__['detector_id'] = detector_id
-            if kms_key_arn is None:
+            if kms_key_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'kms_key_arn'")
             __props__['kms_key_arn'] = kms_key_arn
         super(PublishingDestination, __self__).__init__(

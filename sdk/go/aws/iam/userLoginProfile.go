@@ -92,14 +92,15 @@ type UserLoginProfile struct {
 // NewUserLoginProfile registers a new resource with the given unique name, arguments, and options.
 func NewUserLoginProfile(ctx *pulumi.Context,
 	name string, args *UserLoginProfileArgs, opts ...pulumi.ResourceOption) (*UserLoginProfile, error) {
-	if args == nil || args.PgpKey == nil {
-		return nil, errors.New("missing required argument 'PgpKey'")
-	}
-	if args == nil || args.User == nil {
-		return nil, errors.New("missing required argument 'User'")
-	}
 	if args == nil {
-		args = &UserLoginProfileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PgpKey == nil {
+		return nil, errors.New("invalid value for required argument 'PgpKey'")
+	}
+	if args.User == nil {
+		return nil, errors.New("invalid value for required argument 'User'")
 	}
 	var resource UserLoginProfile
 	err := ctx.RegisterResource("aws:iam/userLoginProfile:UserLoginProfile", name, args, &resource, opts...)

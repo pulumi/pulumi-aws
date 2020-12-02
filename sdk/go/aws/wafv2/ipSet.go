@@ -76,14 +76,15 @@ type IpSet struct {
 // NewIpSet registers a new resource with the given unique name, arguments, and options.
 func NewIpSet(ctx *pulumi.Context,
 	name string, args *IpSetArgs, opts ...pulumi.ResourceOption) (*IpSet, error) {
-	if args == nil || args.IpAddressVersion == nil {
-		return nil, errors.New("missing required argument 'IpAddressVersion'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
 	if args == nil {
-		args = &IpSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IpAddressVersion == nil {
+		return nil, errors.New("invalid value for required argument 'IpAddressVersion'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	var resource IpSet
 	err := ctx.RegisterResource("aws:wafv2/ipSet:IpSet", name, args, &resource, opts...)

@@ -89,14 +89,15 @@ type GangliaLayer struct {
 // NewGangliaLayer registers a new resource with the given unique name, arguments, and options.
 func NewGangliaLayer(ctx *pulumi.Context,
 	name string, args *GangliaLayerArgs, opts ...pulumi.ResourceOption) (*GangliaLayer, error) {
-	if args == nil || args.Password == nil {
-		return nil, errors.New("missing required argument 'Password'")
-	}
-	if args == nil || args.StackId == nil {
-		return nil, errors.New("missing required argument 'StackId'")
-	}
 	if args == nil {
-		args = &GangliaLayerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Password == nil {
+		return nil, errors.New("invalid value for required argument 'Password'")
+	}
+	if args.StackId == nil {
+		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
 	var resource GangliaLayer
 	err := ctx.RegisterResource("aws:opsworks/gangliaLayer:GangliaLayer", name, args, &resource, opts...)

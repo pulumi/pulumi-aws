@@ -14,3 +14,37 @@ from .target_group import *
 from .target_group_attachment import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:elasticloadbalancingv2/listener:Listener":
+                return Listener(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate":
+                return ListenerCertificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:elasticloadbalancingv2/listenerRule:ListenerRule":
+                return ListenerRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:elasticloadbalancingv2/loadBalancer:LoadBalancer":
+                return LoadBalancer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:elasticloadbalancingv2/targetGroup:TargetGroup":
+                return TargetGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment":
+                return TargetGroupAttachment(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancingv2/listener", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancingv2/listenerCertificate", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancingv2/listenerRule", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancingv2/loadBalancer", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancingv2/targetGroup", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "elasticloadbalancingv2/targetGroupAttachment", _module_instance)
+
+_register_module()

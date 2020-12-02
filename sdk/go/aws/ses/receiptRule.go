@@ -97,11 +97,12 @@ type ReceiptRule struct {
 // NewReceiptRule registers a new resource with the given unique name, arguments, and options.
 func NewReceiptRule(ctx *pulumi.Context,
 	name string, args *ReceiptRuleArgs, opts ...pulumi.ResourceOption) (*ReceiptRule, error) {
-	if args == nil || args.RuleSetName == nil {
-		return nil, errors.New("missing required argument 'RuleSetName'")
-	}
 	if args == nil {
-		args = &ReceiptRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RuleSetName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleSetName'")
 	}
 	var resource ReceiptRule
 	err := ctx.RegisterResource("aws:ses/receiptRule:ReceiptRule", name, args, &resource, opts...)

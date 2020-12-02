@@ -77,10 +77,10 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if instance_ports is None:
+            if instance_ports is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_ports'")
             __props__['instance_ports'] = instance_ports
-            if load_balancer is None:
+            if load_balancer is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer'")
             __props__['load_balancer'] = load_balancer
         super(ProxyProtocolPolicy, __self__).__init__(

@@ -54,14 +54,15 @@ type ProxyTarget struct {
 // NewProxyTarget registers a new resource with the given unique name, arguments, and options.
 func NewProxyTarget(ctx *pulumi.Context,
 	name string, args *ProxyTargetArgs, opts ...pulumi.ResourceOption) (*ProxyTarget, error) {
-	if args == nil || args.DbProxyName == nil {
-		return nil, errors.New("missing required argument 'DbProxyName'")
-	}
-	if args == nil || args.TargetGroupName == nil {
-		return nil, errors.New("missing required argument 'TargetGroupName'")
-	}
 	if args == nil {
-		args = &ProxyTargetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DbProxyName == nil {
+		return nil, errors.New("invalid value for required argument 'DbProxyName'")
+	}
+	if args.TargetGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'TargetGroupName'")
 	}
 	var resource ProxyTarget
 	err := ctx.RegisterResource("aws:rds/proxyTarget:ProxyTarget", name, args, &resource, opts...)

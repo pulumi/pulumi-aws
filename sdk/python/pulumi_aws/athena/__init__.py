@@ -8,3 +8,28 @@ from .named_query import *
 from .workgroup import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:athena/database:Database":
+                return Database(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:athena/namedQuery:NamedQuery":
+                return NamedQuery(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:athena/workgroup:Workgroup":
+                return Workgroup(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "athena/database", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "athena/namedQuery", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "athena/workgroup", _module_instance)
+
+_register_module()

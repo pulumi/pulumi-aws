@@ -114,7 +114,7 @@ class MysqlLayer(pulumi.CustomResource):
             __props__['name'] = name
             __props__['root_password'] = root_password
             __props__['root_password_on_all_instances'] = root_password_on_all_instances
-            if stack_id is None:
+            if stack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_id'")
             __props__['stack_id'] = stack_id
             __props__['system_packages'] = system_packages

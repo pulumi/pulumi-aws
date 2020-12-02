@@ -82,20 +82,21 @@ type IdentityProvider struct {
 // NewIdentityProvider registers a new resource with the given unique name, arguments, and options.
 func NewIdentityProvider(ctx *pulumi.Context,
 	name string, args *IdentityProviderArgs, opts ...pulumi.ResourceOption) (*IdentityProvider, error) {
-	if args == nil || args.ProviderDetails == nil {
-		return nil, errors.New("missing required argument 'ProviderDetails'")
-	}
-	if args == nil || args.ProviderName == nil {
-		return nil, errors.New("missing required argument 'ProviderName'")
-	}
-	if args == nil || args.ProviderType == nil {
-		return nil, errors.New("missing required argument 'ProviderType'")
-	}
-	if args == nil || args.UserPoolId == nil {
-		return nil, errors.New("missing required argument 'UserPoolId'")
-	}
 	if args == nil {
-		args = &IdentityProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProviderDetails == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderDetails'")
+	}
+	if args.ProviderName == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderName'")
+	}
+	if args.ProviderType == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderType'")
+	}
+	if args.UserPoolId == nil {
+		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}
 	var resource IdentityProvider
 	err := ctx.RegisterResource("aws:cognito/identityProvider:IdentityProvider", name, args, &resource, opts...)

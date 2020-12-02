@@ -65,11 +65,11 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if certificate is None:
+            if certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate'")
             __props__['certificate'] = certificate
             __props__['display_name'] = display_name
-            if fleet_arn is None:
+            if fleet_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'fleet_arn'")
             __props__['fleet_arn'] = fleet_arn
             __props__['website_ca_id'] = None

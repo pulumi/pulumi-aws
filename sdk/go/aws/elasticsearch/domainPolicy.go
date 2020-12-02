@@ -58,14 +58,15 @@ type DomainPolicy struct {
 // NewDomainPolicy registers a new resource with the given unique name, arguments, and options.
 func NewDomainPolicy(ctx *pulumi.Context,
 	name string, args *DomainPolicyArgs, opts ...pulumi.ResourceOption) (*DomainPolicy, error) {
-	if args == nil || args.AccessPolicies == nil {
-		return nil, errors.New("missing required argument 'AccessPolicies'")
-	}
-	if args == nil || args.DomainName == nil {
-		return nil, errors.New("missing required argument 'DomainName'")
-	}
 	if args == nil {
-		args = &DomainPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccessPolicies == nil {
+		return nil, errors.New("invalid value for required argument 'AccessPolicies'")
+	}
+	if args.DomainName == nil {
+		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
 	var resource DomainPolicy
 	err := ctx.RegisterResource("aws:elasticsearch/domainPolicy:DomainPolicy", name, args, &resource, opts...)

@@ -80,10 +80,10 @@ class LogService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if directory_id is None:
+            if directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_id'")
             __props__['directory_id'] = directory_id
-            if log_group_name is None:
+            if log_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'log_group_name'")
             __props__['log_group_name'] = log_group_name
         super(LogService, __self__).__init__(

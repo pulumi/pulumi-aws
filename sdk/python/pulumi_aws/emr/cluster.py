@@ -442,7 +442,7 @@ class Cluster(pulumi.CustomResource):
             tags={
                 "name": "emr_test",
             },
-            opts=ResourceOptions(depends_on=[main_subnet]))
+            opts=pulumi.ResourceOptions(depends_on=[main_subnet]))
         gw = aws.ec2.InternetGateway("gw", vpc_id=main_vpc.id)
         route_table = aws.ec2.RouteTable("routeTable",
             vpc_id=main_vpc.id,
@@ -636,12 +636,12 @@ class Cluster(pulumi.CustomResource):
             __props__['master_instance_fleet'] = master_instance_fleet
             __props__['master_instance_group'] = master_instance_group
             __props__['name'] = name
-            if release_label is None:
+            if release_label is None and not opts.urn:
                 raise TypeError("Missing required property 'release_label'")
             __props__['release_label'] = release_label
             __props__['scale_down_behavior'] = scale_down_behavior
             __props__['security_configuration'] = security_configuration
-            if service_role is None:
+            if service_role is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role'")
             __props__['service_role'] = service_role
             __props__['step_concurrency_level'] = step_concurrency_level

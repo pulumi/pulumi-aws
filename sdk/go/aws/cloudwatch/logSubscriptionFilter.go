@@ -67,17 +67,18 @@ type LogSubscriptionFilter struct {
 // NewLogSubscriptionFilter registers a new resource with the given unique name, arguments, and options.
 func NewLogSubscriptionFilter(ctx *pulumi.Context,
 	name string, args *LogSubscriptionFilterArgs, opts ...pulumi.ResourceOption) (*LogSubscriptionFilter, error) {
-	if args == nil || args.DestinationArn == nil {
-		return nil, errors.New("missing required argument 'DestinationArn'")
-	}
-	if args == nil || args.FilterPattern == nil {
-		return nil, errors.New("missing required argument 'FilterPattern'")
-	}
-	if args == nil || args.LogGroup == nil {
-		return nil, errors.New("missing required argument 'LogGroup'")
-	}
 	if args == nil {
-		args = &LogSubscriptionFilterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DestinationArn == nil {
+		return nil, errors.New("invalid value for required argument 'DestinationArn'")
+	}
+	if args.FilterPattern == nil {
+		return nil, errors.New("invalid value for required argument 'FilterPattern'")
+	}
+	if args.LogGroup == nil {
+		return nil, errors.New("invalid value for required argument 'LogGroup'")
 	}
 	var resource LogSubscriptionFilter
 	err := ctx.RegisterResource("aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter", name, args, &resource, opts...)

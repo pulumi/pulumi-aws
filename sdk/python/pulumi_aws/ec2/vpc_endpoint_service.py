@@ -88,7 +88,7 @@ class VpcEndpointService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if acceptance_required is None:
+            if acceptance_required is None and not opts.urn:
                 raise TypeError("Missing required property 'acceptance_required'")
             __props__['acceptance_required'] = acceptance_required
             __props__['allowed_principals'] = allowed_principals

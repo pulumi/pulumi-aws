@@ -93,13 +93,13 @@ class SigningProfilePermission(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action is None:
+            if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__['action'] = action
-            if principal is None:
+            if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__['principal'] = principal
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
             __props__['profile_version'] = profile_version

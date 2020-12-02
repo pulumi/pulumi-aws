@@ -63,14 +63,15 @@ type ServerCertificate struct {
 // NewServerCertificate registers a new resource with the given unique name, arguments, and options.
 func NewServerCertificate(ctx *pulumi.Context,
 	name string, args *ServerCertificateArgs, opts ...pulumi.ResourceOption) (*ServerCertificate, error) {
-	if args == nil || args.CertificateBody == nil {
-		return nil, errors.New("missing required argument 'CertificateBody'")
-	}
-	if args == nil || args.PrivateKey == nil {
-		return nil, errors.New("missing required argument 'PrivateKey'")
-	}
 	if args == nil {
-		args = &ServerCertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CertificateBody == nil {
+		return nil, errors.New("invalid value for required argument 'CertificateBody'")
+	}
+	if args.PrivateKey == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateKey'")
 	}
 	var resource ServerCertificate
 	err := ctx.RegisterResource("aws:iam/serverCertificate:ServerCertificate", name, args, &resource, opts...)

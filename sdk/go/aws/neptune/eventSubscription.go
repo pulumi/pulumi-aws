@@ -121,11 +121,12 @@ type EventSubscription struct {
 // NewEventSubscription registers a new resource with the given unique name, arguments, and options.
 func NewEventSubscription(ctx *pulumi.Context,
 	name string, args *EventSubscriptionArgs, opts ...pulumi.ResourceOption) (*EventSubscription, error) {
-	if args == nil || args.SnsTopicArn == nil {
-		return nil, errors.New("missing required argument 'SnsTopicArn'")
-	}
 	if args == nil {
-		args = &EventSubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SnsTopicArn == nil {
+		return nil, errors.New("invalid value for required argument 'SnsTopicArn'")
 	}
 	var resource EventSubscription
 	err := ctx.RegisterResource("aws:neptune/eventSubscription:EventSubscription", name, args, &resource, opts...)

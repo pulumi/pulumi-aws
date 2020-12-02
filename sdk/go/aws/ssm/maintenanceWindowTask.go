@@ -153,29 +153,30 @@ type MaintenanceWindowTask struct {
 // NewMaintenanceWindowTask registers a new resource with the given unique name, arguments, and options.
 func NewMaintenanceWindowTask(ctx *pulumi.Context,
 	name string, args *MaintenanceWindowTaskArgs, opts ...pulumi.ResourceOption) (*MaintenanceWindowTask, error) {
-	if args == nil || args.MaxConcurrency == nil {
-		return nil, errors.New("missing required argument 'MaxConcurrency'")
-	}
-	if args == nil || args.MaxErrors == nil {
-		return nil, errors.New("missing required argument 'MaxErrors'")
-	}
-	if args == nil || args.ServiceRoleArn == nil {
-		return nil, errors.New("missing required argument 'ServiceRoleArn'")
-	}
-	if args == nil || args.Targets == nil {
-		return nil, errors.New("missing required argument 'Targets'")
-	}
-	if args == nil || args.TaskArn == nil {
-		return nil, errors.New("missing required argument 'TaskArn'")
-	}
-	if args == nil || args.TaskType == nil {
-		return nil, errors.New("missing required argument 'TaskType'")
-	}
-	if args == nil || args.WindowId == nil {
-		return nil, errors.New("missing required argument 'WindowId'")
-	}
 	if args == nil {
-		args = &MaintenanceWindowTaskArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MaxConcurrency == nil {
+		return nil, errors.New("invalid value for required argument 'MaxConcurrency'")
+	}
+	if args.MaxErrors == nil {
+		return nil, errors.New("invalid value for required argument 'MaxErrors'")
+	}
+	if args.ServiceRoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
+	}
+	if args.Targets == nil {
+		return nil, errors.New("invalid value for required argument 'Targets'")
+	}
+	if args.TaskArn == nil {
+		return nil, errors.New("invalid value for required argument 'TaskArn'")
+	}
+	if args.TaskType == nil {
+		return nil, errors.New("invalid value for required argument 'TaskType'")
+	}
+	if args.WindowId == nil {
+		return nil, errors.New("invalid value for required argument 'WindowId'")
 	}
 	var resource MaintenanceWindowTask
 	err := ctx.RegisterResource("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask", name, args, &resource, opts...)

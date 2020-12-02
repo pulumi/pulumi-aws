@@ -64,14 +64,15 @@ type TapePool struct {
 // NewTapePool registers a new resource with the given unique name, arguments, and options.
 func NewTapePool(ctx *pulumi.Context,
 	name string, args *TapePoolArgs, opts ...pulumi.ResourceOption) (*TapePool, error) {
-	if args == nil || args.PoolName == nil {
-		return nil, errors.New("missing required argument 'PoolName'")
-	}
-	if args == nil || args.StorageClass == nil {
-		return nil, errors.New("missing required argument 'StorageClass'")
-	}
 	if args == nil {
-		args = &TapePoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PoolName == nil {
+		return nil, errors.New("invalid value for required argument 'PoolName'")
+	}
+	if args.StorageClass == nil {
+		return nil, errors.New("invalid value for required argument 'StorageClass'")
 	}
 	var resource TapePool
 	err := ctx.RegisterResource("aws:storagegateway/tapePool:TapePool", name, args, &resource, opts...)

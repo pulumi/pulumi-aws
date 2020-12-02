@@ -57,10 +57,10 @@ class PatchGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if baseline_id is None:
+            if baseline_id is None and not opts.urn:
                 raise TypeError("Missing required property 'baseline_id'")
             __props__['baseline_id'] = baseline_id
-            if patch_group is None:
+            if patch_group is None and not opts.urn:
                 raise TypeError("Missing required property 'patch_group'")
             __props__['patch_group'] = patch_group
         super(PatchGroup, __self__).__init__(

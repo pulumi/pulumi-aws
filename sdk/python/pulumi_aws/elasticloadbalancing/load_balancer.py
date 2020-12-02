@@ -167,7 +167,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__['idle_timeout'] = idle_timeout
             __props__['instances'] = instances
             __props__['internal'] = internal
-            if listeners is None:
+            if listeners is None and not opts.urn:
                 raise TypeError("Missing required property 'listeners'")
             __props__['listeners'] = listeners
             __props__['name'] = name

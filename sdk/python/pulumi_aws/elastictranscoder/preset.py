@@ -133,7 +133,7 @@ class Preset(pulumi.CustomResource):
 
             __props__['audio'] = audio
             __props__['audio_codec_options'] = audio_codec_options
-            if container is None:
+            if container is None and not opts.urn:
                 raise TypeError("Missing required property 'container'")
             __props__['container'] = container
             __props__['description'] = description

@@ -99,18 +99,18 @@ class NfsFileShare(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['cache_attributes'] = cache_attributes
-            if client_lists is None:
+            if client_lists is None and not opts.urn:
                 raise TypeError("Missing required property 'client_lists'")
             __props__['client_lists'] = client_lists
             __props__['default_storage_class'] = default_storage_class
             __props__['file_share_name'] = file_share_name
-            if gateway_arn is None:
+            if gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_arn'")
             __props__['gateway_arn'] = gateway_arn
             __props__['guess_mime_type_enabled'] = guess_mime_type_enabled
             __props__['kms_encrypted'] = kms_encrypted
             __props__['kms_key_arn'] = kms_key_arn
-            if location_arn is None:
+            if location_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'location_arn'")
             __props__['location_arn'] = location_arn
             __props__['nfs_file_share_defaults'] = nfs_file_share_defaults
@@ -118,7 +118,7 @@ class NfsFileShare(pulumi.CustomResource):
             __props__['object_acl'] = object_acl
             __props__['read_only'] = read_only
             __props__['requester_pays'] = requester_pays
-            if role_arn is None:
+            if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
             __props__['squash'] = squash

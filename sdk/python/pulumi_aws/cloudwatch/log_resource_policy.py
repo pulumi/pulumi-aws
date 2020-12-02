@@ -98,10 +98,10 @@ class LogResourcePolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if policy_document is None:
+            if policy_document is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_document'")
             __props__['policy_document'] = policy_document
-            if policy_name is None:
+            if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
             __props__['policy_name'] = policy_name
         super(LogResourcePolicy, __self__).__init__(

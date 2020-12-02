@@ -64,11 +64,12 @@ type SpotDatafeedSubscription struct {
 // NewSpotDatafeedSubscription registers a new resource with the given unique name, arguments, and options.
 func NewSpotDatafeedSubscription(ctx *pulumi.Context,
 	name string, args *SpotDatafeedSubscriptionArgs, opts ...pulumi.ResourceOption) (*SpotDatafeedSubscription, error) {
-	if args == nil || args.Bucket == nil {
-		return nil, errors.New("missing required argument 'Bucket'")
-	}
 	if args == nil {
-		args = &SpotDatafeedSubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Bucket == nil {
+		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
 	var resource SpotDatafeedSubscription
 	err := ctx.RegisterResource("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription", name, args, &resource, opts...)

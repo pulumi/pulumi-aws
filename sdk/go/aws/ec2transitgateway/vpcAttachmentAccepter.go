@@ -82,11 +82,12 @@ type VpcAttachmentAccepter struct {
 // NewVpcAttachmentAccepter registers a new resource with the given unique name, arguments, and options.
 func NewVpcAttachmentAccepter(ctx *pulumi.Context,
 	name string, args *VpcAttachmentAccepterArgs, opts ...pulumi.ResourceOption) (*VpcAttachmentAccepter, error) {
-	if args == nil || args.TransitGatewayAttachmentId == nil {
-		return nil, errors.New("missing required argument 'TransitGatewayAttachmentId'")
-	}
 	if args == nil {
-		args = &VpcAttachmentAccepterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.TransitGatewayAttachmentId == nil {
+		return nil, errors.New("invalid value for required argument 'TransitGatewayAttachmentId'")
 	}
 	var resource VpcAttachmentAccepter
 	err := ctx.RegisterResource("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter", name, args, &resource, opts...)

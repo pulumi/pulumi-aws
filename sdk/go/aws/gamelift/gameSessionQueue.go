@@ -42,6 +42,7 @@ func NewGameSessionQueue(ctx *pulumi.Context,
 	if args == nil {
 		args = &GameSessionQueueArgs{}
 	}
+
 	var resource GameSessionQueue
 	err := ctx.RegisterResource("aws:gamelift/gameSessionQueue:GameSessionQueue", name, args, &resource, opts...)
 	if err != nil {

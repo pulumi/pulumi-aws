@@ -69,7 +69,7 @@ class DefaultSubnet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if availability_zone is None:
+            if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")
             __props__['availability_zone'] = availability_zone
             __props__['map_public_ip_on_launch'] = map_public_ip_on_launch

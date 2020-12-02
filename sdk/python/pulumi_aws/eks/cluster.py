@@ -80,7 +80,7 @@ class Cluster(pulumi.CustomResource):
             "api",
             "audit",
         ],
-        opts=ResourceOptions(depends_on=[example_log_group]))
+        opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
         # ... other configuration ...
         ```
 
@@ -123,12 +123,12 @@ class Cluster(pulumi.CustomResource):
             __props__['encryption_config'] = encryption_config
             __props__['kubernetes_network_config'] = kubernetes_network_config
             __props__['name'] = name
-            if role_arn is None:
+            if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
             __props__['tags'] = tags
             __props__['version'] = version
-            if vpc_config is None:
+            if vpc_config is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_config'")
             __props__['vpc_config'] = vpc_config
             __props__['arn'] = None

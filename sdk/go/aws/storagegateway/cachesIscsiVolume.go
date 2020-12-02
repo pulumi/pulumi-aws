@@ -145,20 +145,21 @@ type CachesIscsiVolume struct {
 // NewCachesIscsiVolume registers a new resource with the given unique name, arguments, and options.
 func NewCachesIscsiVolume(ctx *pulumi.Context,
 	name string, args *CachesIscsiVolumeArgs, opts ...pulumi.ResourceOption) (*CachesIscsiVolume, error) {
-	if args == nil || args.GatewayArn == nil {
-		return nil, errors.New("missing required argument 'GatewayArn'")
-	}
-	if args == nil || args.NetworkInterfaceId == nil {
-		return nil, errors.New("missing required argument 'NetworkInterfaceId'")
-	}
-	if args == nil || args.TargetName == nil {
-		return nil, errors.New("missing required argument 'TargetName'")
-	}
-	if args == nil || args.VolumeSizeInBytes == nil {
-		return nil, errors.New("missing required argument 'VolumeSizeInBytes'")
-	}
 	if args == nil {
-		args = &CachesIscsiVolumeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GatewayArn == nil {
+		return nil, errors.New("invalid value for required argument 'GatewayArn'")
+	}
+	if args.NetworkInterfaceId == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkInterfaceId'")
+	}
+	if args.TargetName == nil {
+		return nil, errors.New("invalid value for required argument 'TargetName'")
+	}
+	if args.VolumeSizeInBytes == nil {
+		return nil, errors.New("invalid value for required argument 'VolumeSizeInBytes'")
 	}
 	var resource CachesIscsiVolume
 	err := ctx.RegisterResource("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume", name, args, &resource, opts...)

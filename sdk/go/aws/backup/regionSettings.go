@@ -62,11 +62,12 @@ type RegionSettings struct {
 // NewRegionSettings registers a new resource with the given unique name, arguments, and options.
 func NewRegionSettings(ctx *pulumi.Context,
 	name string, args *RegionSettingsArgs, opts ...pulumi.ResourceOption) (*RegionSettings, error) {
-	if args == nil || args.ResourceTypeOptInPreference == nil {
-		return nil, errors.New("missing required argument 'ResourceTypeOptInPreference'")
-	}
 	if args == nil {
-		args = &RegionSettingsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceTypeOptInPreference == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceTypeOptInPreference'")
 	}
 	var resource RegionSettings
 	err := ctx.RegisterResource("aws:backup/regionSettings:RegionSettings", name, args, &resource, opts...)

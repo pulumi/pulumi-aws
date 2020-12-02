@@ -60,7 +60,7 @@ class ReceiptRuleSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if rule_set_name is None:
+            if rule_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_name'")
             __props__['rule_set_name'] = rule_set_name
         super(ReceiptRuleSet, __self__).__init__(

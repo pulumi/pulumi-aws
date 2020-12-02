@@ -149,15 +149,15 @@ class WindowsFileSystem(pulumi.CustomResource):
             __props__['security_group_ids'] = security_group_ids
             __props__['self_managed_active_directory'] = self_managed_active_directory
             __props__['skip_final_backup'] = skip_final_backup
-            if storage_capacity is None:
+            if storage_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_capacity'")
             __props__['storage_capacity'] = storage_capacity
             __props__['storage_type'] = storage_type
-            if subnet_ids is None:
+            if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__['subnet_ids'] = subnet_ids
             __props__['tags'] = tags
-            if throughput_capacity is None:
+            if throughput_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'throughput_capacity'")
             __props__['throughput_capacity'] = throughput_capacity
             __props__['weekly_maintenance_start_time'] = weekly_maintenance_start_time

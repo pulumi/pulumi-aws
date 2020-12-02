@@ -88,11 +88,12 @@ type MysqlLayer struct {
 // NewMysqlLayer registers a new resource with the given unique name, arguments, and options.
 func NewMysqlLayer(ctx *pulumi.Context,
 	name string, args *MysqlLayerArgs, opts ...pulumi.ResourceOption) (*MysqlLayer, error) {
-	if args == nil || args.StackId == nil {
-		return nil, errors.New("missing required argument 'StackId'")
-	}
 	if args == nil {
-		args = &MysqlLayerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StackId == nil {
+		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
 	var resource MysqlLayer
 	err := ctx.RegisterResource("aws:opsworks/mysqlLayer:MysqlLayer", name, args, &resource, opts...)

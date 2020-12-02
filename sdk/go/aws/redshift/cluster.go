@@ -137,14 +137,15 @@ type Cluster struct {
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
-	if args == nil || args.ClusterIdentifier == nil {
-		return nil, errors.New("missing required argument 'ClusterIdentifier'")
-	}
-	if args == nil || args.NodeType == nil {
-		return nil, errors.New("missing required argument 'NodeType'")
-	}
 	if args == nil {
-		args = &ClusterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterIdentifier'")
+	}
+	if args.NodeType == nil {
+		return nil, errors.New("invalid value for required argument 'NodeType'")
 	}
 	var resource Cluster
 	err := ctx.RegisterResource("aws:redshift/cluster:Cluster", name, args, &resource, opts...)

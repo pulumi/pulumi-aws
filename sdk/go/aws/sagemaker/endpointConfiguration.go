@@ -75,11 +75,12 @@ type EndpointConfiguration struct {
 // NewEndpointConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewEndpointConfiguration(ctx *pulumi.Context,
 	name string, args *EndpointConfigurationArgs, opts ...pulumi.ResourceOption) (*EndpointConfiguration, error) {
-	if args == nil || args.ProductionVariants == nil {
-		return nil, errors.New("missing required argument 'ProductionVariants'")
-	}
 	if args == nil {
-		args = &EndpointConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProductionVariants == nil {
+		return nil, errors.New("invalid value for required argument 'ProductionVariants'")
 	}
 	var resource EndpointConfiguration
 	err := ctx.RegisterResource("aws:sagemaker/endpointConfiguration:EndpointConfiguration", name, args, &resource, opts...)

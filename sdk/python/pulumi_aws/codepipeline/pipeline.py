@@ -175,14 +175,14 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if artifact_store is None:
+            if artifact_store is None and not opts.urn:
                 raise TypeError("Missing required property 'artifact_store'")
             __props__['artifact_store'] = artifact_store
             __props__['name'] = name
-            if role_arn is None:
+            if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
-            if stages is None:
+            if stages is None and not opts.urn:
                 raise TypeError("Missing required property 'stages'")
             __props__['stages'] = stages
             __props__['tags'] = tags

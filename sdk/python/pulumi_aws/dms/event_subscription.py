@@ -83,11 +83,11 @@ class EventSubscription(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['enabled'] = enabled
-            if event_categories is None:
+            if event_categories is None and not opts.urn:
                 raise TypeError("Missing required property 'event_categories'")
             __props__['event_categories'] = event_categories
             __props__['name'] = name
-            if sns_topic_arn is None:
+            if sns_topic_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'sns_topic_arn'")
             __props__['sns_topic_arn'] = sns_topic_arn
             __props__['source_ids'] = source_ids

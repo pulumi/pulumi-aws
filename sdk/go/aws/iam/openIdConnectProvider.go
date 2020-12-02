@@ -63,17 +63,18 @@ type OpenIdConnectProvider struct {
 // NewOpenIdConnectProvider registers a new resource with the given unique name, arguments, and options.
 func NewOpenIdConnectProvider(ctx *pulumi.Context,
 	name string, args *OpenIdConnectProviderArgs, opts ...pulumi.ResourceOption) (*OpenIdConnectProvider, error) {
-	if args == nil || args.ClientIdLists == nil {
-		return nil, errors.New("missing required argument 'ClientIdLists'")
-	}
-	if args == nil || args.ThumbprintLists == nil {
-		return nil, errors.New("missing required argument 'ThumbprintLists'")
-	}
-	if args == nil || args.Url == nil {
-		return nil, errors.New("missing required argument 'Url'")
-	}
 	if args == nil {
-		args = &OpenIdConnectProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClientIdLists == nil {
+		return nil, errors.New("invalid value for required argument 'ClientIdLists'")
+	}
+	if args.ThumbprintLists == nil {
+		return nil, errors.New("invalid value for required argument 'ThumbprintLists'")
+	}
+	if args.Url == nil {
+		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	var resource OpenIdConnectProvider
 	err := ctx.RegisterResource("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, args, &resource, opts...)

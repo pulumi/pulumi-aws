@@ -77,10 +77,10 @@ class Snapshot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if db_instance_identifier is None:
+            if db_instance_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'db_instance_identifier'")
             __props__['db_instance_identifier'] = db_instance_identifier
-            if db_snapshot_identifier is None:
+            if db_snapshot_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'db_snapshot_identifier'")
             __props__['db_snapshot_identifier'] = db_snapshot_identifier
             __props__['tags'] = tags

@@ -89,7 +89,7 @@ class EndpointGroup(pulumi.CustomResource):
             __props__['health_check_path'] = health_check_path
             __props__['health_check_port'] = health_check_port
             __props__['health_check_protocol'] = health_check_protocol
-            if listener_arn is None:
+            if listener_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'listener_arn'")
             __props__['listener_arn'] = listener_arn
             __props__['port_overrides'] = port_overrides

@@ -38,6 +38,7 @@ func NewNotebookInstanceLifecycleConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &NotebookInstanceLifecycleConfigurationArgs{}
 	}
+
 	var resource NotebookInstanceLifecycleConfiguration
 	err := ctx.RegisterResource("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration", name, args, &resource, opts...)
 	if err != nil {

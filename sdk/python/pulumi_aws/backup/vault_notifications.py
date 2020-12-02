@@ -85,13 +85,13 @@ class VaultNotifications(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if backup_vault_events is None:
+            if backup_vault_events is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_vault_events'")
             __props__['backup_vault_events'] = backup_vault_events
-            if backup_vault_name is None:
+            if backup_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_vault_name'")
             __props__['backup_vault_name'] = backup_vault_name
-            if sns_topic_arn is None:
+            if sns_topic_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'sns_topic_arn'")
             __props__['sns_topic_arn'] = sns_topic_arn
             __props__['backup_vault_arn'] = None

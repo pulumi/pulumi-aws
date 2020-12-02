@@ -215,13 +215,13 @@ class ListenerRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if actions is None:
+            if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__['actions'] = actions
-            if conditions is None:
+            if conditions is None and not opts.urn:
                 raise TypeError("Missing required property 'conditions'")
             __props__['conditions'] = conditions
-            if listener_arn is None:
+            if listener_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'listener_arn'")
             __props__['listener_arn'] = listener_arn
             __props__['priority'] = priority

@@ -202,17 +202,18 @@ type Policy struct {
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
 func NewPolicy(ctx *pulumi.Context,
 	name string, args *PolicyArgs, opts ...pulumi.ResourceOption) (*Policy, error) {
-	if args == nil || args.ResourceId == nil {
-		return nil, errors.New("missing required argument 'ResourceId'")
-	}
-	if args == nil || args.ScalableDimension == nil {
-		return nil, errors.New("missing required argument 'ScalableDimension'")
-	}
-	if args == nil || args.ServiceNamespace == nil {
-		return nil, errors.New("missing required argument 'ServiceNamespace'")
-	}
 	if args == nil {
-		args = &PolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceId'")
+	}
+	if args.ScalableDimension == nil {
+		return nil, errors.New("invalid value for required argument 'ScalableDimension'")
+	}
+	if args.ServiceNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceNamespace'")
 	}
 	var resource Policy
 	err := ctx.RegisterResource("aws:appautoscaling/policy:Policy", name, args, &resource, opts...)

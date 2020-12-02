@@ -162,14 +162,14 @@ class Permission(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action is None:
+            if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__['action'] = action
             __props__['event_source_token'] = event_source_token
-            if function is None:
+            if function is None and not opts.urn:
                 raise TypeError("Missing required property 'function'")
             __props__['function'] = function
-            if principal is None:
+            if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__['principal'] = principal
             __props__['qualifier'] = qualifier

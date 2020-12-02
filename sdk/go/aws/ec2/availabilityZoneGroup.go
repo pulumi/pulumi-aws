@@ -58,14 +58,15 @@ type AvailabilityZoneGroup struct {
 // NewAvailabilityZoneGroup registers a new resource with the given unique name, arguments, and options.
 func NewAvailabilityZoneGroup(ctx *pulumi.Context,
 	name string, args *AvailabilityZoneGroupArgs, opts ...pulumi.ResourceOption) (*AvailabilityZoneGroup, error) {
-	if args == nil || args.GroupName == nil {
-		return nil, errors.New("missing required argument 'GroupName'")
-	}
-	if args == nil || args.OptInStatus == nil {
-		return nil, errors.New("missing required argument 'OptInStatus'")
-	}
 	if args == nil {
-		args = &AvailabilityZoneGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GroupName == nil {
+		return nil, errors.New("invalid value for required argument 'GroupName'")
+	}
+	if args.OptInStatus == nil {
+		return nil, errors.New("invalid value for required argument 'OptInStatus'")
 	}
 	var resource AvailabilityZoneGroup
 	err := ctx.RegisterResource("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup", name, args, &resource, opts...)

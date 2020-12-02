@@ -66,10 +66,10 @@ class ResourceAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if resource_arn is None:
+            if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
             __props__['resource_arn'] = resource_arn
-            if resource_share_arn is None:
+            if resource_share_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_share_arn'")
             __props__['resource_share_arn'] = resource_share_arn
         super(ResourceAssociation, __self__).__init__(

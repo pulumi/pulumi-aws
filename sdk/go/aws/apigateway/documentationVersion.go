@@ -75,14 +75,15 @@ type DocumentationVersion struct {
 // NewDocumentationVersion registers a new resource with the given unique name, arguments, and options.
 func NewDocumentationVersion(ctx *pulumi.Context,
 	name string, args *DocumentationVersionArgs, opts ...pulumi.ResourceOption) (*DocumentationVersion, error) {
-	if args == nil || args.RestApiId == nil {
-		return nil, errors.New("missing required argument 'RestApiId'")
-	}
-	if args == nil || args.Version == nil {
-		return nil, errors.New("missing required argument 'Version'")
-	}
 	if args == nil {
-		args = &DocumentationVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RestApiId == nil {
+		return nil, errors.New("invalid value for required argument 'RestApiId'")
+	}
+	if args.Version == nil {
+		return nil, errors.New("invalid value for required argument 'Version'")
 	}
 	var resource DocumentationVersion
 	err := ctx.RegisterResource("aws:apigateway/documentationVersion:DocumentationVersion", name, args, &resource, opts...)

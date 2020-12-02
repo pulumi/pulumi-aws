@@ -64,10 +64,10 @@ class StaticIpAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if instance_name is None:
+            if instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_name'")
             __props__['instance_name'] = instance_name
-            if static_ip_name is None:
+            if static_ip_name is None and not opts.urn:
                 raise TypeError("Missing required property 'static_ip_name'")
             __props__['static_ip_name'] = static_ip_name
             __props__['ip_address'] = None

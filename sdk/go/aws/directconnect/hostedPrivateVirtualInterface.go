@@ -82,23 +82,24 @@ type HostedPrivateVirtualInterface struct {
 // NewHostedPrivateVirtualInterface registers a new resource with the given unique name, arguments, and options.
 func NewHostedPrivateVirtualInterface(ctx *pulumi.Context,
 	name string, args *HostedPrivateVirtualInterfaceArgs, opts ...pulumi.ResourceOption) (*HostedPrivateVirtualInterface, error) {
-	if args == nil || args.AddressFamily == nil {
-		return nil, errors.New("missing required argument 'AddressFamily'")
-	}
-	if args == nil || args.BgpAsn == nil {
-		return nil, errors.New("missing required argument 'BgpAsn'")
-	}
-	if args == nil || args.ConnectionId == nil {
-		return nil, errors.New("missing required argument 'ConnectionId'")
-	}
-	if args == nil || args.OwnerAccountId == nil {
-		return nil, errors.New("missing required argument 'OwnerAccountId'")
-	}
-	if args == nil || args.Vlan == nil {
-		return nil, errors.New("missing required argument 'Vlan'")
-	}
 	if args == nil {
-		args = &HostedPrivateVirtualInterfaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AddressFamily == nil {
+		return nil, errors.New("invalid value for required argument 'AddressFamily'")
+	}
+	if args.BgpAsn == nil {
+		return nil, errors.New("invalid value for required argument 'BgpAsn'")
+	}
+	if args.ConnectionId == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionId'")
+	}
+	if args.OwnerAccountId == nil {
+		return nil, errors.New("invalid value for required argument 'OwnerAccountId'")
+	}
+	if args.Vlan == nil {
+		return nil, errors.New("invalid value for required argument 'Vlan'")
 	}
 	var resource HostedPrivateVirtualInterface
 	err := ctx.RegisterResource("aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface", name, args, &resource, opts...)

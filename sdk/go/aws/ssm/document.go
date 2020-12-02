@@ -135,14 +135,15 @@ type Document struct {
 // NewDocument registers a new resource with the given unique name, arguments, and options.
 func NewDocument(ctx *pulumi.Context,
 	name string, args *DocumentArgs, opts ...pulumi.ResourceOption) (*Document, error) {
-	if args == nil || args.Content == nil {
-		return nil, errors.New("missing required argument 'Content'")
-	}
-	if args == nil || args.DocumentType == nil {
-		return nil, errors.New("missing required argument 'DocumentType'")
-	}
 	if args == nil {
-		args = &DocumentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Content == nil {
+		return nil, errors.New("invalid value for required argument 'Content'")
+	}
+	if args.DocumentType == nil {
+		return nil, errors.New("invalid value for required argument 'DocumentType'")
 	}
 	var resource Document
 	err := ctx.RegisterResource("aws:ssm/document:Document", name, args, &resource, opts...)

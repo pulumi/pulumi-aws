@@ -83,11 +83,12 @@ type CapacityProvider struct {
 // NewCapacityProvider registers a new resource with the given unique name, arguments, and options.
 func NewCapacityProvider(ctx *pulumi.Context,
 	name string, args *CapacityProviderArgs, opts ...pulumi.ResourceOption) (*CapacityProvider, error) {
-	if args == nil || args.AutoScalingGroupProvider == nil {
-		return nil, errors.New("missing required argument 'AutoScalingGroupProvider'")
-	}
 	if args == nil {
-		args = &CapacityProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutoScalingGroupProvider == nil {
+		return nil, errors.New("invalid value for required argument 'AutoScalingGroupProvider'")
 	}
 	var resource CapacityProvider
 	err := ctx.RegisterResource("aws:ecs/capacityProvider:CapacityProvider", name, args, &resource, opts...)

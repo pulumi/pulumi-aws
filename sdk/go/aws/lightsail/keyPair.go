@@ -98,6 +98,7 @@ func NewKeyPair(ctx *pulumi.Context,
 	if args == nil {
 		args = &KeyPairArgs{}
 	}
+
 	var resource KeyPair
 	err := ctx.RegisterResource("aws:lightsail/keyPair:KeyPair", name, args, &resource, opts...)
 	if err != nil {

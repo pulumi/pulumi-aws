@@ -147,23 +147,23 @@ class Resolver(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_id is None:
+            if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
             __props__['caching_config'] = caching_config
             __props__['data_source'] = data_source
-            if field is None:
+            if field is None and not opts.urn:
                 raise TypeError("Missing required property 'field'")
             __props__['field'] = field
             __props__['kind'] = kind
             __props__['pipeline_config'] = pipeline_config
-            if request_template is None:
+            if request_template is None and not opts.urn:
                 raise TypeError("Missing required property 'request_template'")
             __props__['request_template'] = request_template
-            if response_template is None:
+            if response_template is None and not opts.urn:
                 raise TypeError("Missing required property 'response_template'")
             __props__['response_template'] = response_template
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['arn'] = None

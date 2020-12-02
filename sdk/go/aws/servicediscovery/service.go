@@ -137,6 +137,7 @@ func NewService(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServiceArgs{}
 	}
+
 	var resource Service
 	err := ctx.RegisterResource("aws:servicediscovery/service:Service", name, args, &resource, opts...)
 	if err != nil {

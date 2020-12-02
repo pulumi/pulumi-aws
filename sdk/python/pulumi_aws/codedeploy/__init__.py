@@ -8,3 +8,28 @@ from .deployment_config import *
 from .deployment_group import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:codedeploy/application:Application":
+                return Application(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:codedeploy/deploymentConfig:DeploymentConfig":
+                return DeploymentConfig(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:codedeploy/deploymentGroup:DeploymentGroup":
+                return DeploymentGroup(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "codedeploy/application", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "codedeploy/deploymentConfig", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "codedeploy/deploymentGroup", _module_instance)
+
+_register_module()

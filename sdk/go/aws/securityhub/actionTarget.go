@@ -66,14 +66,15 @@ type ActionTarget struct {
 // NewActionTarget registers a new resource with the given unique name, arguments, and options.
 func NewActionTarget(ctx *pulumi.Context,
 	name string, args *ActionTargetArgs, opts ...pulumi.ResourceOption) (*ActionTarget, error) {
-	if args == nil || args.Description == nil {
-		return nil, errors.New("missing required argument 'Description'")
-	}
-	if args == nil || args.Identifier == nil {
-		return nil, errors.New("missing required argument 'Identifier'")
-	}
 	if args == nil {
-		args = &ActionTargetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Description == nil {
+		return nil, errors.New("invalid value for required argument 'Description'")
+	}
+	if args.Identifier == nil {
+		return nil, errors.New("invalid value for required argument 'Identifier'")
 	}
 	var resource ActionTarget
 	err := ctx.RegisterResource("aws:securityhub/actionTarget:ActionTarget", name, args, &resource, opts...)

@@ -73,14 +73,15 @@ type BotAlias struct {
 // NewBotAlias registers a new resource with the given unique name, arguments, and options.
 func NewBotAlias(ctx *pulumi.Context,
 	name string, args *BotAliasArgs, opts ...pulumi.ResourceOption) (*BotAlias, error) {
-	if args == nil || args.BotName == nil {
-		return nil, errors.New("missing required argument 'BotName'")
-	}
-	if args == nil || args.BotVersion == nil {
-		return nil, errors.New("missing required argument 'BotVersion'")
-	}
 	if args == nil {
-		args = &BotAliasArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BotName == nil {
+		return nil, errors.New("invalid value for required argument 'BotName'")
+	}
+	if args.BotVersion == nil {
+		return nil, errors.New("invalid value for required argument 'BotVersion'")
 	}
 	var resource BotAlias
 	err := ctx.RegisterResource("aws:lex/botAlias:BotAlias", name, args, &resource, opts...)

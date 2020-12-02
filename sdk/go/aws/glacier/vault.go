@@ -87,6 +87,7 @@ func NewVault(ctx *pulumi.Context,
 	if args == nil {
 		args = &VaultArgs{}
 	}
+
 	var resource Vault
 	err := ctx.RegisterResource("aws:glacier/vault:Vault", name, args, &resource, opts...)
 	if err != nil {

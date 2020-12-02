@@ -187,6 +187,7 @@ func NewDomain(ctx *pulumi.Context,
 	if args == nil {
 		args = &DomainArgs{}
 	}
+
 	var resource Domain
 	err := ctx.RegisterResource("aws:elasticsearch/domain:Domain", name, args, &resource, opts...)
 	if err != nil {

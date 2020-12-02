@@ -99,11 +99,12 @@ type ResourceShareAccepter struct {
 // NewResourceShareAccepter registers a new resource with the given unique name, arguments, and options.
 func NewResourceShareAccepter(ctx *pulumi.Context,
 	name string, args *ResourceShareAccepterArgs, opts ...pulumi.ResourceOption) (*ResourceShareAccepter, error) {
-	if args == nil || args.ShareArn == nil {
-		return nil, errors.New("missing required argument 'ShareArn'")
-	}
 	if args == nil {
-		args = &ResourceShareAccepterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ShareArn == nil {
+		return nil, errors.New("invalid value for required argument 'ShareArn'")
 	}
 	var resource ResourceShareAccepter
 	err := ctx.RegisterResource("aws:ram/resourceShareAccepter:ResourceShareAccepter", name, args, &resource, opts...)

@@ -67,13 +67,13 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if client_id_lists is None:
+            if client_id_lists is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id_lists'")
             __props__['client_id_lists'] = client_id_lists
-            if thumbprint_lists is None:
+            if thumbprint_lists is None and not opts.urn:
                 raise TypeError("Missing required property 'thumbprint_lists'")
             __props__['thumbprint_lists'] = thumbprint_lists
-            if url is None:
+            if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__['url'] = url
             __props__['arn'] = None

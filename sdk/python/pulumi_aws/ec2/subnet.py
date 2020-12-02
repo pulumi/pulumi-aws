@@ -108,14 +108,14 @@ class Subnet(pulumi.CustomResource):
             __props__['assign_ipv6_address_on_creation'] = assign_ipv6_address_on_creation
             __props__['availability_zone'] = availability_zone
             __props__['availability_zone_id'] = availability_zone_id
-            if cidr_block is None:
+            if cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'cidr_block'")
             __props__['cidr_block'] = cidr_block
             __props__['ipv6_cidr_block'] = ipv6_cidr_block
             __props__['map_public_ip_on_launch'] = map_public_ip_on_launch
             __props__['outpost_arn'] = outpost_arn
             __props__['tags'] = tags
-            if vpc_id is None:
+            if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
             __props__['arn'] = None

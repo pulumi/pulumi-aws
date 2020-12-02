@@ -59,17 +59,18 @@ type LocalGatewayRoute struct {
 // NewLocalGatewayRoute registers a new resource with the given unique name, arguments, and options.
 func NewLocalGatewayRoute(ctx *pulumi.Context,
 	name string, args *LocalGatewayRouteArgs, opts ...pulumi.ResourceOption) (*LocalGatewayRoute, error) {
-	if args == nil || args.DestinationCidrBlock == nil {
-		return nil, errors.New("missing required argument 'DestinationCidrBlock'")
-	}
-	if args == nil || args.LocalGatewayRouteTableId == nil {
-		return nil, errors.New("missing required argument 'LocalGatewayRouteTableId'")
-	}
-	if args == nil || args.LocalGatewayVirtualInterfaceGroupId == nil {
-		return nil, errors.New("missing required argument 'LocalGatewayVirtualInterfaceGroupId'")
-	}
 	if args == nil {
-		args = &LocalGatewayRouteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DestinationCidrBlock == nil {
+		return nil, errors.New("invalid value for required argument 'DestinationCidrBlock'")
+	}
+	if args.LocalGatewayRouteTableId == nil {
+		return nil, errors.New("invalid value for required argument 'LocalGatewayRouteTableId'")
+	}
+	if args.LocalGatewayVirtualInterfaceGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'LocalGatewayVirtualInterfaceGroupId'")
 	}
 	var resource LocalGatewayRoute
 	err := ctx.RegisterResource("aws:ec2/localGatewayRoute:LocalGatewayRoute", name, args, &resource, opts...)

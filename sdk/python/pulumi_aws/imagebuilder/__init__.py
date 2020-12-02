@@ -15,3 +15,34 @@ from .image_recipe import *
 from .infrastructure_configuration import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:imagebuilder/component:Component":
+                return Component(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:imagebuilder/distributionConfiguration:DistributionConfiguration":
+                return DistributionConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:imagebuilder/imagePipeline:ImagePipeline":
+                return ImagePipeline(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:imagebuilder/imageRecipe:ImageRecipe":
+                return ImageRecipe(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration":
+                return InfrastructureConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "imagebuilder/component", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "imagebuilder/distributionConfiguration", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "imagebuilder/imagePipeline", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "imagebuilder/imageRecipe", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "imagebuilder/infrastructureConfiguration", _module_instance)
+
+_register_module()

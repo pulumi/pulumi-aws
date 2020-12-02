@@ -65,14 +65,15 @@ type VpcIpv4CidrBlockAssociation struct {
 // NewVpcIpv4CidrBlockAssociation registers a new resource with the given unique name, arguments, and options.
 func NewVpcIpv4CidrBlockAssociation(ctx *pulumi.Context,
 	name string, args *VpcIpv4CidrBlockAssociationArgs, opts ...pulumi.ResourceOption) (*VpcIpv4CidrBlockAssociation, error) {
-	if args == nil || args.CidrBlock == nil {
-		return nil, errors.New("missing required argument 'CidrBlock'")
-	}
-	if args == nil || args.VpcId == nil {
-		return nil, errors.New("missing required argument 'VpcId'")
-	}
 	if args == nil {
-		args = &VpcIpv4CidrBlockAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CidrBlock == nil {
+		return nil, errors.New("invalid value for required argument 'CidrBlock'")
+	}
+	if args.VpcId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	var resource VpcIpv4CidrBlockAssociation
 	err := ctx.RegisterResource("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, args, &resource, opts...)

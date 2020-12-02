@@ -170,7 +170,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if broker_node_group_info is None:
+            if broker_node_group_info is None and not opts.urn:
                 raise TypeError("Missing required property 'broker_node_group_info'")
             __props__['broker_node_group_info'] = broker_node_group_info
             __props__['client_authentication'] = client_authentication
@@ -178,11 +178,11 @@ class Cluster(pulumi.CustomResource):
             __props__['configuration_info'] = configuration_info
             __props__['encryption_info'] = encryption_info
             __props__['enhanced_monitoring'] = enhanced_monitoring
-            if kafka_version is None:
+            if kafka_version is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_version'")
             __props__['kafka_version'] = kafka_version
             __props__['logging_info'] = logging_info
-            if number_of_broker_nodes is None:
+            if number_of_broker_nodes is None and not opts.urn:
                 raise TypeError("Missing required property 'number_of_broker_nodes'")
             __props__['number_of_broker_nodes'] = number_of_broker_nodes
             __props__['open_monitoring'] = open_monitoring

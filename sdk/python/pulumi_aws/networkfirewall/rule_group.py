@@ -201,7 +201,7 @@ class RuleGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if capacity is None:
+            if capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity'")
             __props__['capacity'] = capacity
             __props__['description'] = description
@@ -209,7 +209,7 @@ class RuleGroup(pulumi.CustomResource):
             __props__['rule_group'] = rule_group
             __props__['rules'] = rules
             __props__['tags'] = tags
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['arn'] = None

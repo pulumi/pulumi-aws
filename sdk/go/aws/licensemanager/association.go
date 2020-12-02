@@ -34,14 +34,15 @@ type Association struct {
 // NewAssociation registers a new resource with the given unique name, arguments, and options.
 func NewAssociation(ctx *pulumi.Context,
 	name string, args *AssociationArgs, opts ...pulumi.ResourceOption) (*Association, error) {
-	if args == nil || args.LicenseConfigurationArn == nil {
-		return nil, errors.New("missing required argument 'LicenseConfigurationArn'")
-	}
-	if args == nil || args.ResourceArn == nil {
-		return nil, errors.New("missing required argument 'ResourceArn'")
-	}
 	if args == nil {
-		args = &AssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LicenseConfigurationArn == nil {
+		return nil, errors.New("invalid value for required argument 'LicenseConfigurationArn'")
+	}
+	if args.ResourceArn == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
 	var resource Association
 	err := ctx.RegisterResource("aws:licensemanager/association:Association", name, args, &resource, opts...)

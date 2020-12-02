@@ -100,7 +100,7 @@ class Connection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['catalog_id'] = catalog_id
-            if connection_properties is None:
+            if connection_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_properties'")
             __props__['connection_properties'] = connection_properties
             __props__['connection_type'] = connection_type

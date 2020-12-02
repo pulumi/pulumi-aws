@@ -178,21 +178,21 @@ class Integration(pulumi.CustomResource):
             __props__['connection_type'] = connection_type
             __props__['content_handling'] = content_handling
             __props__['credentials'] = credentials
-            if http_method is None:
+            if http_method is None and not opts.urn:
                 raise TypeError("Missing required property 'http_method'")
             __props__['http_method'] = http_method
             __props__['integration_http_method'] = integration_http_method
             __props__['passthrough_behavior'] = passthrough_behavior
             __props__['request_parameters'] = request_parameters
             __props__['request_templates'] = request_templates
-            if resource_id is None:
+            if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__['resource_id'] = resource_id
-            if rest_api is None:
+            if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__['rest_api'] = rest_api
             __props__['timeout_milliseconds'] = timeout_milliseconds
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['uri'] = uri

@@ -112,17 +112,18 @@ type Stack struct {
 // NewStack registers a new resource with the given unique name, arguments, and options.
 func NewStack(ctx *pulumi.Context,
 	name string, args *StackArgs, opts ...pulumi.ResourceOption) (*Stack, error) {
-	if args == nil || args.DefaultInstanceProfileArn == nil {
-		return nil, errors.New("missing required argument 'DefaultInstanceProfileArn'")
-	}
-	if args == nil || args.Region == nil {
-		return nil, errors.New("missing required argument 'Region'")
-	}
-	if args == nil || args.ServiceRoleArn == nil {
-		return nil, errors.New("missing required argument 'ServiceRoleArn'")
-	}
 	if args == nil {
-		args = &StackArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DefaultInstanceProfileArn == nil {
+		return nil, errors.New("invalid value for required argument 'DefaultInstanceProfileArn'")
+	}
+	if args.Region == nil {
+		return nil, errors.New("invalid value for required argument 'Region'")
+	}
+	if args.ServiceRoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
 	}
 	var resource Stack
 	err := ctx.RegisterResource("aws:opsworks/stack:Stack", name, args, &resource, opts...)

@@ -74,14 +74,15 @@ type UserPolicy struct {
 // NewUserPolicy registers a new resource with the given unique name, arguments, and options.
 func NewUserPolicy(ctx *pulumi.Context,
 	name string, args *UserPolicyArgs, opts ...pulumi.ResourceOption) (*UserPolicy, error) {
-	if args == nil || args.Policy == nil {
-		return nil, errors.New("missing required argument 'Policy'")
-	}
-	if args == nil || args.User == nil {
-		return nil, errors.New("missing required argument 'User'")
-	}
 	if args == nil {
-		args = &UserPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Policy == nil {
+		return nil, errors.New("invalid value for required argument 'Policy'")
+	}
+	if args.User == nil {
+		return nil, errors.New("invalid value for required argument 'User'")
 	}
 	var resource UserPolicy
 	err := ctx.RegisterResource("aws:iam/userPolicy:UserPolicy", name, args, &resource, opts...)

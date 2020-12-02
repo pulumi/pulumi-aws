@@ -94,12 +94,12 @@ class ResolverRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if domain_name is None:
+            if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
             __props__['name'] = name
             __props__['resolver_endpoint_id'] = resolver_endpoint_id
-            if rule_type is None:
+            if rule_type is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_type'")
             __props__['rule_type'] = rule_type
             __props__['tags'] = tags

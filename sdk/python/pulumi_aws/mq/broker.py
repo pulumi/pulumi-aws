@@ -122,30 +122,30 @@ class Broker(pulumi.CustomResource):
 
             __props__['apply_immediately'] = apply_immediately
             __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
-            if broker_name is None:
+            if broker_name is None and not opts.urn:
                 raise TypeError("Missing required property 'broker_name'")
             __props__['broker_name'] = broker_name
             __props__['configuration'] = configuration
             __props__['deployment_mode'] = deployment_mode
             __props__['encryption_options'] = encryption_options
-            if engine_type is None:
+            if engine_type is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_type'")
             __props__['engine_type'] = engine_type
-            if engine_version is None:
+            if engine_version is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_version'")
             __props__['engine_version'] = engine_version
-            if host_instance_type is None:
+            if host_instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'host_instance_type'")
             __props__['host_instance_type'] = host_instance_type
             __props__['logs'] = logs
             __props__['maintenance_window_start_time'] = maintenance_window_start_time
             __props__['publicly_accessible'] = publicly_accessible
-            if security_groups is None:
+            if security_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'security_groups'")
             __props__['security_groups'] = security_groups
             __props__['subnet_ids'] = subnet_ids
             __props__['tags'] = tags
-            if users is None:
+            if users is None and not opts.urn:
                 raise TypeError("Missing required property 'users'")
             __props__['users'] = users
             __props__['arn'] = None

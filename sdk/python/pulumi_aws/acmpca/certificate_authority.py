@@ -90,7 +90,7 @@ class CertificateAuthority(pulumi.CustomResource):
                     s3_bucket_name=example_bucket.id,
                 ),
             ),
-            opts=ResourceOptions(depends_on=[example_bucket_policy]))
+            opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
 
         ## Import
@@ -127,7 +127,7 @@ class CertificateAuthority(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if certificate_authority_configuration is None:
+            if certificate_authority_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_authority_configuration'")
             __props__['certificate_authority_configuration'] = certificate_authority_configuration
             __props__['enabled'] = enabled

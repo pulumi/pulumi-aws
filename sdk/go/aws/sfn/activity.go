@@ -57,6 +57,7 @@ func NewActivity(ctx *pulumi.Context,
 	if args == nil {
 		args = &ActivityArgs{}
 	}
+
 	var resource Activity
 	err := ctx.RegisterResource("aws:sfn/activity:Activity", name, args, &resource, opts...)
 	if err != nil {

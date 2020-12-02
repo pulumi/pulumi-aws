@@ -83,26 +83,27 @@ type ReplicationTask struct {
 // NewReplicationTask registers a new resource with the given unique name, arguments, and options.
 func NewReplicationTask(ctx *pulumi.Context,
 	name string, args *ReplicationTaskArgs, opts ...pulumi.ResourceOption) (*ReplicationTask, error) {
-	if args == nil || args.MigrationType == nil {
-		return nil, errors.New("missing required argument 'MigrationType'")
-	}
-	if args == nil || args.ReplicationInstanceArn == nil {
-		return nil, errors.New("missing required argument 'ReplicationInstanceArn'")
-	}
-	if args == nil || args.ReplicationTaskId == nil {
-		return nil, errors.New("missing required argument 'ReplicationTaskId'")
-	}
-	if args == nil || args.SourceEndpointArn == nil {
-		return nil, errors.New("missing required argument 'SourceEndpointArn'")
-	}
-	if args == nil || args.TableMappings == nil {
-		return nil, errors.New("missing required argument 'TableMappings'")
-	}
-	if args == nil || args.TargetEndpointArn == nil {
-		return nil, errors.New("missing required argument 'TargetEndpointArn'")
-	}
 	if args == nil {
-		args = &ReplicationTaskArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MigrationType == nil {
+		return nil, errors.New("invalid value for required argument 'MigrationType'")
+	}
+	if args.ReplicationInstanceArn == nil {
+		return nil, errors.New("invalid value for required argument 'ReplicationInstanceArn'")
+	}
+	if args.ReplicationTaskId == nil {
+		return nil, errors.New("invalid value for required argument 'ReplicationTaskId'")
+	}
+	if args.SourceEndpointArn == nil {
+		return nil, errors.New("invalid value for required argument 'SourceEndpointArn'")
+	}
+	if args.TableMappings == nil {
+		return nil, errors.New("invalid value for required argument 'TableMappings'")
+	}
+	if args.TargetEndpointArn == nil {
+		return nil, errors.New("invalid value for required argument 'TargetEndpointArn'")
 	}
 	var resource ReplicationTask
 	err := ctx.RegisterResource("aws:dms/replicationTask:ReplicationTask", name, args, &resource, opts...)

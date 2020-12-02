@@ -126,11 +126,12 @@ type Preset struct {
 // NewPreset registers a new resource with the given unique name, arguments, and options.
 func NewPreset(ctx *pulumi.Context,
 	name string, args *PresetArgs, opts ...pulumi.ResourceOption) (*Preset, error) {
-	if args == nil || args.Container == nil {
-		return nil, errors.New("missing required argument 'Container'")
-	}
 	if args == nil {
-		args = &PresetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Container == nil {
+		return nil, errors.New("invalid value for required argument 'Container'")
 	}
 	var resource Preset
 	err := ctx.RegisterResource("aws:elastictranscoder/preset:Preset", name, args, &resource, opts...)

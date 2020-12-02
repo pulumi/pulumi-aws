@@ -117,7 +117,7 @@ class GatewayAssociation(pulumi.CustomResource):
             __props__['allowed_prefixes'] = allowed_prefixes
             __props__['associated_gateway_id'] = associated_gateway_id
             __props__['associated_gateway_owner_account_id'] = associated_gateway_owner_account_id
-            if dx_gateway_id is None:
+            if dx_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dx_gateway_id'")
             __props__['dx_gateway_id'] = dx_gateway_id
             __props__['proposal_id'] = proposal_id

@@ -62,11 +62,12 @@ type Channel struct {
 // NewChannel registers a new resource with the given unique name, arguments, and options.
 func NewChannel(ctx *pulumi.Context,
 	name string, args *ChannelArgs, opts ...pulumi.ResourceOption) (*Channel, error) {
-	if args == nil || args.ChannelId == nil {
-		return nil, errors.New("missing required argument 'ChannelId'")
-	}
 	if args == nil {
-		args = &ChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ChannelId == nil {
+		return nil, errors.New("invalid value for required argument 'ChannelId'")
 	}
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")

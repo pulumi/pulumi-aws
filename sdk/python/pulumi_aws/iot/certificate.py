@@ -69,7 +69,7 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if active is None:
+            if active is None and not opts.urn:
                 raise TypeError("Missing required property 'active'")
             __props__['active'] = active
             __props__['csr'] = csr

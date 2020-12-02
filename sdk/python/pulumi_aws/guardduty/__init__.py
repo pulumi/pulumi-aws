@@ -15,3 +15,46 @@ from .publishing_destination import *
 from .threat_intel_set import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:guardduty/detector:Detector":
+                return Detector(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:guardduty/filter:Filter":
+                return Filter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:guardduty/iPSet:IPSet":
+                return IPSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:guardduty/inviteAccepter:InviteAccepter":
+                return InviteAccepter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:guardduty/member:Member":
+                return Member(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:guardduty/organizationAdminAccount:OrganizationAdminAccount":
+                return OrganizationAdminAccount(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:guardduty/organizationConfiguration:OrganizationConfiguration":
+                return OrganizationConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:guardduty/publishingDestination:PublishingDestination":
+                return PublishingDestination(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:guardduty/threatIntelSet:ThreatIntelSet":
+                return ThreatIntelSet(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "guardduty/detector", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "guardduty/filter", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "guardduty/iPSet", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "guardduty/inviteAccepter", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "guardduty/member", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "guardduty/organizationAdminAccount", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "guardduty/organizationConfiguration", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "guardduty/publishingDestination", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "guardduty/threatIntelSet", _module_instance)
+
+_register_module()

@@ -109,7 +109,7 @@ class NodejsAppLayer(pulumi.CustomResource):
             __props__['instance_shutdown_timeout'] = instance_shutdown_timeout
             __props__['name'] = name
             __props__['nodejs_version'] = nodejs_version
-            if stack_id is None:
+            if stack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_id'")
             __props__['stack_id'] = stack_id
             __props__['system_packages'] = system_packages

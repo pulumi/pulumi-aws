@@ -26,14 +26,15 @@ type LoadBalancerBackendServerPolicy struct {
 // NewLoadBalancerBackendServerPolicy registers a new resource with the given unique name, arguments, and options.
 func NewLoadBalancerBackendServerPolicy(ctx *pulumi.Context,
 	name string, args *LoadBalancerBackendServerPolicyArgs, opts ...pulumi.ResourceOption) (*LoadBalancerBackendServerPolicy, error) {
-	if args == nil || args.InstancePort == nil {
-		return nil, errors.New("missing required argument 'InstancePort'")
-	}
-	if args == nil || args.LoadBalancerName == nil {
-		return nil, errors.New("missing required argument 'LoadBalancerName'")
-	}
 	if args == nil {
-		args = &LoadBalancerBackendServerPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.InstancePort == nil {
+		return nil, errors.New("invalid value for required argument 'InstancePort'")
+	}
+	if args.LoadBalancerName == nil {
+		return nil, errors.New("invalid value for required argument 'LoadBalancerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

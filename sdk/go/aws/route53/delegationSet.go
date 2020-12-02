@@ -71,6 +71,7 @@ func NewDelegationSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &DelegationSetArgs{}
 	}
+
 	var resource DelegationSet
 	err := ctx.RegisterResource("aws:route53/delegationSet:DelegationSet", name, args, &resource, opts...)
 	if err != nil {

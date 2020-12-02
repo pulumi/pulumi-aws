@@ -77,11 +77,12 @@ type Plan struct {
 // NewPlan registers a new resource with the given unique name, arguments, and options.
 func NewPlan(ctx *pulumi.Context,
 	name string, args *PlanArgs, opts ...pulumi.ResourceOption) (*Plan, error) {
-	if args == nil || args.Rules == nil {
-		return nil, errors.New("missing required argument 'Rules'")
-	}
 	if args == nil {
-		args = &PlanArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Rules == nil {
+		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
 	var resource Plan
 	err := ctx.RegisterResource("aws:backup/plan:Plan", name, args, &resource, opts...)

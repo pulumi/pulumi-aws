@@ -200,17 +200,18 @@ type DeploymentGroup struct {
 // NewDeploymentGroup registers a new resource with the given unique name, arguments, and options.
 func NewDeploymentGroup(ctx *pulumi.Context,
 	name string, args *DeploymentGroupArgs, opts ...pulumi.ResourceOption) (*DeploymentGroup, error) {
-	if args == nil || args.AppName == nil {
-		return nil, errors.New("missing required argument 'AppName'")
-	}
-	if args == nil || args.DeploymentGroupName == nil {
-		return nil, errors.New("missing required argument 'DeploymentGroupName'")
-	}
-	if args == nil || args.ServiceRoleArn == nil {
-		return nil, errors.New("missing required argument 'ServiceRoleArn'")
-	}
 	if args == nil {
-		args = &DeploymentGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppName == nil {
+		return nil, errors.New("invalid value for required argument 'AppName'")
+	}
+	if args.DeploymentGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'DeploymentGroupName'")
+	}
+	if args.ServiceRoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
 	}
 	var resource DeploymentGroup
 	err := ctx.RegisterResource("aws:codedeploy/deploymentGroup:DeploymentGroup", name, args, &resource, opts...)

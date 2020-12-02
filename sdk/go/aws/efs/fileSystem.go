@@ -103,6 +103,7 @@ func NewFileSystem(ctx *pulumi.Context,
 	if args == nil {
 		args = &FileSystemArgs{}
 	}
+
 	var resource FileSystem
 	err := ctx.RegisterResource("aws:efs/fileSystem:FileSystem", name, args, &resource, opts...)
 	if err != nil {

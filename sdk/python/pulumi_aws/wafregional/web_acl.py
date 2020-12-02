@@ -140,11 +140,11 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if default_action is None:
+            if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__['default_action'] = default_action
             __props__['logging_configuration'] = logging_configuration
-            if metric_name is None:
+            if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")
             __props__['metric_name'] = metric_name
             __props__['name'] = name

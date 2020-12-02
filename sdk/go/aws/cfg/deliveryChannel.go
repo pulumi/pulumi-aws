@@ -98,11 +98,12 @@ type DeliveryChannel struct {
 // NewDeliveryChannel registers a new resource with the given unique name, arguments, and options.
 func NewDeliveryChannel(ctx *pulumi.Context,
 	name string, args *DeliveryChannelArgs, opts ...pulumi.ResourceOption) (*DeliveryChannel, error) {
-	if args == nil || args.S3BucketName == nil {
-		return nil, errors.New("missing required argument 'S3BucketName'")
-	}
 	if args == nil {
-		args = &DeliveryChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.S3BucketName == nil {
+		return nil, errors.New("invalid value for required argument 'S3BucketName'")
 	}
 	var resource DeliveryChannel
 	err := ctx.RegisterResource("aws:cfg/deliveryChannel:DeliveryChannel", name, args, &resource, opts...)

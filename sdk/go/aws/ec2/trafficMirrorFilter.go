@@ -65,6 +65,7 @@ func NewTrafficMirrorFilter(ctx *pulumi.Context,
 	if args == nil {
 		args = &TrafficMirrorFilterArgs{}
 	}
+
 	var resource TrafficMirrorFilter
 	err := ctx.RegisterResource("aws:ec2/trafficMirrorFilter:TrafficMirrorFilter", name, args, &resource, opts...)
 	if err != nil {

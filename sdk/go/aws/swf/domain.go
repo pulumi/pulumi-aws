@@ -66,11 +66,12 @@ type Domain struct {
 // NewDomain registers a new resource with the given unique name, arguments, and options.
 func NewDomain(ctx *pulumi.Context,
 	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
-	if args == nil || args.WorkflowExecutionRetentionPeriodInDays == nil {
-		return nil, errors.New("missing required argument 'WorkflowExecutionRetentionPeriodInDays'")
-	}
 	if args == nil {
-		args = &DomainArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.WorkflowExecutionRetentionPeriodInDays == nil {
+		return nil, errors.New("invalid value for required argument 'WorkflowExecutionRetentionPeriodInDays'")
 	}
 	var resource Domain
 	err := ctx.RegisterResource("aws:swf/domain:Domain", name, args, &resource, opts...)

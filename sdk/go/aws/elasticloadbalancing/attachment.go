@@ -57,14 +57,15 @@ type Attachment struct {
 // NewAttachment registers a new resource with the given unique name, arguments, and options.
 func NewAttachment(ctx *pulumi.Context,
 	name string, args *AttachmentArgs, opts ...pulumi.ResourceOption) (*Attachment, error) {
-	if args == nil || args.Elb == nil {
-		return nil, errors.New("missing required argument 'Elb'")
-	}
-	if args == nil || args.Instance == nil {
-		return nil, errors.New("missing required argument 'Instance'")
-	}
 	if args == nil {
-		args = &AttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Elb == nil {
+		return nil, errors.New("invalid value for required argument 'Elb'")
+	}
+	if args.Instance == nil {
+		return nil, errors.New("invalid value for required argument 'Instance'")
 	}
 	var resource Attachment
 	err := ctx.RegisterResource("aws:elasticloadbalancing/attachment:Attachment", name, args, &resource, opts...)

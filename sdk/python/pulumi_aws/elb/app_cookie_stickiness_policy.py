@@ -80,13 +80,13 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cookie_name is None:
+            if cookie_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cookie_name'")
             __props__['cookie_name'] = cookie_name
-            if lb_port is None:
+            if lb_port is None and not opts.urn:
                 raise TypeError("Missing required property 'lb_port'")
             __props__['lb_port'] = lb_port
-            if load_balancer is None:
+            if load_balancer is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer'")
             __props__['load_balancer'] = load_balancer
             __props__['name'] = name

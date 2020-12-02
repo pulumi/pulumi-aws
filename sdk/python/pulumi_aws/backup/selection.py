@@ -122,11 +122,11 @@ class Selection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if iam_role_arn is None:
+            if iam_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'iam_role_arn'")
             __props__['iam_role_arn'] = iam_role_arn
             __props__['name'] = name
-            if plan_id is None:
+            if plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'plan_id'")
             __props__['plan_id'] = plan_id
             __props__['resources'] = resources

@@ -67,6 +67,7 @@ func NewSizeConstraintSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &SizeConstraintSetArgs{}
 	}
+
 	var resource SizeConstraintSet
 	err := ctx.RegisterResource("aws:wafregional/sizeConstraintSet:SizeConstraintSet", name, args, &resource, opts...)
 	if err != nil {

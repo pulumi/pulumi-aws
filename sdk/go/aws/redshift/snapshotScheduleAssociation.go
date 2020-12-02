@@ -74,14 +74,15 @@ type SnapshotScheduleAssociation struct {
 // NewSnapshotScheduleAssociation registers a new resource with the given unique name, arguments, and options.
 func NewSnapshotScheduleAssociation(ctx *pulumi.Context,
 	name string, args *SnapshotScheduleAssociationArgs, opts ...pulumi.ResourceOption) (*SnapshotScheduleAssociation, error) {
-	if args == nil || args.ClusterIdentifier == nil {
-		return nil, errors.New("missing required argument 'ClusterIdentifier'")
-	}
-	if args == nil || args.ScheduleIdentifier == nil {
-		return nil, errors.New("missing required argument 'ScheduleIdentifier'")
-	}
 	if args == nil {
-		args = &SnapshotScheduleAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterIdentifier'")
+	}
+	if args.ScheduleIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'ScheduleIdentifier'")
 	}
 	var resource SnapshotScheduleAssociation
 	err := ctx.RegisterResource("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation", name, args, &resource, opts...)

@@ -157,20 +157,21 @@ type Method struct {
 // NewMethod registers a new resource with the given unique name, arguments, and options.
 func NewMethod(ctx *pulumi.Context,
 	name string, args *MethodArgs, opts ...pulumi.ResourceOption) (*Method, error) {
-	if args == nil || args.Authorization == nil {
-		return nil, errors.New("missing required argument 'Authorization'")
-	}
-	if args == nil || args.HttpMethod == nil {
-		return nil, errors.New("missing required argument 'HttpMethod'")
-	}
-	if args == nil || args.ResourceId == nil {
-		return nil, errors.New("missing required argument 'ResourceId'")
-	}
-	if args == nil || args.RestApi == nil {
-		return nil, errors.New("missing required argument 'RestApi'")
-	}
 	if args == nil {
-		args = &MethodArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Authorization == nil {
+		return nil, errors.New("invalid value for required argument 'Authorization'")
+	}
+	if args.HttpMethod == nil {
+		return nil, errors.New("invalid value for required argument 'HttpMethod'")
+	}
+	if args.ResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceId'")
+	}
+	if args.RestApi == nil {
+		return nil, errors.New("invalid value for required argument 'RestApi'")
 	}
 	var resource Method
 	err := ctx.RegisterResource("aws:apigateway/method:Method", name, args, &resource, opts...)

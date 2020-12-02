@@ -76,7 +76,7 @@ class SecurityGroup(pulumi.CustomResource):
             if description is None:
                 description = 'Managed by Pulumi'
             __props__['description'] = description
-            if ingress is None:
+            if ingress is None and not opts.urn:
                 raise TypeError("Missing required property 'ingress'")
             __props__['ingress'] = ingress
             __props__['name'] = name

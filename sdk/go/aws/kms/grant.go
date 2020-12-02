@@ -98,17 +98,18 @@ type Grant struct {
 // NewGrant registers a new resource with the given unique name, arguments, and options.
 func NewGrant(ctx *pulumi.Context,
 	name string, args *GrantArgs, opts ...pulumi.ResourceOption) (*Grant, error) {
-	if args == nil || args.GranteePrincipal == nil {
-		return nil, errors.New("missing required argument 'GranteePrincipal'")
-	}
-	if args == nil || args.KeyId == nil {
-		return nil, errors.New("missing required argument 'KeyId'")
-	}
-	if args == nil || args.Operations == nil {
-		return nil, errors.New("missing required argument 'Operations'")
-	}
 	if args == nil {
-		args = &GrantArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GranteePrincipal == nil {
+		return nil, errors.New("invalid value for required argument 'GranteePrincipal'")
+	}
+	if args.KeyId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyId'")
+	}
+	if args.Operations == nil {
+		return nil, errors.New("invalid value for required argument 'Operations'")
 	}
 	var resource Grant
 	err := ctx.RegisterResource("aws:kms/grant:Grant", name, args, &resource, opts...)

@@ -184,7 +184,7 @@ class Intent(pulumi.CustomResource):
             __props__['description'] = description
             __props__['dialog_code_hook'] = dialog_code_hook
             __props__['follow_up_prompt'] = follow_up_prompt
-            if fulfillment_activity is None:
+            if fulfillment_activity is None and not opts.urn:
                 raise TypeError("Missing required property 'fulfillment_activity'")
             __props__['fulfillment_activity'] = fulfillment_activity
             __props__['name'] = name

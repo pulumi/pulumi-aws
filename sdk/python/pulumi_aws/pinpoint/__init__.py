@@ -16,3 +16,52 @@ from .gcm_channel import *
 from .sms_channel import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:pinpoint/admChannel:AdmChannel":
+                return AdmChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:pinpoint/apnsChannel:ApnsChannel":
+                return ApnsChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel":
+                return ApnsSandboxChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:pinpoint/apnsVoipChannel:ApnsVoipChannel":
+                return ApnsVoipChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel":
+                return ApnsVoipSandboxChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:pinpoint/app:App":
+                return App(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:pinpoint/baiduChannel:BaiduChannel":
+                return BaiduChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:pinpoint/emailChannel:EmailChannel":
+                return EmailChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:pinpoint/eventStream:EventStream":
+                return EventStream(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:pinpoint/gcmChannel:GcmChannel":
+                return GcmChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:pinpoint/smsChannel:SmsChannel":
+                return SmsChannel(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "pinpoint/admChannel", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "pinpoint/apnsChannel", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "pinpoint/apnsSandboxChannel", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "pinpoint/apnsVoipChannel", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "pinpoint/apnsVoipSandboxChannel", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "pinpoint/app", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "pinpoint/baiduChannel", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "pinpoint/emailChannel", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "pinpoint/eventStream", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "pinpoint/gcmChannel", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "pinpoint/smsChannel", _module_instance)
+
+_register_module()

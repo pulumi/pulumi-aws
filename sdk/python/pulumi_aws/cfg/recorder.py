@@ -84,7 +84,7 @@ class Recorder(pulumi.CustomResource):
 
             __props__['name'] = name
             __props__['recording_group'] = recording_group
-            if role_arn is None:
+            if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
         super(Recorder, __self__).__init__(

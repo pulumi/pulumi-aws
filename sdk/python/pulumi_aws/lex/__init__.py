@@ -13,3 +13,31 @@ from .intent import *
 from .slot_type import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:lex/bot:Bot":
+                return Bot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:lex/botAlias:BotAlias":
+                return BotAlias(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:lex/intent:Intent":
+                return Intent(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:lex/slotType:SlotType":
+                return SlotType(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "lex/bot", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "lex/botAlias", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "lex/intent", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "lex/slotType", _module_instance)
+
+_register_module()

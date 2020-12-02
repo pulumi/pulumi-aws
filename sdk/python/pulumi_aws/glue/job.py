@@ -131,7 +131,7 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if command is None:
+            if command is None and not opts.urn:
                 raise TypeError("Missing required property 'command'")
             __props__['command'] = command
             __props__['connections'] = connections
@@ -145,7 +145,7 @@ class Job(pulumi.CustomResource):
             __props__['non_overridable_arguments'] = non_overridable_arguments
             __props__['notification_property'] = notification_property
             __props__['number_of_workers'] = number_of_workers
-            if role_arn is None:
+            if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
             __props__['security_configuration'] = security_configuration

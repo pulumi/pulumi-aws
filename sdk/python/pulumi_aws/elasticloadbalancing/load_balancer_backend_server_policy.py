@@ -100,10 +100,10 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if instance_port is None:
+            if instance_port is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_port'")
             __props__['instance_port'] = instance_port
-            if load_balancer_name is None:
+            if load_balancer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__['load_balancer_name'] = load_balancer_name
             __props__['policy_names'] = policy_names

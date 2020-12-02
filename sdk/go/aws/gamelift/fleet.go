@@ -86,14 +86,15 @@ type Fleet struct {
 // NewFleet registers a new resource with the given unique name, arguments, and options.
 func NewFleet(ctx *pulumi.Context,
 	name string, args *FleetArgs, opts ...pulumi.ResourceOption) (*Fleet, error) {
-	if args == nil || args.BuildId == nil {
-		return nil, errors.New("missing required argument 'BuildId'")
-	}
-	if args == nil || args.Ec2InstanceType == nil {
-		return nil, errors.New("missing required argument 'Ec2InstanceType'")
-	}
 	if args == nil {
-		args = &FleetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BuildId == nil {
+		return nil, errors.New("invalid value for required argument 'BuildId'")
+	}
+	if args.Ec2InstanceType == nil {
+		return nil, errors.New("invalid value for required argument 'Ec2InstanceType'")
 	}
 	var resource Fleet
 	err := ctx.RegisterResource("aws:gamelift/fleet:Fleet", name, args, &resource, opts...)

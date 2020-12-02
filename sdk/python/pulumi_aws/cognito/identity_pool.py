@@ -101,7 +101,7 @@ class IdentityPool(pulumi.CustomResource):
             __props__['allow_unauthenticated_identities'] = allow_unauthenticated_identities
             __props__['cognito_identity_providers'] = cognito_identity_providers
             __props__['developer_provider_name'] = developer_provider_name
-            if identity_pool_name is None:
+            if identity_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_pool_name'")
             __props__['identity_pool_name'] = identity_pool_name
             __props__['openid_connect_provider_arns'] = openid_connect_provider_arns

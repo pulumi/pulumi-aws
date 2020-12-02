@@ -108,14 +108,15 @@ type AmiCopy struct {
 // NewAmiCopy registers a new resource with the given unique name, arguments, and options.
 func NewAmiCopy(ctx *pulumi.Context,
 	name string, args *AmiCopyArgs, opts ...pulumi.ResourceOption) (*AmiCopy, error) {
-	if args == nil || args.SourceAmiId == nil {
-		return nil, errors.New("missing required argument 'SourceAmiId'")
-	}
-	if args == nil || args.SourceAmiRegion == nil {
-		return nil, errors.New("missing required argument 'SourceAmiRegion'")
-	}
 	if args == nil {
-		args = &AmiCopyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SourceAmiId == nil {
+		return nil, errors.New("invalid value for required argument 'SourceAmiId'")
+	}
+	if args.SourceAmiRegion == nil {
+		return nil, errors.New("invalid value for required argument 'SourceAmiRegion'")
 	}
 	var resource AmiCopy
 	err := ctx.RegisterResource("aws:ec2/amiCopy:AmiCopy", name, args, &resource, opts...)

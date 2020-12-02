@@ -53,7 +53,7 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
             tags={
                 "Side": "Accepter",
             },
-            opts=ResourceOptions(provider=aws["accepter"]))
+            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
         ```
 
         ## Import
@@ -87,7 +87,7 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['tags'] = tags
-            if virtual_interface_id is None:
+            if virtual_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_interface_id'")
             __props__['virtual_interface_id'] = virtual_interface_id
             __props__['arn'] = None

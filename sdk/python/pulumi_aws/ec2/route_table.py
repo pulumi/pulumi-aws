@@ -104,7 +104,7 @@ class RouteTable(pulumi.CustomResource):
             __props__['propagating_vgws'] = propagating_vgws
             __props__['routes'] = routes
             __props__['tags'] = tags
-            if vpc_id is None:
+            if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
             __props__['owner_id'] = None

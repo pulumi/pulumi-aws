@@ -43,14 +43,14 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             cidr_block="10.7.0.0/16",
             enable_dns_hostnames=True,
             enable_dns_support=True,
-            opts=ResourceOptions(provider="aws.alternate"))
+            opts=pulumi.ResourceOptions(provider="aws.alternate"))
         example_vpc_association_authorization = aws.route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization",
             vpc_id=alternate_vpc.id,
             zone_id=example_zone.id)
         example_zone_association = aws.route53.ZoneAssociation("exampleZoneAssociation",
             vpc_id=example_vpc_association_authorization.vpc_id,
             zone_id=example_vpc_association_authorization.zone_id,
-            opts=ResourceOptions(provider="aws.alternate"))
+            opts=pulumi.ResourceOptions(provider="aws.alternate"))
         ```
 
         ## Import
@@ -84,11 +84,11 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if vpc_id is None:
+            if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
             __props__['vpc_region'] = vpc_region
-            if zone_id is None:
+            if zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_id'")
             __props__['zone_id'] = zone_id
         super(VpcAssociationAuthorization, __self__).__init__(

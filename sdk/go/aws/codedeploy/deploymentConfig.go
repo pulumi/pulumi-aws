@@ -154,11 +154,12 @@ type DeploymentConfig struct {
 // NewDeploymentConfig registers a new resource with the given unique name, arguments, and options.
 func NewDeploymentConfig(ctx *pulumi.Context,
 	name string, args *DeploymentConfigArgs, opts ...pulumi.ResourceOption) (*DeploymentConfig, error) {
-	if args == nil || args.DeploymentConfigName == nil {
-		return nil, errors.New("missing required argument 'DeploymentConfigName'")
-	}
 	if args == nil {
-		args = &DeploymentConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DeploymentConfigName == nil {
+		return nil, errors.New("invalid value for required argument 'DeploymentConfigName'")
 	}
 	var resource DeploymentConfig
 	err := ctx.RegisterResource("aws:codedeploy/deploymentConfig:DeploymentConfig", name, args, &resource, opts...)

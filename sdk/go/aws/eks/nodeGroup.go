@@ -155,20 +155,21 @@ type NodeGroup struct {
 // NewNodeGroup registers a new resource with the given unique name, arguments, and options.
 func NewNodeGroup(ctx *pulumi.Context,
 	name string, args *NodeGroupArgs, opts ...pulumi.ResourceOption) (*NodeGroup, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.NodeRoleArn == nil {
-		return nil, errors.New("missing required argument 'NodeRoleArn'")
-	}
-	if args == nil || args.ScalingConfig == nil {
-		return nil, errors.New("missing required argument 'ScalingConfig'")
-	}
-	if args == nil || args.SubnetIds == nil {
-		return nil, errors.New("missing required argument 'SubnetIds'")
-	}
 	if args == nil {
-		args = &NodeGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.NodeRoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'NodeRoleArn'")
+	}
+	if args.ScalingConfig == nil {
+		return nil, errors.New("invalid value for required argument 'ScalingConfig'")
+	}
+	if args.SubnetIds == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
 	var resource NodeGroup
 	err := ctx.RegisterResource("aws:eks/nodeGroup:NodeGroup", name, args, &resource, opts...)

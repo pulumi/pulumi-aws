@@ -67,14 +67,15 @@ type ListenerCertificate struct {
 // NewListenerCertificate registers a new resource with the given unique name, arguments, and options.
 func NewListenerCertificate(ctx *pulumi.Context,
 	name string, args *ListenerCertificateArgs, opts ...pulumi.ResourceOption) (*ListenerCertificate, error) {
-	if args == nil || args.CertificateArn == nil {
-		return nil, errors.New("missing required argument 'CertificateArn'")
-	}
-	if args == nil || args.ListenerArn == nil {
-		return nil, errors.New("missing required argument 'ListenerArn'")
-	}
 	if args == nil {
-		args = &ListenerCertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CertificateArn == nil {
+		return nil, errors.New("invalid value for required argument 'CertificateArn'")
+	}
+	if args.ListenerArn == nil {
+		return nil, errors.New("invalid value for required argument 'ListenerArn'")
 	}
 	var resource ListenerCertificate
 	err := ctx.RegisterResource("aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate", name, args, &resource, opts...)

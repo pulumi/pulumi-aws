@@ -71,10 +71,10 @@ class Ciphertext(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['context'] = context
-            if key_id is None:
+            if key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_id'")
             __props__['key_id'] = key_id
-            if plaintext is None:
+            if plaintext is None and not opts.urn:
                 raise TypeError("Missing required property 'plaintext'")
             __props__['plaintext'] = plaintext
             __props__['ciphertext_blob'] = None

@@ -65,6 +65,7 @@ func NewCatalogDatabase(ctx *pulumi.Context,
 	if args == nil {
 		args = &CatalogDatabaseArgs{}
 	}
+
 	var resource CatalogDatabase
 	err := ctx.RegisterResource("aws:glue/catalogDatabase:CatalogDatabase", name, args, &resource, opts...)
 	if err != nil {

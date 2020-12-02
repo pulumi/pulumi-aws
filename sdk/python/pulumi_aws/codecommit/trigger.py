@@ -62,10 +62,10 @@ class Trigger(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if repository_name is None:
+            if repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_name'")
             __props__['repository_name'] = repository_name
-            if triggers is None:
+            if triggers is None and not opts.urn:
                 raise TypeError("Missing required property 'triggers'")
             __props__['triggers'] = triggers
             __props__['configuration_id'] = None

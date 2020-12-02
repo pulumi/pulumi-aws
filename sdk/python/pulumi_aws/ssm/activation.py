@@ -49,7 +49,7 @@ class Activation(pulumi.CustomResource):
             description="Test",
             iam_role=test_role.id,
             registration_limit=5,
-            opts=ResourceOptions(depends_on=[test_attach]))
+            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
         ```
 
         ## Import
@@ -88,7 +88,7 @@ class Activation(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['expiration_date'] = expiration_date
-            if iam_role is None:
+            if iam_role is None and not opts.urn:
                 raise TypeError("Missing required property 'iam_role'")
             __props__['iam_role'] = iam_role
             __props__['name'] = name

@@ -89,14 +89,15 @@ type UserGroupMembership struct {
 // NewUserGroupMembership registers a new resource with the given unique name, arguments, and options.
 func NewUserGroupMembership(ctx *pulumi.Context,
 	name string, args *UserGroupMembershipArgs, opts ...pulumi.ResourceOption) (*UserGroupMembership, error) {
-	if args == nil || args.Groups == nil {
-		return nil, errors.New("missing required argument 'Groups'")
-	}
-	if args == nil || args.User == nil {
-		return nil, errors.New("missing required argument 'User'")
-	}
 	if args == nil {
-		args = &UserGroupMembershipArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Groups == nil {
+		return nil, errors.New("invalid value for required argument 'Groups'")
+	}
+	if args.User == nil {
+		return nil, errors.New("invalid value for required argument 'User'")
 	}
 	var resource UserGroupMembership
 	err := ctx.RegisterResource("aws:iam/userGroupMembership:UserGroupMembership", name, args, &resource, opts...)

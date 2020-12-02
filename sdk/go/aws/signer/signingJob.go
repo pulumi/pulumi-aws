@@ -107,17 +107,18 @@ type SigningJob struct {
 // NewSigningJob registers a new resource with the given unique name, arguments, and options.
 func NewSigningJob(ctx *pulumi.Context,
 	name string, args *SigningJobArgs, opts ...pulumi.ResourceOption) (*SigningJob, error) {
-	if args == nil || args.Destination == nil {
-		return nil, errors.New("missing required argument 'Destination'")
-	}
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
-	}
-	if args == nil || args.Source == nil {
-		return nil, errors.New("missing required argument 'Source'")
-	}
 	if args == nil {
-		args = &SigningJobArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Destination == nil {
+		return nil, errors.New("invalid value for required argument 'Destination'")
+	}
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
+	}
+	if args.Source == nil {
+		return nil, errors.New("invalid value for required argument 'Source'")
 	}
 	var resource SigningJob
 	err := ctx.RegisterResource("aws:signer/signingJob:SigningJob", name, args, &resource, opts...)

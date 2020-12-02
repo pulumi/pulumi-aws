@@ -70,14 +70,15 @@ type RolePolicy struct {
 // NewRolePolicy registers a new resource with the given unique name, arguments, and options.
 func NewRolePolicy(ctx *pulumi.Context,
 	name string, args *RolePolicyArgs, opts ...pulumi.ResourceOption) (*RolePolicy, error) {
-	if args == nil || args.Policy == nil {
-		return nil, errors.New("missing required argument 'Policy'")
-	}
-	if args == nil || args.Role == nil {
-		return nil, errors.New("missing required argument 'Role'")
-	}
 	if args == nil {
-		args = &RolePolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Policy == nil {
+		return nil, errors.New("invalid value for required argument 'Policy'")
+	}
+	if args.Role == nil {
+		return nil, errors.New("invalid value for required argument 'Role'")
 	}
 	var resource RolePolicy
 	err := ctx.RegisterResource("aws:iam/rolePolicy:RolePolicy", name, args, &resource, opts...)

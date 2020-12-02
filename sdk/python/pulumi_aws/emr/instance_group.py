@@ -88,14 +88,14 @@ class InstanceGroup(pulumi.CustomResource):
 
             __props__['autoscaling_policy'] = autoscaling_policy
             __props__['bid_price'] = bid_price
-            if cluster_id is None:
+            if cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_id'")
             __props__['cluster_id'] = cluster_id
             __props__['configurations_json'] = configurations_json
             __props__['ebs_configs'] = ebs_configs
             __props__['ebs_optimized'] = ebs_optimized
             __props__['instance_count'] = instance_count
-            if instance_type is None:
+            if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__['instance_type'] = instance_type
             __props__['name'] = name

@@ -23,6 +23,7 @@ func NewConfgurationSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConfgurationSetArgs{}
 	}
+
 	var resource ConfgurationSet
 	err := ctx.RegisterResource("aws:ses/confgurationSet:ConfgurationSet", name, args, &resource, opts...)
 	if err != nil {

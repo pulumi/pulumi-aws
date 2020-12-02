@@ -62,14 +62,15 @@ type ConnectionAssociation struct {
 // NewConnectionAssociation registers a new resource with the given unique name, arguments, and options.
 func NewConnectionAssociation(ctx *pulumi.Context,
 	name string, args *ConnectionAssociationArgs, opts ...pulumi.ResourceOption) (*ConnectionAssociation, error) {
-	if args == nil || args.ConnectionId == nil {
-		return nil, errors.New("missing required argument 'ConnectionId'")
-	}
-	if args == nil || args.LagId == nil {
-		return nil, errors.New("missing required argument 'LagId'")
-	}
 	if args == nil {
-		args = &ConnectionAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionId == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionId'")
+	}
+	if args.LagId == nil {
+		return nil, errors.New("invalid value for required argument 'LagId'")
 	}
 	var resource ConnectionAssociation
 	err := ctx.RegisterResource("aws:directconnect/connectionAssociation:ConnectionAssociation", name, args, &resource, opts...)

@@ -71,6 +71,7 @@ func NewDefaultVpcDhcpOptions(ctx *pulumi.Context,
 	if args == nil {
 		args = &DefaultVpcDhcpOptionsArgs{}
 	}
+
 	var resource DefaultVpcDhcpOptions
 	err := ctx.RegisterResource("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, args, &resource, opts...)
 	if err != nil {

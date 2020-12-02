@@ -119,14 +119,15 @@ type Group struct {
 // NewGroup registers a new resource with the given unique name, arguments, and options.
 func NewGroup(ctx *pulumi.Context,
 	name string, args *GroupArgs, opts ...pulumi.ResourceOption) (*Group, error) {
-	if args == nil || args.MaxSize == nil {
-		return nil, errors.New("missing required argument 'MaxSize'")
-	}
-	if args == nil || args.MinSize == nil {
-		return nil, errors.New("missing required argument 'MinSize'")
-	}
 	if args == nil {
-		args = &GroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MaxSize == nil {
+		return nil, errors.New("invalid value for required argument 'MaxSize'")
+	}
+	if args.MinSize == nil {
+		return nil, errors.New("invalid value for required argument 'MinSize'")
 	}
 	var resource Group
 	err := ctx.RegisterResource("aws:autoscaling/group:Group", name, args, &resource, opts...)

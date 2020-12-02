@@ -119,13 +119,13 @@ class Endpoint(pulumi.CustomResource):
             __props__['certificate_arn'] = certificate_arn
             __props__['database_name'] = database_name
             __props__['elasticsearch_settings'] = elasticsearch_settings
-            if endpoint_id is None:
+            if endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_id'")
             __props__['endpoint_id'] = endpoint_id
-            if endpoint_type is None:
+            if endpoint_type is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_type'")
             __props__['endpoint_type'] = endpoint_type
-            if engine_name is None:
+            if engine_name is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_name'")
             __props__['engine_name'] = engine_name
             __props__['extra_connection_attributes'] = extra_connection_attributes

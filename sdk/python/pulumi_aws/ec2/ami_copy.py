@@ -98,10 +98,10 @@ class AmiCopy(pulumi.CustomResource):
             __props__['ephemeral_block_devices'] = ephemeral_block_devices
             __props__['kms_key_id'] = kms_key_id
             __props__['name'] = name
-            if source_ami_id is None:
+            if source_ami_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_ami_id'")
             __props__['source_ami_id'] = source_ami_id
-            if source_ami_region is None:
+            if source_ami_region is None and not opts.urn:
                 raise TypeError("Missing required property 'source_ami_region'")
             __props__['source_ami_region'] = source_ami_region
             __props__['tags'] = tags

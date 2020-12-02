@@ -69,7 +69,7 @@ class Permission(pulumi.CustomResource):
             __props__['allow_sudo'] = allow_sudo
             __props__['level'] = level
             __props__['stack_id'] = stack_id
-            if user_arn is None:
+            if user_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'user_arn'")
             __props__['user_arn'] = user_arn
         super(Permission, __self__).__init__(

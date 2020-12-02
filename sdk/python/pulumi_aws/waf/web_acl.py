@@ -46,7 +46,7 @@ class WebAcl(pulumi.CustomResource):
                 negated=False,
                 type="IPMatch",
             )],
-            opts=ResourceOptions(depends_on=[ipset]))
+            opts=pulumi.ResourceOptions(depends_on=[ipset]))
         waf_acl = aws.waf.WebAcl("wafAcl",
             metric_name="tfWebACL",
             default_action=aws.waf.WebAclDefaultActionArgs(
@@ -60,7 +60,7 @@ class WebAcl(pulumi.CustomResource):
                 rule_id=wafrule.id,
                 type="REGULAR",
             )],
-            opts=ResourceOptions(depends_on=[
+            opts=pulumi.ResourceOptions(depends_on=[
                     ipset,
                     wafrule,
                 ]))
@@ -123,11 +123,11 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if default_action is None:
+            if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__['default_action'] = default_action
             __props__['logging_configuration'] = logging_configuration
-            if metric_name is None:
+            if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")
             __props__['metric_name'] = metric_name
             __props__['name'] = name

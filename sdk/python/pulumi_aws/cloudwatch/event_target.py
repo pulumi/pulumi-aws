@@ -243,7 +243,7 @@ class EventTarget(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if arn is None:
+            if arn is None and not opts.urn:
                 raise TypeError("Missing required property 'arn'")
             __props__['arn'] = arn
             __props__['batch_target'] = batch_target
@@ -254,7 +254,7 @@ class EventTarget(pulumi.CustomResource):
             __props__['input_transformer'] = input_transformer
             __props__['kinesis_target'] = kinesis_target
             __props__['role_arn'] = role_arn
-            if rule is None:
+            if rule is None and not opts.urn:
                 raise TypeError("Missing required property 'rule'")
             __props__['rule'] = rule
             __props__['run_command_targets'] = run_command_targets

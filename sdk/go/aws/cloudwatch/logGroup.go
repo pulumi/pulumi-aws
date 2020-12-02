@@ -72,6 +72,7 @@ func NewLogGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &LogGroupArgs{}
 	}
+
 	var resource LogGroup
 	err := ctx.RegisterResource("aws:cloudwatch/logGroup:LogGroup", name, args, &resource, opts...)
 	if err != nil {

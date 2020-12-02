@@ -80,11 +80,12 @@ type DistributionConfiguration struct {
 // NewDistributionConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewDistributionConfiguration(ctx *pulumi.Context,
 	name string, args *DistributionConfigurationArgs, opts ...pulumi.ResourceOption) (*DistributionConfiguration, error) {
-	if args == nil || args.Distributions == nil {
-		return nil, errors.New("missing required argument 'Distributions'")
-	}
 	if args == nil {
-		args = &DistributionConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Distributions == nil {
+		return nil, errors.New("invalid value for required argument 'Distributions'")
 	}
 	var resource DistributionConfiguration
 	err := ctx.RegisterResource("aws:imagebuilder/distributionConfiguration:DistributionConfiguration", name, args, &resource, opts...)

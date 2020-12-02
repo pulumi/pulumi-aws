@@ -39,7 +39,7 @@ class QueryLog(pulumi.CustomResource):
         # Example CloudWatch log group in us-east-1
         us_east_1 = pulumi.providers.Aws("us-east-1", region="us-east-1")
         aws_route53_example_com = aws.cloudwatch.LogGroup("awsRoute53ExampleCom", retention_in_days=30,
-        opts=ResourceOptions(provider=aws["us-east-1"]))
+        opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
         # Example CloudWatch log resource policy to allow Route53 to write logs
         # to any log group under /aws/route53/*
         route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -56,13 +56,13 @@ class QueryLog(pulumi.CustomResource):
         route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy",
             policy_document=route53_query_logging_policy_policy_document.json,
             policy_name="route53-query-logging-policy",
-            opts=ResourceOptions(provider=aws["us-east-1"]))
+            opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
         # Example Route53 zone with query logging
         example_com_zone = aws.route53.Zone("exampleComZone")
         example_com_query_log = aws.route53.QueryLog("exampleComQueryLog",
             cloudwatch_log_group_arn=aws_route53_example_com.arn,
             zone_id=example_com_zone.zone_id,
-            opts=ResourceOptions(depends_on=[route53_query_logging_policy_log_resource_policy]))
+            opts=pulumi.ResourceOptions(depends_on=[route53_query_logging_policy_log_resource_policy]))
         ```
 
         ## Import
@@ -95,10 +95,10 @@ class QueryLog(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cloudwatch_log_group_arn is None:
+            if cloudwatch_log_group_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'cloudwatch_log_group_arn'")
             __props__['cloudwatch_log_group_arn'] = cloudwatch_log_group_arn
-            if zone_id is None:
+            if zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_id'")
             __props__['zone_id'] = zone_id
         super(QueryLog, __self__).__init__(

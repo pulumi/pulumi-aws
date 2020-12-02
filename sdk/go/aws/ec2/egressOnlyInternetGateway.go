@@ -68,11 +68,12 @@ type EgressOnlyInternetGateway struct {
 // NewEgressOnlyInternetGateway registers a new resource with the given unique name, arguments, and options.
 func NewEgressOnlyInternetGateway(ctx *pulumi.Context,
 	name string, args *EgressOnlyInternetGatewayArgs, opts ...pulumi.ResourceOption) (*EgressOnlyInternetGateway, error) {
-	if args == nil || args.VpcId == nil {
-		return nil, errors.New("missing required argument 'VpcId'")
-	}
 	if args == nil {
-		args = &EgressOnlyInternetGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.VpcId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	var resource EgressOnlyInternetGateway
 	err := ctx.RegisterResource("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", name, args, &resource, opts...)

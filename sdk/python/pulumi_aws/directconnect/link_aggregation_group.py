@@ -73,11 +73,11 @@ class LinkAggregationGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if connections_bandwidth is None:
+            if connections_bandwidth is None and not opts.urn:
                 raise TypeError("Missing required property 'connections_bandwidth'")
             __props__['connections_bandwidth'] = connections_bandwidth
             __props__['force_destroy'] = force_destroy
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['name'] = name

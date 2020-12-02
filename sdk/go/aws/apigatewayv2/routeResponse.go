@@ -67,17 +67,18 @@ type RouteResponse struct {
 // NewRouteResponse registers a new resource with the given unique name, arguments, and options.
 func NewRouteResponse(ctx *pulumi.Context,
 	name string, args *RouteResponseArgs, opts ...pulumi.ResourceOption) (*RouteResponse, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
-	if args == nil || args.RouteId == nil {
-		return nil, errors.New("missing required argument 'RouteId'")
-	}
-	if args == nil || args.RouteResponseKey == nil {
-		return nil, errors.New("missing required argument 'RouteResponseKey'")
-	}
 	if args == nil {
-		args = &RouteResponseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
+	}
+	if args.RouteId == nil {
+		return nil, errors.New("invalid value for required argument 'RouteId'")
+	}
+	if args.RouteResponseKey == nil {
+		return nil, errors.New("invalid value for required argument 'RouteResponseKey'")
 	}
 	var resource RouteResponse
 	err := ctx.RegisterResource("aws:apigatewayv2/routeResponse:RouteResponse", name, args, &resource, opts...)

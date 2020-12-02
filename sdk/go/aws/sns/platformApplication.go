@@ -101,14 +101,15 @@ type PlatformApplication struct {
 // NewPlatformApplication registers a new resource with the given unique name, arguments, and options.
 func NewPlatformApplication(ctx *pulumi.Context,
 	name string, args *PlatformApplicationArgs, opts ...pulumi.ResourceOption) (*PlatformApplication, error) {
-	if args == nil || args.Platform == nil {
-		return nil, errors.New("missing required argument 'Platform'")
-	}
-	if args == nil || args.PlatformCredential == nil {
-		return nil, errors.New("missing required argument 'PlatformCredential'")
-	}
 	if args == nil {
-		args = &PlatformApplicationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Platform == nil {
+		return nil, errors.New("invalid value for required argument 'Platform'")
+	}
+	if args.PlatformCredential == nil {
+		return nil, errors.New("invalid value for required argument 'PlatformCredential'")
 	}
 	var resource PlatformApplication
 	err := ctx.RegisterResource("aws:sns/platformApplication:PlatformApplication", name, args, &resource, opts...)

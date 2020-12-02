@@ -56,14 +56,15 @@ type VpcEndpointSubnetAssociation struct {
 // NewVpcEndpointSubnetAssociation registers a new resource with the given unique name, arguments, and options.
 func NewVpcEndpointSubnetAssociation(ctx *pulumi.Context,
 	name string, args *VpcEndpointSubnetAssociationArgs, opts ...pulumi.ResourceOption) (*VpcEndpointSubnetAssociation, error) {
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
-	if args == nil || args.VpcEndpointId == nil {
-		return nil, errors.New("missing required argument 'VpcEndpointId'")
-	}
 	if args == nil {
-		args = &VpcEndpointSubnetAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
+	}
+	if args.VpcEndpointId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcEndpointId'")
 	}
 	var resource VpcEndpointSubnetAssociation
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, args, &resource, opts...)

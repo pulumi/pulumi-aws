@@ -123,17 +123,18 @@ type MaintenanceWindowTarget struct {
 // NewMaintenanceWindowTarget registers a new resource with the given unique name, arguments, and options.
 func NewMaintenanceWindowTarget(ctx *pulumi.Context,
 	name string, args *MaintenanceWindowTargetArgs, opts ...pulumi.ResourceOption) (*MaintenanceWindowTarget, error) {
-	if args == nil || args.ResourceType == nil {
-		return nil, errors.New("missing required argument 'ResourceType'")
-	}
-	if args == nil || args.Targets == nil {
-		return nil, errors.New("missing required argument 'Targets'")
-	}
-	if args == nil || args.WindowId == nil {
-		return nil, errors.New("missing required argument 'WindowId'")
-	}
 	if args == nil {
-		args = &MaintenanceWindowTargetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceType == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceType'")
+	}
+	if args.Targets == nil {
+		return nil, errors.New("invalid value for required argument 'Targets'")
+	}
+	if args.WindowId == nil {
+		return nil, errors.New("invalid value for required argument 'WindowId'")
 	}
 	var resource MaintenanceWindowTarget
 	err := ctx.RegisterResource("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget", name, args, &resource, opts...)

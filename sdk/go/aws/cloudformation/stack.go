@@ -91,6 +91,7 @@ func NewStack(ctx *pulumi.Context,
 	if args == nil {
 		args = &StackArgs{}
 	}
+
 	var resource Stack
 	err := ctx.RegisterResource("aws:cloudformation/stack:Stack", name, args, &resource, opts...)
 	if err != nil {

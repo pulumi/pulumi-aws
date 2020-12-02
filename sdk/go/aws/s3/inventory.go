@@ -131,20 +131,21 @@ type Inventory struct {
 // NewInventory registers a new resource with the given unique name, arguments, and options.
 func NewInventory(ctx *pulumi.Context,
 	name string, args *InventoryArgs, opts ...pulumi.ResourceOption) (*Inventory, error) {
-	if args == nil || args.Bucket == nil {
-		return nil, errors.New("missing required argument 'Bucket'")
-	}
-	if args == nil || args.Destination == nil {
-		return nil, errors.New("missing required argument 'Destination'")
-	}
-	if args == nil || args.IncludedObjectVersions == nil {
-		return nil, errors.New("missing required argument 'IncludedObjectVersions'")
-	}
-	if args == nil || args.Schedule == nil {
-		return nil, errors.New("missing required argument 'Schedule'")
-	}
 	if args == nil {
-		args = &InventoryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Bucket == nil {
+		return nil, errors.New("invalid value for required argument 'Bucket'")
+	}
+	if args.Destination == nil {
+		return nil, errors.New("invalid value for required argument 'Destination'")
+	}
+	if args.IncludedObjectVersions == nil {
+		return nil, errors.New("invalid value for required argument 'IncludedObjectVersions'")
+	}
+	if args.Schedule == nil {
+		return nil, errors.New("invalid value for required argument 'Schedule'")
 	}
 	var resource Inventory
 	err := ctx.RegisterResource("aws:s3/inventory:Inventory", name, args, &resource, opts...)

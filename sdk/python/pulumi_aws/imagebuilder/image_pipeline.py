@@ -88,11 +88,11 @@ class ImagePipeline(pulumi.CustomResource):
             __props__['description'] = description
             __props__['distribution_configuration_arn'] = distribution_configuration_arn
             __props__['enhanced_image_metadata_enabled'] = enhanced_image_metadata_enabled
-            if image_recipe_arn is None:
+            if image_recipe_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'image_recipe_arn'")
             __props__['image_recipe_arn'] = image_recipe_arn
             __props__['image_tests_configuration'] = image_tests_configuration
-            if infrastructure_configuration_arn is None:
+            if infrastructure_configuration_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'infrastructure_configuration_arn'")
             __props__['infrastructure_configuration_arn'] = infrastructure_configuration_arn
             __props__['name'] = name

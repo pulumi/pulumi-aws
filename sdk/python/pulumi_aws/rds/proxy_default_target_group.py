@@ -54,7 +54,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['connection_pool_config'] = connection_pool_config
-            if db_proxy_name is None:
+            if db_proxy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'db_proxy_name'")
             __props__['db_proxy_name'] = db_proxy_name
             __props__['arn'] = None

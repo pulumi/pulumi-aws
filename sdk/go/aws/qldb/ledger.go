@@ -61,6 +61,7 @@ func NewLedger(ctx *pulumi.Context,
 	if args == nil {
 		args = &LedgerArgs{}
 	}
+
 	var resource Ledger
 	err := ctx.RegisterResource("aws:qldb/ledger:Ledger", name, args, &resource, opts...)
 	if err != nil {

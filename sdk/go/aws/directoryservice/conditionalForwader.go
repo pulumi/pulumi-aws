@@ -62,17 +62,18 @@ type ConditionalForwader struct {
 // NewConditionalForwader registers a new resource with the given unique name, arguments, and options.
 func NewConditionalForwader(ctx *pulumi.Context,
 	name string, args *ConditionalForwaderArgs, opts ...pulumi.ResourceOption) (*ConditionalForwader, error) {
-	if args == nil || args.DirectoryId == nil {
-		return nil, errors.New("missing required argument 'DirectoryId'")
-	}
-	if args == nil || args.DnsIps == nil {
-		return nil, errors.New("missing required argument 'DnsIps'")
-	}
-	if args == nil || args.RemoteDomainName == nil {
-		return nil, errors.New("missing required argument 'RemoteDomainName'")
-	}
 	if args == nil {
-		args = &ConditionalForwaderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DirectoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DirectoryId'")
+	}
+	if args.DnsIps == nil {
+		return nil, errors.New("invalid value for required argument 'DnsIps'")
+	}
+	if args.RemoteDomainName == nil {
+		return nil, errors.New("invalid value for required argument 'RemoteDomainName'")
 	}
 	var resource ConditionalForwader
 	err := ctx.RegisterResource("aws:directoryservice/conditionalForwader:ConditionalForwader", name, args, &resource, opts...)

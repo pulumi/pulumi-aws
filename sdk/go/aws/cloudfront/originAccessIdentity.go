@@ -113,6 +113,7 @@ func NewOriginAccessIdentity(ctx *pulumi.Context,
 	if args == nil {
 		args = &OriginAccessIdentityArgs{}
 	}
+
 	var resource OriginAccessIdentity
 	err := ctx.RegisterResource("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, args, &resource, opts...)
 	if err != nil {

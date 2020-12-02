@@ -70,7 +70,7 @@ class RequestValidator(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if rest_api is None:
+            if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__['rest_api'] = rest_api
             __props__['validate_request_body'] = validate_request_body

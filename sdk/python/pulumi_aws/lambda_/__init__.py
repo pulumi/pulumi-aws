@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .alias import *
 from .code_signing_config import *
 from .event_source_mapping import *
@@ -18,3 +19,43 @@ from .permission import *
 from .provisioned_concurrency_config import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:lambda/alias:Alias":
+                return Alias(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:lambda/codeSigningConfig:CodeSigningConfig":
+                return CodeSigningConfig(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:lambda/eventSourceMapping:EventSourceMapping":
+                return EventSourceMapping(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:lambda/function:Function":
+                return Function(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig":
+                return FunctionEventInvokeConfig(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:lambda/layerVersion:LayerVersion":
+                return LayerVersion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:lambda/permission:Permission":
+                return Permission(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig":
+                return ProvisionedConcurrencyConfig(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "lambda/alias", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "lambda/codeSigningConfig", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "lambda/eventSourceMapping", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "lambda/function", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "lambda/functionEventInvokeConfig", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "lambda/layerVersion", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "lambda/permission", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "lambda/provisionedConcurrencyConfig", _module_instance)
+
+_register_module()

@@ -130,6 +130,7 @@ func NewCluster(ctx *pulumi.Context,
 	if args == nil {
 		args = &ClusterArgs{}
 	}
+
 	var resource Cluster
 	err := ctx.RegisterResource("aws:neptune/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {

@@ -97,14 +97,15 @@ type ZoneAssociation struct {
 // NewZoneAssociation registers a new resource with the given unique name, arguments, and options.
 func NewZoneAssociation(ctx *pulumi.Context,
 	name string, args *ZoneAssociationArgs, opts ...pulumi.ResourceOption) (*ZoneAssociation, error) {
-	if args == nil || args.VpcId == nil {
-		return nil, errors.New("missing required argument 'VpcId'")
-	}
-	if args == nil || args.ZoneId == nil {
-		return nil, errors.New("missing required argument 'ZoneId'")
-	}
 	if args == nil {
-		args = &ZoneAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.VpcId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcId'")
+	}
+	if args.ZoneId == nil {
+		return nil, errors.New("invalid value for required argument 'ZoneId'")
 	}
 	var resource ZoneAssociation
 	err := ctx.RegisterResource("aws:route53/zoneAssociation:ZoneAssociation", name, args, &resource, opts...)

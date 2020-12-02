@@ -110,7 +110,7 @@ class DevEndpoint(pulumi.CustomResource):
             __props__['number_of_workers'] = number_of_workers
             __props__['public_key'] = public_key
             __props__['public_keys'] = public_keys
-            if role_arn is None:
+            if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
             __props__['security_configuration'] = security_configuration

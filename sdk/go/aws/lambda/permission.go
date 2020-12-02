@@ -92,17 +92,18 @@ type Permission struct {
 // NewPermission registers a new resource with the given unique name, arguments, and options.
 func NewPermission(ctx *pulumi.Context,
 	name string, args *PermissionArgs, opts ...pulumi.ResourceOption) (*Permission, error) {
-	if args == nil || args.Action == nil {
-		return nil, errors.New("missing required argument 'Action'")
-	}
-	if args == nil || args.Function == nil {
-		return nil, errors.New("missing required argument 'Function'")
-	}
-	if args == nil || args.Principal == nil {
-		return nil, errors.New("missing required argument 'Principal'")
-	}
 	if args == nil {
-		args = &PermissionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Action == nil {
+		return nil, errors.New("invalid value for required argument 'Action'")
+	}
+	if args.Function == nil {
+		return nil, errors.New("invalid value for required argument 'Function'")
+	}
+	if args.Principal == nil {
+		return nil, errors.New("invalid value for required argument 'Principal'")
 	}
 	var resource Permission
 	err := ctx.RegisterResource("aws:lambda/permission:Permission", name, args, &resource, opts...)

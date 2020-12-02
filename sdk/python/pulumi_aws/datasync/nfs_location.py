@@ -75,13 +75,13 @@ class NfsLocation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if on_prem_config is None:
+            if on_prem_config is None and not opts.urn:
                 raise TypeError("Missing required property 'on_prem_config'")
             __props__['on_prem_config'] = on_prem_config
-            if server_hostname is None:
+            if server_hostname is None and not opts.urn:
                 raise TypeError("Missing required property 'server_hostname'")
             __props__['server_hostname'] = server_hostname
-            if subdirectory is None:
+            if subdirectory is None and not opts.urn:
                 raise TypeError("Missing required property 'subdirectory'")
             __props__['subdirectory'] = subdirectory
             __props__['tags'] = tags

@@ -214,7 +214,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__['number_cache_clusters'] = number_cache_clusters
             __props__['parameter_group_name'] = parameter_group_name
             __props__['port'] = port
-            if replication_group_description is None:
+            if replication_group_description is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_group_description'")
             __props__['replication_group_description'] = replication_group_description
             __props__['replication_group_id'] = replication_group_id

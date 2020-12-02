@@ -100,6 +100,7 @@ func NewEventRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &EventRuleArgs{}
 	}
+
 	var resource EventRule
 	err := ctx.RegisterResource("aws:cloudwatch/eventRule:EventRule", name, args, &resource, opts...)
 	if err != nil {

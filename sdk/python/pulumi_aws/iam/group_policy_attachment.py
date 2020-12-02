@@ -70,10 +70,10 @@ class GroupPolicyAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if group is None:
+            if group is None and not opts.urn:
                 raise TypeError("Missing required property 'group'")
             __props__['group'] = group
-            if policy_arn is None:
+            if policy_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_arn'")
             __props__['policy_arn'] = policy_arn
         super(GroupPolicyAttachment, __self__).__init__(

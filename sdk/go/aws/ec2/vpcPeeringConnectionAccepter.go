@@ -133,11 +133,12 @@ type VpcPeeringConnectionAccepter struct {
 // NewVpcPeeringConnectionAccepter registers a new resource with the given unique name, arguments, and options.
 func NewVpcPeeringConnectionAccepter(ctx *pulumi.Context,
 	name string, args *VpcPeeringConnectionAccepterArgs, opts ...pulumi.ResourceOption) (*VpcPeeringConnectionAccepter, error) {
-	if args == nil || args.VpcPeeringConnectionId == nil {
-		return nil, errors.New("missing required argument 'VpcPeeringConnectionId'")
-	}
 	if args == nil {
-		args = &VpcPeeringConnectionAccepterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.VpcPeeringConnectionId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcPeeringConnectionId'")
 	}
 	var resource VpcPeeringConnectionAccepter
 	err := ctx.RegisterResource("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, args, &resource, opts...)

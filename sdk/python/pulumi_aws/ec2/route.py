@@ -49,7 +49,7 @@ class Route(pulumi.CustomResource):
             route_table_id="rtb-4fbb3ac4",
             destination_cidr_block="10.0.1.0/22",
             vpc_peering_connection_id="pcx-45ff3dc1",
-            opts=ResourceOptions(depends_on=[aws_route_table["testing"]]))
+            opts=pulumi.ResourceOptions(depends_on=[aws_route_table["testing"]]))
         ```
         ## Example IPv6 Usage
 
@@ -121,7 +121,7 @@ class Route(pulumi.CustomResource):
             __props__['local_gateway_id'] = local_gateway_id
             __props__['nat_gateway_id'] = nat_gateway_id
             __props__['network_interface_id'] = network_interface_id
-            if route_table_id is None:
+            if route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_id'")
             __props__['route_table_id'] = route_table_id
             __props__['transit_gateway_id'] = transit_gateway_id

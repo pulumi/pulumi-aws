@@ -87,7 +87,7 @@ class RegexPatternSet(pulumi.CustomResource):
             __props__['description'] = description
             __props__['name'] = name
             __props__['regular_expressions'] = regular_expressions
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['tags'] = tags

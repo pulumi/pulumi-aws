@@ -100,7 +100,7 @@ class SlotType(pulumi.CustomResource):
 
             __props__['create_version'] = create_version
             __props__['description'] = description
-            if enumeration_values is None:
+            if enumeration_values is None and not opts.urn:
                 raise TypeError("Missing required property 'enumeration_values'")
             __props__['enumeration_values'] = enumeration_values
             __props__['name'] = name

@@ -83,7 +83,7 @@ class Directory(pulumi.CustomResource):
                 enable_maintenance_mode=True,
                 user_enabled_as_local_administrator=True,
             ),
-            opts=ResourceOptions(depends_on=[
+            opts=pulumi.ResourceOptions(depends_on=[
                     workspaces_default_service_access,
                     workspaces_default_self_service_access,
                 ]))
@@ -153,7 +153,7 @@ class Directory(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if directory_id is None:
+            if directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_id'")
             __props__['directory_id'] = directory_id
             __props__['ip_group_ids'] = ip_group_ids

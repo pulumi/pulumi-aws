@@ -79,10 +79,10 @@ class DomainName(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if domain_name is None:
+            if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
-            if domain_name_configuration is None:
+            if domain_name_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name_configuration'")
             __props__['domain_name_configuration'] = domain_name_configuration
             __props__['mutual_tls_authentication'] = mutual_tls_authentication

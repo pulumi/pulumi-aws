@@ -114,19 +114,19 @@ class IntegrationResponse(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['content_handling'] = content_handling
-            if http_method is None:
+            if http_method is None and not opts.urn:
                 raise TypeError("Missing required property 'http_method'")
             __props__['http_method'] = http_method
-            if resource_id is None:
+            if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__['resource_id'] = resource_id
             __props__['response_parameters'] = response_parameters
             __props__['response_templates'] = response_templates
-            if rest_api is None:
+            if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__['rest_api'] = rest_api
             __props__['selection_pattern'] = selection_pattern
-            if status_code is None:
+            if status_code is None and not opts.urn:
                 raise TypeError("Missing required property 'status_code'")
             __props__['status_code'] = status_code
         super(IntegrationResponse, __self__).__init__(

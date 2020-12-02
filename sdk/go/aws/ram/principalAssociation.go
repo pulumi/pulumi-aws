@@ -96,14 +96,15 @@ type PrincipalAssociation struct {
 // NewPrincipalAssociation registers a new resource with the given unique name, arguments, and options.
 func NewPrincipalAssociation(ctx *pulumi.Context,
 	name string, args *PrincipalAssociationArgs, opts ...pulumi.ResourceOption) (*PrincipalAssociation, error) {
-	if args == nil || args.Principal == nil {
-		return nil, errors.New("missing required argument 'Principal'")
-	}
-	if args == nil || args.ResourceShareArn == nil {
-		return nil, errors.New("missing required argument 'ResourceShareArn'")
-	}
 	if args == nil {
-		args = &PrincipalAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Principal == nil {
+		return nil, errors.New("invalid value for required argument 'Principal'")
+	}
+	if args.ResourceShareArn == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceShareArn'")
 	}
 	var resource PrincipalAssociation
 	err := ctx.RegisterResource("aws:ram/principalAssociation:PrincipalAssociation", name, args, &resource, opts...)

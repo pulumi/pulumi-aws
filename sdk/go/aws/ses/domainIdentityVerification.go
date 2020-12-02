@@ -78,11 +78,12 @@ type DomainIdentityVerification struct {
 // NewDomainIdentityVerification registers a new resource with the given unique name, arguments, and options.
 func NewDomainIdentityVerification(ctx *pulumi.Context,
 	name string, args *DomainIdentityVerificationArgs, opts ...pulumi.ResourceOption) (*DomainIdentityVerification, error) {
-	if args == nil || args.Domain == nil {
-		return nil, errors.New("missing required argument 'Domain'")
-	}
 	if args == nil {
-		args = &DomainIdentityVerificationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Domain == nil {
+		return nil, errors.New("invalid value for required argument 'Domain'")
 	}
 	var resource DomainIdentityVerification
 	err := ctx.RegisterResource("aws:ses/domainIdentityVerification:DomainIdentityVerification", name, args, &resource, opts...)

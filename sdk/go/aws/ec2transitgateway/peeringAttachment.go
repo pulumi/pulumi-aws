@@ -102,17 +102,18 @@ type PeeringAttachment struct {
 // NewPeeringAttachment registers a new resource with the given unique name, arguments, and options.
 func NewPeeringAttachment(ctx *pulumi.Context,
 	name string, args *PeeringAttachmentArgs, opts ...pulumi.ResourceOption) (*PeeringAttachment, error) {
-	if args == nil || args.PeerRegion == nil {
-		return nil, errors.New("missing required argument 'PeerRegion'")
-	}
-	if args == nil || args.PeerTransitGatewayId == nil {
-		return nil, errors.New("missing required argument 'PeerTransitGatewayId'")
-	}
-	if args == nil || args.TransitGatewayId == nil {
-		return nil, errors.New("missing required argument 'TransitGatewayId'")
-	}
 	if args == nil {
-		args = &PeeringAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PeerRegion == nil {
+		return nil, errors.New("invalid value for required argument 'PeerRegion'")
+	}
+	if args.PeerTransitGatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'PeerTransitGatewayId'")
+	}
+	if args.TransitGatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'TransitGatewayId'")
 	}
 	var resource PeeringAttachment
 	err := ctx.RegisterResource("aws:ec2transitgateway/peeringAttachment:PeeringAttachment", name, args, &resource, opts...)

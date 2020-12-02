@@ -65,6 +65,7 @@ func NewQueue(ctx *pulumi.Context,
 	if args == nil {
 		args = &QueueArgs{}
 	}
+
 	var resource Queue
 	err := ctx.RegisterResource("aws:mediaconvert/queue:Queue", name, args, &resource, opts...)
 	if err != nil {

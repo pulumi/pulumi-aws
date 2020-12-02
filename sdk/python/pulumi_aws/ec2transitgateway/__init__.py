@@ -19,3 +19,43 @@ from .vpc_attachment import *
 from .vpc_attachment_accepter import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:ec2transitgateway/peeringAttachment:PeeringAttachment":
+                return PeeringAttachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ec2transitgateway/route:Route":
+                return Route(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ec2transitgateway/routeTable:RouteTable":
+                return RouteTable(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation":
+                return RouteTableAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation":
+                return RouteTablePropagation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ec2transitgateway/transitGateway:TransitGateway":
+                return TransitGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ec2transitgateway/vpcAttachment:VpcAttachment":
+                return VpcAttachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter":
+                return VpcAttachmentAccepter(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "ec2transitgateway/peeringAttachment", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ec2transitgateway/route", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ec2transitgateway/routeTable", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ec2transitgateway/routeTableAssociation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ec2transitgateway/routeTablePropagation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ec2transitgateway/transitGateway", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ec2transitgateway/vpcAttachment", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ec2transitgateway/vpcAttachmentAccepter", _module_instance)
+
+_register_module()

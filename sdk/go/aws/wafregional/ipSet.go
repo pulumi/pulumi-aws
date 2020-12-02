@@ -68,6 +68,7 @@ func NewIpSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &IpSetArgs{}
 	}
+
 	var resource IpSet
 	err := ctx.RegisterResource("aws:wafregional/ipSet:IpSet", name, args, &resource, opts...)
 	if err != nil {

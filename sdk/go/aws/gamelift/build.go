@@ -66,14 +66,15 @@ type Build struct {
 // NewBuild registers a new resource with the given unique name, arguments, and options.
 func NewBuild(ctx *pulumi.Context,
 	name string, args *BuildArgs, opts ...pulumi.ResourceOption) (*Build, error) {
-	if args == nil || args.OperatingSystem == nil {
-		return nil, errors.New("missing required argument 'OperatingSystem'")
-	}
-	if args == nil || args.StorageLocation == nil {
-		return nil, errors.New("missing required argument 'StorageLocation'")
-	}
 	if args == nil {
-		args = &BuildArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.OperatingSystem == nil {
+		return nil, errors.New("invalid value for required argument 'OperatingSystem'")
+	}
+	if args.StorageLocation == nil {
+		return nil, errors.New("invalid value for required argument 'StorageLocation'")
 	}
 	var resource Build
 	err := ctx.RegisterResource("aws:gamelift/build:Build", name, args, &resource, opts...)

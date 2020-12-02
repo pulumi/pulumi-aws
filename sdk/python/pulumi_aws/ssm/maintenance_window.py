@@ -86,17 +86,17 @@ class MaintenanceWindow(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['allow_unassociated_targets'] = allow_unassociated_targets
-            if cutoff is None:
+            if cutoff is None and not opts.urn:
                 raise TypeError("Missing required property 'cutoff'")
             __props__['cutoff'] = cutoff
             __props__['description'] = description
-            if duration is None:
+            if duration is None and not opts.urn:
                 raise TypeError("Missing required property 'duration'")
             __props__['duration'] = duration
             __props__['enabled'] = enabled
             __props__['end_date'] = end_date
             __props__['name'] = name
-            if schedule is None:
+            if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__['schedule'] = schedule
             __props__['schedule_timezone'] = schedule_timezone

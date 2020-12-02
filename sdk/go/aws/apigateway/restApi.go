@@ -108,6 +108,7 @@ func NewRestApi(ctx *pulumi.Context,
 	if args == nil {
 		args = &RestApiArgs{}
 	}
+
 	var resource RestApi
 	err := ctx.RegisterResource("aws:apigateway/restApi:RestApi", name, args, &resource, opts...)
 	if err != nil {

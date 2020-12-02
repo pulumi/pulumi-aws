@@ -107,11 +107,12 @@ type Attachment struct {
 // NewAttachment registers a new resource with the given unique name, arguments, and options.
 func NewAttachment(ctx *pulumi.Context,
 	name string, args *AttachmentArgs, opts ...pulumi.ResourceOption) (*Attachment, error) {
-	if args == nil || args.AutoscalingGroupName == nil {
-		return nil, errors.New("missing required argument 'AutoscalingGroupName'")
-	}
 	if args == nil {
-		args = &AttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutoscalingGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'AutoscalingGroupName'")
 	}
 	var resource Attachment
 	err := ctx.RegisterResource("aws:autoscaling/attachment:Attachment", name, args, &resource, opts...)

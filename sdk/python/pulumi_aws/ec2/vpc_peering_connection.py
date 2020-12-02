@@ -98,9 +98,9 @@ class VpcPeeringConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16",
-        opts=ResourceOptions(provider=aws["us-west-2"]))
+        opts=pulumi.ResourceOptions(provider=aws["us-west-2"]))
         bar = aws.ec2.Vpc("bar", cidr_block="10.2.0.0/16",
-        opts=ResourceOptions(provider=aws["us-east-1"]))
+        opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
         foo_vpc_peering_connection = aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection",
             peer_owner_id=var["peer_owner_id"],
             peer_vpc_id=bar.id,
@@ -161,12 +161,12 @@ class VpcPeeringConnection(pulumi.CustomResource):
             __props__['auto_accept'] = auto_accept
             __props__['peer_owner_id'] = peer_owner_id
             __props__['peer_region'] = peer_region
-            if peer_vpc_id is None:
+            if peer_vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_vpc_id'")
             __props__['peer_vpc_id'] = peer_vpc_id
             __props__['requester'] = requester
             __props__['tags'] = tags
-            if vpc_id is None:
+            if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
             __props__['accept_status'] = None

@@ -56,6 +56,7 @@ func NewAssociation(ctx *pulumi.Context,
 	if args == nil {
 		args = &AssociationArgs{}
 	}
+
 	var resource Association
 	err := ctx.RegisterResource("aws:ssm/association:Association", name, args, &resource, opts...)
 	if err != nil {

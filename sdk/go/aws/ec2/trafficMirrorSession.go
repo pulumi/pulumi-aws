@@ -90,20 +90,21 @@ type TrafficMirrorSession struct {
 // NewTrafficMirrorSession registers a new resource with the given unique name, arguments, and options.
 func NewTrafficMirrorSession(ctx *pulumi.Context,
 	name string, args *TrafficMirrorSessionArgs, opts ...pulumi.ResourceOption) (*TrafficMirrorSession, error) {
-	if args == nil || args.NetworkInterfaceId == nil {
-		return nil, errors.New("missing required argument 'NetworkInterfaceId'")
-	}
-	if args == nil || args.SessionNumber == nil {
-		return nil, errors.New("missing required argument 'SessionNumber'")
-	}
-	if args == nil || args.TrafficMirrorFilterId == nil {
-		return nil, errors.New("missing required argument 'TrafficMirrorFilterId'")
-	}
-	if args == nil || args.TrafficMirrorTargetId == nil {
-		return nil, errors.New("missing required argument 'TrafficMirrorTargetId'")
-	}
 	if args == nil {
-		args = &TrafficMirrorSessionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkInterfaceId == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkInterfaceId'")
+	}
+	if args.SessionNumber == nil {
+		return nil, errors.New("invalid value for required argument 'SessionNumber'")
+	}
+	if args.TrafficMirrorFilterId == nil {
+		return nil, errors.New("invalid value for required argument 'TrafficMirrorFilterId'")
+	}
+	if args.TrafficMirrorTargetId == nil {
+		return nil, errors.New("invalid value for required argument 'TrafficMirrorTargetId'")
 	}
 	var resource TrafficMirrorSession
 	err := ctx.RegisterResource("aws:ec2/trafficMirrorSession:TrafficMirrorSession", name, args, &resource, opts...)

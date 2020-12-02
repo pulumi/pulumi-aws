@@ -65,10 +65,10 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if principal_arn is None:
+            if principal_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_arn'")
             __props__['principal_arn'] = principal_arn
-            if vpc_endpoint_service_id is None:
+            if vpc_endpoint_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_endpoint_service_id'")
             __props__['vpc_endpoint_service_id'] = vpc_endpoint_service_id
         super(VpcEndpointServiceAllowedPrinciple, __self__).__init__(

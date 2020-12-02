@@ -124,7 +124,7 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_id is None:
+            if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
             __props__['description'] = description
@@ -134,7 +134,7 @@ class DataSource(pulumi.CustomResource):
             __props__['lambda_config'] = lambda_config
             __props__['name'] = name
             __props__['service_role_arn'] = service_role_arn
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['arn'] = None

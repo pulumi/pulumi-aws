@@ -164,14 +164,15 @@ type ReplicationInstance struct {
 // NewReplicationInstance registers a new resource with the given unique name, arguments, and options.
 func NewReplicationInstance(ctx *pulumi.Context,
 	name string, args *ReplicationInstanceArgs, opts ...pulumi.ResourceOption) (*ReplicationInstance, error) {
-	if args == nil || args.ReplicationInstanceClass == nil {
-		return nil, errors.New("missing required argument 'ReplicationInstanceClass'")
-	}
-	if args == nil || args.ReplicationInstanceId == nil {
-		return nil, errors.New("missing required argument 'ReplicationInstanceId'")
-	}
 	if args == nil {
-		args = &ReplicationInstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ReplicationInstanceClass == nil {
+		return nil, errors.New("invalid value for required argument 'ReplicationInstanceClass'")
+	}
+	if args.ReplicationInstanceId == nil {
+		return nil, errors.New("invalid value for required argument 'ReplicationInstanceId'")
 	}
 	var resource ReplicationInstance
 	err := ctx.RegisterResource("aws:dms/replicationInstance:ReplicationInstance", name, args, &resource, opts...)

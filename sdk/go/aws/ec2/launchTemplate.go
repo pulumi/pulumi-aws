@@ -107,6 +107,7 @@ func NewLaunchTemplate(ctx *pulumi.Context,
 	if args == nil {
 		args = &LaunchTemplateArgs{}
 	}
+
 	var resource LaunchTemplate
 	err := ctx.RegisterResource("aws:ec2/launchTemplate:LaunchTemplate", name, args, &resource, opts...)
 	if err != nil {

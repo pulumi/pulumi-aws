@@ -34,7 +34,7 @@ class RecorderStatus(pulumi.CustomResource):
         bucket = aws.s3.Bucket("bucket")
         foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket.bucket)
         foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True,
-        opts=ResourceOptions(depends_on=[foo_delivery_channel]))
+        opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
         role = aws.iam.Role("role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -103,7 +103,7 @@ class RecorderStatus(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if is_enabled is None:
+            if is_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'is_enabled'")
             __props__['is_enabled'] = is_enabled
             __props__['name'] = name

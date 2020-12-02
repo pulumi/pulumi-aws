@@ -73,6 +73,7 @@ func NewAccountPublicAccessBlock(ctx *pulumi.Context,
 	if args == nil {
 		args = &AccountPublicAccessBlockArgs{}
 	}
+
 	var resource AccountPublicAccessBlock
 	err := ctx.RegisterResource("aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock", name, args, &resource, opts...)
 	if err != nil {

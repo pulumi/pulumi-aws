@@ -158,6 +158,7 @@ func NewTargetGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &TargetGroupArgs{}
 	}
+
 	var resource TargetGroup
 	err := ctx.RegisterResource("aws:elasticloadbalancingv2/targetGroup:TargetGroup", name, args, &resource, opts...)
 	if err != nil {

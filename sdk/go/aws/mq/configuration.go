@@ -76,17 +76,18 @@ type Configuration struct {
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewConfiguration(ctx *pulumi.Context,
 	name string, args *ConfigurationArgs, opts ...pulumi.ResourceOption) (*Configuration, error) {
-	if args == nil || args.Data == nil {
-		return nil, errors.New("missing required argument 'Data'")
-	}
-	if args == nil || args.EngineType == nil {
-		return nil, errors.New("missing required argument 'EngineType'")
-	}
-	if args == nil || args.EngineVersion == nil {
-		return nil, errors.New("missing required argument 'EngineVersion'")
-	}
 	if args == nil {
-		args = &ConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Data == nil {
+		return nil, errors.New("invalid value for required argument 'Data'")
+	}
+	if args.EngineType == nil {
+		return nil, errors.New("invalid value for required argument 'EngineType'")
+	}
+	if args.EngineVersion == nil {
+		return nil, errors.New("invalid value for required argument 'EngineVersion'")
 	}
 	var resource Configuration
 	err := ctx.RegisterResource("aws:mq/configuration:Configuration", name, args, &resource, opts...)

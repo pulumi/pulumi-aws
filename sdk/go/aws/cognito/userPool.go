@@ -167,6 +167,7 @@ func NewUserPool(ctx *pulumi.Context,
 	if args == nil {
 		args = &UserPoolArgs{}
 	}
+
 	var resource UserPool
 	err := ctx.RegisterResource("aws:cognito/userPool:UserPool", name, args, &resource, opts...)
 	if err != nil {

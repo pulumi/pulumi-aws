@@ -74,13 +74,13 @@ class UsagePlanKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if key_id is None:
+            if key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_id'")
             __props__['key_id'] = key_id
-            if key_type is None:
+            if key_type is None and not opts.urn:
                 raise TypeError("Missing required property 'key_type'")
             __props__['key_type'] = key_type
-            if usage_plan_id is None:
+            if usage_plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'usage_plan_id'")
             __props__['usage_plan_id'] = usage_plan_id
             __props__['name'] = None

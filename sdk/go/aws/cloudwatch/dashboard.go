@@ -60,14 +60,15 @@ type Dashboard struct {
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
 func NewDashboard(ctx *pulumi.Context,
 	name string, args *DashboardArgs, opts ...pulumi.ResourceOption) (*Dashboard, error) {
-	if args == nil || args.DashboardBody == nil {
-		return nil, errors.New("missing required argument 'DashboardBody'")
-	}
-	if args == nil || args.DashboardName == nil {
-		return nil, errors.New("missing required argument 'DashboardName'")
-	}
 	if args == nil {
-		args = &DashboardArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DashboardBody == nil {
+		return nil, errors.New("invalid value for required argument 'DashboardBody'")
+	}
+	if args.DashboardName == nil {
+		return nil, errors.New("invalid value for required argument 'DashboardName'")
 	}
 	var resource Dashboard
 	err := ctx.RegisterResource("aws:cloudwatch/dashboard:Dashboard", name, args, &resource, opts...)

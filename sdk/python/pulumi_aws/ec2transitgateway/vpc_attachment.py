@@ -82,16 +82,16 @@ class VpcAttachment(pulumi.CustomResource):
             __props__['appliance_mode_support'] = appliance_mode_support
             __props__['dns_support'] = dns_support
             __props__['ipv6_support'] = ipv6_support
-            if subnet_ids is None:
+            if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__['subnet_ids'] = subnet_ids
             __props__['tags'] = tags
             __props__['transit_gateway_default_route_table_association'] = transit_gateway_default_route_table_association
             __props__['transit_gateway_default_route_table_propagation'] = transit_gateway_default_route_table_propagation
-            if transit_gateway_id is None:
+            if transit_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_id'")
             __props__['transit_gateway_id'] = transit_gateway_id
-            if vpc_id is None:
+            if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
             __props__['vpc_owner_id'] = None

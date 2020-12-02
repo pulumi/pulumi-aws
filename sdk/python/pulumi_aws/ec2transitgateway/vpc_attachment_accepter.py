@@ -77,7 +77,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['tags'] = tags
-            if transit_gateway_attachment_id is None:
+            if transit_gateway_attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_attachment_id'")
             __props__['transit_gateway_attachment_id'] = transit_gateway_attachment_id
             __props__['transit_gateway_default_route_table_association'] = transit_gateway_default_route_table_association

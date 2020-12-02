@@ -66,10 +66,10 @@ class Group(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if filter_expression is None:
+            if filter_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_expression'")
             __props__['filter_expression'] = filter_expression
-            if group_name is None:
+            if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
             __props__['group_name'] = group_name
             __props__['tags'] = tags

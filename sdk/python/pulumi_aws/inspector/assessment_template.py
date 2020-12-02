@@ -76,15 +76,15 @@ class AssessmentTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if duration is None:
+            if duration is None and not opts.urn:
                 raise TypeError("Missing required property 'duration'")
             __props__['duration'] = duration
             __props__['name'] = name
-            if rules_package_arns is None:
+            if rules_package_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'rules_package_arns'")
             __props__['rules_package_arns'] = rules_package_arns
             __props__['tags'] = tags
-            if target_arn is None:
+            if target_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_arn'")
             __props__['target_arn'] = target_arn
             __props__['arn'] = None

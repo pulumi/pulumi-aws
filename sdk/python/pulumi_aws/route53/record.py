@@ -187,17 +187,17 @@ class Record(pulumi.CustomResource):
             __props__['health_check_id'] = health_check_id
             __props__['latency_routing_policies'] = latency_routing_policies
             __props__['multivalue_answer_routing_policy'] = multivalue_answer_routing_policy
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['records'] = records
             __props__['set_identifier'] = set_identifier
             __props__['ttl'] = ttl
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['weighted_routing_policies'] = weighted_routing_policies
-            if zone_id is None:
+            if zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_id'")
             __props__['zone_id'] = zone_id
             __props__['fqdn'] = None

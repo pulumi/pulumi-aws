@@ -82,11 +82,11 @@ class NetworkAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if client_vpn_endpoint_id is None:
+            if client_vpn_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_vpn_endpoint_id'")
             __props__['client_vpn_endpoint_id'] = client_vpn_endpoint_id
             __props__['security_groups'] = security_groups
-            if subnet_id is None:
+            if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
             __props__['association_id'] = None

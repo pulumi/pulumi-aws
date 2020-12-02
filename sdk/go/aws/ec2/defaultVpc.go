@@ -103,6 +103,7 @@ func NewDefaultVpc(ctx *pulumi.Context,
 	if args == nil {
 		args = &DefaultVpcArgs{}
 	}
+
 	var resource DefaultVpc
 	err := ctx.RegisterResource("aws:ec2/defaultVpc:DefaultVpc", name, args, &resource, opts...)
 	if err != nil {

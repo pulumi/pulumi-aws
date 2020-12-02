@@ -146,11 +146,12 @@ type CatalogTable struct {
 // NewCatalogTable registers a new resource with the given unique name, arguments, and options.
 func NewCatalogTable(ctx *pulumi.Context,
 	name string, args *CatalogTableArgs, opts ...pulumi.ResourceOption) (*CatalogTable, error) {
-	if args == nil || args.DatabaseName == nil {
-		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
 	if args == nil {
-		args = &CatalogTableArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
 	var resource CatalogTable
 	err := ctx.RegisterResource("aws:glue/catalogTable:CatalogTable", name, args, &resource, opts...)

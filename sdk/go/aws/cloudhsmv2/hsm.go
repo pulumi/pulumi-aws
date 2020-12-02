@@ -74,11 +74,12 @@ type Hsm struct {
 // NewHsm registers a new resource with the given unique name, arguments, and options.
 func NewHsm(ctx *pulumi.Context,
 	name string, args *HsmArgs, opts ...pulumi.ResourceOption) (*Hsm, error) {
-	if args == nil || args.ClusterId == nil {
-		return nil, errors.New("missing required argument 'ClusterId'")
-	}
 	if args == nil {
-		args = &HsmArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterId == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterId'")
 	}
 	var resource Hsm
 	err := ctx.RegisterResource("aws:cloudhsmv2/hsm:Hsm", name, args, &resource, opts...)

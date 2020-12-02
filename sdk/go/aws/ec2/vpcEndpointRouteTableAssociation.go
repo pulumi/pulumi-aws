@@ -56,14 +56,15 @@ type VpcEndpointRouteTableAssociation struct {
 // NewVpcEndpointRouteTableAssociation registers a new resource with the given unique name, arguments, and options.
 func NewVpcEndpointRouteTableAssociation(ctx *pulumi.Context,
 	name string, args *VpcEndpointRouteTableAssociationArgs, opts ...pulumi.ResourceOption) (*VpcEndpointRouteTableAssociation, error) {
-	if args == nil || args.RouteTableId == nil {
-		return nil, errors.New("missing required argument 'RouteTableId'")
-	}
-	if args == nil || args.VpcEndpointId == nil {
-		return nil, errors.New("missing required argument 'VpcEndpointId'")
-	}
 	if args == nil {
-		args = &VpcEndpointRouteTableAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RouteTableId == nil {
+		return nil, errors.New("invalid value for required argument 'RouteTableId'")
+	}
+	if args.VpcEndpointId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcEndpointId'")
 	}
 	var resource VpcEndpointRouteTableAssociation
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, args, &resource, opts...)

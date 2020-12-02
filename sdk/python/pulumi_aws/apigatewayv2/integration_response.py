@@ -75,14 +75,14 @@ class IntegrationResponse(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_id is None:
+            if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
             __props__['content_handling_strategy'] = content_handling_strategy
-            if integration_id is None:
+            if integration_id is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_id'")
             __props__['integration_id'] = integration_id
-            if integration_response_key is None:
+            if integration_response_key is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_response_key'")
             __props__['integration_response_key'] = integration_response_key
             __props__['response_templates'] = response_templates

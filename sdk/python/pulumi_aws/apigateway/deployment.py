@@ -59,7 +59,7 @@ class Deployment(pulumi.CustomResource):
             variables={
                 "answer": "42",
             },
-            opts=ResourceOptions(depends_on=[my_demo_integration]))
+            opts=pulumi.ResourceOptions(depends_on=[my_demo_integration]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -89,7 +89,7 @@ class Deployment(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if rest_api is None:
+            if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__['rest_api'] = rest_api
             __props__['stage_description'] = stage_description

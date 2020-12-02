@@ -69,11 +69,12 @@ type StackSetInstance struct {
 // NewStackSetInstance registers a new resource with the given unique name, arguments, and options.
 func NewStackSetInstance(ctx *pulumi.Context,
 	name string, args *StackSetInstanceArgs, opts ...pulumi.ResourceOption) (*StackSetInstance, error) {
-	if args == nil || args.StackSetName == nil {
-		return nil, errors.New("missing required argument 'StackSetName'")
-	}
 	if args == nil {
-		args = &StackSetInstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StackSetName == nil {
+		return nil, errors.New("invalid value for required argument 'StackSetName'")
 	}
 	var resource StackSetInstance
 	err := ctx.RegisterResource("aws:cloudformation/stackSetInstance:StackSetInstance", name, args, &resource, opts...)

@@ -36,11 +36,12 @@ type SamlProvider struct {
 // NewSamlProvider registers a new resource with the given unique name, arguments, and options.
 func NewSamlProvider(ctx *pulumi.Context,
 	name string, args *SamlProviderArgs, opts ...pulumi.ResourceOption) (*SamlProvider, error) {
-	if args == nil || args.SamlMetadataDocument == nil {
-		return nil, errors.New("missing required argument 'SamlMetadataDocument'")
-	}
 	if args == nil {
-		args = &SamlProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SamlMetadataDocument == nil {
+		return nil, errors.New("invalid value for required argument 'SamlMetadataDocument'")
 	}
 	var resource SamlProvider
 	err := ctx.RegisterResource("aws:iam/samlProvider:SamlProvider", name, args, &resource, opts...)

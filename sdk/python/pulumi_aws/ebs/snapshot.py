@@ -76,7 +76,7 @@ class Snapshot(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['tags'] = tags
-            if volume_id is None:
+            if volume_id is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_id'")
             __props__['volume_id'] = volume_id
             __props__['arn'] = None

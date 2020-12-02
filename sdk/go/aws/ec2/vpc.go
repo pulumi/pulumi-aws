@@ -121,11 +121,12 @@ type Vpc struct {
 // NewVpc registers a new resource with the given unique name, arguments, and options.
 func NewVpc(ctx *pulumi.Context,
 	name string, args *VpcArgs, opts ...pulumi.ResourceOption) (*Vpc, error) {
-	if args == nil || args.CidrBlock == nil {
-		return nil, errors.New("missing required argument 'CidrBlock'")
-	}
 	if args == nil {
-		args = &VpcArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CidrBlock == nil {
+		return nil, errors.New("invalid value for required argument 'CidrBlock'")
 	}
 	var resource Vpc
 	err := ctx.RegisterResource("aws:ec2/vpc:Vpc", name, args, &resource, opts...)

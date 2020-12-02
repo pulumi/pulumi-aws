@@ -71,17 +71,18 @@ type ServiceQuota struct {
 // NewServiceQuota registers a new resource with the given unique name, arguments, and options.
 func NewServiceQuota(ctx *pulumi.Context,
 	name string, args *ServiceQuotaArgs, opts ...pulumi.ResourceOption) (*ServiceQuota, error) {
-	if args == nil || args.QuotaCode == nil {
-		return nil, errors.New("missing required argument 'QuotaCode'")
-	}
-	if args == nil || args.ServiceCode == nil {
-		return nil, errors.New("missing required argument 'ServiceCode'")
-	}
-	if args == nil || args.Value == nil {
-		return nil, errors.New("missing required argument 'Value'")
-	}
 	if args == nil {
-		args = &ServiceQuotaArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.QuotaCode == nil {
+		return nil, errors.New("invalid value for required argument 'QuotaCode'")
+	}
+	if args.ServiceCode == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceCode'")
+	}
+	if args.Value == nil {
+		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	var resource ServiceQuota
 	err := ctx.RegisterResource("aws:servicequotas/serviceQuota:ServiceQuota", name, args, &resource, opts...)

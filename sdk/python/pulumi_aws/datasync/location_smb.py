@@ -83,22 +83,22 @@ class LocationSmb(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if agent_arns is None:
+            if agent_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_arns'")
             __props__['agent_arns'] = agent_arns
             __props__['domain'] = domain
             __props__['mount_options'] = mount_options
-            if password is None:
+            if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
             __props__['password'] = password
-            if server_hostname is None:
+            if server_hostname is None and not opts.urn:
                 raise TypeError("Missing required property 'server_hostname'")
             __props__['server_hostname'] = server_hostname
-            if subdirectory is None:
+            if subdirectory is None and not opts.urn:
                 raise TypeError("Missing required property 'subdirectory'")
             __props__['subdirectory'] = subdirectory
             __props__['tags'] = tags
-            if user is None:
+            if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
             __props__['user'] = user
             __props__['arn'] = None

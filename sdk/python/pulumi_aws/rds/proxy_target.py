@@ -65,10 +65,10 @@ class ProxyTarget(pulumi.CustomResource):
 
             __props__['db_cluster_identifier'] = db_cluster_identifier
             __props__['db_instance_identifier'] = db_instance_identifier
-            if db_proxy_name is None:
+            if db_proxy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'db_proxy_name'")
             __props__['db_proxy_name'] = db_proxy_name
-            if target_group_name is None:
+            if target_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group_name'")
             __props__['target_group_name'] = target_group_name
             __props__['endpoint'] = None

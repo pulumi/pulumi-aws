@@ -79,13 +79,13 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if function_name is None:
+            if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
             __props__['function_name'] = function_name
-            if provisioned_concurrent_executions is None:
+            if provisioned_concurrent_executions is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioned_concurrent_executions'")
             __props__['provisioned_concurrent_executions'] = provisioned_concurrent_executions
-            if qualifier is None:
+            if qualifier is None and not opts.urn:
                 raise TypeError("Missing required property 'qualifier'")
             __props__['qualifier'] = qualifier
         super(ProvisionedConcurrencyConfig, __self__).__init__(

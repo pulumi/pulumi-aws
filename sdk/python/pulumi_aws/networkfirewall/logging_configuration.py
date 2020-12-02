@@ -112,10 +112,10 @@ class LoggingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if firewall_arn is None:
+            if firewall_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_arn'")
             __props__['firewall_arn'] = firewall_arn
-            if logging_configuration is None:
+            if logging_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'logging_configuration'")
             __props__['logging_configuration'] = logging_configuration
         super(LoggingConfiguration, __self__).__init__(

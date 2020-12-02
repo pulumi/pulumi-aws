@@ -261,7 +261,7 @@ class Project(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if artifacts is None:
+            if artifacts is None and not opts.urn:
                 raise TypeError("Missing required property 'artifacts'")
             __props__['artifacts'] = artifacts
             __props__['badge_enabled'] = badge_enabled
@@ -269,7 +269,7 @@ class Project(pulumi.CustomResource):
             __props__['cache'] = cache
             __props__['description'] = description
             __props__['encryption_key'] = encryption_key
-            if environment is None:
+            if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__['environment'] = environment
             __props__['logs_config'] = logs_config
@@ -277,10 +277,10 @@ class Project(pulumi.CustomResource):
             __props__['queued_timeout'] = queued_timeout
             __props__['secondary_artifacts'] = secondary_artifacts
             __props__['secondary_sources'] = secondary_sources
-            if service_role is None:
+            if service_role is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role'")
             __props__['service_role'] = service_role
-            if source is None:
+            if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
             __props__['source_version'] = source_version

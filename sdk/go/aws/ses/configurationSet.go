@@ -53,6 +53,7 @@ func NewConfigurationSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConfigurationSetArgs{}
 	}
+
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("aws:ses/confgurationSet:ConfgurationSet"),

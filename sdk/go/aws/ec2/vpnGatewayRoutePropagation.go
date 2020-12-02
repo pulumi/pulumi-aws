@@ -52,14 +52,15 @@ type VpnGatewayRoutePropagation struct {
 // NewVpnGatewayRoutePropagation registers a new resource with the given unique name, arguments, and options.
 func NewVpnGatewayRoutePropagation(ctx *pulumi.Context,
 	name string, args *VpnGatewayRoutePropagationArgs, opts ...pulumi.ResourceOption) (*VpnGatewayRoutePropagation, error) {
-	if args == nil || args.RouteTableId == nil {
-		return nil, errors.New("missing required argument 'RouteTableId'")
-	}
-	if args == nil || args.VpnGatewayId == nil {
-		return nil, errors.New("missing required argument 'VpnGatewayId'")
-	}
 	if args == nil {
-		args = &VpnGatewayRoutePropagationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RouteTableId == nil {
+		return nil, errors.New("invalid value for required argument 'RouteTableId'")
+	}
+	if args.VpnGatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'VpnGatewayId'")
 	}
 	var resource VpnGatewayRoutePropagation
 	err := ctx.RegisterResource("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation", name, args, &resource, opts...)

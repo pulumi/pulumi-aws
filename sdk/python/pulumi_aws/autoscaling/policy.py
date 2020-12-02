@@ -104,7 +104,7 @@ class Policy(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['adjustment_type'] = adjustment_type
-            if autoscaling_group_name is None:
+            if autoscaling_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'autoscaling_group_name'")
             __props__['autoscaling_group_name'] = autoscaling_group_name
             __props__['cooldown'] = cooldown

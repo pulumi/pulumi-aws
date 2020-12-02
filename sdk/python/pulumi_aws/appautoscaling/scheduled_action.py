@@ -107,13 +107,13 @@ class ScheduledAction(pulumi.CustomResource):
 
             __props__['end_time'] = end_time
             __props__['name'] = name
-            if resource_id is None:
+            if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__['resource_id'] = resource_id
             __props__['scalable_dimension'] = scalable_dimension
             __props__['scalable_target_action'] = scalable_target_action
             __props__['schedule'] = schedule
-            if service_namespace is None:
+            if service_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'service_namespace'")
             __props__['service_namespace'] = service_namespace
             __props__['start_time'] = start_time

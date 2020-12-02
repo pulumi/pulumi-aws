@@ -169,6 +169,7 @@ func NewDefaultSecurityGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &DefaultSecurityGroupArgs{}
 	}
+
 	var resource DefaultSecurityGroup
 	err := ctx.RegisterResource("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup", name, args, &resource, opts...)
 	if err != nil {

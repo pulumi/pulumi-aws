@@ -144,14 +144,15 @@ type WebAcl struct {
 // NewWebAcl registers a new resource with the given unique name, arguments, and options.
 func NewWebAcl(ctx *pulumi.Context,
 	name string, args *WebAclArgs, opts ...pulumi.ResourceOption) (*WebAcl, error) {
-	if args == nil || args.DefaultAction == nil {
-		return nil, errors.New("missing required argument 'DefaultAction'")
-	}
-	if args == nil || args.MetricName == nil {
-		return nil, errors.New("missing required argument 'MetricName'")
-	}
 	if args == nil {
-		args = &WebAclArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DefaultAction == nil {
+		return nil, errors.New("invalid value for required argument 'DefaultAction'")
+	}
+	if args.MetricName == nil {
+		return nil, errors.New("invalid value for required argument 'MetricName'")
 	}
 	var resource WebAcl
 	err := ctx.RegisterResource("aws:waf/webAcl:WebAcl", name, args, &resource, opts...)

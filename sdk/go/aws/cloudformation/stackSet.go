@@ -120,11 +120,12 @@ type StackSet struct {
 // NewStackSet registers a new resource with the given unique name, arguments, and options.
 func NewStackSet(ctx *pulumi.Context,
 	name string, args *StackSetArgs, opts ...pulumi.ResourceOption) (*StackSet, error) {
-	if args == nil || args.AdministrationRoleArn == nil {
-		return nil, errors.New("missing required argument 'AdministrationRoleArn'")
-	}
 	if args == nil {
-		args = &StackSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AdministrationRoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'AdministrationRoleArn'")
 	}
 	var resource StackSet
 	err := ctx.RegisterResource("aws:cloudformation/stackSet:StackSet", name, args, &resource, opts...)

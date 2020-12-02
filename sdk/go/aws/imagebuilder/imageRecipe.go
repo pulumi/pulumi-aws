@@ -91,17 +91,18 @@ type ImageRecipe struct {
 // NewImageRecipe registers a new resource with the given unique name, arguments, and options.
 func NewImageRecipe(ctx *pulumi.Context,
 	name string, args *ImageRecipeArgs, opts ...pulumi.ResourceOption) (*ImageRecipe, error) {
-	if args == nil || args.Components == nil {
-		return nil, errors.New("missing required argument 'Components'")
-	}
-	if args == nil || args.ParentImage == nil {
-		return nil, errors.New("missing required argument 'ParentImage'")
-	}
-	if args == nil || args.Version == nil {
-		return nil, errors.New("missing required argument 'Version'")
-	}
 	if args == nil {
-		args = &ImageRecipeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Components == nil {
+		return nil, errors.New("invalid value for required argument 'Components'")
+	}
+	if args.ParentImage == nil {
+		return nil, errors.New("invalid value for required argument 'ParentImage'")
+	}
+	if args.Version == nil {
+		return nil, errors.New("invalid value for required argument 'Version'")
 	}
 	var resource ImageRecipe
 	err := ctx.RegisterResource("aws:imagebuilder/imageRecipe:ImageRecipe", name, args, &resource, opts...)

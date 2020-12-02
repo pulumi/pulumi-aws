@@ -58,11 +58,12 @@ type InfrastructureConfiguration struct {
 // NewInfrastructureConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewInfrastructureConfiguration(ctx *pulumi.Context,
 	name string, args *InfrastructureConfigurationArgs, opts ...pulumi.ResourceOption) (*InfrastructureConfiguration, error) {
-	if args == nil || args.InstanceProfileName == nil {
-		return nil, errors.New("missing required argument 'InstanceProfileName'")
-	}
 	if args == nil {
-		args = &InfrastructureConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.InstanceProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'InstanceProfileName'")
 	}
 	var resource InfrastructureConfiguration
 	err := ctx.RegisterResource("aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration", name, args, &resource, opts...)

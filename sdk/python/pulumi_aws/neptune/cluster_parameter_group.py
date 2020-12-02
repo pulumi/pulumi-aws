@@ -79,7 +79,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if family is None:
+            if family is None and not opts.urn:
                 raise TypeError("Missing required property 'family'")
             __props__['family'] = family
             __props__['name'] = name

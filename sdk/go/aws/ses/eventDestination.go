@@ -139,14 +139,15 @@ type EventDestination struct {
 // NewEventDestination registers a new resource with the given unique name, arguments, and options.
 func NewEventDestination(ctx *pulumi.Context,
 	name string, args *EventDestinationArgs, opts ...pulumi.ResourceOption) (*EventDestination, error) {
-	if args == nil || args.ConfigurationSetName == nil {
-		return nil, errors.New("missing required argument 'ConfigurationSetName'")
-	}
-	if args == nil || args.MatchingTypes == nil {
-		return nil, errors.New("missing required argument 'MatchingTypes'")
-	}
 	if args == nil {
-		args = &EventDestinationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConfigurationSetName == nil {
+		return nil, errors.New("invalid value for required argument 'ConfigurationSetName'")
+	}
+	if args.MatchingTypes == nil {
+		return nil, errors.New("invalid value for required argument 'MatchingTypes'")
 	}
 	var resource EventDestination
 	err := ctx.RegisterResource("aws:ses/eventDestination:EventDestination", name, args, &resource, opts...)

@@ -80,13 +80,13 @@ class SecretRotation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if rotation_lambda_arn is None:
+            if rotation_lambda_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'rotation_lambda_arn'")
             __props__['rotation_lambda_arn'] = rotation_lambda_arn
-            if rotation_rules is None:
+            if rotation_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rotation_rules'")
             __props__['rotation_rules'] = rotation_rules
-            if secret_id is None:
+            if secret_id is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_id'")
             __props__['secret_id'] = secret_id
             __props__['tags'] = tags

@@ -69,6 +69,7 @@ func NewByteMatchSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &ByteMatchSetArgs{}
 	}
+
 	var resource ByteMatchSet
 	err := ctx.RegisterResource("aws:waf/byteMatchSet:ByteMatchSet", name, args, &resource, opts...)
 	if err != nil {

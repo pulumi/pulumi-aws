@@ -61,11 +61,12 @@ type EnvironmentEC2 struct {
 // NewEnvironmentEC2 registers a new resource with the given unique name, arguments, and options.
 func NewEnvironmentEC2(ctx *pulumi.Context,
 	name string, args *EnvironmentEC2Args, opts ...pulumi.ResourceOption) (*EnvironmentEC2, error) {
-	if args == nil || args.InstanceType == nil {
-		return nil, errors.New("missing required argument 'InstanceType'")
-	}
 	if args == nil {
-		args = &EnvironmentEC2Args{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.InstanceType == nil {
+		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
 	var resource EnvironmentEC2
 	err := ctx.RegisterResource("aws:cloud9/environmentEC2:EnvironmentEC2", name, args, &resource, opts...)

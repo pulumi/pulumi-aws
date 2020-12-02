@@ -103,10 +103,10 @@ class OptionGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if engine_name is None:
+            if engine_name is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_name'")
             __props__['engine_name'] = engine_name
-            if major_engine_version is None:
+            if major_engine_version is None and not opts.urn:
                 raise TypeError("Missing required property 'major_engine_version'")
             __props__['major_engine_version'] = major_engine_version
             __props__['name'] = name

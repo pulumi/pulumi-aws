@@ -215,7 +215,7 @@ class Instance(pulumi.CustomResource):
             __props__['instance_profile_arn'] = instance_profile_arn
             __props__['instance_type'] = instance_type
             __props__['last_service_error_id'] = last_service_error_id
-            if layer_ids is None:
+            if layer_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'layer_ids'")
             __props__['layer_ids'] = layer_ids
             __props__['os'] = os
@@ -236,7 +236,7 @@ class Instance(pulumi.CustomResource):
             __props__['ssh_host_dsa_key_fingerprint'] = ssh_host_dsa_key_fingerprint
             __props__['ssh_host_rsa_key_fingerprint'] = ssh_host_rsa_key_fingerprint
             __props__['ssh_key_name'] = ssh_key_name
-            if stack_id is None:
+            if stack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_id'")
             __props__['stack_id'] = stack_id
             __props__['state'] = state

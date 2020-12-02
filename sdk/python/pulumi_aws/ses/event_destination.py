@@ -122,12 +122,12 @@ class EventDestination(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['cloudwatch_destinations'] = cloudwatch_destinations
-            if configuration_set_name is None:
+            if configuration_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_set_name'")
             __props__['configuration_set_name'] = configuration_set_name
             __props__['enabled'] = enabled
             __props__['kinesis_destination'] = kinesis_destination
-            if matching_types is None:
+            if matching_types is None and not opts.urn:
                 raise TypeError("Missing required property 'matching_types'")
             __props__['matching_types'] = matching_types
             __props__['name'] = name

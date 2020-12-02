@@ -108,11 +108,12 @@ type SecretVersion struct {
 // NewSecretVersion registers a new resource with the given unique name, arguments, and options.
 func NewSecretVersion(ctx *pulumi.Context,
 	name string, args *SecretVersionArgs, opts ...pulumi.ResourceOption) (*SecretVersion, error) {
-	if args == nil || args.SecretId == nil {
-		return nil, errors.New("missing required argument 'SecretId'")
-	}
 	if args == nil {
-		args = &SecretVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SecretId == nil {
+		return nil, errors.New("invalid value for required argument 'SecretId'")
 	}
 	var resource SecretVersion
 	err := ctx.RegisterResource("aws:secretsmanager/secretVersion:SecretVersion", name, args, &resource, opts...)

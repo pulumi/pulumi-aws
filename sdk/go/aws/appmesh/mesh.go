@@ -94,6 +94,7 @@ func NewMesh(ctx *pulumi.Context,
 	if args == nil {
 		args = &MeshArgs{}
 	}
+
 	var resource Mesh
 	err := ctx.RegisterResource("aws:appmesh/mesh:Mesh", name, args, &resource, opts...)
 	if err != nil {

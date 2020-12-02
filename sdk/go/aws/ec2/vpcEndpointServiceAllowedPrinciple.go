@@ -61,14 +61,15 @@ type VpcEndpointServiceAllowedPrinciple struct {
 // NewVpcEndpointServiceAllowedPrinciple registers a new resource with the given unique name, arguments, and options.
 func NewVpcEndpointServiceAllowedPrinciple(ctx *pulumi.Context,
 	name string, args *VpcEndpointServiceAllowedPrincipleArgs, opts ...pulumi.ResourceOption) (*VpcEndpointServiceAllowedPrinciple, error) {
-	if args == nil || args.PrincipalArn == nil {
-		return nil, errors.New("missing required argument 'PrincipalArn'")
-	}
-	if args == nil || args.VpcEndpointServiceId == nil {
-		return nil, errors.New("missing required argument 'VpcEndpointServiceId'")
-	}
 	if args == nil {
-		args = &VpcEndpointServiceAllowedPrincipleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PrincipalArn == nil {
+		return nil, errors.New("invalid value for required argument 'PrincipalArn'")
+	}
+	if args.VpcEndpointServiceId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcEndpointServiceId'")
 	}
 	var resource VpcEndpointServiceAllowedPrinciple
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple", name, args, &resource, opts...)

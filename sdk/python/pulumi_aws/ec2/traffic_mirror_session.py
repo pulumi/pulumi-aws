@@ -86,18 +86,18 @@ class TrafficMirrorSession(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if network_interface_id is None:
+            if network_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_id'")
             __props__['network_interface_id'] = network_interface_id
             __props__['packet_length'] = packet_length
-            if session_number is None:
+            if session_number is None and not opts.urn:
                 raise TypeError("Missing required property 'session_number'")
             __props__['session_number'] = session_number
             __props__['tags'] = tags
-            if traffic_mirror_filter_id is None:
+            if traffic_mirror_filter_id is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_mirror_filter_id'")
             __props__['traffic_mirror_filter_id'] = traffic_mirror_filter_id
-            if traffic_mirror_target_id is None:
+            if traffic_mirror_target_id is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_mirror_target_id'")
             __props__['traffic_mirror_target_id'] = traffic_mirror_target_id
             __props__['virtual_network_id'] = virtual_network_id

@@ -82,11 +82,11 @@ class Route(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['blackhole'] = blackhole
-            if destination_cidr_block is None:
+            if destination_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_cidr_block'")
             __props__['destination_cidr_block'] = destination_cidr_block
             __props__['transit_gateway_attachment_id'] = transit_gateway_attachment_id
-            if transit_gateway_route_table_id is None:
+            if transit_gateway_route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_route_table_id'")
             __props__['transit_gateway_route_table_id'] = transit_gateway_route_table_id
         super(Route, __self__).__init__(

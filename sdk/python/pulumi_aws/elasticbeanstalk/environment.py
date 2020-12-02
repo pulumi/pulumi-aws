@@ -145,7 +145,7 @@ class Environment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application is None:
+            if application is None and not opts.urn:
                 raise TypeError("Missing required property 'application'")
             __props__['application'] = application
             __props__['cname_prefix'] = cname_prefix

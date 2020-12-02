@@ -94,14 +94,15 @@ type HostedTransitVirtualInterfaceAcceptor struct {
 // NewHostedTransitVirtualInterfaceAcceptor registers a new resource with the given unique name, arguments, and options.
 func NewHostedTransitVirtualInterfaceAcceptor(ctx *pulumi.Context,
 	name string, args *HostedTransitVirtualInterfaceAcceptorArgs, opts ...pulumi.ResourceOption) (*HostedTransitVirtualInterfaceAcceptor, error) {
-	if args == nil || args.DxGatewayId == nil {
-		return nil, errors.New("missing required argument 'DxGatewayId'")
-	}
-	if args == nil || args.VirtualInterfaceId == nil {
-		return nil, errors.New("missing required argument 'VirtualInterfaceId'")
-	}
 	if args == nil {
-		args = &HostedTransitVirtualInterfaceAcceptorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DxGatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'DxGatewayId'")
+	}
+	if args.VirtualInterfaceId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualInterfaceId'")
 	}
 	var resource HostedTransitVirtualInterfaceAcceptor
 	err := ctx.RegisterResource("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor", name, args, &resource, opts...)

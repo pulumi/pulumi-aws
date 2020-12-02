@@ -53,11 +53,12 @@ type ReceiptRuleSet struct {
 // NewReceiptRuleSet registers a new resource with the given unique name, arguments, and options.
 func NewReceiptRuleSet(ctx *pulumi.Context,
 	name string, args *ReceiptRuleSetArgs, opts ...pulumi.ResourceOption) (*ReceiptRuleSet, error) {
-	if args == nil || args.RuleSetName == nil {
-		return nil, errors.New("missing required argument 'RuleSetName'")
-	}
 	if args == nil {
-		args = &ReceiptRuleSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RuleSetName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleSetName'")
 	}
 	var resource ReceiptRuleSet
 	err := ctx.RegisterResource("aws:ses/receiptRuleSet:ReceiptRuleSet", name, args, &resource, opts...)

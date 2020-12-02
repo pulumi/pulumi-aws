@@ -65,7 +65,7 @@ class OrganizationalUnit(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if parent_id is None:
+            if parent_id is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_id'")
             __props__['parent_id'] = parent_id
             __props__['accounts'] = None

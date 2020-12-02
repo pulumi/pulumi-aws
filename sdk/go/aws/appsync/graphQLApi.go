@@ -241,11 +241,12 @@ type GraphQLApi struct {
 // NewGraphQLApi registers a new resource with the given unique name, arguments, and options.
 func NewGraphQLApi(ctx *pulumi.Context,
 	name string, args *GraphQLApiArgs, opts ...pulumi.ResourceOption) (*GraphQLApi, error) {
-	if args == nil || args.AuthenticationType == nil {
-		return nil, errors.New("missing required argument 'AuthenticationType'")
-	}
 	if args == nil {
-		args = &GraphQLApiArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthenticationType == nil {
+		return nil, errors.New("invalid value for required argument 'AuthenticationType'")
 	}
 	var resource GraphQLApi
 	err := ctx.RegisterResource("aws:appsync/graphQLApi:GraphQLApi", name, args, &resource, opts...)

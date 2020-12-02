@@ -76,20 +76,21 @@ type LocationFsxWindows struct {
 // NewLocationFsxWindows registers a new resource with the given unique name, arguments, and options.
 func NewLocationFsxWindows(ctx *pulumi.Context,
 	name string, args *LocationFsxWindowsArgs, opts ...pulumi.ResourceOption) (*LocationFsxWindows, error) {
-	if args == nil || args.FsxFilesystemArn == nil {
-		return nil, errors.New("missing required argument 'FsxFilesystemArn'")
-	}
-	if args == nil || args.Password == nil {
-		return nil, errors.New("missing required argument 'Password'")
-	}
-	if args == nil || args.SecurityGroupArns == nil {
-		return nil, errors.New("missing required argument 'SecurityGroupArns'")
-	}
-	if args == nil || args.User == nil {
-		return nil, errors.New("missing required argument 'User'")
-	}
 	if args == nil {
-		args = &LocationFsxWindowsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FsxFilesystemArn == nil {
+		return nil, errors.New("invalid value for required argument 'FsxFilesystemArn'")
+	}
+	if args.Password == nil {
+		return nil, errors.New("invalid value for required argument 'Password'")
+	}
+	if args.SecurityGroupArns == nil {
+		return nil, errors.New("invalid value for required argument 'SecurityGroupArns'")
+	}
+	if args.User == nil {
+		return nil, errors.New("invalid value for required argument 'User'")
 	}
 	var resource LocationFsxWindows
 	err := ctx.RegisterResource("aws:datasync/locationFsxWindows:LocationFsxWindows", name, args, &resource, opts...)

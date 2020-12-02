@@ -111,25 +111,25 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if destination_cidr_block is None:
+            if destination_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_cidr_block'")
             __props__['destination_cidr_block'] = destination_cidr_block
             __props__['destination_port_range'] = destination_port_range
             __props__['protocol'] = protocol
-            if rule_action is None:
+            if rule_action is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_action'")
             __props__['rule_action'] = rule_action
-            if rule_number is None:
+            if rule_number is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_number'")
             __props__['rule_number'] = rule_number
-            if source_cidr_block is None:
+            if source_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'source_cidr_block'")
             __props__['source_cidr_block'] = source_cidr_block
             __props__['source_port_range'] = source_port_range
-            if traffic_direction is None:
+            if traffic_direction is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_direction'")
             __props__['traffic_direction'] = traffic_direction
-            if traffic_mirror_filter_id is None:
+            if traffic_mirror_filter_id is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_mirror_filter_id'")
             __props__['traffic_mirror_filter_id'] = traffic_mirror_filter_id
         super(TrafficMirrorFilterRule, __self__).__init__(

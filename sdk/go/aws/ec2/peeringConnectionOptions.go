@@ -184,11 +184,12 @@ type PeeringConnectionOptions struct {
 // NewPeeringConnectionOptions registers a new resource with the given unique name, arguments, and options.
 func NewPeeringConnectionOptions(ctx *pulumi.Context,
 	name string, args *PeeringConnectionOptionsArgs, opts ...pulumi.ResourceOption) (*PeeringConnectionOptions, error) {
-	if args == nil || args.VpcPeeringConnectionId == nil {
-		return nil, errors.New("missing required argument 'VpcPeeringConnectionId'")
-	}
 	if args == nil {
-		args = &PeeringConnectionOptionsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.VpcPeeringConnectionId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcPeeringConnectionId'")
 	}
 	var resource PeeringConnectionOptions
 	err := ctx.RegisterResource("aws:ec2/peeringConnectionOptions:PeeringConnectionOptions", name, args, &resource, opts...)

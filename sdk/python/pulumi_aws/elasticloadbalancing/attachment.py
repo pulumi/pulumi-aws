@@ -69,10 +69,10 @@ class Attachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if elb is None:
+            if elb is None and not opts.urn:
                 raise TypeError("Missing required property 'elb'")
             __props__['elb'] = elb
-            if instance is None:
+            if instance is None and not opts.urn:
                 raise TypeError("Missing required property 'instance'")
             __props__['instance'] = instance
         super(Attachment, __self__).__init__(

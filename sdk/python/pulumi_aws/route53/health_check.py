@@ -181,7 +181,7 @@ class HealthCheck(pulumi.CustomResource):
             __props__['resource_path'] = resource_path
             __props__['search_string'] = search_string
             __props__['tags'] = tags
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
         super(HealthCheck, __self__).__init__(

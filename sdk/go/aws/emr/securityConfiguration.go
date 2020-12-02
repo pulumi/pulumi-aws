@@ -62,11 +62,12 @@ type SecurityConfiguration struct {
 // NewSecurityConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewSecurityConfiguration(ctx *pulumi.Context,
 	name string, args *SecurityConfigurationArgs, opts ...pulumi.ResourceOption) (*SecurityConfiguration, error) {
-	if args == nil || args.Configuration == nil {
-		return nil, errors.New("missing required argument 'Configuration'")
-	}
 	if args == nil {
-		args = &SecurityConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Configuration == nil {
+		return nil, errors.New("invalid value for required argument 'Configuration'")
 	}
 	var resource SecurityConfiguration
 	err := ctx.RegisterResource("aws:emr/securityConfiguration:SecurityConfiguration", name, args, &resource, opts...)

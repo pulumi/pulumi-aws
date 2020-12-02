@@ -71,14 +71,15 @@ type WebAclLoggingConfiguration struct {
 // NewWebAclLoggingConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewWebAclLoggingConfiguration(ctx *pulumi.Context,
 	name string, args *WebAclLoggingConfigurationArgs, opts ...pulumi.ResourceOption) (*WebAclLoggingConfiguration, error) {
-	if args == nil || args.LogDestinationConfigs == nil {
-		return nil, errors.New("missing required argument 'LogDestinationConfigs'")
-	}
-	if args == nil || args.ResourceArn == nil {
-		return nil, errors.New("missing required argument 'ResourceArn'")
-	}
 	if args == nil {
-		args = &WebAclLoggingConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LogDestinationConfigs == nil {
+		return nil, errors.New("invalid value for required argument 'LogDestinationConfigs'")
+	}
+	if args.ResourceArn == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
 	var resource WebAclLoggingConfiguration
 	err := ctx.RegisterResource("aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration", name, args, &resource, opts...)

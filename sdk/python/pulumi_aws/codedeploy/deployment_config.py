@@ -128,7 +128,7 @@ class DeploymentConfig(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['compute_platform'] = compute_platform
-            if deployment_config_name is None:
+            if deployment_config_name is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_config_name'")
             __props__['deployment_config_name'] = deployment_config_name
             __props__['minimum_healthy_hosts'] = minimum_healthy_hosts

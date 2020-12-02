@@ -79,6 +79,7 @@ func NewWorkgroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &WorkgroupArgs{}
 	}
+
 	var resource Workgroup
 	err := ctx.RegisterResource("aws:athena/workgroup:Workgroup", name, args, &resource, opts...)
 	if err != nil {

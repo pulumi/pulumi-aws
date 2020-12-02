@@ -145,7 +145,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['destination_config'] = destination_config
-            if function_name is None:
+            if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
             __props__['function_name'] = function_name
             __props__['maximum_event_age_in_seconds'] = maximum_event_age_in_seconds

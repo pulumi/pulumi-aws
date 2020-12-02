@@ -179,14 +179,14 @@ class TopicSubscription(pulumi.CustomResource):
         sns_topic_topic = aws.sns.Topic("sns-topicTopic",
             display_name=sns["display_name"],
             policy=sns_topic_policy.json,
-            opts=ResourceOptions(provider="aws.sns"))
+            opts=pulumi.ResourceOptions(provider="aws.sns"))
         sqs_queue = aws.sqs.Queue("sqs-queue", policy=sqs_queue_policy.json,
-        opts=ResourceOptions(provider="aws.sqs"))
+        opts=pulumi.ResourceOptions(provider="aws.sqs"))
         sns_topic_topic_subscription = aws.sns.TopicSubscription("sns-topicTopicSubscription",
             topic=sns_topic_topic.arn,
             protocol="sqs",
             endpoint=sqs_queue.arn,
-            opts=ResourceOptions(provider="aws.sns2sqs"))
+            opts=pulumi.ResourceOptions(provider="aws.sns2sqs"))
         ```
 
         ## Import
@@ -227,16 +227,16 @@ class TopicSubscription(pulumi.CustomResource):
 
             __props__['confirmation_timeout_in_minutes'] = confirmation_timeout_in_minutes
             __props__['delivery_policy'] = delivery_policy
-            if endpoint is None:
+            if endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint'")
             __props__['endpoint'] = endpoint
             __props__['endpoint_auto_confirms'] = endpoint_auto_confirms
             __props__['filter_policy'] = filter_policy
-            if protocol is None:
+            if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__['protocol'] = protocol
             __props__['raw_message_delivery'] = raw_message_delivery
-            if topic is None:
+            if topic is None and not opts.urn:
                 raise TypeError("Missing required property 'topic'")
             __props__['topic'] = topic
             __props__['arn'] = None

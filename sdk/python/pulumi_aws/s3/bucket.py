@@ -233,7 +233,7 @@ class Bucket(pulumi.CustomResource):
                     ),
                 )],
             ),
-            opts=ResourceOptions(provider=aws["central"]))
+            opts=pulumi.ResourceOptions(provider=aws["central"]))
         replication_policy = aws.iam.Policy("replicationPolicy", policy=pulumi.Output.all(bucket.arn, bucket.arn, destination.arn).apply(lambda bucketArn, bucketArn1, destinationArn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [

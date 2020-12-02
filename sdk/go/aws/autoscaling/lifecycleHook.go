@@ -106,14 +106,15 @@ type LifecycleHook struct {
 // NewLifecycleHook registers a new resource with the given unique name, arguments, and options.
 func NewLifecycleHook(ctx *pulumi.Context,
 	name string, args *LifecycleHookArgs, opts ...pulumi.ResourceOption) (*LifecycleHook, error) {
-	if args == nil || args.AutoscalingGroupName == nil {
-		return nil, errors.New("missing required argument 'AutoscalingGroupName'")
-	}
-	if args == nil || args.LifecycleTransition == nil {
-		return nil, errors.New("missing required argument 'LifecycleTransition'")
-	}
 	if args == nil {
-		args = &LifecycleHookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutoscalingGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'AutoscalingGroupName'")
+	}
+	if args.LifecycleTransition == nil {
+		return nil, errors.New("invalid value for required argument 'LifecycleTransition'")
 	}
 	var resource LifecycleHook
 	err := ctx.RegisterResource("aws:autoscaling/lifecycleHook:LifecycleHook", name, args, &resource, opts...)

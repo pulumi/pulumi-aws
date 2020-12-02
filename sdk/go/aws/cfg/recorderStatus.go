@@ -103,11 +103,12 @@ type RecorderStatus struct {
 // NewRecorderStatus registers a new resource with the given unique name, arguments, and options.
 func NewRecorderStatus(ctx *pulumi.Context,
 	name string, args *RecorderStatusArgs, opts ...pulumi.ResourceOption) (*RecorderStatus, error) {
-	if args == nil || args.IsEnabled == nil {
-		return nil, errors.New("missing required argument 'IsEnabled'")
-	}
 	if args == nil {
-		args = &RecorderStatusArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IsEnabled == nil {
+		return nil, errors.New("invalid value for required argument 'IsEnabled'")
 	}
 	var resource RecorderStatus
 	err := ctx.RegisterResource("aws:cfg/recorderStatus:RecorderStatus", name, args, &resource, opts...)

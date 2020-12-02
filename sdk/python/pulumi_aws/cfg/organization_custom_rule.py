@@ -52,7 +52,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
         example_organization_custom_rule = aws.cfg.OrganizationCustomRule("exampleOrganizationCustomRule",
             lambda_function_arn=aws_lambda_function["example"]["arn"],
             trigger_types=["ConfigurationItemChangeNotification"],
-            opts=ResourceOptions(depends_on=[
+            opts=pulumi.ResourceOptions(depends_on=[
                     example_permission,
                     example_organization,
                 ]))
@@ -100,7 +100,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
             __props__['description'] = description
             __props__['excluded_accounts'] = excluded_accounts
             __props__['input_parameters'] = input_parameters
-            if lambda_function_arn is None:
+            if lambda_function_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'lambda_function_arn'")
             __props__['lambda_function_arn'] = lambda_function_arn
             __props__['maximum_execution_frequency'] = maximum_execution_frequency
@@ -109,7 +109,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
             __props__['resource_types_scopes'] = resource_types_scopes
             __props__['tag_key_scope'] = tag_key_scope
             __props__['tag_value_scope'] = tag_value_scope
-            if trigger_types is None:
+            if trigger_types is None and not opts.urn:
                 raise TypeError("Missing required property 'trigger_types'")
             __props__['trigger_types'] = trigger_types
             __props__['arn'] = None

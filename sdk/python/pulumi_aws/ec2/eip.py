@@ -82,7 +82,7 @@ class Eip(pulumi.CustomResource):
             vpc_id=default.id,
             cidr_block="10.0.0.0/24",
             map_public_ip_on_launch=True,
-            opts=ResourceOptions(depends_on=[gw]))
+            opts=pulumi.ResourceOptions(depends_on=[gw]))
         foo = aws.ec2.Instance("foo",
             ami="ami-5189a661",
             instance_type="t2.micro",
@@ -92,7 +92,7 @@ class Eip(pulumi.CustomResource):
             vpc=True,
             instance=foo.id,
             associate_with_private_ip="10.0.0.12",
-            opts=ResourceOptions(depends_on=[gw]))
+            opts=pulumi.ResourceOptions(depends_on=[gw]))
         ```
 
         Allocating EIP from the BYOIP pool:

@@ -64,6 +64,7 @@ func NewSqlInjectionMatchSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &SqlInjectionMatchSetArgs{}
 	}
+
 	var resource SqlInjectionMatchSet
 	err := ctx.RegisterResource("aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet", name, args, &resource, opts...)
 	if err != nil {

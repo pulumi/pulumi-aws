@@ -72,14 +72,15 @@ type LocalGatewayRouteTableVpcAssociation struct {
 // NewLocalGatewayRouteTableVpcAssociation registers a new resource with the given unique name, arguments, and options.
 func NewLocalGatewayRouteTableVpcAssociation(ctx *pulumi.Context,
 	name string, args *LocalGatewayRouteTableVpcAssociationArgs, opts ...pulumi.ResourceOption) (*LocalGatewayRouteTableVpcAssociation, error) {
-	if args == nil || args.LocalGatewayRouteTableId == nil {
-		return nil, errors.New("missing required argument 'LocalGatewayRouteTableId'")
-	}
-	if args == nil || args.VpcId == nil {
-		return nil, errors.New("missing required argument 'VpcId'")
-	}
 	if args == nil {
-		args = &LocalGatewayRouteTableVpcAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LocalGatewayRouteTableId == nil {
+		return nil, errors.New("invalid value for required argument 'LocalGatewayRouteTableId'")
+	}
+	if args.VpcId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	var resource LocalGatewayRouteTableVpcAssociation
 	err := ctx.RegisterResource("aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation", name, args, &resource, opts...)

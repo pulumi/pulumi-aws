@@ -85,17 +85,17 @@ class UserDefinedFunction(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['catalog_id'] = catalog_id
-            if class_name is None:
+            if class_name is None and not opts.urn:
                 raise TypeError("Missing required property 'class_name'")
             __props__['class_name'] = class_name
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['name'] = name
-            if owner_name is None:
+            if owner_name is None and not opts.urn:
                 raise TypeError("Missing required property 'owner_name'")
             __props__['owner_name'] = owner_name
-            if owner_type is None:
+            if owner_type is None and not opts.urn:
                 raise TypeError("Missing required property 'owner_type'")
             __props__['owner_type'] = owner_type
             __props__['resource_uris'] = resource_uris

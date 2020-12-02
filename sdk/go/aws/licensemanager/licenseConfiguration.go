@@ -87,11 +87,12 @@ type LicenseConfiguration struct {
 // NewLicenseConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewLicenseConfiguration(ctx *pulumi.Context,
 	name string, args *LicenseConfigurationArgs, opts ...pulumi.ResourceOption) (*LicenseConfiguration, error) {
-	if args == nil || args.LicenseCountingType == nil {
-		return nil, errors.New("missing required argument 'LicenseCountingType'")
-	}
 	if args == nil {
-		args = &LicenseConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LicenseCountingType == nil {
+		return nil, errors.New("invalid value for required argument 'LicenseCountingType'")
 	}
 	var resource LicenseConfiguration
 	err := ctx.RegisterResource("aws:licensemanager/licenseConfiguration:LicenseConfiguration", name, args, &resource, opts...)

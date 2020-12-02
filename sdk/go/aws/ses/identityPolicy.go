@@ -67,14 +67,15 @@ type IdentityPolicy struct {
 // NewIdentityPolicy registers a new resource with the given unique name, arguments, and options.
 func NewIdentityPolicy(ctx *pulumi.Context,
 	name string, args *IdentityPolicyArgs, opts ...pulumi.ResourceOption) (*IdentityPolicy, error) {
-	if args == nil || args.Identity == nil {
-		return nil, errors.New("missing required argument 'Identity'")
-	}
-	if args == nil || args.Policy == nil {
-		return nil, errors.New("missing required argument 'Policy'")
-	}
 	if args == nil {
-		args = &IdentityPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Identity == nil {
+		return nil, errors.New("invalid value for required argument 'Identity'")
+	}
+	if args.Policy == nil {
+		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
 	var resource IdentityPolicy
 	err := ctx.RegisterResource("aws:ses/identityPolicy:IdentityPolicy", name, args, &resource, opts...)

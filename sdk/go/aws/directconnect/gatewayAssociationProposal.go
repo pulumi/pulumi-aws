@@ -65,17 +65,18 @@ type GatewayAssociationProposal struct {
 // NewGatewayAssociationProposal registers a new resource with the given unique name, arguments, and options.
 func NewGatewayAssociationProposal(ctx *pulumi.Context,
 	name string, args *GatewayAssociationProposalArgs, opts ...pulumi.ResourceOption) (*GatewayAssociationProposal, error) {
-	if args == nil || args.AssociatedGatewayId == nil {
-		return nil, errors.New("missing required argument 'AssociatedGatewayId'")
-	}
-	if args == nil || args.DxGatewayId == nil {
-		return nil, errors.New("missing required argument 'DxGatewayId'")
-	}
-	if args == nil || args.DxGatewayOwnerAccountId == nil {
-		return nil, errors.New("missing required argument 'DxGatewayOwnerAccountId'")
-	}
 	if args == nil {
-		args = &GatewayAssociationProposalArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AssociatedGatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'AssociatedGatewayId'")
+	}
+	if args.DxGatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'DxGatewayId'")
+	}
+	if args.DxGatewayOwnerAccountId == nil {
+		return nil, errors.New("invalid value for required argument 'DxGatewayOwnerAccountId'")
 	}
 	var resource GatewayAssociationProposal
 	err := ctx.RegisterResource("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, args, &resource, opts...)

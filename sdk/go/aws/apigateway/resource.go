@@ -67,17 +67,18 @@ type Resource struct {
 // NewResource registers a new resource with the given unique name, arguments, and options.
 func NewResource(ctx *pulumi.Context,
 	name string, args *ResourceArgs, opts ...pulumi.ResourceOption) (*Resource, error) {
-	if args == nil || args.ParentId == nil {
-		return nil, errors.New("missing required argument 'ParentId'")
-	}
-	if args == nil || args.PathPart == nil {
-		return nil, errors.New("missing required argument 'PathPart'")
-	}
-	if args == nil || args.RestApi == nil {
-		return nil, errors.New("missing required argument 'RestApi'")
-	}
 	if args == nil {
-		args = &ResourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ParentId == nil {
+		return nil, errors.New("invalid value for required argument 'ParentId'")
+	}
+	if args.PathPart == nil {
+		return nil, errors.New("invalid value for required argument 'PathPart'")
+	}
+	if args.RestApi == nil {
+		return nil, errors.New("invalid value for required argument 'RestApi'")
 	}
 	var resource Resource
 	err := ctx.RegisterResource("aws:apigateway/resource:Resource", name, args, &resource, opts...)

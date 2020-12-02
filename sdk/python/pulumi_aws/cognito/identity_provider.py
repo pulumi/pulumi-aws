@@ -85,16 +85,16 @@ class IdentityProvider(pulumi.CustomResource):
 
             __props__['attribute_mapping'] = attribute_mapping
             __props__['idp_identifiers'] = idp_identifiers
-            if provider_details is None:
+            if provider_details is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_details'")
             __props__['provider_details'] = provider_details
-            if provider_name is None:
+            if provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_name'")
             __props__['provider_name'] = provider_name
-            if provider_type is None:
+            if provider_type is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_type'")
             __props__['provider_type'] = provider_type
-            if user_pool_id is None:
+            if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__['user_pool_id'] = user_pool_id
         super(IdentityProvider, __self__).__init__(

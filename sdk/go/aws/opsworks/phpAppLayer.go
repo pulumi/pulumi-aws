@@ -90,11 +90,12 @@ type PhpAppLayer struct {
 // NewPhpAppLayer registers a new resource with the given unique name, arguments, and options.
 func NewPhpAppLayer(ctx *pulumi.Context,
 	name string, args *PhpAppLayerArgs, opts ...pulumi.ResourceOption) (*PhpAppLayer, error) {
-	if args == nil || args.StackId == nil {
-		return nil, errors.New("missing required argument 'StackId'")
-	}
 	if args == nil {
-		args = &PhpAppLayerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StackId == nil {
+		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
 	var resource PhpAppLayer
 	err := ctx.RegisterResource("aws:opsworks/phpAppLayer:PhpAppLayer", name, args, &resource, opts...)

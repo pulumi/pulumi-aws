@@ -33,7 +33,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
             feature_set="ALL")
         example_detector = aws.guardduty.Detector("exampleDetector")
         example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
-        opts=ResourceOptions(depends_on=[example_organization]))
+        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
         ```
 
         ## Import
@@ -65,7 +65,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if admin_account_id is None:
+            if admin_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_account_id'")
             __props__['admin_account_id'] = admin_account_id
         super(OrganizationAdminAccount, __self__).__init__(

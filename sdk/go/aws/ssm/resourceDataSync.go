@@ -72,11 +72,12 @@ type ResourceDataSync struct {
 // NewResourceDataSync registers a new resource with the given unique name, arguments, and options.
 func NewResourceDataSync(ctx *pulumi.Context,
 	name string, args *ResourceDataSyncArgs, opts ...pulumi.ResourceOption) (*ResourceDataSync, error) {
-	if args == nil || args.S3Destination == nil {
-		return nil, errors.New("missing required argument 'S3Destination'")
-	}
 	if args == nil {
-		args = &ResourceDataSyncArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.S3Destination == nil {
+		return nil, errors.New("invalid value for required argument 'S3Destination'")
 	}
 	var resource ResourceDataSync
 	err := ctx.RegisterResource("aws:ssm/resourceDataSync:ResourceDataSync", name, args, &resource, opts...)

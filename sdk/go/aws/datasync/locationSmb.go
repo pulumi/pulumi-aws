@@ -78,23 +78,24 @@ type LocationSmb struct {
 // NewLocationSmb registers a new resource with the given unique name, arguments, and options.
 func NewLocationSmb(ctx *pulumi.Context,
 	name string, args *LocationSmbArgs, opts ...pulumi.ResourceOption) (*LocationSmb, error) {
-	if args == nil || args.AgentArns == nil {
-		return nil, errors.New("missing required argument 'AgentArns'")
-	}
-	if args == nil || args.Password == nil {
-		return nil, errors.New("missing required argument 'Password'")
-	}
-	if args == nil || args.ServerHostname == nil {
-		return nil, errors.New("missing required argument 'ServerHostname'")
-	}
-	if args == nil || args.Subdirectory == nil {
-		return nil, errors.New("missing required argument 'Subdirectory'")
-	}
-	if args == nil || args.User == nil {
-		return nil, errors.New("missing required argument 'User'")
-	}
 	if args == nil {
-		args = &LocationSmbArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AgentArns == nil {
+		return nil, errors.New("invalid value for required argument 'AgentArns'")
+	}
+	if args.Password == nil {
+		return nil, errors.New("invalid value for required argument 'Password'")
+	}
+	if args.ServerHostname == nil {
+		return nil, errors.New("invalid value for required argument 'ServerHostname'")
+	}
+	if args.Subdirectory == nil {
+		return nil, errors.New("invalid value for required argument 'Subdirectory'")
+	}
+	if args.User == nil {
+		return nil, errors.New("invalid value for required argument 'User'")
 	}
 	var resource LocationSmb
 	err := ctx.RegisterResource("aws:datasync/locationSmb:LocationSmb", name, args, &resource, opts...)

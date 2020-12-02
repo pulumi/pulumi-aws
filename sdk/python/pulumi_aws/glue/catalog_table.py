@@ -142,7 +142,7 @@ class CatalogTable(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['catalog_id'] = catalog_id
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['description'] = description

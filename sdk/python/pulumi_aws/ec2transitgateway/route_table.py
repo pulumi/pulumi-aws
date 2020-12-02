@@ -63,7 +63,7 @@ class RouteTable(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['tags'] = tags
-            if transit_gateway_id is None:
+            if transit_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_id'")
             __props__['transit_gateway_id'] = transit_gateway_id
             __props__['arn'] = None

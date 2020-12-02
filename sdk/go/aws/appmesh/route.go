@@ -225,17 +225,18 @@ type Route struct {
 // NewRoute registers a new resource with the given unique name, arguments, and options.
 func NewRoute(ctx *pulumi.Context,
 	name string, args *RouteArgs, opts ...pulumi.ResourceOption) (*Route, error) {
-	if args == nil || args.MeshName == nil {
-		return nil, errors.New("missing required argument 'MeshName'")
-	}
-	if args == nil || args.Spec == nil {
-		return nil, errors.New("missing required argument 'Spec'")
-	}
-	if args == nil || args.VirtualRouterName == nil {
-		return nil, errors.New("missing required argument 'VirtualRouterName'")
-	}
 	if args == nil {
-		args = &RouteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MeshName == nil {
+		return nil, errors.New("invalid value for required argument 'MeshName'")
+	}
+	if args.Spec == nil {
+		return nil, errors.New("invalid value for required argument 'Spec'")
+	}
+	if args.VirtualRouterName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualRouterName'")
 	}
 	var resource Route
 	err := ctx.RegisterResource("aws:appmesh/route:Route", name, args, &resource, opts...)

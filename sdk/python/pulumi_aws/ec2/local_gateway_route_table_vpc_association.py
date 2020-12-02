@@ -68,11 +68,11 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if local_gateway_route_table_id is None:
+            if local_gateway_route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'local_gateway_route_table_id'")
             __props__['local_gateway_route_table_id'] = local_gateway_route_table_id
             __props__['tags'] = tags
-            if vpc_id is None:
+            if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
             __props__['local_gateway_id'] = None

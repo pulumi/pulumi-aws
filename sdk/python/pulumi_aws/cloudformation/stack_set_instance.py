@@ -107,7 +107,7 @@ class StackSetInstance(pulumi.CustomResource):
             __props__['parameter_overrides'] = parameter_overrides
             __props__['region'] = region
             __props__['retain_stack'] = retain_stack
-            if stack_set_name is None:
+            if stack_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_set_name'")
             __props__['stack_set_name'] = stack_set_name
             __props__['stack_id'] = None

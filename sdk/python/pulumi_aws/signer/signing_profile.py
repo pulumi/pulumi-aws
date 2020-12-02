@@ -82,7 +82,7 @@ class SigningProfile(pulumi.CustomResource):
 
             __props__['name'] = name
             __props__['name_prefix'] = name_prefix
-            if platform_id is None:
+            if platform_id is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_id'")
             __props__['platform_id'] = platform_id
             __props__['signature_validity_period'] = signature_validity_period

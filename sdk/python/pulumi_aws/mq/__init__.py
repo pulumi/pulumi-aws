@@ -8,3 +8,25 @@ from .configuration import *
 from .get_broker import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:mq/broker:Broker":
+                return Broker(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:mq/configuration:Configuration":
+                return Configuration(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "mq/broker", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "mq/configuration", _module_instance)
+
+_register_module()

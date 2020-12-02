@@ -9,3 +9,28 @@ from .origin_access_identity import *
 from .public_key import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:cloudfront/distribution:Distribution":
+                return Distribution(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
+                return OriginAccessIdentity(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudfront/publicKey:PublicKey":
+                return PublicKey(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "cloudfront/distribution", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudfront/originAccessIdentity", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudfront/publicKey", _module_instance)
+
+_register_module()

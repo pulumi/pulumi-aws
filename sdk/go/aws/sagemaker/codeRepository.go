@@ -22,14 +22,15 @@ type CodeRepository struct {
 // NewCodeRepository registers a new resource with the given unique name, arguments, and options.
 func NewCodeRepository(ctx *pulumi.Context,
 	name string, args *CodeRepositoryArgs, opts ...pulumi.ResourceOption) (*CodeRepository, error) {
-	if args == nil || args.CodeRepositoryName == nil {
-		return nil, errors.New("missing required argument 'CodeRepositoryName'")
-	}
-	if args == nil || args.GitConfig == nil {
-		return nil, errors.New("missing required argument 'GitConfig'")
-	}
 	if args == nil {
-		args = &CodeRepositoryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CodeRepositoryName == nil {
+		return nil, errors.New("invalid value for required argument 'CodeRepositoryName'")
+	}
+	if args.GitConfig == nil {
+		return nil, errors.New("invalid value for required argument 'GitConfig'")
 	}
 	var resource CodeRepository
 	err := ctx.RegisterResource("aws:sagemaker/codeRepository:CodeRepository", name, args, &resource, opts...)

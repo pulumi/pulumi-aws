@@ -67,11 +67,12 @@ type ServiceLinkedRole struct {
 // NewServiceLinkedRole registers a new resource with the given unique name, arguments, and options.
 func NewServiceLinkedRole(ctx *pulumi.Context,
 	name string, args *ServiceLinkedRoleArgs, opts ...pulumi.ResourceOption) (*ServiceLinkedRole, error) {
-	if args == nil || args.AwsServiceName == nil {
-		return nil, errors.New("missing required argument 'AwsServiceName'")
-	}
 	if args == nil {
-		args = &ServiceLinkedRoleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AwsServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'AwsServiceName'")
 	}
 	var resource ServiceLinkedRole
 	err := ctx.RegisterResource("aws:iam/serviceLinkedRole:ServiceLinkedRole", name, args, &resource, opts...)

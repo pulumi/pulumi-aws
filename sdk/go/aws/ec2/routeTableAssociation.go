@@ -87,11 +87,12 @@ type RouteTableAssociation struct {
 // NewRouteTableAssociation registers a new resource with the given unique name, arguments, and options.
 func NewRouteTableAssociation(ctx *pulumi.Context,
 	name string, args *RouteTableAssociationArgs, opts ...pulumi.ResourceOption) (*RouteTableAssociation, error) {
-	if args == nil || args.RouteTableId == nil {
-		return nil, errors.New("missing required argument 'RouteTableId'")
-	}
 	if args == nil {
-		args = &RouteTableAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RouteTableId == nil {
+		return nil, errors.New("invalid value for required argument 'RouteTableId'")
 	}
 	var resource RouteTableAssociation
 	err := ctx.RegisterResource("aws:ec2/routeTableAssociation:RouteTableAssociation", name, args, &resource, opts...)

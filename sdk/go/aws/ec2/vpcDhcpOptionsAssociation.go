@@ -60,14 +60,15 @@ type VpcDhcpOptionsAssociation struct {
 // NewVpcDhcpOptionsAssociation registers a new resource with the given unique name, arguments, and options.
 func NewVpcDhcpOptionsAssociation(ctx *pulumi.Context,
 	name string, args *VpcDhcpOptionsAssociationArgs, opts ...pulumi.ResourceOption) (*VpcDhcpOptionsAssociation, error) {
-	if args == nil || args.DhcpOptionsId == nil {
-		return nil, errors.New("missing required argument 'DhcpOptionsId'")
-	}
-	if args == nil || args.VpcId == nil {
-		return nil, errors.New("missing required argument 'VpcId'")
-	}
 	if args == nil {
-		args = &VpcDhcpOptionsAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DhcpOptionsId == nil {
+		return nil, errors.New("invalid value for required argument 'DhcpOptionsId'")
+	}
+	if args.VpcId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	var resource VpcDhcpOptionsAssociation
 	err := ctx.RegisterResource("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", name, args, &resource, opts...)

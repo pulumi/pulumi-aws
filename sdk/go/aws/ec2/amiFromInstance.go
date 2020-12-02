@@ -104,11 +104,12 @@ type AmiFromInstance struct {
 // NewAmiFromInstance registers a new resource with the given unique name, arguments, and options.
 func NewAmiFromInstance(ctx *pulumi.Context,
 	name string, args *AmiFromInstanceArgs, opts ...pulumi.ResourceOption) (*AmiFromInstance, error) {
-	if args == nil || args.SourceInstanceId == nil {
-		return nil, errors.New("missing required argument 'SourceInstanceId'")
-	}
 	if args == nil {
-		args = &AmiFromInstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SourceInstanceId == nil {
+		return nil, errors.New("invalid value for required argument 'SourceInstanceId'")
 	}
 	var resource AmiFromInstance
 	err := ctx.RegisterResource("aws:ec2/amiFromInstance:AmiFromInstance", name, args, &resource, opts...)

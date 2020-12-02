@@ -105,7 +105,7 @@ class DefaultRouteTable(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if default_route_table_id is None:
+            if default_route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'default_route_table_id'")
             __props__['default_route_table_id'] = default_route_table_id
             __props__['propagating_vgws'] = propagating_vgws

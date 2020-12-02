@@ -82,10 +82,10 @@ class SecretPolicy(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['block_public_policy'] = block_public_policy
-            if policy is None:
+            if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__['policy'] = policy
-            if secret_arn is None:
+            if secret_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_arn'")
             __props__['secret_arn'] = secret_arn
         super(SecretPolicy, __self__).__init__(

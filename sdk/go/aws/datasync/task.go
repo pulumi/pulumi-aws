@@ -42,14 +42,15 @@ type Task struct {
 // NewTask registers a new resource with the given unique name, arguments, and options.
 func NewTask(ctx *pulumi.Context,
 	name string, args *TaskArgs, opts ...pulumi.ResourceOption) (*Task, error) {
-	if args == nil || args.DestinationLocationArn == nil {
-		return nil, errors.New("missing required argument 'DestinationLocationArn'")
-	}
-	if args == nil || args.SourceLocationArn == nil {
-		return nil, errors.New("missing required argument 'SourceLocationArn'")
-	}
 	if args == nil {
-		args = &TaskArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DestinationLocationArn == nil {
+		return nil, errors.New("invalid value for required argument 'DestinationLocationArn'")
+	}
+	if args.SourceLocationArn == nil {
+		return nil, errors.New("invalid value for required argument 'SourceLocationArn'")
 	}
 	var resource Task
 	err := ctx.RegisterResource("aws:datasync/task:Task", name, args, &resource, opts...)

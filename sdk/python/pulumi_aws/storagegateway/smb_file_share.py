@@ -133,21 +133,21 @@ class SmbFileShare(pulumi.CustomResource):
             __props__['case_sensitivity'] = case_sensitivity
             __props__['default_storage_class'] = default_storage_class
             __props__['file_share_name'] = file_share_name
-            if gateway_arn is None:
+            if gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_arn'")
             __props__['gateway_arn'] = gateway_arn
             __props__['guess_mime_type_enabled'] = guess_mime_type_enabled
             __props__['invalid_user_lists'] = invalid_user_lists
             __props__['kms_encrypted'] = kms_encrypted
             __props__['kms_key_arn'] = kms_key_arn
-            if location_arn is None:
+            if location_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'location_arn'")
             __props__['location_arn'] = location_arn
             __props__['notification_policy'] = notification_policy
             __props__['object_acl'] = object_acl
             __props__['read_only'] = read_only
             __props__['requester_pays'] = requester_pays
-            if role_arn is None:
+            if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
             __props__['smb_acl_enabled'] = smb_acl_enabled

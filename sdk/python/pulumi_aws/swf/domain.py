@@ -76,7 +76,7 @@ class Domain(pulumi.CustomResource):
             __props__['name'] = name
             __props__['name_prefix'] = name_prefix
             __props__['tags'] = tags
-            if workflow_execution_retention_period_in_days is None:
+            if workflow_execution_retention_period_in_days is None and not opts.urn:
                 raise TypeError("Missing required property 'workflow_execution_retention_period_in_days'")
             __props__['workflow_execution_retention_period_in_days'] = workflow_execution_retention_period_in_days
             __props__['arn'] = None

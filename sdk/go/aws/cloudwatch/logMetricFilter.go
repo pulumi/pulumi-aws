@@ -70,17 +70,18 @@ type LogMetricFilter struct {
 // NewLogMetricFilter registers a new resource with the given unique name, arguments, and options.
 func NewLogMetricFilter(ctx *pulumi.Context,
 	name string, args *LogMetricFilterArgs, opts ...pulumi.ResourceOption) (*LogMetricFilter, error) {
-	if args == nil || args.LogGroupName == nil {
-		return nil, errors.New("missing required argument 'LogGroupName'")
-	}
-	if args == nil || args.MetricTransformation == nil {
-		return nil, errors.New("missing required argument 'MetricTransformation'")
-	}
-	if args == nil || args.Pattern == nil {
-		return nil, errors.New("missing required argument 'Pattern'")
-	}
 	if args == nil {
-		args = &LogMetricFilterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LogGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'LogGroupName'")
+	}
+	if args.MetricTransformation == nil {
+		return nil, errors.New("invalid value for required argument 'MetricTransformation'")
+	}
+	if args.Pattern == nil {
+		return nil, errors.New("invalid value for required argument 'Pattern'")
 	}
 	var resource LogMetricFilter
 	err := ctx.RegisterResource("aws:cloudwatch/logMetricFilter:LogMetricFilter", name, args, &resource, opts...)

@@ -89,11 +89,12 @@ type StaticWebLayer struct {
 // NewStaticWebLayer registers a new resource with the given unique name, arguments, and options.
 func NewStaticWebLayer(ctx *pulumi.Context,
 	name string, args *StaticWebLayerArgs, opts ...pulumi.ResourceOption) (*StaticWebLayer, error) {
-	if args == nil || args.StackId == nil {
-		return nil, errors.New("missing required argument 'StackId'")
-	}
 	if args == nil {
-		args = &StaticWebLayerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StackId == nil {
+		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
 	var resource StaticWebLayer
 	err := ctx.RegisterResource("aws:opsworks/staticWebLayer:StaticWebLayer", name, args, &resource, opts...)

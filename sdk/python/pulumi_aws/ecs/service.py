@@ -74,7 +74,7 @@ class Service(pulumi.CustomResource):
                 type="memberOf",
                 expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
             )],
-            opts=ResourceOptions(depends_on=[aws_iam_role_policy["foo"]]))
+            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["foo"]]))
         ```
         ### Ignoring Changes to Desired Count
 

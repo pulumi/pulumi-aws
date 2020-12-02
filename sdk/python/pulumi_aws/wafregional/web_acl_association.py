@@ -132,7 +132,7 @@ class WebAclAssociation(pulumi.CustomResource):
             http_method=test_integration.http_method,
             status_code=test_method_response.status_code)
         test_deployment = aws.apigateway.Deployment("testDeployment", rest_api=test_rest_api.id,
-        opts=ResourceOptions(depends_on=[test_integration_response]))
+        opts=pulumi.ResourceOptions(depends_on=[test_integration_response]))
         test_stage = aws.apigateway.Stage("testStage",
             deployment=test_deployment.id,
             rest_api=test_rest_api.id,
@@ -172,10 +172,10 @@ class WebAclAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if resource_arn is None:
+            if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
             __props__['resource_arn'] = resource_arn
-            if web_acl_id is None:
+            if web_acl_id is None and not opts.urn:
                 raise TypeError("Missing required property 'web_acl_id'")
             __props__['web_acl_id'] = web_acl_id
         super(WebAclAssociation, __self__).__init__(

@@ -79,10 +79,10 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['cookie_expiration_period'] = cookie_expiration_period
-            if lb_port is None:
+            if lb_port is None and not opts.urn:
                 raise TypeError("Missing required property 'lb_port'")
             __props__['lb_port'] = lb_port
-            if load_balancer is None:
+            if load_balancer is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer'")
             __props__['load_balancer'] = load_balancer
             __props__['name'] = name

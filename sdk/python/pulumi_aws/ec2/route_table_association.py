@@ -83,7 +83,7 @@ class RouteTableAssociation(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['gateway_id'] = gateway_id
-            if route_table_id is None:
+            if route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_id'")
             __props__['route_table_id'] = route_table_id
             __props__['subnet_id'] = subnet_id

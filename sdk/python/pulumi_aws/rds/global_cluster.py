@@ -44,16 +44,16 @@ class GlobalCluster(pulumi.CustomResource):
         primary = pulumi.providers.Aws("primary", region="us-east-2")
         secondary = pulumi.providers.Aws("secondary", region="us-west-2")
         example = aws.rds.GlobalCluster("example", global_cluster_identifier="example",
-        opts=ResourceOptions(provider=aws["primary"]))
+        opts=pulumi.ResourceOptions(provider=aws["primary"]))
         primary_cluster = aws.rds.Cluster("primaryCluster", global_cluster_identifier=example.id,
-        opts=ResourceOptions(provider=aws["primary"]))
+        opts=pulumi.ResourceOptions(provider=aws["primary"]))
         primary_cluster_instance = aws.rds.ClusterInstance("primaryClusterInstance", cluster_identifier=primary_cluster.id,
-        opts=ResourceOptions(provider=aws["primary"]))
+        opts=pulumi.ResourceOptions(provider=aws["primary"]))
         secondary_cluster = aws.rds.Cluster("secondaryCluster", global_cluster_identifier=example.id,
-        opts=ResourceOptions(provider=aws["secondary"],
+        opts=pulumi.ResourceOptions(provider=aws["secondary"],
             depends_on=[primary_cluster_instance]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondaryClusterInstance", cluster_identifier=secondary_cluster.id,
-        opts=ResourceOptions(provider=aws["secondary"]))
+        opts=pulumi.ResourceOptions(provider=aws["secondary"]))
         ```
         ### New Global Cluster From Existing DB Cluster
 
@@ -120,7 +120,7 @@ class GlobalCluster(pulumi.CustomResource):
             __props__['engine'] = engine
             __props__['engine_version'] = engine_version
             __props__['force_destroy'] = force_destroy
-            if global_cluster_identifier is None:
+            if global_cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'global_cluster_identifier'")
             __props__['global_cluster_identifier'] = global_cluster_identifier
             __props__['source_db_cluster_identifier'] = source_db_cluster_identifier

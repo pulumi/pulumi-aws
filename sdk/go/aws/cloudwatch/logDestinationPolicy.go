@@ -66,14 +66,15 @@ type LogDestinationPolicy struct {
 // NewLogDestinationPolicy registers a new resource with the given unique name, arguments, and options.
 func NewLogDestinationPolicy(ctx *pulumi.Context,
 	name string, args *LogDestinationPolicyArgs, opts ...pulumi.ResourceOption) (*LogDestinationPolicy, error) {
-	if args == nil || args.AccessPolicy == nil {
-		return nil, errors.New("missing required argument 'AccessPolicy'")
-	}
-	if args == nil || args.DestinationName == nil {
-		return nil, errors.New("missing required argument 'DestinationName'")
-	}
 	if args == nil {
-		args = &LogDestinationPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccessPolicy == nil {
+		return nil, errors.New("invalid value for required argument 'AccessPolicy'")
+	}
+	if args.DestinationName == nil {
+		return nil, errors.New("invalid value for required argument 'DestinationName'")
 	}
 	var resource LogDestinationPolicy
 	err := ctx.RegisterResource("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy", name, args, &resource, opts...)

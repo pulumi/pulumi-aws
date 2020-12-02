@@ -89,12 +89,12 @@ class Fleet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if build_id is None:
+            if build_id is None and not opts.urn:
                 raise TypeError("Missing required property 'build_id'")
             __props__['build_id'] = build_id
             __props__['description'] = description
             __props__['ec2_inbound_permissions'] = ec2_inbound_permissions
-            if ec2_instance_type is None:
+            if ec2_instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'ec2_instance_type'")
             __props__['ec2_instance_type'] = ec2_instance_type
             __props__['fleet_type'] = fleet_type

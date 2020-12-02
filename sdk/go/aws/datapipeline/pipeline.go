@@ -57,6 +57,7 @@ func NewPipeline(ctx *pulumi.Context,
 	if args == nil {
 		args = &PipelineArgs{}
 	}
+
 	var resource Pipeline
 	err := ctx.RegisterResource("aws:datapipeline/pipeline:Pipeline", name, args, &resource, opts...)
 	if err != nil {

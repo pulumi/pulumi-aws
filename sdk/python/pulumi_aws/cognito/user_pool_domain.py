@@ -91,10 +91,10 @@ class UserPoolDomain(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['certificate_arn'] = certificate_arn
-            if domain is None:
+            if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
             __props__['domain'] = domain
-            if user_pool_id is None:
+            if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__['user_pool_id'] = user_pool_id
             __props__['aws_account_id'] = None

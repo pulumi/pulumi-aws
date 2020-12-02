@@ -55,17 +55,18 @@ type NetworkInterfaceAttachment struct {
 // NewNetworkInterfaceAttachment registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterfaceAttachment(ctx *pulumi.Context,
 	name string, args *NetworkInterfaceAttachmentArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceAttachment, error) {
-	if args == nil || args.DeviceIndex == nil {
-		return nil, errors.New("missing required argument 'DeviceIndex'")
-	}
-	if args == nil || args.InstanceId == nil {
-		return nil, errors.New("missing required argument 'InstanceId'")
-	}
-	if args == nil || args.NetworkInterfaceId == nil {
-		return nil, errors.New("missing required argument 'NetworkInterfaceId'")
-	}
 	if args == nil {
-		args = &NetworkInterfaceAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DeviceIndex == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceIndex'")
+	}
+	if args.InstanceId == nil {
+		return nil, errors.New("invalid value for required argument 'InstanceId'")
+	}
+	if args.NetworkInterfaceId == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkInterfaceId'")
 	}
 	var resource NetworkInterfaceAttachment
 	err := ctx.RegisterResource("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, args, &resource, opts...)

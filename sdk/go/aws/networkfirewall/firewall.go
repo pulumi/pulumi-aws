@@ -85,17 +85,18 @@ type Firewall struct {
 // NewFirewall registers a new resource with the given unique name, arguments, and options.
 func NewFirewall(ctx *pulumi.Context,
 	name string, args *FirewallArgs, opts ...pulumi.ResourceOption) (*Firewall, error) {
-	if args == nil || args.FirewallPolicyArn == nil {
-		return nil, errors.New("missing required argument 'FirewallPolicyArn'")
-	}
-	if args == nil || args.SubnetMappings == nil {
-		return nil, errors.New("missing required argument 'SubnetMappings'")
-	}
-	if args == nil || args.VpcId == nil {
-		return nil, errors.New("missing required argument 'VpcId'")
-	}
 	if args == nil {
-		args = &FirewallArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FirewallPolicyArn == nil {
+		return nil, errors.New("invalid value for required argument 'FirewallPolicyArn'")
+	}
+	if args.SubnetMappings == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetMappings'")
+	}
+	if args.VpcId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	var resource Firewall
 	err := ctx.RegisterResource("aws:networkfirewall/firewall:Firewall", name, args, &resource, opts...)

@@ -118,10 +118,10 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__['bisect_batch_on_function_error'] = bisect_batch_on_function_error
             __props__['destination_config'] = destination_config
             __props__['enabled'] = enabled
-            if event_source_arn is None:
+            if event_source_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'event_source_arn'")
             __props__['event_source_arn'] = event_source_arn
-            if function_name is None:
+            if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
             __props__['function_name'] = function_name
             __props__['maximum_batching_window_in_seconds'] = maximum_batching_window_in_seconds

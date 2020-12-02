@@ -57,7 +57,7 @@ class MethodSettings(pulumi.CustomResource):
         test_deployment = aws.apigateway.Deployment("testDeployment",
             rest_api=test_rest_api.id,
             stage_name="dev",
-            opts=ResourceOptions(depends_on=[test_integration]))
+            opts=pulumi.ResourceOptions(depends_on=[test_integration]))
         test_stage = aws.apigateway.Stage("testStage",
             stage_name="prod",
             rest_api=test_rest_api.id,
@@ -104,16 +104,16 @@ class MethodSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if method_path is None:
+            if method_path is None and not opts.urn:
                 raise TypeError("Missing required property 'method_path'")
             __props__['method_path'] = method_path
-            if rest_api is None:
+            if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__['rest_api'] = rest_api
-            if settings is None:
+            if settings is None and not opts.urn:
                 raise TypeError("Missing required property 'settings'")
             __props__['settings'] = settings
-            if stage_name is None:
+            if stage_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stage_name'")
             __props__['stage_name'] = stage_name
         super(MethodSettings, __self__).__init__(

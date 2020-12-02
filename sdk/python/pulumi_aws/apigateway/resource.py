@@ -68,13 +68,13 @@ class Resource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if parent_id is None:
+            if parent_id is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_id'")
             __props__['parent_id'] = parent_id
-            if path_part is None:
+            if path_part is None and not opts.urn:
                 raise TypeError("Missing required property 'path_part'")
             __props__['path_part'] = path_part
-            if rest_api is None:
+            if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__['rest_api'] = rest_api
             __props__['path'] = None

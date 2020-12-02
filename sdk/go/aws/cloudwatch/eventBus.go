@@ -59,6 +59,7 @@ func NewEventBus(ctx *pulumi.Context,
 	if args == nil {
 		args = &EventBusArgs{}
 	}
+
 	var resource EventBus
 	err := ctx.RegisterResource("aws:cloudwatch/eventBus:EventBus", name, args, &resource, opts...)
 	if err != nil {

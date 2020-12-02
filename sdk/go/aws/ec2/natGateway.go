@@ -91,14 +91,15 @@ type NatGateway struct {
 // NewNatGateway registers a new resource with the given unique name, arguments, and options.
 func NewNatGateway(ctx *pulumi.Context,
 	name string, args *NatGatewayArgs, opts ...pulumi.ResourceOption) (*NatGateway, error) {
-	if args == nil || args.AllocationId == nil {
-		return nil, errors.New("missing required argument 'AllocationId'")
-	}
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
 	if args == nil {
-		args = &NatGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AllocationId == nil {
+		return nil, errors.New("invalid value for required argument 'AllocationId'")
+	}
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
 	var resource NatGateway
 	err := ctx.RegisterResource("aws:ec2/natGateway:NatGateway", name, args, &resource, opts...)

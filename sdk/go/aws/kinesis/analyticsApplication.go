@@ -120,6 +120,7 @@ func NewAnalyticsApplication(ctx *pulumi.Context,
 	if args == nil {
 		args = &AnalyticsApplicationArgs{}
 	}
+
 	var resource AnalyticsApplication
 	err := ctx.RegisterResource("aws:kinesis/analyticsApplication:AnalyticsApplication", name, args, &resource, opts...)
 	if err != nil {

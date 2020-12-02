@@ -275,7 +275,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     "role_arn": aws_iam_role["firehose"]["arn"],
                 },
             ),
-            opts=ResourceOptions(depends_on=[firehose_elasticsearch]))
+            opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch]))
         ```
         ### Splunk Destination
 
@@ -388,7 +388,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['arn'] = arn
-            if destination is None:
+            if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__['destination'] = destination
             __props__['destination_id'] = destination_id

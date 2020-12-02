@@ -70,17 +70,18 @@ type AssessmentTemplate struct {
 // NewAssessmentTemplate registers a new resource with the given unique name, arguments, and options.
 func NewAssessmentTemplate(ctx *pulumi.Context,
 	name string, args *AssessmentTemplateArgs, opts ...pulumi.ResourceOption) (*AssessmentTemplate, error) {
-	if args == nil || args.Duration == nil {
-		return nil, errors.New("missing required argument 'Duration'")
-	}
-	if args == nil || args.RulesPackageArns == nil {
-		return nil, errors.New("missing required argument 'RulesPackageArns'")
-	}
-	if args == nil || args.TargetArn == nil {
-		return nil, errors.New("missing required argument 'TargetArn'")
-	}
 	if args == nil {
-		args = &AssessmentTemplateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Duration == nil {
+		return nil, errors.New("invalid value for required argument 'Duration'")
+	}
+	if args.RulesPackageArns == nil {
+		return nil, errors.New("invalid value for required argument 'RulesPackageArns'")
+	}
+	if args.TargetArn == nil {
+		return nil, errors.New("invalid value for required argument 'TargetArn'")
 	}
 	var resource AssessmentTemplate
 	err := ctx.RegisterResource("aws:inspector/assessmentTemplate:AssessmentTemplate", name, args, &resource, opts...)

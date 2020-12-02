@@ -77,17 +77,18 @@ type TableItem struct {
 // NewTableItem registers a new resource with the given unique name, arguments, and options.
 func NewTableItem(ctx *pulumi.Context,
 	name string, args *TableItemArgs, opts ...pulumi.ResourceOption) (*TableItem, error) {
-	if args == nil || args.HashKey == nil {
-		return nil, errors.New("missing required argument 'HashKey'")
-	}
-	if args == nil || args.Item == nil {
-		return nil, errors.New("missing required argument 'Item'")
-	}
-	if args == nil || args.TableName == nil {
-		return nil, errors.New("missing required argument 'TableName'")
-	}
 	if args == nil {
-		args = &TableItemArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HashKey == nil {
+		return nil, errors.New("invalid value for required argument 'HashKey'")
+	}
+	if args.Item == nil {
+		return nil, errors.New("invalid value for required argument 'Item'")
+	}
+	if args.TableName == nil {
+		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
 	var resource TableItem
 	err := ctx.RegisterResource("aws:dynamodb/tableItem:TableItem", name, args, &resource, opts...)

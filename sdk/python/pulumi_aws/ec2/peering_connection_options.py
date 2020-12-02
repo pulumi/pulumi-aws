@@ -73,12 +73,12 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True,
-            opts=ResourceOptions(provider=aws["requester"]))
+            opts=pulumi.ResourceOptions(provider=aws["requester"]))
         peer_vpc = aws.ec2.Vpc("peerVpc",
             cidr_block="10.1.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True,
-            opts=ResourceOptions(provider=aws["accepter"]))
+            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
         peer_caller_identity = aws.get_caller_identity()
         peer_vpc_peering_connection = aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection",
             vpc_id=main.id,
@@ -88,26 +88,26 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             tags={
                 "Side": "Requester",
             },
-            opts=ResourceOptions(provider=aws["requester"]))
+            opts=pulumi.ResourceOptions(provider=aws["requester"]))
         peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter",
             vpc_peering_connection_id=peer_vpc_peering_connection.id,
             auto_accept=True,
             tags={
                 "Side": "Accepter",
             },
-            opts=ResourceOptions(provider=aws["accepter"]))
+            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
         requester_peering_connection_options = aws.ec2.PeeringConnectionOptions("requesterPeeringConnectionOptions",
             vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
             requester=aws.ec2.PeeringConnectionOptionsRequesterArgs(
                 allow_remote_vpc_dns_resolution=True,
             ),
-            opts=ResourceOptions(provider=aws["requester"]))
+            opts=pulumi.ResourceOptions(provider=aws["requester"]))
         accepter_peering_connection_options = aws.ec2.PeeringConnectionOptions("accepterPeeringConnectionOptions",
             vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
             accepter=aws.ec2.PeeringConnectionOptionsAccepterArgs(
                 allow_remote_vpc_dns_resolution=True,
             ),
-            opts=ResourceOptions(provider=aws["accepter"]))
+            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
         ```
 
         ## Import
@@ -147,7 +147,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
             __props__['accepter'] = accepter
             __props__['requester'] = requester
-            if vpc_peering_connection_id is None:
+            if vpc_peering_connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_peering_connection_id'")
             __props__['vpc_peering_connection_id'] = vpc_peering_connection_id
         super(PeeringConnectionOptions, __self__).__init__(

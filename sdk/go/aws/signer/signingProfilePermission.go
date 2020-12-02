@@ -97,17 +97,18 @@ type SigningProfilePermission struct {
 // NewSigningProfilePermission registers a new resource with the given unique name, arguments, and options.
 func NewSigningProfilePermission(ctx *pulumi.Context,
 	name string, args *SigningProfilePermissionArgs, opts ...pulumi.ResourceOption) (*SigningProfilePermission, error) {
-	if args == nil || args.Action == nil {
-		return nil, errors.New("missing required argument 'Action'")
-	}
-	if args == nil || args.Principal == nil {
-		return nil, errors.New("missing required argument 'Principal'")
-	}
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
-	}
 	if args == nil {
-		args = &SigningProfilePermissionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Action == nil {
+		return nil, errors.New("invalid value for required argument 'Action'")
+	}
+	if args.Principal == nil {
+		return nil, errors.New("invalid value for required argument 'Principal'")
+	}
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
 	}
 	var resource SigningProfilePermission
 	err := ctx.RegisterResource("aws:signer/signingProfilePermission:SigningProfilePermission", name, args, &resource, opts...)

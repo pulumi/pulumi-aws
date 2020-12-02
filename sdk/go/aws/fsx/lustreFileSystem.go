@@ -117,14 +117,15 @@ type LustreFileSystem struct {
 // NewLustreFileSystem registers a new resource with the given unique name, arguments, and options.
 func NewLustreFileSystem(ctx *pulumi.Context,
 	name string, args *LustreFileSystemArgs, opts ...pulumi.ResourceOption) (*LustreFileSystem, error) {
-	if args == nil || args.StorageCapacity == nil {
-		return nil, errors.New("missing required argument 'StorageCapacity'")
-	}
-	if args == nil || args.SubnetIds == nil {
-		return nil, errors.New("missing required argument 'SubnetIds'")
-	}
 	if args == nil {
-		args = &LustreFileSystemArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StorageCapacity == nil {
+		return nil, errors.New("invalid value for required argument 'StorageCapacity'")
+	}
+	if args.SubnetIds == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
 	var resource LustreFileSystem
 	err := ctx.RegisterResource("aws:fsx/lustreFileSystem:LustreFileSystem", name, args, &resource, opts...)

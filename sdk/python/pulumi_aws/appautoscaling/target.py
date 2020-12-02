@@ -117,20 +117,20 @@ class Target(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if max_capacity is None:
+            if max_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'max_capacity'")
             __props__['max_capacity'] = max_capacity
-            if min_capacity is None:
+            if min_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'min_capacity'")
             __props__['min_capacity'] = min_capacity
-            if resource_id is None:
+            if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__['resource_id'] = resource_id
             __props__['role_arn'] = role_arn
-            if scalable_dimension is None:
+            if scalable_dimension is None and not opts.urn:
                 raise TypeError("Missing required property 'scalable_dimension'")
             __props__['scalable_dimension'] = scalable_dimension
-            if service_namespace is None:
+            if service_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'service_namespace'")
             __props__['service_namespace'] = service_namespace
         super(Target, __self__).__init__(

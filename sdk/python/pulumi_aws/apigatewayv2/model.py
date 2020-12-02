@@ -80,15 +80,15 @@ class Model(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_id is None:
+            if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
-            if content_type is None:
+            if content_type is None and not opts.urn:
                 raise TypeError("Missing required property 'content_type'")
             __props__['content_type'] = content_type
             __props__['description'] = description
             __props__['name'] = name
-            if schema is None:
+            if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__['schema'] = schema
         super(Model, __self__).__init__(
