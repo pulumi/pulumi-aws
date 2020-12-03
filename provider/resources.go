@@ -973,12 +973,24 @@ func Provider() tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "InstanceProfile")},
 					},
+					"instance_platform": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "InstancePlatform", "InstancePlatform")},
+					},
 					"instance_type": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(ec2Mod, "InstanceType", "InstanceType")},
 					},
 					"instance_state": {
 						CSharpName: "State",
+					},
+					"placement_strategy": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "PlacementStrategy", "PlacementStrategy")},
+					},
+					"protocol_type": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "ProtocolType", "ProtocolType")},
 					},
 					"security_groups": {
 						DeprecationMessage: "Use of `securityGroups` is discouraged as it does not allow for changes and" +
@@ -1824,6 +1836,14 @@ func Provider() tfbridge.ProviderInfo {
 						},
 					},
 					"name": {Name: "name"},
+					"engine_mode": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(rdsMod, "EngineMode", "EngineMode")},
+					},
+					"engine_type": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(rdsMod, "EngineType", "EngineType")},
+					},
 					"instance_class": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(rdsMod, "InstanceType", "InstanceType")},
