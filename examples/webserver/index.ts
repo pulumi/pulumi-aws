@@ -9,8 +9,6 @@ const config = new pulumi.Config("aws");
 const region = <aws.Region>config.require("envRegion");
 const providerOpts = { provider: new aws.Provider("prov", { region }) };
 
-let size = aws.ec2.InstanceTypes.T2_Micro;
-
 let group = new aws.ec2.SecurityGroup("web-secgrp-2", {
     description: "Enable HTTP access",
     ingress: [
@@ -19,7 +17,7 @@ let group = new aws.ec2.SecurityGroup("web-secgrp-2", {
 }, providerOpts);
 
 let server = new aws.ec2.Instance("web-server-www", {
-    instanceType: size,
+    instanceType: aws.ec2.InstanceType.T2_Micro,
     securityGroups: [ group.name ],
     ami: getLinuxAMI(size, region),
 }, providerOpts);
