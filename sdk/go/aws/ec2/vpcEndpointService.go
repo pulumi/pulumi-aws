@@ -63,11 +63,12 @@ type VpcEndpointService struct {
 // NewVpcEndpointService registers a new resource with the given unique name, arguments, and options.
 func NewVpcEndpointService(ctx *pulumi.Context,
 	name string, args *VpcEndpointServiceArgs, opts ...pulumi.ResourceOption) (*VpcEndpointService, error) {
-	if args == nil || args.AcceptanceRequired == nil {
-		return nil, errors.New("missing required argument 'AcceptanceRequired'")
-	}
 	if args == nil {
-		args = &VpcEndpointServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AcceptanceRequired == nil {
+		return nil, errors.New("invalid value for required argument 'AcceptanceRequired'")
 	}
 	var resource VpcEndpointService
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointService:VpcEndpointService", name, args, &resource, opts...)

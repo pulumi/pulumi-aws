@@ -89,11 +89,12 @@ type Activation struct {
 // NewActivation registers a new resource with the given unique name, arguments, and options.
 func NewActivation(ctx *pulumi.Context,
 	name string, args *ActivationArgs, opts ...pulumi.ResourceOption) (*Activation, error) {
-	if args == nil || args.IamRole == nil {
-		return nil, errors.New("missing required argument 'IamRole'")
-	}
 	if args == nil {
-		args = &ActivationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IamRole == nil {
+		return nil, errors.New("invalid value for required argument 'IamRole'")
 	}
 	var resource Activation
 	err := ctx.RegisterResource("aws:ssm/activation:Activation", name, args, &resource, opts...)

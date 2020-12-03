@@ -91,18 +91,18 @@ class MethodResponse(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if http_method is None:
+            if http_method is None and not opts.urn:
                 raise TypeError("Missing required property 'http_method'")
             __props__['http_method'] = http_method
-            if resource_id is None:
+            if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__['resource_id'] = resource_id
             __props__['response_models'] = response_models
             __props__['response_parameters'] = response_parameters
-            if rest_api is None:
+            if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__['rest_api'] = rest_api
-            if status_code is None:
+            if status_code is None and not opts.urn:
                 raise TypeError("Missing required property 'status_code'")
             __props__['status_code'] = status_code
         super(MethodResponse, __self__).__init__(

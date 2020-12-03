@@ -137,11 +137,11 @@ class Document(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['attachments_sources'] = attachments_sources
-            if content is None:
+            if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__['content'] = content
             __props__['document_format'] = document_format
-            if document_type is None:
+            if document_type is None and not opts.urn:
                 raise TypeError("Missing required property 'document_type'")
             __props__['document_type'] = document_type
             __props__['name'] = name

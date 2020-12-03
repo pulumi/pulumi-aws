@@ -12,3 +12,40 @@ from .s3_location import *
 from .task import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:datasync/agent:Agent":
+                return Agent(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:datasync/efsLocation:EfsLocation":
+                return EfsLocation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:datasync/locationFsxWindows:LocationFsxWindows":
+                return LocationFsxWindows(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:datasync/locationSmb:LocationSmb":
+                return LocationSmb(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:datasync/nfsLocation:NfsLocation":
+                return NfsLocation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:datasync/s3Location:S3Location":
+                return S3Location(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:datasync/task:Task":
+                return Task(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "datasync/agent", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "datasync/efsLocation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "datasync/locationFsxWindows", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "datasync/locationSmb", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "datasync/nfsLocation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "datasync/s3Location", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "datasync/task", _module_instance)
+
+_register_module()

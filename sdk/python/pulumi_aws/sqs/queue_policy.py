@@ -84,10 +84,10 @@ class QueuePolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if policy is None:
+            if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__['policy'] = policy
-            if queue_url is None:
+            if queue_url is None and not opts.urn:
                 raise TypeError("Missing required property 'queue_url'")
             __props__['queue_url'] = queue_url
         super(QueuePolicy, __self__).__init__(

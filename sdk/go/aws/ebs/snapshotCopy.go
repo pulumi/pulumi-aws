@@ -91,14 +91,15 @@ type SnapshotCopy struct {
 // NewSnapshotCopy registers a new resource with the given unique name, arguments, and options.
 func NewSnapshotCopy(ctx *pulumi.Context,
 	name string, args *SnapshotCopyArgs, opts ...pulumi.ResourceOption) (*SnapshotCopy, error) {
-	if args == nil || args.SourceRegion == nil {
-		return nil, errors.New("missing required argument 'SourceRegion'")
-	}
-	if args == nil || args.SourceSnapshotId == nil {
-		return nil, errors.New("missing required argument 'SourceSnapshotId'")
-	}
 	if args == nil {
-		args = &SnapshotCopyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SourceRegion == nil {
+		return nil, errors.New("invalid value for required argument 'SourceRegion'")
+	}
+	if args.SourceSnapshotId == nil {
+		return nil, errors.New("invalid value for required argument 'SourceSnapshotId'")
 	}
 	var resource SnapshotCopy
 	err := ctx.RegisterResource("aws:ebs/snapshotCopy:SnapshotCopy", name, args, &resource, opts...)

@@ -49,11 +49,12 @@ type MemberAccountAssociation struct {
 // NewMemberAccountAssociation registers a new resource with the given unique name, arguments, and options.
 func NewMemberAccountAssociation(ctx *pulumi.Context,
 	name string, args *MemberAccountAssociationArgs, opts ...pulumi.ResourceOption) (*MemberAccountAssociation, error) {
-	if args == nil || args.MemberAccountId == nil {
-		return nil, errors.New("missing required argument 'MemberAccountId'")
-	}
 	if args == nil {
-		args = &MemberAccountAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MemberAccountId == nil {
+		return nil, errors.New("invalid value for required argument 'MemberAccountId'")
 	}
 	var resource MemberAccountAssociation
 	err := ctx.RegisterResource("aws:macie/memberAccountAssociation:MemberAccountAssociation", name, args, &resource, opts...)

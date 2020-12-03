@@ -68,11 +68,12 @@ type ProductSubscription struct {
 // NewProductSubscription registers a new resource with the given unique name, arguments, and options.
 func NewProductSubscription(ctx *pulumi.Context,
 	name string, args *ProductSubscriptionArgs, opts ...pulumi.ResourceOption) (*ProductSubscription, error) {
-	if args == nil || args.ProductArn == nil {
-		return nil, errors.New("missing required argument 'ProductArn'")
-	}
 	if args == nil {
-		args = &ProductSubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProductArn == nil {
+		return nil, errors.New("invalid value for required argument 'ProductArn'")
 	}
 	var resource ProductSubscription
 	err := ctx.RegisterResource("aws:securityhub/productSubscription:ProductSubscription", name, args, &resource, opts...)

@@ -77,11 +77,12 @@ type UserGroup struct {
 // NewUserGroup registers a new resource with the given unique name, arguments, and options.
 func NewUserGroup(ctx *pulumi.Context,
 	name string, args *UserGroupArgs, opts ...pulumi.ResourceOption) (*UserGroup, error) {
-	if args == nil || args.UserPoolId == nil {
-		return nil, errors.New("missing required argument 'UserPoolId'")
-	}
 	if args == nil {
-		args = &UserGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.UserPoolId == nil {
+		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}
 	var resource UserGroup
 	err := ctx.RegisterResource("aws:cognito/userGroup:UserGroup", name, args, &resource, opts...)

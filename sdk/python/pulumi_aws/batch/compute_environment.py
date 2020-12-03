@@ -100,7 +100,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             ),
             service_role=aws_batch_service_role_role.arn,
             type="MANAGED",
-            opts=ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
+            opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
         ```
 
         ## Import
@@ -143,12 +143,12 @@ class ComputeEnvironment(pulumi.CustomResource):
             __props__['compute_environment_name'] = compute_environment_name
             __props__['compute_environment_name_prefix'] = compute_environment_name_prefix
             __props__['compute_resources'] = compute_resources
-            if service_role is None:
+            if service_role is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role'")
             __props__['service_role'] = service_role
             __props__['state'] = state
             __props__['tags'] = tags
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['arn'] = None

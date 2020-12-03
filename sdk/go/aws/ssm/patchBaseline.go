@@ -233,6 +233,7 @@ func NewPatchBaseline(ctx *pulumi.Context,
 	if args == nil {
 		args = &PatchBaselineArgs{}
 	}
+
 	var resource PatchBaseline
 	err := ctx.RegisterResource("aws:ssm/patchBaseline:PatchBaseline", name, args, &resource, opts...)
 	if err != nil {

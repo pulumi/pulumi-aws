@@ -41,7 +41,7 @@ class Build(pulumi.CustomResource):
                 key=aws_s3_bucket_object["test"]["key"],
                 role_arn=aws_iam_role["test"]["arn"],
             ),
-            opts=ResourceOptions(depends_on=[aws_iam_role_policy["test"]]))
+            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["test"]]))
         ```
 
         ## Import
@@ -74,10 +74,10 @@ class Build(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if operating_system is None:
+            if operating_system is None and not opts.urn:
                 raise TypeError("Missing required property 'operating_system'")
             __props__['operating_system'] = operating_system
-            if storage_location is None:
+            if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__['storage_location'] = storage_location
             __props__['tags'] = tags

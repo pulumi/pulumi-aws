@@ -86,20 +86,21 @@ type PrivateVirtualInterface struct {
 // NewPrivateVirtualInterface registers a new resource with the given unique name, arguments, and options.
 func NewPrivateVirtualInterface(ctx *pulumi.Context,
 	name string, args *PrivateVirtualInterfaceArgs, opts ...pulumi.ResourceOption) (*PrivateVirtualInterface, error) {
-	if args == nil || args.AddressFamily == nil {
-		return nil, errors.New("missing required argument 'AddressFamily'")
-	}
-	if args == nil || args.BgpAsn == nil {
-		return nil, errors.New("missing required argument 'BgpAsn'")
-	}
-	if args == nil || args.ConnectionId == nil {
-		return nil, errors.New("missing required argument 'ConnectionId'")
-	}
-	if args == nil || args.Vlan == nil {
-		return nil, errors.New("missing required argument 'Vlan'")
-	}
 	if args == nil {
-		args = &PrivateVirtualInterfaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AddressFamily == nil {
+		return nil, errors.New("invalid value for required argument 'AddressFamily'")
+	}
+	if args.BgpAsn == nil {
+		return nil, errors.New("invalid value for required argument 'BgpAsn'")
+	}
+	if args.ConnectionId == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionId'")
+	}
+	if args.Vlan == nil {
+		return nil, errors.New("invalid value for required argument 'Vlan'")
 	}
 	var resource PrivateVirtualInterface
 	err := ctx.RegisterResource("aws:directconnect/privateVirtualInterface:PrivateVirtualInterface", name, args, &resource, opts...)

@@ -311,14 +311,15 @@ type EventTarget struct {
 // NewEventTarget registers a new resource with the given unique name, arguments, and options.
 func NewEventTarget(ctx *pulumi.Context,
 	name string, args *EventTargetArgs, opts ...pulumi.ResourceOption) (*EventTarget, error) {
-	if args == nil || args.Arn == nil {
-		return nil, errors.New("missing required argument 'Arn'")
-	}
-	if args == nil || args.Rule == nil {
-		return nil, errors.New("missing required argument 'Rule'")
-	}
 	if args == nil {
-		args = &EventTargetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Arn == nil {
+		return nil, errors.New("invalid value for required argument 'Arn'")
+	}
+	if args.Rule == nil {
+		return nil, errors.New("invalid value for required argument 'Rule'")
 	}
 	var resource EventTarget
 	err := ctx.RegisterResource("aws:cloudwatch/eventTarget:EventTarget", name, args, &resource, opts...)

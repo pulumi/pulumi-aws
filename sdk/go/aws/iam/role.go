@@ -126,11 +126,12 @@ type Role struct {
 // NewRole registers a new resource with the given unique name, arguments, and options.
 func NewRole(ctx *pulumi.Context,
 	name string, args *RoleArgs, opts ...pulumi.ResourceOption) (*Role, error) {
-	if args == nil || args.AssumeRolePolicy == nil {
-		return nil, errors.New("missing required argument 'AssumeRolePolicy'")
-	}
 	if args == nil {
-		args = &RoleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AssumeRolePolicy == nil {
+		return nil, errors.New("invalid value for required argument 'AssumeRolePolicy'")
 	}
 	var resource Role
 	err := ctx.RegisterResource("aws:iam/role:Role", name, args, &resource, opts...)

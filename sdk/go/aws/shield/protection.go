@@ -81,11 +81,12 @@ type Protection struct {
 // NewProtection registers a new resource with the given unique name, arguments, and options.
 func NewProtection(ctx *pulumi.Context,
 	name string, args *ProtectionArgs, opts ...pulumi.ResourceOption) (*Protection, error) {
-	if args == nil || args.ResourceArn == nil {
-		return nil, errors.New("missing required argument 'ResourceArn'")
-	}
 	if args == nil {
-		args = &ProtectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceArn == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
 	var resource Protection
 	err := ctx.RegisterResource("aws:shield/protection:Protection", name, args, &resource, opts...)

@@ -115,14 +115,14 @@ class User(pulumi.CustomResource):
             __props__['home_directory_mappings'] = home_directory_mappings
             __props__['home_directory_type'] = home_directory_type
             __props__['policy'] = policy
-            if role is None:
+            if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__['role'] = role
-            if server_id is None:
+            if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__['server_id'] = server_id
             __props__['tags'] = tags
-            if user_name is None:
+            if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__['user_name'] = user_name
             __props__['arn'] = None

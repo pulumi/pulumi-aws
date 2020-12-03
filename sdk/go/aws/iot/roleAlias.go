@@ -69,14 +69,15 @@ type RoleAlias struct {
 // NewRoleAlias registers a new resource with the given unique name, arguments, and options.
 func NewRoleAlias(ctx *pulumi.Context,
 	name string, args *RoleAliasArgs, opts ...pulumi.ResourceOption) (*RoleAlias, error) {
-	if args == nil || args.Alias == nil {
-		return nil, errors.New("missing required argument 'Alias'")
-	}
-	if args == nil || args.RoleArn == nil {
-		return nil, errors.New("missing required argument 'RoleArn'")
-	}
 	if args == nil {
-		args = &RoleAliasArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Alias == nil {
+		return nil, errors.New("invalid value for required argument 'Alias'")
+	}
+	if args.RoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource RoleAlias
 	err := ctx.RegisterResource("aws:iot/roleAlias:RoleAlias", name, args, &resource, opts...)

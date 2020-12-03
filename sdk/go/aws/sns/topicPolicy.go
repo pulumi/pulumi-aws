@@ -65,14 +65,15 @@ type TopicPolicy struct {
 // NewTopicPolicy registers a new resource with the given unique name, arguments, and options.
 func NewTopicPolicy(ctx *pulumi.Context,
 	name string, args *TopicPolicyArgs, opts ...pulumi.ResourceOption) (*TopicPolicy, error) {
-	if args == nil || args.Arn == nil {
-		return nil, errors.New("missing required argument 'Arn'")
-	}
-	if args == nil || args.Policy == nil {
-		return nil, errors.New("missing required argument 'Policy'")
-	}
 	if args == nil {
-		args = &TopicPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Arn == nil {
+		return nil, errors.New("invalid value for required argument 'Arn'")
+	}
+	if args.Policy == nil {
+		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
 	var resource TopicPolicy
 	err := ctx.RegisterResource("aws:sns/topicPolicy:TopicPolicy", name, args, &resource, opts...)

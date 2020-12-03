@@ -105,12 +105,12 @@ class LifecycleHook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if autoscaling_group_name is None:
+            if autoscaling_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'autoscaling_group_name'")
             __props__['autoscaling_group_name'] = autoscaling_group_name
             __props__['default_result'] = default_result
             __props__['heartbeat_timeout'] = heartbeat_timeout
-            if lifecycle_transition is None:
+            if lifecycle_transition is None and not opts.urn:
                 raise TypeError("Missing required property 'lifecycle_transition'")
             __props__['lifecycle_transition'] = lifecycle_transition
             __props__['name'] = name

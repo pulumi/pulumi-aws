@@ -70,14 +70,15 @@ type EfsLocation struct {
 // NewEfsLocation registers a new resource with the given unique name, arguments, and options.
 func NewEfsLocation(ctx *pulumi.Context,
 	name string, args *EfsLocationArgs, opts ...pulumi.ResourceOption) (*EfsLocation, error) {
-	if args == nil || args.Ec2Config == nil {
-		return nil, errors.New("missing required argument 'Ec2Config'")
-	}
-	if args == nil || args.EfsFileSystemArn == nil {
-		return nil, errors.New("missing required argument 'EfsFileSystemArn'")
-	}
 	if args == nil {
-		args = &EfsLocationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Ec2Config == nil {
+		return nil, errors.New("invalid value for required argument 'Ec2Config'")
+	}
+	if args.EfsFileSystemArn == nil {
+		return nil, errors.New("invalid value for required argument 'EfsFileSystemArn'")
 	}
 	var resource EfsLocation
 	err := ctx.RegisterResource("aws:datasync/efsLocation:EfsLocation", name, args, &resource, opts...)

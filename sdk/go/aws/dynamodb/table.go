@@ -182,14 +182,15 @@ type Table struct {
 // NewTable registers a new resource with the given unique name, arguments, and options.
 func NewTable(ctx *pulumi.Context,
 	name string, args *TableArgs, opts ...pulumi.ResourceOption) (*Table, error) {
-	if args == nil || args.Attributes == nil {
-		return nil, errors.New("missing required argument 'Attributes'")
-	}
-	if args == nil || args.HashKey == nil {
-		return nil, errors.New("missing required argument 'HashKey'")
-	}
 	if args == nil {
-		args = &TableArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Attributes == nil {
+		return nil, errors.New("invalid value for required argument 'Attributes'")
+	}
+	if args.HashKey == nil {
+		return nil, errors.New("invalid value for required argument 'HashKey'")
 	}
 	var resource Table
 	err := ctx.RegisterResource("aws:dynamodb/table:Table", name, args, &resource, opts...)

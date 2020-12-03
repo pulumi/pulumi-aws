@@ -65,6 +65,7 @@ func NewClientCertificate(ctx *pulumi.Context,
 	if args == nil {
 		args = &ClientCertificateArgs{}
 	}
+
 	var resource ClientCertificate
 	err := ctx.RegisterResource("aws:apigateway/clientCertificate:ClientCertificate", name, args, &resource, opts...)
 	if err != nil {

@@ -75,17 +75,18 @@ type VpcAttachment struct {
 // NewVpcAttachment registers a new resource with the given unique name, arguments, and options.
 func NewVpcAttachment(ctx *pulumi.Context,
 	name string, args *VpcAttachmentArgs, opts ...pulumi.ResourceOption) (*VpcAttachment, error) {
-	if args == nil || args.SubnetIds == nil {
-		return nil, errors.New("missing required argument 'SubnetIds'")
-	}
-	if args == nil || args.TransitGatewayId == nil {
-		return nil, errors.New("missing required argument 'TransitGatewayId'")
-	}
-	if args == nil || args.VpcId == nil {
-		return nil, errors.New("missing required argument 'VpcId'")
-	}
 	if args == nil {
-		args = &VpcAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SubnetIds == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetIds'")
+	}
+	if args.TransitGatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'TransitGatewayId'")
+	}
+	if args.VpcId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	var resource VpcAttachment
 	err := ctx.RegisterResource("aws:ec2transitgateway/vpcAttachment:VpcAttachment", name, args, &resource, opts...)

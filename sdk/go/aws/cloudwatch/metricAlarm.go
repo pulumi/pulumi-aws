@@ -222,14 +222,15 @@ type MetricAlarm struct {
 // NewMetricAlarm registers a new resource with the given unique name, arguments, and options.
 func NewMetricAlarm(ctx *pulumi.Context,
 	name string, args *MetricAlarmArgs, opts ...pulumi.ResourceOption) (*MetricAlarm, error) {
-	if args == nil || args.ComparisonOperator == nil {
-		return nil, errors.New("missing required argument 'ComparisonOperator'")
-	}
-	if args == nil || args.EvaluationPeriods == nil {
-		return nil, errors.New("missing required argument 'EvaluationPeriods'")
-	}
 	if args == nil {
-		args = &MetricAlarmArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ComparisonOperator == nil {
+		return nil, errors.New("invalid value for required argument 'ComparisonOperator'")
+	}
+	if args.EvaluationPeriods == nil {
+		return nil, errors.New("invalid value for required argument 'EvaluationPeriods'")
 	}
 	var resource MetricAlarm
 	err := ctx.RegisterResource("aws:cloudwatch/metricAlarm:MetricAlarm", name, args, &resource, opts...)

@@ -112,7 +112,7 @@ class VpnConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if customer_gateway_id is None:
+            if customer_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'customer_gateway_id'")
             __props__['customer_gateway_id'] = customer_gateway_id
             __props__['static_routes_only'] = static_routes_only
@@ -122,7 +122,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__['tunnel1_preshared_key'] = tunnel1_preshared_key
             __props__['tunnel2_inside_cidr'] = tunnel2_inside_cidr
             __props__['tunnel2_preshared_key'] = tunnel2_preshared_key
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['vpn_gateway_id'] = vpn_gateway_id

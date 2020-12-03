@@ -136,11 +136,12 @@ type FlowLog struct {
 // NewFlowLog registers a new resource with the given unique name, arguments, and options.
 func NewFlowLog(ctx *pulumi.Context,
 	name string, args *FlowLogArgs, opts ...pulumi.ResourceOption) (*FlowLog, error) {
-	if args == nil || args.TrafficType == nil {
-		return nil, errors.New("missing required argument 'TrafficType'")
-	}
 	if args == nil {
-		args = &FlowLogArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.TrafficType == nil {
+		return nil, errors.New("invalid value for required argument 'TrafficType'")
 	}
 	var resource FlowLog
 	err := ctx.RegisterResource("aws:ec2/flowLog:FlowLog", name, args, &resource, opts...)

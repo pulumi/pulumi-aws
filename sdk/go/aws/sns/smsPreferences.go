@@ -55,6 +55,7 @@ func NewSmsPreferences(ctx *pulumi.Context,
 	if args == nil {
 		args = &SmsPreferencesArgs{}
 	}
+
 	var resource SmsPreferences
 	err := ctx.RegisterResource("aws:sns/smsPreferences:SmsPreferences", name, args, &resource, opts...)
 	if err != nil {

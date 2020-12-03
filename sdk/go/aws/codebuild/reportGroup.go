@@ -89,14 +89,15 @@ type ReportGroup struct {
 // NewReportGroup registers a new resource with the given unique name, arguments, and options.
 func NewReportGroup(ctx *pulumi.Context,
 	name string, args *ReportGroupArgs, opts ...pulumi.ResourceOption) (*ReportGroup, error) {
-	if args == nil || args.ExportConfig == nil {
-		return nil, errors.New("missing required argument 'ExportConfig'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &ReportGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ExportConfig == nil {
+		return nil, errors.New("invalid value for required argument 'ExportConfig'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource ReportGroup
 	err := ctx.RegisterResource("aws:codebuild/reportGroup:ReportGroup", name, args, &resource, opts...)

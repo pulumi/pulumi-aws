@@ -34,11 +34,12 @@ type ProxyDefaultTargetGroup struct {
 // NewProxyDefaultTargetGroup registers a new resource with the given unique name, arguments, and options.
 func NewProxyDefaultTargetGroup(ctx *pulumi.Context,
 	name string, args *ProxyDefaultTargetGroupArgs, opts ...pulumi.ResourceOption) (*ProxyDefaultTargetGroup, error) {
-	if args == nil || args.DbProxyName == nil {
-		return nil, errors.New("missing required argument 'DbProxyName'")
-	}
 	if args == nil {
-		args = &ProxyDefaultTargetGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DbProxyName == nil {
+		return nil, errors.New("invalid value for required argument 'DbProxyName'")
 	}
 	var resource ProxyDefaultTargetGroup
 	err := ctx.RegisterResource("aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup", name, args, &resource, opts...)

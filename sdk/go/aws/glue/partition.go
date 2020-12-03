@@ -45,17 +45,18 @@ type Partition struct {
 // NewPartition registers a new resource with the given unique name, arguments, and options.
 func NewPartition(ctx *pulumi.Context,
 	name string, args *PartitionArgs, opts ...pulumi.ResourceOption) (*Partition, error) {
-	if args == nil || args.DatabaseName == nil {
-		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.PartitionValues == nil {
-		return nil, errors.New("missing required argument 'PartitionValues'")
-	}
-	if args == nil || args.TableName == nil {
-		return nil, errors.New("missing required argument 'TableName'")
-	}
 	if args == nil {
-		args = &PartitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.PartitionValues == nil {
+		return nil, errors.New("invalid value for required argument 'PartitionValues'")
+	}
+	if args.TableName == nil {
+		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
 	var resource Partition
 	err := ctx.RegisterResource("aws:glue/partition:Partition", name, args, &resource, opts...)

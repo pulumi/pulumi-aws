@@ -73,10 +73,10 @@ class VpnGatewayAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if vpc_id is None:
+            if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
-            if vpn_gateway_id is None:
+            if vpn_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_gateway_id'")
             __props__['vpn_gateway_id'] = vpn_gateway_id
         super(VpnGatewayAttachment, __self__).__init__(

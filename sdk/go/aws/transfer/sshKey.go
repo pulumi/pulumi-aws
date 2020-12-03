@@ -93,17 +93,18 @@ type SshKey struct {
 // NewSshKey registers a new resource with the given unique name, arguments, and options.
 func NewSshKey(ctx *pulumi.Context,
 	name string, args *SshKeyArgs, opts ...pulumi.ResourceOption) (*SshKey, error) {
-	if args == nil || args.Body == nil {
-		return nil, errors.New("missing required argument 'Body'")
-	}
-	if args == nil || args.ServerId == nil {
-		return nil, errors.New("missing required argument 'ServerId'")
-	}
-	if args == nil || args.UserName == nil {
-		return nil, errors.New("missing required argument 'UserName'")
-	}
 	if args == nil {
-		args = &SshKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Body == nil {
+		return nil, errors.New("invalid value for required argument 'Body'")
+	}
+	if args.ServerId == nil {
+		return nil, errors.New("invalid value for required argument 'ServerId'")
+	}
+	if args.UserName == nil {
+		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
 	var resource SshKey
 	err := ctx.RegisterResource("aws:transfer/sshKey:SshKey", name, args, &resource, opts...)

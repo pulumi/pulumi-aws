@@ -67,13 +67,13 @@ class LocalGatewayRoute(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if destination_cidr_block is None:
+            if destination_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_cidr_block'")
             __props__['destination_cidr_block'] = destination_cidr_block
-            if local_gateway_route_table_id is None:
+            if local_gateway_route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'local_gateway_route_table_id'")
             __props__['local_gateway_route_table_id'] = local_gateway_route_table_id
-            if local_gateway_virtual_interface_group_id is None:
+            if local_gateway_virtual_interface_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'local_gateway_virtual_interface_group_id'")
             __props__['local_gateway_virtual_interface_group_id'] = local_gateway_virtual_interface_group_id
         super(LocalGatewayRoute, __self__).__init__(

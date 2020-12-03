@@ -221,23 +221,24 @@ type Budget struct {
 // NewBudget registers a new resource with the given unique name, arguments, and options.
 func NewBudget(ctx *pulumi.Context,
 	name string, args *BudgetArgs, opts ...pulumi.ResourceOption) (*Budget, error) {
-	if args == nil || args.BudgetType == nil {
-		return nil, errors.New("missing required argument 'BudgetType'")
-	}
-	if args == nil || args.LimitAmount == nil {
-		return nil, errors.New("missing required argument 'LimitAmount'")
-	}
-	if args == nil || args.LimitUnit == nil {
-		return nil, errors.New("missing required argument 'LimitUnit'")
-	}
-	if args == nil || args.TimePeriodStart == nil {
-		return nil, errors.New("missing required argument 'TimePeriodStart'")
-	}
-	if args == nil || args.TimeUnit == nil {
-		return nil, errors.New("missing required argument 'TimeUnit'")
-	}
 	if args == nil {
-		args = &BudgetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BudgetType == nil {
+		return nil, errors.New("invalid value for required argument 'BudgetType'")
+	}
+	if args.LimitAmount == nil {
+		return nil, errors.New("invalid value for required argument 'LimitAmount'")
+	}
+	if args.LimitUnit == nil {
+		return nil, errors.New("invalid value for required argument 'LimitUnit'")
+	}
+	if args.TimePeriodStart == nil {
+		return nil, errors.New("invalid value for required argument 'TimePeriodStart'")
+	}
+	if args.TimeUnit == nil {
+		return nil, errors.New("invalid value for required argument 'TimeUnit'")
 	}
 	var resource Budget
 	err := ctx.RegisterResource("aws:budgets/budget:Budget", name, args, &resource, opts...)

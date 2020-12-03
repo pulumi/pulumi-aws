@@ -82,6 +82,7 @@ func NewAccountPasswordPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &AccountPasswordPolicyArgs{}
 	}
+
 	var resource AccountPasswordPolicy
 	err := ctx.RegisterResource("aws:iam/accountPasswordPolicy:AccountPasswordPolicy", name, args, &resource, opts...)
 	if err != nil {

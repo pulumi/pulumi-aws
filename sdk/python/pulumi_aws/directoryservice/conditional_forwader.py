@@ -70,13 +70,13 @@ class ConditionalForwader(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if directory_id is None:
+            if directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_id'")
             __props__['directory_id'] = directory_id
-            if dns_ips is None:
+            if dns_ips is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_ips'")
             __props__['dns_ips'] = dns_ips
-            if remote_domain_name is None:
+            if remote_domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_domain_name'")
             __props__['remote_domain_name'] = remote_domain_name
         super(ConditionalForwader, __self__).__init__(

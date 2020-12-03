@@ -64,17 +64,18 @@ type RoleAssociation struct {
 // NewRoleAssociation registers a new resource with the given unique name, arguments, and options.
 func NewRoleAssociation(ctx *pulumi.Context,
 	name string, args *RoleAssociationArgs, opts ...pulumi.ResourceOption) (*RoleAssociation, error) {
-	if args == nil || args.DbInstanceIdentifier == nil {
-		return nil, errors.New("missing required argument 'DbInstanceIdentifier'")
-	}
-	if args == nil || args.FeatureName == nil {
-		return nil, errors.New("missing required argument 'FeatureName'")
-	}
-	if args == nil || args.RoleArn == nil {
-		return nil, errors.New("missing required argument 'RoleArn'")
-	}
 	if args == nil {
-		args = &RoleAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DbInstanceIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'DbInstanceIdentifier'")
+	}
+	if args.FeatureName == nil {
+		return nil, errors.New("invalid value for required argument 'FeatureName'")
+	}
+	if args.RoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource RoleAssociation
 	err := ctx.RegisterResource("aws:rds/roleAssociation:RoleAssociation", name, args, &resource, opts...)

@@ -64,11 +64,12 @@ type CertificateValidation struct {
 // NewCertificateValidation registers a new resource with the given unique name, arguments, and options.
 func NewCertificateValidation(ctx *pulumi.Context,
 	name string, args *CertificateValidationArgs, opts ...pulumi.ResourceOption) (*CertificateValidation, error) {
-	if args == nil || args.CertificateArn == nil {
-		return nil, errors.New("missing required argument 'CertificateArn'")
-	}
 	if args == nil {
-		args = &CertificateValidationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CertificateArn == nil {
+		return nil, errors.New("invalid value for required argument 'CertificateArn'")
 	}
 	var resource CertificateValidation
 	err := ctx.RegisterResource("aws:acm/certificateValidation:CertificateValidation", name, args, &resource, opts...)

@@ -114,21 +114,21 @@ class CachesIscsiVolume(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if gateway_arn is None:
+            if gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_arn'")
             __props__['gateway_arn'] = gateway_arn
             __props__['kms_encrypted'] = kms_encrypted
             __props__['kms_key'] = kms_key
-            if network_interface_id is None:
+            if network_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_id'")
             __props__['network_interface_id'] = network_interface_id
             __props__['snapshot_id'] = snapshot_id
             __props__['source_volume_arn'] = source_volume_arn
             __props__['tags'] = tags
-            if target_name is None:
+            if target_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_name'")
             __props__['target_name'] = target_name
-            if volume_size_in_bytes is None:
+            if volume_size_in_bytes is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_size_in_bytes'")
             __props__['volume_size_in_bytes'] = volume_size_in_bytes
             __props__['arn'] = None

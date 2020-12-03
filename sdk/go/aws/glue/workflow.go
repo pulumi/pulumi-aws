@@ -97,6 +97,7 @@ func NewWorkflow(ctx *pulumi.Context,
 	if args == nil {
 		args = &WorkflowArgs{}
 	}
+
 	var resource Workflow
 	err := ctx.RegisterResource("aws:glue/workflow:Workflow", name, args, &resource, opts...)
 	if err != nil {

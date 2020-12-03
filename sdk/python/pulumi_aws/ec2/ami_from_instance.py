@@ -92,7 +92,7 @@ class AmiFromInstance(pulumi.CustomResource):
             __props__['ephemeral_block_devices'] = ephemeral_block_devices
             __props__['name'] = name
             __props__['snapshot_without_reboot'] = snapshot_without_reboot
-            if source_instance_id is None:
+            if source_instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_instance_id'")
             __props__['source_instance_id'] = source_instance_id
             __props__['tags'] = tags

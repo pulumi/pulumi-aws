@@ -74,6 +74,7 @@ func NewTrafficMirrorTarget(ctx *pulumi.Context,
 	if args == nil {
 		args = &TrafficMirrorTargetArgs{}
 	}
+
 	var resource TrafficMirrorTarget
 	err := ctx.RegisterResource("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget", name, args, &resource, opts...)
 	if err != nil {

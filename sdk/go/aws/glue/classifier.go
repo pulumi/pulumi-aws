@@ -150,6 +150,7 @@ func NewClassifier(ctx *pulumi.Context,
 	if args == nil {
 		args = &ClassifierArgs{}
 	}
+
 	var resource Classifier
 	err := ctx.RegisterResource("aws:glue/classifier:Classifier", name, args, &resource, opts...)
 	if err != nil {

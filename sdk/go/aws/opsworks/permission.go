@@ -57,11 +57,12 @@ type Permission struct {
 // NewPermission registers a new resource with the given unique name, arguments, and options.
 func NewPermission(ctx *pulumi.Context,
 	name string, args *PermissionArgs, opts ...pulumi.ResourceOption) (*Permission, error) {
-	if args == nil || args.UserArn == nil {
-		return nil, errors.New("missing required argument 'UserArn'")
-	}
 	if args == nil {
-		args = &PermissionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.UserArn == nil {
+		return nil, errors.New("invalid value for required argument 'UserArn'")
 	}
 	var resource Permission
 	err := ctx.RegisterResource("aws:opsworks/permission:Permission", name, args, &resource, opts...)

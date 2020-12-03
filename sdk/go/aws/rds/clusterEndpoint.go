@@ -136,17 +136,18 @@ type ClusterEndpoint struct {
 // NewClusterEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewClusterEndpoint(ctx *pulumi.Context,
 	name string, args *ClusterEndpointArgs, opts ...pulumi.ResourceOption) (*ClusterEndpoint, error) {
-	if args == nil || args.ClusterEndpointIdentifier == nil {
-		return nil, errors.New("missing required argument 'ClusterEndpointIdentifier'")
-	}
-	if args == nil || args.ClusterIdentifier == nil {
-		return nil, errors.New("missing required argument 'ClusterIdentifier'")
-	}
-	if args == nil || args.CustomEndpointType == nil {
-		return nil, errors.New("missing required argument 'CustomEndpointType'")
-	}
 	if args == nil {
-		args = &ClusterEndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterEndpointIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterEndpointIdentifier'")
+	}
+	if args.ClusterIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterIdentifier'")
+	}
+	if args.CustomEndpointType == nil {
+		return nil, errors.New("invalid value for required argument 'CustomEndpointType'")
 	}
 	var resource ClusterEndpoint
 	err := ctx.RegisterResource("aws:rds/clusterEndpoint:ClusterEndpoint", name, args, &resource, opts...)

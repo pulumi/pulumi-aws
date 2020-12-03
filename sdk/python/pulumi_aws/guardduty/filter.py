@@ -101,18 +101,18 @@ class Filter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action is None:
+            if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__['action'] = action
             __props__['description'] = description
-            if detector_id is None:
+            if detector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_id'")
             __props__['detector_id'] = detector_id
-            if finding_criteria is None:
+            if finding_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'finding_criteria'")
             __props__['finding_criteria'] = finding_criteria
             __props__['name'] = name
-            if rank is None:
+            if rank is None and not opts.urn:
                 raise TypeError("Missing required property 'rank'")
             __props__['rank'] = rank
             __props__['tags'] = tags

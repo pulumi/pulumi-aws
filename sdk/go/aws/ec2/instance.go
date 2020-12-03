@@ -192,14 +192,15 @@ type Instance struct {
 // NewInstance registers a new resource with the given unique name, arguments, and options.
 func NewInstance(ctx *pulumi.Context,
 	name string, args *InstanceArgs, opts ...pulumi.ResourceOption) (*Instance, error) {
-	if args == nil || args.Ami == nil {
-		return nil, errors.New("missing required argument 'Ami'")
-	}
-	if args == nil || args.InstanceType == nil {
-		return nil, errors.New("missing required argument 'InstanceType'")
-	}
 	if args == nil {
-		args = &InstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Ami == nil {
+		return nil, errors.New("invalid value for required argument 'Ami'")
+	}
+	if args.InstanceType == nil {
+		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
 	var resource Instance
 	err := ctx.RegisterResource("aws:ec2/instance:Instance", name, args, &resource, opts...)

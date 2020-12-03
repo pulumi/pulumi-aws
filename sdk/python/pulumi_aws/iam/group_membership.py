@@ -71,11 +71,11 @@ class GroupMembership(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if group is None:
+            if group is None and not opts.urn:
                 raise TypeError("Missing required property 'group'")
             __props__['group'] = group
             __props__['name'] = name
-            if users is None:
+            if users is None and not opts.urn:
                 raise TypeError("Missing required property 'users'")
             __props__['users'] = users
         super(GroupMembership, __self__).__init__(

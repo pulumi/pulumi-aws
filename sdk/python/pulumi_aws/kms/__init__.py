@@ -15,3 +15,34 @@ from .grant import *
 from .key import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:kms/alias:Alias":
+                return Alias(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:kms/ciphertext:Ciphertext":
+                return Ciphertext(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:kms/externalKey:ExternalKey":
+                return ExternalKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:kms/grant:Grant":
+                return Grant(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:kms/key:Key":
+                return Key(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "kms/alias", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "kms/ciphertext", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "kms/externalKey", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "kms/grant", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "kms/key", _module_instance)
+
+_register_module()

@@ -66,14 +66,15 @@ type VaultPolicy struct {
 // NewVaultPolicy registers a new resource with the given unique name, arguments, and options.
 func NewVaultPolicy(ctx *pulumi.Context,
 	name string, args *VaultPolicyArgs, opts ...pulumi.ResourceOption) (*VaultPolicy, error) {
-	if args == nil || args.BackupVaultName == nil {
-		return nil, errors.New("missing required argument 'BackupVaultName'")
-	}
-	if args == nil || args.Policy == nil {
-		return nil, errors.New("missing required argument 'Policy'")
-	}
 	if args == nil {
-		args = &VaultPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BackupVaultName == nil {
+		return nil, errors.New("invalid value for required argument 'BackupVaultName'")
+	}
+	if args.Policy == nil {
+		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
 	var resource VaultPolicy
 	err := ctx.RegisterResource("aws:backup/vaultPolicy:VaultPolicy", name, args, &resource, opts...)

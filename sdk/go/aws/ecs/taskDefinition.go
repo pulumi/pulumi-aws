@@ -68,14 +68,15 @@ type TaskDefinition struct {
 // NewTaskDefinition registers a new resource with the given unique name, arguments, and options.
 func NewTaskDefinition(ctx *pulumi.Context,
 	name string, args *TaskDefinitionArgs, opts ...pulumi.ResourceOption) (*TaskDefinition, error) {
-	if args == nil || args.ContainerDefinitions == nil {
-		return nil, errors.New("missing required argument 'ContainerDefinitions'")
-	}
-	if args == nil || args.Family == nil {
-		return nil, errors.New("missing required argument 'Family'")
-	}
 	if args == nil {
-		args = &TaskDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ContainerDefinitions == nil {
+		return nil, errors.New("invalid value for required argument 'ContainerDefinitions'")
+	}
+	if args.Family == nil {
+		return nil, errors.New("invalid value for required argument 'Family'")
 	}
 	var resource TaskDefinition
 	err := ctx.RegisterResource("aws:ecs/taskDefinition:TaskDefinition", name, args, &resource, opts...)

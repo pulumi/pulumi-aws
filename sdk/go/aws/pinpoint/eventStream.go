@@ -86,17 +86,18 @@ type EventStream struct {
 // NewEventStream registers a new resource with the given unique name, arguments, and options.
 func NewEventStream(ctx *pulumi.Context,
 	name string, args *EventStreamArgs, opts ...pulumi.ResourceOption) (*EventStream, error) {
-	if args == nil || args.ApplicationId == nil {
-		return nil, errors.New("missing required argument 'ApplicationId'")
-	}
-	if args == nil || args.DestinationStreamArn == nil {
-		return nil, errors.New("missing required argument 'DestinationStreamArn'")
-	}
-	if args == nil || args.RoleArn == nil {
-		return nil, errors.New("missing required argument 'RoleArn'")
-	}
 	if args == nil {
-		args = &EventStreamArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationId == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationId'")
+	}
+	if args.DestinationStreamArn == nil {
+		return nil, errors.New("invalid value for required argument 'DestinationStreamArn'")
+	}
+	if args.RoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource EventStream
 	err := ctx.RegisterResource("aws:pinpoint/eventStream:EventStream", name, args, &resource, opts...)

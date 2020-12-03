@@ -116,20 +116,20 @@ class Inventory(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if bucket is None:
+            if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
             __props__['bucket'] = bucket
-            if destination is None:
+            if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__['destination'] = destination
             __props__['enabled'] = enabled
             __props__['filter'] = filter
-            if included_object_versions is None:
+            if included_object_versions is None and not opts.urn:
                 raise TypeError("Missing required property 'included_object_versions'")
             __props__['included_object_versions'] = included_object_versions
             __props__['name'] = name
             __props__['optional_fields'] = optional_fields
-            if schedule is None:
+            if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__['schedule'] = schedule
         super(Inventory, __self__).__init__(

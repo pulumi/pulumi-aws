@@ -156,23 +156,24 @@ type Target struct {
 // NewTarget registers a new resource with the given unique name, arguments, and options.
 func NewTarget(ctx *pulumi.Context,
 	name string, args *TargetArgs, opts ...pulumi.ResourceOption) (*Target, error) {
-	if args == nil || args.MaxCapacity == nil {
-		return nil, errors.New("missing required argument 'MaxCapacity'")
-	}
-	if args == nil || args.MinCapacity == nil {
-		return nil, errors.New("missing required argument 'MinCapacity'")
-	}
-	if args == nil || args.ResourceId == nil {
-		return nil, errors.New("missing required argument 'ResourceId'")
-	}
-	if args == nil || args.ScalableDimension == nil {
-		return nil, errors.New("missing required argument 'ScalableDimension'")
-	}
-	if args == nil || args.ServiceNamespace == nil {
-		return nil, errors.New("missing required argument 'ServiceNamespace'")
-	}
 	if args == nil {
-		args = &TargetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MaxCapacity == nil {
+		return nil, errors.New("invalid value for required argument 'MaxCapacity'")
+	}
+	if args.MinCapacity == nil {
+		return nil, errors.New("invalid value for required argument 'MinCapacity'")
+	}
+	if args.ResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceId'")
+	}
+	if args.ScalableDimension == nil {
+		return nil, errors.New("invalid value for required argument 'ScalableDimension'")
+	}
+	if args.ServiceNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceNamespace'")
 	}
 	var resource Target
 	err := ctx.RegisterResource("aws:appautoscaling/target:Target", name, args, &resource, opts...)

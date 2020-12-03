@@ -226,14 +226,14 @@ class DeploymentGroup(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['alarm_configuration'] = alarm_configuration
-            if app_name is None:
+            if app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_name'")
             __props__['app_name'] = app_name
             __props__['auto_rollback_configuration'] = auto_rollback_configuration
             __props__['autoscaling_groups'] = autoscaling_groups
             __props__['blue_green_deployment_config'] = blue_green_deployment_config
             __props__['deployment_config_name'] = deployment_config_name
-            if deployment_group_name is None:
+            if deployment_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_group_name'")
             __props__['deployment_group_name'] = deployment_group_name
             __props__['deployment_style'] = deployment_style
@@ -242,7 +242,7 @@ class DeploymentGroup(pulumi.CustomResource):
             __props__['ecs_service'] = ecs_service
             __props__['load_balancer_info'] = load_balancer_info
             __props__['on_premises_instance_tag_filters'] = on_premises_instance_tag_filters
-            if service_role_arn is None:
+            if service_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role_arn'")
             __props__['service_role_arn'] = service_role_arn
             __props__['trigger_configurations'] = trigger_configurations

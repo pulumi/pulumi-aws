@@ -168,7 +168,7 @@ class UserPoolClient(pulumi.CustomResource):
             __props__['read_attributes'] = read_attributes
             __props__['refresh_token_validity'] = refresh_token_validity
             __props__['supported_identity_providers'] = supported_identity_providers
-            if user_pool_id is None:
+            if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__['user_pool_id'] = user_pool_id
             __props__['write_attributes'] = write_attributes

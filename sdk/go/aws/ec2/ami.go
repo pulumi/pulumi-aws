@@ -107,6 +107,7 @@ func NewAmi(ctx *pulumi.Context,
 	if args == nil {
 		args = &AmiArgs{}
 	}
+
 	var resource Ami
 	err := ctx.RegisterResource("aws:ec2/ami:Ami", name, args, &resource, opts...)
 	if err != nil {

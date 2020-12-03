@@ -89,26 +89,26 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if address_family is None:
+            if address_family is None and not opts.urn:
                 raise TypeError("Missing required property 'address_family'")
             __props__['address_family'] = address_family
             __props__['amazon_address'] = amazon_address
-            if bgp_asn is None:
+            if bgp_asn is None and not opts.urn:
                 raise TypeError("Missing required property 'bgp_asn'")
             __props__['bgp_asn'] = bgp_asn
             __props__['bgp_auth_key'] = bgp_auth_key
-            if connection_id is None:
+            if connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_id'")
             __props__['connection_id'] = connection_id
             __props__['customer_address'] = customer_address
             __props__['name'] = name
-            if owner_account_id is None:
+            if owner_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'owner_account_id'")
             __props__['owner_account_id'] = owner_account_id
-            if route_filter_prefixes is None:
+            if route_filter_prefixes is None and not opts.urn:
                 raise TypeError("Missing required property 'route_filter_prefixes'")
             __props__['route_filter_prefixes'] = route_filter_prefixes
-            if vlan is None:
+            if vlan is None and not opts.urn:
                 raise TypeError("Missing required property 'vlan'")
             __props__['vlan'] = vlan
             __props__['amazon_side_asn'] = None

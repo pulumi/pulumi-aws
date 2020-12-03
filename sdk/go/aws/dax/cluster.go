@@ -110,20 +110,21 @@ type Cluster struct {
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.IamRoleArn == nil {
-		return nil, errors.New("missing required argument 'IamRoleArn'")
-	}
-	if args == nil || args.NodeType == nil {
-		return nil, errors.New("missing required argument 'NodeType'")
-	}
-	if args == nil || args.ReplicationFactor == nil {
-		return nil, errors.New("missing required argument 'ReplicationFactor'")
-	}
 	if args == nil {
-		args = &ClusterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.IamRoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'IamRoleArn'")
+	}
+	if args.NodeType == nil {
+		return nil, errors.New("invalid value for required argument 'NodeType'")
+	}
+	if args.ReplicationFactor == nil {
+		return nil, errors.New("invalid value for required argument 'ReplicationFactor'")
 	}
 	var resource Cluster
 	err := ctx.RegisterResource("aws:dax/cluster:Cluster", name, args, &resource, opts...)

@@ -68,14 +68,15 @@ type StateMachine struct {
 // NewStateMachine registers a new resource with the given unique name, arguments, and options.
 func NewStateMachine(ctx *pulumi.Context,
 	name string, args *StateMachineArgs, opts ...pulumi.ResourceOption) (*StateMachine, error) {
-	if args == nil || args.Definition == nil {
-		return nil, errors.New("missing required argument 'Definition'")
-	}
-	if args == nil || args.RoleArn == nil {
-		return nil, errors.New("missing required argument 'RoleArn'")
-	}
 	if args == nil {
-		args = &StateMachineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Definition == nil {
+		return nil, errors.New("invalid value for required argument 'Definition'")
+	}
+	if args.RoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource StateMachine
 	err := ctx.RegisterResource("aws:sfn/stateMachine:StateMachine", name, args, &resource, opts...)

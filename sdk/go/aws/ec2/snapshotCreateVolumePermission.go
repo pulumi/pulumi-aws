@@ -62,14 +62,15 @@ type SnapshotCreateVolumePermission struct {
 // NewSnapshotCreateVolumePermission registers a new resource with the given unique name, arguments, and options.
 func NewSnapshotCreateVolumePermission(ctx *pulumi.Context,
 	name string, args *SnapshotCreateVolumePermissionArgs, opts ...pulumi.ResourceOption) (*SnapshotCreateVolumePermission, error) {
-	if args == nil || args.AccountId == nil {
-		return nil, errors.New("missing required argument 'AccountId'")
-	}
-	if args == nil || args.SnapshotId == nil {
-		return nil, errors.New("missing required argument 'SnapshotId'")
-	}
 	if args == nil {
-		args = &SnapshotCreateVolumePermissionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountId == nil {
+		return nil, errors.New("invalid value for required argument 'AccountId'")
+	}
+	if args.SnapshotId == nil {
+		return nil, errors.New("invalid value for required argument 'SnapshotId'")
 	}
 	var resource SnapshotCreateVolumePermission
 	err := ctx.RegisterResource("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", name, args, &resource, opts...)

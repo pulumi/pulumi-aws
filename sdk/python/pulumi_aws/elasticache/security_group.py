@@ -75,7 +75,7 @@ class SecurityGroup(pulumi.CustomResource):
                 description = 'Managed by Pulumi'
             __props__['description'] = description
             __props__['name'] = name
-            if security_group_names is None:
+            if security_group_names is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_names'")
             __props__['security_group_names'] = security_group_names
         super(SecurityGroup, __self__).__init__(

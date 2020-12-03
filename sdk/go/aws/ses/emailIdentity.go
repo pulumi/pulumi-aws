@@ -55,11 +55,12 @@ type EmailIdentity struct {
 // NewEmailIdentity registers a new resource with the given unique name, arguments, and options.
 func NewEmailIdentity(ctx *pulumi.Context,
 	name string, args *EmailIdentityArgs, opts ...pulumi.ResourceOption) (*EmailIdentity, error) {
-	if args == nil || args.Email == nil {
-		return nil, errors.New("missing required argument 'Email'")
-	}
 	if args == nil {
-		args = &EmailIdentityArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Email == nil {
+		return nil, errors.New("invalid value for required argument 'Email'")
 	}
 	var resource EmailIdentity
 	err := ctx.RegisterResource("aws:ses/emailIdentity:EmailIdentity", name, args, &resource, opts...)

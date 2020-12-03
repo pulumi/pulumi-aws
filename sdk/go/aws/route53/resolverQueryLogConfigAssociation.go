@@ -56,14 +56,15 @@ type ResolverQueryLogConfigAssociation struct {
 // NewResolverQueryLogConfigAssociation registers a new resource with the given unique name, arguments, and options.
 func NewResolverQueryLogConfigAssociation(ctx *pulumi.Context,
 	name string, args *ResolverQueryLogConfigAssociationArgs, opts ...pulumi.ResourceOption) (*ResolverQueryLogConfigAssociation, error) {
-	if args == nil || args.ResolverQueryLogConfigId == nil {
-		return nil, errors.New("missing required argument 'ResolverQueryLogConfigId'")
-	}
-	if args == nil || args.ResourceId == nil {
-		return nil, errors.New("missing required argument 'ResourceId'")
-	}
 	if args == nil {
-		args = &ResolverQueryLogConfigAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResolverQueryLogConfigId == nil {
+		return nil, errors.New("invalid value for required argument 'ResolverQueryLogConfigId'")
+	}
+	if args.ResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
 	var resource ResolverQueryLogConfigAssociation
 	err := ctx.RegisterResource("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation", name, args, &resource, opts...)

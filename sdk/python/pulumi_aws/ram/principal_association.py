@@ -86,10 +86,10 @@ class PrincipalAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if principal is None:
+            if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__['principal'] = principal
-            if resource_share_arn is None:
+            if resource_share_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_share_arn'")
             __props__['resource_share_arn'] = resource_share_arn
         super(PrincipalAssociation, __self__).__init__(

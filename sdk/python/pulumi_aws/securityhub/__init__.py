@@ -8,3 +8,34 @@ from .action_target import *
 from .member import *
 from .product_subscription import *
 from .standards_subscription import *
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:securityhub/account:Account":
+                return Account(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:securityhub/actionTarget:ActionTarget":
+                return ActionTarget(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:securityhub/member:Member":
+                return Member(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:securityhub/productSubscription:ProductSubscription":
+                return ProductSubscription(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:securityhub/standardsSubscription:StandardsSubscription":
+                return StandardsSubscription(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "securityhub/account", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "securityhub/actionTarget", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "securityhub/member", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "securityhub/productSubscription", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "securityhub/standardsSubscription", _module_instance)
+
+_register_module()

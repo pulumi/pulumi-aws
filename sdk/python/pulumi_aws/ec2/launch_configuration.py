@@ -254,10 +254,10 @@ class LaunchConfiguration(pulumi.CustomResource):
             __props__['enable_monitoring'] = enable_monitoring
             __props__['ephemeral_block_devices'] = ephemeral_block_devices
             __props__['iam_instance_profile'] = iam_instance_profile
-            if image_id is None:
+            if image_id is None and not opts.urn:
                 raise TypeError("Missing required property 'image_id'")
             __props__['image_id'] = image_id
-            if instance_type is None:
+            if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__['instance_type'] = instance_type
             __props__['key_name'] = key_name

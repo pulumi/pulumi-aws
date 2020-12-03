@@ -62,10 +62,10 @@ class UserProfile(pulumi.CustomResource):
 
             __props__['allow_self_management'] = allow_self_management
             __props__['ssh_public_key'] = ssh_public_key
-            if ssh_username is None:
+            if ssh_username is None and not opts.urn:
                 raise TypeError("Missing required property 'ssh_username'")
             __props__['ssh_username'] = ssh_username
-            if user_arn is None:
+            if user_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'user_arn'")
             __props__['user_arn'] = user_arn
         super(UserProfile, __self__).__init__(

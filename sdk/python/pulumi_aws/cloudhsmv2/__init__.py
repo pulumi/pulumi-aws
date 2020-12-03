@@ -8,3 +8,25 @@ from .get_cluster import *
 from .hsm import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:cloudhsmv2/cluster:Cluster":
+                return Cluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudhsmv2/hsm:Hsm":
+                return Hsm(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "cloudhsmv2/cluster", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudhsmv2/hsm", _module_instance)
+
+_register_module()

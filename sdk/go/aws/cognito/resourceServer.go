@@ -99,14 +99,15 @@ type ResourceServer struct {
 // NewResourceServer registers a new resource with the given unique name, arguments, and options.
 func NewResourceServer(ctx *pulumi.Context,
 	name string, args *ResourceServerArgs, opts ...pulumi.ResourceOption) (*ResourceServer, error) {
-	if args == nil || args.Identifier == nil {
-		return nil, errors.New("missing required argument 'Identifier'")
-	}
-	if args == nil || args.UserPoolId == nil {
-		return nil, errors.New("missing required argument 'UserPoolId'")
-	}
 	if args == nil {
-		args = &ResourceServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Identifier == nil {
+		return nil, errors.New("invalid value for required argument 'Identifier'")
+	}
+	if args.UserPoolId == nil {
+		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}
 	var resource ResourceServer
 	err := ctx.RegisterResource("aws:cognito/resourceServer:ResourceServer", name, args, &resource, opts...)

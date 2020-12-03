@@ -234,14 +234,15 @@ type RuleGroup struct {
 // NewRuleGroup registers a new resource with the given unique name, arguments, and options.
 func NewRuleGroup(ctx *pulumi.Context,
 	name string, args *RuleGroupArgs, opts ...pulumi.ResourceOption) (*RuleGroup, error) {
-	if args == nil || args.Capacity == nil {
-		return nil, errors.New("missing required argument 'Capacity'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &RuleGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Capacity == nil {
+		return nil, errors.New("invalid value for required argument 'Capacity'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource RuleGroup
 	err := ctx.RegisterResource("aws:networkfirewall/ruleGroup:RuleGroup", name, args, &resource, opts...)

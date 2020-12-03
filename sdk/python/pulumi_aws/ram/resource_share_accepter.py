@@ -39,12 +39,12 @@ class ResourceShareAccepter(pulumi.CustomResource):
             tags={
                 "Name": "tf-test-resource-share",
             },
-            opts=ResourceOptions(provider=aws["alternate"]))
+            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
         receiver = aws.get_caller_identity()
         sender_invite = aws.ram.PrincipalAssociation("senderInvite",
             principal=receiver.account_id,
             resource_share_arn=sender_share.arn,
-            opts=ResourceOptions(provider=aws["alternate"]))
+            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
         receiver_accept = aws.ram.ResourceShareAccepter("receiverAccept", share_arn=sender_invite.resource_share_arn)
         ```
 
@@ -77,7 +77,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if share_arn is None:
+            if share_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'share_arn'")
             __props__['share_arn'] = share_arn
             __props__['invitation_arn'] = None

@@ -30,14 +30,15 @@ type BucketOwnershipControls struct {
 // NewBucketOwnershipControls registers a new resource with the given unique name, arguments, and options.
 func NewBucketOwnershipControls(ctx *pulumi.Context,
 	name string, args *BucketOwnershipControlsArgs, opts ...pulumi.ResourceOption) (*BucketOwnershipControls, error) {
-	if args == nil || args.Bucket == nil {
-		return nil, errors.New("missing required argument 'Bucket'")
-	}
-	if args == nil || args.Rule == nil {
-		return nil, errors.New("missing required argument 'Rule'")
-	}
 	if args == nil {
-		args = &BucketOwnershipControlsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Bucket == nil {
+		return nil, errors.New("invalid value for required argument 'Bucket'")
+	}
+	if args.Rule == nil {
+		return nil, errors.New("invalid value for required argument 'Rule'")
 	}
 	var resource BucketOwnershipControls
 	err := ctx.RegisterResource("aws:s3/bucketOwnershipControls:BucketOwnershipControls", name, args, &resource, opts...)

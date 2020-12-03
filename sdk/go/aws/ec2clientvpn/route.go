@@ -90,17 +90,18 @@ type Route struct {
 // NewRoute registers a new resource with the given unique name, arguments, and options.
 func NewRoute(ctx *pulumi.Context,
 	name string, args *RouteArgs, opts ...pulumi.ResourceOption) (*Route, error) {
-	if args == nil || args.ClientVpnEndpointId == nil {
-		return nil, errors.New("missing required argument 'ClientVpnEndpointId'")
-	}
-	if args == nil || args.DestinationCidrBlock == nil {
-		return nil, errors.New("missing required argument 'DestinationCidrBlock'")
-	}
-	if args == nil || args.TargetVpcSubnetId == nil {
-		return nil, errors.New("missing required argument 'TargetVpcSubnetId'")
-	}
 	if args == nil {
-		args = &RouteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClientVpnEndpointId == nil {
+		return nil, errors.New("invalid value for required argument 'ClientVpnEndpointId'")
+	}
+	if args.DestinationCidrBlock == nil {
+		return nil, errors.New("invalid value for required argument 'DestinationCidrBlock'")
+	}
+	if args.TargetVpcSubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetVpcSubnetId'")
 	}
 	var resource Route
 	err := ctx.RegisterResource("aws:ec2clientvpn/route:Route", name, args, &resource, opts...)

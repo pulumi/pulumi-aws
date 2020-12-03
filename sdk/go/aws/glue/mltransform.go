@@ -178,17 +178,18 @@ type MLTransform struct {
 // NewMLTransform registers a new resource with the given unique name, arguments, and options.
 func NewMLTransform(ctx *pulumi.Context,
 	name string, args *MLTransformArgs, opts ...pulumi.ResourceOption) (*MLTransform, error) {
-	if args == nil || args.InputRecordTables == nil {
-		return nil, errors.New("missing required argument 'InputRecordTables'")
-	}
-	if args == nil || args.Parameters == nil {
-		return nil, errors.New("missing required argument 'Parameters'")
-	}
-	if args == nil || args.RoleArn == nil {
-		return nil, errors.New("missing required argument 'RoleArn'")
-	}
 	if args == nil {
-		args = &MLTransformArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.InputRecordTables == nil {
+		return nil, errors.New("invalid value for required argument 'InputRecordTables'")
+	}
+	if args.Parameters == nil {
+		return nil, errors.New("invalid value for required argument 'Parameters'")
+	}
+	if args.RoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource MLTransform
 	err := ctx.RegisterResource("aws:glue/mLTransform:MLTransform", name, args, &resource, opts...)

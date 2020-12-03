@@ -80,14 +80,15 @@ type ClusterSnapshot struct {
 // NewClusterSnapshot registers a new resource with the given unique name, arguments, and options.
 func NewClusterSnapshot(ctx *pulumi.Context,
 	name string, args *ClusterSnapshotArgs, opts ...pulumi.ResourceOption) (*ClusterSnapshot, error) {
-	if args == nil || args.DbClusterIdentifier == nil {
-		return nil, errors.New("missing required argument 'DbClusterIdentifier'")
-	}
-	if args == nil || args.DbClusterSnapshotIdentifier == nil {
-		return nil, errors.New("missing required argument 'DbClusterSnapshotIdentifier'")
-	}
 	if args == nil {
-		args = &ClusterSnapshotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DbClusterIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'DbClusterIdentifier'")
+	}
+	if args.DbClusterSnapshotIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'DbClusterSnapshotIdentifier'")
 	}
 	var resource ClusterSnapshot
 	err := ctx.RegisterResource("aws:neptune/clusterSnapshot:ClusterSnapshot", name, args, &resource, opts...)

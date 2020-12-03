@@ -30,11 +30,12 @@ type EncryptionConfig struct {
 // NewEncryptionConfig registers a new resource with the given unique name, arguments, and options.
 func NewEncryptionConfig(ctx *pulumi.Context,
 	name string, args *EncryptionConfigArgs, opts ...pulumi.ResourceOption) (*EncryptionConfig, error) {
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &EncryptionConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource EncryptionConfig
 	err := ctx.RegisterResource("aws:xray/encryptionConfig:EncryptionConfig", name, args, &resource, opts...)

@@ -97,7 +97,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['private_ips_count'] = private_ips_count
             __props__['security_groups'] = security_groups
             __props__['source_dest_check'] = source_dest_check
-            if subnet_id is None:
+            if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags

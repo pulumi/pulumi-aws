@@ -11,3 +11,31 @@ from .repository import *
 from .repository_permissions_policy import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:codeartifact/domain:Domain":
+                return Domain(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:codeartifact/domainPermissions:DomainPermissions":
+                return DomainPermissions(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:codeartifact/repository:Repository":
+                return Repository(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy":
+                return RepositoryPermissionsPolicy(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "codeartifact/domain", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "codeartifact/domainPermissions", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "codeartifact/repository", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "codeartifact/repositoryPermissionsPolicy", _module_instance)
+
+_register_module()

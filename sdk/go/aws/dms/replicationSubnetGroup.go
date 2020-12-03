@@ -69,17 +69,18 @@ type ReplicationSubnetGroup struct {
 // NewReplicationSubnetGroup registers a new resource with the given unique name, arguments, and options.
 func NewReplicationSubnetGroup(ctx *pulumi.Context,
 	name string, args *ReplicationSubnetGroupArgs, opts ...pulumi.ResourceOption) (*ReplicationSubnetGroup, error) {
-	if args == nil || args.ReplicationSubnetGroupDescription == nil {
-		return nil, errors.New("missing required argument 'ReplicationSubnetGroupDescription'")
-	}
-	if args == nil || args.ReplicationSubnetGroupId == nil {
-		return nil, errors.New("missing required argument 'ReplicationSubnetGroupId'")
-	}
-	if args == nil || args.SubnetIds == nil {
-		return nil, errors.New("missing required argument 'SubnetIds'")
-	}
 	if args == nil {
-		args = &ReplicationSubnetGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ReplicationSubnetGroupDescription == nil {
+		return nil, errors.New("invalid value for required argument 'ReplicationSubnetGroupDescription'")
+	}
+	if args.ReplicationSubnetGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'ReplicationSubnetGroupId'")
+	}
+	if args.SubnetIds == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
 	var resource ReplicationSubnetGroup
 	err := ctx.RegisterResource("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", name, args, &resource, opts...)

@@ -80,10 +80,10 @@ class ContainerPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if container_name is None:
+            if container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_name'")
             __props__['container_name'] = container_name
-            if policy is None:
+            if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__['policy'] = policy
         super(ContainerPolicy, __self__).__init__(

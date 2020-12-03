@@ -66,17 +66,18 @@ type S3Location struct {
 // NewS3Location registers a new resource with the given unique name, arguments, and options.
 func NewS3Location(ctx *pulumi.Context,
 	name string, args *S3LocationArgs, opts ...pulumi.ResourceOption) (*S3Location, error) {
-	if args == nil || args.S3BucketArn == nil {
-		return nil, errors.New("missing required argument 'S3BucketArn'")
-	}
-	if args == nil || args.S3Config == nil {
-		return nil, errors.New("missing required argument 'S3Config'")
-	}
-	if args == nil || args.Subdirectory == nil {
-		return nil, errors.New("missing required argument 'Subdirectory'")
-	}
 	if args == nil {
-		args = &S3LocationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.S3BucketArn == nil {
+		return nil, errors.New("invalid value for required argument 'S3BucketArn'")
+	}
+	if args.S3Config == nil {
+		return nil, errors.New("invalid value for required argument 'S3Config'")
+	}
+	if args.Subdirectory == nil {
+		return nil, errors.New("invalid value for required argument 'Subdirectory'")
 	}
 	var resource S3Location
 	err := ctx.RegisterResource("aws:datasync/s3Location:S3Location", name, args, &resource, opts...)

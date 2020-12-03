@@ -87,11 +87,12 @@ type SigningProfile struct {
 // NewSigningProfile registers a new resource with the given unique name, arguments, and options.
 func NewSigningProfile(ctx *pulumi.Context,
 	name string, args *SigningProfileArgs, opts ...pulumi.ResourceOption) (*SigningProfile, error) {
-	if args == nil || args.PlatformId == nil {
-		return nil, errors.New("missing required argument 'PlatformId'")
-	}
 	if args == nil {
-		args = &SigningProfileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PlatformId == nil {
+		return nil, errors.New("invalid value for required argument 'PlatformId'")
 	}
 	var resource SigningProfile
 	err := ctx.RegisterResource("aws:signer/signingProfile:SigningProfile", name, args, &resource, opts...)

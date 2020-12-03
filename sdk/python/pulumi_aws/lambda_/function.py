@@ -116,7 +116,7 @@ class Function(pulumi.CustomResource):
             __props__['package_type'] = package_type
             __props__['publish'] = publish
             __props__['reserved_concurrent_executions'] = reserved_concurrent_executions
-            if role is None:
+            if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__['role'] = role
             __props__['runtime'] = runtime

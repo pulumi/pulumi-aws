@@ -54,7 +54,7 @@ class NodeGroup(pulumi.CustomResource):
                 max_size=1,
                 min_size=1,
             ),
-            opts=ResourceOptions(depends_on=[
+            opts=pulumi.ResourceOptions(depends_on=[
                     aws_iam_role_policy_attachment["example-AmazonEKSWorkerNodePolicy"],
                     aws_iam_role_policy_attachment["example-AmazonEKS_CNI_Policy"],
                     aws_iam_role_policy_attachment["example-AmazonEC2ContainerRegistryReadOnly"],
@@ -147,7 +147,7 @@ class NodeGroup(pulumi.CustomResource):
 
             __props__['ami_type'] = ami_type
             __props__['capacity_type'] = capacity_type
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['disk_size'] = disk_size
@@ -156,15 +156,15 @@ class NodeGroup(pulumi.CustomResource):
             __props__['labels'] = labels
             __props__['launch_template'] = launch_template
             __props__['node_group_name'] = node_group_name
-            if node_role_arn is None:
+            if node_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'node_role_arn'")
             __props__['node_role_arn'] = node_role_arn
             __props__['release_version'] = release_version
             __props__['remote_access'] = remote_access
-            if scaling_config is None:
+            if scaling_config is None and not opts.urn:
                 raise TypeError("Missing required property 'scaling_config'")
             __props__['scaling_config'] = scaling_config
-            if subnet_ids is None:
+            if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__['subnet_ids'] = subnet_ids
             __props__['tags'] = tags

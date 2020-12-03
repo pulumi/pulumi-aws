@@ -119,7 +119,7 @@ class MLTransform(pulumi.CustomResource):
                     primary_key_column_name="my_column_1",
                 ),
             ),
-            opts=ResourceOptions(depends_on=[aws_iam_role_policy_attachment["test"]]))
+            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["test"]]))
         ```
 
         ## Import
@@ -164,17 +164,17 @@ class MLTransform(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['glue_version'] = glue_version
-            if input_record_tables is None:
+            if input_record_tables is None and not opts.urn:
                 raise TypeError("Missing required property 'input_record_tables'")
             __props__['input_record_tables'] = input_record_tables
             __props__['max_capacity'] = max_capacity
             __props__['max_retries'] = max_retries
             __props__['name'] = name
             __props__['number_of_workers'] = number_of_workers
-            if parameters is None:
+            if parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'parameters'")
             __props__['parameters'] = parameters
-            if role_arn is None:
+            if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
             __props__['tags'] = tags

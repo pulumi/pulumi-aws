@@ -89,11 +89,12 @@ type OrganizationManagedRule struct {
 // NewOrganizationManagedRule registers a new resource with the given unique name, arguments, and options.
 func NewOrganizationManagedRule(ctx *pulumi.Context,
 	name string, args *OrganizationManagedRuleArgs, opts ...pulumi.ResourceOption) (*OrganizationManagedRule, error) {
-	if args == nil || args.RuleIdentifier == nil {
-		return nil, errors.New("missing required argument 'RuleIdentifier'")
-	}
 	if args == nil {
-		args = &OrganizationManagedRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RuleIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'RuleIdentifier'")
 	}
 	var resource OrganizationManagedRule
 	err := ctx.RegisterResource("aws:cfg/organizationManagedRule:OrganizationManagedRule", name, args, &resource, opts...)

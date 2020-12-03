@@ -66,10 +66,10 @@ class Cache(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if disk_id is None:
+            if disk_id is None and not opts.urn:
                 raise TypeError("Missing required property 'disk_id'")
             __props__['disk_id'] = disk_id
-            if gateway_arn is None:
+            if gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_arn'")
             __props__['gateway_arn'] = gateway_arn
         super(Cache, __self__).__init__(

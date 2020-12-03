@@ -65,6 +65,7 @@ func NewDetector(ctx *pulumi.Context,
 	if args == nil {
 		args = &DetectorArgs{}
 	}
+
 	var resource Detector
 	err := ctx.RegisterResource("aws:guardduty/detector:Detector", name, args, &resource, opts...)
 	if err != nil {

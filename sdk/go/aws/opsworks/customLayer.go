@@ -93,14 +93,15 @@ type CustomLayer struct {
 // NewCustomLayer registers a new resource with the given unique name, arguments, and options.
 func NewCustomLayer(ctx *pulumi.Context,
 	name string, args *CustomLayerArgs, opts ...pulumi.ResourceOption) (*CustomLayer, error) {
-	if args == nil || args.ShortName == nil {
-		return nil, errors.New("missing required argument 'ShortName'")
-	}
-	if args == nil || args.StackId == nil {
-		return nil, errors.New("missing required argument 'StackId'")
-	}
 	if args == nil {
-		args = &CustomLayerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ShortName == nil {
+		return nil, errors.New("invalid value for required argument 'ShortName'")
+	}
+	if args.StackId == nil {
+		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
 	var resource CustomLayer
 	err := ctx.RegisterResource("aws:opsworks/customLayer:CustomLayer", name, args, &resource, opts...)

@@ -62,14 +62,15 @@ type Application struct {
 // NewApplication registers a new resource with the given unique name, arguments, and options.
 func NewApplication(ctx *pulumi.Context,
 	name string, args *ApplicationArgs, opts ...pulumi.ResourceOption) (*Application, error) {
-	if args == nil || args.StackId == nil {
-		return nil, errors.New("missing required argument 'StackId'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &ApplicationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StackId == nil {
+		return nil, errors.New("invalid value for required argument 'StackId'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource Application
 	err := ctx.RegisterResource("aws:opsworks/application:Application", name, args, &resource, opts...)

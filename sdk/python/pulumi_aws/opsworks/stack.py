@@ -131,7 +131,7 @@ class Stack(pulumi.CustomResource):
             __props__['custom_cookbooks_sources'] = custom_cookbooks_sources
             __props__['custom_json'] = custom_json
             __props__['default_availability_zone'] = default_availability_zone
-            if default_instance_profile_arn is None:
+            if default_instance_profile_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'default_instance_profile_arn'")
             __props__['default_instance_profile_arn'] = default_instance_profile_arn
             __props__['default_os'] = default_os
@@ -141,10 +141,10 @@ class Stack(pulumi.CustomResource):
             __props__['hostname_theme'] = hostname_theme
             __props__['manage_berkshelf'] = manage_berkshelf
             __props__['name'] = name
-            if region is None:
+            if region is None and not opts.urn:
                 raise TypeError("Missing required property 'region'")
             __props__['region'] = region
-            if service_role_arn is None:
+            if service_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role_arn'")
             __props__['service_role_arn'] = service_role_arn
             __props__['tags'] = tags

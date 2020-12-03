@@ -97,22 +97,22 @@ class Proxy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if auths is None:
+            if auths is None and not opts.urn:
                 raise TypeError("Missing required property 'auths'")
             __props__['auths'] = auths
             __props__['debug_logging'] = debug_logging
-            if engine_family is None:
+            if engine_family is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_family'")
             __props__['engine_family'] = engine_family
             __props__['idle_client_timeout'] = idle_client_timeout
             __props__['name'] = name
             __props__['require_tls'] = require_tls
-            if role_arn is None:
+            if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
             __props__['tags'] = tags
             __props__['vpc_security_group_ids'] = vpc_security_group_ids
-            if vpc_subnet_ids is None:
+            if vpc_subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_subnet_ids'")
             __props__['vpc_subnet_ids'] = vpc_subnet_ids
             __props__['arn'] = None

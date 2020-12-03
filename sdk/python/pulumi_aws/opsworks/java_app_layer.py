@@ -121,7 +121,7 @@ class JavaAppLayer(pulumi.CustomResource):
             __props__['jvm_type'] = jvm_type
             __props__['jvm_version'] = jvm_version
             __props__['name'] = name
-            if stack_id is None:
+            if stack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_id'")
             __props__['stack_id'] = stack_id
             __props__['system_packages'] = system_packages

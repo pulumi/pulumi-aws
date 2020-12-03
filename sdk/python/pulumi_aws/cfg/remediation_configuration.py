@@ -100,15 +100,15 @@ class RemediationConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if config_rule_name is None:
+            if config_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'config_rule_name'")
             __props__['config_rule_name'] = config_rule_name
             __props__['parameters'] = parameters
             __props__['resource_type'] = resource_type
-            if target_id is None:
+            if target_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_id'")
             __props__['target_id'] = target_id
-            if target_type is None:
+            if target_type is None and not opts.urn:
                 raise TypeError("Missing required property 'target_type'")
             __props__['target_type'] = target_type
             __props__['target_version'] = target_version

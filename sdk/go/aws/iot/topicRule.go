@@ -122,17 +122,18 @@ type TopicRule struct {
 // NewTopicRule registers a new resource with the given unique name, arguments, and options.
 func NewTopicRule(ctx *pulumi.Context,
 	name string, args *TopicRuleArgs, opts ...pulumi.ResourceOption) (*TopicRule, error) {
-	if args == nil || args.Enabled == nil {
-		return nil, errors.New("missing required argument 'Enabled'")
-	}
-	if args == nil || args.Sql == nil {
-		return nil, errors.New("missing required argument 'Sql'")
-	}
-	if args == nil || args.SqlVersion == nil {
-		return nil, errors.New("missing required argument 'SqlVersion'")
-	}
 	if args == nil {
-		args = &TopicRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Enabled == nil {
+		return nil, errors.New("invalid value for required argument 'Enabled'")
+	}
+	if args.Sql == nil {
+		return nil, errors.New("invalid value for required argument 'Sql'")
+	}
+	if args.SqlVersion == nil {
+		return nil, errors.New("invalid value for required argument 'SqlVersion'")
 	}
 	var resource TopicRule
 	err := ctx.RegisterResource("aws:iot/topicRule:TopicRule", name, args, &resource, opts...)

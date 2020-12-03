@@ -83,16 +83,16 @@ class IPSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if activate is None:
+            if activate is None and not opts.urn:
                 raise TypeError("Missing required property 'activate'")
             __props__['activate'] = activate
-            if detector_id is None:
+            if detector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_id'")
             __props__['detector_id'] = detector_id
-            if format is None:
+            if format is None and not opts.urn:
                 raise TypeError("Missing required property 'format'")
             __props__['format'] = format
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['name'] = name

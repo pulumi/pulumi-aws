@@ -53,7 +53,7 @@ class DeliveryChannel(pulumi.CustomResource):
         \"\"\")
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
         foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket.bucket,
-        opts=ResourceOptions(depends_on=[foo_recorder]))
+        opts=pulumi.ResourceOptions(depends_on=[foo_recorder]))
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
             policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: f\"\"\"{{
@@ -108,7 +108,7 @@ class DeliveryChannel(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if s3_bucket_name is None:
+            if s3_bucket_name is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket_name'")
             __props__['s3_bucket_name'] = s3_bucket_name
             __props__['s3_key_prefix'] = s3_key_prefix

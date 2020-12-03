@@ -68,11 +68,12 @@ type Recorder struct {
 // NewRecorder registers a new resource with the given unique name, arguments, and options.
 func NewRecorder(ctx *pulumi.Context,
 	name string, args *RecorderArgs, opts ...pulumi.ResourceOption) (*Recorder, error) {
-	if args == nil || args.RoleArn == nil {
-		return nil, errors.New("missing required argument 'RoleArn'")
-	}
 	if args == nil {
-		args = &RecorderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource Recorder
 	err := ctx.RegisterResource("aws:cfg/recorder:Recorder", name, args, &resource, opts...)

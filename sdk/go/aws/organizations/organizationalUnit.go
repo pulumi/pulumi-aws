@@ -59,11 +59,12 @@ type OrganizationalUnit struct {
 // NewOrganizationalUnit registers a new resource with the given unique name, arguments, and options.
 func NewOrganizationalUnit(ctx *pulumi.Context,
 	name string, args *OrganizationalUnitArgs, opts ...pulumi.ResourceOption) (*OrganizationalUnit, error) {
-	if args == nil || args.ParentId == nil {
-		return nil, errors.New("missing required argument 'ParentId'")
-	}
 	if args == nil {
-		args = &OrganizationalUnitArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ParentId == nil {
+		return nil, errors.New("invalid value for required argument 'ParentId'")
 	}
 	var resource OrganizationalUnit
 	err := ctx.RegisterResource("aws:organizations/organizationalUnit:OrganizationalUnit", name, args, &resource, opts...)

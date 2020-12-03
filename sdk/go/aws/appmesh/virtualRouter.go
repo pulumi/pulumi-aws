@@ -91,14 +91,15 @@ type VirtualRouter struct {
 // NewVirtualRouter registers a new resource with the given unique name, arguments, and options.
 func NewVirtualRouter(ctx *pulumi.Context,
 	name string, args *VirtualRouterArgs, opts ...pulumi.ResourceOption) (*VirtualRouter, error) {
-	if args == nil || args.MeshName == nil {
-		return nil, errors.New("missing required argument 'MeshName'")
-	}
-	if args == nil || args.Spec == nil {
-		return nil, errors.New("missing required argument 'Spec'")
-	}
 	if args == nil {
-		args = &VirtualRouterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MeshName == nil {
+		return nil, errors.New("invalid value for required argument 'MeshName'")
+	}
+	if args.Spec == nil {
+		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
 	var resource VirtualRouter
 	err := ctx.RegisterResource("aws:appmesh/virtualRouter:VirtualRouter", name, args, &resource, opts...)

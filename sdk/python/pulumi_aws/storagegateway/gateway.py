@@ -154,10 +154,10 @@ class Gateway(pulumi.CustomResource):
             __props__['average_upload_rate_limit_in_bits_per_sec'] = average_upload_rate_limit_in_bits_per_sec
             __props__['cloudwatch_log_group_arn'] = cloudwatch_log_group_arn
             __props__['gateway_ip_address'] = gateway_ip_address
-            if gateway_name is None:
+            if gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_name'")
             __props__['gateway_name'] = gateway_name
-            if gateway_timezone is None:
+            if gateway_timezone is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_timezone'")
             __props__['gateway_timezone'] = gateway_timezone
             __props__['gateway_type'] = gateway_type

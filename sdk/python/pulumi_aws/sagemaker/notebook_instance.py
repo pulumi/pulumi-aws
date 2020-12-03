@@ -113,13 +113,13 @@ class NotebookInstance(pulumi.CustomResource):
             __props__['additional_code_repositories'] = additional_code_repositories
             __props__['default_code_repository'] = default_code_repository
             __props__['direct_internet_access'] = direct_internet_access
-            if instance_type is None:
+            if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__['instance_type'] = instance_type
             __props__['kms_key_id'] = kms_key_id
             __props__['lifecycle_config_name'] = lifecycle_config_name
             __props__['name'] = name
-            if role_arn is None:
+            if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
             __props__['root_access'] = root_access

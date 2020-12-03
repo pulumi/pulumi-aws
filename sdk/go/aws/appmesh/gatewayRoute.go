@@ -91,17 +91,18 @@ type GatewayRoute struct {
 // NewGatewayRoute registers a new resource with the given unique name, arguments, and options.
 func NewGatewayRoute(ctx *pulumi.Context,
 	name string, args *GatewayRouteArgs, opts ...pulumi.ResourceOption) (*GatewayRoute, error) {
-	if args == nil || args.MeshName == nil {
-		return nil, errors.New("missing required argument 'MeshName'")
-	}
-	if args == nil || args.Spec == nil {
-		return nil, errors.New("missing required argument 'Spec'")
-	}
-	if args == nil || args.VirtualGatewayName == nil {
-		return nil, errors.New("missing required argument 'VirtualGatewayName'")
-	}
 	if args == nil {
-		args = &GatewayRouteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MeshName == nil {
+		return nil, errors.New("invalid value for required argument 'MeshName'")
+	}
+	if args.Spec == nil {
+		return nil, errors.New("invalid value for required argument 'Spec'")
+	}
+	if args.VirtualGatewayName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualGatewayName'")
 	}
 	var resource GatewayRoute
 	err := ctx.RegisterResource("aws:appmesh/gatewayRoute:GatewayRoute", name, args, &resource, opts...)

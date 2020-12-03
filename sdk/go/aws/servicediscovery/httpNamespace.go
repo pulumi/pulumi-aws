@@ -59,6 +59,7 @@ func NewHttpNamespace(ctx *pulumi.Context,
 	if args == nil {
 		args = &HttpNamespaceArgs{}
 	}
+
 	var resource HttpNamespace
 	err := ctx.RegisterResource("aws:servicediscovery/httpNamespace:HttpNamespace", name, args, &resource, opts...)
 	if err != nil {

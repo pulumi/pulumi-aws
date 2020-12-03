@@ -95,15 +95,15 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if bundle_id is None:
+            if bundle_id is None and not opts.urn:
                 raise TypeError("Missing required property 'bundle_id'")
             __props__['bundle_id'] = bundle_id
-            if directory_id is None:
+            if directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_id'")
             __props__['directory_id'] = directory_id
             __props__['root_volume_encryption_enabled'] = root_volume_encryption_enabled
             __props__['tags'] = tags
-            if user_name is None:
+            if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__['user_name'] = user_name
             __props__['user_volume_encryption_enabled'] = user_volume_encryption_enabled

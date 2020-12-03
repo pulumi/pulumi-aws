@@ -89,24 +89,24 @@ class ReplicationTask(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['cdc_start_time'] = cdc_start_time
-            if migration_type is None:
+            if migration_type is None and not opts.urn:
                 raise TypeError("Missing required property 'migration_type'")
             __props__['migration_type'] = migration_type
-            if replication_instance_arn is None:
+            if replication_instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_instance_arn'")
             __props__['replication_instance_arn'] = replication_instance_arn
-            if replication_task_id is None:
+            if replication_task_id is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_task_id'")
             __props__['replication_task_id'] = replication_task_id
             __props__['replication_task_settings'] = replication_task_settings
-            if source_endpoint_arn is None:
+            if source_endpoint_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'source_endpoint_arn'")
             __props__['source_endpoint_arn'] = source_endpoint_arn
-            if table_mappings is None:
+            if table_mappings is None and not opts.urn:
                 raise TypeError("Missing required property 'table_mappings'")
             __props__['table_mappings'] = table_mappings
             __props__['tags'] = tags
-            if target_endpoint_arn is None:
+            if target_endpoint_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_endpoint_arn'")
             __props__['target_endpoint_arn'] = target_endpoint_arn
             __props__['replication_task_arn'] = None

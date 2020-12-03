@@ -100,7 +100,7 @@ class ResourceDataSync(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if s3_destination is None:
+            if s3_destination is None and not opts.urn:
                 raise TypeError("Missing required property 's3_destination'")
             __props__['s3_destination'] = s3_destination
         super(ResourceDataSync, __self__).__init__(

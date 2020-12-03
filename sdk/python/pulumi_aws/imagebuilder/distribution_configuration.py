@@ -80,7 +80,7 @@ class DistributionConfiguration(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if distributions is None:
+            if distributions is None and not opts.urn:
                 raise TypeError("Missing required property 'distributions'")
             __props__['distributions'] = distributions
             __props__['name'] = name

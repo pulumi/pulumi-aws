@@ -3,7 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 _(none)_
-
+* Upgrade to v2.14.0 of pulumi-terraform-bridge & v2.15.0 of pulumi/pkg and pulumi/sdk
+    * These changes introduce enums to the Go and Python SDKs.
 ---
 
 ## 3.17.0 (2020-12-01)

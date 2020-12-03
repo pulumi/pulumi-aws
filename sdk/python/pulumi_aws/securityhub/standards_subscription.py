@@ -30,9 +30,9 @@ class StandardsSubscription(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         cis = aws.securityhub.StandardsSubscription("cis", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-        opts=ResourceOptions(depends_on=[example]))
+        opts=pulumi.ResourceOptions(depends_on=[example]))
         pci321 = aws.securityhub.StandardsSubscription("pci321", standards_arn="arn:aws:securityhub:us-east-1::standards/pci-dss/v/3.2.1",
-        opts=ResourceOptions(depends_on=[example]))
+        opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import
@@ -68,7 +68,7 @@ class StandardsSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if standards_arn is None:
+            if standards_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'standards_arn'")
             __props__['standards_arn'] = standards_arn
         super(StandardsSubscription, __self__).__init__(

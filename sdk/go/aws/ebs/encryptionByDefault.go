@@ -49,6 +49,7 @@ func NewEncryptionByDefault(ctx *pulumi.Context,
 	if args == nil {
 		args = &EncryptionByDefaultArgs{}
 	}
+
 	var resource EncryptionByDefault
 	err := ctx.RegisterResource("aws:ebs/encryptionByDefault:EncryptionByDefault", name, args, &resource, opts...)
 	if err != nil {

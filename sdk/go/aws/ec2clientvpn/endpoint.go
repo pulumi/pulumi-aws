@@ -89,20 +89,21 @@ type Endpoint struct {
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewEndpoint(ctx *pulumi.Context,
 	name string, args *EndpointArgs, opts ...pulumi.ResourceOption) (*Endpoint, error) {
-	if args == nil || args.AuthenticationOptions == nil {
-		return nil, errors.New("missing required argument 'AuthenticationOptions'")
-	}
-	if args == nil || args.ClientCidrBlock == nil {
-		return nil, errors.New("missing required argument 'ClientCidrBlock'")
-	}
-	if args == nil || args.ConnectionLogOptions == nil {
-		return nil, errors.New("missing required argument 'ConnectionLogOptions'")
-	}
-	if args == nil || args.ServerCertificateArn == nil {
-		return nil, errors.New("missing required argument 'ServerCertificateArn'")
-	}
 	if args == nil {
-		args = &EndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthenticationOptions == nil {
+		return nil, errors.New("invalid value for required argument 'AuthenticationOptions'")
+	}
+	if args.ClientCidrBlock == nil {
+		return nil, errors.New("invalid value for required argument 'ClientCidrBlock'")
+	}
+	if args.ConnectionLogOptions == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionLogOptions'")
+	}
+	if args.ServerCertificateArn == nil {
+		return nil, errors.New("invalid value for required argument 'ServerCertificateArn'")
 	}
 	var resource Endpoint
 	err := ctx.RegisterResource("aws:ec2clientvpn/endpoint:Endpoint", name, args, &resource, opts...)

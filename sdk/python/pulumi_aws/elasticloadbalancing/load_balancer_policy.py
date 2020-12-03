@@ -130,14 +130,14 @@ class LoadBalancerPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if load_balancer_name is None:
+            if load_balancer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__['load_balancer_name'] = load_balancer_name
             __props__['policy_attributes'] = policy_attributes
-            if policy_name is None:
+            if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
             __props__['policy_name'] = policy_name
-            if policy_type_name is None:
+            if policy_type_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_type_name'")
             __props__['policy_type_name'] = policy_type_name
         super(LoadBalancerPolicy, __self__).__init__(

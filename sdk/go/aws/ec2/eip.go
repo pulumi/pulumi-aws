@@ -226,6 +226,7 @@ func NewEip(ctx *pulumi.Context,
 	if args == nil {
 		args = &EipArgs{}
 	}
+
 	var resource Eip
 	err := ctx.RegisterResource("aws:ec2/eip:Eip", name, args, &resource, opts...)
 	if err != nil {

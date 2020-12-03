@@ -56,14 +56,15 @@ type AmiLaunchPermission struct {
 // NewAmiLaunchPermission registers a new resource with the given unique name, arguments, and options.
 func NewAmiLaunchPermission(ctx *pulumi.Context,
 	name string, args *AmiLaunchPermissionArgs, opts ...pulumi.ResourceOption) (*AmiLaunchPermission, error) {
-	if args == nil || args.AccountId == nil {
-		return nil, errors.New("missing required argument 'AccountId'")
-	}
-	if args == nil || args.ImageId == nil {
-		return nil, errors.New("missing required argument 'ImageId'")
-	}
 	if args == nil {
-		args = &AmiLaunchPermissionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountId == nil {
+		return nil, errors.New("invalid value for required argument 'AccountId'")
+	}
+	if args.ImageId == nil {
+		return nil, errors.New("invalid value for required argument 'ImageId'")
 	}
 	var resource AmiLaunchPermission
 	err := ctx.RegisterResource("aws:ec2/amiLaunchPermission:AmiLaunchPermission", name, args, &resource, opts...)

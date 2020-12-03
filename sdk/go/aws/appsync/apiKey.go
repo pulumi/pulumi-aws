@@ -66,11 +66,12 @@ type ApiKey struct {
 // NewApiKey registers a new resource with the given unique name, arguments, and options.
 func NewApiKey(ctx *pulumi.Context,
 	name string, args *ApiKeyArgs, opts ...pulumi.ResourceOption) (*ApiKey, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
 	if args == nil {
-		args = &ApiKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")

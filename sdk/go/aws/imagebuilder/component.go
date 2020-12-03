@@ -87,14 +87,15 @@ type Component struct {
 // NewComponent registers a new resource with the given unique name, arguments, and options.
 func NewComponent(ctx *pulumi.Context,
 	name string, args *ComponentArgs, opts ...pulumi.ResourceOption) (*Component, error) {
-	if args == nil || args.Platform == nil {
-		return nil, errors.New("missing required argument 'Platform'")
-	}
-	if args == nil || args.Version == nil {
-		return nil, errors.New("missing required argument 'Version'")
-	}
 	if args == nil {
-		args = &ComponentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Platform == nil {
+		return nil, errors.New("invalid value for required argument 'Platform'")
+	}
+	if args.Version == nil {
+		return nil, errors.New("invalid value for required argument 'Version'")
 	}
 	var resource Component
 	err := ctx.RegisterResource("aws:imagebuilder/component:Component", name, args, &resource, opts...)

@@ -126,26 +126,27 @@ type Broker struct {
 // NewBroker registers a new resource with the given unique name, arguments, and options.
 func NewBroker(ctx *pulumi.Context,
 	name string, args *BrokerArgs, opts ...pulumi.ResourceOption) (*Broker, error) {
-	if args == nil || args.BrokerName == nil {
-		return nil, errors.New("missing required argument 'BrokerName'")
-	}
-	if args == nil || args.EngineType == nil {
-		return nil, errors.New("missing required argument 'EngineType'")
-	}
-	if args == nil || args.EngineVersion == nil {
-		return nil, errors.New("missing required argument 'EngineVersion'")
-	}
-	if args == nil || args.HostInstanceType == nil {
-		return nil, errors.New("missing required argument 'HostInstanceType'")
-	}
-	if args == nil || args.SecurityGroups == nil {
-		return nil, errors.New("missing required argument 'SecurityGroups'")
-	}
-	if args == nil || args.Users == nil {
-		return nil, errors.New("missing required argument 'Users'")
-	}
 	if args == nil {
-		args = &BrokerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BrokerName == nil {
+		return nil, errors.New("invalid value for required argument 'BrokerName'")
+	}
+	if args.EngineType == nil {
+		return nil, errors.New("invalid value for required argument 'EngineType'")
+	}
+	if args.EngineVersion == nil {
+		return nil, errors.New("invalid value for required argument 'EngineVersion'")
+	}
+	if args.HostInstanceType == nil {
+		return nil, errors.New("invalid value for required argument 'HostInstanceType'")
+	}
+	if args.SecurityGroups == nil {
+		return nil, errors.New("invalid value for required argument 'SecurityGroups'")
+	}
+	if args.Users == nil {
+		return nil, errors.New("invalid value for required argument 'Users'")
 	}
 	var resource Broker
 	err := ctx.RegisterResource("aws:mq/broker:Broker", name, args, &resource, opts...)

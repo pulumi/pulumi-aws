@@ -109,16 +109,16 @@ class NetworkAclRule(pulumi.CustomResource):
             __props__['icmp_code'] = icmp_code
             __props__['icmp_type'] = icmp_type
             __props__['ipv6_cidr_block'] = ipv6_cidr_block
-            if network_acl_id is None:
+            if network_acl_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_acl_id'")
             __props__['network_acl_id'] = network_acl_id
-            if protocol is None:
+            if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__['protocol'] = protocol
-            if rule_action is None:
+            if rule_action is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_action'")
             __props__['rule_action'] = rule_action
-            if rule_number is None:
+            if rule_number is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_number'")
             __props__['rule_number'] = rule_number
             __props__['to_port'] = to_port

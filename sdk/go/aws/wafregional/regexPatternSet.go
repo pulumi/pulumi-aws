@@ -60,6 +60,7 @@ func NewRegexPatternSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &RegexPatternSetArgs{}
 	}
+
 	var resource RegexPatternSet
 	err := ctx.RegisterResource("aws:wafregional/regexPatternSet:RegexPatternSet", name, args, &resource, opts...)
 	if err != nil {

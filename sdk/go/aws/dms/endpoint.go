@@ -107,17 +107,18 @@ type Endpoint struct {
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewEndpoint(ctx *pulumi.Context,
 	name string, args *EndpointArgs, opts ...pulumi.ResourceOption) (*Endpoint, error) {
-	if args == nil || args.EndpointId == nil {
-		return nil, errors.New("missing required argument 'EndpointId'")
-	}
-	if args == nil || args.EndpointType == nil {
-		return nil, errors.New("missing required argument 'EndpointType'")
-	}
-	if args == nil || args.EngineName == nil {
-		return nil, errors.New("missing required argument 'EngineName'")
-	}
 	if args == nil {
-		args = &EndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EndpointId == nil {
+		return nil, errors.New("invalid value for required argument 'EndpointId'")
+	}
+	if args.EndpointType == nil {
+		return nil, errors.New("invalid value for required argument 'EndpointType'")
+	}
+	if args.EngineName == nil {
+		return nil, errors.New("invalid value for required argument 'EngineName'")
 	}
 	var resource Endpoint
 	err := ctx.RegisterResource("aws:dms/endpoint:Endpoint", name, args, &resource, opts...)

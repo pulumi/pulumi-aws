@@ -66,6 +66,7 @@ func NewVpnGateway(ctx *pulumi.Context,
 	if args == nil {
 		args = &VpnGatewayArgs{}
 	}
+
 	var resource VpnGateway
 	err := ctx.RegisterResource("aws:ec2/vpnGateway:VpnGateway", name, args, &resource, opts...)
 	if err != nil {

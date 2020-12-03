@@ -139,7 +139,7 @@ class TopicRule(pulumi.CustomResource):
             __props__['dynamodb'] = dynamodb
             __props__['dynamodbv2s'] = dynamodbv2s
             __props__['elasticsearch'] = elasticsearch
-            if enabled is None:
+            if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
             __props__['error_action'] = error_action
@@ -152,10 +152,10 @@ class TopicRule(pulumi.CustomResource):
             __props__['republish'] = republish
             __props__['s3'] = s3
             __props__['sns'] = sns
-            if sql is None:
+            if sql is None and not opts.urn:
                 raise TypeError("Missing required property 'sql'")
             __props__['sql'] = sql
-            if sql_version is None:
+            if sql_version is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_version'")
             __props__['sql_version'] = sql_version
             __props__['sqs'] = sqs

@@ -64,11 +64,12 @@ type DataCatalogEncryptionSettings struct {
 // NewDataCatalogEncryptionSettings registers a new resource with the given unique name, arguments, and options.
 func NewDataCatalogEncryptionSettings(ctx *pulumi.Context,
 	name string, args *DataCatalogEncryptionSettingsArgs, opts ...pulumi.ResourceOption) (*DataCatalogEncryptionSettings, error) {
-	if args == nil || args.DataCatalogEncryptionSettings == nil {
-		return nil, errors.New("missing required argument 'DataCatalogEncryptionSettings'")
-	}
 	if args == nil {
-		args = &DataCatalogEncryptionSettingsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataCatalogEncryptionSettings == nil {
+		return nil, errors.New("invalid value for required argument 'DataCatalogEncryptionSettings'")
 	}
 	var resource DataCatalogEncryptionSettings
 	err := ctx.RegisterResource("aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings", name, args, &resource, opts...)

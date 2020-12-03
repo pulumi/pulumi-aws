@@ -123,20 +123,21 @@ type IntegrationResponse struct {
 // NewIntegrationResponse registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationResponse(ctx *pulumi.Context,
 	name string, args *IntegrationResponseArgs, opts ...pulumi.ResourceOption) (*IntegrationResponse, error) {
-	if args == nil || args.HttpMethod == nil {
-		return nil, errors.New("missing required argument 'HttpMethod'")
-	}
-	if args == nil || args.ResourceId == nil {
-		return nil, errors.New("missing required argument 'ResourceId'")
-	}
-	if args == nil || args.RestApi == nil {
-		return nil, errors.New("missing required argument 'RestApi'")
-	}
-	if args == nil || args.StatusCode == nil {
-		return nil, errors.New("missing required argument 'StatusCode'")
-	}
 	if args == nil {
-		args = &IntegrationResponseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HttpMethod == nil {
+		return nil, errors.New("invalid value for required argument 'HttpMethod'")
+	}
+	if args.ResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceId'")
+	}
+	if args.RestApi == nil {
+		return nil, errors.New("invalid value for required argument 'RestApi'")
+	}
+	if args.StatusCode == nil {
+		return nil, errors.New("invalid value for required argument 'StatusCode'")
 	}
 	var resource IntegrationResponse
 	err := ctx.RegisterResource("aws:apigateway/integrationResponse:IntegrationResponse", name, args, &resource, opts...)

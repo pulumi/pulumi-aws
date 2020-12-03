@@ -123,20 +123,21 @@ type MethodSettings struct {
 // NewMethodSettings registers a new resource with the given unique name, arguments, and options.
 func NewMethodSettings(ctx *pulumi.Context,
 	name string, args *MethodSettingsArgs, opts ...pulumi.ResourceOption) (*MethodSettings, error) {
-	if args == nil || args.MethodPath == nil {
-		return nil, errors.New("missing required argument 'MethodPath'")
-	}
-	if args == nil || args.RestApi == nil {
-		return nil, errors.New("missing required argument 'RestApi'")
-	}
-	if args == nil || args.Settings == nil {
-		return nil, errors.New("missing required argument 'Settings'")
-	}
-	if args == nil || args.StageName == nil {
-		return nil, errors.New("missing required argument 'StageName'")
-	}
 	if args == nil {
-		args = &MethodSettingsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MethodPath == nil {
+		return nil, errors.New("invalid value for required argument 'MethodPath'")
+	}
+	if args.RestApi == nil {
+		return nil, errors.New("invalid value for required argument 'RestApi'")
+	}
+	if args.Settings == nil {
+		return nil, errors.New("invalid value for required argument 'Settings'")
+	}
+	if args.StageName == nil {
+		return nil, errors.New("invalid value for required argument 'StageName'")
 	}
 	var resource MethodSettings
 	err := ctx.RegisterResource("aws:apigateway/methodSettings:MethodSettings", name, args, &resource, opts...)

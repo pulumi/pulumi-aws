@@ -103,14 +103,15 @@ type IdentityPoolRoleAttachment struct {
 // NewIdentityPoolRoleAttachment registers a new resource with the given unique name, arguments, and options.
 func NewIdentityPoolRoleAttachment(ctx *pulumi.Context,
 	name string, args *IdentityPoolRoleAttachmentArgs, opts ...pulumi.ResourceOption) (*IdentityPoolRoleAttachment, error) {
-	if args == nil || args.IdentityPoolId == nil {
-		return nil, errors.New("missing required argument 'IdentityPoolId'")
-	}
-	if args == nil || args.Roles == nil {
-		return nil, errors.New("missing required argument 'Roles'")
-	}
 	if args == nil {
-		args = &IdentityPoolRoleAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IdentityPoolId == nil {
+		return nil, errors.New("invalid value for required argument 'IdentityPoolId'")
+	}
+	if args.Roles == nil {
+		return nil, errors.New("invalid value for required argument 'Roles'")
 	}
 	var resource IdentityPoolRoleAttachment
 	err := ctx.RegisterResource("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment", name, args, &resource, opts...)

@@ -89,17 +89,17 @@ class Firewall(pulumi.CustomResource):
 
             __props__['delete_protection'] = delete_protection
             __props__['description'] = description
-            if firewall_policy_arn is None:
+            if firewall_policy_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_policy_arn'")
             __props__['firewall_policy_arn'] = firewall_policy_arn
             __props__['firewall_policy_change_protection'] = firewall_policy_change_protection
             __props__['name'] = name
             __props__['subnet_change_protection'] = subnet_change_protection
-            if subnet_mappings is None:
+            if subnet_mappings is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_mappings'")
             __props__['subnet_mappings'] = subnet_mappings
             __props__['tags'] = tags
-            if vpc_id is None:
+            if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
             __props__['arn'] = None

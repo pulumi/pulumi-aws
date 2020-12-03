@@ -59,11 +59,12 @@ type S3BucketAssociation struct {
 // NewS3BucketAssociation registers a new resource with the given unique name, arguments, and options.
 func NewS3BucketAssociation(ctx *pulumi.Context,
 	name string, args *S3BucketAssociationArgs, opts ...pulumi.ResourceOption) (*S3BucketAssociation, error) {
-	if args == nil || args.BucketName == nil {
-		return nil, errors.New("missing required argument 'BucketName'")
-	}
 	if args == nil {
-		args = &S3BucketAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BucketName == nil {
+		return nil, errors.New("invalid value for required argument 'BucketName'")
 	}
 	var resource S3BucketAssociation
 	err := ctx.RegisterResource("aws:macie/s3BucketAssociation:S3BucketAssociation", name, args, &resource, opts...)

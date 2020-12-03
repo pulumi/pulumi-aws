@@ -73,11 +73,12 @@ type KeyPair struct {
 // NewKeyPair registers a new resource with the given unique name, arguments, and options.
 func NewKeyPair(ctx *pulumi.Context,
 	name string, args *KeyPairArgs, opts ...pulumi.ResourceOption) (*KeyPair, error) {
-	if args == nil || args.PublicKey == nil {
-		return nil, errors.New("missing required argument 'PublicKey'")
-	}
 	if args == nil {
-		args = &KeyPairArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PublicKey == nil {
+		return nil, errors.New("invalid value for required argument 'PublicKey'")
 	}
 	var resource KeyPair
 	err := ctx.RegisterResource("aws:ec2/keyPair:KeyPair", name, args, &resource, opts...)

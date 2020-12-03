@@ -47,11 +47,12 @@ type IdentityPool struct {
 // NewIdentityPool registers a new resource with the given unique name, arguments, and options.
 func NewIdentityPool(ctx *pulumi.Context,
 	name string, args *IdentityPoolArgs, opts ...pulumi.ResourceOption) (*IdentityPool, error) {
-	if args == nil || args.IdentityPoolName == nil {
-		return nil, errors.New("missing required argument 'IdentityPoolName'")
-	}
 	if args == nil {
-		args = &IdentityPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IdentityPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'IdentityPoolName'")
 	}
 	var resource IdentityPool
 	err := ctx.RegisterResource("aws:cognito/identityPool:IdentityPool", name, args, &resource, opts...)

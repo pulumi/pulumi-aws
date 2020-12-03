@@ -66,11 +66,12 @@ type SnapshotSchedule struct {
 // NewSnapshotSchedule registers a new resource with the given unique name, arguments, and options.
 func NewSnapshotSchedule(ctx *pulumi.Context,
 	name string, args *SnapshotScheduleArgs, opts ...pulumi.ResourceOption) (*SnapshotSchedule, error) {
-	if args == nil || args.Definitions == nil {
-		return nil, errors.New("missing required argument 'Definitions'")
-	}
 	if args == nil {
-		args = &SnapshotScheduleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Definitions == nil {
+		return nil, errors.New("invalid value for required argument 'Definitions'")
 	}
 	var resource SnapshotSchedule
 	err := ctx.RegisterResource("aws:redshift/snapshotSchedule:SnapshotSchedule", name, args, &resource, opts...)

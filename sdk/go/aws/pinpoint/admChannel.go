@@ -68,17 +68,18 @@ type AdmChannel struct {
 // NewAdmChannel registers a new resource with the given unique name, arguments, and options.
 func NewAdmChannel(ctx *pulumi.Context,
 	name string, args *AdmChannelArgs, opts ...pulumi.ResourceOption) (*AdmChannel, error) {
-	if args == nil || args.ApplicationId == nil {
-		return nil, errors.New("missing required argument 'ApplicationId'")
-	}
-	if args == nil || args.ClientId == nil {
-		return nil, errors.New("missing required argument 'ClientId'")
-	}
-	if args == nil || args.ClientSecret == nil {
-		return nil, errors.New("missing required argument 'ClientSecret'")
-	}
 	if args == nil {
-		args = &AdmChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationId == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationId'")
+	}
+	if args.ClientId == nil {
+		return nil, errors.New("invalid value for required argument 'ClientId'")
+	}
+	if args.ClientSecret == nil {
+		return nil, errors.New("invalid value for required argument 'ClientSecret'")
 	}
 	var resource AdmChannel
 	err := ctx.RegisterResource("aws:pinpoint/admChannel:AdmChannel", name, args, &resource, opts...)

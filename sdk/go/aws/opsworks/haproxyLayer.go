@@ -95,14 +95,15 @@ type HaproxyLayer struct {
 // NewHaproxyLayer registers a new resource with the given unique name, arguments, and options.
 func NewHaproxyLayer(ctx *pulumi.Context,
 	name string, args *HaproxyLayerArgs, opts ...pulumi.ResourceOption) (*HaproxyLayer, error) {
-	if args == nil || args.StackId == nil {
-		return nil, errors.New("missing required argument 'StackId'")
-	}
-	if args == nil || args.StatsPassword == nil {
-		return nil, errors.New("missing required argument 'StatsPassword'")
-	}
 	if args == nil {
-		args = &HaproxyLayerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StackId == nil {
+		return nil, errors.New("invalid value for required argument 'StackId'")
+	}
+	if args.StatsPassword == nil {
+		return nil, errors.New("invalid value for required argument 'StatsPassword'")
 	}
 	var resource HaproxyLayer
 	err := ctx.RegisterResource("aws:opsworks/haproxyLayer:HaproxyLayer", name, args, &resource, opts...)

@@ -99,14 +99,15 @@ type OptionGroup struct {
 // NewOptionGroup registers a new resource with the given unique name, arguments, and options.
 func NewOptionGroup(ctx *pulumi.Context,
 	name string, args *OptionGroupArgs, opts ...pulumi.ResourceOption) (*OptionGroup, error) {
-	if args == nil || args.EngineName == nil {
-		return nil, errors.New("missing required argument 'EngineName'")
-	}
-	if args == nil || args.MajorEngineVersion == nil {
-		return nil, errors.New("missing required argument 'MajorEngineVersion'")
-	}
 	if args == nil {
-		args = &OptionGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EngineName == nil {
+		return nil, errors.New("invalid value for required argument 'EngineName'")
+	}
+	if args.MajorEngineVersion == nil {
+		return nil, errors.New("invalid value for required argument 'MajorEngineVersion'")
 	}
 	if args.OptionGroupDescription == nil {
 		args.OptionGroupDescription = pulumi.StringPtr("Managed by Pulumi")

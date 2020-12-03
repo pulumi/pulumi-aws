@@ -116,13 +116,13 @@ class ClusterInstance(pulumi.CustomResource):
             __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
             __props__['availability_zone'] = availability_zone
             __props__['ca_cert_identifier'] = ca_cert_identifier
-            if cluster_identifier is None:
+            if cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_identifier'")
             __props__['cluster_identifier'] = cluster_identifier
             __props__['engine'] = engine
             __props__['identifier'] = identifier
             __props__['identifier_prefix'] = identifier_prefix
-            if instance_class is None:
+            if instance_class is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_class'")
             __props__['instance_class'] = instance_class
             __props__['preferred_maintenance_window'] = preferred_maintenance_window

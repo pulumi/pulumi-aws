@@ -165,28 +165,28 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if max_concurrency is None:
+            if max_concurrency is None and not opts.urn:
                 raise TypeError("Missing required property 'max_concurrency'")
             __props__['max_concurrency'] = max_concurrency
-            if max_errors is None:
+            if max_errors is None and not opts.urn:
                 raise TypeError("Missing required property 'max_errors'")
             __props__['max_errors'] = max_errors
             __props__['name'] = name
             __props__['priority'] = priority
-            if service_role_arn is None:
+            if service_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role_arn'")
             __props__['service_role_arn'] = service_role_arn
-            if targets is None:
+            if targets is None and not opts.urn:
                 raise TypeError("Missing required property 'targets'")
             __props__['targets'] = targets
-            if task_arn is None:
+            if task_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'task_arn'")
             __props__['task_arn'] = task_arn
             __props__['task_invocation_parameters'] = task_invocation_parameters
-            if task_type is None:
+            if task_type is None and not opts.urn:
                 raise TypeError("Missing required property 'task_type'")
             __props__['task_type'] = task_type
-            if window_id is None:
+            if window_id is None and not opts.urn:
                 raise TypeError("Missing required property 'window_id'")
             __props__['window_id'] = window_id
         super(MaintenanceWindowTask, __self__).__init__(

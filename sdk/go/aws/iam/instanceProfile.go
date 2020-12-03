@@ -76,6 +76,7 @@ func NewInstanceProfile(ctx *pulumi.Context,
 	if args == nil {
 		args = &InstanceProfileArgs{}
 	}
+
 	var resource InstanceProfile
 	err := ctx.RegisterResource("aws:iam/instanceProfile:InstanceProfile", name, args, &resource, opts...)
 	if err != nil {

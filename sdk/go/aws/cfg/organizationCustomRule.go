@@ -104,14 +104,15 @@ type OrganizationCustomRule struct {
 // NewOrganizationCustomRule registers a new resource with the given unique name, arguments, and options.
 func NewOrganizationCustomRule(ctx *pulumi.Context,
 	name string, args *OrganizationCustomRuleArgs, opts ...pulumi.ResourceOption) (*OrganizationCustomRule, error) {
-	if args == nil || args.LambdaFunctionArn == nil {
-		return nil, errors.New("missing required argument 'LambdaFunctionArn'")
-	}
-	if args == nil || args.TriggerTypes == nil {
-		return nil, errors.New("missing required argument 'TriggerTypes'")
-	}
 	if args == nil {
-		args = &OrganizationCustomRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LambdaFunctionArn == nil {
+		return nil, errors.New("invalid value for required argument 'LambdaFunctionArn'")
+	}
+	if args.TriggerTypes == nil {
+		return nil, errors.New("invalid value for required argument 'TriggerTypes'")
 	}
 	var resource OrganizationCustomRule
 	err := ctx.RegisterResource("aws:cfg/organizationCustomRule:OrganizationCustomRule", name, args, &resource, opts...)

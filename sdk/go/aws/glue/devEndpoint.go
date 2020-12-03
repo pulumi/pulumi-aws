@@ -135,11 +135,12 @@ type DevEndpoint struct {
 // NewDevEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewDevEndpoint(ctx *pulumi.Context,
 	name string, args *DevEndpointArgs, opts ...pulumi.ResourceOption) (*DevEndpoint, error) {
-	if args == nil || args.RoleArn == nil {
-		return nil, errors.New("missing required argument 'RoleArn'")
-	}
 	if args == nil {
-		args = &DevEndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource DevEndpoint
 	err := ctx.RegisterResource("aws:glue/devEndpoint:DevEndpoint", name, args, &resource, opts...)

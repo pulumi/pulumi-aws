@@ -157,13 +157,13 @@ class Policy(pulumi.CustomResource):
 
             __props__['name'] = name
             __props__['policy_type'] = policy_type
-            if resource_id is None:
+            if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__['resource_id'] = resource_id
-            if scalable_dimension is None:
+            if scalable_dimension is None and not opts.urn:
                 raise TypeError("Missing required property 'scalable_dimension'")
             __props__['scalable_dimension'] = scalable_dimension
-            if service_namespace is None:
+            if service_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'service_namespace'")
             __props__['service_namespace'] = service_namespace
             __props__['step_scaling_policy_configuration'] = step_scaling_policy_configuration

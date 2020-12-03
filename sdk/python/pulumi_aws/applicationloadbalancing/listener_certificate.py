@@ -71,10 +71,10 @@ class ListenerCertificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if certificate_arn is None:
+            if certificate_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_arn'")
             __props__['certificate_arn'] = certificate_arn
-            if listener_arn is None:
+            if listener_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'listener_arn'")
             __props__['listener_arn'] = listener_arn
         super(ListenerCertificate, __self__).__init__(

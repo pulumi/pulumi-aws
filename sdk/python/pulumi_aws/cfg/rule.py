@@ -60,7 +60,7 @@ class Rule(pulumi.CustomResource):
             owner="AWS",
             source_identifier="S3_BUCKET_VERSIONING_ENABLED",
         ),
-        opts=ResourceOptions(depends_on=[foo]))
+        opts=pulumi.ResourceOptions(depends_on=[foo]))
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
             policy=\"\"\"{
@@ -97,7 +97,7 @@ class Rule(pulumi.CustomResource):
             owner="CUSTOM_LAMBDA",
             source_identifier=example_function.arn,
         ),
-        opts=ResourceOptions(depends_on=[
+        opts=pulumi.ResourceOptions(depends_on=[
                 example_recorder,
                 example_permission,
             ]))
@@ -143,7 +143,7 @@ class Rule(pulumi.CustomResource):
             __props__['maximum_execution_frequency'] = maximum_execution_frequency
             __props__['name'] = name
             __props__['scope'] = scope
-            if source is None:
+            if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
             __props__['tags'] = tags

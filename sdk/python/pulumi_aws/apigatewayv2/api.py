@@ -113,7 +113,7 @@ class Api(pulumi.CustomResource):
             __props__['description'] = description
             __props__['disable_execute_api_endpoint'] = disable_execute_api_endpoint
             __props__['name'] = name
-            if protocol_type is None:
+            if protocol_type is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol_type'")
             __props__['protocol_type'] = protocol_type
             __props__['route_key'] = route_key

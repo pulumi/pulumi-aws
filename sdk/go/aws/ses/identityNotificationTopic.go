@@ -62,14 +62,15 @@ type IdentityNotificationTopic struct {
 // NewIdentityNotificationTopic registers a new resource with the given unique name, arguments, and options.
 func NewIdentityNotificationTopic(ctx *pulumi.Context,
 	name string, args *IdentityNotificationTopicArgs, opts ...pulumi.ResourceOption) (*IdentityNotificationTopic, error) {
-	if args == nil || args.Identity == nil {
-		return nil, errors.New("missing required argument 'Identity'")
-	}
-	if args == nil || args.NotificationType == nil {
-		return nil, errors.New("missing required argument 'NotificationType'")
-	}
 	if args == nil {
-		args = &IdentityNotificationTopicArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Identity == nil {
+		return nil, errors.New("invalid value for required argument 'Identity'")
+	}
+	if args.NotificationType == nil {
+		return nil, errors.New("invalid value for required argument 'NotificationType'")
 	}
 	var resource IdentityNotificationTopic
 	err := ctx.RegisterResource("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, args, &resource, opts...)

@@ -92,23 +92,24 @@ type TransitVirtualInterface struct {
 // NewTransitVirtualInterface registers a new resource with the given unique name, arguments, and options.
 func NewTransitVirtualInterface(ctx *pulumi.Context,
 	name string, args *TransitVirtualInterfaceArgs, opts ...pulumi.ResourceOption) (*TransitVirtualInterface, error) {
-	if args == nil || args.AddressFamily == nil {
-		return nil, errors.New("missing required argument 'AddressFamily'")
-	}
-	if args == nil || args.BgpAsn == nil {
-		return nil, errors.New("missing required argument 'BgpAsn'")
-	}
-	if args == nil || args.ConnectionId == nil {
-		return nil, errors.New("missing required argument 'ConnectionId'")
-	}
-	if args == nil || args.DxGatewayId == nil {
-		return nil, errors.New("missing required argument 'DxGatewayId'")
-	}
-	if args == nil || args.Vlan == nil {
-		return nil, errors.New("missing required argument 'Vlan'")
-	}
 	if args == nil {
-		args = &TransitVirtualInterfaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AddressFamily == nil {
+		return nil, errors.New("invalid value for required argument 'AddressFamily'")
+	}
+	if args.BgpAsn == nil {
+		return nil, errors.New("invalid value for required argument 'BgpAsn'")
+	}
+	if args.ConnectionId == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionId'")
+	}
+	if args.DxGatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'DxGatewayId'")
+	}
+	if args.Vlan == nil {
+		return nil, errors.New("invalid value for required argument 'Vlan'")
 	}
 	var resource TransitVirtualInterface
 	err := ctx.RegisterResource("aws:directconnect/transitVirtualInterface:TransitVirtualInterface", name, args, &resource, opts...)

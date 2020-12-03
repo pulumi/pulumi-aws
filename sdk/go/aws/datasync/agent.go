@@ -65,6 +65,7 @@ func NewAgent(ctx *pulumi.Context,
 	if args == nil {
 		args = &AgentArgs{}
 	}
+
 	var resource Agent
 	err := ctx.RegisterResource("aws:datasync/agent:Agent", name, args, &resource, opts...)
 	if err != nil {

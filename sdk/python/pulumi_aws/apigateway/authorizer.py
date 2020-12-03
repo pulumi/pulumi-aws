@@ -75,7 +75,7 @@ class Authorizer(pulumi.CustomResource):
             __props__['identity_validation_expression'] = identity_validation_expression
             __props__['name'] = name
             __props__['provider_arns'] = provider_arns
-            if rest_api is None:
+            if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__['rest_api'] = rest_api
             __props__['type'] = type

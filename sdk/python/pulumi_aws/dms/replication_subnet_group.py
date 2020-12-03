@@ -73,13 +73,13 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if replication_subnet_group_description is None:
+            if replication_subnet_group_description is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_subnet_group_description'")
             __props__['replication_subnet_group_description'] = replication_subnet_group_description
-            if replication_subnet_group_id is None:
+            if replication_subnet_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_subnet_group_id'")
             __props__['replication_subnet_group_id'] = replication_subnet_group_id
-            if subnet_ids is None:
+            if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__['subnet_ids'] = subnet_ids
             __props__['tags'] = tags

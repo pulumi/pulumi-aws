@@ -88,17 +88,18 @@ type SourceCredential struct {
 // NewSourceCredential registers a new resource with the given unique name, arguments, and options.
 func NewSourceCredential(ctx *pulumi.Context,
 	name string, args *SourceCredentialArgs, opts ...pulumi.ResourceOption) (*SourceCredential, error) {
-	if args == nil || args.AuthType == nil {
-		return nil, errors.New("missing required argument 'AuthType'")
-	}
-	if args == nil || args.ServerType == nil {
-		return nil, errors.New("missing required argument 'ServerType'")
-	}
-	if args == nil || args.Token == nil {
-		return nil, errors.New("missing required argument 'Token'")
-	}
 	if args == nil {
-		args = &SourceCredentialArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthType == nil {
+		return nil, errors.New("invalid value for required argument 'AuthType'")
+	}
+	if args.ServerType == nil {
+		return nil, errors.New("invalid value for required argument 'ServerType'")
+	}
+	if args.Token == nil {
+		return nil, errors.New("invalid value for required argument 'Token'")
 	}
 	var resource SourceCredential
 	err := ctx.RegisterResource("aws:codebuild/sourceCredential:SourceCredential", name, args, &resource, opts...)

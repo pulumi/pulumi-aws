@@ -99,7 +99,7 @@ class LayerVersion(pulumi.CustomResource):
             __props__['code'] = code
             __props__['compatible_runtimes'] = compatible_runtimes
             __props__['description'] = description
-            if layer_name is None:
+            if layer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'layer_name'")
             __props__['layer_name'] = layer_name
             __props__['license_info'] = license_info

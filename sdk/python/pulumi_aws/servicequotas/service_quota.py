@@ -67,13 +67,13 @@ class ServiceQuota(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if quota_code is None:
+            if quota_code is None and not opts.urn:
                 raise TypeError("Missing required property 'quota_code'")
             __props__['quota_code'] = quota_code
-            if service_code is None:
+            if service_code is None and not opts.urn:
                 raise TypeError("Missing required property 'service_code'")
             __props__['service_code'] = service_code
-            if value is None:
+            if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
             __props__['adjustable'] = None

@@ -53,6 +53,7 @@ func NewStaticIp(ctx *pulumi.Context,
 	if args == nil {
 		args = &StaticIpArgs{}
 	}
+
 	var resource StaticIp
 	err := ctx.RegisterResource("aws:lightsail/staticIp:StaticIp", name, args, &resource, opts...)
 	if err != nil {

@@ -66,7 +66,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
             __props__['automatic_stop_time_minutes'] = automatic_stop_time_minutes
             __props__['description'] = description
-            if instance_type is None:
+            if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__['instance_type'] = instance_type
             __props__['name'] = name

@@ -8,3 +8,28 @@ from .get_stack import *
 from .stack import *
 from .stack_set import *
 from .stack_set_instance import *
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:cloudformation/stack:Stack":
+                return Stack(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudformation/stackSet:StackSet":
+                return StackSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudformation/stackSetInstance:StackSetInstance":
+                return StackSetInstance(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "cloudformation/stack", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudformation/stackSet", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudformation/stackSetInstance", _module_instance)
+
+_register_module()

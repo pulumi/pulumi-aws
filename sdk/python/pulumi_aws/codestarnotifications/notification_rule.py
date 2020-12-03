@@ -94,14 +94,14 @@ class NotificationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if detail_type is None:
+            if detail_type is None and not opts.urn:
                 raise TypeError("Missing required property 'detail_type'")
             __props__['detail_type'] = detail_type
-            if event_type_ids is None:
+            if event_type_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'event_type_ids'")
             __props__['event_type_ids'] = event_type_ids
             __props__['name'] = name
-            if resource is None:
+            if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
             __props__['resource'] = resource
             __props__['status'] = status

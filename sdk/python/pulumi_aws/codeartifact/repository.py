@@ -113,12 +113,12 @@ class Repository(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if domain is None:
+            if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
             __props__['domain'] = domain
             __props__['domain_owner'] = domain_owner
             __props__['external_connections'] = external_connections
-            if repository is None:
+            if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
             __props__['tags'] = tags

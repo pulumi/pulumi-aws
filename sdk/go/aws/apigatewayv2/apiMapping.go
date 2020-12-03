@@ -63,17 +63,18 @@ type ApiMapping struct {
 // NewApiMapping registers a new resource with the given unique name, arguments, and options.
 func NewApiMapping(ctx *pulumi.Context,
 	name string, args *ApiMappingArgs, opts ...pulumi.ResourceOption) (*ApiMapping, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
-	if args == nil || args.DomainName == nil {
-		return nil, errors.New("missing required argument 'DomainName'")
-	}
-	if args == nil || args.Stage == nil {
-		return nil, errors.New("missing required argument 'Stage'")
-	}
 	if args == nil {
-		args = &ApiMappingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
+	}
+	if args.DomainName == nil {
+		return nil, errors.New("invalid value for required argument 'DomainName'")
+	}
+	if args.Stage == nil {
+		return nil, errors.New("invalid value for required argument 'Stage'")
 	}
 	var resource ApiMapping
 	err := ctx.RegisterResource("aws:apigatewayv2/apiMapping:ApiMapping", name, args, &resource, opts...)

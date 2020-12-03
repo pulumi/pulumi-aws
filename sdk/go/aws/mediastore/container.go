@@ -59,6 +59,7 @@ func NewContainer(ctx *pulumi.Context,
 	if args == nil {
 		args = &ContainerArgs{}
 	}
+
 	var resource Container
 	err := ctx.RegisterResource("aws:mediastore/container:Container", name, args, &resource, opts...)
 	if err != nil {

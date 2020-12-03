@@ -64,14 +64,15 @@ type SecretPolicy struct {
 // NewSecretPolicy registers a new resource with the given unique name, arguments, and options.
 func NewSecretPolicy(ctx *pulumi.Context,
 	name string, args *SecretPolicyArgs, opts ...pulumi.ResourceOption) (*SecretPolicy, error) {
-	if args == nil || args.Policy == nil {
-		return nil, errors.New("missing required argument 'Policy'")
-	}
-	if args == nil || args.SecretArn == nil {
-		return nil, errors.New("missing required argument 'SecretArn'")
-	}
 	if args == nil {
-		args = &SecretPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Policy == nil {
+		return nil, errors.New("invalid value for required argument 'Policy'")
+	}
+	if args.SecretArn == nil {
+		return nil, errors.New("invalid value for required argument 'SecretArn'")
 	}
 	var resource SecretPolicy
 	err := ctx.RegisterResource("aws:secretsmanager/secretPolicy:SecretPolicy", name, args, &resource, opts...)

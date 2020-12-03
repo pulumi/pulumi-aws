@@ -98,20 +98,21 @@ type ThreatIntelSet struct {
 // NewThreatIntelSet registers a new resource with the given unique name, arguments, and options.
 func NewThreatIntelSet(ctx *pulumi.Context,
 	name string, args *ThreatIntelSetArgs, opts ...pulumi.ResourceOption) (*ThreatIntelSet, error) {
-	if args == nil || args.Activate == nil {
-		return nil, errors.New("missing required argument 'Activate'")
-	}
-	if args == nil || args.DetectorId == nil {
-		return nil, errors.New("missing required argument 'DetectorId'")
-	}
-	if args == nil || args.Format == nil {
-		return nil, errors.New("missing required argument 'Format'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil {
-		args = &ThreatIntelSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Activate == nil {
+		return nil, errors.New("invalid value for required argument 'Activate'")
+	}
+	if args.DetectorId == nil {
+		return nil, errors.New("invalid value for required argument 'DetectorId'")
+	}
+	if args.Format == nil {
+		return nil, errors.New("invalid value for required argument 'Format'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
 	}
 	var resource ThreatIntelSet
 	err := ctx.RegisterResource("aws:guardduty/threatIntelSet:ThreatIntelSet", name, args, &resource, opts...)

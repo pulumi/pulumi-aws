@@ -104,14 +104,15 @@ type SslNegotiationPolicy struct {
 // NewSslNegotiationPolicy registers a new resource with the given unique name, arguments, and options.
 func NewSslNegotiationPolicy(ctx *pulumi.Context,
 	name string, args *SslNegotiationPolicyArgs, opts ...pulumi.ResourceOption) (*SslNegotiationPolicy, error) {
-	if args == nil || args.LbPort == nil {
-		return nil, errors.New("missing required argument 'LbPort'")
-	}
-	if args == nil || args.LoadBalancer == nil {
-		return nil, errors.New("missing required argument 'LoadBalancer'")
-	}
 	if args == nil {
-		args = &SslNegotiationPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LbPort == nil {
+		return nil, errors.New("invalid value for required argument 'LbPort'")
+	}
+	if args.LoadBalancer == nil {
+		return nil, errors.New("invalid value for required argument 'LoadBalancer'")
 	}
 	var resource SslNegotiationPolicy
 	err := ctx.RegisterResource("aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy", name, args, &resource, opts...)

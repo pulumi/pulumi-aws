@@ -117,14 +117,15 @@ type ResourcePolicy struct {
 // NewResourcePolicy registers a new resource with the given unique name, arguments, and options.
 func NewResourcePolicy(ctx *pulumi.Context,
 	name string, args *ResourcePolicyArgs, opts ...pulumi.ResourceOption) (*ResourcePolicy, error) {
-	if args == nil || args.Policy == nil {
-		return nil, errors.New("missing required argument 'Policy'")
-	}
-	if args == nil || args.ResourceArn == nil {
-		return nil, errors.New("missing required argument 'ResourceArn'")
-	}
 	if args == nil {
-		args = &ResourcePolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Policy == nil {
+		return nil, errors.New("invalid value for required argument 'Policy'")
+	}
+	if args.ResourceArn == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
 	var resource ResourcePolicy
 	err := ctx.RegisterResource("aws:networkfirewall/resourcePolicy:ResourcePolicy", name, args, &resource, opts...)

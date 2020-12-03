@@ -61,11 +61,12 @@ type LogStream struct {
 // NewLogStream registers a new resource with the given unique name, arguments, and options.
 func NewLogStream(ctx *pulumi.Context,
 	name string, args *LogStreamArgs, opts ...pulumi.ResourceOption) (*LogStream, error) {
-	if args == nil || args.LogGroupName == nil {
-		return nil, errors.New("missing required argument 'LogGroupName'")
-	}
 	if args == nil {
-		args = &LogStreamArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LogGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'LogGroupName'")
 	}
 	var resource LogStream
 	err := ctx.RegisterResource("aws:cloudwatch/logStream:LogStream", name, args, &resource, opts...)

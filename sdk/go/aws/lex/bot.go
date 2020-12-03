@@ -127,17 +127,18 @@ type Bot struct {
 // NewBot registers a new resource with the given unique name, arguments, and options.
 func NewBot(ctx *pulumi.Context,
 	name string, args *BotArgs, opts ...pulumi.ResourceOption) (*Bot, error) {
-	if args == nil || args.AbortStatement == nil {
-		return nil, errors.New("missing required argument 'AbortStatement'")
-	}
-	if args == nil || args.ChildDirected == nil {
-		return nil, errors.New("missing required argument 'ChildDirected'")
-	}
-	if args == nil || args.Intents == nil {
-		return nil, errors.New("missing required argument 'Intents'")
-	}
 	if args == nil {
-		args = &BotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AbortStatement == nil {
+		return nil, errors.New("invalid value for required argument 'AbortStatement'")
+	}
+	if args.ChildDirected == nil {
+		return nil, errors.New("invalid value for required argument 'ChildDirected'")
+	}
+	if args.Intents == nil {
+		return nil, errors.New("invalid value for required argument 'Intents'")
 	}
 	var resource Bot
 	err := ctx.RegisterResource("aws:lex/bot:Bot", name, args, &resource, opts...)

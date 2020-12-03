@@ -81,11 +81,12 @@ type Rule struct {
 // NewRule registers a new resource with the given unique name, arguments, and options.
 func NewRule(ctx *pulumi.Context,
 	name string, args *RuleArgs, opts ...pulumi.ResourceOption) (*Rule, error) {
-	if args == nil || args.MetricName == nil {
-		return nil, errors.New("missing required argument 'MetricName'")
-	}
 	if args == nil {
-		args = &RuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MetricName == nil {
+		return nil, errors.New("invalid value for required argument 'MetricName'")
 	}
 	var resource Rule
 	err := ctx.RegisterResource("aws:waf/rule:Rule", name, args, &resource, opts...)

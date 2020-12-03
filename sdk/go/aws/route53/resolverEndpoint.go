@@ -84,17 +84,18 @@ type ResolverEndpoint struct {
 // NewResolverEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewResolverEndpoint(ctx *pulumi.Context,
 	name string, args *ResolverEndpointArgs, opts ...pulumi.ResourceOption) (*ResolverEndpoint, error) {
-	if args == nil || args.Direction == nil {
-		return nil, errors.New("missing required argument 'Direction'")
-	}
-	if args == nil || args.IpAddresses == nil {
-		return nil, errors.New("missing required argument 'IpAddresses'")
-	}
-	if args == nil || args.SecurityGroupIds == nil {
-		return nil, errors.New("missing required argument 'SecurityGroupIds'")
-	}
 	if args == nil {
-		args = &ResolverEndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Direction == nil {
+		return nil, errors.New("invalid value for required argument 'Direction'")
+	}
+	if args.IpAddresses == nil {
+		return nil, errors.New("invalid value for required argument 'IpAddresses'")
+	}
+	if args.SecurityGroupIds == nil {
+		return nil, errors.New("invalid value for required argument 'SecurityGroupIds'")
 	}
 	var resource ResolverEndpoint
 	err := ctx.RegisterResource("aws:route53/resolverEndpoint:ResolverEndpoint", name, args, &resource, opts...)

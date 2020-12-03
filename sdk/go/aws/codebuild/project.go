@@ -66,20 +66,21 @@ type Project struct {
 // NewProject registers a new resource with the given unique name, arguments, and options.
 func NewProject(ctx *pulumi.Context,
 	name string, args *ProjectArgs, opts ...pulumi.ResourceOption) (*Project, error) {
-	if args == nil || args.Artifacts == nil {
-		return nil, errors.New("missing required argument 'Artifacts'")
-	}
-	if args == nil || args.Environment == nil {
-		return nil, errors.New("missing required argument 'Environment'")
-	}
-	if args == nil || args.ServiceRole == nil {
-		return nil, errors.New("missing required argument 'ServiceRole'")
-	}
-	if args == nil || args.Source == nil {
-		return nil, errors.New("missing required argument 'Source'")
-	}
 	if args == nil {
-		args = &ProjectArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Artifacts == nil {
+		return nil, errors.New("invalid value for required argument 'Artifacts'")
+	}
+	if args.Environment == nil {
+		return nil, errors.New("invalid value for required argument 'Environment'")
+	}
+	if args.ServiceRole == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceRole'")
+	}
+	if args.Source == nil {
+		return nil, errors.New("invalid value for required argument 'Source'")
 	}
 	var resource Project
 	err := ctx.RegisterResource("aws:codebuild/project:Project", name, args, &resource, opts...)

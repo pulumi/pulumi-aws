@@ -153,11 +153,12 @@ type GlobalCluster struct {
 // NewGlobalCluster registers a new resource with the given unique name, arguments, and options.
 func NewGlobalCluster(ctx *pulumi.Context,
 	name string, args *GlobalClusterArgs, opts ...pulumi.ResourceOption) (*GlobalCluster, error) {
-	if args == nil || args.GlobalClusterIdentifier == nil {
-		return nil, errors.New("missing required argument 'GlobalClusterIdentifier'")
-	}
 	if args == nil {
-		args = &GlobalClusterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GlobalClusterIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'GlobalClusterIdentifier'")
 	}
 	var resource GlobalCluster
 	err := ctx.RegisterResource("aws:rds/globalCluster:GlobalCluster", name, args, &resource, opts...)

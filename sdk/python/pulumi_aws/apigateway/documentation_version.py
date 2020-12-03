@@ -41,7 +41,7 @@ class DocumentationVersion(pulumi.CustomResource):
             version="example_version",
             rest_api_id=example_rest_api.id,
             description="Example description",
-            opts=ResourceOptions(depends_on=[example_documentation_part]))
+            opts=pulumi.ResourceOptions(depends_on=[example_documentation_part]))
         ```
 
         ## Import
@@ -76,10 +76,10 @@ class DocumentationVersion(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if rest_api_id is None:
+            if rest_api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__['rest_api_id'] = rest_api_id
-            if version is None:
+            if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__['version'] = version
         super(DocumentationVersion, __self__).__init__(

@@ -85,23 +85,24 @@ type PublicVirtualInterface struct {
 // NewPublicVirtualInterface registers a new resource with the given unique name, arguments, and options.
 func NewPublicVirtualInterface(ctx *pulumi.Context,
 	name string, args *PublicVirtualInterfaceArgs, opts ...pulumi.ResourceOption) (*PublicVirtualInterface, error) {
-	if args == nil || args.AddressFamily == nil {
-		return nil, errors.New("missing required argument 'AddressFamily'")
-	}
-	if args == nil || args.BgpAsn == nil {
-		return nil, errors.New("missing required argument 'BgpAsn'")
-	}
-	if args == nil || args.ConnectionId == nil {
-		return nil, errors.New("missing required argument 'ConnectionId'")
-	}
-	if args == nil || args.RouteFilterPrefixes == nil {
-		return nil, errors.New("missing required argument 'RouteFilterPrefixes'")
-	}
-	if args == nil || args.Vlan == nil {
-		return nil, errors.New("missing required argument 'Vlan'")
-	}
 	if args == nil {
-		args = &PublicVirtualInterfaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AddressFamily == nil {
+		return nil, errors.New("invalid value for required argument 'AddressFamily'")
+	}
+	if args.BgpAsn == nil {
+		return nil, errors.New("invalid value for required argument 'BgpAsn'")
+	}
+	if args.ConnectionId == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionId'")
+	}
+	if args.RouteFilterPrefixes == nil {
+		return nil, errors.New("invalid value for required argument 'RouteFilterPrefixes'")
+	}
+	if args.Vlan == nil {
+		return nil, errors.New("invalid value for required argument 'Vlan'")
 	}
 	var resource PublicVirtualInterface
 	err := ctx.RegisterResource("aws:directconnect/publicVirtualInterface:PublicVirtualInterface", name, args, &resource, opts...)

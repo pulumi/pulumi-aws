@@ -115,14 +115,15 @@ type TargetGroupAttachment struct {
 // NewTargetGroupAttachment registers a new resource with the given unique name, arguments, and options.
 func NewTargetGroupAttachment(ctx *pulumi.Context,
 	name string, args *TargetGroupAttachmentArgs, opts ...pulumi.ResourceOption) (*TargetGroupAttachment, error) {
-	if args == nil || args.TargetGroupArn == nil {
-		return nil, errors.New("missing required argument 'TargetGroupArn'")
-	}
-	if args == nil || args.TargetId == nil {
-		return nil, errors.New("missing required argument 'TargetId'")
-	}
 	if args == nil {
-		args = &TargetGroupAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.TargetGroupArn == nil {
+		return nil, errors.New("invalid value for required argument 'TargetGroupArn'")
+	}
+	if args.TargetId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetId'")
 	}
 	var resource TargetGroupAttachment
 	err := ctx.RegisterResource("aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment", name, args, &resource, opts...)

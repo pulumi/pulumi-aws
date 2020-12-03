@@ -72,6 +72,7 @@ func NewRepository(ctx *pulumi.Context,
 	if args == nil {
 		args = &RepositoryArgs{}
 	}
+
 	var resource Repository
 	err := ctx.RegisterResource("aws:ecr/repository:Repository", name, args, &resource, opts...)
 	if err != nil {

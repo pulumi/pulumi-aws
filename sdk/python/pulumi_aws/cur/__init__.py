@@ -5,3 +5,22 @@
 # Export this package's modules as members:
 from .get_report_definition import *
 from .report_definition import *
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:cur/reportDefinition:ReportDefinition":
+                return ReportDefinition(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "cur/reportDefinition", _module_instance)
+
+_register_module()

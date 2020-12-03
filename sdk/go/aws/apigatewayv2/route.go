@@ -81,14 +81,15 @@ type Route struct {
 // NewRoute registers a new resource with the given unique name, arguments, and options.
 func NewRoute(ctx *pulumi.Context,
 	name string, args *RouteArgs, opts ...pulumi.ResourceOption) (*Route, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
-	if args == nil || args.RouteKey == nil {
-		return nil, errors.New("missing required argument 'RouteKey'")
-	}
 	if args == nil {
-		args = &RouteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
+	}
+	if args.RouteKey == nil {
+		return nil, errors.New("invalid value for required argument 'RouteKey'")
 	}
 	var resource Route
 	err := ctx.RegisterResource("aws:apigatewayv2/route:Route", name, args, &resource, opts...)

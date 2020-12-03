@@ -53,6 +53,7 @@ func NewAdminAccount(ctx *pulumi.Context,
 	if args == nil {
 		args = &AdminAccountArgs{}
 	}
+
 	var resource AdminAccount
 	err := ctx.RegisterResource("aws:fms/adminAccount:AdminAccount", name, args, &resource, opts...)
 	if err != nil {

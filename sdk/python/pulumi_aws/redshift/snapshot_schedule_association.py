@@ -72,10 +72,10 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_identifier is None:
+            if cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_identifier'")
             __props__['cluster_identifier'] = cluster_identifier
-            if schedule_identifier is None:
+            if schedule_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_identifier'")
             __props__['schedule_identifier'] = schedule_identifier
         super(SnapshotScheduleAssociation, __self__).__init__(

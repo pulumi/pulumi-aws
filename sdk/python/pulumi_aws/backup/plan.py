@@ -81,7 +81,7 @@ class Plan(pulumi.CustomResource):
 
             __props__['advanced_backup_settings'] = advanced_backup_settings
             __props__['name'] = name
-            if rules is None:
+            if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
             __props__['rules'] = rules
             __props__['tags'] = tags

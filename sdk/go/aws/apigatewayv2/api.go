@@ -120,11 +120,12 @@ type Api struct {
 // NewApi registers a new resource with the given unique name, arguments, and options.
 func NewApi(ctx *pulumi.Context,
 	name string, args *ApiArgs, opts ...pulumi.ResourceOption) (*Api, error) {
-	if args == nil || args.ProtocolType == nil {
-		return nil, errors.New("missing required argument 'ProtocolType'")
-	}
 	if args == nil {
-		args = &ApiArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProtocolType == nil {
+		return nil, errors.New("invalid value for required argument 'ProtocolType'")
 	}
 	var resource Api
 	err := ctx.RegisterResource("aws:apigatewayv2/api:Api", name, args, &resource, opts...)

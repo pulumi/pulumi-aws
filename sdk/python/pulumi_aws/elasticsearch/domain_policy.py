@@ -71,10 +71,10 @@ class DomainPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if access_policies is None:
+            if access_policies is None and not opts.urn:
                 raise TypeError("Missing required property 'access_policies'")
             __props__['access_policies'] = access_policies
-            if domain_name is None:
+            if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
         super(DomainPolicy, __self__).__init__(

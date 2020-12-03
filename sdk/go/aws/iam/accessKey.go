@@ -112,11 +112,12 @@ type AccessKey struct {
 // NewAccessKey registers a new resource with the given unique name, arguments, and options.
 func NewAccessKey(ctx *pulumi.Context,
 	name string, args *AccessKeyArgs, opts ...pulumi.ResourceOption) (*AccessKey, error) {
-	if args == nil || args.User == nil {
-		return nil, errors.New("missing required argument 'User'")
-	}
 	if args == nil {
-		args = &AccessKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.User == nil {
+		return nil, errors.New("invalid value for required argument 'User'")
 	}
 	var resource AccessKey
 	err := ctx.RegisterResource("aws:iam/accessKey:AccessKey", name, args, &resource, opts...)

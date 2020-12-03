@@ -55,10 +55,10 @@ class Association(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if license_configuration_arn is None:
+            if license_configuration_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'license_configuration_arn'")
             __props__['license_configuration_arn'] = license_configuration_arn
-            if resource_arn is None:
+            if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
             __props__['resource_arn'] = resource_arn
         super(Association, __self__).__init__(

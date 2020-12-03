@@ -83,20 +83,21 @@ type UserDefinedFunction struct {
 // NewUserDefinedFunction registers a new resource with the given unique name, arguments, and options.
 func NewUserDefinedFunction(ctx *pulumi.Context,
 	name string, args *UserDefinedFunctionArgs, opts ...pulumi.ResourceOption) (*UserDefinedFunction, error) {
-	if args == nil || args.ClassName == nil {
-		return nil, errors.New("missing required argument 'ClassName'")
-	}
-	if args == nil || args.DatabaseName == nil {
-		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.OwnerName == nil {
-		return nil, errors.New("missing required argument 'OwnerName'")
-	}
-	if args == nil || args.OwnerType == nil {
-		return nil, errors.New("missing required argument 'OwnerType'")
-	}
 	if args == nil {
-		args = &UserDefinedFunctionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClassName == nil {
+		return nil, errors.New("invalid value for required argument 'ClassName'")
+	}
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.OwnerName == nil {
+		return nil, errors.New("invalid value for required argument 'OwnerName'")
+	}
+	if args.OwnerType == nil {
+		return nil, errors.New("invalid value for required argument 'OwnerType'")
 	}
 	var resource UserDefinedFunction
 	err := ctx.RegisterResource("aws:glue/userDefinedFunction:UserDefinedFunction", name, args, &resource, opts...)

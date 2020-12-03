@@ -110,12 +110,12 @@ class TaskDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if container_definitions is None:
+            if container_definitions is None and not opts.urn:
                 raise TypeError("Missing required property 'container_definitions'")
             __props__['container_definitions'] = container_definitions
             __props__['cpu'] = cpu
             __props__['execution_role_arn'] = execution_role_arn
-            if family is None:
+            if family is None and not opts.urn:
                 raise TypeError("Missing required property 'family'")
             __props__['family'] = family
             __props__['inference_accelerators'] = inference_accelerators

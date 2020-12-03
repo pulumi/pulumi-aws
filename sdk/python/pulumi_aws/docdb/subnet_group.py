@@ -80,7 +80,7 @@ class SubnetGroup(pulumi.CustomResource):
             __props__['description'] = description
             __props__['name'] = name
             __props__['name_prefix'] = name_prefix
-            if subnet_ids is None:
+            if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__['subnet_ids'] = subnet_ids
             __props__['tags'] = tags

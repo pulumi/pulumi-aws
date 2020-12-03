@@ -84,14 +84,15 @@ type InviteAccepter struct {
 // NewInviteAccepter registers a new resource with the given unique name, arguments, and options.
 func NewInviteAccepter(ctx *pulumi.Context,
 	name string, args *InviteAccepterArgs, opts ...pulumi.ResourceOption) (*InviteAccepter, error) {
-	if args == nil || args.DetectorId == nil {
-		return nil, errors.New("missing required argument 'DetectorId'")
-	}
-	if args == nil || args.MasterAccountId == nil {
-		return nil, errors.New("missing required argument 'MasterAccountId'")
-	}
 	if args == nil {
-		args = &InviteAccepterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DetectorId == nil {
+		return nil, errors.New("invalid value for required argument 'DetectorId'")
+	}
+	if args.MasterAccountId == nil {
+		return nil, errors.New("invalid value for required argument 'MasterAccountId'")
 	}
 	var resource InviteAccepter
 	err := ctx.RegisterResource("aws:guardduty/inviteAccepter:InviteAccepter", name, args, &resource, opts...)

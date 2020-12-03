@@ -76,11 +76,12 @@ type DomainIdentity struct {
 // NewDomainIdentity registers a new resource with the given unique name, arguments, and options.
 func NewDomainIdentity(ctx *pulumi.Context,
 	name string, args *DomainIdentityArgs, opts ...pulumi.ResourceOption) (*DomainIdentity, error) {
-	if args == nil || args.Domain == nil {
-		return nil, errors.New("missing required argument 'Domain'")
-	}
 	if args == nil {
-		args = &DomainIdentityArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Domain == nil {
+		return nil, errors.New("invalid value for required argument 'Domain'")
 	}
 	var resource DomainIdentity
 	err := ctx.RegisterResource("aws:ses/domainIdentity:DomainIdentity", name, args, &resource, opts...)

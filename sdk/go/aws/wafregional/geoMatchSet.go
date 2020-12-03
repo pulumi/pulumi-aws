@@ -66,6 +66,7 @@ func NewGeoMatchSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &GeoMatchSetArgs{}
 	}
+
 	var resource GeoMatchSet
 	err := ctx.RegisterResource("aws:wafregional/geoMatchSet:GeoMatchSet", name, args, &resource, opts...)
 	if err != nil {

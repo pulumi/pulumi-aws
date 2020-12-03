@@ -116,7 +116,7 @@ class JobDefinition(pulumi.CustomResource):
             __props__['retry_strategy'] = retry_strategy
             __props__['tags'] = tags
             __props__['timeout'] = timeout
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['arn'] = None

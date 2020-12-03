@@ -153,12 +153,12 @@ class Group(pulumi.CustomResource):
             __props__['launch_template'] = launch_template
             __props__['load_balancers'] = load_balancers
             __props__['max_instance_lifetime'] = max_instance_lifetime
-            if max_size is None:
+            if max_size is None and not opts.urn:
                 raise TypeError("Missing required property 'max_size'")
             __props__['max_size'] = max_size
             __props__['metrics_granularity'] = metrics_granularity
             __props__['min_elb_capacity'] = min_elb_capacity
-            if min_size is None:
+            if min_size is None and not opts.urn:
                 raise TypeError("Missing required property 'min_size'")
             __props__['min_size'] = min_size
             __props__['mixed_instances_policy'] = mixed_instances_policy

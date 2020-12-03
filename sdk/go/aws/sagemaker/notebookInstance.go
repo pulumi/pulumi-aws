@@ -125,14 +125,15 @@ type NotebookInstance struct {
 // NewNotebookInstance registers a new resource with the given unique name, arguments, and options.
 func NewNotebookInstance(ctx *pulumi.Context,
 	name string, args *NotebookInstanceArgs, opts ...pulumi.ResourceOption) (*NotebookInstance, error) {
-	if args == nil || args.InstanceType == nil {
-		return nil, errors.New("missing required argument 'InstanceType'")
-	}
-	if args == nil || args.RoleArn == nil {
-		return nil, errors.New("missing required argument 'RoleArn'")
-	}
 	if args == nil {
-		args = &NotebookInstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.InstanceType == nil {
+		return nil, errors.New("invalid value for required argument 'InstanceType'")
+	}
+	if args.RoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource NotebookInstance
 	err := ctx.RegisterResource("aws:sagemaker/notebookInstance:NotebookInstance", name, args, &resource, opts...)

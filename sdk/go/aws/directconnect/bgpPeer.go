@@ -65,17 +65,18 @@ type BgpPeer struct {
 // NewBgpPeer registers a new resource with the given unique name, arguments, and options.
 func NewBgpPeer(ctx *pulumi.Context,
 	name string, args *BgpPeerArgs, opts ...pulumi.ResourceOption) (*BgpPeer, error) {
-	if args == nil || args.AddressFamily == nil {
-		return nil, errors.New("missing required argument 'AddressFamily'")
-	}
-	if args == nil || args.BgpAsn == nil {
-		return nil, errors.New("missing required argument 'BgpAsn'")
-	}
-	if args == nil || args.VirtualInterfaceId == nil {
-		return nil, errors.New("missing required argument 'VirtualInterfaceId'")
-	}
 	if args == nil {
-		args = &BgpPeerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AddressFamily == nil {
+		return nil, errors.New("invalid value for required argument 'AddressFamily'")
+	}
+	if args.BgpAsn == nil {
+		return nil, errors.New("invalid value for required argument 'BgpAsn'")
+	}
+	if args.VirtualInterfaceId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualInterfaceId'")
 	}
 	var resource BgpPeer
 	err := ctx.RegisterResource("aws:directconnect/bgpPeer:BgpPeer", name, args, &resource, opts...)

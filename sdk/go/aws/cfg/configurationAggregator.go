@@ -114,6 +114,7 @@ func NewConfigurationAggregator(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConfigurationAggregatorArgs{}
 	}
+
 	var resource ConfigurationAggregator
 	err := ctx.RegisterResource("aws:cfg/configurationAggregator:ConfigurationAggregator", name, args, &resource, opts...)
 	if err != nil {

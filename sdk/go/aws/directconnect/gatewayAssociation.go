@@ -179,11 +179,12 @@ type GatewayAssociation struct {
 // NewGatewayAssociation registers a new resource with the given unique name, arguments, and options.
 func NewGatewayAssociation(ctx *pulumi.Context,
 	name string, args *GatewayAssociationArgs, opts ...pulumi.ResourceOption) (*GatewayAssociation, error) {
-	if args == nil || args.DxGatewayId == nil {
-		return nil, errors.New("missing required argument 'DxGatewayId'")
-	}
 	if args == nil {
-		args = &GatewayAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DxGatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'DxGatewayId'")
 	}
 	var resource GatewayAssociation
 	err := ctx.RegisterResource("aws:directconnect/gatewayAssociation:GatewayAssociation", name, args, &resource, opts...)

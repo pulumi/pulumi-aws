@@ -144,17 +144,18 @@ type Instance struct {
 // NewInstance registers a new resource with the given unique name, arguments, and options.
 func NewInstance(ctx *pulumi.Context,
 	name string, args *InstanceArgs, opts ...pulumi.ResourceOption) (*Instance, error) {
-	if args == nil || args.AvailabilityZone == nil {
-		return nil, errors.New("missing required argument 'AvailabilityZone'")
-	}
-	if args == nil || args.BlueprintId == nil {
-		return nil, errors.New("missing required argument 'BlueprintId'")
-	}
-	if args == nil || args.BundleId == nil {
-		return nil, errors.New("missing required argument 'BundleId'")
-	}
 	if args == nil {
-		args = &InstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AvailabilityZone == nil {
+		return nil, errors.New("invalid value for required argument 'AvailabilityZone'")
+	}
+	if args.BlueprintId == nil {
+		return nil, errors.New("invalid value for required argument 'BlueprintId'")
+	}
+	if args.BundleId == nil {
+		return nil, errors.New("invalid value for required argument 'BundleId'")
 	}
 	var resource Instance
 	err := ctx.RegisterResource("aws:lightsail/instance:Instance", name, args, &resource, opts...)

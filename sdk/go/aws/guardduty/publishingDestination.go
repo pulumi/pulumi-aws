@@ -150,17 +150,18 @@ type PublishingDestination struct {
 // NewPublishingDestination registers a new resource with the given unique name, arguments, and options.
 func NewPublishingDestination(ctx *pulumi.Context,
 	name string, args *PublishingDestinationArgs, opts ...pulumi.ResourceOption) (*PublishingDestination, error) {
-	if args == nil || args.DestinationArn == nil {
-		return nil, errors.New("missing required argument 'DestinationArn'")
-	}
-	if args == nil || args.DetectorId == nil {
-		return nil, errors.New("missing required argument 'DetectorId'")
-	}
-	if args == nil || args.KmsKeyArn == nil {
-		return nil, errors.New("missing required argument 'KmsKeyArn'")
-	}
 	if args == nil {
-		args = &PublishingDestinationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DestinationArn == nil {
+		return nil, errors.New("invalid value for required argument 'DestinationArn'")
+	}
+	if args.DetectorId == nil {
+		return nil, errors.New("invalid value for required argument 'DetectorId'")
+	}
+	if args.KmsKeyArn == nil {
+		return nil, errors.New("invalid value for required argument 'KmsKeyArn'")
 	}
 	var resource PublishingDestination
 	err := ctx.RegisterResource("aws:guardduty/publishingDestination:PublishingDestination", name, args, &resource, opts...)

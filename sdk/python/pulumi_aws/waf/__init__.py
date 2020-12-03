@@ -21,3 +21,55 @@ from .web_acl import *
 from .xss_match_set import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:waf/byteMatchSet:ByteMatchSet":
+                return ByteMatchSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:waf/geoMatchSet:GeoMatchSet":
+                return GeoMatchSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:waf/ipSet:IpSet":
+                return IpSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:waf/rateBasedRule:RateBasedRule":
+                return RateBasedRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:waf/regexMatchSet:RegexMatchSet":
+                return RegexMatchSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:waf/regexPatternSet:RegexPatternSet":
+                return RegexPatternSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:waf/rule:Rule":
+                return Rule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:waf/ruleGroup:RuleGroup":
+                return RuleGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:waf/sizeConstraintSet:SizeConstraintSet":
+                return SizeConstraintSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet":
+                return SqlInjectionMatchSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:waf/webAcl:WebAcl":
+                return WebAcl(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:waf/xssMatchSet:XssMatchSet":
+                return XssMatchSet(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "waf/byteMatchSet", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "waf/geoMatchSet", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "waf/ipSet", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "waf/rateBasedRule", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "waf/regexMatchSet", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "waf/regexPatternSet", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "waf/rule", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "waf/ruleGroup", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "waf/sizeConstraintSet", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "waf/sqlInjectionMatchSet", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "waf/webAcl", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "waf/xssMatchSet", _module_instance)
+
+_register_module()

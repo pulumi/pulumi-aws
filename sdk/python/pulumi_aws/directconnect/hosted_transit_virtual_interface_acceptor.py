@@ -39,7 +39,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         accepter_caller_identity = aws.get_caller_identity()
         # Accepter's side of the VIF.
         example = aws.directconnect.Gateway("example", amazon_side_asn="64512",
-        opts=ResourceOptions(provider=aws["accepter"]))
+        opts=pulumi.ResourceOptions(provider=aws["accepter"]))
         # Creator's side of the VIF
         creator = aws.directconnect.HostedTransitVirtualInterface("creator",
             connection_id="dxcon-zzzzzzzz",
@@ -47,14 +47,14 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
             vlan=4094,
             address_family="ipv4",
             bgp_asn=65352,
-            opts=ResourceOptions(depends_on=[example]))
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         accepter_hosted_transit_virtual_interface_acceptor = aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor",
             virtual_interface_id=creator.id,
             dx_gateway_id=example.id,
             tags={
                 "Side": "Accepter",
             },
-            opts=ResourceOptions(provider=aws["accepter"]))
+            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
         ```
 
         ## Import
@@ -88,11 +88,11 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if dx_gateway_id is None:
+            if dx_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dx_gateway_id'")
             __props__['dx_gateway_id'] = dx_gateway_id
             __props__['tags'] = tags
-            if virtual_interface_id is None:
+            if virtual_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_interface_id'")
             __props__['virtual_interface_id'] = virtual_interface_id
             __props__['arn'] = None

@@ -82,17 +82,18 @@ type UsagePlanKey struct {
 // NewUsagePlanKey registers a new resource with the given unique name, arguments, and options.
 func NewUsagePlanKey(ctx *pulumi.Context,
 	name string, args *UsagePlanKeyArgs, opts ...pulumi.ResourceOption) (*UsagePlanKey, error) {
-	if args == nil || args.KeyId == nil {
-		return nil, errors.New("missing required argument 'KeyId'")
-	}
-	if args == nil || args.KeyType == nil {
-		return nil, errors.New("missing required argument 'KeyType'")
-	}
-	if args == nil || args.UsagePlanId == nil {
-		return nil, errors.New("missing required argument 'UsagePlanId'")
-	}
 	if args == nil {
-		args = &UsagePlanKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KeyId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyId'")
+	}
+	if args.KeyType == nil {
+		return nil, errors.New("invalid value for required argument 'KeyType'")
+	}
+	if args.UsagePlanId == nil {
+		return nil, errors.New("invalid value for required argument 'UsagePlanId'")
 	}
 	var resource UsagePlanKey
 	err := ctx.RegisterResource("aws:apigateway/usagePlanKey:UsagePlanKey", name, args, &resource, opts...)

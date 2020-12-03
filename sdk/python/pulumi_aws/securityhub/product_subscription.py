@@ -31,7 +31,7 @@ class ProductSubscription(pulumi.CustomResource):
         example_account = aws.securityhub.Account("exampleAccount")
         current = aws.get_region()
         example_product_subscription = aws.securityhub.ProductSubscription("exampleProductSubscription", product_arn=f"arn:aws:securityhub:{current.name}:733251395267:product/alertlogic/althreatmanagement",
-        opts=ResourceOptions(depends_on=[example_account]))
+        opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
 
         ## Import
@@ -63,7 +63,7 @@ class ProductSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if product_arn is None:
+            if product_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'product_arn'")
             __props__['product_arn'] = product_arn
             __props__['arn'] = None

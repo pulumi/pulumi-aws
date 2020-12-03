@@ -122,10 +122,10 @@ class Parameter(pulumi.CustomResource):
             __props__['overwrite'] = overwrite
             __props__['tags'] = tags
             __props__['tier'] = tier
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
-            if value is None:
+            if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
             __props__['version'] = None

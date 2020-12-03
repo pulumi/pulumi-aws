@@ -117,19 +117,19 @@ class Function(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_id is None:
+            if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
-            if data_source is None:
+            if data_source is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source'")
             __props__['data_source'] = data_source
             __props__['description'] = description
             __props__['function_version'] = function_version
             __props__['name'] = name
-            if request_mapping_template is None:
+            if request_mapping_template is None and not opts.urn:
                 raise TypeError("Missing required property 'request_mapping_template'")
             __props__['request_mapping_template'] = request_mapping_template
-            if response_mapping_template is None:
+            if response_mapping_template is None and not opts.urn:
                 raise TypeError("Missing required property 'response_mapping_template'")
             __props__['response_mapping_template'] = response_mapping_template
             __props__['arn'] = None

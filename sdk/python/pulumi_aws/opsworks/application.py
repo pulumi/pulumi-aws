@@ -135,10 +135,10 @@ class Application(pulumi.CustomResource):
             __props__['rails_env'] = rails_env
             __props__['short_name'] = short_name
             __props__['ssl_configurations'] = ssl_configurations
-            if stack_id is None:
+            if stack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_id'")
             __props__['stack_id'] = stack_id
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
         super(Application, __self__).__init__(

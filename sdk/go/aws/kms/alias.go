@@ -68,11 +68,12 @@ type Alias struct {
 // NewAlias registers a new resource with the given unique name, arguments, and options.
 func NewAlias(ctx *pulumi.Context,
 	name string, args *AliasArgs, opts ...pulumi.ResourceOption) (*Alias, error) {
-	if args == nil || args.TargetKeyId == nil {
-		return nil, errors.New("missing required argument 'TargetKeyId'")
-	}
 	if args == nil {
-		args = &AliasArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.TargetKeyId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetKeyId'")
 	}
 	var resource Alias
 	err := ctx.RegisterResource("aws:kms/alias:Alias", name, args, &resource, opts...)

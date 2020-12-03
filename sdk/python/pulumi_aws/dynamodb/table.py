@@ -164,12 +164,12 @@ class Table(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if attributes is None:
+            if attributes is None and not opts.urn:
                 raise TypeError("Missing required property 'attributes'")
             __props__['attributes'] = attributes
             __props__['billing_mode'] = billing_mode
             __props__['global_secondary_indexes'] = global_secondary_indexes
-            if hash_key is None:
+            if hash_key is None and not opts.urn:
                 raise TypeError("Missing required property 'hash_key'")
             __props__['hash_key'] = hash_key
             __props__['local_secondary_indexes'] = local_secondary_indexes

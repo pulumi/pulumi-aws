@@ -51,11 +51,12 @@ type ApnsVoipSandboxChannel struct {
 // NewApnsVoipSandboxChannel registers a new resource with the given unique name, arguments, and options.
 func NewApnsVoipSandboxChannel(ctx *pulumi.Context,
 	name string, args *ApnsVoipSandboxChannelArgs, opts ...pulumi.ResourceOption) (*ApnsVoipSandboxChannel, error) {
-	if args == nil || args.ApplicationId == nil {
-		return nil, errors.New("missing required argument 'ApplicationId'")
-	}
 	if args == nil {
-		args = &ApnsVoipSandboxChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationId == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
 	var resource ApnsVoipSandboxChannel
 	err := ctx.RegisterResource("aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel", name, args, &resource, opts...)

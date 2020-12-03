@@ -95,20 +95,21 @@ type Filter struct {
 // NewFilter registers a new resource with the given unique name, arguments, and options.
 func NewFilter(ctx *pulumi.Context,
 	name string, args *FilterArgs, opts ...pulumi.ResourceOption) (*Filter, error) {
-	if args == nil || args.Action == nil {
-		return nil, errors.New("missing required argument 'Action'")
-	}
-	if args == nil || args.DetectorId == nil {
-		return nil, errors.New("missing required argument 'DetectorId'")
-	}
-	if args == nil || args.FindingCriteria == nil {
-		return nil, errors.New("missing required argument 'FindingCriteria'")
-	}
-	if args == nil || args.Rank == nil {
-		return nil, errors.New("missing required argument 'Rank'")
-	}
 	if args == nil {
-		args = &FilterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Action == nil {
+		return nil, errors.New("invalid value for required argument 'Action'")
+	}
+	if args.DetectorId == nil {
+		return nil, errors.New("invalid value for required argument 'DetectorId'")
+	}
+	if args.FindingCriteria == nil {
+		return nil, errors.New("invalid value for required argument 'FindingCriteria'")
+	}
+	if args.Rank == nil {
+		return nil, errors.New("invalid value for required argument 'Rank'")
 	}
 	var resource Filter
 	err := ctx.RegisterResource("aws:guardduty/filter:Filter", name, args, &resource, opts...)

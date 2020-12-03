@@ -77,11 +77,11 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if log_destination_configs is None:
+            if log_destination_configs is None and not opts.urn:
                 raise TypeError("Missing required property 'log_destination_configs'")
             __props__['log_destination_configs'] = log_destination_configs
             __props__['redacted_fields'] = redacted_fields
-            if resource_arn is None:
+            if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
             __props__['resource_arn'] = resource_arn
         super(WebAclLoggingConfiguration, __self__).__init__(

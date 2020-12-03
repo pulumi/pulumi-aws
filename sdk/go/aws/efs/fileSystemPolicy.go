@@ -62,14 +62,15 @@ type FileSystemPolicy struct {
 // NewFileSystemPolicy registers a new resource with the given unique name, arguments, and options.
 func NewFileSystemPolicy(ctx *pulumi.Context,
 	name string, args *FileSystemPolicyArgs, opts ...pulumi.ResourceOption) (*FileSystemPolicy, error) {
-	if args == nil || args.FileSystemId == nil {
-		return nil, errors.New("missing required argument 'FileSystemId'")
-	}
-	if args == nil || args.Policy == nil {
-		return nil, errors.New("missing required argument 'Policy'")
-	}
 	if args == nil {
-		args = &FileSystemPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FileSystemId == nil {
+		return nil, errors.New("invalid value for required argument 'FileSystemId'")
+	}
+	if args.Policy == nil {
+		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
 	var resource FileSystemPolicy
 	err := ctx.RegisterResource("aws:efs/fileSystemPolicy:FileSystemPolicy", name, args, &resource, opts...)

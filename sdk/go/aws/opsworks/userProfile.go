@@ -52,14 +52,15 @@ type UserProfile struct {
 // NewUserProfile registers a new resource with the given unique name, arguments, and options.
 func NewUserProfile(ctx *pulumi.Context,
 	name string, args *UserProfileArgs, opts ...pulumi.ResourceOption) (*UserProfile, error) {
-	if args == nil || args.SshUsername == nil {
-		return nil, errors.New("missing required argument 'SshUsername'")
-	}
-	if args == nil || args.UserArn == nil {
-		return nil, errors.New("missing required argument 'UserArn'")
-	}
 	if args == nil {
-		args = &UserProfileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SshUsername == nil {
+		return nil, errors.New("invalid value for required argument 'SshUsername'")
+	}
+	if args.UserArn == nil {
+		return nil, errors.New("invalid value for required argument 'UserArn'")
 	}
 	var resource UserProfile
 	err := ctx.RegisterResource("aws:opsworks/userProfile:UserProfile", name, args, &resource, opts...)

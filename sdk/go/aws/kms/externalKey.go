@@ -77,6 +77,7 @@ func NewExternalKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &ExternalKeyArgs{}
 	}
+
 	var resource ExternalKey
 	err := ctx.RegisterResource("aws:kms/externalKey:ExternalKey", name, args, &resource, opts...)
 	if err != nil {

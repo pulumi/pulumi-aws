@@ -66,14 +66,15 @@ type NetworkAssociation struct {
 // NewNetworkAssociation registers a new resource with the given unique name, arguments, and options.
 func NewNetworkAssociation(ctx *pulumi.Context,
 	name string, args *NetworkAssociationArgs, opts ...pulumi.ResourceOption) (*NetworkAssociation, error) {
-	if args == nil || args.ClientVpnEndpointId == nil {
-		return nil, errors.New("missing required argument 'ClientVpnEndpointId'")
-	}
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
 	if args == nil {
-		args = &NetworkAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClientVpnEndpointId == nil {
+		return nil, errors.New("invalid value for required argument 'ClientVpnEndpointId'")
+	}
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
 	var resource NetworkAssociation
 	err := ctx.RegisterResource("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, args, &resource, opts...)

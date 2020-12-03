@@ -59,15 +59,15 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if domain is None:
+            if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
             __props__['domain'] = domain
             __props__['domain_owner'] = domain_owner
-            if policy_document is None:
+            if policy_document is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_document'")
             __props__['policy_document'] = policy_document
             __props__['policy_revision'] = policy_revision
-            if repository is None:
+            if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
             __props__['resource_arn'] = None

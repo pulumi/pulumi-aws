@@ -68,14 +68,15 @@ type Configuration struct {
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewConfiguration(ctx *pulumi.Context,
 	name string, args *ConfigurationArgs, opts ...pulumi.ResourceOption) (*Configuration, error) {
-	if args == nil || args.KafkaVersions == nil {
-		return nil, errors.New("missing required argument 'KafkaVersions'")
-	}
-	if args == nil || args.ServerProperties == nil {
-		return nil, errors.New("missing required argument 'ServerProperties'")
-	}
 	if args == nil {
-		args = &ConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KafkaVersions == nil {
+		return nil, errors.New("invalid value for required argument 'KafkaVersions'")
+	}
+	if args.ServerProperties == nil {
+		return nil, errors.New("invalid value for required argument 'ServerProperties'")
 	}
 	var resource Configuration
 	err := ctx.RegisterResource("aws:msk/configuration:Configuration", name, args, &resource, opts...)

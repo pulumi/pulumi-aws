@@ -60,10 +60,10 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if principal is None:
+            if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__['principal'] = principal
-            if thing is None:
+            if thing is None and not opts.urn:
                 raise TypeError("Missing required property 'thing'")
             __props__['thing'] = thing
         super(ThingPrincipalAttachment, __self__).__init__(

@@ -178,16 +178,16 @@ class Route(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if mesh_name is None:
+            if mesh_name is None and not opts.urn:
                 raise TypeError("Missing required property 'mesh_name'")
             __props__['mesh_name'] = mesh_name
             __props__['mesh_owner'] = mesh_owner
             __props__['name'] = name
-            if spec is None:
+            if spec is None and not opts.urn:
                 raise TypeError("Missing required property 'spec'")
             __props__['spec'] = spec
             __props__['tags'] = tags
-            if virtual_router_name is None:
+            if virtual_router_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_router_name'")
             __props__['virtual_router_name'] = virtual_router_name
             __props__['arn'] = None

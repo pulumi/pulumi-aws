@@ -68,7 +68,7 @@ class Group(pulumi.CustomResource):
 
             __props__['aws_account_id'] = aws_account_id
             __props__['description'] = description
-            if group_name is None:
+            if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
             __props__['group_name'] = group_name
             __props__['namespace'] = namespace

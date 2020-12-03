@@ -44,14 +44,15 @@ type BasePathMapping struct {
 // NewBasePathMapping registers a new resource with the given unique name, arguments, and options.
 func NewBasePathMapping(ctx *pulumi.Context,
 	name string, args *BasePathMappingArgs, opts ...pulumi.ResourceOption) (*BasePathMapping, error) {
-	if args == nil || args.DomainName == nil {
-		return nil, errors.New("missing required argument 'DomainName'")
-	}
-	if args == nil || args.RestApi == nil {
-		return nil, errors.New("missing required argument 'RestApi'")
-	}
 	if args == nil {
-		args = &BasePathMappingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DomainName == nil {
+		return nil, errors.New("invalid value for required argument 'DomainName'")
+	}
+	if args.RestApi == nil {
+		return nil, errors.New("invalid value for required argument 'RestApi'")
 	}
 	var resource BasePathMapping
 	err := ctx.RegisterResource("aws:apigateway/basePathMapping:BasePathMapping", name, args, &resource, opts...)

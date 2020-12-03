@@ -24,14 +24,15 @@ type ThingPrincipalAttachment struct {
 // NewThingPrincipalAttachment registers a new resource with the given unique name, arguments, and options.
 func NewThingPrincipalAttachment(ctx *pulumi.Context,
 	name string, args *ThingPrincipalAttachmentArgs, opts ...pulumi.ResourceOption) (*ThingPrincipalAttachment, error) {
-	if args == nil || args.Principal == nil {
-		return nil, errors.New("missing required argument 'Principal'")
-	}
-	if args == nil || args.Thing == nil {
-		return nil, errors.New("missing required argument 'Thing'")
-	}
 	if args == nil {
-		args = &ThingPrincipalAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Principal == nil {
+		return nil, errors.New("invalid value for required argument 'Principal'")
+	}
+	if args.Thing == nil {
+		return nil, errors.New("invalid value for required argument 'Thing'")
 	}
 	var resource ThingPrincipalAttachment
 	err := ctx.RegisterResource("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment", name, args, &resource, opts...)

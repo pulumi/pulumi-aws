@@ -52,20 +52,21 @@ type Proxy struct {
 // NewProxy registers a new resource with the given unique name, arguments, and options.
 func NewProxy(ctx *pulumi.Context,
 	name string, args *ProxyArgs, opts ...pulumi.ResourceOption) (*Proxy, error) {
-	if args == nil || args.Auths == nil {
-		return nil, errors.New("missing required argument 'Auths'")
-	}
-	if args == nil || args.EngineFamily == nil {
-		return nil, errors.New("missing required argument 'EngineFamily'")
-	}
-	if args == nil || args.RoleArn == nil {
-		return nil, errors.New("missing required argument 'RoleArn'")
-	}
-	if args == nil || args.VpcSubnetIds == nil {
-		return nil, errors.New("missing required argument 'VpcSubnetIds'")
-	}
 	if args == nil {
-		args = &ProxyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Auths == nil {
+		return nil, errors.New("invalid value for required argument 'Auths'")
+	}
+	if args.EngineFamily == nil {
+		return nil, errors.New("invalid value for required argument 'EngineFamily'")
+	}
+	if args.RoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArn'")
+	}
+	if args.VpcSubnetIds == nil {
+		return nil, errors.New("invalid value for required argument 'VpcSubnetIds'")
 	}
 	var resource Proxy
 	err := ctx.RegisterResource("aws:rds/proxy:Proxy", name, args, &resource, opts...)

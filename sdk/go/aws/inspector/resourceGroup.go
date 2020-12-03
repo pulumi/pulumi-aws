@@ -50,11 +50,12 @@ type ResourceGroup struct {
 // NewResourceGroup registers a new resource with the given unique name, arguments, and options.
 func NewResourceGroup(ctx *pulumi.Context,
 	name string, args *ResourceGroupArgs, opts ...pulumi.ResourceOption) (*ResourceGroup, error) {
-	if args == nil || args.Tags == nil {
-		return nil, errors.New("missing required argument 'Tags'")
-	}
 	if args == nil {
-		args = &ResourceGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Tags == nil {
+		return nil, errors.New("invalid value for required argument 'Tags'")
 	}
 	var resource ResourceGroup
 	err := ctx.RegisterResource("aws:inspector/resourceGroup:ResourceGroup", name, args, &resource, opts...)

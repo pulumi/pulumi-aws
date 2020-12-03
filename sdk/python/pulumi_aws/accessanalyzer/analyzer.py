@@ -43,7 +43,7 @@ class Analyzer(pulumi.CustomResource):
         example_analyzer = aws.accessanalyzer.Analyzer("exampleAnalyzer",
             analyzer_name="example",
             type="ORGANIZATION",
-            opts=ResourceOptions(depends_on=[example_organization]))
+            opts=pulumi.ResourceOptions(depends_on=[example_organization]))
         ```
 
         ## Import
@@ -77,7 +77,7 @@ class Analyzer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if analyzer_name is None:
+            if analyzer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'analyzer_name'")
             __props__['analyzer_name'] = analyzer_name
             __props__['tags'] = tags

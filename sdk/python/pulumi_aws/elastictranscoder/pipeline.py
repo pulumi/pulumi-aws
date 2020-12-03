@@ -93,13 +93,13 @@ class Pipeline(pulumi.CustomResource):
             __props__['aws_kms_key_arn'] = aws_kms_key_arn
             __props__['content_config'] = content_config
             __props__['content_config_permissions'] = content_config_permissions
-            if input_bucket is None:
+            if input_bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'input_bucket'")
             __props__['input_bucket'] = input_bucket
             __props__['name'] = name
             __props__['notifications'] = notifications
             __props__['output_bucket'] = output_bucket
-            if role is None:
+            if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__['role'] = role
             __props__['thumbnail_config'] = thumbnail_config

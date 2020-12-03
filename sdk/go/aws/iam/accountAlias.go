@@ -55,11 +55,12 @@ type AccountAlias struct {
 // NewAccountAlias registers a new resource with the given unique name, arguments, and options.
 func NewAccountAlias(ctx *pulumi.Context,
 	name string, args *AccountAliasArgs, opts ...pulumi.ResourceOption) (*AccountAlias, error) {
-	if args == nil || args.AccountAlias == nil {
-		return nil, errors.New("missing required argument 'AccountAlias'")
-	}
 	if args == nil {
-		args = &AccountAliasArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountAlias == nil {
+		return nil, errors.New("invalid value for required argument 'AccountAlias'")
 	}
 	var resource AccountAlias
 	err := ctx.RegisterResource("aws:iam/accountAlias:AccountAlias", name, args, &resource, opts...)

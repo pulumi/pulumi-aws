@@ -124,14 +124,15 @@ type Authorizer struct {
 // NewAuthorizer registers a new resource with the given unique name, arguments, and options.
 func NewAuthorizer(ctx *pulumi.Context,
 	name string, args *AuthorizerArgs, opts ...pulumi.ResourceOption) (*Authorizer, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
-	if args == nil || args.AuthorizerType == nil {
-		return nil, errors.New("missing required argument 'AuthorizerType'")
-	}
 	if args == nil {
-		args = &AuthorizerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
+	}
+	if args.AuthorizerType == nil {
+		return nil, errors.New("invalid value for required argument 'AuthorizerType'")
 	}
 	var resource Authorizer
 	err := ctx.RegisterResource("aws:apigatewayv2/authorizer:Authorizer", name, args, &resource, opts...)

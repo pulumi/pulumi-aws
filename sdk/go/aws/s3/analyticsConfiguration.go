@@ -110,11 +110,12 @@ type AnalyticsConfiguration struct {
 // NewAnalyticsConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewAnalyticsConfiguration(ctx *pulumi.Context,
 	name string, args *AnalyticsConfigurationArgs, opts ...pulumi.ResourceOption) (*AnalyticsConfiguration, error) {
-	if args == nil || args.Bucket == nil {
-		return nil, errors.New("missing required argument 'Bucket'")
-	}
 	if args == nil {
-		args = &AnalyticsConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Bucket == nil {
+		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
 	var resource AnalyticsConfiguration
 	err := ctx.RegisterResource("aws:s3/analyticsConfiguration:AnalyticsConfiguration", name, args, &resource, opts...)

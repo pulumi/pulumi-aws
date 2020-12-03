@@ -93,14 +93,15 @@ type EventPermission struct {
 // NewEventPermission registers a new resource with the given unique name, arguments, and options.
 func NewEventPermission(ctx *pulumi.Context,
 	name string, args *EventPermissionArgs, opts ...pulumi.ResourceOption) (*EventPermission, error) {
-	if args == nil || args.Principal == nil {
-		return nil, errors.New("missing required argument 'Principal'")
-	}
-	if args == nil || args.StatementId == nil {
-		return nil, errors.New("missing required argument 'StatementId'")
-	}
 	if args == nil {
-		args = &EventPermissionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Principal == nil {
+		return nil, errors.New("invalid value for required argument 'Principal'")
+	}
+	if args.StatementId == nil {
+		return nil, errors.New("invalid value for required argument 'StatementId'")
 	}
 	var resource EventPermission
 	err := ctx.RegisterResource("aws:cloudwatch/eventPermission:EventPermission", name, args, &resource, opts...)

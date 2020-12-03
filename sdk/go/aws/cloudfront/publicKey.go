@@ -31,11 +31,12 @@ type PublicKey struct {
 // NewPublicKey registers a new resource with the given unique name, arguments, and options.
 func NewPublicKey(ctx *pulumi.Context,
 	name string, args *PublicKeyArgs, opts ...pulumi.ResourceOption) (*PublicKey, error) {
-	if args == nil || args.EncodedKey == nil {
-		return nil, errors.New("missing required argument 'EncodedKey'")
-	}
 	if args == nil {
-		args = &PublicKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EncodedKey == nil {
+		return nil, errors.New("invalid value for required argument 'EncodedKey'")
 	}
 	var resource PublicKey
 	err := ctx.RegisterResource("aws:cloudfront/publicKey:PublicKey", name, args, &resource, opts...)

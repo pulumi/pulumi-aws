@@ -87,11 +87,12 @@ type HostedPublicVirtualInterfaceAccepter struct {
 // NewHostedPublicVirtualInterfaceAccepter registers a new resource with the given unique name, arguments, and options.
 func NewHostedPublicVirtualInterfaceAccepter(ctx *pulumi.Context,
 	name string, args *HostedPublicVirtualInterfaceAccepterArgs, opts ...pulumi.ResourceOption) (*HostedPublicVirtualInterfaceAccepter, error) {
-	if args == nil || args.VirtualInterfaceId == nil {
-		return nil, errors.New("missing required argument 'VirtualInterfaceId'")
-	}
 	if args == nil {
-		args = &HostedPublicVirtualInterfaceAccepterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.VirtualInterfaceId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualInterfaceId'")
 	}
 	var resource HostedPublicVirtualInterfaceAccepter
 	err := ctx.RegisterResource("aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter", name, args, &resource, opts...)

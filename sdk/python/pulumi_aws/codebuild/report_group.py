@@ -99,12 +99,12 @@ class ReportGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if export_config is None:
+            if export_config is None and not opts.urn:
                 raise TypeError("Missing required property 'export_config'")
             __props__['export_config'] = export_config
             __props__['name'] = name
             __props__['tags'] = tags
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['arn'] = None

@@ -10,3 +10,34 @@ from .managed_scaling_policy import *
 from .security_configuration import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:emr/cluster:Cluster":
+                return Cluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:emr/instanceFleet:InstanceFleet":
+                return InstanceFleet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:emr/instanceGroup:InstanceGroup":
+                return InstanceGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:emr/managedScalingPolicy:ManagedScalingPolicy":
+                return ManagedScalingPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:emr/securityConfiguration:SecurityConfiguration":
+                return SecurityConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "emr/cluster", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "emr/instanceFleet", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "emr/instanceGroup", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "emr/managedScalingPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "emr/securityConfiguration", _module_instance)
+
+_register_module()

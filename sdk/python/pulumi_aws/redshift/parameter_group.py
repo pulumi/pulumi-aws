@@ -88,7 +88,7 @@ class ParameterGroup(pulumi.CustomResource):
             if description is None:
                 description = 'Managed by Pulumi'
             __props__['description'] = description
-            if family is None:
+            if family is None and not opts.urn:
                 raise TypeError("Missing required property 'family'")
             __props__['family'] = family
             __props__['name'] = name

@@ -48,7 +48,7 @@ class RateBasedRule(pulumi.CustomResource):
                 negated=False,
                 type="IPMatch",
             )],
-            opts=ResourceOptions(depends_on=[ipset]))
+            opts=pulumi.ResourceOptions(depends_on=[ipset]))
         ```
 
         ## Import
@@ -85,15 +85,15 @@ class RateBasedRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if metric_name is None:
+            if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")
             __props__['metric_name'] = metric_name
             __props__['name'] = name
             __props__['predicates'] = predicates
-            if rate_key is None:
+            if rate_key is None and not opts.urn:
                 raise TypeError("Missing required property 'rate_key'")
             __props__['rate_key'] = rate_key
-            if rate_limit is None:
+            if rate_limit is None and not opts.urn:
                 raise TypeError("Missing required property 'rate_limit'")
             __props__['rate_limit'] = rate_limit
             __props__['tags'] = tags

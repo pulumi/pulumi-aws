@@ -68,11 +68,12 @@ type Repository struct {
 // NewRepository registers a new resource with the given unique name, arguments, and options.
 func NewRepository(ctx *pulumi.Context,
 	name string, args *RepositoryArgs, opts ...pulumi.ResourceOption) (*Repository, error) {
-	if args == nil || args.RepositoryName == nil {
-		return nil, errors.New("missing required argument 'RepositoryName'")
-	}
 	if args == nil {
-		args = &RepositoryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RepositoryName == nil {
+		return nil, errors.New("invalid value for required argument 'RepositoryName'")
 	}
 	var resource Repository
 	err := ctx.RegisterResource("aws:codecommit/repository:Repository", name, args, &resource, opts...)

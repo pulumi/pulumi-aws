@@ -219,17 +219,18 @@ type Record struct {
 // NewRecord registers a new resource with the given unique name, arguments, and options.
 func NewRecord(ctx *pulumi.Context,
 	name string, args *RecordArgs, opts ...pulumi.ResourceOption) (*Record, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
-	if args == nil || args.ZoneId == nil {
-		return nil, errors.New("missing required argument 'ZoneId'")
-	}
 	if args == nil {
-		args = &RecordArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
+	}
+	if args.ZoneId == nil {
+		return nil, errors.New("invalid value for required argument 'ZoneId'")
 	}
 	var resource Record
 	err := ctx.RegisterResource("aws:route53/record:Record", name, args, &resource, opts...)

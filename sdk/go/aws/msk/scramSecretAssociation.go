@@ -30,14 +30,15 @@ type ScramSecretAssociation struct {
 // NewScramSecretAssociation registers a new resource with the given unique name, arguments, and options.
 func NewScramSecretAssociation(ctx *pulumi.Context,
 	name string, args *ScramSecretAssociationArgs, opts ...pulumi.ResourceOption) (*ScramSecretAssociation, error) {
-	if args == nil || args.ClusterArn == nil {
-		return nil, errors.New("missing required argument 'ClusterArn'")
-	}
-	if args == nil || args.SecretArnLists == nil {
-		return nil, errors.New("missing required argument 'SecretArnLists'")
-	}
 	if args == nil {
-		args = &ScramSecretAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterArn == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterArn'")
+	}
+	if args.SecretArnLists == nil {
+		return nil, errors.New("invalid value for required argument 'SecretArnLists'")
 	}
 	var resource ScramSecretAssociation
 	err := ctx.RegisterResource("aws:msk/scramSecretAssociation:ScramSecretAssociation", name, args, &resource, opts...)

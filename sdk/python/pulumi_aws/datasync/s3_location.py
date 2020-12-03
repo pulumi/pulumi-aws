@@ -73,13 +73,13 @@ class S3Location(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if s3_bucket_arn is None:
+            if s3_bucket_arn is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket_arn'")
             __props__['s3_bucket_arn'] = s3_bucket_arn
-            if s3_config is None:
+            if s3_config is None and not opts.urn:
                 raise TypeError("Missing required property 's3_config'")
             __props__['s3_config'] = s3_config
-            if subdirectory is None:
+            if subdirectory is None and not opts.urn:
                 raise TypeError("Missing required property 'subdirectory'")
             __props__['subdirectory'] = subdirectory
             __props__['tags'] = tags

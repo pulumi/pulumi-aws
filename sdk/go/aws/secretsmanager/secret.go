@@ -111,6 +111,7 @@ func NewSecret(ctx *pulumi.Context,
 	if args == nil {
 		args = &SecretArgs{}
 	}
+
 	var resource Secret
 	err := ctx.RegisterResource("aws:secretsmanager/secret:Secret", name, args, &resource, opts...)
 	if err != nil {

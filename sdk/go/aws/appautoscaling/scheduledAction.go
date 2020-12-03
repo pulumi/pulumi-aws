@@ -118,14 +118,15 @@ type ScheduledAction struct {
 // NewScheduledAction registers a new resource with the given unique name, arguments, and options.
 func NewScheduledAction(ctx *pulumi.Context,
 	name string, args *ScheduledActionArgs, opts ...pulumi.ResourceOption) (*ScheduledAction, error) {
-	if args == nil || args.ResourceId == nil {
-		return nil, errors.New("missing required argument 'ResourceId'")
-	}
-	if args == nil || args.ServiceNamespace == nil {
-		return nil, errors.New("missing required argument 'ServiceNamespace'")
-	}
 	if args == nil {
-		args = &ScheduledActionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceId'")
+	}
+	if args.ServiceNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceNamespace'")
 	}
 	var resource ScheduledAction
 	err := ctx.RegisterResource("aws:appautoscaling/scheduledAction:ScheduledAction", name, args, &resource, opts...)

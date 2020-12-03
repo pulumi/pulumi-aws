@@ -100,20 +100,21 @@ type MethodResponse struct {
 // NewMethodResponse registers a new resource with the given unique name, arguments, and options.
 func NewMethodResponse(ctx *pulumi.Context,
 	name string, args *MethodResponseArgs, opts ...pulumi.ResourceOption) (*MethodResponse, error) {
-	if args == nil || args.HttpMethod == nil {
-		return nil, errors.New("missing required argument 'HttpMethod'")
-	}
-	if args == nil || args.ResourceId == nil {
-		return nil, errors.New("missing required argument 'ResourceId'")
-	}
-	if args == nil || args.RestApi == nil {
-		return nil, errors.New("missing required argument 'RestApi'")
-	}
-	if args == nil || args.StatusCode == nil {
-		return nil, errors.New("missing required argument 'StatusCode'")
-	}
 	if args == nil {
-		args = &MethodResponseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HttpMethod == nil {
+		return nil, errors.New("invalid value for required argument 'HttpMethod'")
+	}
+	if args.ResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceId'")
+	}
+	if args.RestApi == nil {
+		return nil, errors.New("invalid value for required argument 'RestApi'")
+	}
+	if args.StatusCode == nil {
+		return nil, errors.New("invalid value for required argument 'StatusCode'")
 	}
 	var resource MethodResponse
 	err := ctx.RegisterResource("aws:apigateway/methodResponse:MethodResponse", name, args, &resource, opts...)

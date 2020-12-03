@@ -105,7 +105,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if instance_profile_name is None:
+            if instance_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_profile_name'")
             __props__['instance_profile_name'] = instance_profile_name
             __props__['instance_types'] = instance_types

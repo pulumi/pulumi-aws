@@ -68,6 +68,7 @@ func NewAssessmentTarget(ctx *pulumi.Context,
 	if args == nil {
 		args = &AssessmentTargetArgs{}
 	}
+
 	var resource AssessmentTarget
 	err := ctx.RegisterResource("aws:inspector/assessmentTarget:AssessmentTarget", name, args, &resource, opts...)
 	if err != nil {

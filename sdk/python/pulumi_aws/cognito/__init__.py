@@ -14,3 +14,43 @@ from .user_pool_client import *
 from .user_pool_domain import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:cognito/identityPool:IdentityPool":
+                return IdentityPool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment":
+                return IdentityPoolRoleAttachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cognito/identityProvider:IdentityProvider":
+                return IdentityProvider(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cognito/resourceServer:ResourceServer":
+                return ResourceServer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cognito/userGroup:UserGroup":
+                return UserGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cognito/userPool:UserPool":
+                return UserPool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cognito/userPoolClient:UserPoolClient":
+                return UserPoolClient(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cognito/userPoolDomain:UserPoolDomain":
+                return UserPoolDomain(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "cognito/identityPool", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cognito/identityPoolRoleAttachment", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cognito/identityProvider", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cognito/resourceServer", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cognito/userGroup", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cognito/userPool", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cognito/userPoolClient", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cognito/userPoolDomain", _module_instance)
+
+_register_module()

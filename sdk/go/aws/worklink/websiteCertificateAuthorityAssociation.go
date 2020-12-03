@@ -34,14 +34,15 @@ type WebsiteCertificateAuthorityAssociation struct {
 // NewWebsiteCertificateAuthorityAssociation registers a new resource with the given unique name, arguments, and options.
 func NewWebsiteCertificateAuthorityAssociation(ctx *pulumi.Context,
 	name string, args *WebsiteCertificateAuthorityAssociationArgs, opts ...pulumi.ResourceOption) (*WebsiteCertificateAuthorityAssociation, error) {
-	if args == nil || args.Certificate == nil {
-		return nil, errors.New("missing required argument 'Certificate'")
-	}
-	if args == nil || args.FleetArn == nil {
-		return nil, errors.New("missing required argument 'FleetArn'")
-	}
 	if args == nil {
-		args = &WebsiteCertificateAuthorityAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Certificate == nil {
+		return nil, errors.New("invalid value for required argument 'Certificate'")
+	}
+	if args.FleetArn == nil {
+		return nil, errors.New("invalid value for required argument 'FleetArn'")
 	}
 	var resource WebsiteCertificateAuthorityAssociation
 	err := ctx.RegisterResource("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation", name, args, &resource, opts...)

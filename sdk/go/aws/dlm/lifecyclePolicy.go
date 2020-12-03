@@ -108,17 +108,18 @@ type LifecyclePolicy struct {
 // NewLifecyclePolicy registers a new resource with the given unique name, arguments, and options.
 func NewLifecyclePolicy(ctx *pulumi.Context,
 	name string, args *LifecyclePolicyArgs, opts ...pulumi.ResourceOption) (*LifecyclePolicy, error) {
-	if args == nil || args.Description == nil {
-		return nil, errors.New("missing required argument 'Description'")
-	}
-	if args == nil || args.ExecutionRoleArn == nil {
-		return nil, errors.New("missing required argument 'ExecutionRoleArn'")
-	}
-	if args == nil || args.PolicyDetails == nil {
-		return nil, errors.New("missing required argument 'PolicyDetails'")
-	}
 	if args == nil {
-		args = &LifecyclePolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Description == nil {
+		return nil, errors.New("invalid value for required argument 'Description'")
+	}
+	if args.ExecutionRoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'ExecutionRoleArn'")
+	}
+	if args.PolicyDetails == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyDetails'")
 	}
 	var resource LifecyclePolicy
 	err := ctx.RegisterResource("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, args, &resource, opts...)

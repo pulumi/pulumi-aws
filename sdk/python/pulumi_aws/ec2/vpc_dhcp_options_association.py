@@ -68,10 +68,10 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if dhcp_options_id is None:
+            if dhcp_options_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dhcp_options_id'")
             __props__['dhcp_options_id'] = dhcp_options_id
-            if vpc_id is None:
+            if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
         super(VpcDhcpOptionsAssociation, __self__).__init__(

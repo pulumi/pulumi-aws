@@ -70,12 +70,12 @@ class Webhook(pulumi.CustomResource):
             active=True,
             events=["push"],
             repository=github_repository["example"]["name"],
-            configuration={
-                "url": example_webhook.payload_url,
-                "secret": example_webhook.secret,
-                "contentType": "json",
-                "insecureSsl": False,
-            })
+            configuration=github.RepositoryWebhookConfigurationArgs(
+                url=example_webhook.payload_url,
+                secret=example_webhook.secret,
+                content_type="json",
+                insecure_ssl=False,
+            ))
         ```
 
         ## Import
@@ -111,7 +111,7 @@ class Webhook(pulumi.CustomResource):
 
             __props__['branch_filter'] = branch_filter
             __props__['filter_groups'] = filter_groups
-            if project_name is None:
+            if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
             __props__['payload_url'] = None

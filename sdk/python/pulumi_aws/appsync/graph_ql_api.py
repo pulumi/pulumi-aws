@@ -171,7 +171,7 @@ class GraphQLApi(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['additional_authentication_providers'] = additional_authentication_providers
-            if authentication_type is None:
+            if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
             __props__['authentication_type'] = authentication_type
             __props__['log_config'] = log_config

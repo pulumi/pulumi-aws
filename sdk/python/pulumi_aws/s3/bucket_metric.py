@@ -85,7 +85,7 @@ class BucketMetric(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if bucket is None:
+            if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
             __props__['bucket'] = bucket
             __props__['filter'] = filter

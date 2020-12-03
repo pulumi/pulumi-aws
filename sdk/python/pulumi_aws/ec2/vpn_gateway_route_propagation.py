@@ -60,10 +60,10 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if route_table_id is None:
+            if route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_id'")
             __props__['route_table_id'] = route_table_id
-            if vpn_gateway_id is None:
+            if vpn_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_gateway_id'")
             __props__['vpn_gateway_id'] = vpn_gateway_id
         super(VpnGatewayRoutePropagation, __self__).__init__(

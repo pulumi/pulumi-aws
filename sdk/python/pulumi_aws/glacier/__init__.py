@@ -7,3 +7,25 @@ from .vault import *
 from .vault_lock import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:glacier/vault:Vault":
+                return Vault(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:glacier/vaultLock:VaultLock":
+                return VaultLock(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "glacier/vault", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "glacier/vaultLock", _module_instance)
+
+_register_module()

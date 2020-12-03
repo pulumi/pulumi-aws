@@ -75,10 +75,10 @@ class BotAlias(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if bot_name is None:
+            if bot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_name'")
             __props__['bot_name'] = bot_name
-            if bot_version is None:
+            if bot_version is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_version'")
             __props__['bot_version'] = bot_version
             __props__['conversation_logs'] = conversation_logs

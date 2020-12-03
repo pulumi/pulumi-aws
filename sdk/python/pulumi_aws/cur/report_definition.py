@@ -96,28 +96,28 @@ class ReportDefinition(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['additional_artifacts'] = additional_artifacts
-            if additional_schema_elements is None:
+            if additional_schema_elements is None and not opts.urn:
                 raise TypeError("Missing required property 'additional_schema_elements'")
             __props__['additional_schema_elements'] = additional_schema_elements
-            if compression is None:
+            if compression is None and not opts.urn:
                 raise TypeError("Missing required property 'compression'")
             __props__['compression'] = compression
-            if format is None:
+            if format is None and not opts.urn:
                 raise TypeError("Missing required property 'format'")
             __props__['format'] = format
             __props__['refresh_closed_reports'] = refresh_closed_reports
-            if report_name is None:
+            if report_name is None and not opts.urn:
                 raise TypeError("Missing required property 'report_name'")
             __props__['report_name'] = report_name
             __props__['report_versioning'] = report_versioning
-            if s3_bucket is None:
+            if s3_bucket is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket'")
             __props__['s3_bucket'] = s3_bucket
             __props__['s3_prefix'] = s3_prefix
-            if s3_region is None:
+            if s3_region is None and not opts.urn:
                 raise TypeError("Missing required property 's3_region'")
             __props__['s3_region'] = s3_region
-            if time_unit is None:
+            if time_unit is None and not opts.urn:
                 raise TypeError("Missing required property 'time_unit'")
             __props__['time_unit'] = time_unit
         super(ReportDefinition, __self__).__init__(

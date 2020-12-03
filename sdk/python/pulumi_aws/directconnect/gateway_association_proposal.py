@@ -70,13 +70,13 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['allowed_prefixes'] = allowed_prefixes
-            if associated_gateway_id is None:
+            if associated_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'associated_gateway_id'")
             __props__['associated_gateway_id'] = associated_gateway_id
-            if dx_gateway_id is None:
+            if dx_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dx_gateway_id'")
             __props__['dx_gateway_id'] = dx_gateway_id
-            if dx_gateway_owner_account_id is None:
+            if dx_gateway_owner_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dx_gateway_owner_account_id'")
             __props__['dx_gateway_owner_account_id'] = dx_gateway_owner_account_id
             __props__['associated_gateway_owner_account_id'] = None

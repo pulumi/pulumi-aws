@@ -75,14 +75,14 @@ class LogSubscriptionFilter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if destination_arn is None:
+            if destination_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_arn'")
             __props__['destination_arn'] = destination_arn
             __props__['distribution'] = distribution
-            if filter_pattern is None:
+            if filter_pattern is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_pattern'")
             __props__['filter_pattern'] = filter_pattern
-            if log_group is None:
+            if log_group is None and not opts.urn:
                 raise TypeError("Missing required property 'log_group'")
             __props__['log_group'] = log_group
             __props__['name'] = name

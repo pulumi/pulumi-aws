@@ -10,3 +10,28 @@ from .signing_profile import *
 from .signing_profile_permission import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:signer/signingJob:SigningJob":
+                return SigningJob(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:signer/signingProfile:SigningProfile":
+                return SigningProfile(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:signer/signingProfilePermission:SigningProfilePermission":
+                return SigningProfilePermission(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "signer/signingJob", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "signer/signingProfile", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "signer/signingProfilePermission", _module_instance)
+
+_register_module()

@@ -455,6 +455,7 @@ func NewBucket(ctx *pulumi.Context,
 	if args == nil {
 		args = &BucketArgs{}
 	}
+
 	var resource Bucket
 	err := ctx.RegisterResource("aws:s3/bucket:Bucket", name, args, &resource, opts...)
 	if err != nil {

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .activation import *
 from .association import *
 from .document import *
@@ -18,3 +19,49 @@ from .patch_group import *
 from .resource_data_sync import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:ssm/activation:Activation":
+                return Activation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ssm/association:Association":
+                return Association(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ssm/document:Document":
+                return Document(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ssm/maintenanceWindow:MaintenanceWindow":
+                return MaintenanceWindow(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget":
+                return MaintenanceWindowTarget(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ssm/maintenanceWindowTask:MaintenanceWindowTask":
+                return MaintenanceWindowTask(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ssm/parameter:Parameter":
+                return Parameter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ssm/patchBaseline:PatchBaseline":
+                return PatchBaseline(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ssm/patchGroup:PatchGroup":
+                return PatchGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ssm/resourceDataSync:ResourceDataSync":
+                return ResourceDataSync(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "ssm/activation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ssm/association", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ssm/document", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ssm/maintenanceWindow", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ssm/maintenanceWindowTarget", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ssm/maintenanceWindowTask", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ssm/parameter", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ssm/patchBaseline", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ssm/patchGroup", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ssm/resourceDataSync", _module_instance)
+
+_register_module()

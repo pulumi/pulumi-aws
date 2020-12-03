@@ -156,6 +156,7 @@ func NewTargetGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &TargetGroupArgs{}
 	}
+
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("aws:applicationloadbalancing/targetGroup:TargetGroup"),

@@ -85,15 +85,15 @@ class ApplicationVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application is None:
+            if application is None and not opts.urn:
                 raise TypeError("Missing required property 'application'")
             __props__['application'] = application
-            if bucket is None:
+            if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
             __props__['bucket'] = bucket
             __props__['description'] = description
             __props__['force_delete'] = force_delete
-            if key is None:
+            if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__['key'] = key
             __props__['name'] = name

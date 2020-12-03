@@ -45,11 +45,12 @@ type ActiveReceiptRuleSet struct {
 // NewActiveReceiptRuleSet registers a new resource with the given unique name, arguments, and options.
 func NewActiveReceiptRuleSet(ctx *pulumi.Context,
 	name string, args *ActiveReceiptRuleSetArgs, opts ...pulumi.ResourceOption) (*ActiveReceiptRuleSet, error) {
-	if args == nil || args.RuleSetName == nil {
-		return nil, errors.New("missing required argument 'RuleSetName'")
-	}
 	if args == nil {
-		args = &ActiveReceiptRuleSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RuleSetName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleSetName'")
 	}
 	var resource ActiveReceiptRuleSet
 	err := ctx.RegisterResource("aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet", name, args, &resource, opts...)

@@ -98,6 +98,7 @@ func NewEipAssociation(ctx *pulumi.Context,
 	if args == nil {
 		args = &EipAssociationArgs{}
 	}
+
 	var resource EipAssociation
 	err := ctx.RegisterResource("aws:ec2/eipAssociation:EipAssociation", name, args, &resource, opts...)
 	if err != nil {

@@ -87,14 +87,14 @@ class Configuration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if data is None:
+            if data is None and not opts.urn:
                 raise TypeError("Missing required property 'data'")
             __props__['data'] = data
             __props__['description'] = description
-            if engine_type is None:
+            if engine_type is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_type'")
             __props__['engine_type'] = engine_type
-            if engine_version is None:
+            if engine_version is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_version'")
             __props__['engine_version'] = engine_version
             __props__['name'] = name

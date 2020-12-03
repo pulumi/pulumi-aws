@@ -97,17 +97,18 @@ type VaultLock struct {
 // NewVaultLock registers a new resource with the given unique name, arguments, and options.
 func NewVaultLock(ctx *pulumi.Context,
 	name string, args *VaultLockArgs, opts ...pulumi.ResourceOption) (*VaultLock, error) {
-	if args == nil || args.CompleteLock == nil {
-		return nil, errors.New("missing required argument 'CompleteLock'")
-	}
-	if args == nil || args.Policy == nil {
-		return nil, errors.New("missing required argument 'Policy'")
-	}
-	if args == nil || args.VaultName == nil {
-		return nil, errors.New("missing required argument 'VaultName'")
-	}
 	if args == nil {
-		args = &VaultLockArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CompleteLock == nil {
+		return nil, errors.New("invalid value for required argument 'CompleteLock'")
+	}
+	if args.Policy == nil {
+		return nil, errors.New("invalid value for required argument 'Policy'")
+	}
+	if args.VaultName == nil {
+		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
 	var resource VaultLock
 	err := ctx.RegisterResource("aws:glacier/vaultLock:VaultLock", name, args, &resource, opts...)

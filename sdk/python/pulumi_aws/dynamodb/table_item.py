@@ -84,14 +84,14 @@ class TableItem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if hash_key is None:
+            if hash_key is None and not opts.urn:
                 raise TypeError("Missing required property 'hash_key'")
             __props__['hash_key'] = hash_key
-            if item is None:
+            if item is None and not opts.urn:
                 raise TypeError("Missing required property 'item'")
             __props__['item'] = item
             __props__['range_key'] = range_key
-            if table_name is None:
+            if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__['table_name'] = table_name
         super(TableItem, __self__).__init__(

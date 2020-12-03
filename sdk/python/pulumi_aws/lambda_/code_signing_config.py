@@ -78,7 +78,7 @@ class CodeSigningConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if allowed_publishers is None:
+            if allowed_publishers is None and not opts.urn:
                 raise TypeError("Missing required property 'allowed_publishers'")
             __props__['allowed_publishers'] = allowed_publishers
             __props__['description'] = description

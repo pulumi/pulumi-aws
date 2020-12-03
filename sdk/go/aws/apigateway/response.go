@@ -75,14 +75,15 @@ type Response struct {
 // NewResponse registers a new resource with the given unique name, arguments, and options.
 func NewResponse(ctx *pulumi.Context,
 	name string, args *ResponseArgs, opts ...pulumi.ResourceOption) (*Response, error) {
-	if args == nil || args.ResponseType == nil {
-		return nil, errors.New("missing required argument 'ResponseType'")
-	}
-	if args == nil || args.RestApiId == nil {
-		return nil, errors.New("missing required argument 'RestApiId'")
-	}
 	if args == nil {
-		args = &ResponseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResponseType == nil {
+		return nil, errors.New("invalid value for required argument 'ResponseType'")
+	}
+	if args.RestApiId == nil {
+		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
 	var resource Response
 	err := ctx.RegisterResource("aws:apigateway/response:Response", name, args, &resource, opts...)

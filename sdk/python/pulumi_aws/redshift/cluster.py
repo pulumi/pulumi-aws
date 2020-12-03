@@ -146,7 +146,7 @@ class Cluster(pulumi.CustomResource):
             __props__['allow_version_upgrade'] = allow_version_upgrade
             __props__['automated_snapshot_retention_period'] = automated_snapshot_retention_period
             __props__['availability_zone'] = availability_zone
-            if cluster_identifier is None:
+            if cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_identifier'")
             __props__['cluster_identifier'] = cluster_identifier
             __props__['cluster_parameter_group_name'] = cluster_parameter_group_name
@@ -167,7 +167,7 @@ class Cluster(pulumi.CustomResource):
             __props__['logging'] = logging
             __props__['master_password'] = master_password
             __props__['master_username'] = master_username
-            if node_type is None:
+            if node_type is None and not opts.urn:
                 raise TypeError("Missing required property 'node_type'")
             __props__['node_type'] = node_type
             __props__['number_of_nodes'] = number_of_nodes

@@ -84,17 +84,18 @@ type ProvisionedConcurrencyConfig struct {
 // NewProvisionedConcurrencyConfig registers a new resource with the given unique name, arguments, and options.
 func NewProvisionedConcurrencyConfig(ctx *pulumi.Context,
 	name string, args *ProvisionedConcurrencyConfigArgs, opts ...pulumi.ResourceOption) (*ProvisionedConcurrencyConfig, error) {
-	if args == nil || args.FunctionName == nil {
-		return nil, errors.New("missing required argument 'FunctionName'")
-	}
-	if args == nil || args.ProvisionedConcurrentExecutions == nil {
-		return nil, errors.New("missing required argument 'ProvisionedConcurrentExecutions'")
-	}
-	if args == nil || args.Qualifier == nil {
-		return nil, errors.New("missing required argument 'Qualifier'")
-	}
 	if args == nil {
-		args = &ProvisionedConcurrencyConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FunctionName == nil {
+		return nil, errors.New("invalid value for required argument 'FunctionName'")
+	}
+	if args.ProvisionedConcurrentExecutions == nil {
+		return nil, errors.New("invalid value for required argument 'ProvisionedConcurrentExecutions'")
+	}
+	if args.Qualifier == nil {
+		return nil, errors.New("invalid value for required argument 'Qualifier'")
 	}
 	var resource ProvisionedConcurrencyConfig
 	err := ctx.RegisterResource("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig", name, args, &resource, opts...)

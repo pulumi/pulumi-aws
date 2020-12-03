@@ -32,18 +32,18 @@ class InviteAccepter(pulumi.CustomResource):
 
         primary = pulumi.providers.Aws("primary")
         member = pulumi.providers.Aws("member")
-        primary_detector = aws.guardduty.Detector("primaryDetector", opts=ResourceOptions(provider=aws["primary"]))
-        member_detector = aws.guardduty.Detector("memberDetector", opts=ResourceOptions(provider=aws["member"]))
+        primary_detector = aws.guardduty.Detector("primaryDetector", opts=pulumi.ResourceOptions(provider=aws["primary"]))
+        member_detector = aws.guardduty.Detector("memberDetector", opts=pulumi.ResourceOptions(provider=aws["member"]))
         member_member = aws.guardduty.Member("memberMember",
             account_id=member_detector.account_id,
             detector_id=primary_detector.id,
             email="required@example.com",
             invite=True,
-            opts=ResourceOptions(provider=aws["primary"]))
+            opts=pulumi.ResourceOptions(provider=aws["primary"]))
         member_invite_accepter = aws.guardduty.InviteAccepter("memberInviteAccepter",
             detector_id=member_detector.id,
             master_account_id=primary_detector.account_id,
-            opts=ResourceOptions(provider=aws["member"],
+            opts=pulumi.ResourceOptions(provider=aws["member"],
                 depends_on=[member_member]))
         ```
 
@@ -77,10 +77,10 @@ class InviteAccepter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if detector_id is None:
+            if detector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_id'")
             __props__['detector_id'] = detector_id
-            if master_account_id is None:
+            if master_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'master_account_id'")
             __props__['master_account_id'] = master_account_id
         super(InviteAccepter, __self__).__init__(

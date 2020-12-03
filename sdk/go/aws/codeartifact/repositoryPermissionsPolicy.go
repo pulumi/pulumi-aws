@@ -40,17 +40,18 @@ type RepositoryPermissionsPolicy struct {
 // NewRepositoryPermissionsPolicy registers a new resource with the given unique name, arguments, and options.
 func NewRepositoryPermissionsPolicy(ctx *pulumi.Context,
 	name string, args *RepositoryPermissionsPolicyArgs, opts ...pulumi.ResourceOption) (*RepositoryPermissionsPolicy, error) {
-	if args == nil || args.Domain == nil {
-		return nil, errors.New("missing required argument 'Domain'")
-	}
-	if args == nil || args.PolicyDocument == nil {
-		return nil, errors.New("missing required argument 'PolicyDocument'")
-	}
-	if args == nil || args.Repository == nil {
-		return nil, errors.New("missing required argument 'Repository'")
-	}
 	if args == nil {
-		args = &RepositoryPermissionsPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Domain == nil {
+		return nil, errors.New("invalid value for required argument 'Domain'")
+	}
+	if args.PolicyDocument == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
+	}
+	if args.Repository == nil {
+		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
 	var resource RepositoryPermissionsPolicy
 	err := ctx.RegisterResource("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy", name, args, &resource, opts...)

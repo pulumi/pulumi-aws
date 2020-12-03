@@ -12,3 +12,31 @@ from .secret_rotation import *
 from .secret_version import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:secretsmanager/secret:Secret":
+                return Secret(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:secretsmanager/secretPolicy:SecretPolicy":
+                return SecretPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:secretsmanager/secretRotation:SecretRotation":
+                return SecretRotation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:secretsmanager/secretVersion:SecretVersion":
+                return SecretVersion(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "secretsmanager/secret", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "secretsmanager/secretPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "secretsmanager/secretRotation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "secretsmanager/secretVersion", _module_instance)
+
+_register_module()

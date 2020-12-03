@@ -553,14 +553,15 @@ type Cluster struct {
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
-	if args == nil || args.ReleaseLabel == nil {
-		return nil, errors.New("missing required argument 'ReleaseLabel'")
-	}
-	if args == nil || args.ServiceRole == nil {
-		return nil, errors.New("missing required argument 'ServiceRole'")
-	}
 	if args == nil {
-		args = &ClusterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ReleaseLabel == nil {
+		return nil, errors.New("invalid value for required argument 'ReleaseLabel'")
+	}
+	if args.ServiceRole == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceRole'")
 	}
 	var resource Cluster
 	err := ctx.RegisterResource("aws:emr/cluster:Cluster", name, args, &resource, opts...)

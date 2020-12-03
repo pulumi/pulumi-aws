@@ -60,6 +60,7 @@ func NewIpGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &IpGroupArgs{}
 	}
+
 	var resource IpGroup
 	err := ctx.RegisterResource("aws:workspaces/ipGroup:IpGroup", name, args, &resource, opts...)
 	if err != nil {

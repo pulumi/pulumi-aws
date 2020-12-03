@@ -29,14 +29,15 @@ type RestApiPolicy struct {
 // NewRestApiPolicy registers a new resource with the given unique name, arguments, and options.
 func NewRestApiPolicy(ctx *pulumi.Context,
 	name string, args *RestApiPolicyArgs, opts ...pulumi.ResourceOption) (*RestApiPolicy, error) {
-	if args == nil || args.Policy == nil {
-		return nil, errors.New("missing required argument 'Policy'")
-	}
-	if args == nil || args.RestApiId == nil {
-		return nil, errors.New("missing required argument 'RestApiId'")
-	}
 	if args == nil {
-		args = &RestApiPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Policy == nil {
+		return nil, errors.New("invalid value for required argument 'Policy'")
+	}
+	if args.RestApiId == nil {
+		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
 	var resource RestApiPolicy
 	err := ctx.RegisterResource("aws:apigateway/restApiPolicy:RestApiPolicy", name, args, &resource, opts...)

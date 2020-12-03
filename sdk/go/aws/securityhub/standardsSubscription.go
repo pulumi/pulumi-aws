@@ -71,11 +71,12 @@ type StandardsSubscription struct {
 // NewStandardsSubscription registers a new resource with the given unique name, arguments, and options.
 func NewStandardsSubscription(ctx *pulumi.Context,
 	name string, args *StandardsSubscriptionArgs, opts ...pulumi.ResourceOption) (*StandardsSubscription, error) {
-	if args == nil || args.StandardsArn == nil {
-		return nil, errors.New("missing required argument 'StandardsArn'")
-	}
 	if args == nil {
-		args = &StandardsSubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StandardsArn == nil {
+		return nil, errors.New("invalid value for required argument 'StandardsArn'")
 	}
 	var resource StandardsSubscription
 	err := ctx.RegisterResource("aws:securityhub/standardsSubscription:StandardsSubscription", name, args, &resource, opts...)

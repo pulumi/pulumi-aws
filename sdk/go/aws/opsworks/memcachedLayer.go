@@ -84,11 +84,12 @@ type MemcachedLayer struct {
 // NewMemcachedLayer registers a new resource with the given unique name, arguments, and options.
 func NewMemcachedLayer(ctx *pulumi.Context,
 	name string, args *MemcachedLayerArgs, opts ...pulumi.ResourceOption) (*MemcachedLayer, error) {
-	if args == nil || args.StackId == nil {
-		return nil, errors.New("missing required argument 'StackId'")
-	}
 	if args == nil {
-		args = &MemcachedLayerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StackId == nil {
+		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
 	var resource MemcachedLayer
 	err := ctx.RegisterResource("aws:opsworks/memcachedLayer:MemcachedLayer", name, args, &resource, opts...)

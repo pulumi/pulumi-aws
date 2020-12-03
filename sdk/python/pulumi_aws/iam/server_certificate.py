@@ -146,14 +146,14 @@ class ServerCertificate(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['arn'] = arn
-            if certificate_body is None:
+            if certificate_body is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_body'")
             __props__['certificate_body'] = certificate_body
             __props__['certificate_chain'] = certificate_chain
             __props__['name'] = name
             __props__['name_prefix'] = name_prefix
             __props__['path'] = path
-            if private_key is None:
+            if private_key is None and not opts.urn:
                 raise TypeError("Missing required property 'private_key'")
             __props__['private_key'] = private_key
         super(ServerCertificate, __self__).__init__(

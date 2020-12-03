@@ -72,13 +72,13 @@ class RoleAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if db_instance_identifier is None:
+            if db_instance_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'db_instance_identifier'")
             __props__['db_instance_identifier'] = db_instance_identifier
-            if feature_name is None:
+            if feature_name is None and not opts.urn:
                 raise TypeError("Missing required property 'feature_name'")
             __props__['feature_name'] = feature_name
-            if role_arn is None:
+            if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
         super(RoleAssociation, __self__).__init__(

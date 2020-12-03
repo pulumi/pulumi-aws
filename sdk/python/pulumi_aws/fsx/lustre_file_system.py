@@ -121,11 +121,11 @@ class LustreFileSystem(pulumi.CustomResource):
             __props__['kms_key_id'] = kms_key_id
             __props__['per_unit_storage_throughput'] = per_unit_storage_throughput
             __props__['security_group_ids'] = security_group_ids
-            if storage_capacity is None:
+            if storage_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_capacity'")
             __props__['storage_capacity'] = storage_capacity
             __props__['storage_type'] = storage_type
-            if subnet_ids is None:
+            if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__['subnet_ids'] = subnet_ids
             __props__['tags'] = tags

@@ -111,11 +111,12 @@ type EventSubscription struct {
 // NewEventSubscription registers a new resource with the given unique name, arguments, and options.
 func NewEventSubscription(ctx *pulumi.Context,
 	name string, args *EventSubscriptionArgs, opts ...pulumi.ResourceOption) (*EventSubscription, error) {
-	if args == nil || args.SnsTopic == nil {
-		return nil, errors.New("missing required argument 'SnsTopic'")
-	}
 	if args == nil {
-		args = &EventSubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SnsTopic == nil {
+		return nil, errors.New("invalid value for required argument 'SnsTopic'")
 	}
 	var resource EventSubscription
 	err := ctx.RegisterResource("aws:rds/eventSubscription:EventSubscription", name, args, &resource, opts...)

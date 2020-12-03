@@ -87,7 +87,7 @@ class Stage(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_log_settings'] = access_log_settings
-            if api_id is None:
+            if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
             __props__['auto_deploy'] = auto_deploy

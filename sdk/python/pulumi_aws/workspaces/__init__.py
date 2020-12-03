@@ -12,3 +12,28 @@ from .ip_group import *
 from .workspace import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:workspaces/directory:Directory":
+                return Directory(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:workspaces/ipGroup:IpGroup":
+                return IpGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:workspaces/workspace:Workspace":
+                return Workspace(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "workspaces/directory", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "workspaces/ipGroup", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "workspaces/workspace", _module_instance)
+
+_register_module()

@@ -185,11 +185,12 @@ type FunctionEventInvokeConfig struct {
 // NewFunctionEventInvokeConfig registers a new resource with the given unique name, arguments, and options.
 func NewFunctionEventInvokeConfig(ctx *pulumi.Context,
 	name string, args *FunctionEventInvokeConfigArgs, opts ...pulumi.ResourceOption) (*FunctionEventInvokeConfig, error) {
-	if args == nil || args.FunctionName == nil {
-		return nil, errors.New("missing required argument 'FunctionName'")
-	}
 	if args == nil {
-		args = &FunctionEventInvokeConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FunctionName == nil {
+		return nil, errors.New("invalid value for required argument 'FunctionName'")
 	}
 	var resource FunctionEventInvokeConfig
 	err := ctx.RegisterResource("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig", name, args, &resource, opts...)

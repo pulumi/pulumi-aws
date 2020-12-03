@@ -68,14 +68,15 @@ type AuthorizationRule struct {
 // NewAuthorizationRule registers a new resource with the given unique name, arguments, and options.
 func NewAuthorizationRule(ctx *pulumi.Context,
 	name string, args *AuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*AuthorizationRule, error) {
-	if args == nil || args.ClientVpnEndpointId == nil {
-		return nil, errors.New("missing required argument 'ClientVpnEndpointId'")
-	}
-	if args == nil || args.TargetNetworkCidr == nil {
-		return nil, errors.New("missing required argument 'TargetNetworkCidr'")
-	}
 	if args == nil {
-		args = &AuthorizationRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClientVpnEndpointId == nil {
+		return nil, errors.New("invalid value for required argument 'ClientVpnEndpointId'")
+	}
+	if args.TargetNetworkCidr == nil {
+		return nil, errors.New("invalid value for required argument 'TargetNetworkCidr'")
 	}
 	var resource AuthorizationRule
 	err := ctx.RegisterResource("aws:ec2clientvpn/authorizationRule:AuthorizationRule", name, args, &resource, opts...)

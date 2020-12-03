@@ -107,6 +107,7 @@ func NewUsagePlan(ctx *pulumi.Context,
 	if args == nil {
 		args = &UsagePlanArgs{}
 	}
+
 	var resource UsagePlan
 	err := ctx.RegisterResource("aws:apigateway/usagePlan:UsagePlan", name, args, &resource, opts...)
 	if err != nil {

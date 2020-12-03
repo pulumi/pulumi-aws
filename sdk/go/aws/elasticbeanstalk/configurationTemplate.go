@@ -75,11 +75,12 @@ type ConfigurationTemplate struct {
 // NewConfigurationTemplate registers a new resource with the given unique name, arguments, and options.
 func NewConfigurationTemplate(ctx *pulumi.Context,
 	name string, args *ConfigurationTemplateArgs, opts ...pulumi.ResourceOption) (*ConfigurationTemplate, error) {
-	if args == nil || args.Application == nil {
-		return nil, errors.New("missing required argument 'Application'")
-	}
 	if args == nil {
-		args = &ConfigurationTemplateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Application == nil {
+		return nil, errors.New("invalid value for required argument 'Application'")
 	}
 	var resource ConfigurationTemplate
 	err := ctx.RegisterResource("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate", name, args, &resource, opts...)

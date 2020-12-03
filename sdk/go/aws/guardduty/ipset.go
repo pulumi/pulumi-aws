@@ -98,20 +98,21 @@ type IPSet struct {
 // NewIPSet registers a new resource with the given unique name, arguments, and options.
 func NewIPSet(ctx *pulumi.Context,
 	name string, args *IPSetArgs, opts ...pulumi.ResourceOption) (*IPSet, error) {
-	if args == nil || args.Activate == nil {
-		return nil, errors.New("missing required argument 'Activate'")
-	}
-	if args == nil || args.DetectorId == nil {
-		return nil, errors.New("missing required argument 'DetectorId'")
-	}
-	if args == nil || args.Format == nil {
-		return nil, errors.New("missing required argument 'Format'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil {
-		args = &IPSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Activate == nil {
+		return nil, errors.New("invalid value for required argument 'Activate'")
+	}
+	if args.DetectorId == nil {
+		return nil, errors.New("invalid value for required argument 'DetectorId'")
+	}
+	if args.Format == nil {
+		return nil, errors.New("invalid value for required argument 'Format'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
 	}
 	var resource IPSet
 	err := ctx.RegisterResource("aws:guardduty/iPSet:IPSet", name, args, &resource, opts...)

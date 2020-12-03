@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .get_ami import *
 from .get_ami_ids import *
 from .get_arn import *
@@ -148,3 +149,20 @@ from . import (
     workspaces,
     xray,
 )
+
+def _register_module():
+    import pulumi
+
+    class Package(pulumi.runtime.ResourcePackage):
+        def version(self):
+            return None
+
+        def construct_provider(self, name: str, typ: str, urn: str) -> pulumi.ProviderResource:
+            if typ != "pulumi:providers:aws":
+                raise Exception(f"unknown provider type {typ}")
+            return Provider(name, pulumi.ResourceOptions(urn=urn))
+
+
+    pulumi.runtime.register_resource_package("aws", Package())
+
+_register_module()

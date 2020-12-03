@@ -88,10 +88,10 @@ class FileSystemPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if file_system_id is None:
+            if file_system_id is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_id'")
             __props__['file_system_id'] = file_system_id
-            if policy is None:
+            if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__['policy'] = policy
         super(FileSystemPolicy, __self__).__init__(

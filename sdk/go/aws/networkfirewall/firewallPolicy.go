@@ -124,11 +124,12 @@ type FirewallPolicy struct {
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
 func NewFirewallPolicy(ctx *pulumi.Context,
 	name string, args *FirewallPolicyArgs, opts ...pulumi.ResourceOption) (*FirewallPolicy, error) {
-	if args == nil || args.FirewallPolicy == nil {
-		return nil, errors.New("missing required argument 'FirewallPolicy'")
-	}
 	if args == nil {
-		args = &FirewallPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FirewallPolicy == nil {
+		return nil, errors.New("invalid value for required argument 'FirewallPolicy'")
 	}
 	var resource FirewallPolicy
 	err := ctx.RegisterResource("aws:networkfirewall/firewallPolicy:FirewallPolicy", name, args, &resource, opts...)

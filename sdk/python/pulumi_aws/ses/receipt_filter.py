@@ -66,11 +66,11 @@ class ReceiptFilter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cidr is None:
+            if cidr is None and not opts.urn:
                 raise TypeError("Missing required property 'cidr'")
             __props__['cidr'] = cidr
             __props__['name'] = name
-            if policy is None:
+            if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__['policy'] = policy
             __props__['arn'] = None

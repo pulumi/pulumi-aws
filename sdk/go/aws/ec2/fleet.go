@@ -80,14 +80,15 @@ type Fleet struct {
 // NewFleet registers a new resource with the given unique name, arguments, and options.
 func NewFleet(ctx *pulumi.Context,
 	name string, args *FleetArgs, opts ...pulumi.ResourceOption) (*Fleet, error) {
-	if args == nil || args.LaunchTemplateConfig == nil {
-		return nil, errors.New("missing required argument 'LaunchTemplateConfig'")
-	}
-	if args == nil || args.TargetCapacitySpecification == nil {
-		return nil, errors.New("missing required argument 'TargetCapacitySpecification'")
-	}
 	if args == nil {
-		args = &FleetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LaunchTemplateConfig == nil {
+		return nil, errors.New("invalid value for required argument 'LaunchTemplateConfig'")
+	}
+	if args.TargetCapacitySpecification == nil {
+		return nil, errors.New("invalid value for required argument 'TargetCapacitySpecification'")
 	}
 	var resource Fleet
 	err := ctx.RegisterResource("aws:ec2/fleet:Fleet", name, args, &resource, opts...)

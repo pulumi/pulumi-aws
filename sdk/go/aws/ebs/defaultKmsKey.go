@@ -60,11 +60,12 @@ type DefaultKmsKey struct {
 // NewDefaultKmsKey registers a new resource with the given unique name, arguments, and options.
 func NewDefaultKmsKey(ctx *pulumi.Context,
 	name string, args *DefaultKmsKeyArgs, opts ...pulumi.ResourceOption) (*DefaultKmsKey, error) {
-	if args == nil || args.KeyArn == nil {
-		return nil, errors.New("missing required argument 'KeyArn'")
-	}
 	if args == nil {
-		args = &DefaultKmsKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KeyArn == nil {
+		return nil, errors.New("invalid value for required argument 'KeyArn'")
 	}
 	var resource DefaultKmsKey
 	err := ctx.RegisterResource("aws:ebs/defaultKmsKey:DefaultKmsKey", name, args, &resource, opts...)

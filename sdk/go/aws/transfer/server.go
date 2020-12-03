@@ -98,6 +98,7 @@ func NewServer(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerArgs{}
 	}
+
 	var resource Server
 	err := ctx.RegisterResource("aws:transfer/server:Server", name, args, &resource, opts...)
 	if err != nil {

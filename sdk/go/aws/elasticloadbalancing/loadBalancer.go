@@ -93,11 +93,12 @@ type LoadBalancer struct {
 // NewLoadBalancer registers a new resource with the given unique name, arguments, and options.
 func NewLoadBalancer(ctx *pulumi.Context,
 	name string, args *LoadBalancerArgs, opts ...pulumi.ResourceOption) (*LoadBalancer, error) {
-	if args == nil || args.Listeners == nil {
-		return nil, errors.New("missing required argument 'Listeners'")
-	}
 	if args == nil {
-		args = &LoadBalancerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Listeners == nil {
+		return nil, errors.New("invalid value for required argument 'Listeners'")
 	}
 	var resource LoadBalancer
 	err := ctx.RegisterResource("aws:elasticloadbalancing/loadBalancer:LoadBalancer", name, args, &resource, opts...)

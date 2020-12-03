@@ -147,14 +147,15 @@ type NetworkInterfaceSecurityGroupAttachment struct {
 // NewNetworkInterfaceSecurityGroupAttachment registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterfaceSecurityGroupAttachment(ctx *pulumi.Context,
 	name string, args *NetworkInterfaceSecurityGroupAttachmentArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceSecurityGroupAttachment, error) {
-	if args == nil || args.NetworkInterfaceId == nil {
-		return nil, errors.New("missing required argument 'NetworkInterfaceId'")
-	}
-	if args == nil || args.SecurityGroupId == nil {
-		return nil, errors.New("missing required argument 'SecurityGroupId'")
-	}
 	if args == nil {
-		args = &NetworkInterfaceSecurityGroupAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkInterfaceId == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkInterfaceId'")
+	}
+	if args.SecurityGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'SecurityGroupId'")
 	}
 	var resource NetworkInterfaceSecurityGroupAttachment
 	err := ctx.RegisterResource("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, args, &resource, opts...)

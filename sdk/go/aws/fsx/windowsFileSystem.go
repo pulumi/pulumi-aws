@@ -160,17 +160,18 @@ type WindowsFileSystem struct {
 // NewWindowsFileSystem registers a new resource with the given unique name, arguments, and options.
 func NewWindowsFileSystem(ctx *pulumi.Context,
 	name string, args *WindowsFileSystemArgs, opts ...pulumi.ResourceOption) (*WindowsFileSystem, error) {
-	if args == nil || args.StorageCapacity == nil {
-		return nil, errors.New("missing required argument 'StorageCapacity'")
-	}
-	if args == nil || args.SubnetIds == nil {
-		return nil, errors.New("missing required argument 'SubnetIds'")
-	}
-	if args == nil || args.ThroughputCapacity == nil {
-		return nil, errors.New("missing required argument 'ThroughputCapacity'")
-	}
 	if args == nil {
-		args = &WindowsFileSystemArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StorageCapacity == nil {
+		return nil, errors.New("invalid value for required argument 'StorageCapacity'")
+	}
+	if args.SubnetIds == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetIds'")
+	}
+	if args.ThroughputCapacity == nil {
+		return nil, errors.New("invalid value for required argument 'ThroughputCapacity'")
 	}
 	var resource WindowsFileSystem
 	err := ctx.RegisterResource("aws:fsx/windowsFileSystem:WindowsFileSystem", name, args, &resource, opts...)

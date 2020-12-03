@@ -65,6 +65,7 @@ func NewTemplate(ctx *pulumi.Context,
 	if args == nil {
 		args = &TemplateArgs{}
 	}
+
 	var resource Template
 	err := ctx.RegisterResource("aws:ses/template:Template", name, args, &resource, opts...)
 	if err != nil {

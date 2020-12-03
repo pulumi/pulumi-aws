@@ -108,14 +108,15 @@ type VirtualService struct {
 // NewVirtualService registers a new resource with the given unique name, arguments, and options.
 func NewVirtualService(ctx *pulumi.Context,
 	name string, args *VirtualServiceArgs, opts ...pulumi.ResourceOption) (*VirtualService, error) {
-	if args == nil || args.MeshName == nil {
-		return nil, errors.New("missing required argument 'MeshName'")
-	}
-	if args == nil || args.Spec == nil {
-		return nil, errors.New("missing required argument 'Spec'")
-	}
 	if args == nil {
-		args = &VirtualServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MeshName == nil {
+		return nil, errors.New("invalid value for required argument 'MeshName'")
+	}
+	if args.Spec == nil {
+		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
 	var resource VirtualService
 	err := ctx.RegisterResource("aws:appmesh/virtualService:VirtualService", name, args, &resource, opts...)

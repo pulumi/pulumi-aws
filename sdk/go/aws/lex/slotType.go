@@ -97,11 +97,12 @@ type SlotType struct {
 // NewSlotType registers a new resource with the given unique name, arguments, and options.
 func NewSlotType(ctx *pulumi.Context,
 	name string, args *SlotTypeArgs, opts ...pulumi.ResourceOption) (*SlotType, error) {
-	if args == nil || args.EnumerationValues == nil {
-		return nil, errors.New("missing required argument 'EnumerationValues'")
-	}
 	if args == nil {
-		args = &SlotTypeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EnumerationValues == nil {
+		return nil, errors.New("invalid value for required argument 'EnumerationValues'")
 	}
 	var resource SlotType
 	err := ctx.RegisterResource("aws:lex/slotType:SlotType", name, args, &resource, opts...)

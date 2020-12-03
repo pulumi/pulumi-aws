@@ -180,11 +180,12 @@ type UserPoolClient struct {
 // NewUserPoolClient registers a new resource with the given unique name, arguments, and options.
 func NewUserPoolClient(ctx *pulumi.Context,
 	name string, args *UserPoolClientArgs, opts ...pulumi.ResourceOption) (*UserPoolClient, error) {
-	if args == nil || args.UserPoolId == nil {
-		return nil, errors.New("missing required argument 'UserPoolId'")
-	}
 	if args == nil {
-		args = &UserPoolClientArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.UserPoolId == nil {
+		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}
 	var resource UserPoolClient
 	err := ctx.RegisterResource("aws:cognito/userPoolClient:UserPoolClient", name, args, &resource, opts...)

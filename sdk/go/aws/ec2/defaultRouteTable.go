@@ -100,11 +100,12 @@ type DefaultRouteTable struct {
 // NewDefaultRouteTable registers a new resource with the given unique name, arguments, and options.
 func NewDefaultRouteTable(ctx *pulumi.Context,
 	name string, args *DefaultRouteTableArgs, opts ...pulumi.ResourceOption) (*DefaultRouteTable, error) {
-	if args == nil || args.DefaultRouteTableId == nil {
-		return nil, errors.New("missing required argument 'DefaultRouteTableId'")
-	}
 	if args == nil {
-		args = &DefaultRouteTableArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DefaultRouteTableId == nil {
+		return nil, errors.New("invalid value for required argument 'DefaultRouteTableId'")
 	}
 	var resource DefaultRouteTable
 	err := ctx.RegisterResource("aws:ec2/defaultRouteTable:DefaultRouteTable", name, args, &resource, opts...)

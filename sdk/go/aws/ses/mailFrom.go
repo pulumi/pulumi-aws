@@ -95,14 +95,15 @@ type MailFrom struct {
 // NewMailFrom registers a new resource with the given unique name, arguments, and options.
 func NewMailFrom(ctx *pulumi.Context,
 	name string, args *MailFromArgs, opts ...pulumi.ResourceOption) (*MailFrom, error) {
-	if args == nil || args.Domain == nil {
-		return nil, errors.New("missing required argument 'Domain'")
-	}
-	if args == nil || args.MailFromDomain == nil {
-		return nil, errors.New("missing required argument 'MailFromDomain'")
-	}
 	if args == nil {
-		args = &MailFromArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Domain == nil {
+		return nil, errors.New("invalid value for required argument 'Domain'")
+	}
+	if args.MailFromDomain == nil {
+		return nil, errors.New("invalid value for required argument 'MailFromDomain'")
 	}
 	var resource MailFrom
 	err := ctx.RegisterResource("aws:ses/mailFrom:MailFrom", name, args, &resource, opts...)

@@ -50,10 +50,10 @@ class RestApiPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if policy is None:
+            if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__['policy'] = policy
-            if rest_api_id is None:
+            if rest_api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__['rest_api_id'] = rest_api_id
         super(RestApiPolicy, __self__).__init__(

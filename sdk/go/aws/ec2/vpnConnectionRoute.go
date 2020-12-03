@@ -77,14 +77,15 @@ type VpnConnectionRoute struct {
 // NewVpnConnectionRoute registers a new resource with the given unique name, arguments, and options.
 func NewVpnConnectionRoute(ctx *pulumi.Context,
 	name string, args *VpnConnectionRouteArgs, opts ...pulumi.ResourceOption) (*VpnConnectionRoute, error) {
-	if args == nil || args.DestinationCidrBlock == nil {
-		return nil, errors.New("missing required argument 'DestinationCidrBlock'")
-	}
-	if args == nil || args.VpnConnectionId == nil {
-		return nil, errors.New("missing required argument 'VpnConnectionId'")
-	}
 	if args == nil {
-		args = &VpnConnectionRouteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DestinationCidrBlock == nil {
+		return nil, errors.New("invalid value for required argument 'DestinationCidrBlock'")
+	}
+	if args.VpnConnectionId == nil {
+		return nil, errors.New("invalid value for required argument 'VpnConnectionId'")
 	}
 	var resource VpnConnectionRoute
 	err := ctx.RegisterResource("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, args, &resource, opts...)

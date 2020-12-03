@@ -9,3 +9,34 @@ from .sms_preferences import *
 from .topic import *
 from .topic_policy import *
 from .topic_subscription import *
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:sns/platformApplication:PlatformApplication":
+                return PlatformApplication(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:sns/smsPreferences:SmsPreferences":
+                return SmsPreferences(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:sns/topic:Topic":
+                return Topic(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:sns/topicPolicy:TopicPolicy":
+                return TopicPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:sns/topicSubscription:TopicSubscription":
+                return TopicSubscription(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "sns/platformApplication", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "sns/smsPreferences", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "sns/topic", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "sns/topicPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "sns/topicSubscription", _module_instance)
+
+_register_module()

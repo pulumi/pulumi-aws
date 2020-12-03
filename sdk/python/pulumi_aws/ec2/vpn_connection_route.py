@@ -67,10 +67,10 @@ class VpnConnectionRoute(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if destination_cidr_block is None:
+            if destination_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_cidr_block'")
             __props__['destination_cidr_block'] = destination_cidr_block
-            if vpn_connection_id is None:
+            if vpn_connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_connection_id'")
             __props__['vpn_connection_id'] = vpn_connection_id
         super(VpnConnectionRoute, __self__).__init__(

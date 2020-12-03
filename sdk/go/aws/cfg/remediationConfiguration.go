@@ -96,17 +96,18 @@ type RemediationConfiguration struct {
 // NewRemediationConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewRemediationConfiguration(ctx *pulumi.Context,
 	name string, args *RemediationConfigurationArgs, opts ...pulumi.ResourceOption) (*RemediationConfiguration, error) {
-	if args == nil || args.ConfigRuleName == nil {
-		return nil, errors.New("missing required argument 'ConfigRuleName'")
-	}
-	if args == nil || args.TargetId == nil {
-		return nil, errors.New("missing required argument 'TargetId'")
-	}
-	if args == nil || args.TargetType == nil {
-		return nil, errors.New("missing required argument 'TargetType'")
-	}
 	if args == nil {
-		args = &RemediationConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConfigRuleName == nil {
+		return nil, errors.New("invalid value for required argument 'ConfigRuleName'")
+	}
+	if args.TargetId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetId'")
+	}
+	if args.TargetType == nil {
+		return nil, errors.New("invalid value for required argument 'TargetType'")
 	}
 	var resource RemediationConfiguration
 	err := ctx.RegisterResource("aws:cfg/remediationConfiguration:RemediationConfiguration", name, args, &resource, opts...)

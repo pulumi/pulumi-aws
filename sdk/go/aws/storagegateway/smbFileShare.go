@@ -134,17 +134,18 @@ type SmbFileShare struct {
 // NewSmbFileShare registers a new resource with the given unique name, arguments, and options.
 func NewSmbFileShare(ctx *pulumi.Context,
 	name string, args *SmbFileShareArgs, opts ...pulumi.ResourceOption) (*SmbFileShare, error) {
-	if args == nil || args.GatewayArn == nil {
-		return nil, errors.New("missing required argument 'GatewayArn'")
-	}
-	if args == nil || args.LocationArn == nil {
-		return nil, errors.New("missing required argument 'LocationArn'")
-	}
-	if args == nil || args.RoleArn == nil {
-		return nil, errors.New("missing required argument 'RoleArn'")
-	}
 	if args == nil {
-		args = &SmbFileShareArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GatewayArn == nil {
+		return nil, errors.New("invalid value for required argument 'GatewayArn'")
+	}
+	if args.LocationArn == nil {
+		return nil, errors.New("invalid value for required argument 'LocationArn'")
+	}
+	if args.RoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource SmbFileShare
 	err := ctx.RegisterResource("aws:storagegateway/smbFileShare:SmbFileShare", name, args, &resource, opts...)

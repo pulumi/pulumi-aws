@@ -64,11 +64,11 @@ class ScalingPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_source is None:
+            if application_source is None and not opts.urn:
                 raise TypeError("Missing required property 'application_source'")
             __props__['application_source'] = application_source
             __props__['name'] = name
-            if scaling_instructions is None:
+            if scaling_instructions is None and not opts.urn:
                 raise TypeError("Missing required property 'scaling_instructions'")
             __props__['scaling_instructions'] = scaling_instructions
             __props__['scaling_plan_version'] = None

@@ -70,17 +70,18 @@ type NfsLocation struct {
 // NewNfsLocation registers a new resource with the given unique name, arguments, and options.
 func NewNfsLocation(ctx *pulumi.Context,
 	name string, args *NfsLocationArgs, opts ...pulumi.ResourceOption) (*NfsLocation, error) {
-	if args == nil || args.OnPremConfig == nil {
-		return nil, errors.New("missing required argument 'OnPremConfig'")
-	}
-	if args == nil || args.ServerHostname == nil {
-		return nil, errors.New("missing required argument 'ServerHostname'")
-	}
-	if args == nil || args.Subdirectory == nil {
-		return nil, errors.New("missing required argument 'Subdirectory'")
-	}
 	if args == nil {
-		args = &NfsLocationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.OnPremConfig == nil {
+		return nil, errors.New("invalid value for required argument 'OnPremConfig'")
+	}
+	if args.ServerHostname == nil {
+		return nil, errors.New("invalid value for required argument 'ServerHostname'")
+	}
+	if args.Subdirectory == nil {
+		return nil, errors.New("invalid value for required argument 'Subdirectory'")
 	}
 	var resource NfsLocation
 	err := ctx.RegisterResource("aws:datasync/nfsLocation:NfsLocation", name, args, &resource, opts...)

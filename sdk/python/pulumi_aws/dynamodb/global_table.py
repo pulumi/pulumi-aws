@@ -48,7 +48,7 @@ class GlobalTable(pulumi.CustomResource):
                 name="myAttribute",
                 type="S",
             )],
-            opts=ResourceOptions(provider=aws["us-east-1"]))
+            opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
         us_west_2_table = aws.dynamodb.Table("us-west-2Table",
             hash_key="myAttribute",
             stream_enabled=True,
@@ -59,7 +59,7 @@ class GlobalTable(pulumi.CustomResource):
                 name="myAttribute",
                 type="S",
             )],
-            opts=ResourceOptions(provider=aws["us-west-2"]))
+            opts=pulumi.ResourceOptions(provider=aws["us-west-2"]))
         my_table = aws.dynamodb.GlobalTable("myTable", replicas=[
             aws.dynamodb.GlobalTableReplicaArgs(
                 region_name="us-east-1",
@@ -68,7 +68,7 @@ class GlobalTable(pulumi.CustomResource):
                 region_name="us-west-2",
             ),
         ],
-        opts=ResourceOptions(provider=aws["us-east-1"],
+        opts=pulumi.ResourceOptions(provider=aws["us-east-1"],
             depends_on=[
                 us_east_1_table,
                 us_west_2_table,
@@ -106,7 +106,7 @@ class GlobalTable(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if replicas is None:
+            if replicas is None and not opts.urn:
                 raise TypeError("Missing required property 'replicas'")
             __props__['replicas'] = replicas
             __props__['arn'] = None

@@ -77,6 +77,7 @@ func NewRegexMatchSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &RegexMatchSetArgs{}
 	}
+
 	var resource RegexMatchSet
 	err := ctx.RegisterResource("aws:waf/regexMatchSet:RegexMatchSet", name, args, &resource, opts...)
 	if err != nil {

@@ -267,10 +267,10 @@ class Application(pulumi.CustomResource):
             __props__['cloudwatch_logging_options'] = cloudwatch_logging_options
             __props__['description'] = description
             __props__['name'] = name
-            if runtime_environment is None:
+            if runtime_environment is None and not opts.urn:
                 raise TypeError("Missing required property 'runtime_environment'")
             __props__['runtime_environment'] = runtime_environment
-            if service_execution_role is None:
+            if service_execution_role is None and not opts.urn:
                 raise TypeError("Missing required property 'service_execution_role'")
             __props__['service_execution_role'] = service_execution_role
             __props__['tags'] = tags

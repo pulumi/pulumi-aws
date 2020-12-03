@@ -62,14 +62,15 @@ type Trigger struct {
 // NewTrigger registers a new resource with the given unique name, arguments, and options.
 func NewTrigger(ctx *pulumi.Context,
 	name string, args *TriggerArgs, opts ...pulumi.ResourceOption) (*Trigger, error) {
-	if args == nil || args.RepositoryName == nil {
-		return nil, errors.New("missing required argument 'RepositoryName'")
-	}
-	if args == nil || args.Triggers == nil {
-		return nil, errors.New("missing required argument 'Triggers'")
-	}
 	if args == nil {
-		args = &TriggerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RepositoryName == nil {
+		return nil, errors.New("invalid value for required argument 'RepositoryName'")
+	}
+	if args.Triggers == nil {
+		return nil, errors.New("invalid value for required argument 'Triggers'")
 	}
 	var resource Trigger
 	err := ctx.RegisterResource("aws:codecommit/trigger:Trigger", name, args, &resource, opts...)

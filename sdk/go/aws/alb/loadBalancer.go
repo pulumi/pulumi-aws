@@ -146,6 +146,7 @@ func NewLoadBalancer(ctx *pulumi.Context,
 	if args == nil {
 		args = &LoadBalancerArgs{}
 	}
+
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("aws:applicationloadbalancing/loadBalancer:LoadBalancer"),

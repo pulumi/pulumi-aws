@@ -212,7 +212,7 @@ class DomainName(pulumi.CustomResource):
             __props__['certificate_chain'] = certificate_chain
             __props__['certificate_name'] = certificate_name
             __props__['certificate_private_key'] = certificate_private_key
-            if domain_name is None:
+            if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
             __props__['endpoint_configuration'] = endpoint_configuration

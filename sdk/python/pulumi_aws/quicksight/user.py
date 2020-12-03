@@ -75,17 +75,17 @@ class User(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['aws_account_id'] = aws_account_id
-            if email is None:
+            if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__['email'] = email
             __props__['iam_arn'] = iam_arn
-            if identity_type is None:
+            if identity_type is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_type'")
             __props__['identity_type'] = identity_type
             __props__['namespace'] = namespace
             __props__['session_name'] = session_name
             __props__['user_name'] = user_name
-            if user_role is None:
+            if user_role is None and not opts.urn:
                 raise TypeError("Missing required property 'user_role'")
             __props__['user_role'] = user_role
             __props__['arn'] = None

@@ -35,7 +35,7 @@ class Member(pulumi.CustomResource):
 
         primary = aws.guardduty.Detector("primary", enable=True)
         member_detector = aws.guardduty.Detector("memberDetector", enable=True,
-        opts=ResourceOptions(provider=aws["dev"]))
+        opts=pulumi.ResourceOptions(provider=aws["dev"]))
         member_member = aws.guardduty.Member("memberMember",
             account_id=member_detector.account_id,
             detector_id=primary.id,
@@ -78,14 +78,14 @@ class Member(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_id is None:
+            if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
             __props__['account_id'] = account_id
-            if detector_id is None:
+            if detector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_id'")
             __props__['detector_id'] = detector_id
             __props__['disable_email_notification'] = disable_email_notification
-            if email is None:
+            if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__['email'] = email
             __props__['invitation_message'] = invitation_message

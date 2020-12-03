@@ -90,14 +90,14 @@ class ResolverEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if direction is None:
+            if direction is None and not opts.urn:
                 raise TypeError("Missing required property 'direction'")
             __props__['direction'] = direction
-            if ip_addresses is None:
+            if ip_addresses is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_addresses'")
             __props__['ip_addresses'] = ip_addresses
             __props__['name'] = name
-            if security_group_ids is None:
+            if security_group_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_ids'")
             __props__['security_group_ids'] = security_group_ids
             __props__['tags'] = tags

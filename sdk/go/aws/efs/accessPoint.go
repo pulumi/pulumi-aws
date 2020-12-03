@@ -64,11 +64,12 @@ type AccessPoint struct {
 // NewAccessPoint registers a new resource with the given unique name, arguments, and options.
 func NewAccessPoint(ctx *pulumi.Context,
 	name string, args *AccessPointArgs, opts ...pulumi.ResourceOption) (*AccessPoint, error) {
-	if args == nil || args.FileSystemId == nil {
-		return nil, errors.New("missing required argument 'FileSystemId'")
-	}
 	if args == nil {
-		args = &AccessPointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FileSystemId == nil {
+		return nil, errors.New("invalid value for required argument 'FileSystemId'")
 	}
 	var resource AccessPoint
 	err := ctx.RegisterResource("aws:efs/accessPoint:AccessPoint", name, args, &resource, opts...)

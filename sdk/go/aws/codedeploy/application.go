@@ -103,6 +103,7 @@ func NewApplication(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApplicationArgs{}
 	}
+
 	var resource Application
 	err := ctx.RegisterResource("aws:codedeploy/application:Application", name, args, &resource, opts...)
 	if err != nil {

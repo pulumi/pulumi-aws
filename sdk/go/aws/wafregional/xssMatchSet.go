@@ -70,6 +70,7 @@ func NewXssMatchSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &XssMatchSetArgs{}
 	}
+
 	var resource XssMatchSet
 	err := ctx.RegisterResource("aws:wafregional/xssMatchSet:XssMatchSet", name, args, &resource, opts...)
 	if err != nil {

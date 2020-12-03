@@ -113,13 +113,13 @@ class Authorizer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_id is None:
+            if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
             __props__['authorizer_credentials_arn'] = authorizer_credentials_arn
             __props__['authorizer_payload_format_version'] = authorizer_payload_format_version
             __props__['authorizer_result_ttl_in_seconds'] = authorizer_result_ttl_in_seconds
-            if authorizer_type is None:
+            if authorizer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authorizer_type'")
             __props__['authorizer_type'] = authorizer_type
             __props__['authorizer_uri'] = authorizer_uri

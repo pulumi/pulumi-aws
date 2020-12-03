@@ -88,10 +88,10 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if connection_events is None:
+            if connection_events is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_events'")
             __props__['connection_events'] = connection_events
-            if connection_notification_arn is None:
+            if connection_notification_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_notification_arn'")
             __props__['connection_notification_arn'] = connection_notification_arn
             __props__['vpc_endpoint_id'] = vpc_endpoint_id

@@ -72,11 +72,12 @@ type ClusterParameterGroup struct {
 // NewClusterParameterGroup registers a new resource with the given unique name, arguments, and options.
 func NewClusterParameterGroup(ctx *pulumi.Context,
 	name string, args *ClusterParameterGroupArgs, opts ...pulumi.ResourceOption) (*ClusterParameterGroup, error) {
-	if args == nil || args.Family == nil {
-		return nil, errors.New("missing required argument 'Family'")
-	}
 	if args == nil {
-		args = &ClusterParameterGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Family == nil {
+		return nil, errors.New("invalid value for required argument 'Family'")
 	}
 	var resource ClusterParameterGroup
 	err := ctx.RegisterResource("aws:docdb/clusterParameterGroup:ClusterParameterGroup", name, args, &resource, opts...)

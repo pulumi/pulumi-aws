@@ -310,11 +310,11 @@ class Distribution(pulumi.CustomResource):
             __props__['aliases'] = aliases
             __props__['comment'] = comment
             __props__['custom_error_responses'] = custom_error_responses
-            if default_cache_behavior is None:
+            if default_cache_behavior is None and not opts.urn:
                 raise TypeError("Missing required property 'default_cache_behavior'")
             __props__['default_cache_behavior'] = default_cache_behavior
             __props__['default_root_object'] = default_root_object
-            if enabled is None:
+            if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
             __props__['http_version'] = http_version
@@ -322,16 +322,16 @@ class Distribution(pulumi.CustomResource):
             __props__['logging_config'] = logging_config
             __props__['ordered_cache_behaviors'] = ordered_cache_behaviors
             __props__['origin_groups'] = origin_groups
-            if origins is None:
+            if origins is None and not opts.urn:
                 raise TypeError("Missing required property 'origins'")
             __props__['origins'] = origins
             __props__['price_class'] = price_class
-            if restrictions is None:
+            if restrictions is None and not opts.urn:
                 raise TypeError("Missing required property 'restrictions'")
             __props__['restrictions'] = restrictions
             __props__['retain_on_delete'] = retain_on_delete
             __props__['tags'] = tags
-            if viewer_certificate is None:
+            if viewer_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'viewer_certificate'")
             __props__['viewer_certificate'] = viewer_certificate
             __props__['wait_for_deployment'] = wait_for_deployment

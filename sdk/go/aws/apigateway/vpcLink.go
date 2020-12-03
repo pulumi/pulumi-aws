@@ -79,11 +79,12 @@ type VpcLink struct {
 // NewVpcLink registers a new resource with the given unique name, arguments, and options.
 func NewVpcLink(ctx *pulumi.Context,
 	name string, args *VpcLinkArgs, opts ...pulumi.ResourceOption) (*VpcLink, error) {
-	if args == nil || args.TargetArn == nil {
-		return nil, errors.New("missing required argument 'TargetArn'")
-	}
 	if args == nil {
-		args = &VpcLinkArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.TargetArn == nil {
+		return nil, errors.New("invalid value for required argument 'TargetArn'")
 	}
 	var resource VpcLink
 	err := ctx.RegisterResource("aws:apigateway/vpcLink:VpcLink", name, args, &resource, opts...)

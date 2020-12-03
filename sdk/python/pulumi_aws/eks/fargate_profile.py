@@ -99,14 +99,14 @@ class FargateProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['fargate_profile_name'] = fargate_profile_name
-            if pod_execution_role_arn is None:
+            if pod_execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'pod_execution_role_arn'")
             __props__['pod_execution_role_arn'] = pod_execution_role_arn
-            if selectors is None:
+            if selectors is None and not opts.urn:
                 raise TypeError("Missing required property 'selectors'")
             __props__['selectors'] = selectors
             __props__['subnet_ids'] = subnet_ids

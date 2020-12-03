@@ -69,6 +69,7 @@ func NewApiKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApiKeyArgs{}
 	}
+
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}

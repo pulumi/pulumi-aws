@@ -73,14 +73,15 @@ type RolePolicyAttachment struct {
 // NewRolePolicyAttachment registers a new resource with the given unique name, arguments, and options.
 func NewRolePolicyAttachment(ctx *pulumi.Context,
 	name string, args *RolePolicyAttachmentArgs, opts ...pulumi.ResourceOption) (*RolePolicyAttachment, error) {
-	if args == nil || args.PolicyArn == nil {
-		return nil, errors.New("missing required argument 'PolicyArn'")
-	}
-	if args == nil || args.Role == nil {
-		return nil, errors.New("missing required argument 'Role'")
-	}
 	if args == nil {
-		args = &RolePolicyAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PolicyArn == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyArn'")
+	}
+	if args.Role == nil {
+		return nil, errors.New("invalid value for required argument 'Role'")
 	}
 	var resource RolePolicyAttachment
 	err := ctx.RegisterResource("aws:iam/rolePolicyAttachment:RolePolicyAttachment", name, args, &resource, opts...)

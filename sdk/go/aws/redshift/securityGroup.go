@@ -61,11 +61,12 @@ type SecurityGroup struct {
 // NewSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewSecurityGroup(ctx *pulumi.Context,
 	name string, args *SecurityGroupArgs, opts ...pulumi.ResourceOption) (*SecurityGroup, error) {
-	if args == nil || args.Ingress == nil {
-		return nil, errors.New("missing required argument 'Ingress'")
-	}
 	if args == nil {
-		args = &SecurityGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Ingress == nil {
+		return nil, errors.New("invalid value for required argument 'Ingress'")
 	}
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")

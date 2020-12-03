@@ -14,3 +14,37 @@ from .vault_notifications import *
 from .vault_policy import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:backup/plan:Plan":
+                return Plan(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:backup/regionSettings:RegionSettings":
+                return RegionSettings(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:backup/selection:Selection":
+                return Selection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:backup/vault:Vault":
+                return Vault(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:backup/vaultNotifications:VaultNotifications":
+                return VaultNotifications(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:backup/vaultPolicy:VaultPolicy":
+                return VaultPolicy(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "backup/plan", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "backup/regionSettings", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "backup/selection", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "backup/vault", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "backup/vaultNotifications", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "backup/vaultPolicy", _module_instance)
+
+_register_module()

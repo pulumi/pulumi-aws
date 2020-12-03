@@ -87,14 +87,15 @@ type ImagePipeline struct {
 // NewImagePipeline registers a new resource with the given unique name, arguments, and options.
 func NewImagePipeline(ctx *pulumi.Context,
 	name string, args *ImagePipelineArgs, opts ...pulumi.ResourceOption) (*ImagePipeline, error) {
-	if args == nil || args.ImageRecipeArn == nil {
-		return nil, errors.New("missing required argument 'ImageRecipeArn'")
-	}
-	if args == nil || args.InfrastructureConfigurationArn == nil {
-		return nil, errors.New("missing required argument 'InfrastructureConfigurationArn'")
-	}
 	if args == nil {
-		args = &ImagePipelineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ImageRecipeArn == nil {
+		return nil, errors.New("invalid value for required argument 'ImageRecipeArn'")
+	}
+	if args.InfrastructureConfigurationArn == nil {
+		return nil, errors.New("invalid value for required argument 'InfrastructureConfigurationArn'")
 	}
 	var resource ImagePipeline
 	err := ctx.RegisterResource("aws:imagebuilder/imagePipeline:ImagePipeline", name, args, &resource, opts...)

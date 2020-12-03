@@ -64,6 +64,7 @@ func NewResourceShare(ctx *pulumi.Context,
 	if args == nil {
 		args = &ResourceShareArgs{}
 	}
+
 	var resource ResourceShare
 	err := ctx.RegisterResource("aws:ram/resourceShare:ResourceShare", name, args, &resource, opts...)
 	if err != nil {

@@ -32,14 +32,15 @@ type LogService struct {
 // NewLogService registers a new resource with the given unique name, arguments, and options.
 func NewLogService(ctx *pulumi.Context,
 	name string, args *LogServiceArgs, opts ...pulumi.ResourceOption) (*LogService, error) {
-	if args == nil || args.DirectoryId == nil {
-		return nil, errors.New("missing required argument 'DirectoryId'")
-	}
-	if args == nil || args.LogGroupName == nil {
-		return nil, errors.New("missing required argument 'LogGroupName'")
-	}
 	if args == nil {
-		args = &LogServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DirectoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DirectoryId'")
+	}
+	if args.LogGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'LogGroupName'")
 	}
 	var resource LogService
 	err := ctx.RegisterResource("aws:directoryservice/logService:LogService", name, args, &resource, opts...)

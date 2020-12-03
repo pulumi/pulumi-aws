@@ -69,13 +69,13 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if outpost_id is None:
+            if outpost_id is None and not opts.urn:
                 raise TypeError("Missing required property 'outpost_id'")
             __props__['outpost_id'] = outpost_id
-            if security_group_id is None:
+            if security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_id'")
             __props__['security_group_id'] = security_group_id
-            if subnet_id is None:
+            if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
             __props__['arn'] = None

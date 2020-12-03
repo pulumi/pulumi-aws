@@ -41,14 +41,15 @@ type VpcEndpointConnectionNotification struct {
 // NewVpcEndpointConnectionNotification registers a new resource with the given unique name, arguments, and options.
 func NewVpcEndpointConnectionNotification(ctx *pulumi.Context,
 	name string, args *VpcEndpointConnectionNotificationArgs, opts ...pulumi.ResourceOption) (*VpcEndpointConnectionNotification, error) {
-	if args == nil || args.ConnectionEvents == nil {
-		return nil, errors.New("missing required argument 'ConnectionEvents'")
-	}
-	if args == nil || args.ConnectionNotificationArn == nil {
-		return nil, errors.New("missing required argument 'ConnectionNotificationArn'")
-	}
 	if args == nil {
-		args = &VpcEndpointConnectionNotificationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionEvents == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionEvents'")
+	}
+	if args.ConnectionNotificationArn == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionNotificationArn'")
 	}
 	var resource VpcEndpointConnectionNotification
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification", name, args, &resource, opts...)

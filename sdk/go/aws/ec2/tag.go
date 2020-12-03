@@ -32,17 +32,18 @@ type Tag struct {
 // NewTag registers a new resource with the given unique name, arguments, and options.
 func NewTag(ctx *pulumi.Context,
 	name string, args *TagArgs, opts ...pulumi.ResourceOption) (*Tag, error) {
-	if args == nil || args.Key == nil {
-		return nil, errors.New("missing required argument 'Key'")
-	}
-	if args == nil || args.ResourceId == nil {
-		return nil, errors.New("missing required argument 'ResourceId'")
-	}
-	if args == nil || args.Value == nil {
-		return nil, errors.New("missing required argument 'Value'")
-	}
 	if args == nil {
-		args = &TagArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Key == nil {
+		return nil, errors.New("invalid value for required argument 'Key'")
+	}
+	if args.ResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceId'")
+	}
+	if args.Value == nil {
+		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	var resource Tag
 	err := ctx.RegisterResource("aws:ec2/tag:Tag", name, args, &resource, opts...)

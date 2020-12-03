@@ -43,14 +43,15 @@ type ScalingPlan struct {
 // NewScalingPlan registers a new resource with the given unique name, arguments, and options.
 func NewScalingPlan(ctx *pulumi.Context,
 	name string, args *ScalingPlanArgs, opts ...pulumi.ResourceOption) (*ScalingPlan, error) {
-	if args == nil || args.ApplicationSource == nil {
-		return nil, errors.New("missing required argument 'ApplicationSource'")
-	}
-	if args == nil || args.ScalingInstructions == nil {
-		return nil, errors.New("missing required argument 'ScalingInstructions'")
-	}
 	if args == nil {
-		args = &ScalingPlanArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationSource == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationSource'")
+	}
+	if args.ScalingInstructions == nil {
+		return nil, errors.New("invalid value for required argument 'ScalingInstructions'")
 	}
 	var resource ScalingPlan
 	err := ctx.RegisterResource("aws:autoscalingplans/scalingPlan:ScalingPlan", name, args, &resource, opts...)

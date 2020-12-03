@@ -11,3 +11,37 @@ from .replication_subnet_group import *
 from .replication_task import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "aws:dms/certificate:Certificate":
+                return Certificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:dms/endpoint:Endpoint":
+                return Endpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:dms/eventSubscription:EventSubscription":
+                return EventSubscription(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:dms/replicationInstance:ReplicationInstance":
+                return ReplicationInstance(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:dms/replicationSubnetGroup:ReplicationSubnetGroup":
+                return ReplicationSubnetGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:dms/replicationTask:ReplicationTask":
+                return ReplicationTask(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "dms/certificate", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "dms/endpoint", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "dms/eventSubscription", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "dms/replicationInstance", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "dms/replicationSubnetGroup", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "dms/replicationTask", _module_instance)
+
+_register_module()

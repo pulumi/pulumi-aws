@@ -68,17 +68,18 @@ type User struct {
 // NewUser registers a new resource with the given unique name, arguments, and options.
 func NewUser(ctx *pulumi.Context,
 	name string, args *UserArgs, opts ...pulumi.ResourceOption) (*User, error) {
-	if args == nil || args.Email == nil {
-		return nil, errors.New("missing required argument 'Email'")
-	}
-	if args == nil || args.IdentityType == nil {
-		return nil, errors.New("missing required argument 'IdentityType'")
-	}
-	if args == nil || args.UserRole == nil {
-		return nil, errors.New("missing required argument 'UserRole'")
-	}
 	if args == nil {
-		args = &UserArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Email == nil {
+		return nil, errors.New("invalid value for required argument 'Email'")
+	}
+	if args.IdentityType == nil {
+		return nil, errors.New("invalid value for required argument 'IdentityType'")
+	}
+	if args.UserRole == nil {
+		return nil, errors.New("invalid value for required argument 'UserRole'")
 	}
 	var resource User
 	err := ctx.RegisterResource("aws:quicksight/user:User", name, args, &resource, opts...)

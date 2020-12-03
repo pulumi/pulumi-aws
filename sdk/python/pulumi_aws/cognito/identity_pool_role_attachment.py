@@ -127,11 +127,11 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if identity_pool_id is None:
+            if identity_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_pool_id'")
             __props__['identity_pool_id'] = identity_pool_id
             __props__['role_mappings'] = role_mappings
-            if roles is None:
+            if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
             __props__['roles'] = roles
         super(IdentityPoolRoleAttachment, __self__).__init__(

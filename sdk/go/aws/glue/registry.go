@@ -59,11 +59,12 @@ type Registry struct {
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
 func NewRegistry(ctx *pulumi.Context,
 	name string, args *RegistryArgs, opts ...pulumi.ResourceOption) (*Registry, error) {
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
 	if args == nil {
-		args = &RegistryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
 	var resource Registry
 	err := ctx.RegisterResource("aws:glue/registry:Registry", name, args, &resource, opts...)

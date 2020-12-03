@@ -64,6 +64,7 @@ func NewInternetGateway(ctx *pulumi.Context,
 	if args == nil {
 		args = &InternetGatewayArgs{}
 	}
+
 	var resource InternetGateway
 	err := ctx.RegisterResource("aws:ec2/internetGateway:InternetGateway", name, args, &resource, opts...)
 	if err != nil {

@@ -87,11 +87,11 @@ class ZoneAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if vpc_id is None:
+            if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
             __props__['vpc_region'] = vpc_region
-            if zone_id is None:
+            if zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_id'")
             __props__['zone_id'] = zone_id
             __props__['owning_account'] = None

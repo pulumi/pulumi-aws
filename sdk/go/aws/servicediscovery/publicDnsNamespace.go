@@ -63,6 +63,7 @@ func NewPublicDnsNamespace(ctx *pulumi.Context,
 	if args == nil {
 		args = &PublicDnsNamespaceArgs{}
 	}
+
 	var resource PublicDnsNamespace
 	err := ctx.RegisterResource("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, args, &resource, opts...)
 	if err != nil {

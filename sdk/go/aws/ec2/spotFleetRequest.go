@@ -291,14 +291,15 @@ type SpotFleetRequest struct {
 // NewSpotFleetRequest registers a new resource with the given unique name, arguments, and options.
 func NewSpotFleetRequest(ctx *pulumi.Context,
 	name string, args *SpotFleetRequestArgs, opts ...pulumi.ResourceOption) (*SpotFleetRequest, error) {
-	if args == nil || args.IamFleetRole == nil {
-		return nil, errors.New("missing required argument 'IamFleetRole'")
-	}
-	if args == nil || args.TargetCapacity == nil {
-		return nil, errors.New("missing required argument 'TargetCapacity'")
-	}
 	if args == nil {
-		args = &SpotFleetRequestArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IamFleetRole == nil {
+		return nil, errors.New("invalid value for required argument 'IamFleetRole'")
+	}
+	if args.TargetCapacity == nil {
+		return nil, errors.New("invalid value for required argument 'TargetCapacity'")
 	}
 	var resource SpotFleetRequest
 	err := ctx.RegisterResource("aws:ec2/spotFleetRequest:SpotFleetRequest", name, args, &resource, opts...)

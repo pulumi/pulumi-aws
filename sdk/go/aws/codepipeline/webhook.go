@@ -151,20 +151,21 @@ type Webhook struct {
 // NewWebhook registers a new resource with the given unique name, arguments, and options.
 func NewWebhook(ctx *pulumi.Context,
 	name string, args *WebhookArgs, opts ...pulumi.ResourceOption) (*Webhook, error) {
-	if args == nil || args.Authentication == nil {
-		return nil, errors.New("missing required argument 'Authentication'")
-	}
-	if args == nil || args.Filters == nil {
-		return nil, errors.New("missing required argument 'Filters'")
-	}
-	if args == nil || args.TargetAction == nil {
-		return nil, errors.New("missing required argument 'TargetAction'")
-	}
-	if args == nil || args.TargetPipeline == nil {
-		return nil, errors.New("missing required argument 'TargetPipeline'")
-	}
 	if args == nil {
-		args = &WebhookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Authentication == nil {
+		return nil, errors.New("invalid value for required argument 'Authentication'")
+	}
+	if args.Filters == nil {
+		return nil, errors.New("invalid value for required argument 'Filters'")
+	}
+	if args.TargetAction == nil {
+		return nil, errors.New("invalid value for required argument 'TargetAction'")
+	}
+	if args.TargetPipeline == nil {
+		return nil, errors.New("invalid value for required argument 'TargetPipeline'")
 	}
 	var resource Webhook
 	err := ctx.RegisterResource("aws:codepipeline/webhook:Webhook", name, args, &resource, opts...)

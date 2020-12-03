@@ -80,17 +80,18 @@ type AppCookieStickinessPolicy struct {
 // NewAppCookieStickinessPolicy registers a new resource with the given unique name, arguments, and options.
 func NewAppCookieStickinessPolicy(ctx *pulumi.Context,
 	name string, args *AppCookieStickinessPolicyArgs, opts ...pulumi.ResourceOption) (*AppCookieStickinessPolicy, error) {
-	if args == nil || args.CookieName == nil {
-		return nil, errors.New("missing required argument 'CookieName'")
-	}
-	if args == nil || args.LbPort == nil {
-		return nil, errors.New("missing required argument 'LbPort'")
-	}
-	if args == nil || args.LoadBalancer == nil {
-		return nil, errors.New("missing required argument 'LoadBalancer'")
-	}
 	if args == nil {
-		args = &AppCookieStickinessPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CookieName == nil {
+		return nil, errors.New("invalid value for required argument 'CookieName'")
+	}
+	if args.LbPort == nil {
+		return nil, errors.New("invalid value for required argument 'LbPort'")
+	}
+	if args.LoadBalancer == nil {
+		return nil, errors.New("invalid value for required argument 'LoadBalancer'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

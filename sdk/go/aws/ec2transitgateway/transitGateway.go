@@ -77,6 +77,7 @@ func NewTransitGateway(ctx *pulumi.Context,
 	if args == nil {
 		args = &TransitGatewayArgs{}
 	}
+
 	var resource TransitGateway
 	err := ctx.RegisterResource("aws:ec2transitgateway/transitGateway:TransitGateway", name, args, &resource, opts...)
 	if err != nil {

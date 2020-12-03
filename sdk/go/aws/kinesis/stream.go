@@ -83,11 +83,12 @@ type Stream struct {
 // NewStream registers a new resource with the given unique name, arguments, and options.
 func NewStream(ctx *pulumi.Context,
 	name string, args *StreamArgs, opts ...pulumi.ResourceOption) (*Stream, error) {
-	if args == nil || args.ShardCount == nil {
-		return nil, errors.New("missing required argument 'ShardCount'")
-	}
 	if args == nil {
-		args = &StreamArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ShardCount == nil {
+		return nil, errors.New("invalid value for required argument 'ShardCount'")
 	}
 	var resource Stream
 	err := ctx.RegisterResource("aws:kinesis/stream:Stream", name, args, &resource, opts...)

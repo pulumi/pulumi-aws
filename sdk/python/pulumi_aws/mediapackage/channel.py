@@ -68,7 +68,7 @@ class Channel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if channel_id is None:
+            if channel_id is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_id'")
             __props__['channel_id'] = channel_id
             if description is None:

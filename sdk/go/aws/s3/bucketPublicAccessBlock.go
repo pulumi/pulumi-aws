@@ -72,11 +72,12 @@ type BucketPublicAccessBlock struct {
 // NewBucketPublicAccessBlock registers a new resource with the given unique name, arguments, and options.
 func NewBucketPublicAccessBlock(ctx *pulumi.Context,
 	name string, args *BucketPublicAccessBlockArgs, opts ...pulumi.ResourceOption) (*BucketPublicAccessBlock, error) {
-	if args == nil || args.Bucket == nil {
-		return nil, errors.New("missing required argument 'Bucket'")
-	}
 	if args == nil {
-		args = &BucketPublicAccessBlockArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Bucket == nil {
+		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
 	var resource BucketPublicAccessBlock
 	err := ctx.RegisterResource("aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock", name, args, &resource, opts...)

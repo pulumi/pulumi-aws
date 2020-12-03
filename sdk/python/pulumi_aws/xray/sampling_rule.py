@@ -99,36 +99,36 @@ class SamplingRule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['attributes'] = attributes
-            if fixed_rate is None:
+            if fixed_rate is None and not opts.urn:
                 raise TypeError("Missing required property 'fixed_rate'")
             __props__['fixed_rate'] = fixed_rate
-            if host is None:
+            if host is None and not opts.urn:
                 raise TypeError("Missing required property 'host'")
             __props__['host'] = host
-            if http_method is None:
+            if http_method is None and not opts.urn:
                 raise TypeError("Missing required property 'http_method'")
             __props__['http_method'] = http_method
-            if priority is None:
+            if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__['priority'] = priority
-            if reservoir_size is None:
+            if reservoir_size is None and not opts.urn:
                 raise TypeError("Missing required property 'reservoir_size'")
             __props__['reservoir_size'] = reservoir_size
-            if resource_arn is None:
+            if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
             __props__['resource_arn'] = resource_arn
             __props__['rule_name'] = rule_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            if service_type is None:
+            if service_type is None and not opts.urn:
                 raise TypeError("Missing required property 'service_type'")
             __props__['service_type'] = service_type
             __props__['tags'] = tags
-            if url_path is None:
+            if url_path is None and not opts.urn:
                 raise TypeError("Missing required property 'url_path'")
             __props__['url_path'] = url_path
-            if version is None:
+            if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__['version'] = version
             __props__['arn'] = None

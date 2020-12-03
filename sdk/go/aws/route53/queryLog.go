@@ -114,14 +114,15 @@ type QueryLog struct {
 // NewQueryLog registers a new resource with the given unique name, arguments, and options.
 func NewQueryLog(ctx *pulumi.Context,
 	name string, args *QueryLogArgs, opts ...pulumi.ResourceOption) (*QueryLog, error) {
-	if args == nil || args.CloudwatchLogGroupArn == nil {
-		return nil, errors.New("missing required argument 'CloudwatchLogGroupArn'")
-	}
-	if args == nil || args.ZoneId == nil {
-		return nil, errors.New("missing required argument 'ZoneId'")
-	}
 	if args == nil {
-		args = &QueryLogArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CloudwatchLogGroupArn == nil {
+		return nil, errors.New("invalid value for required argument 'CloudwatchLogGroupArn'")
+	}
+	if args.ZoneId == nil {
+		return nil, errors.New("invalid value for required argument 'ZoneId'")
 	}
 	var resource QueryLog
 	err := ctx.RegisterResource("aws:route53/queryLog:QueryLog", name, args, &resource, opts...)

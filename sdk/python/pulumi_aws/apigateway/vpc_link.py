@@ -80,7 +80,7 @@ class VpcLink(pulumi.CustomResource):
             __props__['description'] = description
             __props__['name'] = name
             __props__['tags'] = tags
-            if target_arn is None:
+            if target_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_arn'")
             __props__['target_arn'] = target_arn
             __props__['arn'] = None

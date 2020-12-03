@@ -156,14 +156,15 @@ type ListenerPolicy struct {
 // NewListenerPolicy registers a new resource with the given unique name, arguments, and options.
 func NewListenerPolicy(ctx *pulumi.Context,
 	name string, args *ListenerPolicyArgs, opts ...pulumi.ResourceOption) (*ListenerPolicy, error) {
-	if args == nil || args.LoadBalancerName == nil {
-		return nil, errors.New("missing required argument 'LoadBalancerName'")
-	}
-	if args == nil || args.LoadBalancerPort == nil {
-		return nil, errors.New("missing required argument 'LoadBalancerPort'")
-	}
 	if args == nil {
-		args = &ListenerPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LoadBalancerName == nil {
+		return nil, errors.New("invalid value for required argument 'LoadBalancerName'")
+	}
+	if args.LoadBalancerPort == nil {
+		return nil, errors.New("invalid value for required argument 'LoadBalancerPort'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -71,14 +71,15 @@ type LinkAggregationGroup struct {
 // NewLinkAggregationGroup registers a new resource with the given unique name, arguments, and options.
 func NewLinkAggregationGroup(ctx *pulumi.Context,
 	name string, args *LinkAggregationGroupArgs, opts ...pulumi.ResourceOption) (*LinkAggregationGroup, error) {
-	if args == nil || args.ConnectionsBandwidth == nil {
-		return nil, errors.New("missing required argument 'ConnectionsBandwidth'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil {
-		args = &LinkAggregationGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionsBandwidth == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionsBandwidth'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
 	}
 	var resource LinkAggregationGroup
 	err := ctx.RegisterResource("aws:directconnect/linkAggregationGroup:LinkAggregationGroup", name, args, &resource, opts...)

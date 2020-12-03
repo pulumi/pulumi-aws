@@ -84,7 +84,7 @@ class EndpointConfiguration(pulumi.CustomResource):
             __props__['data_capture_config'] = data_capture_config
             __props__['kms_key_arn'] = kms_key_arn
             __props__['name'] = name
-            if production_variants is None:
+            if production_variants is None and not opts.urn:
                 raise TypeError("Missing required property 'production_variants'")
             __props__['production_variants'] = production_variants
             __props__['tags'] = tags

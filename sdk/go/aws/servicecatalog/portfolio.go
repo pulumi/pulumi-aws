@@ -64,6 +64,7 @@ func NewPortfolio(ctx *pulumi.Context,
 	if args == nil {
 		args = &PortfolioArgs{}
 	}
+
 	var resource Portfolio
 	err := ctx.RegisterResource("aws:servicecatalog/portfolio:Portfolio", name, args, &resource, opts...)
 	if err != nil {

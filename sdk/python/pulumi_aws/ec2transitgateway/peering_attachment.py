@@ -40,11 +40,11 @@ class PeeringAttachment(pulumi.CustomResource):
         local_transit_gateway = aws.ec2transitgateway.TransitGateway("localTransitGateway", tags={
             "Name": "Local TGW",
         },
-        opts=ResourceOptions(provider=aws["local"]))
+        opts=pulumi.ResourceOptions(provider=aws["local"]))
         peer_transit_gateway = aws.ec2transitgateway.TransitGateway("peerTransitGateway", tags={
             "Name": "Peer TGW",
         },
-        opts=ResourceOptions(provider=aws["peer"]))
+        opts=pulumi.ResourceOptions(provider=aws["peer"]))
         example = aws.ec2transitgateway.PeeringAttachment("example",
             peer_account_id=peer_transit_gateway.owner_id,
             peer_region=peer_region.name,
@@ -89,14 +89,14 @@ class PeeringAttachment(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['peer_account_id'] = peer_account_id
-            if peer_region is None:
+            if peer_region is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_region'")
             __props__['peer_region'] = peer_region
-            if peer_transit_gateway_id is None:
+            if peer_transit_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_transit_gateway_id'")
             __props__['peer_transit_gateway_id'] = peer_transit_gateway_id
             __props__['tags'] = tags
-            if transit_gateway_id is None:
+            if transit_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_id'")
             __props__['transit_gateway_id'] = transit_gateway_id
         super(PeeringAttachment, __self__).__init__(

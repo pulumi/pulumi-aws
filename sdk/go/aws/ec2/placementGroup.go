@@ -62,11 +62,12 @@ type PlacementGroup struct {
 // NewPlacementGroup registers a new resource with the given unique name, arguments, and options.
 func NewPlacementGroup(ctx *pulumi.Context,
 	name string, args *PlacementGroupArgs, opts ...pulumi.ResourceOption) (*PlacementGroup, error) {
-	if args == nil || args.Strategy == nil {
-		return nil, errors.New("missing required argument 'Strategy'")
-	}
 	if args == nil {
-		args = &PlacementGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Strategy == nil {
+		return nil, errors.New("invalid value for required argument 'Strategy'")
 	}
 	var resource PlacementGroup
 	err := ctx.RegisterResource("aws:ec2/placementGroup:PlacementGroup", name, args, &resource, opts...)

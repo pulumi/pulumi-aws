@@ -94,11 +94,12 @@ type RailsAppLayer struct {
 // NewRailsAppLayer registers a new resource with the given unique name, arguments, and options.
 func NewRailsAppLayer(ctx *pulumi.Context,
 	name string, args *RailsAppLayerArgs, opts ...pulumi.ResourceOption) (*RailsAppLayer, error) {
-	if args == nil || args.StackId == nil {
-		return nil, errors.New("missing required argument 'StackId'")
-	}
 	if args == nil {
-		args = &RailsAppLayerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StackId == nil {
+		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
 	var resource RailsAppLayer
 	err := ctx.RegisterResource("aws:opsworks/railsAppLayer:RailsAppLayer", name, args, &resource, opts...)

@@ -93,20 +93,21 @@ type Function struct {
 // NewFunction registers a new resource with the given unique name, arguments, and options.
 func NewFunction(ctx *pulumi.Context,
 	name string, args *FunctionArgs, opts ...pulumi.ResourceOption) (*Function, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
-	if args == nil || args.DataSource == nil {
-		return nil, errors.New("missing required argument 'DataSource'")
-	}
-	if args == nil || args.RequestMappingTemplate == nil {
-		return nil, errors.New("missing required argument 'RequestMappingTemplate'")
-	}
-	if args == nil || args.ResponseMappingTemplate == nil {
-		return nil, errors.New("missing required argument 'ResponseMappingTemplate'")
-	}
 	if args == nil {
-		args = &FunctionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
+	}
+	if args.DataSource == nil {
+		return nil, errors.New("invalid value for required argument 'DataSource'")
+	}
+	if args.RequestMappingTemplate == nil {
+		return nil, errors.New("invalid value for required argument 'RequestMappingTemplate'")
+	}
+	if args.ResponseMappingTemplate == nil {
+		return nil, errors.New("invalid value for required argument 'ResponseMappingTemplate'")
 	}
 	var resource Function
 	err := ctx.RegisterResource("aws:appsync/function:Function", name, args, &resource, opts...)

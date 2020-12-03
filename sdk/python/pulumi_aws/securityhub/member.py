@@ -35,7 +35,7 @@ class Member(pulumi.CustomResource):
             account_id="123456789012",
             email="example@example.com",
             invite=True,
-            opts=ResourceOptions(depends_on=[example_account]))
+            opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
 
         ## Import
@@ -69,10 +69,10 @@ class Member(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_id is None:
+            if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
             __props__['account_id'] = account_id
-            if email is None:
+            if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__['email'] = email
             __props__['invite'] = invite

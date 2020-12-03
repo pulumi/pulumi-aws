@@ -69,11 +69,12 @@ type ParameterGroup struct {
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
 func NewParameterGroup(ctx *pulumi.Context,
 	name string, args *ParameterGroupArgs, opts ...pulumi.ResourceOption) (*ParameterGroup, error) {
-	if args == nil || args.Family == nil {
-		return nil, errors.New("missing required argument 'Family'")
-	}
 	if args == nil {
-		args = &ParameterGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Family == nil {
+		return nil, errors.New("invalid value for required argument 'Family'")
 	}
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws:neptune/parameterGroup:ParameterGroup", name, args, &resource, opts...)
