@@ -576,7 +576,7 @@ export interface InstanceState {
     /**
      * The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
      */
-    readonly tenancy?: pulumi.Input<string>;
+    readonly tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
     /**
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
      */
@@ -740,7 +740,7 @@ export interface InstanceArgs {
     /**
      * The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
      */
-    readonly tenancy?: pulumi.Input<string>;
+    readonly tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
     /**
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
      */

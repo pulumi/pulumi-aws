@@ -380,7 +380,7 @@ namespace Pulumi.Aws.Lambda
         /// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
         [Input("runtime")]
-        public Input<string>? Runtime { get; set; }
+        public InputUnion<string, Pulumi.Aws.Lambda.Runtime>? Runtime { get; set; }
 
         /// <summary>
         /// The S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
@@ -577,7 +577,7 @@ namespace Pulumi.Aws.Lambda
         /// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
         [Input("runtime")]
-        public Input<string>? Runtime { get; set; }
+        public InputUnion<string, Pulumi.Aws.Lambda.Runtime>? Runtime { get; set; }
 
         /// <summary>
         /// The S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.

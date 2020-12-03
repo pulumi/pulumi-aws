@@ -644,7 +644,7 @@ namespace Pulumi.Aws.Ec2
         /// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         /// </summary>
         [Input("tenancy")]
-        public Input<string>? Tenancy { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.Tenancy>? Tenancy { get; set; }
 
         /// <summary>
         /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
@@ -987,7 +987,7 @@ namespace Pulumi.Aws.Ec2
         /// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         /// </summary>
         [Input("tenancy")]
-        public Input<string>? Tenancy { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.Tenancy>? Tenancy { get; set; }
 
         /// <summary>
         /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.

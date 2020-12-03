@@ -412,7 +412,7 @@ namespace Pulumi.Aws.AutoScaling
         /// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         /// </summary>
         [Input("metricsGranularity")]
-        public Input<string>? MetricsGranularity { get; set; }
+        public InputUnion<string, Pulumi.Aws.AutoScaling.MetricsGranularity>? MetricsGranularity { get; set; }
 
         /// <summary>
         /// Setting this causes this provider to wait for
@@ -700,7 +700,7 @@ namespace Pulumi.Aws.AutoScaling
         /// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         /// </summary>
         [Input("metricsGranularity")]
-        public Input<string>? MetricsGranularity { get; set; }
+        public InputUnion<string, Pulumi.Aws.AutoScaling.MetricsGranularity>? MetricsGranularity { get; set; }
 
         /// <summary>
         /// Setting this causes this provider to wait for

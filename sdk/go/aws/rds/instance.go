@@ -824,7 +824,7 @@ type instanceArgs struct {
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
 	// The instance type of the RDS instance.
-	InstanceClass interface{} `pulumi:"instanceClass"`
+	InstanceClass string `pulumi:"instanceClass"`
 	// The amount of provisioned IOPS. Setting this implies a
 	// storageType of "io1".
 	Iops *int `pulumi:"iops"`
@@ -913,7 +913,7 @@ type instanceArgs struct {
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
 	// specified, "gp2" if not.
-	StorageType interface{} `pulumi:"storageType"`
+	StorageType *string `pulumi:"storageType"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Time zone of the DB instance. `timezone` is currently
@@ -1011,7 +1011,7 @@ type InstanceArgs struct {
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
 	// The instance type of the RDS instance.
-	InstanceClass pulumi.Input
+	InstanceClass pulumi.StringInput
 	// The amount of provisioned IOPS. Setting this implies a
 	// storageType of "io1".
 	Iops pulumi.IntPtrInput
@@ -1100,7 +1100,7 @@ type InstanceArgs struct {
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
 	// specified, "gp2" if not.
-	StorageType pulumi.Input
+	StorageType pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Time zone of the DB instance. `timezone` is currently

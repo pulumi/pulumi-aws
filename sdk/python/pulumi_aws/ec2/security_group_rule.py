@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from ._enums import *
 
 __all__ = ['SecurityGroupRule']
 
@@ -20,7 +21,7 @@ class SecurityGroupRule(pulumi.CustomResource):
                  from_port: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[Union[str, 'ProtocolType']]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
                  self: Optional[pulumi.Input[bool]] = None,
                  source_security_group_id: Optional[pulumi.Input[str]] = None,
@@ -128,7 +129,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints).
                Only valid with `egress`.
-        :param pulumi.Input[str] protocol: The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        :param pulumi.Input[Union[str, 'ProtocolType']] protocol: The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[str] security_group_id: The security group to apply this rule to.
         :param pulumi.Input[bool] self: If true, the security group itself will be added as
                a source to this ingress rule. Cannot be specified with `source_security_group_id`.
@@ -191,7 +192,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             from_port: Optional[pulumi.Input[int]] = None,
             ipv6_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            protocol: Optional[pulumi.Input[str]] = None,
+            protocol: Optional[pulumi.Input[Union[str, 'ProtocolType']]] = None,
             security_group_id: Optional[pulumi.Input[str]] = None,
             self: Optional[pulumi.Input[bool]] = None,
             source_security_group_id: Optional[pulumi.Input[str]] = None,
@@ -210,7 +211,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints).
                Only valid with `egress`.
-        :param pulumi.Input[str] protocol: The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        :param pulumi.Input[Union[str, 'ProtocolType']] protocol: The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[str] security_group_id: The security group to apply this rule to.
         :param pulumi.Input[bool] self: If true, the security group itself will be added as
                a source to this ingress rule. Cannot be specified with `source_security_group_id`.

@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
-import {InstanceType, StorageType} from "./index";
-
 /**
  * Provides an RDS instance resource.  A DB instance is an isolated database
  * environment in the cloud.  A DB instance can contain multiple user-created
@@ -716,7 +714,7 @@ export interface InstanceState {
     /**
      * The instance type of the RDS instance.
      */
-    readonly instanceClass?: pulumi.Input<string | InstanceType>;
+    readonly instanceClass?: pulumi.Input<string | enums.rds.InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storageType of "io1".
@@ -868,7 +866,7 @@ export interface InstanceState {
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
      * specified, "gp2" if not.
      */
-    readonly storageType?: pulumi.Input<string | StorageType>;
+    readonly storageType?: pulumi.Input<string | enums.rds.StorageType>;
     /**
      * A map of tags to assign to the resource.
      */
@@ -1022,7 +1020,7 @@ export interface InstanceArgs {
     /**
      * The instance type of the RDS instance.
      */
-    readonly instanceClass: pulumi.Input<string | InstanceType>;
+    readonly instanceClass: pulumi.Input<string | enums.rds.InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storageType of "io1".
@@ -1161,7 +1159,7 @@ export interface InstanceArgs {
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
      * specified, "gp2" if not.
      */
-    readonly storageType?: pulumi.Input<string | StorageType>;
+    readonly storageType?: pulumi.Input<string | enums.rds.StorageType>;
     /**
      * A map of tags to assign to the resource.
      */

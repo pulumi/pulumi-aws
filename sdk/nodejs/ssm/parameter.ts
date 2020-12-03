@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
-
-import {ParameterType} from "./index";
 
 /**
  * Provides an SSM Parameter resource.
@@ -129,7 +128,7 @@ export class Parameter extends pulumi.CustomResource {
     /**
      * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      */
-    public readonly type!: pulumi.Output<ParameterType>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * The value of the parameter.
      */
@@ -239,7 +238,7 @@ export interface ParameterState {
     /**
      * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      */
-    readonly type?: pulumi.Input<ParameterType>;
+    readonly type?: pulumi.Input<string | enums.ssm.ParameterType>;
     /**
      * The value of the parameter.
      */
@@ -294,7 +293,7 @@ export interface ParameterArgs {
     /**
      * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      */
-    readonly type: pulumi.Input<ParameterType>;
+    readonly type: pulumi.Input<string | enums.ssm.ParameterType>;
     /**
      * The value of the parameter.
      */

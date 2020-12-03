@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -265,7 +266,7 @@ export interface SecurityGroupRuleState {
     /**
      * The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
-    readonly protocol?: pulumi.Input<string>;
+    readonly protocol?: pulumi.Input<string | enums.ec2.ProtocolType>;
     /**
      * The security group to apply this rule to.
      */
@@ -319,7 +320,7 @@ export interface SecurityGroupRuleArgs {
     /**
      * The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
-    readonly protocol: pulumi.Input<string>;
+    readonly protocol: pulumi.Input<string | enums.ec2.ProtocolType>;
     /**
      * The security group to apply this rule to.
      */

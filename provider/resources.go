@@ -973,24 +973,12 @@ func Provider() tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "InstanceProfile")},
 					},
-					"instance_platform": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsType(ec2Mod, "InstancePlatform", "InstancePlatform")},
-					},
 					"instance_type": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(ec2Mod, "InstanceType", "InstanceType")},
 					},
 					"instance_state": {
 						CSharpName: "State",
-					},
-					"placement_strategy": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsType(ec2Mod, "PlacementStrategy", "PlacementStrategy")},
-					},
-					"protocol_type": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsType(ec2Mod, "ProtocolType", "ProtocolType")},
 					},
 					"security_groups": {
 						DeprecationMessage: "Use of `securityGroups` is discouraged as it does not allow for changes and" +
@@ -1050,7 +1038,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(ec2Mod, "PlacementGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"strategy": {
-						Type: awsTypeDefaultFile(ec2Mod, "PlacementStrategy"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "PlacementStrategy", "PlacementStrategy")},
 					},
 				},
 			},
@@ -1062,13 +1051,16 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(ec2Mod, "CapacityReservation"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"instance_type": {
-						Type: awsTypeDefaultFile(ec2Mod, "InstanceType"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "InstanceType", "InstanceType")},
 					},
 					"instance_platform": {
-						Type: awsTypeDefaultFile(ec2Mod, "InstancePlatform"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "InstancePlatform", "InstancePlatform")},
 					},
 					"tenancy": {
-						Type: awsTypeDefaultFile(ec2Mod, "Tenancy"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "Tenancy", "Tenancy")},
 					},
 				},
 			},
@@ -1092,7 +1084,15 @@ func Provider() tfbridge.ProviderInfo {
 					"egress":  {Name: "egress"},
 				},
 			},
-			"aws_security_group_rule":               {Tok: awsResource(ec2Mod, "SecurityGroupRule")},
+			"aws_security_group_rule": {
+				Tok: awsResource(ec2Mod, "SecurityGroupRule"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"protocol": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "ProtocolType", "ProtocolType")},
+					},
+				},
+			},
 			"aws_snapshot_create_volume_permission": {Tok: awsResource(ec2Mod, "SnapshotCreateVolumePermission")},
 			"aws_spot_datafeed_subscription":        {Tok: awsResource(ec2Mod, "SpotDatafeedSubscription")},
 			"aws_spot_instance_request": {
@@ -1773,10 +1773,12 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"cluster_identifier": tfbridge.AutoName("clusterIdentifier", 255, "-"),
 					"engine": {
-						Type: awsResource(rdsMod, "EngineType"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(rdsMod, "EngineType", "EngineType")},
 					},
 					"engine_mode": {
-						Type: awsResource(rdsMod, "EngineMode"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(rdsMod, "EngineMode", "EngineMode")},
 					},
 				},
 			},
@@ -1789,7 +1791,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"instance_class": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(rdsMod, "InstanceType")},
+						AltTypes: []tokens.Type{awsType(rdsMod, "InstanceType", "InstanceType")},
 					},
 				},
 			},
@@ -1822,14 +1824,6 @@ func Provider() tfbridge.ProviderInfo {
 						},
 					},
 					"name": {Name: "name"},
-					"engine_mode": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsType(rdsMod, "EngineMode", "EngineMode")},
-					},
-					"engine_type": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsType(rdsMod, "EngineType", "EngineType")},
-					},
 					"instance_class": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(rdsMod, "InstanceType", "InstanceType")},

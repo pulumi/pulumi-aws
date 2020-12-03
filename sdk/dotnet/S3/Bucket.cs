@@ -666,7 +666,7 @@ namespace Pulumi.Aws.S3
         /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
         /// </summary>
         [Input("acl")]
-        public Input<string>? Acl { get; set; }
+        public InputUnion<string, Pulumi.Aws.S3.CannedAcl>? Acl { get; set; }
 
         /// <summary>
         /// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
@@ -832,7 +832,7 @@ namespace Pulumi.Aws.S3
         /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
         /// </summary>
         [Input("acl")]
-        public Input<string>? Acl { get; set; }
+        public InputUnion<string, Pulumi.Aws.S3.CannedAcl>? Acl { get; set; }
 
         /// <summary>
         /// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.

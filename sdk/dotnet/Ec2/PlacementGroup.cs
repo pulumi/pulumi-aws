@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Ec2
         /// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         /// </summary>
         [Input("strategy", required: true)]
-        public Input<string> Strategy { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Ec2.PlacementStrategy> Strategy { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Ec2
         /// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         /// </summary>
         [Input("strategy")]
-        public Input<string>? Strategy { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.PlacementStrategy>? Strategy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

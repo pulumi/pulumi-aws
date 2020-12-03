@@ -208,13 +208,13 @@ namespace Pulumi.Aws.Ec2
         /// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         /// </summary>
         [Input("instancePlatform", required: true)]
-        public Input<string> InstancePlatform { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Ec2.InstancePlatform> InstancePlatform { get; set; } = null!;
 
         /// <summary>
         /// The instance type for which to reserve capacity.
         /// </summary>
         [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Ec2.InstanceType> InstanceType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Ec2
         /// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         /// </summary>
         [Input("tenancy")]
-        public Input<string>? Tenancy { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.Tenancy>? Tenancy { get; set; }
 
         public CapacityReservationArgs()
         {
@@ -293,13 +293,13 @@ namespace Pulumi.Aws.Ec2
         /// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         /// </summary>
         [Input("instancePlatform")]
-        public Input<string>? InstancePlatform { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.InstancePlatform>? InstancePlatform { get; set; }
 
         /// <summary>
         /// The instance type for which to reserve capacity.
         /// </summary>
         [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.InstanceType>? InstanceType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.Ec2
         /// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         /// </summary>
         [Input("tenancy")]
-        public Input<string>? Tenancy { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.Tenancy>? Tenancy { get; set; }
 
         public CapacityReservationState()
         {
