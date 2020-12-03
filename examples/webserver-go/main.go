@@ -41,7 +41,7 @@ func main() {
 		}
 
 		server, err := ec2.NewInstance(ctx, "web-server-www", &ec2.InstanceArgs{
-			InstanceType:        pulumi.String(ec2.InstanceType_T2_Micro),
+			InstanceType:        ec2.InstanceType_T2_Micro,
 			VpcSecurityGroupIds: pulumi.StringArray{group.Arn},
 			Ami:                 pulumi.String(ami.Id),
 		})

@@ -326,8 +326,7 @@ func TestAccWebserverComp(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "webserver-comp"),
-			RunUpdateTest: true,
+			Dir: filepath.Join(getCwd(t), "webserver-comp"),
 			Secrets: map[string]string{
 				"aws:accessKey": os.Getenv("AWS_ACCESS_KEY_ID"),
 				"aws:secretKey": os.Getenv("AWS_SECRET_ACCESS_KEY"),

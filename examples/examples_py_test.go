@@ -26,8 +26,7 @@ func TestAccWebserverPy(t *testing.T) {
 
 			test := getPythonBaseOptions(t).
 				With(integration.ProgramTestOptions{
-					Dir:           filepath.Join(getCwd(t), dir),
-					RunUpdateTest: true,
+					Dir: filepath.Join(getCwd(t), dir),
 				})
 
 			integration.ProgramTest(t, &test)
