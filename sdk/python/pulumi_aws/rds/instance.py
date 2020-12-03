@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Instance']
@@ -39,7 +40,7 @@ class Instance(pulumi.CustomResource):
                  iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  identifier_prefix: Optional[pulumi.Input[str]] = None,
-                 instance_class: Optional[pulumi.Input[str]] = None,
+                 instance_class: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  license_model: Optional[pulumi.Input[str]] = None,
@@ -64,7 +65,7 @@ class Instance(pulumi.CustomResource):
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
-                 storage_type: Optional[pulumi.Input[str]] = None,
+                 storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -196,7 +197,7 @@ class Instance(pulumi.CustomResource):
                if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique
                identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[str] instance_class: The instance type of the RDS instance.
+        :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1".
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
@@ -258,7 +259,7 @@ class Instance(pulumi.CustomResource):
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
                default is `false` if not specified.
-        :param pulumi.Input[str] storage_type: One of "standard" (magnetic), "gp2" (general
+        :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
                specified, "gp2" if not.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
@@ -387,7 +388,7 @@ class Instance(pulumi.CustomResource):
             iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             identifier: Optional[pulumi.Input[str]] = None,
             identifier_prefix: Optional[pulumi.Input[str]] = None,
-            instance_class: Optional[pulumi.Input[str]] = None,
+            instance_class: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
             iops: Optional[pulumi.Input[int]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             latest_restorable_time: Optional[pulumi.Input[str]] = None,
@@ -416,7 +417,7 @@ class Instance(pulumi.CustomResource):
             snapshot_identifier: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             storage_encrypted: Optional[pulumi.Input[bool]] = None,
-            storage_type: Optional[pulumi.Input[str]] = None,
+            storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timezone: Optional[pulumi.Input[str]] = None,
             username: Optional[pulumi.Input[str]] = None,
@@ -489,7 +490,7 @@ class Instance(pulumi.CustomResource):
                if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique
                identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[str] instance_class: The instance type of the RDS instance.
+        :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1".
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
@@ -554,7 +555,7 @@ class Instance(pulumi.CustomResource):
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
                default is `false` if not specified.
-        :param pulumi.Input[str] storage_type: One of "standard" (magnetic), "gp2" (general
+        :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
                specified, "gp2" if not.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.

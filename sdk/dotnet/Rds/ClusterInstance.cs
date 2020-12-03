@@ -388,7 +388,7 @@ namespace Pulumi.Aws.Rds
         /// and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
         /// </summary>
         [Input("instanceClass", required: true)]
-        public Input<string> InstanceClass { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Rds.InstanceType> InstanceClass { get; set; } = null!;
 
         /// <summary>
         /// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
@@ -562,7 +562,7 @@ namespace Pulumi.Aws.Rds
         /// and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
         /// </summary>
         [Input("instanceClass")]
-        public Input<string>? InstanceClass { get; set; }
+        public InputUnion<string, Pulumi.Aws.Rds.InstanceType>? InstanceClass { get; set; }
 
         /// <summary>
         /// The ARN for the KMS encryption key if one is set to the cluster.

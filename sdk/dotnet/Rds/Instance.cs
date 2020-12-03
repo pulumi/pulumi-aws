@@ -754,7 +754,7 @@ namespace Pulumi.Aws.Rds
         /// The instance type of the RDS instance.
         /// </summary>
         [Input("instanceClass", required: true)]
-        public Input<string> InstanceClass { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Rds.InstanceType> InstanceClass { get; set; } = null!;
 
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
@@ -949,7 +949,7 @@ namespace Pulumi.Aws.Rds
         /// specified, "gp2" if not.
         /// </summary>
         [Input("storageType")]
-        public Input<string>? StorageType { get; set; }
+        public InputUnion<string, Pulumi.Aws.Rds.StorageType>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -1201,7 +1201,7 @@ namespace Pulumi.Aws.Rds
         /// The instance type of the RDS instance.
         /// </summary>
         [Input("instanceClass")]
-        public Input<string>? InstanceClass { get; set; }
+        public InputUnion<string, Pulumi.Aws.Rds.InstanceType>? InstanceClass { get; set; }
 
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
@@ -1422,7 +1422,7 @@ namespace Pulumi.Aws.Rds
         /// specified, "gp2" if not.
         /// </summary>
         [Input("storageType")]
-        public Input<string>? StorageType { get; set; }
+        public InputUnion<string, Pulumi.Aws.Rds.StorageType>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

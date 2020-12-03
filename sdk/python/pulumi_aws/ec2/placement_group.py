@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from ._enums import *
 
 __all__ = ['PlacementGroup']
 
@@ -16,7 +17,7 @@ class PlacementGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 strategy: Optional[pulumi.Input[str]] = None,
+                 strategy: Optional[pulumi.Input[Union[str, 'PlacementStrategy']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -45,7 +46,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the placement group.
-        :param pulumi.Input[str] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+        :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         """
         if __name__ is not None:
@@ -85,7 +86,7 @@ class PlacementGroup(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             placement_group_id: Optional[pulumi.Input[str]] = None,
-            strategy: Optional[pulumi.Input[str]] = None,
+            strategy: Optional[pulumi.Input[Union[str, 'PlacementStrategy']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'PlacementGroup':
         """
         Get an existing PlacementGroup resource's state with the given name, id, and optional extra
@@ -97,7 +98,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the placement group.
         :param pulumi.Input[str] name: The name of the placement group.
         :param pulumi.Input[str] placement_group_id: The ID of the placement group.
-        :param pulumi.Input[str] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+        :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

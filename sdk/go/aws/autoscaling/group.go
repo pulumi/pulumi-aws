@@ -389,7 +389,7 @@ type groupArgs struct {
 	// The maximum size of the auto scale group.
 	MaxSize int `pulumi:"maxSize"`
 	// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
-	MetricsGranularity interface{} `pulumi:"metricsGranularity"`
+	MetricsGranularity *string `pulumi:"metricsGranularity"`
 	// Setting this causes this provider to wait for
 	// this number of instances from this autoscaling group to show up healthy in the
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
@@ -484,7 +484,7 @@ type GroupArgs struct {
 	// The maximum size of the auto scale group.
 	MaxSize pulumi.IntInput
 	// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
-	MetricsGranularity pulumi.Input
+	MetricsGranularity pulumi.StringPtrInput
 	// Setting this causes this provider to wait for
 	// this number of instances from this autoscaling group to show up healthy in the
 	// ELB only on creation. Updates will not wait on ELB instance number changes.

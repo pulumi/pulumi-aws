@@ -561,7 +561,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"metrics_granularity": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(autoscalingMod, "metrics", "MetricsGranularity")},
+						AltTypes: []tokens.Type{awsType(autoscalingMod, "MetricsGranularity", "MetricsGranularity")},
 					},
 					"tag": {
 						// Explicitly map tag => tags to avoid confusion with tags => tagsCollection below.
@@ -974,7 +974,8 @@ func Provider() tfbridge.ProviderInfo {
 						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "InstanceProfile")},
 					},
 					"instance_type": {
-						Type: awsTypeDefaultFile(ec2Mod, "InstanceType"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "InstanceType", "InstanceType")},
 					},
 					"instance_state": {
 						CSharpName: "State",
@@ -983,6 +984,10 @@ func Provider() tfbridge.ProviderInfo {
 						DeprecationMessage: "Use of `securityGroups` is discouraged as it does not allow for changes and" +
 							" will force your instance to be replaced if changes are made. To avoid this," +
 							" use `vpcSecurityGroupIds` which allows for updates.",
+					},
+					"tenancy": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "Tenancy", "Tenancy")},
 					},
 				},
 			},
@@ -1033,7 +1038,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(ec2Mod, "PlacementGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"strategy": {
-						Type: awsTypeDefaultFile(ec2Mod, "PlacementStrategy"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "PlacementStrategy", "PlacementStrategy")},
 					},
 				},
 			},
@@ -1045,13 +1051,16 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(ec2Mod, "CapacityReservation"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"instance_type": {
-						Type: awsTypeDefaultFile(ec2Mod, "InstanceType"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "InstanceType", "InstanceType")},
 					},
 					"instance_platform": {
-						Type: awsTypeDefaultFile(ec2Mod, "InstancePlatform"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "InstancePlatform", "InstancePlatform")},
 					},
 					"tenancy": {
-						Type: awsTypeDefaultFile(ec2Mod, "Tenancy"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "Tenancy", "Tenancy")},
 					},
 				},
 			},
@@ -1075,7 +1084,15 @@ func Provider() tfbridge.ProviderInfo {
 					"egress":  {Name: "egress"},
 				},
 			},
-			"aws_security_group_rule":               {Tok: awsResource(ec2Mod, "SecurityGroupRule")},
+			"aws_security_group_rule": {
+				Tok: awsResource(ec2Mod, "SecurityGroupRule"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"protocol": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "ProtocolType", "ProtocolType")},
+					},
+				},
+			},
 			"aws_snapshot_create_volume_permission": {Tok: awsResource(ec2Mod, "SnapshotCreateVolumePermission")},
 			"aws_spot_datafeed_subscription":        {Tok: awsResource(ec2Mod, "SpotDatafeedSubscription")},
 			"aws_spot_instance_request": {
@@ -1627,6 +1644,10 @@ func Provider() tfbridge.ProviderInfo {
 							HashField: "source_code_hash",
 						},
 					},
+					"runtime": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(lambdaMod, "Runtime", "Runtime")},
+					},
 				},
 			},
 			"aws_lambda_alias":                {Tok: awsResource(lambdaMod, "Alias")},
@@ -1752,10 +1773,12 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"cluster_identifier": tfbridge.AutoName("clusterIdentifier", 255, "-"),
 					"engine": {
-						Type: awsResource(rdsMod, "EngineType"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(rdsMod, "EngineType", "EngineType")},
 					},
 					"engine_mode": {
-						Type: awsResource(rdsMod, "EngineMode"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(rdsMod, "EngineMode", "EngineMode")},
 					},
 				},
 			},
@@ -1768,7 +1791,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"instance_class": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(rdsMod, "InstanceType")},
+						AltTypes: []tokens.Type{awsType(rdsMod, "InstanceType", "InstanceType")},
 					},
 				},
 			},
@@ -1803,11 +1826,11 @@ func Provider() tfbridge.ProviderInfo {
 					"name": {Name: "name"},
 					"instance_class": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(rdsMod, "InstanceType")},
+						AltTypes: []tokens.Type{awsType(rdsMod, "InstanceType", "InstanceType")},
 					},
 					"storage_type": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(rdsMod, "StorageType")},
+						AltTypes: []tokens.Type{awsType(rdsMod, "StorageType", "StorageType")},
 					},
 				},
 			},
@@ -1889,7 +1912,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"type": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(route53Mod, "RecordType")},
+						AltTypes: []tokens.Type{awsType(route53Mod, "RecordType", "RecordType")},
 					},
 					// Do not autoname Route53 records, as the "name" of these is actually the true
 					// domain name of the DNS record.
@@ -1965,7 +1988,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"acl": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(s3Mod, "CannedAcl")},
+						AltTypes: []tokens.Type{awsType(s3Mod, "CannedAcl", "CannedAcl")},
 					},
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
@@ -2074,7 +2097,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(ssmMod, "Parameter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"type": {
-						Type: awsTypeDefaultFile(ssmMod, "ParameterType"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ssmMod, "ParameterType", "ParameterType")},
 					},
 				},
 			},
@@ -2352,7 +2376,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_serverlessrepository_stack": {Tok: awsResource(serverlessRepositoryMod, "Stack")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
-			"aws::Region": {
+			"aws:index/Region:Region": {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type:        "string",
 					Description: "A Region represents any valid Amazon region that may be targeted with deployments.",
@@ -3645,7 +3669,6 @@ func Provider() tfbridge.ProviderInfo {
 			Requires: map[string]string{
 				"pulumi": ">=2.9.0,<3.0.0",
 			},
-			UsesIOClasses: true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{

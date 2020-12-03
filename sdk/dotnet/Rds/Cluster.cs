@@ -566,13 +566,13 @@ namespace Pulumi.Aws.Rds
         /// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
         /// </summary>
         [Input("engine")]
-        public Input<string>? Engine { get; set; }
+        public InputUnion<string, Pulumi.Aws.Rds.EngineType>? Engine { get; set; }
 
         /// <summary>
         /// The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Input("engineMode")]
-        public Input<string>? EngineMode { get; set; }
+        public InputUnion<string, Pulumi.Aws.Rds.EngineMode>? EngineMode { get; set; }
 
         /// <summary>
         /// The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
@@ -852,13 +852,13 @@ namespace Pulumi.Aws.Rds
         /// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
         /// </summary>
         [Input("engine")]
-        public Input<string>? Engine { get; set; }
+        public InputUnion<string, Pulumi.Aws.Rds.EngineType>? Engine { get; set; }
 
         /// <summary>
         /// The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Input("engineMode")]
-        public Input<string>? EngineMode { get; set; }
+        public InputUnion<string, Pulumi.Aws.Rds.EngineMode>? EngineMode { get; set; }
 
         /// <summary>
         /// The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.

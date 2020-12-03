@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Parameter']
 
@@ -24,7 +25,7 @@ class Parameter(pulumi.CustomResource):
                  overwrite: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ParameterType']]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -93,7 +94,7 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
         :param pulumi.Input[str] tier: The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-        :param pulumi.Input[str] type: The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+        :param pulumi.Input[Union[str, 'ParameterType']] type: The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         :param pulumi.Input[str] value: The value of the parameter.
         """
         if __name__ is not None:
@@ -148,7 +149,7 @@ class Parameter(pulumi.CustomResource):
             overwrite: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tier: Optional[pulumi.Input[str]] = None,
-            type: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[Union[str, 'ParameterType']]] = None,
             value: Optional[pulumi.Input[str]] = None,
             version: Optional[pulumi.Input[int]] = None) -> 'Parameter':
         """
@@ -168,7 +169,7 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
         :param pulumi.Input[str] tier: The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-        :param pulumi.Input[str] type: The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+        :param pulumi.Input[Union[str, 'ParameterType']] type: The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         :param pulumi.Input[str] value: The value of the parameter.
         :param pulumi.Input[int] version: The version of the parameter.
         """

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {LaunchConfiguration, PlacementGroup} from "../ec2";
-import {Metric, MetricsGranularity} from "./index";
+import {Metric} from "./index";
 
 /**
  * ## Import
@@ -379,7 +379,7 @@ export interface GroupState {
     /**
      * The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      */
-    readonly metricsGranularity?: pulumi.Input<string | MetricsGranularity>;
+    readonly metricsGranularity?: pulumi.Input<string | enums.autoscaling.MetricsGranularity>;
     /**
      * Setting this causes this provider to wait for
      * this number of instances from this autoscaling group to show up healthy in the
@@ -538,7 +538,7 @@ export interface GroupArgs {
     /**
      * The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      */
-    readonly metricsGranularity?: pulumi.Input<string | MetricsGranularity>;
+    readonly metricsGranularity?: pulumi.Input<string | enums.autoscaling.MetricsGranularity>;
     /**
      * Setting this causes this provider to wait for
      * this number of instances from this autoscaling group to show up healthy in the

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
-
-import {InstancePlatform, InstanceType, Tenancy} from "./index";
 
 /**
  * Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
@@ -94,11 +93,11 @@ export class CapacityReservation extends pulumi.CustomResource {
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      */
-    public readonly instancePlatform!: pulumi.Output<InstancePlatform>;
+    public readonly instancePlatform!: pulumi.Output<string>;
     /**
      * The instance type for which to reserve capacity.
      */
-    public readonly instanceType!: pulumi.Output<InstanceType>;
+    public readonly instanceType!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource.
      */
@@ -106,7 +105,7 @@ export class CapacityReservation extends pulumi.CustomResource {
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */
-    public readonly tenancy!: pulumi.Output<Tenancy | undefined>;
+    public readonly tenancy!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CapacityReservation resource with the given unique name, arguments, and options.
@@ -209,11 +208,11 @@ export interface CapacityReservationState {
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      */
-    readonly instancePlatform?: pulumi.Input<InstancePlatform>;
+    readonly instancePlatform?: pulumi.Input<string | enums.ec2.InstancePlatform>;
     /**
      * The instance type for which to reserve capacity.
      */
-    readonly instanceType?: pulumi.Input<InstanceType>;
+    readonly instanceType?: pulumi.Input<string | enums.ec2.InstanceType>;
     /**
      * A map of tags to assign to the resource.
      */
@@ -221,7 +220,7 @@ export interface CapacityReservationState {
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */
-    readonly tenancy?: pulumi.Input<Tenancy>;
+    readonly tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
 }
 
 /**
@@ -259,11 +258,11 @@ export interface CapacityReservationArgs {
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      */
-    readonly instancePlatform: pulumi.Input<InstancePlatform>;
+    readonly instancePlatform: pulumi.Input<string | enums.ec2.InstancePlatform>;
     /**
      * The instance type for which to reserve capacity.
      */
-    readonly instanceType: pulumi.Input<InstanceType>;
+    readonly instanceType: pulumi.Input<string | enums.ec2.InstanceType>;
     /**
      * A map of tags to assign to the resource.
      */
@@ -271,5 +270,5 @@ export interface CapacityReservationArgs {
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */
-    readonly tenancy?: pulumi.Input<Tenancy>;
+    readonly tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
 }

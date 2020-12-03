@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {PolicyDocument} from "../iam";
-import {CannedAcl, RoutingRule} from "./index";
+import {RoutingRule} from "./index";
 
 /**
  * Provides a S3 bucket resource.
@@ -515,7 +515,7 @@ export interface BucketState {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
      */
-    readonly acl?: pulumi.Input<string | CannedAcl>;
+    readonly acl?: pulumi.Input<string | enums.s3.CannedAcl>;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
@@ -620,7 +620,7 @@ export interface BucketArgs {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
      */
-    readonly acl?: pulumi.Input<string | CannedAcl>;
+    readonly acl?: pulumi.Input<string | enums.s3.CannedAcl>;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */

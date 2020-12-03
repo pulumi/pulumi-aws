@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Bucket']
@@ -18,7 +19,7 @@ class Bucket(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acceleration_status: Optional[pulumi.Input[str]] = None,
-                 acl: Optional[pulumi.Input[str]] = None,
+                 acl: Optional[pulumi.Input[Union[str, 'CannedAcl']]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
@@ -327,7 +328,7 @@ class Bucket(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
-        :param pulumi.Input[str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
+        :param pulumi.Input[Union[str, 'CannedAcl']] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
         :param pulumi.Input[str] arn: The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         :param pulumi.Input[str] bucket: The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
         :param pulumi.Input[str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
@@ -403,7 +404,7 @@ class Bucket(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             acceleration_status: Optional[pulumi.Input[str]] = None,
-            acl: Optional[pulumi.Input[str]] = None,
+            acl: Optional[pulumi.Input[Union[str, 'CannedAcl']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             bucket: Optional[pulumi.Input[str]] = None,
             bucket_domain_name: Optional[pulumi.Input[str]] = None,
@@ -434,7 +435,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
-        :param pulumi.Input[str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
+        :param pulumi.Input[Union[str, 'CannedAcl']] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
         :param pulumi.Input[str] arn: The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         :param pulumi.Input[str] bucket: The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
         :param pulumi.Input[str] bucket_domain_name: The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.

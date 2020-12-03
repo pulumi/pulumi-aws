@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
-
-import {PlacementStrategy} from "./index";
 
 /**
  * Provides an EC2 placement group. Read more about placement groups
@@ -72,7 +71,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
      */
-    public readonly strategy!: pulumi.Output<PlacementStrategy>;
+    public readonly strategy!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags.
      */
@@ -136,7 +135,7 @@ export interface PlacementGroupState {
     /**
      * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
      */
-    readonly strategy?: pulumi.Input<PlacementStrategy>;
+    readonly strategy?: pulumi.Input<string | enums.ec2.PlacementStrategy>;
     /**
      * Key-value map of resource tags.
      */
@@ -154,7 +153,7 @@ export interface PlacementGroupArgs {
     /**
      * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
      */
-    readonly strategy: pulumi.Input<PlacementStrategy>;
+    readonly strategy: pulumi.Input<string | enums.ec2.PlacementStrategy>;
     /**
      * Key-value map of resource tags.
      */

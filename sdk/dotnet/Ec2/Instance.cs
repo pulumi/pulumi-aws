@@ -520,7 +520,7 @@ namespace Pulumi.Aws.Ec2
         /// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Ec2.InstanceType> InstanceType { get; set; } = null!;
 
         /// <summary>
         /// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -644,7 +644,7 @@ namespace Pulumi.Aws.Ec2
         /// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         /// </summary>
         [Input("tenancy")]
-        public Input<string>? Tenancy { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.Tenancy>? Tenancy { get; set; }
 
         /// <summary>
         /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
@@ -820,7 +820,7 @@ namespace Pulumi.Aws.Ec2
         /// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.InstanceType>? InstanceType { get; set; }
 
         /// <summary>
         /// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -987,7 +987,7 @@ namespace Pulumi.Aws.Ec2
         /// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         /// </summary>
         [Input("tenancy")]
-        public Input<string>? Tenancy { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.Tenancy>? Tenancy { get; set; }
 
         /// <summary>
         /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.

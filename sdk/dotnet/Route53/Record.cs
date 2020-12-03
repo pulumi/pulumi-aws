@@ -431,7 +431,7 @@ namespace Pulumi.Aws.Route53
         /// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Route53.RecordType> Type { get; set; } = null!;
 
         [Input("weightedRoutingPolicies")]
         private InputList<Inputs.RecordWeightedRoutingPolicyArgs>? _weightedRoutingPolicies;
@@ -565,7 +565,7 @@ namespace Pulumi.Aws.Route53
         /// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.Aws.Route53.RecordType>? Type { get; set; }
 
         [Input("weightedRoutingPolicies")]
         private InputList<Inputs.RecordWeightedRoutingPolicyGetArgs>? _weightedRoutingPolicies;

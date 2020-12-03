@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Ssm
         /// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Ssm.ParameterType> Type { get; set; } = null!;
 
         /// <summary>
         /// The value of the parameter.
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Ssm
         /// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ssm.ParameterType>? Type { get; set; }
 
         /// <summary>
         /// The value of the parameter.

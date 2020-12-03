@@ -366,7 +366,7 @@ type clusterInstanceArgs struct {
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
 	// The instance class to use. For details on CPU
 	// and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
-	InstanceClass interface{} `pulumi:"instanceClass"`
+	InstanceClass string `pulumi:"instanceClass"`
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
 	MonitoringInterval *int `pulumi:"monitoringInterval"`
 	// The ARN for the IAM role that permits RDS to send
@@ -425,7 +425,7 @@ type ClusterInstanceArgs struct {
 	IdentifierPrefix pulumi.StringPtrInput
 	// The instance class to use. For details on CPU
 	// and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
-	InstanceClass pulumi.Input
+	InstanceClass pulumi.StringInput
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
 	MonitoringInterval pulumi.IntPtrInput
 	// The ARN for the IAM role that permits RDS to send

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from ._enums import *
 
 __all__ = ['ClusterInstance']
 
@@ -27,7 +28,7 @@ class ClusterInstance(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  identifier_prefix: Optional[pulumi.Input[str]] = None,
-                 instance_class: Optional[pulumi.Input[str]] = None,
+                 instance_class: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
@@ -107,7 +108,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: The database engine version
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU
+        :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance class to use. For details on CPU
                and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[str] monitoring_role_arn: The ARN for the IAM role that permits RDS to send
@@ -200,7 +201,7 @@ class ClusterInstance(pulumi.CustomResource):
             engine_version: Optional[pulumi.Input[str]] = None,
             identifier: Optional[pulumi.Input[str]] = None,
             identifier_prefix: Optional[pulumi.Input[str]] = None,
-            instance_class: Optional[pulumi.Input[str]] = None,
+            instance_class: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             monitoring_interval: Optional[pulumi.Input[int]] = None,
             monitoring_role_arn: Optional[pulumi.Input[str]] = None,
@@ -240,7 +241,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: The database engine version
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU
+        :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance class to use. For details on CPU
                and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key if one is set to the cluster.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.

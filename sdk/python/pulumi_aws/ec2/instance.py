@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Instance']
@@ -32,7 +33,7 @@ class Instance(pulumi.CustomResource):
                  host_id: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
-                 instance_type: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
@@ -47,7 +48,7 @@ class Instance(pulumi.CustomResource):
                  source_dest_check: Optional[pulumi.Input[bool]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tenancy: Optional[pulumi.Input[str]] = None,
+                 tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  user_data_base64: Optional[pulumi.Input[str]] = None,
                  volume_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -123,7 +124,7 @@ class Instance(pulumi.CustomResource):
                instance. Amazon defaults this to `stop` for EBS-backed instances and
                `terminate` for instance-store instances. Cannot be set on instance-store
                instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
-        :param pulumi.Input[str] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -141,7 +142,7 @@ class Instance(pulumi.CustomResource):
                the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: The VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[str] tenancy: The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+        :param pulumi.Input[Union[str, 'Tenancy']] tenancy: The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: A map of tags to assign to the devices created by the instance at launch time.
@@ -241,7 +242,7 @@ class Instance(pulumi.CustomResource):
             iam_instance_profile: Optional[pulumi.Input[str]] = None,
             instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
             instance_state: Optional[pulumi.Input[str]] = None,
-            instance_type: Optional[pulumi.Input[str]] = None,
+            instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
             ipv6_address_count: Optional[pulumi.Input[int]] = None,
             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
@@ -262,7 +263,7 @@ class Instance(pulumi.CustomResource):
             source_dest_check: Optional[pulumi.Input[bool]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tenancy: Optional[pulumi.Input[str]] = None,
+            tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
             user_data: Optional[pulumi.Input[str]] = None,
             user_data_base64: Optional[pulumi.Input[str]] = None,
             volume_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -304,7 +305,7 @@ class Instance(pulumi.CustomResource):
                `terminate` for instance-store instances. Cannot be set on instance-store
                instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_state: The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-        :param pulumi.Input[str] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -335,7 +336,7 @@ class Instance(pulumi.CustomResource):
                the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: The VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[str] tenancy: The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+        :param pulumi.Input[Union[str, 'Tenancy']] tenancy: The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: A map of tags to assign to the devices created by the instance at launch time.

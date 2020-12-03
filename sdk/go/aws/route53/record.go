@@ -350,7 +350,7 @@ type recordArgs struct {
 	// The TTL of the record.
 	Ttl *int `pulumi:"ttl"`
 	// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-	Type interface{} `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
 	WeightedRoutingPolicies []RecordWeightedRoutingPolicy `pulumi:"weightedRoutingPolicies"`
 	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
@@ -383,7 +383,7 @@ type RecordArgs struct {
 	// The TTL of the record.
 	Ttl pulumi.IntPtrInput
 	// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-	Type pulumi.Input
+	Type pulumi.StringInput
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
 	WeightedRoutingPolicies RecordWeightedRoutingPolicyArrayInput
 	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.

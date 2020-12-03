@@ -593,7 +593,7 @@ type bucketArgs struct {
 	// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
 	AccelerationStatus *string `pulumi:"accelerationStatus"`
 	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
-	Acl interface{} `pulumi:"acl"`
+	Acl *string `pulumi:"acl"`
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn *string `pulumi:"arn"`
 	// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
@@ -642,7 +642,7 @@ type BucketArgs struct {
 	// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
 	AccelerationStatus pulumi.StringPtrInput
 	// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
-	Acl pulumi.Input
+	Acl pulumi.StringPtrInput
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn pulumi.StringPtrInput
 	// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.

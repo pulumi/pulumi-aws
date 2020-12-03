@@ -297,7 +297,7 @@ namespace Pulumi.Aws.Ec2
         /// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Ec2.ProtocolType> Protocol { get; set; } = null!;
 
         /// <summary>
         /// The security group to apply this rule to.
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.Ec2
         /// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.ProtocolType>? Protocol { get; set; }
 
         /// <summary>
         /// The security group to apply this rule to.

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Group']
@@ -31,7 +32,7 @@ class Group(pulumi.CustomResource):
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_instance_lifetime: Optional[pulumi.Input[int]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
-                 metrics_granularity: Optional[pulumi.Input[str]] = None,
+                 metrics_granularity: Optional[pulumi.Input[Union[str, 'MetricsGranularity']]] = None,
                  min_elb_capacity: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  mixed_instances_policy: Optional[pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArgs']]] = None,
@@ -89,7 +90,7 @@ class Group(pulumi.CustomResource):
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
         :param pulumi.Input[int] max_instance_lifetime: The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
         :param pulumi.Input[int] max_size: The maximum size of the auto scale group.
-        :param pulumi.Input[str] metrics_granularity: The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+        :param pulumi.Input[Union[str, 'MetricsGranularity']] metrics_granularity: The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         :param pulumi.Input[int] min_elb_capacity: Setting this causes this provider to wait for
                this number of instances from this autoscaling group to show up healthy in the
                ELB only on creation. Updates will not wait on ELB instance number changes.
@@ -201,7 +202,7 @@ class Group(pulumi.CustomResource):
             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             max_instance_lifetime: Optional[pulumi.Input[int]] = None,
             max_size: Optional[pulumi.Input[int]] = None,
-            metrics_granularity: Optional[pulumi.Input[str]] = None,
+            metrics_granularity: Optional[pulumi.Input[Union[str, 'MetricsGranularity']]] = None,
             min_elb_capacity: Optional[pulumi.Input[int]] = None,
             min_size: Optional[pulumi.Input[int]] = None,
             mixed_instances_policy: Optional[pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArgs']]] = None,
@@ -253,7 +254,7 @@ class Group(pulumi.CustomResource):
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
         :param pulumi.Input[int] max_instance_lifetime: The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
         :param pulumi.Input[int] max_size: The maximum size of the auto scale group.
-        :param pulumi.Input[str] metrics_granularity: The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+        :param pulumi.Input[Union[str, 'MetricsGranularity']] metrics_granularity: The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         :param pulumi.Input[int] min_elb_capacity: Setting this causes this provider to wait for
                this number of instances from this autoscaling group to show up healthy in the
                ELB only on creation. Updates will not wait on ELB instance number changes.

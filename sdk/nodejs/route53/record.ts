@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
-import {RecordType} from "./index";
-
 /**
  * Provides a Route53 record resource.
  *
@@ -335,7 +333,7 @@ export interface RecordState {
     /**
      * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
      */
-    readonly type?: pulumi.Input<string | RecordType>;
+    readonly type?: pulumi.Input<string | enums.route53.RecordType>;
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */
@@ -398,7 +396,7 @@ export interface RecordArgs {
     /**
      * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
      */
-    readonly type: pulumi.Input<string | RecordType>;
+    readonly type: pulumi.Input<string | enums.route53.RecordType>;
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */
