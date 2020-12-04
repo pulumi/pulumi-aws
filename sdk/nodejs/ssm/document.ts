@@ -230,10 +230,10 @@ export class Document extends pulumi.CustomResource {
             inputs["targetType"] = state ? state.targetType : undefined;
         } else {
             const args = argsOrState as DocumentArgs | undefined;
-            if (!args || args.content === undefined) {
+            if ((!args || args.content === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'content'");
             }
-            if (!args || args.documentType === undefined) {
+            if ((!args || args.documentType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'documentType'");
             }
             inputs["attachmentsSources"] = args ? args.attachmentsSources : undefined;

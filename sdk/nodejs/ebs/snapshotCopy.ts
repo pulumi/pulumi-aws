@@ -137,10 +137,10 @@ export class SnapshotCopy extends pulumi.CustomResource {
             inputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
             const args = argsOrState as SnapshotCopyArgs | undefined;
-            if (!args || args.sourceRegion === undefined) {
+            if ((!args || args.sourceRegion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceRegion'");
             }
-            if (!args || args.sourceSnapshotId === undefined) {
+            if ((!args || args.sourceSnapshotId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceSnapshotId'");
             }
             inputs["description"] = args ? args.description : undefined;

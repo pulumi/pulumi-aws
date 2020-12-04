@@ -207,13 +207,13 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
-            if (!args || args.artifactStore === undefined) {
+            if ((!args || args.artifactStore === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'artifactStore'");
             }
-            if (!args || args.roleArn === undefined) {
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if (!args || args.stages === undefined) {
+            if ((!args || args.stages === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stages'");
             }
             inputs["artifactStore"] = args ? args.artifactStore : undefined;

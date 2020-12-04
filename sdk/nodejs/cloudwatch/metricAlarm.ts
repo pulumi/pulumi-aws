@@ -342,10 +342,10 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["unit"] = state ? state.unit : undefined;
         } else {
             const args = argsOrState as MetricAlarmArgs | undefined;
-            if (!args || args.comparisonOperator === undefined) {
+            if ((!args || args.comparisonOperator === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'comparisonOperator'");
             }
-            if (!args || args.evaluationPeriods === undefined) {
+            if ((!args || args.evaluationPeriods === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'evaluationPeriods'");
             }
             inputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;

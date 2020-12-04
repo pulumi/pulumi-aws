@@ -138,13 +138,13 @@ export class Firewall extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as FirewallArgs | undefined;
-            if (!args || args.firewallPolicyArn === undefined) {
+            if ((!args || args.firewallPolicyArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'firewallPolicyArn'");
             }
-            if (!args || args.subnetMappings === undefined) {
+            if ((!args || args.subnetMappings === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetMappings'");
             }
-            if (!args || args.vpcId === undefined) {
+            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["deleteProtection"] = args ? args.deleteProtection : undefined;

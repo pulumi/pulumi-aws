@@ -100,7 +100,7 @@ export class AccessPoint extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccessPointArgs | undefined;
-            if (!args || args.fileSystemId === undefined) {
+            if ((!args || args.fileSystemId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
             inputs["fileSystemId"] = args ? args.fileSystemId : undefined;

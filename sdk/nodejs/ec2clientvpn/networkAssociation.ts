@@ -117,10 +117,10 @@ export class NetworkAssociation extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as NetworkAssociationArgs | undefined;
-            if (!args || args.clientVpnEndpointId === undefined) {
+            if ((!args || args.clientVpnEndpointId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientVpnEndpointId'");
             }
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;

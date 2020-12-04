@@ -80,10 +80,10 @@ export class Attachment extends pulumi.CustomResource {
             inputs["instance"] = state ? state.instance : undefined;
         } else {
             const args = argsOrState as AttachmentArgs | undefined;
-            if (!args || args.elb === undefined) {
+            if ((!args || args.elb === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'elb'");
             }
-            if (!args || args.instance === undefined) {
+            if ((!args || args.instance === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instance'");
             }
             inputs["elb"] = args ? args.elb : undefined;

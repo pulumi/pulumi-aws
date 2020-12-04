@@ -146,10 +146,10 @@ export class Fleet extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
-            if (!args || args.buildId === undefined) {
+            if ((!args || args.buildId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'buildId'");
             }
-            if (!args || args.ec2InstanceType === undefined) {
+            if ((!args || args.ec2InstanceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ec2InstanceType'");
             }
             inputs["buildId"] = args ? args.buildId : undefined;

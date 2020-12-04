@@ -170,7 +170,7 @@ export class Preset extends pulumi.CustomResource {
             inputs["videoWatermarks"] = state ? state.videoWatermarks : undefined;
         } else {
             const args = argsOrState as PresetArgs | undefined;
-            if (!args || args.container === undefined) {
+            if ((!args || args.container === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'container'");
             }
             inputs["audio"] = args ? args.audio : undefined;

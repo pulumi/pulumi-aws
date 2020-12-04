@@ -83,7 +83,7 @@ export class RegionSettings extends pulumi.CustomResource {
             inputs["resourceTypeOptInPreference"] = state ? state.resourceTypeOptInPreference : undefined;
         } else {
             const args = argsOrState as RegionSettingsArgs | undefined;
-            if (!args || args.resourceTypeOptInPreference === undefined) {
+            if ((!args || args.resourceTypeOptInPreference === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceTypeOptInPreference'");
             }
             inputs["resourceTypeOptInPreference"] = args ? args.resourceTypeOptInPreference : undefined;

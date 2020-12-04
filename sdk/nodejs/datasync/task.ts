@@ -96,10 +96,10 @@ export class Task extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TaskArgs | undefined;
-            if (!args || args.destinationLocationArn === undefined) {
+            if ((!args || args.destinationLocationArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destinationLocationArn'");
             }
-            if (!args || args.sourceLocationArn === undefined) {
+            if ((!args || args.sourceLocationArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceLocationArn'");
             }
             inputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;

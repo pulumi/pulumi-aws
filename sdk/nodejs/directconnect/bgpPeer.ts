@@ -110,13 +110,13 @@ export class BgpPeer extends pulumi.CustomResource {
             inputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
         } else {
             const args = argsOrState as BgpPeerArgs | undefined;
-            if (!args || args.addressFamily === undefined) {
+            if ((!args || args.addressFamily === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if (!args || args.bgpAsn === undefined) {
+            if ((!args || args.bgpAsn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bgpAsn'");
             }
-            if (!args || args.virtualInterfaceId === undefined) {
+            if ((!args || args.virtualInterfaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
             inputs["addressFamily"] = args ? args.addressFamily : undefined;

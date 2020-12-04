@@ -94,10 +94,10 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
             inputs["loadBalancer"] = state ? state.loadBalancer : undefined;
         } else {
             const args = argsOrState as ProxyProtocolPolicyArgs | undefined;
-            if (!args || args.instancePorts === undefined) {
+            if ((!args || args.instancePorts === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instancePorts'");
             }
-            if (!args || args.loadBalancer === undefined) {
+            if ((!args || args.loadBalancer === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
             inputs["instancePorts"] = args ? args.instancePorts : undefined;

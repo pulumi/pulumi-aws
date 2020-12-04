@@ -172,7 +172,7 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
             inputs["qualifier"] = state ? state.qualifier : undefined;
         } else {
             const args = argsOrState as FunctionEventInvokeConfigArgs | undefined;
-            if (!args || args.functionName === undefined) {
+            if ((!args || args.functionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'functionName'");
             }
             inputs["destinationConfig"] = args ? args.destinationConfig : undefined;

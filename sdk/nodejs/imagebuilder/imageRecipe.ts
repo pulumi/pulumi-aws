@@ -137,13 +137,13 @@ export class ImageRecipe extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ImageRecipeArgs | undefined;
-            if (!args || args.components === undefined) {
+            if ((!args || args.components === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'components'");
             }
-            if (!args || args.parentImage === undefined) {
+            if ((!args || args.parentImage === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'parentImage'");
             }
-            if (!args || args.version === undefined) {
+            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;

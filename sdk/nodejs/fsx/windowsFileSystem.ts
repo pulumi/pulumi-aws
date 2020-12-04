@@ -232,13 +232,13 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             inputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
             const args = argsOrState as WindowsFileSystemArgs | undefined;
-            if (!args || args.storageCapacity === undefined) {
+            if ((!args || args.storageCapacity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageCapacity'");
             }
-            if (!args || args.subnetIds === undefined) {
+            if ((!args || args.subnetIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if (!args || args.throughputCapacity === undefined) {
+            if ((!args || args.throughputCapacity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'throughputCapacity'");
             }
             inputs["activeDirectoryId"] = args ? args.activeDirectoryId : undefined;

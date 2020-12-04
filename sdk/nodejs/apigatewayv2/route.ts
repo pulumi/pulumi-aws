@@ -130,10 +130,10 @@ export class Route extends pulumi.CustomResource {
             inputs["target"] = state ? state.target : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.routeKey === undefined) {
+            if ((!args || args.routeKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'routeKey'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;

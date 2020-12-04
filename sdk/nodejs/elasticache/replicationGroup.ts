@@ -306,7 +306,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["transitEncryptionEnabled"] = state ? state.transitEncryptionEnabled : undefined;
         } else {
             const args = argsOrState as ReplicationGroupArgs | undefined;
-            if (!args || args.replicationGroupDescription === undefined) {
+            if ((!args || args.replicationGroupDescription === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'replicationGroupDescription'");
             }
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;

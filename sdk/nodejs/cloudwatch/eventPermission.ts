@@ -115,10 +115,10 @@ export class EventPermission extends pulumi.CustomResource {
             inputs["statementId"] = state ? state.statementId : undefined;
         } else {
             const args = argsOrState as EventPermissionArgs | undefined;
-            if (!args || args.principal === undefined) {
+            if ((!args || args.principal === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principal'");
             }
-            if (!args || args.statementId === undefined) {
+            if ((!args || args.statementId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'statementId'");
             }
             inputs["action"] = args ? args.action : undefined;

@@ -132,7 +132,7 @@ export class AccessKey extends pulumi.CustomResource {
             inputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as AccessKeyArgs | undefined;
-            if (!args || args.user === undefined) {
+            if ((!args || args.user === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'user'");
             }
             inputs["pgpKey"] = args ? args.pgpKey : undefined;

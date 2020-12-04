@@ -50,7 +50,7 @@ def get_env_float(*args):
     return None
 
 
-def get_version():
+def get_semver_version():
     # __name__ is set to the fully-qualified name of the current module, In our case, it will be
     # <some module>._utilities. <some module> is the module we want to query the version for.
     root_package, *rest = __name__.split('.')
@@ -79,5 +79,7 @@ def get_version():
     # for dev builds, while semver encodes them as "prerelease" versions. In order to bridge between the two, we convert
     # our dev build version into a prerelease tag. This matches what all of our other packages do when constructing
     # their own semver string.
-    semver_version = SemverVersion(major=major, minor=minor, patch=patch, prerelease=prerelease)
-    return str(semver_version)
+    return SemverVersion(major=major, minor=minor, patch=patch, prerelease=prerelease)
+
+def get_version():
+	return str(get_semver_version())

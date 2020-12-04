@@ -162,10 +162,10 @@ export class VirtualGateway extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VirtualGatewayArgs | undefined;
-            if (!args || args.meshName === undefined) {
+            if ((!args || args.meshName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'meshName'");
             }
-            if (!args || args.spec === undefined) {
+            if ((!args || args.spec === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'spec'");
             }
             inputs["meshName"] = args ? args.meshName : undefined;

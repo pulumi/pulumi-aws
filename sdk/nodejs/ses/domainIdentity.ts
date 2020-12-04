@@ -95,7 +95,7 @@ export class DomainIdentity extends pulumi.CustomResource {
             inputs["verificationToken"] = state ? state.verificationToken : undefined;
         } else {
             const args = argsOrState as DomainIdentityArgs | undefined;
-            if (!args || args.domain === undefined) {
+            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domain'");
             }
             inputs["domain"] = args ? args.domain : undefined;

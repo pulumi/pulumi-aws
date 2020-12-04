@@ -170,7 +170,7 @@ export class Role extends pulumi.CustomResource {
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as RoleArgs | undefined;
-            if (!args || args.assumeRolePolicy === undefined) {
+            if ((!args || args.assumeRolePolicy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'assumeRolePolicy'");
             }
             inputs["assumeRolePolicy"] = args ? args.assumeRolePolicy : undefined;

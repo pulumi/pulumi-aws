@@ -174,10 +174,10 @@ export class WebAcl extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as WebAclArgs | undefined;
-            if (!args || args.defaultAction === undefined) {
+            if ((!args || args.defaultAction === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if (!args || args.metricName === undefined) {
+            if ((!args || args.metricName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'metricName'");
             }
             inputs["defaultAction"] = args ? args.defaultAction : undefined;

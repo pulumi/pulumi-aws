@@ -208,25 +208,25 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             inputs["windowId"] = state ? state.windowId : undefined;
         } else {
             const args = argsOrState as MaintenanceWindowTaskArgs | undefined;
-            if (!args || args.maxConcurrency === undefined) {
+            if ((!args || args.maxConcurrency === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'maxConcurrency'");
             }
-            if (!args || args.maxErrors === undefined) {
+            if ((!args || args.maxErrors === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'maxErrors'");
             }
-            if (!args || args.serviceRoleArn === undefined) {
+            if ((!args || args.serviceRoleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
-            if (!args || args.targets === undefined) {
+            if ((!args || args.targets === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targets'");
             }
-            if (!args || args.taskArn === undefined) {
+            if ((!args || args.taskArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'taskArn'");
             }
-            if (!args || args.taskType === undefined) {
+            if ((!args || args.taskType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'taskType'");
             }
-            if (!args || args.windowId === undefined) {
+            if ((!args || args.windowId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'windowId'");
             }
             inputs["description"] = args ? args.description : undefined;

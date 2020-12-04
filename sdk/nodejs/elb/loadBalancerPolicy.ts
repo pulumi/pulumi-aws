@@ -153,13 +153,13 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
             inputs["policyTypeName"] = state ? state.policyTypeName : undefined;
         } else {
             const args = argsOrState as LoadBalancerPolicyArgs | undefined;
-            if (!args || args.loadBalancerName === undefined) {
+            if ((!args || args.loadBalancerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if (!args || args.policyName === undefined) {
+            if ((!args || args.policyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyName'");
             }
-            if (!args || args.policyTypeName === undefined) {
+            if ((!args || args.policyTypeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyTypeName'");
             }
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;

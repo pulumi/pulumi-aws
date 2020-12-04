@@ -216,10 +216,10 @@ export class Gateway extends pulumi.CustomResource {
             inputs["tapeDriveType"] = state ? state.tapeDriveType : undefined;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
-            if (!args || args.gatewayName === undefined) {
+            if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if (!args || args.gatewayTimezone === undefined) {
+            if ((!args || args.gatewayTimezone === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayTimezone'");
             }
             inputs["activationKey"] = args ? args.activationKey : undefined;

@@ -231,7 +231,7 @@ export class Directory extends pulumi.CustomResource {
             inputs["workspaceSecurityGroupId"] = state ? state.workspaceSecurityGroupId : undefined;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
-            if (!args || args.directoryId === undefined) {
+            if ((!args || args.directoryId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'directoryId'");
             }
             inputs["directoryId"] = args ? args.directoryId : undefined;

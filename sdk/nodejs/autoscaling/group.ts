@@ -249,10 +249,10 @@ export class Group extends pulumi.CustomResource {
             inputs["waitForElbCapacity"] = state ? state.waitForElbCapacity : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if (!args || args.maxSize === undefined) {
+            if ((!args || args.maxSize === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'maxSize'");
             }
-            if (!args || args.minSize === undefined) {
+            if ((!args || args.minSize === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'minSize'");
             }
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;

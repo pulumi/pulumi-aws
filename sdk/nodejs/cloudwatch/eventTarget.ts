@@ -303,10 +303,10 @@ export class EventTarget extends pulumi.CustomResource {
             inputs["targetId"] = state ? state.targetId : undefined;
         } else {
             const args = argsOrState as EventTargetArgs | undefined;
-            if (!args || args.arn === undefined) {
+            if ((!args || args.arn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'arn'");
             }
-            if (!args || args.rule === undefined) {
+            if ((!args || args.rule === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rule'");
             }
             inputs["arn"] = args ? args.arn : undefined;

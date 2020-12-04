@@ -129,13 +129,13 @@ export class RemediationConfiguration extends pulumi.CustomResource {
             inputs["targetVersion"] = state ? state.targetVersion : undefined;
         } else {
             const args = argsOrState as RemediationConfigurationArgs | undefined;
-            if (!args || args.configRuleName === undefined) {
+            if ((!args || args.configRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'configRuleName'");
             }
-            if (!args || args.targetId === undefined) {
+            if ((!args || args.targetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetId'");
             }
-            if (!args || args.targetType === undefined) {
+            if ((!args || args.targetType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetType'");
             }
             inputs["configRuleName"] = args ? args.configRuleName : undefined;

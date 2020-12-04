@@ -96,7 +96,7 @@ export class Alias extends pulumi.CustomResource {
             inputs["targetKeyId"] = state ? state.targetKeyId : undefined;
         } else {
             const args = argsOrState as AliasArgs | undefined;
-            if (!args || args.targetKeyId === undefined) {
+            if ((!args || args.targetKeyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetKeyId'");
             }
             inputs["name"] = args ? args.name : undefined;

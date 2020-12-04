@@ -101,13 +101,13 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
             inputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;
         } else {
             const args = argsOrState as GatewayAssociationProposalArgs | undefined;
-            if (!args || args.associatedGatewayId === undefined) {
+            if ((!args || args.associatedGatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'associatedGatewayId'");
             }
-            if (!args || args.dxGatewayId === undefined) {
+            if ((!args || args.dxGatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dxGatewayId'");
             }
-            if (!args || args.dxGatewayOwnerAccountId === undefined) {
+            if ((!args || args.dxGatewayOwnerAccountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dxGatewayOwnerAccountId'");
             }
             inputs["allowedPrefixes"] = args ? args.allowedPrefixes : undefined;

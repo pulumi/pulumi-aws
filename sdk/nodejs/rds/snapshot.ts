@@ -176,10 +176,10 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
-            if (!args || args.dbInstanceIdentifier === undefined) {
+            if ((!args || args.dbInstanceIdentifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dbInstanceIdentifier'");
             }
-            if (!args || args.dbSnapshotIdentifier === undefined) {
+            if ((!args || args.dbSnapshotIdentifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dbSnapshotIdentifier'");
             }
             inputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;

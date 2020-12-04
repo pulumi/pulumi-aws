@@ -88,7 +88,7 @@ export class OrganizationalUnit extends pulumi.CustomResource {
             inputs["parentId"] = state ? state.parentId : undefined;
         } else {
             const args = argsOrState as OrganizationalUnitArgs | undefined;
-            if (!args || args.parentId === undefined) {
+            if ((!args || args.parentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'parentId'");
             }
             inputs["name"] = args ? args.name : undefined;

@@ -94,7 +94,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if (!args || args.endpointConfigName === undefined) {
+            if ((!args || args.endpointConfigName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpointConfigName'");
             }
             inputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;

@@ -82,10 +82,10 @@ export class WorkingStorage extends pulumi.CustomResource {
             inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
         } else {
             const args = argsOrState as WorkingStorageArgs | undefined;
-            if (!args || args.diskId === undefined) {
+            if ((!args || args.diskId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'diskId'");
             }
-            if (!args || args.gatewayArn === undefined) {
+            if ((!args || args.gatewayArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
             inputs["diskId"] = args ? args.diskId : undefined;

@@ -139,10 +139,10 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             inputs["repository"] = state ? state.repository : undefined;
         } else {
             const args = argsOrState as LifecyclePolicyArgs | undefined;
-            if (!args || args.policy === undefined) {
+            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["policy"] = args ? args.policy : undefined;

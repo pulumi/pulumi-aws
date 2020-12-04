@@ -201,13 +201,13 @@ export class Bot extends pulumi.CustomResource {
             inputs["voiceId"] = state ? state.voiceId : undefined;
         } else {
             const args = argsOrState as BotArgs | undefined;
-            if (!args || args.abortStatement === undefined) {
+            if ((!args || args.abortStatement === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'abortStatement'");
             }
-            if (!args || args.childDirected === undefined) {
+            if ((!args || args.childDirected === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'childDirected'");
             }
-            if (!args || args.intents === undefined) {
+            if ((!args || args.intents === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'intents'");
             }
             inputs["abortStatement"] = args ? args.abortStatement : undefined;

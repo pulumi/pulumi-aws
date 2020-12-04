@@ -121,13 +121,13 @@ export class VpcAttachment extends pulumi.CustomResource {
             inputs["vpcOwnerId"] = state ? state.vpcOwnerId : undefined;
         } else {
             const args = argsOrState as VpcAttachmentArgs | undefined;
-            if (!args || args.subnetIds === undefined) {
+            if ((!args || args.subnetIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if (!args || args.transitGatewayId === undefined) {
+            if ((!args || args.transitGatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            if (!args || args.vpcId === undefined) {
+            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["applianceModeSupport"] = args ? args.applianceModeSupport : undefined;

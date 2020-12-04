@@ -93,7 +93,7 @@ export class RequestValidator extends pulumi.CustomResource {
             inputs["validateRequestParameters"] = state ? state.validateRequestParameters : undefined;
         } else {
             const args = argsOrState as RequestValidatorArgs | undefined;
-            if (!args || args.restApi === undefined) {
+            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'restApi'");
             }
             inputs["name"] = args ? args.name : undefined;

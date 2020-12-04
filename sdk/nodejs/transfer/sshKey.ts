@@ -128,13 +128,13 @@ export class SshKey extends pulumi.CustomResource {
             inputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as SshKeyArgs | undefined;
-            if (!args || args.body === undefined) {
+            if ((!args || args.body === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'body'");
             }
-            if (!args || args.serverId === undefined) {
+            if ((!args || args.serverId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if (!args || args.userName === undefined) {
+            if ((!args || args.userName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userName'");
             }
             inputs["body"] = args ? args.body : undefined;

@@ -150,16 +150,16 @@ export class Inventory extends pulumi.CustomResource {
             inputs["schedule"] = state ? state.schedule : undefined;
         } else {
             const args = argsOrState as InventoryArgs | undefined;
-            if (!args || args.bucket === undefined) {
+            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if (!args || args.destination === undefined) {
+            if ((!args || args.destination === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destination'");
             }
-            if (!args || args.includedObjectVersions === undefined) {
+            if ((!args || args.includedObjectVersions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'includedObjectVersions'");
             }
-            if (!args || args.schedule === undefined) {
+            if ((!args || args.schedule === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'schedule'");
             }
             inputs["bucket"] = args ? args.bucket : undefined;

@@ -82,10 +82,10 @@ export class AvailabilityZoneGroup extends pulumi.CustomResource {
             inputs["optInStatus"] = state ? state.optInStatus : undefined;
         } else {
             const args = argsOrState as AvailabilityZoneGroupArgs | undefined;
-            if (!args || args.groupName === undefined) {
+            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if (!args || args.optInStatus === undefined) {
+            if ((!args || args.optInStatus === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'optInStatus'");
             }
             inputs["groupName"] = args ? args.groupName : undefined;

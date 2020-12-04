@@ -83,7 +83,7 @@ export class LogStream extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as LogStreamArgs | undefined;
-            if (!args || args.logGroupName === undefined) {
+            if ((!args || args.logGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logGroupName'");
             }
             inputs["logGroupName"] = args ? args.logGroupName : undefined;

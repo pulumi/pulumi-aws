@@ -117,16 +117,16 @@ export class IPSet extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as IPSetArgs | undefined;
-            if (!args || args.activate === undefined) {
+            if ((!args || args.activate === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'activate'");
             }
-            if (!args || args.detectorId === undefined) {
+            if ((!args || args.detectorId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if (!args || args.format === undefined) {
+            if ((!args || args.format === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'format'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
             inputs["activate"] = args ? args.activate : undefined;

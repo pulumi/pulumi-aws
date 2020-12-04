@@ -131,7 +131,7 @@ export class Activation extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ActivationArgs | undefined;
-            if (!args || args.iamRole === undefined) {
+            if ((!args || args.iamRole === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iamRole'");
             }
             inputs["description"] = args ? args.description : undefined;

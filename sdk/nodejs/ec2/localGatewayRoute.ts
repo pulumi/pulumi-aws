@@ -86,13 +86,13 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
             inputs["localGatewayVirtualInterfaceGroupId"] = state ? state.localGatewayVirtualInterfaceGroupId : undefined;
         } else {
             const args = argsOrState as LocalGatewayRouteArgs | undefined;
-            if (!args || args.destinationCidrBlock === undefined) {
+            if ((!args || args.destinationCidrBlock === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if (!args || args.localGatewayRouteTableId === undefined) {
+            if ((!args || args.localGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'localGatewayRouteTableId'");
             }
-            if (!args || args.localGatewayVirtualInterfaceGroupId === undefined) {
+            if ((!args || args.localGatewayVirtualInterfaceGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'localGatewayVirtualInterfaceGroupId'");
             }
             inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;

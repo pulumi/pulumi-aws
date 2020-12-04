@@ -146,10 +146,10 @@ export class Component extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ComponentArgs | undefined;
-            if (!args || args.platform === undefined) {
+            if ((!args || args.platform === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'platform'");
             }
-            if (!args || args.version === undefined) {
+            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["changeDescription"] = args ? args.changeDescription : undefined;

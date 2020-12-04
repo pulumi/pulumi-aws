@@ -99,10 +99,10 @@ export class LogService extends pulumi.CustomResource {
             inputs["logGroupName"] = state ? state.logGroupName : undefined;
         } else {
             const args = argsOrState as LogServiceArgs | undefined;
-            if (!args || args.directoryId === undefined) {
+            if ((!args || args.directoryId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if (!args || args.logGroupName === undefined) {
+            if ((!args || args.logGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logGroupName'");
             }
             inputs["directoryId"] = args ? args.directoryId : undefined;

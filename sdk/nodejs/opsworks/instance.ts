@@ -306,10 +306,10 @@ export class Instance extends pulumi.CustomResource {
             inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
-            if (!args || args.layerIds === undefined) {
+            if ((!args || args.layerIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'layerIds'");
             }
-            if (!args || args.stackId === undefined) {
+            if ((!args || args.stackId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stackId'");
             }
             inputs["agentVersion"] = args ? args.agentVersion : undefined;

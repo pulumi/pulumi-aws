@@ -232,7 +232,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
-            if (!args || args.listeners === undefined) {
+            if ((!args || args.listeners === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'listeners'");
             }
             inputs["accessLogs"] = args ? args.accessLogs : undefined;

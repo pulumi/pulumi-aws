@@ -118,13 +118,13 @@ export class RateBasedRule extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RateBasedRuleArgs | undefined;
-            if (!args || args.metricName === undefined) {
+            if ((!args || args.metricName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'metricName'");
             }
-            if (!args || args.rateKey === undefined) {
+            if ((!args || args.rateKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rateKey'");
             }
-            if (!args || args.rateLimit === undefined) {
+            if ((!args || args.rateLimit === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rateLimit'");
             }
             inputs["metricName"] = args ? args.metricName : undefined;

@@ -218,7 +218,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             inputs["writeAttributes"] = state ? state.writeAttributes : undefined;
         } else {
             const args = argsOrState as UserPoolClientArgs | undefined;
-            if (!args || args.userPoolId === undefined) {
+            if ((!args || args.userPoolId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userPoolId'");
             }
             inputs["allowedOauthFlows"] = args ? args.allowedOauthFlows : undefined;

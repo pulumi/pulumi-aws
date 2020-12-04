@@ -264,10 +264,10 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.clusterIdentifier === undefined) {
+            if ((!args || args.clusterIdentifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if (!args || args.nodeType === undefined) {
+            if ((!args || args.nodeType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'nodeType'");
             }
             inputs["allowVersionUpgrade"] = args ? args.allowVersionUpgrade : undefined;

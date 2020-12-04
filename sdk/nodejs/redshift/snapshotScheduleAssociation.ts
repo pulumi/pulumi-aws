@@ -90,10 +90,10 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
             inputs["scheduleIdentifier"] = state ? state.scheduleIdentifier : undefined;
         } else {
             const args = argsOrState as SnapshotScheduleAssociationArgs | undefined;
-            if (!args || args.clusterIdentifier === undefined) {
+            if ((!args || args.clusterIdentifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if (!args || args.scheduleIdentifier === undefined) {
+            if ((!args || args.scheduleIdentifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scheduleIdentifier'");
             }
             inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;

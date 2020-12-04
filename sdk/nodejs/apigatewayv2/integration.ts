@@ -205,10 +205,10 @@ export class Integration extends pulumi.CustomResource {
             inputs["tlsConfig"] = state ? state.tlsConfig : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.integrationType === undefined) {
+            if ((!args || args.integrationType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'integrationType'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;

@@ -104,13 +104,13 @@ export class SecretRotation extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SecretRotationArgs | undefined;
-            if (!args || args.rotationLambdaArn === undefined) {
+            if ((!args || args.rotationLambdaArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rotationLambdaArn'");
             }
-            if (!args || args.rotationRules === undefined) {
+            if ((!args || args.rotationRules === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rotationRules'");
             }
-            if (!args || args.secretId === undefined) {
+            if ((!args || args.secretId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'secretId'");
             }
             inputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;

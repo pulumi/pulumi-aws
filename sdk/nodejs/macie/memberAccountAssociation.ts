@@ -70,7 +70,7 @@ export class MemberAccountAssociation extends pulumi.CustomResource {
             inputs["memberAccountId"] = state ? state.memberAccountId : undefined;
         } else {
             const args = argsOrState as MemberAccountAssociationArgs | undefined;
-            if (!args || args.memberAccountId === undefined) {
+            if ((!args || args.memberAccountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'memberAccountId'");
             }
             inputs["memberAccountId"] = args ? args.memberAccountId : undefined;

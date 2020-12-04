@@ -102,7 +102,7 @@ export class RouteTableAssociation extends pulumi.CustomResource {
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as RouteTableAssociationArgs | undefined;
-            if (!args || args.routeTableId === undefined) {
+            if ((!args || args.routeTableId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'routeTableId'");
             }
             inputs["gatewayId"] = args ? args.gatewayId : undefined;

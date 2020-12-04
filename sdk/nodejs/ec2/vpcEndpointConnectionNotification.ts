@@ -121,10 +121,10 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
             inputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
         } else {
             const args = argsOrState as VpcEndpointConnectionNotificationArgs | undefined;
-            if (!args || args.connectionEvents === undefined) {
+            if ((!args || args.connectionEvents === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionEvents'");
             }
-            if (!args || args.connectionNotificationArn === undefined) {
+            if ((!args || args.connectionNotificationArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionNotificationArn'");
             }
             inputs["connectionEvents"] = args ? args.connectionEvents : undefined;

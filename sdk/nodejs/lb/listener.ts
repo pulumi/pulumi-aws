@@ -262,10 +262,10 @@ export class Listener extends pulumi.CustomResource {
             inputs["sslPolicy"] = state ? state.sslPolicy : undefined;
         } else {
             const args = argsOrState as ListenerArgs | undefined;
-            if (!args || args.defaultActions === undefined) {
+            if ((!args || args.defaultActions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'defaultActions'");
             }
-            if (!args || args.loadBalancerArn === undefined) {
+            if ((!args || args.loadBalancerArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerArn'");
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;

@@ -101,7 +101,7 @@ export class SnapshotSchedule extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SnapshotScheduleArgs | undefined;
-            if (!args || args.definitions === undefined) {
+            if ((!args || args.definitions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'definitions'");
             }
             inputs["definitions"] = args ? args.definitions : undefined;

@@ -240,10 +240,10 @@ export class Table extends pulumi.CustomResource {
             inputs["writeCapacity"] = state ? state.writeCapacity : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
-            if (!args || args.attributes === undefined) {
+            if ((!args || args.attributes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'attributes'");
             }
-            if (!args || args.hashKey === undefined) {
+            if ((!args || args.hashKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hashKey'");
             }
             inputs["attributes"] = args ? args.attributes : undefined;

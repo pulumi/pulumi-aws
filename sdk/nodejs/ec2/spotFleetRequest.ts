@@ -321,10 +321,10 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["waitForFulfillment"] = state ? state.waitForFulfillment : undefined;
         } else {
             const args = argsOrState as SpotFleetRequestArgs | undefined;
-            if (!args || args.iamFleetRole === undefined) {
+            if ((!args || args.iamFleetRole === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iamFleetRole'");
             }
-            if (!args || args.targetCapacity === undefined) {
+            if ((!args || args.targetCapacity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetCapacity'");
             }
             inputs["allocationStrategy"] = args ? args.allocationStrategy : undefined;

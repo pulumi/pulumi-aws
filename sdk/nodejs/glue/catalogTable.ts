@@ -195,7 +195,7 @@ export class CatalogTable extends pulumi.CustomResource {
             inputs["viewOriginalText"] = state ? state.viewOriginalText : undefined;
         } else {
             const args = argsOrState as CatalogTableArgs | undefined;
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
             inputs["catalogId"] = args ? args.catalogId : undefined;

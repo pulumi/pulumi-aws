@@ -90,10 +90,10 @@ export class ReceiptFilter extends pulumi.CustomResource {
             inputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as ReceiptFilterArgs | undefined;
-            if (!args || args.cidr === undefined) {
+            if ((!args || args.cidr === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cidr'");
             }
-            if (!args || args.policy === undefined) {
+            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policy'");
             }
             inputs["cidr"] = args ? args.cidr : undefined;

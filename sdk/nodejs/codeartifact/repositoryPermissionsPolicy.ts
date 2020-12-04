@@ -88,13 +88,13 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as RepositoryPermissionsPolicyArgs | undefined;
-            if (!args || args.domain === undefined) {
+            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domain'");
             }
-            if (!args || args.policyDocument === undefined) {
+            if ((!args || args.policyDocument === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["domain"] = args ? args.domain : undefined;

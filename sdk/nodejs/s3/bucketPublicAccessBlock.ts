@@ -102,7 +102,7 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
             inputs["restrictPublicBuckets"] = state ? state.restrictPublicBuckets : undefined;
         } else {
             const args = argsOrState as BucketPublicAccessBlockArgs | undefined;
-            if (!args || args.bucket === undefined) {
+            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bucket'");
             }
             inputs["blockPublicAcls"] = args ? args.blockPublicAcls : undefined;

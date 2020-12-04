@@ -110,10 +110,10 @@ export class VaultPolicy extends pulumi.CustomResource {
             inputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as VaultPolicyArgs | undefined;
-            if (!args || args.backupVaultName === undefined) {
+            if ((!args || args.backupVaultName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backupVaultName'");
             }
-            if (!args || args.policy === undefined) {
+            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policy'");
             }
             inputs["backupVaultName"] = args ? args.backupVaultName : undefined;

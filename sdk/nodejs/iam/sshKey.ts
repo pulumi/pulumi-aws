@@ -102,13 +102,13 @@ export class SshKey extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as SshKeyArgs | undefined;
-            if (!args || args.encoding === undefined) {
+            if ((!args || args.encoding === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'encoding'");
             }
-            if (!args || args.publicKey === undefined) {
+            if ((!args || args.publicKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publicKey'");
             }
-            if (!args || args.username === undefined) {
+            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["encoding"] = args ? args.encoding : undefined;

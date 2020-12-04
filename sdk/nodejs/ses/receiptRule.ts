@@ -153,7 +153,7 @@ export class ReceiptRule extends pulumi.CustomResource {
             inputs["workmailActions"] = state ? state.workmailActions : undefined;
         } else {
             const args = argsOrState as ReceiptRuleArgs | undefined;
-            if (!args || args.ruleSetName === undefined) {
+            if ((!args || args.ruleSetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
             inputs["addHeaderActions"] = args ? args.addHeaderActions : undefined;

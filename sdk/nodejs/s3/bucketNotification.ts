@@ -293,7 +293,7 @@ export class BucketNotification extends pulumi.CustomResource {
             inputs["topics"] = state ? state.topics : undefined;
         } else {
             const args = argsOrState as BucketNotificationArgs | undefined;
-            if (!args || args.bucket === undefined) {
+            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bucket'");
             }
             inputs["bucket"] = args ? args.bucket : undefined;

@@ -131,10 +131,10 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["thumbnailConfigPermissions"] = state ? state.thumbnailConfigPermissions : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
-            if (!args || args.inputBucket === undefined) {
+            if ((!args || args.inputBucket === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'inputBucket'");
             }
-            if (!args || args.role === undefined) {
+            if ((!args || args.role === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'role'");
             }
             inputs["awsKmsKeyArn"] = args ? args.awsKmsKeyArn : undefined;

@@ -80,10 +80,10 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
             inputs["imageId"] = state ? state.imageId : undefined;
         } else {
             const args = argsOrState as AmiLaunchPermissionArgs | undefined;
-            if (!args || args.accountId === undefined) {
+            if ((!args || args.accountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if (!args || args.imageId === undefined) {
+            if ((!args || args.imageId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'imageId'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

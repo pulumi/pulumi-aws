@@ -119,10 +119,10 @@ export class LogResourcePolicy extends pulumi.CustomResource {
             inputs["policyName"] = state ? state.policyName : undefined;
         } else {
             const args = argsOrState as LogResourcePolicyArgs | undefined;
-            if (!args || args.policyDocument === undefined) {
+            if ((!args || args.policyDocument === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if (!args || args.policyName === undefined) {
+            if ((!args || args.policyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyName'");
             }
             inputs["policyDocument"] = args ? args.policyDocument : undefined;

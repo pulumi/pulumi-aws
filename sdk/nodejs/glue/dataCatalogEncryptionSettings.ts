@@ -87,7 +87,7 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
             inputs["dataCatalogEncryptionSettings"] = state ? state.dataCatalogEncryptionSettings : undefined;
         } else {
             const args = argsOrState as DataCatalogEncryptionSettingsArgs | undefined;
-            if (!args || args.dataCatalogEncryptionSettings === undefined) {
+            if ((!args || args.dataCatalogEncryptionSettings === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataCatalogEncryptionSettings'");
             }
             inputs["catalogId"] = args ? args.catalogId : undefined;

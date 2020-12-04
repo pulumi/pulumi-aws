@@ -209,13 +209,13 @@ export class Permission extends pulumi.CustomResource {
             inputs["statementIdPrefix"] = state ? state.statementIdPrefix : undefined;
         } else {
             const args = argsOrState as PermissionArgs | undefined;
-            if (!args || args.action === undefined) {
+            if ((!args || args.action === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'action'");
             }
-            if (!args || args.function === undefined) {
+            if ((!args || args.function === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'function'");
             }
-            if (!args || args.principal === undefined) {
+            if ((!args || args.principal === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principal'");
             }
             inputs["action"] = args ? args.action : undefined;

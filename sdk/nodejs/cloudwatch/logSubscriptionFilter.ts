@@ -105,13 +105,13 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
             inputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as LogSubscriptionFilterArgs | undefined;
-            if (!args || args.destinationArn === undefined) {
+            if ((!args || args.destinationArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destinationArn'");
             }
-            if (!args || args.filterPattern === undefined) {
+            if ((!args || args.filterPattern === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'filterPattern'");
             }
-            if (!args || args.logGroup === undefined) {
+            if ((!args || args.logGroup === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logGroup'");
             }
             inputs["destinationArn"] = args ? args.destinationArn : undefined;

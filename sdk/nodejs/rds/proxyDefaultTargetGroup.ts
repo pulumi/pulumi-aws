@@ -77,7 +77,7 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ProxyDefaultTargetGroupArgs | undefined;
-            if (!args || args.dbProxyName === undefined) {
+            if ((!args || args.dbProxyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dbProxyName'");
             }
             inputs["connectionPoolConfig"] = args ? args.connectionPoolConfig : undefined;

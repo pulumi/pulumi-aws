@@ -82,10 +82,10 @@ export class ResourceAssociation extends pulumi.CustomResource {
             inputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
         } else {
             const args = argsOrState as ResourceAssociationArgs | undefined;
-            if (!args || args.resourceArn === undefined) {
+            if ((!args || args.resourceArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if (!args || args.resourceShareArn === undefined) {
+            if ((!args || args.resourceShareArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceShareArn'");
             }
             inputs["resourceArn"] = args ? args.resourceArn : undefined;

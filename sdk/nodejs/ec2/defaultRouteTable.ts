@@ -133,7 +133,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as DefaultRouteTableArgs | undefined;
-            if (!args || args.defaultRouteTableId === undefined) {
+            if ((!args || args.defaultRouteTableId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'defaultRouteTableId'");
             }
             inputs["defaultRouteTableId"] = args ? args.defaultRouteTableId : undefined;

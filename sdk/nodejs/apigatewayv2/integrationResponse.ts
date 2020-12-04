@@ -103,13 +103,13 @@ export class IntegrationResponse extends pulumi.CustomResource {
             inputs["templateSelectionExpression"] = state ? state.templateSelectionExpression : undefined;
         } else {
             const args = argsOrState as IntegrationResponseArgs | undefined;
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.integrationId === undefined) {
+            if ((!args || args.integrationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'integrationId'");
             }
-            if (!args || args.integrationResponseKey === undefined) {
+            if ((!args || args.integrationResponseKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'integrationResponseKey'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;

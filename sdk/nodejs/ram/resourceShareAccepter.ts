@@ -127,7 +127,7 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as ResourceShareAccepterArgs | undefined;
-            if (!args || args.shareArn === undefined) {
+            if ((!args || args.shareArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareArn'");
             }
             inputs["shareArn"] = args ? args.shareArn : undefined;

@@ -91,13 +91,13 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as OpenIdConnectProviderArgs | undefined;
-            if (!args || args.clientIdLists === undefined) {
+            if ((!args || args.clientIdLists === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientIdLists'");
             }
-            if (!args || args.thumbprintLists === undefined) {
+            if ((!args || args.thumbprintLists === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'thumbprintLists'");
             }
-            if (!args || args.url === undefined) {
+            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'url'");
             }
             inputs["clientIdLists"] = args ? args.clientIdLists : undefined;

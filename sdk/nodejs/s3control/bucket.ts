@@ -102,10 +102,10 @@ export class Bucket extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as BucketArgs | undefined;
-            if (!args || args.bucket === undefined) {
+            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if (!args || args.outpostId === undefined) {
+            if ((!args || args.outpostId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'outpostId'");
             }
             inputs["bucket"] = args ? args.bucket : undefined;

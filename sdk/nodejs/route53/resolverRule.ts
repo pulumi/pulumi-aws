@@ -138,10 +138,10 @@ export class ResolverRule extends pulumi.CustomResource {
             inputs["targetIps"] = state ? state.targetIps : undefined;
         } else {
             const args = argsOrState as ResolverRuleArgs | undefined;
-            if (!args || args.domainName === undefined) {
+            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (!args || args.ruleType === undefined) {
+            if ((!args || args.ruleType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleType'");
             }
             inputs["domainName"] = args ? args.domainName : undefined;

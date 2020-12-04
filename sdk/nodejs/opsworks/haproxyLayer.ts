@@ -188,10 +188,10 @@ export class HaproxyLayer extends pulumi.CustomResource {
             inputs["useEbsOptimizedInstances"] = state ? state.useEbsOptimizedInstances : undefined;
         } else {
             const args = argsOrState as HaproxyLayerArgs | undefined;
-            if (!args || args.stackId === undefined) {
+            if ((!args || args.stackId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stackId'");
             }
-            if (!args || args.statsPassword === undefined) {
+            if ((!args || args.statsPassword === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'statsPassword'");
             }
             inputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;

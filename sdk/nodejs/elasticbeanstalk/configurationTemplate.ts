@@ -107,7 +107,7 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
             inputs["solutionStackName"] = state ? state.solutionStackName : undefined;
         } else {
             const args = argsOrState as ConfigurationTemplateArgs | undefined;
-            if (!args || args.application === undefined) {
+            if ((!args || args.application === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'application'");
             }
             inputs["application"] = args ? args.application : undefined;

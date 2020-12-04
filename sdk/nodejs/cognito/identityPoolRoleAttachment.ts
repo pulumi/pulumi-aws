@@ -147,10 +147,10 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
             inputs["roles"] = state ? state.roles : undefined;
         } else {
             const args = argsOrState as IdentityPoolRoleAttachmentArgs | undefined;
-            if (!args || args.identityPoolId === undefined) {
+            if ((!args || args.identityPoolId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identityPoolId'");
             }
-            if (!args || args.roles === undefined) {
+            if ((!args || args.roles === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roles'");
             }
             inputs["identityPoolId"] = args ? args.identityPoolId : undefined;

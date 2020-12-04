@@ -138,7 +138,7 @@ export class StackSetInstance extends pulumi.CustomResource {
             inputs["stackSetName"] = state ? state.stackSetName : undefined;
         } else {
             const args = argsOrState as StackSetInstanceArgs | undefined;
-            if (!args || args.stackSetName === undefined) {
+            if ((!args || args.stackSetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stackSetName'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

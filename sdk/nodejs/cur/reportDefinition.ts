@@ -138,25 +138,25 @@ export class ReportDefinition extends pulumi.CustomResource {
             inputs["timeUnit"] = state ? state.timeUnit : undefined;
         } else {
             const args = argsOrState as ReportDefinitionArgs | undefined;
-            if (!args || args.additionalSchemaElements === undefined) {
+            if ((!args || args.additionalSchemaElements === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'additionalSchemaElements'");
             }
-            if (!args || args.compression === undefined) {
+            if ((!args || args.compression === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'compression'");
             }
-            if (!args || args.format === undefined) {
+            if ((!args || args.format === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'format'");
             }
-            if (!args || args.reportName === undefined) {
+            if ((!args || args.reportName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'reportName'");
             }
-            if (!args || args.s3Bucket === undefined) {
+            if ((!args || args.s3Bucket === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 's3Bucket'");
             }
-            if (!args || args.s3Region === undefined) {
+            if ((!args || args.s3Region === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 's3Region'");
             }
-            if (!args || args.timeUnit === undefined) {
+            if ((!args || args.timeUnit === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timeUnit'");
             }
             inputs["additionalArtifacts"] = args ? args.additionalArtifacts : undefined;

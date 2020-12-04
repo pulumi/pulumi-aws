@@ -98,13 +98,13 @@ export class RouteResponse extends pulumi.CustomResource {
             inputs["routeResponseKey"] = state ? state.routeResponseKey : undefined;
         } else {
             const args = argsOrState as RouteResponseArgs | undefined;
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.routeId === undefined) {
+            if ((!args || args.routeId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'routeId'");
             }
-            if (!args || args.routeResponseKey === undefined) {
+            if ((!args || args.routeResponseKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'routeResponseKey'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;

@@ -105,7 +105,7 @@ export class ResolverQueryLogConfig extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ResolverQueryLogConfigArgs | undefined;
-            if (!args || args.destinationArn === undefined) {
+            if ((!args || args.destinationArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destinationArn'");
             }
             inputs["destinationArn"] = args ? args.destinationArn : undefined;

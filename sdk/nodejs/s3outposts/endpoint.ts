@@ -107,13 +107,13 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if (!args || args.outpostId === undefined) {
+            if ((!args || args.outpostId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'outpostId'");
             }
-            if (!args || args.securityGroupId === undefined) {
+            if ((!args || args.securityGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["outpostId"] = args ? args.outpostId : undefined;

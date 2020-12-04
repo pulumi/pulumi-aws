@@ -114,10 +114,10 @@ export class ProxyTarget extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ProxyTargetArgs | undefined;
-            if (!args || args.dbProxyName === undefined) {
+            if ((!args || args.dbProxyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dbProxyName'");
             }
-            if (!args || args.targetGroupName === undefined) {
+            if ((!args || args.targetGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetGroupName'");
             }
             inputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;

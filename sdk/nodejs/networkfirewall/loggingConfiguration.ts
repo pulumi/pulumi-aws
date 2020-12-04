@@ -129,10 +129,10 @@ export class LoggingConfiguration extends pulumi.CustomResource {
             inputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
         } else {
             const args = argsOrState as LoggingConfigurationArgs | undefined;
-            if (!args || args.firewallArn === undefined) {
+            if ((!args || args.firewallArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'firewallArn'");
             }
-            if (!args || args.loggingConfiguration === undefined) {
+            if ((!args || args.loggingConfiguration === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loggingConfiguration'");
             }
             inputs["firewallArn"] = args ? args.firewallArn : undefined;

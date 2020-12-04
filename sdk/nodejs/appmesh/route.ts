@@ -228,13 +228,13 @@ export class Route extends pulumi.CustomResource {
             inputs["virtualRouterName"] = state ? state.virtualRouterName : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if (!args || args.meshName === undefined) {
+            if ((!args || args.meshName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'meshName'");
             }
-            if (!args || args.spec === undefined) {
+            if ((!args || args.spec === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'spec'");
             }
-            if (!args || args.virtualRouterName === undefined) {
+            if ((!args || args.virtualRouterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualRouterName'");
             }
             inputs["meshName"] = args ? args.meshName : undefined;

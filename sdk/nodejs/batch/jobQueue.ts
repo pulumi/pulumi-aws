@@ -108,13 +108,13 @@ export class JobQueue extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as JobQueueArgs | undefined;
-            if (!args || args.computeEnvironments === undefined) {
+            if ((!args || args.computeEnvironments === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'computeEnvironments'");
             }
-            if (!args || args.priority === undefined) {
+            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'priority'");
             }
-            if (!args || args.state === undefined) {
+            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'state'");
             }
             inputs["computeEnvironments"] = args ? args.computeEnvironments : undefined;

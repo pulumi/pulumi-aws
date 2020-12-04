@@ -100,10 +100,10 @@ export class TapePool extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TapePoolArgs | undefined;
-            if (!args || args.poolName === undefined) {
+            if ((!args || args.poolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if (!args || args.storageClass === undefined) {
+            if ((!args || args.storageClass === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageClass'");
             }
             inputs["poolName"] = args ? args.poolName : undefined;

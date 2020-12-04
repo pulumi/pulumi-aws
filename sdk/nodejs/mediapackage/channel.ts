@@ -96,7 +96,7 @@ export class Channel extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ChannelArgs | undefined;
-            if (!args || args.channelId === undefined) {
+            if ((!args || args.channelId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'channelId'");
             }
             inputs["channelId"] = args ? args.channelId : undefined;

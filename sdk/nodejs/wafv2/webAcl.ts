@@ -317,13 +317,13 @@ export class WebAcl extends pulumi.CustomResource {
             inputs["visibilityConfig"] = state ? state.visibilityConfig : undefined;
         } else {
             const args = argsOrState as WebAclArgs | undefined;
-            if (!args || args.defaultAction === undefined) {
+            if ((!args || args.defaultAction === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
-            if (!args || args.visibilityConfig === undefined) {
+            if ((!args || args.visibilityConfig === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
             inputs["defaultAction"] = args ? args.defaultAction : undefined;

@@ -77,10 +77,10 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
             inputs["snapshotId"] = state ? state.snapshotId : undefined;
         } else {
             const args = argsOrState as SnapshotCreateVolumePermissionArgs | undefined;
-            if (!args || args.accountId === undefined) {
+            if ((!args || args.accountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if (!args || args.snapshotId === undefined) {
+            if ((!args || args.snapshotId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'snapshotId'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

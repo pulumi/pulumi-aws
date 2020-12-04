@@ -447,7 +447,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             inputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as FirehoseDeliveryStreamArgs | undefined;
-            if (!args || args.destination === undefined) {
+            if ((!args || args.destination === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destination'");
             }
             inputs["arn"] = args ? args.arn : undefined;

@@ -191,19 +191,19 @@ export class Resolver extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ResolverArgs | undefined;
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.field === undefined) {
+            if ((!args || args.field === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'field'");
             }
-            if (!args || args.requestTemplate === undefined) {
+            if ((!args || args.requestTemplate === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'requestTemplate'");
             }
-            if (!args || args.responseTemplate === undefined) {
+            if ((!args || args.responseTemplate === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'responseTemplate'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;

@@ -86,16 +86,16 @@ export class RdsDbInstance extends pulumi.CustomResource {
             inputs["stackId"] = state ? state.stackId : undefined;
         } else {
             const args = argsOrState as RdsDbInstanceArgs | undefined;
-            if (!args || args.dbPassword === undefined) {
+            if ((!args || args.dbPassword === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dbPassword'");
             }
-            if (!args || args.dbUser === undefined) {
+            if ((!args || args.dbUser === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dbUser'");
             }
-            if (!args || args.rdsDbInstanceArn === undefined) {
+            if ((!args || args.rdsDbInstanceArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rdsDbInstanceArn'");
             }
-            if (!args || args.stackId === undefined) {
+            if ((!args || args.stackId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stackId'");
             }
             inputs["dbPassword"] = args ? args.dbPassword : undefined;

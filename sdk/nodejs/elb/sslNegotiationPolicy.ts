@@ -126,10 +126,10 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as SslNegotiationPolicyArgs | undefined;
-            if (!args || args.lbPort === undefined) {
+            if ((!args || args.lbPort === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lbPort'");
             }
-            if (!args || args.loadBalancer === undefined) {
+            if ((!args || args.loadBalancer === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
             inputs["attributes"] = args ? args.attributes : undefined;

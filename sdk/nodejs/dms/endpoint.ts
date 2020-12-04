@@ -187,13 +187,13 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if (!args || args.endpointId === undefined) {
+            if ((!args || args.endpointId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpointId'");
             }
-            if (!args || args.endpointType === undefined) {
+            if ((!args || args.endpointType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            if (!args || args.engineName === undefined) {
+            if ((!args || args.engineName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'engineName'");
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;

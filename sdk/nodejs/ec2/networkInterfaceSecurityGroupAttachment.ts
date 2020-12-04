@@ -131,10 +131,10 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
             inputs["securityGroupId"] = state ? state.securityGroupId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceSecurityGroupAttachmentArgs | undefined;
-            if (!args || args.networkInterfaceId === undefined) {
+            if ((!args || args.networkInterfaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if (!args || args.securityGroupId === undefined) {
+            if ((!args || args.securityGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;

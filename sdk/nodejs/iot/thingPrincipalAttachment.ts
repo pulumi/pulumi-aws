@@ -80,10 +80,10 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
             inputs["thing"] = state ? state.thing : undefined;
         } else {
             const args = argsOrState as ThingPrincipalAttachmentArgs | undefined;
-            if (!args || args.principal === undefined) {
+            if ((!args || args.principal === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principal'");
             }
-            if (!args || args.thing === undefined) {
+            if ((!args || args.thing === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'thing'");
             }
             inputs["principal"] = args ? args.principal : undefined;

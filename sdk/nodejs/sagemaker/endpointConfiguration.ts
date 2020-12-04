@@ -110,7 +110,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EndpointConfigurationArgs | undefined;
-            if (!args || args.productionVariants === undefined) {
+            if ((!args || args.productionVariants === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'productionVariants'");
             }
             inputs["dataCaptureConfig"] = args ? args.dataCaptureConfig : undefined;

@@ -115,10 +115,10 @@ export class Alias extends pulumi.CustomResource {
             inputs["routingConfig"] = state ? state.routingConfig : undefined;
         } else {
             const args = argsOrState as AliasArgs | undefined;
-            if (!args || args.functionName === undefined) {
+            if ((!args || args.functionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if (!args || args.functionVersion === undefined) {
+            if ((!args || args.functionVersion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'functionVersion'");
             }
             inputs["description"] = args ? args.description : undefined;

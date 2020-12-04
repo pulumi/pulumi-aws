@@ -90,10 +90,10 @@ export class LogDestination extends pulumi.CustomResource {
             inputs["targetArn"] = state ? state.targetArn : undefined;
         } else {
             const args = argsOrState as LogDestinationArgs | undefined;
-            if (!args || args.roleArn === undefined) {
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if (!args || args.targetArn === undefined) {
+            if ((!args || args.targetArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetArn'");
             }
             inputs["name"] = args ? args.name : undefined;

@@ -90,10 +90,10 @@ export class RouteTablePropagation extends pulumi.CustomResource {
             inputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
         } else {
             const args = argsOrState as RouteTablePropagationArgs | undefined;
-            if (!args || args.transitGatewayAttachmentId === undefined) {
+            if ((!args || args.transitGatewayAttachmentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            if (!args || args.transitGatewayRouteTableId === undefined) {
+            if ((!args || args.transitGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
             inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;

@@ -102,7 +102,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["workflowExecutionRetentionPeriodInDays"] = state ? state.workflowExecutionRetentionPeriodInDays : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            if (!args || args.workflowExecutionRetentionPeriodInDays === undefined) {
+            if ((!args || args.workflowExecutionRetentionPeriodInDays === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workflowExecutionRetentionPeriodInDays'");
             }
             inputs["description"] = args ? args.description : undefined;

@@ -82,7 +82,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
             inputs["standardsArn"] = state ? state.standardsArn : undefined;
         } else {
             const args = argsOrState as StandardsSubscriptionArgs | undefined;
-            if (!args || args.standardsArn === undefined) {
+            if ((!args || args.standardsArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'standardsArn'");
             }
             inputs["standardsArn"] = args ? args.standardsArn : undefined;

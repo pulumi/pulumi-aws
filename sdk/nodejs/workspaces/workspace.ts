@@ -145,13 +145,13 @@ export class Workspace extends pulumi.CustomResource {
             inputs["workspaceProperties"] = state ? state.workspaceProperties : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if (!args || args.bundleId === undefined) {
+            if ((!args || args.bundleId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            if (!args || args.directoryId === undefined) {
+            if ((!args || args.directoryId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if (!args || args.userName === undefined) {
+            if ((!args || args.userName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userName'");
             }
             inputs["bundleId"] = args ? args.bundleId : undefined;

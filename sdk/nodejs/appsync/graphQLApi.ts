@@ -223,7 +223,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["xrayEnabled"] = state ? state.xrayEnabled : undefined;
         } else {
             const args = argsOrState as GraphQLApiArgs | undefined;
-            if (!args || args.authenticationType === undefined) {
+            if ((!args || args.authenticationType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authenticationType'");
             }
             inputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;

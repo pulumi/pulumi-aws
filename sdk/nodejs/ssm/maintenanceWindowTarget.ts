@@ -134,13 +134,13 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
             inputs["windowId"] = state ? state.windowId : undefined;
         } else {
             const args = argsOrState as MaintenanceWindowTargetArgs | undefined;
-            if (!args || args.resourceType === undefined) {
+            if ((!args || args.resourceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if (!args || args.targets === undefined) {
+            if ((!args || args.targets === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targets'");
             }
-            if (!args || args.windowId === undefined) {
+            if ((!args || args.windowId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'windowId'");
             }
             inputs["description"] = args ? args.description : undefined;

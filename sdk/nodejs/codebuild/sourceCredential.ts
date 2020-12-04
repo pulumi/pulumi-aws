@@ -109,13 +109,13 @@ export class SourceCredential extends pulumi.CustomResource {
             inputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as SourceCredentialArgs | undefined;
-            if (!args || args.authType === undefined) {
+            if ((!args || args.authType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authType'");
             }
-            if (!args || args.serverType === undefined) {
+            if ((!args || args.serverType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverType'");
             }
-            if (!args || args.token === undefined) {
+            if ((!args || args.token === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'token'");
             }
             inputs["authType"] = args ? args.authType : undefined;

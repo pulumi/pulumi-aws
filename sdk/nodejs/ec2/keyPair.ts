@@ -112,7 +112,7 @@ export class KeyPair extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as KeyPairArgs | undefined;
-            if (!args || args.publicKey === undefined) {
+            if ((!args || args.publicKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publicKey'");
             }
             inputs["keyName"] = args ? args.keyName : undefined;

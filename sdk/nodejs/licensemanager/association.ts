@@ -70,10 +70,10 @@ export class Association extends pulumi.CustomResource {
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as AssociationArgs | undefined;
-            if (!args || args.licenseConfigurationArn === undefined) {
+            if ((!args || args.licenseConfigurationArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'licenseConfigurationArn'");
             }
-            if (!args || args.resourceArn === undefined) {
+            if ((!args || args.resourceArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceArn'");
             }
             inputs["licenseConfigurationArn"] = args ? args.licenseConfigurationArn : undefined;

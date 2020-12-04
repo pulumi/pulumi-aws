@@ -92,7 +92,7 @@ export class RouteTable extends pulumi.CustomResource {
             inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
         } else {
             const args = argsOrState as RouteTableArgs | undefined;
-            if (!args || args.transitGatewayId === undefined) {
+            if ((!args || args.transitGatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
             inputs["tags"] = args ? args.tags : undefined;

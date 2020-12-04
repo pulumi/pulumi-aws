@@ -91,10 +91,10 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as LocalGatewayRouteTableVpcAssociationArgs | undefined;
-            if (!args || args.localGatewayRouteTableId === undefined) {
+            if ((!args || args.localGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'localGatewayRouteTableId'");
             }
-            if (!args || args.vpcId === undefined) {
+            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;

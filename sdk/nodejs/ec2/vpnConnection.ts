@@ -223,10 +223,10 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as VpnConnectionArgs | undefined;
-            if (!args || args.customerGatewayId === undefined) {
+            if ((!args || args.customerGatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'customerGatewayId'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["customerGatewayId"] = args ? args.customerGatewayId : undefined;

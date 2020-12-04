@@ -183,16 +183,16 @@ export class Cluster extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.iamRoleArn === undefined) {
+            if ((!args || args.iamRoleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if (!args || args.nodeType === undefined) {
+            if ((!args || args.nodeType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'nodeType'");
             }
-            if (!args || args.replicationFactor === undefined) {
+            if ((!args || args.replicationFactor === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'replicationFactor'");
             }
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;

@@ -151,10 +151,10 @@ export class ListenerPolicy extends pulumi.CustomResource {
             inputs["policyNames"] = state ? state.policyNames : undefined;
         } else {
             const args = argsOrState as ListenerPolicyArgs | undefined;
-            if (!args || args.loadBalancerName === undefined) {
+            if ((!args || args.loadBalancerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if (!args || args.loadBalancerPort === undefined) {
+            if ((!args || args.loadBalancerPort === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerPort'");
             }
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;

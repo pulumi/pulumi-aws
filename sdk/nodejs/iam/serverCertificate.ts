@@ -179,10 +179,10 @@ export class ServerCertificate extends pulumi.CustomResource {
             inputs["privateKey"] = state ? state.privateKey : undefined;
         } else {
             const args = argsOrState as ServerCertificateArgs | undefined;
-            if (!args || args.certificateBody === undefined) {
+            if ((!args || args.certificateBody === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificateBody'");
             }
-            if (!args || args.privateKey === undefined) {
+            if ((!args || args.privateKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateKey'");
             }
             inputs["arn"] = args ? args.arn : undefined;

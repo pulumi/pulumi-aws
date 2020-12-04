@@ -90,10 +90,10 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
             inputs["websiteCaId"] = state ? state.websiteCaId : undefined;
         } else {
             const args = argsOrState as WebsiteCertificateAuthorityAssociationArgs | undefined;
-            if (!args || args.certificate === undefined) {
+            if ((!args || args.certificate === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificate'");
             }
-            if (!args || args.fleetArn === undefined) {
+            if ((!args || args.fleetArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fleetArn'");
             }
             inputs["certificate"] = args ? args.certificate : undefined;

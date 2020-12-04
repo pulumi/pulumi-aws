@@ -163,13 +163,13 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LifecyclePolicyArgs | undefined;
-            if (!args || args.description === undefined) {
+            if ((!args || args.description === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'description'");
             }
-            if (!args || args.executionRoleArn === undefined) {
+            if ((!args || args.executionRoleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if (!args || args.policyDetails === undefined) {
+            if ((!args || args.policyDetails === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyDetails'");
             }
             inputs["description"] = args ? args.description : undefined;

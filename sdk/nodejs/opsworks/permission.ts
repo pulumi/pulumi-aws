@@ -90,7 +90,7 @@ export class Permission extends pulumi.CustomResource {
             inputs["userArn"] = state ? state.userArn : undefined;
         } else {
             const args = argsOrState as PermissionArgs | undefined;
-            if (!args || args.userArn === undefined) {
+            if ((!args || args.userArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userArn'");
             }
             inputs["allowSsh"] = args ? args.allowSsh : undefined;

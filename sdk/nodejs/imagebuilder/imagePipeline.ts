@@ -154,10 +154,10 @@ export class ImagePipeline extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ImagePipelineArgs | undefined;
-            if (!args || args.imageRecipeArn === undefined) {
+            if ((!args || args.imageRecipeArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'imageRecipeArn'");
             }
-            if (!args || args.infrastructureConfigurationArn === undefined) {
+            if ((!args || args.infrastructureConfigurationArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'infrastructureConfigurationArn'");
             }
             inputs["description"] = args ? args.description : undefined;

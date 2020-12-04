@@ -282,13 +282,13 @@ export class DeploymentGroup extends pulumi.CustomResource {
             inputs["triggerConfigurations"] = state ? state.triggerConfigurations : undefined;
         } else {
             const args = argsOrState as DeploymentGroupArgs | undefined;
-            if (!args || args.appName === undefined) {
+            if ((!args || args.appName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appName'");
             }
-            if (!args || args.deploymentGroupName === undefined) {
+            if ((!args || args.deploymentGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deploymentGroupName'");
             }
-            if (!args || args.serviceRoleArn === undefined) {
+            if ((!args || args.serviceRoleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
             inputs["alarmConfiguration"] = args ? args.alarmConfiguration : undefined;

@@ -245,7 +245,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["waitForReadyTimeout"] = state ? state.waitForReadyTimeout : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
-            if (!args || args.application === undefined) {
+            if ((!args || args.application === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'application'");
             }
             inputs["application"] = args ? args.application : undefined;

@@ -105,10 +105,10 @@ export class EfsLocation extends pulumi.CustomResource {
             inputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as EfsLocationArgs | undefined;
-            if (!args || args.ec2Config === undefined) {
+            if ((!args || args.ec2Config === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ec2Config'");
             }
-            if (!args || args.efsFileSystemArn === undefined) {
+            if ((!args || args.efsFileSystemArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'efsFileSystemArn'");
             }
             inputs["ec2Config"] = args ? args.ec2Config : undefined;

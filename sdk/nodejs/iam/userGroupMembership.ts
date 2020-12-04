@@ -96,10 +96,10 @@ export class UserGroupMembership extends pulumi.CustomResource {
             inputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as UserGroupMembershipArgs | undefined;
-            if (!args || args.groups === undefined) {
+            if ((!args || args.groups === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groups'");
             }
-            if (!args || args.user === undefined) {
+            if ((!args || args.user === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'user'");
             }
             inputs["groups"] = args ? args.groups : undefined;

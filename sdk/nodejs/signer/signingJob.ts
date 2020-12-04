@@ -175,13 +175,13 @@ export class SigningJob extends pulumi.CustomResource {
             inputs["statusReason"] = state ? state.statusReason : undefined;
         } else {
             const args = argsOrState as SigningJobArgs | undefined;
-            if (!args || args.destination === undefined) {
+            if ((!args || args.destination === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destination'");
             }
-            if (!args || args.profileName === undefined) {
+            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if (!args || args.source === undefined) {
+            if ((!args || args.source === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'source'");
             }
             inputs["destination"] = args ? args.destination : undefined;

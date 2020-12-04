@@ -121,13 +121,13 @@ export class VaultLock extends pulumi.CustomResource {
             inputs["vaultName"] = state ? state.vaultName : undefined;
         } else {
             const args = argsOrState as VaultLockArgs | undefined;
-            if (!args || args.completeLock === undefined) {
+            if ((!args || args.completeLock === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'completeLock'");
             }
-            if (!args || args.policy === undefined) {
+            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (!args || args.vaultName === undefined) {
+            if ((!args || args.vaultName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vaultName'");
             }
             inputs["completeLock"] = args ? args.completeLock : undefined;

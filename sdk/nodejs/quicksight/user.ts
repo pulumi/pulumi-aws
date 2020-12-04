@@ -113,13 +113,13 @@ export class User extends pulumi.CustomResource {
             inputs["userRole"] = state ? state.userRole : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if (!args || args.email === undefined) {
+            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'email'");
             }
-            if (!args || args.identityType === undefined) {
+            if ((!args || args.identityType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identityType'");
             }
-            if (!args || args.userRole === undefined) {
+            if ((!args || args.userRole === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userRole'");
             }
             inputs["awsAccountId"] = args ? args.awsAccountId : undefined;

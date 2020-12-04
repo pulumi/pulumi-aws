@@ -88,7 +88,7 @@ export class SamlProvider extends pulumi.CustomResource {
             inputs["validUntil"] = state ? state.validUntil : undefined;
         } else {
             const args = argsOrState as SamlProviderArgs | undefined;
-            if (!args || args.samlMetadataDocument === undefined) {
+            if ((!args || args.samlMetadataDocument === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'samlMetadataDocument'");
             }
             inputs["name"] = args ? args.name : undefined;

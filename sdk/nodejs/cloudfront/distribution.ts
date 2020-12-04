@@ -429,19 +429,19 @@ export class Distribution extends pulumi.CustomResource {
             inputs["webAclId"] = state ? state.webAclId : undefined;
         } else {
             const args = argsOrState as DistributionArgs | undefined;
-            if (!args || args.defaultCacheBehavior === undefined) {
+            if ((!args || args.defaultCacheBehavior === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'defaultCacheBehavior'");
             }
-            if (!args || args.enabled === undefined) {
+            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if (!args || args.origins === undefined) {
+            if ((!args || args.origins === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'origins'");
             }
-            if (!args || args.restrictions === undefined) {
+            if ((!args || args.restrictions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'restrictions'");
             }
-            if (!args || args.viewerCertificate === undefined) {
+            if ((!args || args.viewerCertificate === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'viewerCertificate'");
             }
             inputs["aliases"] = args ? args.aliases : undefined;

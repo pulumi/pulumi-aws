@@ -168,7 +168,7 @@ export class LayerVersion extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as LayerVersionArgs | undefined;
-            if (!args || args.layerName === undefined) {
+            if ((!args || args.layerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'layerName'");
             }
             inputs["code"] = args ? args.code : undefined;

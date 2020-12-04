@@ -66,10 +66,10 @@ export class ScramSecretAssociation extends pulumi.CustomResource {
             inputs["secretArnLists"] = state ? state.secretArnLists : undefined;
         } else {
             const args = argsOrState as ScramSecretAssociationArgs | undefined;
-            if (!args || args.clusterArn === undefined) {
+            if ((!args || args.clusterArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterArn'");
             }
-            if (!args || args.secretArnLists === undefined) {
+            if ((!args || args.secretArnLists === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'secretArnLists'");
             }
             inputs["clusterArn"] = args ? args.clusterArn : undefined;

@@ -91,13 +91,13 @@ export class RoleAssociation extends pulumi.CustomResource {
             inputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as RoleAssociationArgs | undefined;
-            if (!args || args.dbInstanceIdentifier === undefined) {
+            if ((!args || args.dbInstanceIdentifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dbInstanceIdentifier'");
             }
-            if (!args || args.featureName === undefined) {
+            if ((!args || args.featureName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'featureName'");
             }
-            if (!args || args.roleArn === undefined) {
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;

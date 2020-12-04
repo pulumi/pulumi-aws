@@ -140,13 +140,13 @@ export class GatewayRoute extends pulumi.CustomResource {
             inputs["virtualGatewayName"] = state ? state.virtualGatewayName : undefined;
         } else {
             const args = argsOrState as GatewayRouteArgs | undefined;
-            if (!args || args.meshName === undefined) {
+            if ((!args || args.meshName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'meshName'");
             }
-            if (!args || args.spec === undefined) {
+            if ((!args || args.spec === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'spec'");
             }
-            if (!args || args.virtualGatewayName === undefined) {
+            if ((!args || args.virtualGatewayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualGatewayName'");
             }
             inputs["meshName"] = args ? args.meshName : undefined;

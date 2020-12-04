@@ -173,7 +173,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
             const args = argsOrState as AmiFromInstanceArgs | undefined;
-            if (!args || args.sourceInstanceId === undefined) {
+            if ((!args || args.sourceInstanceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceInstanceId'");
             }
             inputs["description"] = args ? args.description : undefined;

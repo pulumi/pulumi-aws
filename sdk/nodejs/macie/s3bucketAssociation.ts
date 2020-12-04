@@ -90,7 +90,7 @@ export class S3BucketAssociation extends pulumi.CustomResource {
             inputs["prefix"] = state ? state.prefix : undefined;
         } else {
             const args = argsOrState as S3BucketAssociationArgs | undefined;
-            if (!args || args.bucketName === undefined) {
+            if ((!args || args.bucketName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bucketName'");
             }
             inputs["bucketName"] = args ? args.bucketName : undefined;

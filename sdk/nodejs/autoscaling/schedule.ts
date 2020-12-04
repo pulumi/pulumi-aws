@@ -133,10 +133,10 @@ export class Schedule extends pulumi.CustomResource {
             inputs["startTime"] = state ? state.startTime : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if (!args || args.autoscalingGroupName === undefined) {
+            if ((!args || args.autoscalingGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            if (!args || args.scheduledActionName === undefined) {
+            if ((!args || args.scheduledActionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scheduledActionName'");
             }
             inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;

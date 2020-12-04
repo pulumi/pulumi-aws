@@ -200,10 +200,10 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcPeeringConnectionArgs | undefined;
-            if (!args || args.peerVpcId === undefined) {
+            if ((!args || args.peerVpcId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peerVpcId'");
             }
-            if (!args || args.vpcId === undefined) {
+            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["accepter"] = args ? args.accepter : undefined;

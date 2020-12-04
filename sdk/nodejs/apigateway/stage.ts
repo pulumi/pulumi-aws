@@ -206,13 +206,13 @@ export class Stage extends pulumi.CustomResource {
             inputs["xrayTracingEnabled"] = state ? state.xrayTracingEnabled : undefined;
         } else {
             const args = argsOrState as StageArgs | undefined;
-            if (!args || args.deployment === undefined) {
+            if ((!args || args.deployment === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deployment'");
             }
-            if (!args || args.restApi === undefined) {
+            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if (!args || args.stageName === undefined) {
+            if ((!args || args.stageName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stageName'");
             }
             inputs["accessLogSettings"] = args ? args.accessLogSettings : undefined;

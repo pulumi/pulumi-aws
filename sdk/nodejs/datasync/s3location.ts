@@ -103,13 +103,13 @@ export class S3Location extends pulumi.CustomResource {
             inputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as S3LocationArgs | undefined;
-            if (!args || args.s3BucketArn === undefined) {
+            if ((!args || args.s3BucketArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 's3BucketArn'");
             }
-            if (!args || args.s3Config === undefined) {
+            if ((!args || args.s3Config === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 's3Config'");
             }
-            if (!args || args.subdirectory === undefined) {
+            if ((!args || args.subdirectory === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subdirectory'");
             }
             inputs["s3BucketArn"] = args ? args.s3BucketArn : undefined;

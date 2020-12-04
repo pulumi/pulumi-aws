@@ -118,13 +118,13 @@ export class Route extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if (!args || args.clientVpnEndpointId === undefined) {
+            if ((!args || args.clientVpnEndpointId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientVpnEndpointId'");
             }
-            if (!args || args.destinationCidrBlock === undefined) {
+            if ((!args || args.destinationCidrBlock === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if (!args || args.targetVpcSubnetId === undefined) {
+            if ((!args || args.targetVpcSubnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetVpcSubnetId'");
             }
             inputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;

@@ -103,10 +103,10 @@ export class Build extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as BuildArgs | undefined;
-            if (!args || args.operatingSystem === undefined) {
+            if ((!args || args.operatingSystem === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'operatingSystem'");
             }
-            if (!args || args.storageLocation === undefined) {
+            if ((!args || args.storageLocation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageLocation'");
             }
             inputs["name"] = args ? args.name : undefined;

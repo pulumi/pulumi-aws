@@ -91,7 +91,7 @@ export class ApiKey extends pulumi.CustomResource {
             inputs["key"] = state ? state.key : undefined;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;

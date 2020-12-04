@@ -164,7 +164,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             inputs["terminateInstanceOnFailure"] = state ? state.terminateInstanceOnFailure : undefined;
         } else {
             const args = argsOrState as InfrastructureConfigurationArgs | undefined;
-            if (!args || args.instanceProfileName === undefined) {
+            if ((!args || args.instanceProfileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceProfileName'");
             }
             inputs["description"] = args ? args.description : undefined;

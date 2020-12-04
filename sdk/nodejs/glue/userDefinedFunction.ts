@@ -118,16 +118,16 @@ export class UserDefinedFunction extends pulumi.CustomResource {
             inputs["resourceUris"] = state ? state.resourceUris : undefined;
         } else {
             const args = argsOrState as UserDefinedFunctionArgs | undefined;
-            if (!args || args.className === undefined) {
+            if ((!args || args.className === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'className'");
             }
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.ownerName === undefined) {
+            if ((!args || args.ownerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ownerName'");
             }
-            if (!args || args.ownerType === undefined) {
+            if ((!args || args.ownerType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ownerType'");
             }
             inputs["catalogId"] = args ? args.catalogId : undefined;

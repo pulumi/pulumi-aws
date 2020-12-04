@@ -146,16 +146,16 @@ export class Proxy extends pulumi.CustomResource {
             inputs["vpcSubnetIds"] = state ? state.vpcSubnetIds : undefined;
         } else {
             const args = argsOrState as ProxyArgs | undefined;
-            if (!args || args.auths === undefined) {
+            if ((!args || args.auths === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'auths'");
             }
-            if (!args || args.engineFamily === undefined) {
+            if ((!args || args.engineFamily === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'engineFamily'");
             }
-            if (!args || args.roleArn === undefined) {
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if (!args || args.vpcSubnetIds === undefined) {
+            if ((!args || args.vpcSubnetIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
             inputs["auths"] = args ? args.auths : undefined;

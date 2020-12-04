@@ -80,10 +80,10 @@ export class ResolverQueryLogConfigAssociation extends pulumi.CustomResource {
             inputs["resourceId"] = state ? state.resourceId : undefined;
         } else {
             const args = argsOrState as ResolverQueryLogConfigAssociationArgs | undefined;
-            if (!args || args.resolverQueryLogConfigId === undefined) {
+            if ((!args || args.resolverQueryLogConfigId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resolverQueryLogConfigId'");
             }
-            if (!args || args.resourceId === undefined) {
+            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceId'");
             }
             inputs["resolverQueryLogConfigId"] = args ? args.resolverQueryLogConfigId : undefined;

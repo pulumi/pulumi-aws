@@ -140,10 +140,10 @@ export class LifecycleHook extends pulumi.CustomResource {
             inputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as LifecycleHookArgs | undefined;
-            if (!args || args.autoscalingGroupName === undefined) {
+            if ((!args || args.autoscalingGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            if (!args || args.lifecycleTransition === undefined) {
+            if ((!args || args.lifecycleTransition === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lifecycleTransition'");
             }
             inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;

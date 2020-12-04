@@ -121,7 +121,7 @@ export class SecretVersion extends pulumi.CustomResource {
             inputs["versionStages"] = state ? state.versionStages : undefined;
         } else {
             const args = argsOrState as SecretVersionArgs | undefined;
-            if (!args || args.secretId === undefined) {
+            if ((!args || args.secretId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'secretId'");
             }
             inputs["secretBinary"] = args ? args.secretBinary : undefined;

@@ -153,10 +153,10 @@ export class EventDestination extends pulumi.CustomResource {
             inputs["snsDestination"] = state ? state.snsDestination : undefined;
         } else {
             const args = argsOrState as EventDestinationArgs | undefined;
-            if (!args || args.configurationSetName === undefined) {
+            if ((!args || args.configurationSetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'configurationSetName'");
             }
-            if (!args || args.matchingTypes === undefined) {
+            if ((!args || args.matchingTypes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'matchingTypes'");
             }
             inputs["cloudwatchDestinations"] = args ? args.cloudwatchDestinations : undefined;

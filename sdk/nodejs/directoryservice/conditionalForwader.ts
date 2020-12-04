@@ -89,13 +89,13 @@ export class ConditionalForwader extends pulumi.CustomResource {
             inputs["remoteDomainName"] = state ? state.remoteDomainName : undefined;
         } else {
             const args = argsOrState as ConditionalForwaderArgs | undefined;
-            if (!args || args.directoryId === undefined) {
+            if ((!args || args.directoryId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if (!args || args.dnsIps === undefined) {
+            if ((!args || args.dnsIps === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dnsIps'");
             }
-            if (!args || args.remoteDomainName === undefined) {
+            if ((!args || args.remoteDomainName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'remoteDomainName'");
             }
             inputs["directoryId"] = args ? args.directoryId : undefined;

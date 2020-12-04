@@ -73,10 +73,10 @@ export class PatchGroup extends pulumi.CustomResource {
             inputs["patchGroup"] = state ? state.patchGroup : undefined;
         } else {
             const args = argsOrState as PatchGroupArgs | undefined;
-            if (!args || args.baselineId === undefined) {
+            if ((!args || args.baselineId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'baselineId'");
             }
-            if (!args || args.patchGroup === undefined) {
+            if ((!args || args.patchGroup === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'patchGroup'");
             }
             inputs["baselineId"] = args ? args.baselineId : undefined;

@@ -195,10 +195,10 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ComputeEnvironmentArgs | undefined;
-            if (!args || args.serviceRole === undefined) {
+            if ((!args || args.serviceRole === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceRole'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;

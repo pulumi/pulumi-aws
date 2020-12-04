@@ -132,13 +132,13 @@ export class NotificationRule extends pulumi.CustomResource {
             inputs["targets"] = state ? state.targets : undefined;
         } else {
             const args = argsOrState as NotificationRuleArgs | undefined;
-            if (!args || args.detailType === undefined) {
+            if ((!args || args.detailType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'detailType'");
             }
-            if (!args || args.eventTypeIds === undefined) {
+            if ((!args || args.eventTypeIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventTypeIds'");
             }
-            if (!args || args.resource === undefined) {
+            if ((!args || args.resource === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resource'");
             }
             inputs["detailType"] = args ? args.detailType : undefined;

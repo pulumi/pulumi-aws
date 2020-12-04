@@ -114,7 +114,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
             inputs["s3Destination"] = state ? state.s3Destination : undefined;
         } else {
             const args = argsOrState as ResourceDataSyncArgs | undefined;
-            if (!args || args.s3Destination === undefined) {
+            if ((!args || args.s3Destination === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 's3Destination'");
             }
             inputs["name"] = args ? args.name : undefined;

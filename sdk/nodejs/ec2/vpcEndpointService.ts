@@ -154,7 +154,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VpcEndpointServiceArgs | undefined;
-            if (!args || args.acceptanceRequired === undefined) {
+            if ((!args || args.acceptanceRequired === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'acceptanceRequired'");
             }
             inputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;

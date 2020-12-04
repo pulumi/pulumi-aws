@@ -161,7 +161,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
         } else {
             const args = argsOrState as GlobalClusterArgs | undefined;
-            if (!args || args.globalClusterIdentifier === undefined) {
+            if ((!args || args.globalClusterIdentifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'globalClusterIdentifier'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;

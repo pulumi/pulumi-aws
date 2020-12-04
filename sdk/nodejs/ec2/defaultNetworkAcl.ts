@@ -194,7 +194,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as DefaultNetworkAclArgs | undefined;
-            if (!args || args.defaultNetworkAclId === undefined) {
+            if ((!args || args.defaultNetworkAclId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'defaultNetworkAclId'");
             }
             inputs["defaultNetworkAclId"] = args ? args.defaultNetworkAclId : undefined;

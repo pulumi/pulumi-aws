@@ -336,13 +336,13 @@ export class RuleGroup extends pulumi.CustomResource {
             inputs["visibilityConfig"] = state ? state.visibilityConfig : undefined;
         } else {
             const args = argsOrState as RuleGroupArgs | undefined;
-            if (!args || args.capacity === undefined) {
+            if ((!args || args.capacity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
-            if (!args || args.visibilityConfig === undefined) {
+            if ((!args || args.visibilityConfig === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
             inputs["capacity"] = args ? args.capacity : undefined;

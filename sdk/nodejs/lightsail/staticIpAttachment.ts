@@ -86,10 +86,10 @@ export class StaticIpAttachment extends pulumi.CustomResource {
             inputs["staticIpName"] = state ? state.staticIpName : undefined;
         } else {
             const args = argsOrState as StaticIpAttachmentArgs | undefined;
-            if (!args || args.instanceName === undefined) {
+            if ((!args || args.instanceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if (!args || args.staticIpName === undefined) {
+            if ((!args || args.staticIpName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'staticIpName'");
             }
             inputs["instanceName"] = args ? args.instanceName : undefined;

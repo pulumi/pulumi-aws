@@ -333,16 +333,16 @@ export class Project extends pulumi.CustomResource {
             inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
-            if (!args || args.artifacts === undefined) {
+            if ((!args || args.artifacts === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'artifacts'");
             }
-            if (!args || args.environment === undefined) {
+            if ((!args || args.environment === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'environment'");
             }
-            if (!args || args.serviceRole === undefined) {
+            if ((!args || args.serviceRole === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceRole'");
             }
-            if (!args || args.source === undefined) {
+            if ((!args || args.source === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'source'");
             }
             inputs["artifacts"] = args ? args.artifacts : undefined;

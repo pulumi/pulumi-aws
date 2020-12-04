@@ -101,7 +101,7 @@ export class Analyzer extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AnalyzerArgs | undefined;
-            if (!args || args.analyzerName === undefined) {
+            if ((!args || args.analyzerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'analyzerName'");
             }
             inputs["analyzerName"] = args ? args.analyzerName : undefined;

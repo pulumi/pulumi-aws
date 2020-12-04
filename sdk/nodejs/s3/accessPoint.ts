@@ -142,7 +142,7 @@ export class AccessPoint extends pulumi.CustomResource {
             inputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
         } else {
             const args = argsOrState as AccessPointArgs | undefined;
-            if (!args || args.bucket === undefined) {
+            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bucket'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

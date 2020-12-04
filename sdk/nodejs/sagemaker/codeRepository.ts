@@ -54,10 +54,10 @@ export class CodeRepository extends pulumi.CustomResource {
             inputs["gitConfig"] = state ? state.gitConfig : undefined;
         } else {
             const args = argsOrState as CodeRepositoryArgs | undefined;
-            if (!args || args.codeRepositoryName === undefined) {
+            if ((!args || args.codeRepositoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'codeRepositoryName'");
             }
-            if (!args || args.gitConfig === undefined) {
+            if ((!args || args.gitConfig === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gitConfig'");
             }
             inputs["codeRepositoryName"] = args ? args.codeRepositoryName : undefined;

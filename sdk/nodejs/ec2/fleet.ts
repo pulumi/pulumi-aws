@@ -129,10 +129,10 @@ export class Fleet extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
-            if (!args || args.launchTemplateConfig === undefined) {
+            if ((!args || args.launchTemplateConfig === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'launchTemplateConfig'");
             }
-            if (!args || args.targetCapacitySpecification === undefined) {
+            if ((!args || args.targetCapacitySpecification === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetCapacitySpecification'");
             }
             inputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;

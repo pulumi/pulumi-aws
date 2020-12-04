@@ -99,10 +99,10 @@ export class InviteAccepter extends pulumi.CustomResource {
             inputs["masterAccountId"] = state ? state.masterAccountId : undefined;
         } else {
             const args = argsOrState as InviteAccepterArgs | undefined;
-            if (!args || args.detectorId === undefined) {
+            if ((!args || args.detectorId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if (!args || args.masterAccountId === undefined) {
+            if ((!args || args.masterAccountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'masterAccountId'");
             }
             inputs["detectorId"] = args ? args.detectorId : undefined;

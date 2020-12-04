@@ -143,10 +143,10 @@ export class PlatformApplication extends pulumi.CustomResource {
             inputs["successFeedbackSampleRate"] = state ? state.successFeedbackSampleRate : undefined;
         } else {
             const args = argsOrState as PlatformApplicationArgs | undefined;
-            if (!args || args.platform === undefined) {
+            if ((!args || args.platform === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'platform'");
             }
-            if (!args || args.platformCredential === undefined) {
+            if ((!args || args.platformCredential === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'platformCredential'");
             }
             inputs["eventDeliveryFailureTopicArn"] = args ? args.eventDeliveryFailureTopicArn : undefined;

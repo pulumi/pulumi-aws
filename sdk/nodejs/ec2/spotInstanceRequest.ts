@@ -372,10 +372,10 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["waitForFulfillment"] = state ? state.waitForFulfillment : undefined;
         } else {
             const args = argsOrState as SpotInstanceRequestArgs | undefined;
-            if (!args || args.ami === undefined) {
+            if ((!args || args.ami === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ami'");
             }
-            if (!args || args.instanceType === undefined) {
+            if ((!args || args.instanceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceType'");
             }
             inputs["ami"] = args ? args.ami : undefined;

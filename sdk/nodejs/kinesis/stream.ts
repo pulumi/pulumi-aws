@@ -128,7 +128,7 @@ export class Stream extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as StreamArgs | undefined;
-            if (!args || args.shardCount === undefined) {
+            if ((!args || args.shardCount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shardCount'");
             }
             inputs["arn"] = args ? args.arn : undefined;
