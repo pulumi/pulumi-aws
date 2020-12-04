@@ -2,12 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.18.0 (2020-12-04)
 * Upgrade to v2.15.0 of pulumi-terraform-bridge & v2.15.0 of pulumi/pkg and pulumi/sdk
     * These changes introduce enums to the Go and Python SDKs.
     * This introduces package/module registration for NodeJS and Python.
 * Updated properties that use enums to refer to new generated enums.
-
----
 
 ## 3.17.0 (2020-12-01)
 * Upgrade to v3.19.0 of the AWS Terraform Provider
