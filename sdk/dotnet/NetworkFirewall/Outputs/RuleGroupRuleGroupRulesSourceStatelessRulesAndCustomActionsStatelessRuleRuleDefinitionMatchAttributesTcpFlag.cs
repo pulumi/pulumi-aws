@@ -14,12 +14,12 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag
     {
         /// <summary>
-        /// Set of flags to look for in a packet. AWS Network Firewall checks only the part of the packet specified in `masks`.
+        /// Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
         /// Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
         /// </summary>
         public readonly ImmutableArray<string> Flags;
         /// <summary>
-        /// Set of values describing the part of the packet that you want to check for the flags. To inspect the entire packet, leave this empty.
+        /// Set of flags to consider in the inspection. To inspect all flags, leave this empty.
         /// Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
         /// </summary>
         public readonly ImmutableArray<string> Masks;

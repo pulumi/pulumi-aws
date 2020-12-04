@@ -61,6 +61,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Dynamodb;
         public readonly string? Ec2;
         public readonly string? Ecr;
+        public readonly string? Ecrpublic;
         public readonly string? Ecs;
         public readonly string? Efs;
         public readonly string? Eks;
@@ -109,6 +110,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Mediastore;
         public readonly string? Mediastoredata;
         public readonly string? Mq;
+        public readonly string? Mwaa;
         public readonly string? Neptune;
         public readonly string? Networkfirewall;
         public readonly string? Networkmanager;
@@ -259,6 +261,8 @@ namespace Pulumi.Aws.Outputs
 
             string? ecr,
 
+            string? ecrpublic,
+
             string? ecs,
 
             string? efs,
@@ -354,6 +358,8 @@ namespace Pulumi.Aws.Outputs
             string? mediastoredata,
 
             string? mq,
+
+            string? mwaa,
 
             string? neptune,
 
@@ -505,6 +511,7 @@ namespace Pulumi.Aws.Outputs
             Dynamodb = dynamodb;
             Ec2 = ec2;
             Ecr = ecr;
+            Ecrpublic = ecrpublic;
             Ecs = ecs;
             Efs = efs;
             Eks = eks;
@@ -553,6 +560,7 @@ namespace Pulumi.Aws.Outputs
             Mediastore = mediastore;
             Mediastoredata = mediastoredata;
             Mq = mq;
+            Mwaa = mwaa;
             Neptune = neptune;
             Networkfirewall = networkfirewall;
             Networkmanager = networkmanager;

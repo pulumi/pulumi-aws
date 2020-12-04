@@ -10,11 +10,117 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type GatewayGatewayNetworkInterface struct {
+	// The Internet Protocol version 4 (IPv4) address of the interface.
+	Ipv4Address *string `pulumi:"ipv4Address"`
+}
+
+// GatewayGatewayNetworkInterfaceInput is an input type that accepts GatewayGatewayNetworkInterfaceArgs and GatewayGatewayNetworkInterfaceOutput values.
+// You can construct a concrete instance of `GatewayGatewayNetworkInterfaceInput` via:
+//
+//          GatewayGatewayNetworkInterfaceArgs{...}
+type GatewayGatewayNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToGatewayGatewayNetworkInterfaceOutput() GatewayGatewayNetworkInterfaceOutput
+	ToGatewayGatewayNetworkInterfaceOutputWithContext(context.Context) GatewayGatewayNetworkInterfaceOutput
+}
+
+type GatewayGatewayNetworkInterfaceArgs struct {
+	// The Internet Protocol version 4 (IPv4) address of the interface.
+	Ipv4Address pulumi.StringPtrInput `pulumi:"ipv4Address"`
+}
+
+func (GatewayGatewayNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayGatewayNetworkInterface)(nil)).Elem()
+}
+
+func (i GatewayGatewayNetworkInterfaceArgs) ToGatewayGatewayNetworkInterfaceOutput() GatewayGatewayNetworkInterfaceOutput {
+	return i.ToGatewayGatewayNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i GatewayGatewayNetworkInterfaceArgs) ToGatewayGatewayNetworkInterfaceOutputWithContext(ctx context.Context) GatewayGatewayNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayGatewayNetworkInterfaceOutput)
+}
+
+// GatewayGatewayNetworkInterfaceArrayInput is an input type that accepts GatewayGatewayNetworkInterfaceArray and GatewayGatewayNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `GatewayGatewayNetworkInterfaceArrayInput` via:
+//
+//          GatewayGatewayNetworkInterfaceArray{ GatewayGatewayNetworkInterfaceArgs{...} }
+type GatewayGatewayNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToGatewayGatewayNetworkInterfaceArrayOutput() GatewayGatewayNetworkInterfaceArrayOutput
+	ToGatewayGatewayNetworkInterfaceArrayOutputWithContext(context.Context) GatewayGatewayNetworkInterfaceArrayOutput
+}
+
+type GatewayGatewayNetworkInterfaceArray []GatewayGatewayNetworkInterfaceInput
+
+func (GatewayGatewayNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayGatewayNetworkInterface)(nil)).Elem()
+}
+
+func (i GatewayGatewayNetworkInterfaceArray) ToGatewayGatewayNetworkInterfaceArrayOutput() GatewayGatewayNetworkInterfaceArrayOutput {
+	return i.ToGatewayGatewayNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayGatewayNetworkInterfaceArray) ToGatewayGatewayNetworkInterfaceArrayOutputWithContext(ctx context.Context) GatewayGatewayNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayGatewayNetworkInterfaceArrayOutput)
+}
+
+type GatewayGatewayNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (GatewayGatewayNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayGatewayNetworkInterface)(nil)).Elem()
+}
+
+func (o GatewayGatewayNetworkInterfaceOutput) ToGatewayGatewayNetworkInterfaceOutput() GatewayGatewayNetworkInterfaceOutput {
+	return o
+}
+
+func (o GatewayGatewayNetworkInterfaceOutput) ToGatewayGatewayNetworkInterfaceOutputWithContext(ctx context.Context) GatewayGatewayNetworkInterfaceOutput {
+	return o
+}
+
+// The Internet Protocol version 4 (IPv4) address of the interface.
+func (o GatewayGatewayNetworkInterfaceOutput) Ipv4Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayGatewayNetworkInterface) *string { return v.Ipv4Address }).(pulumi.StringPtrOutput)
+}
+
+type GatewayGatewayNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayGatewayNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayGatewayNetworkInterface)(nil)).Elem()
+}
+
+func (o GatewayGatewayNetworkInterfaceArrayOutput) ToGatewayGatewayNetworkInterfaceArrayOutput() GatewayGatewayNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o GatewayGatewayNetworkInterfaceArrayOutput) ToGatewayGatewayNetworkInterfaceArrayOutputWithContext(ctx context.Context) GatewayGatewayNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o GatewayGatewayNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) GatewayGatewayNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayGatewayNetworkInterface {
+		return vs[0].([]GatewayGatewayNetworkInterface)[vs[1].(int)]
+	}).(GatewayGatewayNetworkInterfaceOutput)
+}
+
 type GatewaySmbActiveDirectorySettings struct {
+	ActiveDirectoryStatus *string `pulumi:"activeDirectoryStatus"`
+	// List of IPv4 addresses, NetBIOS names, or host names of your domain server.
+	// If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
+	DomainControllers []string `pulumi:"domainControllers"`
 	// The name of the domain that you want the gateway to join.
 	DomainName string `pulumi:"domainName"`
+	// The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
+	// computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
+	OrganizationalUnit *string `pulumi:"organizationalUnit"`
 	// The password of the user who has permission to add the gateway to the Active Directory domain.
 	Password string `pulumi:"password"`
+	// Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
 	// The user name of user who has permission to add the gateway to the Active Directory domain.
 	Username string `pulumi:"username"`
 }
@@ -31,10 +137,19 @@ type GatewaySmbActiveDirectorySettingsInput interface {
 }
 
 type GatewaySmbActiveDirectorySettingsArgs struct {
+	ActiveDirectoryStatus pulumi.StringPtrInput `pulumi:"activeDirectoryStatus"`
+	// List of IPv4 addresses, NetBIOS names, or host names of your domain server.
+	// If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
+	DomainControllers pulumi.StringArrayInput `pulumi:"domainControllers"`
 	// The name of the domain that you want the gateway to join.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
+	// computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
+	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
 	// The password of the user who has permission to add the gateway to the Active Directory domain.
 	Password pulumi.StringInput `pulumi:"password"`
+	// Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
+	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
 	// The user name of user who has permission to add the gateway to the Active Directory domain.
 	Username pulumi.StringInput `pulumi:"username"`
 }
@@ -115,15 +230,35 @@ func (o GatewaySmbActiveDirectorySettingsOutput) ToGatewaySmbActiveDirectorySett
 		return &v
 	}).(GatewaySmbActiveDirectorySettingsPtrOutput)
 }
+func (o GatewaySmbActiveDirectorySettingsOutput) ActiveDirectoryStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) *string { return v.ActiveDirectoryStatus }).(pulumi.StringPtrOutput)
+}
+
+// List of IPv4 addresses, NetBIOS names, or host names of your domain server.
+// If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
+func (o GatewaySmbActiveDirectorySettingsOutput) DomainControllers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) []string { return v.DomainControllers }).(pulumi.StringArrayOutput)
+}
 
 // The name of the domain that you want the gateway to join.
 func (o GatewaySmbActiveDirectorySettingsOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
+// computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
+func (o GatewaySmbActiveDirectorySettingsOutput) OrganizationalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
+}
+
 // The password of the user who has permission to add the gateway to the Active Directory domain.
 func (o GatewaySmbActiveDirectorySettingsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
+func (o GatewaySmbActiveDirectorySettingsOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // The user name of user who has permission to add the gateway to the Active Directory domain.
@@ -149,6 +284,26 @@ func (o GatewaySmbActiveDirectorySettingsPtrOutput) Elem() GatewaySmbActiveDirec
 	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) GatewaySmbActiveDirectorySettings { return *v }).(GatewaySmbActiveDirectorySettingsOutput)
 }
 
+func (o GatewaySmbActiveDirectorySettingsPtrOutput) ActiveDirectoryStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of IPv4 addresses, NetBIOS names, or host names of your domain server.
+// If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
+func (o GatewaySmbActiveDirectorySettingsPtrOutput) DomainControllers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainControllers
+	}).(pulumi.StringArrayOutput)
+}
+
 // The name of the domain that you want the gateway to join.
 func (o GatewaySmbActiveDirectorySettingsPtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) *string {
@@ -156,6 +311,17 @@ func (o GatewaySmbActiveDirectorySettingsPtrOutput) DomainName() pulumi.StringPt
 			return nil
 		}
 		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
+// computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
+func (o GatewaySmbActiveDirectorySettingsPtrOutput) OrganizationalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnit
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -167,6 +333,16 @@ func (o GatewaySmbActiveDirectorySettingsPtrOutput) Password() pulumi.StringPtrO
 		}
 		return &v.Password
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
+func (o GatewaySmbActiveDirectorySettingsPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // The user name of user who has permission to add the gateway to the Active Directory domain.
@@ -646,6 +822,8 @@ func (o SmbFileShareCacheAttributesPtrOutput) CacheStaleTimeoutInSeconds() pulum
 }
 
 func init() {
+	pulumi.RegisterOutputType(GatewayGatewayNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(GatewayGatewayNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(GatewaySmbActiveDirectorySettingsOutput{})
 	pulumi.RegisterOutputType(GatewaySmbActiveDirectorySettingsPtrOutput{})
 	pulumi.RegisterOutputType(NfsFileShareCacheAttributesOutput{})

@@ -13,14 +13,29 @@ namespace Pulumi.Aws.StorageGateway.Outputs
     [OutputType]
     public sealed class GatewaySmbActiveDirectorySettings
     {
+        public readonly string? ActiveDirectoryStatus;
+        /// <summary>
+        /// List of IPv4 addresses, NetBIOS names, or host names of your domain server.
+        /// If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
+        /// </summary>
+        public readonly ImmutableArray<string> DomainControllers;
         /// <summary>
         /// The name of the domain that you want the gateway to join.
         /// </summary>
         public readonly string DomainName;
         /// <summary>
+        /// The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
+        /// computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
+        /// </summary>
+        public readonly string? OrganizationalUnit;
+        /// <summary>
         /// The password of the user who has permission to add the gateway to the Active Directory domain.
         /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
+        /// </summary>
+        public readonly int? TimeoutInSeconds;
         /// <summary>
         /// The user name of user who has permission to add the gateway to the Active Directory domain.
         /// </summary>
@@ -28,14 +43,26 @@ namespace Pulumi.Aws.StorageGateway.Outputs
 
         [OutputConstructor]
         private GatewaySmbActiveDirectorySettings(
+            string? activeDirectoryStatus,
+
+            ImmutableArray<string> domainControllers,
+
             string domainName,
+
+            string? organizationalUnit,
 
             string password,
 
+            int? timeoutInSeconds,
+
             string username)
         {
+            ActiveDirectoryStatus = activeDirectoryStatus;
+            DomainControllers = domainControllers;
             DomainName = domainName;
+            OrganizationalUnit = organizationalUnit;
             Password = password;
+            TimeoutInSeconds = timeoutInSeconds;
             Username = username;
         }
     }

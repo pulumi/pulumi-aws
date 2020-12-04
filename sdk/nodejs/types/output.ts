@@ -151,6 +151,7 @@ export interface ProviderEndpoint {
     dynamodb?: string;
     ec2?: string;
     ecr?: string;
+    ecrpublic?: string;
     ecs?: string;
     efs?: string;
     eks?: string;
@@ -199,6 +200,7 @@ export interface ProviderEndpoint {
     mediastore?: string;
     mediastoredata?: string;
     mq?: string;
+    mwaa?: string;
     neptune?: string;
     networkfirewall?: string;
     networkmanager?: string;
@@ -5495,7 +5497,7 @@ export namespace codebuild {
          */
         path?: string;
         /**
-         * The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
+         * The build output artifact's type. The only valid value is `S3`.
          */
         type: string;
     }
@@ -6528,6 +6530,7 @@ export namespace config {
         dynamodb?: string;
         ec2?: string;
         ecr?: string;
+        ecrpublic?: string;
         ecs?: string;
         efs?: string;
         eks?: string;
@@ -6576,6 +6579,7 @@ export namespace config {
         mediastore?: string;
         mediastoredata?: string;
         mq?: string;
+        mwaa?: string;
         neptune?: string;
         networkfirewall?: string;
         networkmanager?: string;
@@ -17992,30 +17996,29 @@ export namespace networkfirewall {
 
     export interface RuleGroupRuleGroupRulesSourceStatefulRuleHeader {
         /**
-         * The destination IP address or address range to inspect for, in CIDR notation. If left empty, this matches with any destination address.
+         * The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
          */
-        destination?: string;
+        destination: string;
         /**
-         * The destination port to inspect for. If left empty, this matches with any port.
+         * The destination port to inspect for. To match with any address, specify `ANY`.
          */
-        destinationPort?: string;
+        destinationPort: string;
         /**
          * The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
          */
         direction: string;
         /**
-         * The protocol to inspect. If not specified, this matches with any protocol.
-         * Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
+         * The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
          */
-        protocol?: string;
+        protocol: string;
         /**
-         * The source IP address or address range for, in CIDR notation. If left empty, this matches with any source address.
+         * The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
          */
-        source?: string;
+        source: string;
         /**
-         * The source port to inspect for. If left empty, this matches with any port.
+         * The source port to inspect for. To match with any address, specify `ANY`.
          */
-        sourcePort?: string;
+        sourcePort: string;
     }
 
     export interface RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption {
@@ -18105,7 +18108,7 @@ export namespace networkfirewall {
          */
         destinations?: outputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination[];
         /**
-         * Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA).
+         * Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
          */
         protocols?: number[];
         /**
@@ -18126,7 +18129,7 @@ export namespace networkfirewall {
         /**
          * An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
          */
-        addressDefinition?: string;
+        addressDefinition: string;
     }
 
     export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort {
@@ -18144,7 +18147,7 @@ export namespace networkfirewall {
         /**
          * An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
          */
-        addressDefinition?: string;
+        addressDefinition: string;
     }
 
     export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort {
@@ -18160,12 +18163,12 @@ export namespace networkfirewall {
 
     export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag {
         /**
-         * Set of flags to look for in a packet. AWS Network Firewall checks only the part of the packet specified in `masks`.
+         * Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
          * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
          */
         flags: string[];
         /**
-         * Set of values describing the part of the packet that you want to check for the flags. To inspect the entire packet, leave this empty.
+         * Set of flags to consider in the inspection. To inspect all flags, leave this empty.
          * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
          */
         masks?: string[];
@@ -20626,15 +20629,37 @@ export namespace ssm {
 }
 
 export namespace storagegateway {
+    export interface GatewayGatewayNetworkInterface {
+        /**
+         * The Internet Protocol version 4 (IPv4) address of the interface.
+         */
+        ipv4Address: string;
+    }
+
     export interface GatewaySmbActiveDirectorySettings {
+        activeDirectoryStatus: string;
+        /**
+         * List of IPv4 addresses, NetBIOS names, or host names of your domain server.
+         * If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
+         */
+        domainControllers?: string[];
         /**
          * The name of the domain that you want the gateway to join.
          */
         domainName: string;
         /**
+         * The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
+         * computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
+         */
+        organizationalUnit?: string;
+        /**
          * The password of the user who has permission to add the gateway to the Active Directory domain.
          */
         password: string;
+        /**
+         * Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
+         */
+        timeoutInSeconds?: number;
         /**
          * The user name of user who has permission to add the gateway to the Active Directory domain.
          */

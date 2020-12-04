@@ -157,6 +157,7 @@ namespace Pulumi.Aws
                 public string? Dynamodb { get; set; } = null!;
                 public string? Ec2 { get; set; } = null!;
                 public string? Ecr { get; set; } = null!;
+                public string? Ecrpublic { get; set; } = null!;
                 public string? Ecs { get; set; } = null!;
                 public string? Efs { get; set; } = null!;
                 public string? Eks { get; set; } = null!;
@@ -205,6 +206,7 @@ namespace Pulumi.Aws
                 public string? Mediastore { get; set; } = null!;
                 public string? Mediastoredata { get; set; } = null!;
                 public string? Mq { get; set; } = null!;
+                public string? Mwaa { get; set; } = null!;
                 public string? Neptune { get; set; } = null!;
                 public string? Networkfirewall { get; set; } = null!;
                 public string? Networkmanager { get; set; } = null!;

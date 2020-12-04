@@ -139,6 +139,7 @@ export interface ProviderEndpoint {
     dynamodb?: pulumi.Input<string>;
     ec2?: pulumi.Input<string>;
     ecr?: pulumi.Input<string>;
+    ecrpublic?: pulumi.Input<string>;
     ecs?: pulumi.Input<string>;
     efs?: pulumi.Input<string>;
     eks?: pulumi.Input<string>;
@@ -187,6 +188,7 @@ export interface ProviderEndpoint {
     mediastore?: pulumi.Input<string>;
     mediastoredata?: pulumi.Input<string>;
     mq?: pulumi.Input<string>;
+    mwaa?: pulumi.Input<string>;
     neptune?: pulumi.Input<string>;
     networkfirewall?: pulumi.Input<string>;
     networkmanager?: pulumi.Input<string>;
@@ -5298,7 +5300,7 @@ export namespace codebuild {
          */
         path?: pulumi.Input<string>;
         /**
-         * The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
+         * The build output artifact's type. The only valid value is `S3`.
          */
         type: pulumi.Input<string>;
     }
@@ -16370,30 +16372,29 @@ export namespace networkfirewall {
 
     export interface RuleGroupRuleGroupRulesSourceStatefulRuleHeader {
         /**
-         * The destination IP address or address range to inspect for, in CIDR notation. If left empty, this matches with any destination address.
+         * The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
          */
-        destination?: pulumi.Input<string>;
+        destination: pulumi.Input<string>;
         /**
-         * The destination port to inspect for. If left empty, this matches with any port.
+         * The destination port to inspect for. To match with any address, specify `ANY`.
          */
-        destinationPort?: pulumi.Input<string>;
+        destinationPort: pulumi.Input<string>;
         /**
          * The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
          */
         direction: pulumi.Input<string>;
         /**
-         * The protocol to inspect. If not specified, this matches with any protocol.
-         * Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
+         * The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
          */
-        protocol?: pulumi.Input<string>;
+        protocol: pulumi.Input<string>;
         /**
-         * The source IP address or address range for, in CIDR notation. If left empty, this matches with any source address.
+         * The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
          */
-        source?: pulumi.Input<string>;
+        source: pulumi.Input<string>;
         /**
-         * The source port to inspect for. If left empty, this matches with any port.
+         * The source port to inspect for. To match with any address, specify `ANY`.
          */
-        sourcePort?: pulumi.Input<string>;
+        sourcePort: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption {
@@ -16483,7 +16484,7 @@ export namespace networkfirewall {
          */
         destinations?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination>[]>;
         /**
-         * Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA).
+         * Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
          */
         protocols?: pulumi.Input<pulumi.Input<number>[]>;
         /**
@@ -16504,7 +16505,7 @@ export namespace networkfirewall {
         /**
          * An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
          */
-        addressDefinition?: pulumi.Input<string>;
+        addressDefinition: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort {
@@ -16522,7 +16523,7 @@ export namespace networkfirewall {
         /**
          * An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
          */
-        addressDefinition?: pulumi.Input<string>;
+        addressDefinition: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort {
@@ -16538,12 +16539,12 @@ export namespace networkfirewall {
 
     export interface RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag {
         /**
-         * Set of flags to look for in a packet. AWS Network Firewall checks only the part of the packet specified in `masks`.
+         * Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
          * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
          */
         flags: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Set of values describing the part of the packet that you want to check for the flags. To inspect the entire packet, leave this empty.
+         * Set of flags to consider in the inspection. To inspect all flags, leave this empty.
          * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
          */
         masks?: pulumi.Input<pulumi.Input<string>[]>;
@@ -18872,15 +18873,37 @@ export namespace ssm {
 }
 
 export namespace storagegateway {
+    export interface GatewayGatewayNetworkInterface {
+        /**
+         * The Internet Protocol version 4 (IPv4) address of the interface.
+         */
+        ipv4Address?: pulumi.Input<string>;
+    }
+
     export interface GatewaySmbActiveDirectorySettings {
+        activeDirectoryStatus?: pulumi.Input<string>;
+        /**
+         * List of IPv4 addresses, NetBIOS names, or host names of your domain server.
+         * If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
+         */
+        domainControllers?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The name of the domain that you want the gateway to join.
          */
         domainName: pulumi.Input<string>;
         /**
+         * The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
+         * computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
+         */
+        organizationalUnit?: pulumi.Input<string>;
+        /**
          * The password of the user who has permission to add the gateway to the Active Directory domain.
          */
         password: pulumi.Input<string>;
+        /**
+         * Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
+         */
+        timeoutInSeconds?: pulumi.Input<number>;
         /**
          * The user name of user who has permission to add the gateway to the Active Directory domain.
          */

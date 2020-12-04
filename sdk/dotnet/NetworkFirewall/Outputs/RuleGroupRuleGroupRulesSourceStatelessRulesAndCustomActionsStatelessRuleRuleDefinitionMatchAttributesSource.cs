@@ -16,10 +16,10 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
         /// </summary>
-        public readonly string? AddressDefinition;
+        public readonly string AddressDefinition;
 
         [OutputConstructor]
-        private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource(string? addressDefinition)
+        private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource(string addressDefinition)
         {
             AddressDefinition = addressDefinition;
         }

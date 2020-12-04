@@ -61,7 +61,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
+        /// The build output artifact's type. The only valid value is `S3`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

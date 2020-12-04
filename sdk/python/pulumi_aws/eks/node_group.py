@@ -112,7 +112,7 @@ class NodeGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[str] capacity_type: Type of capacity associated with the EKS Node Group. Defaults to `ON_DEMAND`. Valid values: `ON_DEMAND`, `SPOT`.
+        :param pulumi.Input[str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[int] disk_size: Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[bool] force_update_version: Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
@@ -210,7 +210,7 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS Node Group.
-        :param pulumi.Input[str] capacity_type: Type of capacity associated with the EKS Node Group. Defaults to `ON_DEMAND`. Valid values: `ON_DEMAND`, `SPOT`.
+        :param pulumi.Input[str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[int] disk_size: Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[bool] force_update_version: Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
@@ -271,9 +271,9 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="capacityType")
-    def capacity_type(self) -> pulumi.Output[Optional[str]]:
+    def capacity_type(self) -> pulumi.Output[str]:
         """
-        Type of capacity associated with the EKS Node Group. Defaults to `ON_DEMAND`. Valid values: `ON_DEMAND`, `SPOT`.
+        Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "capacity_type")
 

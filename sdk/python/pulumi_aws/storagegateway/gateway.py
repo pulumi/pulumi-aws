@@ -100,19 +100,7 @@ class Gateway(pulumi.CustomResource):
          $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
         ```
 
-         Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Terraform configuration or use [`ignore_changes`](/docs/configuration/resources.html#ignore_changes) to hide the difference, e.g. hcl resource "aws_storagegateway_gateway" "example" {
-
-        # ... other configuration ...
-
-         gateway_ip_address = aws_instance.sgw.private_ip
-
-        # There is no Storage Gateway API for reading gateway_ip_address
-
-         lifecycle {
-
-         ignore_changes = ["gateway_ip_address"]
-
-         } }
+         Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +113,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[str] gateway_timezone: Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
         :param pulumi.Input[str] gateway_type: Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
         :param pulumi.Input[str] gateway_vpc_endpoint: VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
-        :param pulumi.Input[str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+        :param pulumi.Input[str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         :param pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         :param pulumi.Input[str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
@@ -169,7 +157,11 @@ class Gateway(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['tape_drive_type'] = tape_drive_type
             __props__['arn'] = None
+            __props__['ec2_instance_id'] = None
+            __props__['endpoint_type'] = None
             __props__['gateway_id'] = None
+            __props__['gateway_network_interfaces'] = None
+            __props__['host_environment'] = None
         super(Gateway, __self__).__init__(
             'aws:storagegateway/gateway:Gateway',
             resource_name,
@@ -185,12 +177,16 @@ class Gateway(pulumi.CustomResource):
             average_download_rate_limit_in_bits_per_sec: Optional[pulumi.Input[int]] = None,
             average_upload_rate_limit_in_bits_per_sec: Optional[pulumi.Input[int]] = None,
             cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
+            ec2_instance_id: Optional[pulumi.Input[str]] = None,
+            endpoint_type: Optional[pulumi.Input[str]] = None,
             gateway_id: Optional[pulumi.Input[str]] = None,
             gateway_ip_address: Optional[pulumi.Input[str]] = None,
             gateway_name: Optional[pulumi.Input[str]] = None,
+            gateway_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayGatewayNetworkInterfaceArgs']]]]] = None,
             gateway_timezone: Optional[pulumi.Input[str]] = None,
             gateway_type: Optional[pulumi.Input[str]] = None,
             gateway_vpc_endpoint: Optional[pulumi.Input[str]] = None,
+            host_environment: Optional[pulumi.Input[str]] = None,
             medium_changer_type: Optional[pulumi.Input[str]] = None,
             smb_active_directory_settings: Optional[pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']]] = None,
             smb_guest_password: Optional[pulumi.Input[str]] = None,
@@ -209,13 +205,17 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[int] average_download_rate_limit_in_bits_per_sec: The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         :param pulumi.Input[int] average_upload_rate_limit_in_bits_per_sec: The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         :param pulumi.Input[str] cloudwatch_log_group_arn: The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+        :param pulumi.Input[str] ec2_instance_id: The ID of the Amazon EC2 instance that was used to launch the gateway.
+        :param pulumi.Input[str] endpoint_type: The type of endpoint for your gateway.
         :param pulumi.Input[str] gateway_id: Identifier of the gateway.
         :param pulumi.Input[str] gateway_ip_address: Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         :param pulumi.Input[str] gateway_name: Name of the gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayGatewayNetworkInterfaceArgs']]]] gateway_network_interfaces: An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
         :param pulumi.Input[str] gateway_timezone: Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
         :param pulumi.Input[str] gateway_type: Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
         :param pulumi.Input[str] gateway_vpc_endpoint: VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
-        :param pulumi.Input[str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+        :param pulumi.Input[str] host_environment: The type of hypervisor environment used by the host.
+        :param pulumi.Input[str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         :param pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         :param pulumi.Input[str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
@@ -231,12 +231,16 @@ class Gateway(pulumi.CustomResource):
         __props__["average_download_rate_limit_in_bits_per_sec"] = average_download_rate_limit_in_bits_per_sec
         __props__["average_upload_rate_limit_in_bits_per_sec"] = average_upload_rate_limit_in_bits_per_sec
         __props__["cloudwatch_log_group_arn"] = cloudwatch_log_group_arn
+        __props__["ec2_instance_id"] = ec2_instance_id
+        __props__["endpoint_type"] = endpoint_type
         __props__["gateway_id"] = gateway_id
         __props__["gateway_ip_address"] = gateway_ip_address
         __props__["gateway_name"] = gateway_name
+        __props__["gateway_network_interfaces"] = gateway_network_interfaces
         __props__["gateway_timezone"] = gateway_timezone
         __props__["gateway_type"] = gateway_type
         __props__["gateway_vpc_endpoint"] = gateway_vpc_endpoint
+        __props__["host_environment"] = host_environment
         __props__["medium_changer_type"] = medium_changer_type
         __props__["smb_active_directory_settings"] = smb_active_directory_settings
         __props__["smb_guest_password"] = smb_guest_password
@@ -286,6 +290,22 @@ class Gateway(pulumi.CustomResource):
         return pulumi.get(self, "cloudwatch_log_group_arn")
 
     @property
+    @pulumi.getter(name="ec2InstanceId")
+    def ec2_instance_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Amazon EC2 instance that was used to launch the gateway.
+        """
+        return pulumi.get(self, "ec2_instance_id")
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Output[str]:
+        """
+        The type of endpoint for your gateway.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> pulumi.Output[str]:
         """
@@ -308,6 +328,14 @@ class Gateway(pulumi.CustomResource):
         Name of the gateway.
         """
         return pulumi.get(self, "gateway_name")
+
+    @property
+    @pulumi.getter(name="gatewayNetworkInterfaces")
+    def gateway_network_interfaces(self) -> pulumi.Output[Sequence['outputs.GatewayGatewayNetworkInterface']]:
+        """
+        An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
+        """
+        return pulumi.get(self, "gateway_network_interfaces")
 
     @property
     @pulumi.getter(name="gatewayTimezone")
@@ -334,10 +362,18 @@ class Gateway(pulumi.CustomResource):
         return pulumi.get(self, "gateway_vpc_endpoint")
 
     @property
+    @pulumi.getter(name="hostEnvironment")
+    def host_environment(self) -> pulumi.Output[str]:
+        """
+        The type of hypervisor environment used by the host.
+        """
+        return pulumi.get(self, "host_environment")
+
+    @property
     @pulumi.getter(name="mediumChangerType")
     def medium_changer_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+        Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         """
         return pulumi.get(self, "medium_changer_type")
 

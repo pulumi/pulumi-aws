@@ -174,7 +174,7 @@ class ReplicationGroup(pulumi.CustomResource):
                retain automatic cache cluster snapshots before deleting them. For example, if you set
                SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
                before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-               Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+               Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will
                begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
@@ -312,7 +312,7 @@ class ReplicationGroup(pulumi.CustomResource):
                retain automatic cache cluster snapshots before deleting them. For example, if you set
                SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
                before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-               Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+               Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will
                begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
@@ -569,7 +569,7 @@ class ReplicationGroup(pulumi.CustomResource):
         retain automatic cache cluster snapshots before deleting them. For example, if you set
         SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
         before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-        Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+        Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         """
         return pulumi.get(self, "snapshot_retention_limit")
 

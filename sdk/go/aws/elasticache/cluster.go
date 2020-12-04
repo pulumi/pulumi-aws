@@ -179,7 +179,7 @@ type Cluster struct {
 	// retain automatic cache cluster snapshots before deleting them. For example, if you set
 	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
 	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
 	SnapshotRetentionLimit pulumi.IntPtrOutput `pulumi:"snapshotRetentionLimit"`
 	// The daily time range (in UTC) during which ElastiCache will
 	// begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
@@ -289,7 +289,7 @@ type clusterState struct {
 	// retain automatic cache cluster snapshots before deleting them. For example, if you set
 	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
 	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
 	SnapshotRetentionLimit *int `pulumi:"snapshotRetentionLimit"`
 	// The daily time range (in UTC) during which ElastiCache will
 	// begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
@@ -371,7 +371,7 @@ type ClusterState struct {
 	// retain automatic cache cluster snapshots before deleting them. For example, if you set
 	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
 	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
 	SnapshotRetentionLimit pulumi.IntPtrInput
 	// The daily time range (in UTC) during which ElastiCache will
 	// begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
@@ -449,7 +449,7 @@ type clusterArgs struct {
 	// retain automatic cache cluster snapshots before deleting them. For example, if you set
 	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
 	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
 	SnapshotRetentionLimit *int `pulumi:"snapshotRetentionLimit"`
 	// The daily time range (in UTC) during which ElastiCache will
 	// begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
@@ -524,7 +524,7 @@ type ClusterArgs struct {
 	// retain automatic cache cluster snapshots before deleting them. For example, if you set
 	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
 	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
 	SnapshotRetentionLimit pulumi.IntPtrInput
 	// The daily time range (in UTC) during which ElastiCache will
 	// begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00

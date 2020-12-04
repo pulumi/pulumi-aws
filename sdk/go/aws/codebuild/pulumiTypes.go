@@ -1496,7 +1496,7 @@ type ProjectSecondaryArtifact struct {
 	Packaging *string `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact
 	Path *string `pulumi:"path"`
-	// The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
+	// The build output artifact's type. The only valid value is `S3`.
 	Type string `pulumi:"type"`
 }
 
@@ -1528,7 +1528,7 @@ type ProjectSecondaryArtifactArgs struct {
 	Packaging pulumi.StringPtrInput `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
+	// The build output artifact's type. The only valid value is `S3`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1623,7 +1623,7 @@ func (o ProjectSecondaryArtifactOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
+// The build output artifact's type. The only valid value is `S3`.
 func (o ProjectSecondaryArtifactOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) string { return v.Type }).(pulumi.StringOutput)
 }

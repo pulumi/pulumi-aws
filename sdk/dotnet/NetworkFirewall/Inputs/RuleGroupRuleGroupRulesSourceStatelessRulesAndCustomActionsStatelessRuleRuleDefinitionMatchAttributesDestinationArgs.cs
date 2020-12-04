@@ -15,8 +15,8 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
         /// </summary>
-        [Input("addressDefinition")]
-        public Input<string>? AddressDefinition { get; set; }
+        [Input("addressDefinition", required: true)]
+        public Input<string> AddressDefinition { get; set; } = null!;
 
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs()
         {

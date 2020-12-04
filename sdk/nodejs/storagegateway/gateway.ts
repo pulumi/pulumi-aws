@@ -74,19 +74,7 @@ import * as utilities from "../utilities";
  *  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
  * ```
  *
- *  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Terraform configuration or use [`ignore_changes`](/docs/configuration/resources.html#ignore_changes) to hide the difference, e.g. hcl resource "aws_storagegateway_gateway" "example" {
- *
- * # ... other configuration ...
- *
- *  gateway_ip_address = aws_instance.sgw.private_ip
- *
- * # There is no Storage Gateway API for reading gateway_ip_address
- *
- *  lifecycle {
- *
- *  ignore_changes = ["gateway_ip_address"]
- *
- *  } }
+ *  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference.
  */
 export class Gateway extends pulumi.CustomResource {
     /**
@@ -137,6 +125,14 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly cloudwatchLogGroupArn!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the Amazon EC2 instance that was used to launch the gateway.
+     */
+    public /*out*/ readonly ec2InstanceId!: pulumi.Output<string>;
+    /**
+     * The type of endpoint for your gateway.
+     */
+    public /*out*/ readonly endpointType!: pulumi.Output<string>;
+    /**
      * Identifier of the gateway.
      */
     public /*out*/ readonly gatewayId!: pulumi.Output<string>;
@@ -148,6 +144,10 @@ export class Gateway extends pulumi.CustomResource {
      * Name of the gateway.
      */
     public readonly gatewayName!: pulumi.Output<string>;
+    /**
+     * An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
+     */
+    public /*out*/ readonly gatewayNetworkInterfaces!: pulumi.Output<outputs.storagegateway.GatewayGatewayNetworkInterface[]>;
     /**
      * Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
      */
@@ -161,7 +161,11 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly gatewayVpcEndpoint!: pulumi.Output<string | undefined>;
     /**
-     * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+     * The type of hypervisor environment used by the host.
+     */
+    public /*out*/ readonly hostEnvironment!: pulumi.Output<string>;
+    /**
+     * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
     public readonly mediumChangerType!: pulumi.Output<string | undefined>;
     /**
@@ -202,12 +206,16 @@ export class Gateway extends pulumi.CustomResource {
             inputs["averageDownloadRateLimitInBitsPerSec"] = state ? state.averageDownloadRateLimitInBitsPerSec : undefined;
             inputs["averageUploadRateLimitInBitsPerSec"] = state ? state.averageUploadRateLimitInBitsPerSec : undefined;
             inputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
+            inputs["ec2InstanceId"] = state ? state.ec2InstanceId : undefined;
+            inputs["endpointType"] = state ? state.endpointType : undefined;
             inputs["gatewayId"] = state ? state.gatewayId : undefined;
             inputs["gatewayIpAddress"] = state ? state.gatewayIpAddress : undefined;
             inputs["gatewayName"] = state ? state.gatewayName : undefined;
+            inputs["gatewayNetworkInterfaces"] = state ? state.gatewayNetworkInterfaces : undefined;
             inputs["gatewayTimezone"] = state ? state.gatewayTimezone : undefined;
             inputs["gatewayType"] = state ? state.gatewayType : undefined;
             inputs["gatewayVpcEndpoint"] = state ? state.gatewayVpcEndpoint : undefined;
+            inputs["hostEnvironment"] = state ? state.hostEnvironment : undefined;
             inputs["mediumChangerType"] = state ? state.mediumChangerType : undefined;
             inputs["smbActiveDirectorySettings"] = state ? state.smbActiveDirectorySettings : undefined;
             inputs["smbGuestPassword"] = state ? state.smbGuestPassword : undefined;
@@ -238,7 +246,11 @@ export class Gateway extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tapeDriveType"] = args ? args.tapeDriveType : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["ec2InstanceId"] = undefined /*out*/;
+            inputs["endpointType"] = undefined /*out*/;
             inputs["gatewayId"] = undefined /*out*/;
+            inputs["gatewayNetworkInterfaces"] = undefined /*out*/;
+            inputs["hostEnvironment"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -276,6 +288,14 @@ export interface GatewayState {
      */
     readonly cloudwatchLogGroupArn?: pulumi.Input<string>;
     /**
+     * The ID of the Amazon EC2 instance that was used to launch the gateway.
+     */
+    readonly ec2InstanceId?: pulumi.Input<string>;
+    /**
+     * The type of endpoint for your gateway.
+     */
+    readonly endpointType?: pulumi.Input<string>;
+    /**
      * Identifier of the gateway.
      */
     readonly gatewayId?: pulumi.Input<string>;
@@ -287,6 +307,10 @@ export interface GatewayState {
      * Name of the gateway.
      */
     readonly gatewayName?: pulumi.Input<string>;
+    /**
+     * An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
+     */
+    readonly gatewayNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.storagegateway.GatewayGatewayNetworkInterface>[]>;
     /**
      * Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
      */
@@ -300,7 +324,11 @@ export interface GatewayState {
      */
     readonly gatewayVpcEndpoint?: pulumi.Input<string>;
     /**
-     * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+     * The type of hypervisor environment used by the host.
+     */
+    readonly hostEnvironment?: pulumi.Input<string>;
+    /**
+     * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
     readonly mediumChangerType?: pulumi.Input<string>;
     /**
@@ -366,7 +394,7 @@ export interface GatewayArgs {
      */
     readonly gatewayVpcEndpoint?: pulumi.Input<string>;
     /**
-     * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+     * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
     readonly mediumChangerType?: pulumi.Input<string>;
     /**

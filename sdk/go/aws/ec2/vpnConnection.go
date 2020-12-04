@@ -123,7 +123,7 @@ type VpnConnection struct {
 	StaticRoutesOnly pulumi.BoolOutput `pulumi:"staticRoutesOnly"`
 	// Tags to apply to the connection.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
+	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the [`ec2.Tag` resource](https://www.terraform.io/docs/providers/aws/r/ec2_tag.html) for tagging the EC2 Transit Gateway VPN Attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
@@ -208,7 +208,7 @@ type vpnConnectionState struct {
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
 	// Tags to apply to the connection.
 	Tags map[string]string `pulumi:"tags"`
-	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
+	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the [`ec2.Tag` resource](https://www.terraform.io/docs/providers/aws/r/ec2_tag.html) for tagging the EC2 Transit Gateway VPN Attachment.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
@@ -259,7 +259,7 @@ type VpnConnectionState struct {
 	StaticRoutesOnly pulumi.BoolPtrInput
 	// Tags to apply to the connection.
 	Tags pulumi.StringMapInput
-	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
+	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the [`ec2.Tag` resource](https://www.terraform.io/docs/providers/aws/r/ec2_tag.html) for tagging the EC2 Transit Gateway VPN Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput

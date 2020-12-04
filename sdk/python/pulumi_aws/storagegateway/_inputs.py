@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'GatewayGatewayNetworkInterfaceArgs',
     'GatewaySmbActiveDirectorySettingsArgs',
     'NfsFileShareCacheAttributesArgs',
     'NfsFileShareNfsFileShareDefaultsArgs',
@@ -16,19 +17,59 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class GatewayGatewayNetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 ipv4_address: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] ipv4_address: The Internet Protocol version 4 (IPv4) address of the interface.
+        """
+        if ipv4_address is not None:
+            pulumi.set(__self__, "ipv4_address", ipv4_address)
+
+    @property
+    @pulumi.getter(name="ipv4Address")
+    def ipv4_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Internet Protocol version 4 (IPv4) address of the interface.
+        """
+        return pulumi.get(self, "ipv4_address")
+
+    @ipv4_address.setter
+    def ipv4_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_address", value)
+
+
+@pulumi.input_type
 class GatewaySmbActiveDirectorySettingsArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
                  password: pulumi.Input[str],
-                 username: pulumi.Input[str]):
+                 username: pulumi.Input[str],
+                 active_directory_status: Optional[pulumi.Input[str]] = None,
+                 domain_controllers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 organizational_unit: Optional[pulumi.Input[str]] = None,
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] domain_name: The name of the domain that you want the gateway to join.
         :param pulumi.Input[str] password: The password of the user who has permission to add the gateway to the Active Directory domain.
         :param pulumi.Input[str] username: The user name of user who has permission to add the gateway to the Active Directory domain.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_controllers: List of IPv4 addresses, NetBIOS names, or host names of your domain server.
+               If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
+        :param pulumi.Input[str] organizational_unit: The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
+               computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
+        :param pulumi.Input[int] timeout_in_seconds: Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
+        if active_directory_status is not None:
+            pulumi.set(__self__, "active_directory_status", active_directory_status)
+        if domain_controllers is not None:
+            pulumi.set(__self__, "domain_controllers", domain_controllers)
+        if organizational_unit is not None:
+            pulumi.set(__self__, "organizational_unit", organizational_unit)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter(name="domainName")
@@ -65,6 +106,53 @@ class GatewaySmbActiveDirectorySettingsArgs:
     @username.setter
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter(name="activeDirectoryStatus")
+    def active_directory_status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "active_directory_status")
+
+    @active_directory_status.setter
+    def active_directory_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "active_directory_status", value)
+
+    @property
+    @pulumi.getter(name="domainControllers")
+    def domain_controllers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of IPv4 addresses, NetBIOS names, or host names of your domain server.
+        If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
+        """
+        return pulumi.get(self, "domain_controllers")
+
+    @domain_controllers.setter
+    def domain_controllers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "domain_controllers", value)
+
+    @property
+    @pulumi.getter(name="organizationalUnit")
+    def organizational_unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
+        computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
+        """
+        return pulumi.get(self, "organizational_unit")
+
+    @organizational_unit.setter
+    def organizational_unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "organizational_unit", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_seconds", value)
 
 
 @pulumi.input_type

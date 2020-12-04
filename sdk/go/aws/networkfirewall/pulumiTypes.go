@@ -2521,19 +2521,18 @@ func (o RuleGroupRuleGroupRulesSourceStatefulRuleArrayOutput) Index(i pulumi.Int
 }
 
 type RuleGroupRuleGroupRulesSourceStatefulRuleHeader struct {
-	// The destination IP address or address range to inspect for, in CIDR notation. If left empty, this matches with any destination address.
-	Destination *string `pulumi:"destination"`
-	// The destination port to inspect for. If left empty, this matches with any port.
-	DestinationPort *string `pulumi:"destinationPort"`
+	// The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
+	Destination string `pulumi:"destination"`
+	// The destination port to inspect for. To match with any address, specify `ANY`.
+	DestinationPort string `pulumi:"destinationPort"`
 	// The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
 	Direction string `pulumi:"direction"`
-	// The protocol to inspect. If not specified, this matches with any protocol.
-	// Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
-	Protocol *string `pulumi:"protocol"`
-	// The source IP address or address range for, in CIDR notation. If left empty, this matches with any source address.
-	Source *string `pulumi:"source"`
-	// The source port to inspect for. If left empty, this matches with any port.
-	SourcePort *string `pulumi:"sourcePort"`
+	// The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
+	Protocol string `pulumi:"protocol"`
+	// The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
+	Source string `pulumi:"source"`
+	// The source port to inspect for. To match with any address, specify `ANY`.
+	SourcePort string `pulumi:"sourcePort"`
 }
 
 // RuleGroupRuleGroupRulesSourceStatefulRuleHeaderInput is an input type that accepts RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs and RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput values.
@@ -2548,19 +2547,18 @@ type RuleGroupRuleGroupRulesSourceStatefulRuleHeaderInput interface {
 }
 
 type RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs struct {
-	// The destination IP address or address range to inspect for, in CIDR notation. If left empty, this matches with any destination address.
-	Destination pulumi.StringPtrInput `pulumi:"destination"`
-	// The destination port to inspect for. If left empty, this matches with any port.
-	DestinationPort pulumi.StringPtrInput `pulumi:"destinationPort"`
+	// The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
+	Destination pulumi.StringInput `pulumi:"destination"`
+	// The destination port to inspect for. To match with any address, specify `ANY`.
+	DestinationPort pulumi.StringInput `pulumi:"destinationPort"`
 	// The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
 	Direction pulumi.StringInput `pulumi:"direction"`
-	// The protocol to inspect. If not specified, this matches with any protocol.
-	// Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// The source IP address or address range for, in CIDR notation. If left empty, this matches with any source address.
-	Source pulumi.StringPtrInput `pulumi:"source"`
-	// The source port to inspect for. If left empty, this matches with any port.
-	SourcePort pulumi.StringPtrInput `pulumi:"sourcePort"`
+	// The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
+	Source pulumi.StringInput `pulumi:"source"`
+	// The source port to inspect for. To match with any address, specify `ANY`.
+	SourcePort pulumi.StringInput `pulumi:"sourcePort"`
 }
 
 func (RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs) ElementType() reflect.Type {
@@ -2589,14 +2587,14 @@ func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) ToRuleGroupRuleGr
 	return o
 }
 
-// The destination IP address or address range to inspect for, in CIDR notation. If left empty, this matches with any destination address.
-func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) Destination() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatefulRuleHeader) *string { return v.Destination }).(pulumi.StringPtrOutput)
+// The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
+func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatefulRuleHeader) string { return v.Destination }).(pulumi.StringOutput)
 }
 
-// The destination port to inspect for. If left empty, this matches with any port.
-func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) DestinationPort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatefulRuleHeader) *string { return v.DestinationPort }).(pulumi.StringPtrOutput)
+// The destination port to inspect for. To match with any address, specify `ANY`.
+func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) DestinationPort() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatefulRuleHeader) string { return v.DestinationPort }).(pulumi.StringOutput)
 }
 
 // The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
@@ -2604,20 +2602,19 @@ func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) Direction() pulum
 	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatefulRuleHeader) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// The protocol to inspect. If not specified, this matches with any protocol.
-// Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
-func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatefulRuleHeader) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+// The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
+func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatefulRuleHeader) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// The source IP address or address range for, in CIDR notation. If left empty, this matches with any source address.
-func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) Source() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatefulRuleHeader) *string { return v.Source }).(pulumi.StringPtrOutput)
+// The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
+func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatefulRuleHeader) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// The source port to inspect for. If left empty, this matches with any port.
-func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) SourcePort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatefulRuleHeader) *string { return v.SourcePort }).(pulumi.StringPtrOutput)
+// The source port to inspect for. To match with any address, specify `ANY`.
+func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) SourcePort() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatefulRuleHeader) string { return v.SourcePort }).(pulumi.StringOutput)
 }
 
 type RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption struct {
@@ -3382,7 +3379,7 @@ type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRul
 	DestinationPorts []RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort `pulumi:"destinationPorts"`
 	// Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
 	Destinations []RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination `pulumi:"destinations"`
-	// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA).
+	// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
 	Protocols []int `pulumi:"protocols"`
 	// Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
 	SourcePorts []RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort `pulumi:"sourcePorts"`
@@ -3408,7 +3405,7 @@ type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRul
 	DestinationPorts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArrayInput `pulumi:"destinationPorts"`
 	// Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
 	Destinations RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayInput `pulumi:"destinations"`
-	// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA).
+	// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
 	Protocols pulumi.IntArrayInput `pulumi:"protocols"`
 	// Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
 	SourcePorts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArrayInput `pulumi:"sourcePorts"`
@@ -3458,7 +3455,7 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	}).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayOutput)
 }
 
-// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA).
+// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesOutput) Protocols() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes) []int {
 		return v.Protocols
@@ -3488,7 +3485,7 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination struct {
 	// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
-	AddressDefinition *string `pulumi:"addressDefinition"`
+	AddressDefinition string `pulumi:"addressDefinition"`
 }
 
 // RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationInput is an input type that accepts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs and RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationOutput values.
@@ -3504,7 +3501,7 @@ type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRul
 
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs struct {
 	// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
-	AddressDefinition pulumi.StringPtrInput `pulumi:"addressDefinition"`
+	AddressDefinition pulumi.StringInput `pulumi:"addressDefinition"`
 }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs) ElementType() reflect.Type {
@@ -3559,10 +3556,10 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 }
 
 // An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
-func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationOutput) AddressDefinition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination) *string {
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationOutput) AddressDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination) string {
 		return v.AddressDefinition
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.StringOutput)
 }
 
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayOutput struct{ *pulumi.OutputState }
@@ -3697,7 +3694,7 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource struct {
 	// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
-	AddressDefinition *string `pulumi:"addressDefinition"`
+	AddressDefinition string `pulumi:"addressDefinition"`
 }
 
 // RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceInput is an input type that accepts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs and RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceOutput values.
@@ -3713,7 +3710,7 @@ type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRul
 
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs struct {
 	// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
-	AddressDefinition pulumi.StringPtrInput `pulumi:"addressDefinition"`
+	AddressDefinition pulumi.StringInput `pulumi:"addressDefinition"`
 }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs) ElementType() reflect.Type {
@@ -3768,10 +3765,10 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 }
 
 // An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
-func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceOutput) AddressDefinition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource) *string {
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceOutput) AddressDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource) string {
 		return v.AddressDefinition
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.StringOutput)
 }
 
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArrayOutput struct{ *pulumi.OutputState }
@@ -3905,10 +3902,10 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 }
 
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag struct {
-	// Set of flags to look for in a packet. AWS Network Firewall checks only the part of the packet specified in `masks`.
+	// Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
 	// Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
 	Flags []string `pulumi:"flags"`
-	// Set of values describing the part of the packet that you want to check for the flags. To inspect the entire packet, leave this empty.
+	// Set of flags to consider in the inspection. To inspect all flags, leave this empty.
 	// Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
 	Masks []string `pulumi:"masks"`
 }
@@ -3925,10 +3922,10 @@ type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRul
 }
 
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs struct {
-	// Set of flags to look for in a packet. AWS Network Firewall checks only the part of the packet specified in `masks`.
+	// Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
 	// Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
 	Flags pulumi.StringArrayInput `pulumi:"flags"`
-	// Set of values describing the part of the packet that you want to check for the flags. To inspect the entire packet, leave this empty.
+	// Set of flags to consider in the inspection. To inspect all flags, leave this empty.
 	// Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
 	Masks pulumi.StringArrayInput `pulumi:"masks"`
 }
@@ -3984,7 +3981,7 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return o
 }
 
-// Set of flags to look for in a packet. AWS Network Firewall checks only the part of the packet specified in `masks`.
+// Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
 // Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagOutput) Flags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag) []string {
@@ -3992,7 +3989,7 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	}).(pulumi.StringArrayOutput)
 }
 
-// Set of values describing the part of the packet that you want to check for the flags. To inspect the entire packet, leave this empty.
+// Set of flags to consider in the inspection. To inspect all flags, leave this empty.
 // Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagOutput) Masks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag) []string {

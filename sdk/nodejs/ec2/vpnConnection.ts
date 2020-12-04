@@ -111,7 +111,7 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
+     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the [`aws.ec2.Tag` resource](https://www.terraform.io/docs/providers/aws/r/ec2_tag.html) for tagging the EC2 Transit Gateway VPN Attachment.
      */
     public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
@@ -292,7 +292,7 @@ export interface VpnConnectionState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
+     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the [`aws.ec2.Tag` resource](https://www.terraform.io/docs/providers/aws/r/ec2_tag.html) for tagging the EC2 Transit Gateway VPN Attachment.
      */
     readonly transitGatewayAttachmentId?: pulumi.Input<string>;
     /**

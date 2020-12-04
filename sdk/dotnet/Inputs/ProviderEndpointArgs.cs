@@ -156,6 +156,9 @@ namespace Pulumi.Aws.Inputs
         [Input("ecr")]
         public Input<string>? Ecr { get; set; }
 
+        [Input("ecrpublic")]
+        public Input<string>? Ecrpublic { get; set; }
+
         [Input("ecs")]
         public Input<string>? Ecs { get; set; }
 
@@ -299,6 +302,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("mq")]
         public Input<string>? Mq { get; set; }
+
+        [Input("mwaa")]
+        public Input<string>? Mwaa { get; set; }
 
         [Input("neptune")]
         public Input<string>? Neptune { get; set; }

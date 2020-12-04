@@ -206,7 +206,7 @@ export class Cluster extends pulumi.CustomResource {
      * retain automatic cache cluster snapshots before deleting them. For example, if you set
      * SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
      * before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-     * Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+     * Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
      */
     public readonly snapshotRetentionLimit!: pulumi.Output<number | undefined>;
     /**
@@ -418,7 +418,7 @@ export interface ClusterState {
      * retain automatic cache cluster snapshots before deleting them. For example, if you set
      * SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
      * before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-     * Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+     * Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
      */
     readonly snapshotRetentionLimit?: pulumi.Input<number>;
     /**
@@ -539,7 +539,7 @@ export interface ClusterArgs {
      * retain automatic cache cluster snapshots before deleting them. For example, if you set
      * SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
      * before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-     * Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+     * Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
      */
     readonly snapshotRetentionLimit?: pulumi.Input<number>;
     /**

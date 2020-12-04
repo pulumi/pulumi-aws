@@ -875,32 +875,50 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleArgs:
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs:
     def __init__(__self__, *,
+                 destination: pulumi.Input[str],
+                 destination_port: pulumi.Input[str],
                  direction: pulumi.Input[str],
-                 destination: Optional[pulumi.Input[str]] = None,
-                 destination_port: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[str]] = None,
-                 source_port: Optional[pulumi.Input[str]] = None):
+                 protocol: pulumi.Input[str],
+                 source: pulumi.Input[str],
+                 source_port: pulumi.Input[str]):
         """
+        :param pulumi.Input[str] destination: The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
+        :param pulumi.Input[str] destination_port: The destination port to inspect for. To match with any address, specify `ANY`.
         :param pulumi.Input[str] direction: The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
-        :param pulumi.Input[str] destination: The destination IP address or address range to inspect for, in CIDR notation. If left empty, this matches with any destination address.
-        :param pulumi.Input[str] destination_port: The destination port to inspect for. If left empty, this matches with any port.
-        :param pulumi.Input[str] protocol: The protocol to inspect. If not specified, this matches with any protocol.
-               Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
-        :param pulumi.Input[str] source: The source IP address or address range for, in CIDR notation. If left empty, this matches with any source address.
-        :param pulumi.Input[str] source_port: The source port to inspect for. If left empty, this matches with any port.
+        :param pulumi.Input[str] protocol: The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
+        :param pulumi.Input[str] source: The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
+        :param pulumi.Input[str] source_port: The source port to inspect for. To match with any address, specify `ANY`.
         """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination_port", destination_port)
         pulumi.set(__self__, "direction", direction)
-        if destination is not None:
-            pulumi.set(__self__, "destination", destination)
-        if destination_port is not None:
-            pulumi.set(__self__, "destination_port", destination_port)
-        if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
-        if source is not None:
-            pulumi.set(__self__, "source", source)
-        if source_port is not None:
-            pulumi.set(__self__, "source_port", source_port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "source_port", source_port)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input[str]:
+        """
+        The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="destinationPort")
+    def destination_port(self) -> pulumi.Input[str]:
+        """
+        The destination port to inspect for. To match with any address, specify `ANY`.
+        """
+        return pulumi.get(self, "destination_port")
+
+    @destination_port.setter
+    def destination_port(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_port", value)
 
     @property
     @pulumi.getter
@@ -916,63 +934,38 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs:
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[str]]:
+    def protocol(self) -> pulumi.Input[str]:
         """
-        The destination IP address or address range to inspect for, in CIDR notation. If left empty, this matches with any destination address.
-        """
-        return pulumi.get(self, "destination")
-
-    @destination.setter
-    def destination(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "destination", value)
-
-    @property
-    @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[pulumi.Input[str]]:
-        """
-        The destination port to inspect for. If left empty, this matches with any port.
-        """
-        return pulumi.get(self, "destination_port")
-
-    @destination_port.setter
-    def destination_port(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "destination_port", value)
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[str]]:
-        """
-        The protocol to inspect. If not specified, this matches with any protocol.
-        Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
+        The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[str]]):
+    def protocol(self, value: pulumi.Input[str]):
         pulumi.set(self, "protocol", value)
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[str]]:
+    def source(self) -> pulumi.Input[str]:
         """
-        The source IP address or address range for, in CIDR notation. If left empty, this matches with any source address.
+        The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[str]]):
+    def source(self, value: pulumi.Input[str]):
         pulumi.set(self, "source", value)
 
     @property
     @pulumi.getter(name="sourcePort")
-    def source_port(self) -> Optional[pulumi.Input[str]]:
+    def source_port(self) -> pulumi.Input[str]:
         """
-        The source port to inspect for. If left empty, this matches with any port.
+        The source port to inspect for. To match with any address, specify `ANY`.
         """
         return pulumi.get(self, "source_port")
 
     @source_port.setter
-    def source_port(self, value: Optional[pulumi.Input[str]]):
+    def source_port(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_port", value)
 
 
@@ -1243,7 +1236,7 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         """
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs']]] destination_ports: Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Port below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs']]] destinations: Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] protocols: Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA).
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] protocols: Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs']]] source_ports: Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs']]] sources: Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs']]] tcp_flags: Set of configuration blocks containing the TCP flags and masks to inspect for. If not specified, this matches with any settings.
@@ -1289,7 +1282,7 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
-        Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA).
+        Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
         """
         return pulumi.get(self, "protocols")
 
@@ -1337,23 +1330,22 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs:
     def __init__(__self__, *,
-                 address_definition: Optional[pulumi.Input[str]] = None):
+                 address_definition: pulumi.Input[str]):
         """
         :param pulumi.Input[str] address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
         """
-        if address_definition is not None:
-            pulumi.set(__self__, "address_definition", address_definition)
+        pulumi.set(__self__, "address_definition", address_definition)
 
     @property
     @pulumi.getter(name="addressDefinition")
-    def address_definition(self) -> Optional[pulumi.Input[str]]:
+    def address_definition(self) -> pulumi.Input[str]:
         """
         An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
         """
         return pulumi.get(self, "address_definition")
 
     @address_definition.setter
-    def address_definition(self, value: Optional[pulumi.Input[str]]):
+    def address_definition(self, value: pulumi.Input[str]):
         pulumi.set(self, "address_definition", value)
 
 
@@ -1398,23 +1390,22 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs:
     def __init__(__self__, *,
-                 address_definition: Optional[pulumi.Input[str]] = None):
+                 address_definition: pulumi.Input[str]):
         """
         :param pulumi.Input[str] address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
         """
-        if address_definition is not None:
-            pulumi.set(__self__, "address_definition", address_definition)
+        pulumi.set(__self__, "address_definition", address_definition)
 
     @property
     @pulumi.getter(name="addressDefinition")
-    def address_definition(self) -> Optional[pulumi.Input[str]]:
+    def address_definition(self) -> pulumi.Input[str]:
         """
         An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
         """
         return pulumi.get(self, "address_definition")
 
     @address_definition.setter
-    def address_definition(self, value: Optional[pulumi.Input[str]]):
+    def address_definition(self, value: pulumi.Input[str]):
         pulumi.set(self, "address_definition", value)
 
 
@@ -1462,9 +1453,9 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
                  flags: pulumi.Input[Sequence[pulumi.Input[str]]],
                  masks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] flags: Set of flags to look for in a packet. AWS Network Firewall checks only the part of the packet specified in `masks`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] flags: Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
                Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] masks: Set of values describing the part of the packet that you want to check for the flags. To inspect the entire packet, leave this empty.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] masks: Set of flags to consider in the inspection. To inspect all flags, leave this empty.
                Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
         """
         pulumi.set(__self__, "flags", flags)
@@ -1475,7 +1466,7 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @pulumi.getter
     def flags(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Set of flags to look for in a packet. AWS Network Firewall checks only the part of the packet specified in `masks`.
+        Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
         Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
         """
         return pulumi.get(self, "flags")
@@ -1488,7 +1479,7 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @pulumi.getter
     def masks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Set of values describing the part of the packet that you want to check for the flags. To inspect the entire packet, leave this empty.
+        Set of flags to consider in the inspection. To inspect all flags, leave this empty.
         Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
         """
         return pulumi.get(self, "masks")

@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Get information on an EC2 Transit Gateway VPN Attachment.
  *
+ * > EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the [`aws.ec2.VpnConnection` resource](https://www.terraform.io/docs/providers/aws/r/vpn_connection.html) includes a `transitGatewayAttachmentId` attribute which can replace some usage of this data source. For tagging the attachment, see the [`aws.ec2.Tag` resource](https://www.terraform.io/docs/providers/aws/r/ec2_tag.html).
+ *
  * ## Example Usage
  * ### By Transit Gateway and VPN Connection Identifiers
  *

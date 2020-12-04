@@ -110,19 +110,7 @@ namespace Pulumi.Aws.StorageGateway
     ///  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
     /// ```
     /// 
-    ///  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Terraform configuration or use [`ignore_changes`](/docs/configuration/resources.html#ignore_changes) to hide the difference, e.g. hcl resource "aws_storagegateway_gateway" "example" {
-    /// 
-    /// # ... other configuration ...
-    /// 
-    ///  gateway_ip_address = aws_instance.sgw.private_ip
-    /// 
-    /// # There is no Storage Gateway API for reading gateway_ip_address
-    /// 
-    ///  lifecycle {
-    /// 
-    ///  ignore_changes = ["gateway_ip_address"]
-    /// 
-    ///  } }
+    ///  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference.
     /// </summary>
     public partial class Gateway : Pulumi.CustomResource
     {
@@ -157,6 +145,18 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> CloudwatchLogGroupArn { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Amazon EC2 instance that was used to launch the gateway.
+        /// </summary>
+        [Output("ec2InstanceId")]
+        public Output<string> Ec2InstanceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of endpoint for your gateway.
+        /// </summary>
+        [Output("endpointType")]
+        public Output<string> EndpointType { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier of the gateway.
         /// </summary>
         [Output("gatewayId")]
@@ -173,6 +173,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Output("gatewayName")]
         public Output<string> GatewayName { get; private set; } = null!;
+
+        /// <summary>
+        /// An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
+        /// </summary>
+        [Output("gatewayNetworkInterfaces")]
+        public Output<ImmutableArray<Outputs.GatewayGatewayNetworkInterface>> GatewayNetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
         /// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
@@ -193,7 +199,13 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> GatewayVpcEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+        /// The type of hypervisor environment used by the host.
+        /// </summary>
+        [Output("hostEnvironment")]
+        public Output<string> HostEnvironment { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         /// </summary>
         [Output("mediumChangerType")]
         public Output<string?> MediumChangerType { get; private set; } = null!;
@@ -329,7 +341,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? GatewayVpcEndpoint { get; set; }
 
         /// <summary>
-        /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+        /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         /// </summary>
         [Input("mediumChangerType")]
         public Input<string>? MediumChangerType { get; set; }
@@ -408,6 +420,18 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? CloudwatchLogGroupArn { get; set; }
 
         /// <summary>
+        /// The ID of the Amazon EC2 instance that was used to launch the gateway.
+        /// </summary>
+        [Input("ec2InstanceId")]
+        public Input<string>? Ec2InstanceId { get; set; }
+
+        /// <summary>
+        /// The type of endpoint for your gateway.
+        /// </summary>
+        [Input("endpointType")]
+        public Input<string>? EndpointType { get; set; }
+
+        /// <summary>
         /// Identifier of the gateway.
         /// </summary>
         [Input("gatewayId")]
@@ -424,6 +448,18 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("gatewayName")]
         public Input<string>? GatewayName { get; set; }
+
+        [Input("gatewayNetworkInterfaces")]
+        private InputList<Inputs.GatewayGatewayNetworkInterfaceGetArgs>? _gatewayNetworkInterfaces;
+
+        /// <summary>
+        /// An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
+        /// </summary>
+        public InputList<Inputs.GatewayGatewayNetworkInterfaceGetArgs> GatewayNetworkInterfaces
+        {
+            get => _gatewayNetworkInterfaces ?? (_gatewayNetworkInterfaces = new InputList<Inputs.GatewayGatewayNetworkInterfaceGetArgs>());
+            set => _gatewayNetworkInterfaces = value;
+        }
 
         /// <summary>
         /// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
@@ -444,7 +480,13 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? GatewayVpcEndpoint { get; set; }
 
         /// <summary>
-        /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+        /// The type of hypervisor environment used by the host.
+        /// </summary>
+        [Input("hostEnvironment")]
+        public Input<string>? HostEnvironment { get; set; }
+
+        /// <summary>
+        /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         /// </summary>
         [Input("mediumChangerType")]
         public Input<string>? MediumChangerType { get; set; }

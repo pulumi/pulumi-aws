@@ -13,16 +13,16 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     public sealed class RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The destination IP address or address range to inspect for, in CIDR notation. If left empty, this matches with any destination address.
+        /// The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
         /// </summary>
-        [Input("destination")]
-        public Input<string>? Destination { get; set; }
+        [Input("destination", required: true)]
+        public Input<string> Destination { get; set; } = null!;
 
         /// <summary>
-        /// The destination port to inspect for. If left empty, this matches with any port.
+        /// The destination port to inspect for. To match with any address, specify `ANY`.
         /// </summary>
-        [Input("destinationPort")]
-        public Input<string>? DestinationPort { get; set; }
+        [Input("destinationPort", required: true)]
+        public Input<string> DestinationPort { get; set; } = null!;
 
         /// <summary>
         /// The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
@@ -31,23 +31,22 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public Input<string> Direction { get; set; } = null!;
 
         /// <summary>
-        /// The protocol to inspect. If not specified, this matches with any protocol.
-        /// Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
+        /// The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
         /// </summary>
-        [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        [Input("protocol", required: true)]
+        public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// The source IP address or address range for, in CIDR notation. If left empty, this matches with any source address.
+        /// The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
         /// </summary>
-        [Input("source")]
-        public Input<string>? Source { get; set; }
+        [Input("source", required: true)]
+        public Input<string> Source { get; set; } = null!;
 
         /// <summary>
-        /// The source port to inspect for. If left empty, this matches with any port.
+        /// The source port to inspect for. To match with any address, specify `ANY`.
         /// </summary>
-        [Input("sourcePort")]
-        public Input<string>? SourcePort { get; set; }
+        [Input("sourcePort", required: true)]
+        public Input<string> SourcePort { get; set; } = null!;
 
         public RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs()
         {
