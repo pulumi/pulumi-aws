@@ -290,6 +290,7 @@ type ProviderEndpoint struct {
 	Dynamodb                 *string `pulumi:"dynamodb"`
 	Ec2                      *string `pulumi:"ec2"`
 	Ecr                      *string `pulumi:"ecr"`
+	Ecrpublic                *string `pulumi:"ecrpublic"`
 	Ecs                      *string `pulumi:"ecs"`
 	Efs                      *string `pulumi:"efs"`
 	Eks                      *string `pulumi:"eks"`
@@ -338,6 +339,7 @@ type ProviderEndpoint struct {
 	Mediastore               *string `pulumi:"mediastore"`
 	Mediastoredata           *string `pulumi:"mediastoredata"`
 	Mq                       *string `pulumi:"mq"`
+	Mwaa                     *string `pulumi:"mwaa"`
 	Neptune                  *string `pulumi:"neptune"`
 	Networkfirewall          *string `pulumi:"networkfirewall"`
 	Networkmanager           *string `pulumi:"networkmanager"`
@@ -451,6 +453,7 @@ type ProviderEndpointArgs struct {
 	Dynamodb                 pulumi.StringPtrInput `pulumi:"dynamodb"`
 	Ec2                      pulumi.StringPtrInput `pulumi:"ec2"`
 	Ecr                      pulumi.StringPtrInput `pulumi:"ecr"`
+	Ecrpublic                pulumi.StringPtrInput `pulumi:"ecrpublic"`
 	Ecs                      pulumi.StringPtrInput `pulumi:"ecs"`
 	Efs                      pulumi.StringPtrInput `pulumi:"efs"`
 	Eks                      pulumi.StringPtrInput `pulumi:"eks"`
@@ -499,6 +502,7 @@ type ProviderEndpointArgs struct {
 	Mediastore               pulumi.StringPtrInput `pulumi:"mediastore"`
 	Mediastoredata           pulumi.StringPtrInput `pulumi:"mediastoredata"`
 	Mq                       pulumi.StringPtrInput `pulumi:"mq"`
+	Mwaa                     pulumi.StringPtrInput `pulumi:"mwaa"`
 	Neptune                  pulumi.StringPtrInput `pulumi:"neptune"`
 	Networkfirewall          pulumi.StringPtrInput `pulumi:"networkfirewall"`
 	Networkmanager           pulumi.StringPtrInput `pulumi:"networkmanager"`
@@ -795,6 +799,10 @@ func (o ProviderEndpointOutput) Ecr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Ecr }).(pulumi.StringPtrOutput)
 }
 
+func (o ProviderEndpointOutput) Ecrpublic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Ecrpublic }).(pulumi.StringPtrOutput)
+}
+
 func (o ProviderEndpointOutput) Ecs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Ecs }).(pulumi.StringPtrOutput)
 }
@@ -985,6 +993,10 @@ func (o ProviderEndpointOutput) Mediastoredata() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Mq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Mq }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Mwaa() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Mwaa }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Neptune() pulumi.StringPtrOutput {

@@ -146,10 +146,10 @@ namespace Pulumi.Aws.Eks
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Type of capacity associated with the EKS Node Group. Defaults to `ON_DEMAND`. Valid values: `ON_DEMAND`, `SPOT`.
+        /// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("capacityType")]
-        public Output<string?> CapacityType { get; private set; } = null!;
+        public Output<string> CapacityType { get; private set; } = null!;
 
         /// <summary>
         /// Name of the EKS Cluster.
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? AmiType { get; set; }
 
         /// <summary>
-        /// Type of capacity associated with the EKS Node Group. Defaults to `ON_DEMAND`. Valid values: `ON_DEMAND`, `SPOT`.
+        /// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("capacityType")]
         public Input<string>? CapacityType { get; set; }
@@ -433,7 +433,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Type of capacity associated with the EKS Node Group. Defaults to `ON_DEMAND`. Valid values: `ON_DEMAND`, `SPOT`.
+        /// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("capacityType")]
         public Input<string>? CapacityType { get; set; }

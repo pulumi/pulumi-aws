@@ -175,6 +175,7 @@ class ProviderEndpointArgs:
                  dynamodb: Optional[pulumi.Input[str]] = None,
                  ec2: Optional[pulumi.Input[str]] = None,
                  ecr: Optional[pulumi.Input[str]] = None,
+                 ecrpublic: Optional[pulumi.Input[str]] = None,
                  ecs: Optional[pulumi.Input[str]] = None,
                  efs: Optional[pulumi.Input[str]] = None,
                  eks: Optional[pulumi.Input[str]] = None,
@@ -223,6 +224,7 @@ class ProviderEndpointArgs:
                  mediastore: Optional[pulumi.Input[str]] = None,
                  mediastoredata: Optional[pulumi.Input[str]] = None,
                  mq: Optional[pulumi.Input[str]] = None,
+                 mwaa: Optional[pulumi.Input[str]] = None,
                  neptune: Optional[pulumi.Input[str]] = None,
                  networkfirewall: Optional[pulumi.Input[str]] = None,
                  networkmanager: Optional[pulumi.Input[str]] = None,
@@ -370,6 +372,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "ec2", ec2)
         if ecr is not None:
             pulumi.set(__self__, "ecr", ecr)
+        if ecrpublic is not None:
+            pulumi.set(__self__, "ecrpublic", ecrpublic)
         if ecs is not None:
             pulumi.set(__self__, "ecs", ecs)
         if efs is not None:
@@ -466,6 +470,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "mediastoredata", mediastoredata)
         if mq is not None:
             pulumi.set(__self__, "mq", mq)
+        if mwaa is not None:
+            pulumi.set(__self__, "mwaa", mwaa)
         if neptune is not None:
             pulumi.set(__self__, "neptune", neptune)
         if networkfirewall is not None:
@@ -1003,6 +1009,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def ecrpublic(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ecrpublic")
+
+    @ecrpublic.setter
+    def ecrpublic(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ecrpublic", value)
+
+    @property
+    @pulumi.getter
     def ecs(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "ecs")
 
@@ -1432,6 +1447,15 @@ class ProviderEndpointArgs:
     @mq.setter
     def mq(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mq", value)
+
+    @property
+    @pulumi.getter
+    def mwaa(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "mwaa")
+
+    @mwaa.setter
+    def mwaa(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mwaa", value)
 
     @property
     @pulumi.getter

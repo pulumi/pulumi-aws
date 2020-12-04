@@ -14,44 +14,43 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class RuleGroupRuleGroupRulesSourceStatefulRuleHeader
     {
         /// <summary>
-        /// The destination IP address or address range to inspect for, in CIDR notation. If left empty, this matches with any destination address.
+        /// The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
         /// </summary>
-        public readonly string? Destination;
+        public readonly string Destination;
         /// <summary>
-        /// The destination port to inspect for. If left empty, this matches with any port.
+        /// The destination port to inspect for. To match with any address, specify `ANY`.
         /// </summary>
-        public readonly string? DestinationPort;
+        public readonly string DestinationPort;
         /// <summary>
         /// The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
         /// </summary>
         public readonly string Direction;
         /// <summary>
-        /// The protocol to inspect. If not specified, this matches with any protocol.
-        /// Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
+        /// The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
         /// </summary>
-        public readonly string? Protocol;
+        public readonly string Protocol;
         /// <summary>
-        /// The source IP address or address range for, in CIDR notation. If left empty, this matches with any source address.
+        /// The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
         /// </summary>
-        public readonly string? Source;
+        public readonly string Source;
         /// <summary>
-        /// The source port to inspect for. If left empty, this matches with any port.
+        /// The source port to inspect for. To match with any address, specify `ANY`.
         /// </summary>
-        public readonly string? SourcePort;
+        public readonly string SourcePort;
 
         [OutputConstructor]
         private RuleGroupRuleGroupRulesSourceStatefulRuleHeader(
-            string? destination,
+            string destination,
 
-            string? destinationPort,
+            string destinationPort,
 
             string direction,
 
-            string? protocol,
+            string protocol,
 
-            string? source,
+            string source,
 
-            string? sourcePort)
+            string sourcePort)
         {
             Destination = destination;
             DestinationPort = destinationPort;

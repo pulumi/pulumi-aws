@@ -148,6 +148,7 @@ class ProviderEndpoint(dict):
                  dynamodb: Optional[str] = None,
                  ec2: Optional[str] = None,
                  ecr: Optional[str] = None,
+                 ecrpublic: Optional[str] = None,
                  ecs: Optional[str] = None,
                  efs: Optional[str] = None,
                  eks: Optional[str] = None,
@@ -196,6 +197,7 @@ class ProviderEndpoint(dict):
                  mediastore: Optional[str] = None,
                  mediastoredata: Optional[str] = None,
                  mq: Optional[str] = None,
+                 mwaa: Optional[str] = None,
                  neptune: Optional[str] = None,
                  networkfirewall: Optional[str] = None,
                  networkmanager: Optional[str] = None,
@@ -343,6 +345,8 @@ class ProviderEndpoint(dict):
             pulumi.set(__self__, "ec2", ec2)
         if ecr is not None:
             pulumi.set(__self__, "ecr", ecr)
+        if ecrpublic is not None:
+            pulumi.set(__self__, "ecrpublic", ecrpublic)
         if ecs is not None:
             pulumi.set(__self__, "ecs", ecs)
         if efs is not None:
@@ -439,6 +443,8 @@ class ProviderEndpoint(dict):
             pulumi.set(__self__, "mediastoredata", mediastoredata)
         if mq is not None:
             pulumi.set(__self__, "mq", mq)
+        if mwaa is not None:
+            pulumi.set(__self__, "mwaa", mwaa)
         if neptune is not None:
             pulumi.set(__self__, "neptune", neptune)
         if networkfirewall is not None:
@@ -784,6 +790,11 @@ class ProviderEndpoint(dict):
 
     @property
     @pulumi.getter
+    def ecrpublic(self) -> Optional[str]:
+        return pulumi.get(self, "ecrpublic")
+
+    @property
+    @pulumi.getter
     def ecs(self) -> Optional[str]:
         return pulumi.get(self, "ecs")
 
@@ -1021,6 +1032,11 @@ class ProviderEndpoint(dict):
     @pulumi.getter
     def mq(self) -> Optional[str]:
         return pulumi.get(self, "mq")
+
+    @property
+    @pulumi.getter
+    def mwaa(self) -> Optional[str]:
+        return pulumi.get(self, "mwaa")
 
     @property
     @pulumi.getter

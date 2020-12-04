@@ -117,7 +117,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastProcessingResult!: pulumi.Output<string>;
     /**
-     * The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+     * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function.
      */
     public readonly maximumBatchingWindowInSeconds!: pulumi.Output<number | undefined>;
     public readonly maximumRecordAgeInSeconds!: pulumi.Output<number>;
@@ -252,7 +252,7 @@ export interface EventSourceMappingState {
      */
     readonly lastProcessingResult?: pulumi.Input<string>;
     /**
-     * The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+     * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function.
      */
     readonly maximumBatchingWindowInSeconds?: pulumi.Input<number>;
     readonly maximumRecordAgeInSeconds?: pulumi.Input<number>;
@@ -308,7 +308,7 @@ export interface EventSourceMappingArgs {
      */
     readonly functionName: pulumi.Input<string>;
     /**
-     * The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+     * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function.
      */
     readonly maximumBatchingWindowInSeconds?: pulumi.Input<number>;
     readonly maximumRecordAgeInSeconds?: pulumi.Input<number>;

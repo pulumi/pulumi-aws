@@ -119,9 +119,9 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Type of capacity associated with the EKS Node Group. Defaults to `ON_DEMAND`. Valid values: `ON_DEMAND`, `SPOT`.
+     * Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
      */
-    public readonly capacityType!: pulumi.Output<string | undefined>;
+    public readonly capacityType!: pulumi.Output<string>;
     /**
      * Name of the EKS Cluster.
      */
@@ -276,7 +276,7 @@ export interface NodeGroupState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Type of capacity associated with the EKS Node Group. Defaults to `ON_DEMAND`. Valid values: `ON_DEMAND`, `SPOT`.
+     * Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
      */
     readonly capacityType?: pulumi.Input<string>;
     /**
@@ -354,7 +354,7 @@ export interface NodeGroupArgs {
      */
     readonly amiType?: pulumi.Input<string>;
     /**
-     * Type of capacity associated with the EKS Node Group. Defaults to `ON_DEMAND`. Valid values: `ON_DEMAND`, `SPOT`.
+     * Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
      */
     readonly capacityType?: pulumi.Input<string>;
     /**

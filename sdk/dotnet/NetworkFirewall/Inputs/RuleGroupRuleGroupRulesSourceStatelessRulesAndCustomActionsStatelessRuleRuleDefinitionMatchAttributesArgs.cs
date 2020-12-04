@@ -40,7 +40,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         private InputList<int>? _protocols;
 
         /// <summary>
-        /// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA).
+        /// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
         /// </summary>
         public InputList<int> Protocols
         {

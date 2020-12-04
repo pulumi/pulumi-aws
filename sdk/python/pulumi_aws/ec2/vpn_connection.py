@@ -188,7 +188,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection.
-        :param pulumi.Input[str] transit_gateway_attachment_id: When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
+        :param pulumi.Input[str] transit_gateway_attachment_id: When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the [`ec2.Tag` resource](https://www.terraform.io/docs/providers/aws/r/ec2_tag.html) for tagging the EC2 Transit Gateway VPN Attachment.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[str] tunnel1_address: The public IP address of the first VPN tunnel.
         :param pulumi.Input[str] tunnel1_bgp_asn: The bgp asn number of the first VPN tunnel.
@@ -287,7 +287,7 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
         """
-        When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
+        When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the [`ec2.Tag` resource](https://www.terraform.io/docs/providers/aws/r/ec2_tag.html) for tagging the EC2 Transit Gateway VPN Attachment.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 

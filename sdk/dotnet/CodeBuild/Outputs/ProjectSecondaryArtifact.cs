@@ -46,7 +46,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
+        /// The build output artifact's type. The only valid value is `S3`.
         /// </summary>
         public readonly string Type;
 

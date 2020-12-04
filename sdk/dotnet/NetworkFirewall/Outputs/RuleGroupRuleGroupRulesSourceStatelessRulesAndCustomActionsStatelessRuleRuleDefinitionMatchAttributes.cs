@@ -22,7 +22,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination> Destinations;
         /// <summary>
-        /// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA).
+        /// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
         /// </summary>
         public readonly ImmutableArray<int> Protocols;
         /// <summary>

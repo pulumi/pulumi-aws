@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
+        /// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the [`aws.ec2.Tag` resource](https://www.terraform.io/docs/providers/aws/r/ec2_tag.html) for tagging the EC2 Transit Gateway VPN Attachment.
         /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
+        /// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the [`aws.ec2.Tag` resource](https://www.terraform.io/docs/providers/aws/r/ec2_tag.html) for tagging the EC2 Transit Gateway VPN Attachment.
         /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
