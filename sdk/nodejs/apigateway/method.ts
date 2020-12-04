@@ -166,16 +166,16 @@ export class Method extends pulumi.CustomResource {
             inputs["restApi"] = state ? state.restApi : undefined;
         } else {
             const args = argsOrState as MethodArgs | undefined;
-            if (!args || args.authorization === undefined) {
+            if ((!args || args.authorization === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorization'");
             }
-            if (!args || args.httpMethod === undefined) {
+            if ((!args || args.httpMethod === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if (!args || args.resourceId === undefined) {
+            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (!args || args.restApi === undefined) {
+            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'restApi'");
             }
             inputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;

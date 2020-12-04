@@ -136,13 +136,13 @@ export class FargateProfile extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FargateProfileArgs | undefined;
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.podExecutionRoleArn === undefined) {
+            if ((!args || args.podExecutionRoleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'podExecutionRoleArn'");
             }
-            if (!args || args.selectors === undefined) {
+            if ((!args || args.selectors === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'selectors'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;

@@ -103,13 +103,13 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as AppCookieStickinessPolicyArgs | undefined;
-            if (!args || args.cookieName === undefined) {
+            if ((!args || args.cookieName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cookieName'");
             }
-            if (!args || args.lbPort === undefined) {
+            if ((!args || args.lbPort === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lbPort'");
             }
-            if (!args || args.loadBalancer === undefined) {
+            if ((!args || args.loadBalancer === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
             inputs["cookieName"] = args ? args.cookieName : undefined;

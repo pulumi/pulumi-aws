@@ -82,10 +82,10 @@ export class ListenerCertificate extends pulumi.CustomResource {
             inputs["listenerArn"] = state ? state.listenerArn : undefined;
         } else {
             const args = argsOrState as ListenerCertificateArgs | undefined;
-            if (!args || args.certificateArn === undefined) {
+            if ((!args || args.certificateArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificateArn'");
             }
-            if (!args || args.listenerArn === undefined) {
+            if ((!args || args.listenerArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'listenerArn'");
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;

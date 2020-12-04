@@ -157,10 +157,10 @@ export class Repository extends pulumi.CustomResource {
             inputs["upstreams"] = state ? state.upstreams : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
-            if (!args || args.domain === undefined) {
+            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domain'");
             }
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["description"] = args ? args.description : undefined;

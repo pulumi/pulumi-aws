@@ -156,7 +156,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
             inputs["trafficRoutingConfig"] = state ? state.trafficRoutingConfig : undefined;
         } else {
             const args = argsOrState as DeploymentConfigArgs | undefined;
-            if (!args || args.deploymentConfigName === undefined) {
+            if ((!args || args.deploymentConfigName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deploymentConfigName'");
             }
             inputs["computePlatform"] = args ? args.computePlatform : undefined;

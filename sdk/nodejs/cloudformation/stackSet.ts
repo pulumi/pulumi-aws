@@ -174,7 +174,7 @@ export class StackSet extends pulumi.CustomResource {
             inputs["templateUrl"] = state ? state.templateUrl : undefined;
         } else {
             const args = argsOrState as StackSetArgs | undefined;
-            if (!args || args.administrationRoleArn === undefined) {
+            if ((!args || args.administrationRoleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'administrationRoleArn'");
             }
             inputs["administrationRoleArn"] = args ? args.administrationRoleArn : undefined;

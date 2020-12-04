@@ -114,13 +114,13 @@ export class Partition extends pulumi.CustomResource {
             inputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as PartitionArgs | undefined;
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.partitionValues === undefined) {
+            if ((!args || args.partitionValues === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'partitionValues'");
             }
-            if (!args || args.tableName === undefined) {
+            if ((!args || args.tableName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tableName'");
             }
             inputs["catalogId"] = args ? args.catalogId : undefined;

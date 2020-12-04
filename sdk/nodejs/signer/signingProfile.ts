@@ -134,7 +134,7 @@ export class SigningProfile extends pulumi.CustomResource {
             inputs["versionArn"] = state ? state.versionArn : undefined;
         } else {
             const args = argsOrState as SigningProfileArgs | undefined;
-            if (!args || args.platformId === undefined) {
+            if ((!args || args.platformId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'platformId'");
             }
             inputs["name"] = args ? args.name : undefined;

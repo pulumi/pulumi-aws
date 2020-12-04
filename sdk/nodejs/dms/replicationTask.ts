@@ -130,22 +130,22 @@ export class ReplicationTask extends pulumi.CustomResource {
             inputs["targetEndpointArn"] = state ? state.targetEndpointArn : undefined;
         } else {
             const args = argsOrState as ReplicationTaskArgs | undefined;
-            if (!args || args.migrationType === undefined) {
+            if ((!args || args.migrationType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'migrationType'");
             }
-            if (!args || args.replicationInstanceArn === undefined) {
+            if ((!args || args.replicationInstanceArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'replicationInstanceArn'");
             }
-            if (!args || args.replicationTaskId === undefined) {
+            if ((!args || args.replicationTaskId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'replicationTaskId'");
             }
-            if (!args || args.sourceEndpointArn === undefined) {
+            if ((!args || args.sourceEndpointArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceEndpointArn'");
             }
-            if (!args || args.tableMappings === undefined) {
+            if ((!args || args.tableMappings === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tableMappings'");
             }
-            if (!args || args.targetEndpointArn === undefined) {
+            if ((!args || args.targetEndpointArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetEndpointArn'");
             }
             inputs["cdcStartTime"] = args ? args.cdcStartTime : undefined;

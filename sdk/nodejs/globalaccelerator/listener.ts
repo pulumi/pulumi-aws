@@ -105,13 +105,13 @@ export class Listener extends pulumi.CustomResource {
             inputs["protocol"] = state ? state.protocol : undefined;
         } else {
             const args = argsOrState as ListenerArgs | undefined;
-            if (!args || args.acceleratorArn === undefined) {
+            if ((!args || args.acceleratorArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'acceleratorArn'");
             }
-            if (!args || args.portRanges === undefined) {
+            if ((!args || args.portRanges === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'portRanges'");
             }
-            if (!args || args.protocol === undefined) {
+            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'protocol'");
             }
             inputs["acceleratorArn"] = args ? args.acceleratorArn : undefined;

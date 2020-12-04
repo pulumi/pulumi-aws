@@ -89,10 +89,10 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
             inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as VpnGatewayAttachmentArgs | undefined;
-            if (!args || args.vpcId === undefined) {
+            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            if (!args || args.vpnGatewayId === undefined) {
+            if ((!args || args.vpnGatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
             inputs["vpcId"] = args ? args.vpcId : undefined;

@@ -100,7 +100,7 @@ export class SecurityGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SecurityGroupArgs | undefined;
-            if (!args || args.ingress === undefined) {
+            if ((!args || args.ingress === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ingress'");
             }
             inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";

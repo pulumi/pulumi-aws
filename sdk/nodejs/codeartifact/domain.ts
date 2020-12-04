@@ -111,10 +111,10 @@ export class Domain extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            if (!args || args.domain === undefined) {
+            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domain'");
             }
-            if (!args || args.encryptionKey === undefined) {
+            if ((!args || args.encryptionKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'encryptionKey'");
             }
             inputs["domain"] = args ? args.domain : undefined;

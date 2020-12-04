@@ -119,7 +119,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ClusterParameterGroupArgs | undefined;
-            if (!args || args.family === undefined) {
+            if ((!args || args.family === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'family'");
             }
             inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";

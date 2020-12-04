@@ -160,16 +160,16 @@ export class Function extends pulumi.CustomResource {
             inputs["responseMappingTemplate"] = state ? state.responseMappingTemplate : undefined;
         } else {
             const args = argsOrState as FunctionArgs | undefined;
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.dataSource === undefined) {
+            if ((!args || args.dataSource === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            if (!args || args.requestMappingTemplate === undefined) {
+            if ((!args || args.requestMappingTemplate === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'requestMappingTemplate'");
             }
-            if (!args || args.responseMappingTemplate === undefined) {
+            if ((!args || args.responseMappingTemplate === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'responseMappingTemplate'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;

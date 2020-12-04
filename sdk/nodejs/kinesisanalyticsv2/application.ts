@@ -322,10 +322,10 @@ export class Application extends pulumi.CustomResource {
             inputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            if (!args || args.runtimeEnvironment === undefined) {
+            if ((!args || args.runtimeEnvironment === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'runtimeEnvironment'");
             }
-            if (!args || args.serviceExecutionRole === undefined) {
+            if ((!args || args.serviceExecutionRole === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceExecutionRole'");
             }
             inputs["applicationConfiguration"] = args ? args.applicationConfiguration : undefined;

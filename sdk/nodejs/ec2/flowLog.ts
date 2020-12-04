@@ -188,7 +188,7 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as FlowLogArgs | undefined;
-            if (!args || args.trafficType === undefined) {
+            if ((!args || args.trafficType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'trafficType'");
             }
             inputs["eniId"] = args ? args.eniId : undefined;

@@ -245,10 +245,10 @@ export class RuleGroup extends pulumi.CustomResource {
             inputs["updateToken"] = state ? state.updateToken : undefined;
         } else {
             const args = argsOrState as RuleGroupArgs | undefined;
-            if (!args || args.capacity === undefined) {
+            if ((!args || args.capacity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["capacity"] = args ? args.capacity : undefined;

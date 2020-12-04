@@ -99,7 +99,7 @@ export class Alias extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AliasArgs | undefined;
-            if (!args || args.routingStrategy === undefined) {
+            if ((!args || args.routingStrategy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'routingStrategy'");
             }
             inputs["description"] = args ? args.description : undefined;

@@ -85,10 +85,10 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ResolverRuleAssociationArgs | undefined;
-            if (!args || args.resolverRuleId === undefined) {
+            if ((!args || args.resolverRuleId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resolverRuleId'");
             }
-            if (!args || args.vpcId === undefined) {
+            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["name"] = args ? args.name : undefined;

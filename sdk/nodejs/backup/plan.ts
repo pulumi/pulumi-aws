@@ -110,7 +110,7 @@ export class Plan extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as PlanArgs | undefined;
-            if (!args || args.rules === undefined) {
+            if ((!args || args.rules === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rules'");
             }
             inputs["advancedBackupSettings"] = args ? args.advancedBackupSettings : undefined;

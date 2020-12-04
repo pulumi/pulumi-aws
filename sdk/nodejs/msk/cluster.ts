@@ -249,13 +249,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["zookeeperConnectString"] = state ? state.zookeeperConnectString : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.brokerNodeGroupInfo === undefined) {
+            if ((!args || args.brokerNodeGroupInfo === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'brokerNodeGroupInfo'");
             }
-            if (!args || args.kafkaVersion === undefined) {
+            if ((!args || args.kafkaVersion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kafkaVersion'");
             }
-            if (!args || args.numberOfBrokerNodes === undefined) {
+            if ((!args || args.numberOfBrokerNodes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'numberOfBrokerNodes'");
             }
             inputs["brokerNodeGroupInfo"] = args ? args.brokerNodeGroupInfo : undefined;

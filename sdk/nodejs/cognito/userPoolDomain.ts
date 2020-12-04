@@ -133,10 +133,10 @@ export class UserPoolDomain extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as UserPoolDomainArgs | undefined;
-            if (!args || args.domain === undefined) {
+            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domain'");
             }
-            if (!args || args.userPoolId === undefined) {
+            if ((!args || args.userPoolId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userPoolId'");
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;

@@ -147,13 +147,13 @@ export class Grant extends pulumi.CustomResource {
             inputs["retiringPrincipal"] = state ? state.retiringPrincipal : undefined;
         } else {
             const args = argsOrState as GrantArgs | undefined;
-            if (!args || args.granteePrincipal === undefined) {
+            if ((!args || args.granteePrincipal === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'granteePrincipal'");
             }
-            if (!args || args.keyId === undefined) {
+            if ((!args || args.keyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if (!args || args.operations === undefined) {
+            if ((!args || args.operations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'operations'");
             }
             inputs["constraints"] = args ? args.constraints : undefined;

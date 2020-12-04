@@ -182,10 +182,10 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.roleArn === undefined) {
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if (!args || args.vpcConfig === undefined) {
+            if ((!args || args.vpcConfig === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcConfig'");
             }
             inputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;

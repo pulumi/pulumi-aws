@@ -110,7 +110,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
-            if (!args || args.repositoryName === undefined) {
+            if ((!args || args.repositoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repositoryName'");
             }
             inputs["defaultBranch"] = args ? args.defaultBranch : undefined;

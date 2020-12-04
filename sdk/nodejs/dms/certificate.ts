@@ -93,7 +93,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["certificateWallet"] = state ? state.certificateWallet : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if (!args || args.certificateId === undefined) {
+            if ((!args || args.certificateId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificateId'");
             }
             inputs["certificateId"] = args ? args.certificateId : undefined;

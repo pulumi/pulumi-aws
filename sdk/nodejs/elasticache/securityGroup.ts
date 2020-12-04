@@ -89,7 +89,7 @@ export class SecurityGroup extends pulumi.CustomResource {
             inputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
         } else {
             const args = argsOrState as SecurityGroupArgs | undefined;
-            if (!args || args.securityGroupNames === undefined) {
+            if ((!args || args.securityGroupNames === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'securityGroupNames'");
             }
             inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";

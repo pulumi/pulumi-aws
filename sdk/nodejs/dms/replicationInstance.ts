@@ -199,10 +199,10 @@ export class ReplicationInstance extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as ReplicationInstanceArgs | undefined;
-            if (!args || args.replicationInstanceClass === undefined) {
+            if ((!args || args.replicationInstanceClass === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'replicationInstanceClass'");
             }
-            if (!args || args.replicationInstanceId === undefined) {
+            if ((!args || args.replicationInstanceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'replicationInstanceId'");
             }
             inputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;

@@ -90,10 +90,10 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
             inputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as UserPolicyAttachmentArgs | undefined;
-            if (!args || args.policyArn === undefined) {
+            if ((!args || args.policyArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyArn'");
             }
-            if (!args || args.user === undefined) {
+            if ((!args || args.user === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'user'");
             }
             inputs["policyArn"] = args ? args.policyArn : undefined;

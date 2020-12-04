@@ -111,10 +111,10 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LinkAggregationGroupArgs | undefined;
-            if (!args || args.connectionsBandwidth === undefined) {
+            if ((!args || args.connectionsBandwidth === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionsBandwidth'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
             inputs["connectionsBandwidth"] = args ? args.connectionsBandwidth : undefined;

@@ -79,7 +79,7 @@ export class DefaultKmsKey extends pulumi.CustomResource {
             inputs["keyArn"] = state ? state.keyArn : undefined;
         } else {
             const args = argsOrState as DefaultKmsKeyArgs | undefined;
-            if (!args || args.keyArn === undefined) {
+            if ((!args || args.keyArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyArn'");
             }
             inputs["keyArn"] = args ? args.keyArn : undefined;

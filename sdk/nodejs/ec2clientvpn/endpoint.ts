@@ -142,16 +142,16 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["transportProtocol"] = state ? state.transportProtocol : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if (!args || args.authenticationOptions === undefined) {
+            if ((!args || args.authenticationOptions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authenticationOptions'");
             }
-            if (!args || args.clientCidrBlock === undefined) {
+            if ((!args || args.clientCidrBlock === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientCidrBlock'");
             }
-            if (!args || args.connectionLogOptions === undefined) {
+            if ((!args || args.connectionLogOptions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionLogOptions'");
             }
-            if (!args || args.serverCertificateArn === undefined) {
+            if ((!args || args.serverCertificateArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverCertificateArn'");
             }
             inputs["authenticationOptions"] = args ? args.authenticationOptions : undefined;

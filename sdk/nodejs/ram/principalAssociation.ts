@@ -103,10 +103,10 @@ export class PrincipalAssociation extends pulumi.CustomResource {
             inputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
         } else {
             const args = argsOrState as PrincipalAssociationArgs | undefined;
-            if (!args || args.principal === undefined) {
+            if ((!args || args.principal === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principal'");
             }
-            if (!args || args.resourceShareArn === undefined) {
+            if ((!args || args.resourceShareArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceShareArn'");
             }
             inputs["principal"] = args ? args.principal : undefined;

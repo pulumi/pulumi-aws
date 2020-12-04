@@ -84,10 +84,10 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcDhcpOptionsAssociationArgs | undefined;
-            if (!args || args.dhcpOptionsId === undefined) {
+            if ((!args || args.dhcpOptionsId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dhcpOptionsId'");
             }
-            if (!args || args.vpcId === undefined) {
+            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["dhcpOptionsId"] = args ? args.dhcpOptionsId : undefined;

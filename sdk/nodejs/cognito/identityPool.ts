@@ -137,7 +137,7 @@ export class IdentityPool extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as IdentityPoolArgs | undefined;
-            if (!args || args.identityPoolName === undefined) {
+            if ((!args || args.identityPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identityPoolName'");
             }
             inputs["allowUnauthenticatedIdentities"] = args ? args.allowUnauthenticatedIdentities : undefined;

@@ -77,10 +77,10 @@ export class Trigger extends pulumi.CustomResource {
             inputs["triggers"] = state ? state.triggers : undefined;
         } else {
             const args = argsOrState as TriggerArgs | undefined;
-            if (!args || args.repositoryName === undefined) {
+            if ((!args || args.repositoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repositoryName'");
             }
-            if (!args || args.triggers === undefined) {
+            if ((!args || args.triggers === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'triggers'");
             }
             inputs["repositoryName"] = args ? args.repositoryName : undefined;

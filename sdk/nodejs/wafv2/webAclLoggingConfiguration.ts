@@ -95,10 +95,10 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as WebAclLoggingConfigurationArgs | undefined;
-            if (!args || args.logDestinationConfigs === undefined) {
+            if ((!args || args.logDestinationConfigs === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logDestinationConfigs'");
             }
-            if (!args || args.resourceArn === undefined) {
+            if ((!args || args.resourceArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceArn'");
             }
             inputs["logDestinationConfigs"] = args ? args.logDestinationConfigs : undefined;

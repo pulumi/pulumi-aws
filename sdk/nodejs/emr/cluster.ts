@@ -728,10 +728,10 @@ export class Cluster extends pulumi.CustomResource {
             inputs["visibleToAllUsers"] = state ? state.visibleToAllUsers : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.releaseLabel === undefined) {
+            if ((!args || args.releaseLabel === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'releaseLabel'");
             }
-            if (!args || args.serviceRole === undefined) {
+            if ((!args || args.serviceRole === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceRole'");
             }
             inputs["additionalInfo"] = args ? args.additionalInfo : undefined;

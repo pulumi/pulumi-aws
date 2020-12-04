@@ -82,10 +82,10 @@ export class UserProfile extends pulumi.CustomResource {
             inputs["userArn"] = state ? state.userArn : undefined;
         } else {
             const args = argsOrState as UserProfileArgs | undefined;
-            if (!args || args.sshUsername === undefined) {
+            if ((!args || args.sshUsername === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sshUsername'");
             }
-            if (!args || args.userArn === undefined) {
+            if ((!args || args.userArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userArn'");
             }
             inputs["allowSelfManagement"] = args ? args.allowSelfManagement : undefined;

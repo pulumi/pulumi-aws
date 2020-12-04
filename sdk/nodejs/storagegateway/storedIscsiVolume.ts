@@ -186,19 +186,19 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
             inputs["volumeType"] = state ? state.volumeType : undefined;
         } else {
             const args = argsOrState as StoredIscsiVolumeArgs | undefined;
-            if (!args || args.diskId === undefined) {
+            if ((!args || args.diskId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'diskId'");
             }
-            if (!args || args.gatewayArn === undefined) {
+            if ((!args || args.gatewayArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            if (!args || args.networkInterfaceId === undefined) {
+            if ((!args || args.networkInterfaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if (!args || args.preserveExistingData === undefined) {
+            if ((!args || args.preserveExistingData === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'preserveExistingData'");
             }
-            if (!args || args.targetName === undefined) {
+            if ((!args || args.targetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetName'");
             }
             inputs["diskId"] = args ? args.diskId : undefined;

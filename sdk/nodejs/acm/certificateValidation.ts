@@ -119,7 +119,7 @@ export class CertificateValidation extends pulumi.CustomResource {
             inputs["validationRecordFqdns"] = state ? state.validationRecordFqdns : undefined;
         } else {
             const args = argsOrState as CertificateValidationArgs | undefined;
-            if (!args || args.certificateArn === undefined) {
+            if ((!args || args.certificateArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificateArn'");
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;

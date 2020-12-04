@@ -153,10 +153,10 @@ export class Authorizer extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as AuthorizerArgs | undefined;
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.authorizerType === undefined) {
+            if ((!args || args.authorizerType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizerType'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;

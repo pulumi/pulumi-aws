@@ -122,10 +122,10 @@ export class WebAclAssociation extends pulumi.CustomResource {
             inputs["webAclArn"] = state ? state.webAclArn : undefined;
         } else {
             const args = argsOrState as WebAclAssociationArgs | undefined;
-            if (!args || args.resourceArn === undefined) {
+            if ((!args || args.resourceArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if (!args || args.webAclArn === undefined) {
+            if ((!args || args.webAclArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'webAclArn'");
             }
             inputs["resourceArn"] = args ? args.resourceArn : undefined;

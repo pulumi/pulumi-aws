@@ -86,10 +86,10 @@ export class ScalingPlan extends pulumi.CustomResource {
             inputs["scalingPlanVersion"] = state ? state.scalingPlanVersion : undefined;
         } else {
             const args = argsOrState as ScalingPlanArgs | undefined;
-            if (!args || args.applicationSource === undefined) {
+            if ((!args || args.applicationSource === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationSource'");
             }
-            if (!args || args.scalingInstructions === undefined) {
+            if ((!args || args.scalingInstructions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scalingInstructions'");
             }
             inputs["applicationSource"] = args ? args.applicationSource : undefined;

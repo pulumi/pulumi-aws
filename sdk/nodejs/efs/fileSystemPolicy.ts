@@ -104,10 +104,10 @@ export class FileSystemPolicy extends pulumi.CustomResource {
             inputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as FileSystemPolicyArgs | undefined;
-            if (!args || args.fileSystemId === undefined) {
+            if ((!args || args.fileSystemId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            if (!args || args.policy === undefined) {
+            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policy'");
             }
             inputs["fileSystemId"] = args ? args.fileSystemId : undefined;

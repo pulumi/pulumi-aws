@@ -102,10 +102,10 @@ export class QueuePolicy extends pulumi.CustomResource {
             inputs["queueUrl"] = state ? state.queueUrl : undefined;
         } else {
             const args = argsOrState as QueuePolicyArgs | undefined;
-            if (!args || args.policy === undefined) {
+            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (!args || args.queueUrl === undefined) {
+            if ((!args || args.queueUrl === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'queueUrl'");
             }
             inputs["policy"] = args ? args.policy : undefined;

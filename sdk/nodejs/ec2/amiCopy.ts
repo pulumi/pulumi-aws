@@ -183,10 +183,10 @@ export class AmiCopy extends pulumi.CustomResource {
             inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
             const args = argsOrState as AmiCopyArgs | undefined;
-            if (!args || args.sourceAmiId === undefined) {
+            if ((!args || args.sourceAmiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceAmiId'");
             }
-            if (!args || args.sourceAmiRegion === undefined) {
+            if ((!args || args.sourceAmiRegion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceAmiRegion'");
             }
             inputs["description"] = args ? args.description : undefined;

@@ -155,13 +155,13 @@ export class PublishingDestination extends pulumi.CustomResource {
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
         } else {
             const args = argsOrState as PublishingDestinationArgs | undefined;
-            if (!args || args.destinationArn === undefined) {
+            if ((!args || args.destinationArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destinationArn'");
             }
-            if (!args || args.detectorId === undefined) {
+            if ((!args || args.detectorId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if (!args || args.kmsKeyArn === undefined) {
+            if ((!args || args.kmsKeyArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kmsKeyArn'");
             }
             inputs["destinationArn"] = args ? args.destinationArn : undefined;

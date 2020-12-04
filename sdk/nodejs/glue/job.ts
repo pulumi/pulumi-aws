@@ -197,10 +197,10 @@ export class Job extends pulumi.CustomResource {
             inputs["workerType"] = state ? state.workerType : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
-            if (!args || args.command === undefined) {
+            if ((!args || args.command === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'command'");
             }
-            if (!args || args.roleArn === undefined) {
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["command"] = args ? args.command : undefined;

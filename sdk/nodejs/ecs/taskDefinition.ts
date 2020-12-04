@@ -175,10 +175,10 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["volumes"] = state ? state.volumes : undefined;
         } else {
             const args = argsOrState as TaskDefinitionArgs | undefined;
-            if (!args || args.containerDefinitions === undefined) {
+            if ((!args || args.containerDefinitions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containerDefinitions'");
             }
-            if (!args || args.family === undefined) {
+            if ((!args || args.family === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'family'");
             }
             inputs["containerDefinitions"] = args ? args.containerDefinitions : undefined;

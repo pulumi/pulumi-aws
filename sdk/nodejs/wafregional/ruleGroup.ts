@@ -103,7 +103,7 @@ export class RuleGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RuleGroupArgs | undefined;
-            if (!args || args.metricName === undefined) {
+            if ((!args || args.metricName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'metricName'");
             }
             inputs["activatedRules"] = args ? args.activatedRules : undefined;

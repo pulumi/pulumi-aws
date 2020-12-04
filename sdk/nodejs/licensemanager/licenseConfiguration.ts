@@ -124,7 +124,7 @@ export class LicenseConfiguration extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LicenseConfigurationArgs | undefined;
-            if (!args || args.licenseCountingType === undefined) {
+            if ((!args || args.licenseCountingType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'licenseCountingType'");
             }
             inputs["description"] = args ? args.description : undefined;

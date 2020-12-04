@@ -110,10 +110,10 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.hsmType === undefined) {
+            if ((!args || args.hsmType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hsmType'");
             }
-            if (!args || args.subnetIds === undefined) {
+            if ((!args || args.subnetIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetIds'");
             }
             inputs["hsmType"] = args ? args.hsmType : undefined;

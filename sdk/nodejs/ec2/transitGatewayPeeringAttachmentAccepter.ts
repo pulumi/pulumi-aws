@@ -99,7 +99,7 @@ export class TransitGatewayPeeringAttachmentAccepter extends pulumi.CustomResour
             inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
         } else {
             const args = argsOrState as TransitGatewayPeeringAttachmentAccepterArgs | undefined;
-            if (!args || args.transitGatewayAttachmentId === undefined) {
+            if ((!args || args.transitGatewayAttachmentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
             inputs["tags"] = args ? args.tags : undefined;

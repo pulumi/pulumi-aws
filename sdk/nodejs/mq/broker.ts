@@ -195,22 +195,22 @@ export class Broker extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as BrokerArgs | undefined;
-            if (!args || args.brokerName === undefined) {
+            if ((!args || args.brokerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'brokerName'");
             }
-            if (!args || args.engineType === undefined) {
+            if ((!args || args.engineType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'engineType'");
             }
-            if (!args || args.engineVersion === undefined) {
+            if ((!args || args.engineVersion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'engineVersion'");
             }
-            if (!args || args.hostInstanceType === undefined) {
+            if ((!args || args.hostInstanceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostInstanceType'");
             }
-            if (!args || args.securityGroups === undefined) {
+            if ((!args || args.securityGroups === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'securityGroups'");
             }
-            if (!args || args.users === undefined) {
+            if ((!args || args.users === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'users'");
             }
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;

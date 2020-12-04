@@ -93,7 +93,7 @@ export class PublicKey extends pulumi.CustomResource {
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
         } else {
             const args = argsOrState as PublicKeyArgs | undefined;
-            if (!args || args.encodedKey === undefined) {
+            if ((!args || args.encodedKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'encodedKey'");
             }
             inputs["comment"] = args ? args.comment : undefined;

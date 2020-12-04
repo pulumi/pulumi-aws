@@ -96,10 +96,10 @@ export class DocumentationVersion extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as DocumentationVersionArgs | undefined;
-            if (!args || args.restApiId === undefined) {
+            if ((!args || args.restApiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            if (!args || args.version === undefined) {
+            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["description"] = args ? args.description : undefined;

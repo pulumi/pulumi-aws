@@ -103,13 +103,13 @@ export class NfsLocation extends pulumi.CustomResource {
             inputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as NfsLocationArgs | undefined;
-            if (!args || args.onPremConfig === undefined) {
+            if ((!args || args.onPremConfig === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'onPremConfig'");
             }
-            if (!args || args.serverHostname === undefined) {
+            if ((!args || args.serverHostname === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverHostname'");
             }
-            if (!args || args.subdirectory === undefined) {
+            if ((!args || args.subdirectory === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subdirectory'");
             }
             inputs["onPremConfig"] = args ? args.onPremConfig : undefined;

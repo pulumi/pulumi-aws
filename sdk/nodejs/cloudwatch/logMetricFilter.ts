@@ -98,13 +98,13 @@ export class LogMetricFilter extends pulumi.CustomResource {
             inputs["pattern"] = state ? state.pattern : undefined;
         } else {
             const args = argsOrState as LogMetricFilterArgs | undefined;
-            if (!args || args.logGroupName === undefined) {
+            if ((!args || args.logGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            if (!args || args.metricTransformation === undefined) {
+            if ((!args || args.metricTransformation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'metricTransformation'");
             }
-            if (!args || args.pattern === undefined) {
+            if ((!args || args.pattern === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'pattern'");
             }
             inputs["logGroupName"] = args ? args.logGroupName : undefined;

@@ -111,7 +111,7 @@ export class CodeSigningConfig extends pulumi.CustomResource {
             inputs["policies"] = state ? state.policies : undefined;
         } else {
             const args = argsOrState as CodeSigningConfigArgs | undefined;
-            if (!args || args.allowedPublishers === undefined) {
+            if ((!args || args.allowedPublishers === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'allowedPublishers'");
             }
             inputs["allowedPublishers"] = args ? args.allowedPublishers : undefined;

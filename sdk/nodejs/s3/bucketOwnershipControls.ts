@@ -67,10 +67,10 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
             inputs["rule"] = state ? state.rule : undefined;
         } else {
             const args = argsOrState as BucketOwnershipControlsArgs | undefined;
-            if (!args || args.bucket === undefined) {
+            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if (!args || args.rule === undefined) {
+            if ((!args || args.rule === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rule'");
             }
             inputs["bucket"] = args ? args.bucket : undefined;

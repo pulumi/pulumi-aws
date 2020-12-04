@@ -173,16 +173,16 @@ export class NfsFileShare extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as NfsFileShareArgs | undefined;
-            if (!args || args.clientLists === undefined) {
+            if ((!args || args.clientLists === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientLists'");
             }
-            if (!args || args.gatewayArn === undefined) {
+            if ((!args || args.gatewayArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            if (!args || args.locationArn === undefined) {
+            if ((!args || args.locationArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'locationArn'");
             }
-            if (!args || args.roleArn === undefined) {
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;

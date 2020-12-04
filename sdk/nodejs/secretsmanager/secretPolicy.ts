@@ -98,10 +98,10 @@ export class SecretPolicy extends pulumi.CustomResource {
             inputs["secretArn"] = state ? state.secretArn : undefined;
         } else {
             const args = argsOrState as SecretPolicyArgs | undefined;
-            if (!args || args.policy === undefined) {
+            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (!args || args.secretArn === undefined) {
+            if ((!args || args.secretArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'secretArn'");
             }
             inputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;

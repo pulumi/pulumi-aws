@@ -103,13 +103,13 @@ export class UsagePlanKey extends pulumi.CustomResource {
             inputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as UsagePlanKeyArgs | undefined;
-            if (!args || args.keyId === undefined) {
+            if ((!args || args.keyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if (!args || args.keyType === undefined) {
+            if ((!args || args.keyType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyType'");
             }
-            if (!args || args.usagePlanId === undefined) {
+            if ((!args || args.usagePlanId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'usagePlanId'");
             }
             inputs["keyId"] = args ? args.keyId : undefined;

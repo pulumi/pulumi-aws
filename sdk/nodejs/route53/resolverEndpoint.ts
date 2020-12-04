@@ -124,13 +124,13 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ResolverEndpointArgs | undefined;
-            if (!args || args.direction === undefined) {
+            if ((!args || args.direction === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'direction'");
             }
-            if (!args || args.ipAddresses === undefined) {
+            if ((!args || args.ipAddresses === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ipAddresses'");
             }
-            if (!args || args.securityGroupIds === undefined) {
+            if ((!args || args.securityGroupIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'securityGroupIds'");
             }
             inputs["direction"] = args ? args.direction : undefined;

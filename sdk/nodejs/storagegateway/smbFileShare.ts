@@ -216,13 +216,13 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["validUserLists"] = state ? state.validUserLists : undefined;
         } else {
             const args = argsOrState as SmbFileShareArgs | undefined;
-            if (!args || args.gatewayArn === undefined) {
+            if ((!args || args.gatewayArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            if (!args || args.locationArn === undefined) {
+            if ((!args || args.locationArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'locationArn'");
             }
-            if (!args || args.roleArn === undefined) {
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["accessBasedEnumeration"] = args ? args.accessBasedEnumeration : undefined;

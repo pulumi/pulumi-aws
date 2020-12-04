@@ -148,10 +148,10 @@ export class OrganizationCustomRule extends pulumi.CustomResource {
             inputs["triggerTypes"] = state ? state.triggerTypes : undefined;
         } else {
             const args = argsOrState as OrganizationCustomRuleArgs | undefined;
-            if (!args || args.lambdaFunctionArn === undefined) {
+            if ((!args || args.lambdaFunctionArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lambdaFunctionArn'");
             }
-            if (!args || args.triggerTypes === undefined) {
+            if ((!args || args.triggerTypes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'triggerTypes'");
             }
             inputs["description"] = args ? args.description : undefined;

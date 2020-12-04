@@ -92,10 +92,10 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
             inputs["topicArn"] = state ? state.topicArn : undefined;
         } else {
             const args = argsOrState as IdentityNotificationTopicArgs | undefined;
-            if (!args || args.identity === undefined) {
+            if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identity'");
             }
-            if (!args || args.notificationType === undefined) {
+            if ((!args || args.notificationType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'notificationType'");
             }
             inputs["identity"] = args ? args.identity : undefined;

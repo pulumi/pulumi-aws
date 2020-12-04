@@ -140,7 +140,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceArgs | undefined;
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["attachments"] = args ? args.attachments : undefined;

@@ -151,22 +151,22 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
             inputs["trafficMirrorFilterId"] = state ? state.trafficMirrorFilterId : undefined;
         } else {
             const args = argsOrState as TrafficMirrorFilterRuleArgs | undefined;
-            if (!args || args.destinationCidrBlock === undefined) {
+            if ((!args || args.destinationCidrBlock === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if (!args || args.ruleAction === undefined) {
+            if ((!args || args.ruleAction === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleAction'");
             }
-            if (!args || args.ruleNumber === undefined) {
+            if ((!args || args.ruleNumber === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleNumber'");
             }
-            if (!args || args.sourceCidrBlock === undefined) {
+            if ((!args || args.sourceCidrBlock === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceCidrBlock'");
             }
-            if (!args || args.trafficDirection === undefined) {
+            if ((!args || args.trafficDirection === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'trafficDirection'");
             }
-            if (!args || args.trafficMirrorFilterId === undefined) {
+            if ((!args || args.trafficMirrorFilterId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'trafficMirrorFilterId'");
             }
             inputs["description"] = args ? args.description : undefined;

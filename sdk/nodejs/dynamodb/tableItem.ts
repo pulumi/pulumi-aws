@@ -107,13 +107,13 @@ export class TableItem extends pulumi.CustomResource {
             inputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as TableItemArgs | undefined;
-            if (!args || args.hashKey === undefined) {
+            if ((!args || args.hashKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hashKey'");
             }
-            if (!args || args.item === undefined) {
+            if ((!args || args.item === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'item'");
             }
-            if (!args || args.tableName === undefined) {
+            if ((!args || args.tableName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tableName'");
             }
             inputs["hashKey"] = args ? args.hashKey : undefined;

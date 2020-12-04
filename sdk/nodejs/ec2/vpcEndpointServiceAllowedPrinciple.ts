@@ -81,10 +81,10 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
             inputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
         } else {
             const args = argsOrState as VpcEndpointServiceAllowedPrincipleArgs | undefined;
-            if (!args || args.principalArn === undefined) {
+            if ((!args || args.principalArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principalArn'");
             }
-            if (!args || args.vpcEndpointServiceId === undefined) {
+            if ((!args || args.vpcEndpointServiceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcEndpointServiceId'");
             }
             inputs["principalArn"] = args ? args.principalArn : undefined;

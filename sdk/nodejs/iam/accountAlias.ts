@@ -76,7 +76,7 @@ export class AccountAlias extends pulumi.CustomResource {
             inputs["accountAlias"] = state ? state.accountAlias : undefined;
         } else {
             const args = argsOrState as AccountAliasArgs | undefined;
-            if (!args || args.accountAlias === undefined) {
+            if ((!args || args.accountAlias === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountAlias'");
             }
             inputs["accountAlias"] = args ? args.accountAlias : undefined;

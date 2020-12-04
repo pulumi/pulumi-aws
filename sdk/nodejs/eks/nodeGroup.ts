@@ -220,16 +220,16 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as NodeGroupArgs | undefined;
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.nodeRoleArn === undefined) {
+            if ((!args || args.nodeRoleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'nodeRoleArn'");
             }
-            if (!args || args.scalingConfig === undefined) {
+            if ((!args || args.scalingConfig === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scalingConfig'");
             }
-            if (!args || args.subnetIds === undefined) {
+            if ((!args || args.subnetIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetIds'");
             }
             inputs["amiType"] = args ? args.amiType : undefined;

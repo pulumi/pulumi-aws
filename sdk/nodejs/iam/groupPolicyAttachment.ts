@@ -90,10 +90,10 @@ export class GroupPolicyAttachment extends pulumi.CustomResource {
             inputs["policyArn"] = state ? state.policyArn : undefined;
         } else {
             const args = argsOrState as GroupPolicyAttachmentArgs | undefined;
-            if (!args || args.group === undefined) {
+            if ((!args || args.group === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'group'");
             }
-            if (!args || args.policyArn === undefined) {
+            if ((!args || args.policyArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyArn'");
             }
             inputs["group"] = args ? args.group : undefined;

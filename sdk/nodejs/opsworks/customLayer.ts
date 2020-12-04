@@ -171,10 +171,10 @@ export class CustomLayer extends pulumi.CustomResource {
             inputs["useEbsOptimizedInstances"] = state ? state.useEbsOptimizedInstances : undefined;
         } else {
             const args = argsOrState as CustomLayerArgs | undefined;
-            if (!args || args.shortName === undefined) {
+            if ((!args || args.shortName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shortName'");
             }
-            if (!args || args.stackId === undefined) {
+            if ((!args || args.stackId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stackId'");
             }
             inputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;

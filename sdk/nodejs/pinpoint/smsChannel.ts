@@ -98,7 +98,7 @@ export class SmsChannel extends pulumi.CustomResource {
             inputs["transactionalMessagesPerSecond"] = state ? state.transactionalMessagesPerSecond : undefined;
         } else {
             const args = argsOrState as SmsChannelArgs | undefined;
-            if (!args || args.applicationId === undefined) {
+            if ((!args || args.applicationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationId'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;

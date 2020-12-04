@@ -136,16 +136,16 @@ export class Filter extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FilterArgs | undefined;
-            if (!args || args.action === undefined) {
+            if ((!args || args.action === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'action'");
             }
-            if (!args || args.detectorId === undefined) {
+            if ((!args || args.detectorId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if (!args || args.findingCriteria === undefined) {
+            if ((!args || args.findingCriteria === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'findingCriteria'");
             }
-            if (!args || args.rank === undefined) {
+            if ((!args || args.rank === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rank'");
             }
             inputs["action"] = args ? args.action : undefined;

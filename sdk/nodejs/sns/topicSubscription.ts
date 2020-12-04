@@ -274,13 +274,13 @@ export class TopicSubscription extends pulumi.CustomResource {
             inputs["topic"] = state ? state.topic : undefined;
         } else {
             const args = argsOrState as TopicSubscriptionArgs | undefined;
-            if (!args || args.endpoint === undefined) {
+            if ((!args || args.endpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpoint'");
             }
-            if (!args || args.protocol === undefined) {
+            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if (!args || args.topic === undefined) {
+            if ((!args || args.topic === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'topic'");
             }
             inputs["confirmationTimeoutInMinutes"] = args ? args.confirmationTimeoutInMinutes : undefined;

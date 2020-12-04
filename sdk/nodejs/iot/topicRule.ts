@@ -184,13 +184,13 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TopicRuleArgs | undefined;
-            if (!args || args.enabled === undefined) {
+            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if (!args || args.sql === undefined) {
+            if ((!args || args.sql === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sql'");
             }
-            if (!args || args.sqlVersion === undefined) {
+            if ((!args || args.sqlVersion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlVersion'");
             }
             inputs["cloudwatchAlarm"] = args ? args.cloudwatchAlarm : undefined;

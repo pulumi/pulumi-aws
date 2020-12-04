@@ -104,10 +104,10 @@ export class Route extends pulumi.CustomResource {
             inputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if (!args || args.destinationCidrBlock === undefined) {
+            if ((!args || args.destinationCidrBlock === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if (!args || args.transitGatewayRouteTableId === undefined) {
+            if ((!args || args.transitGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
             inputs["blackhole"] = args ? args.blackhole : undefined;

@@ -125,13 +125,13 @@ export class ApplicationVersion extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ApplicationVersionArgs | undefined;
-            if (!args || args.application === undefined) {
+            if ((!args || args.application === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'application'");
             }
-            if (!args || args.bucket === undefined) {
+            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if (!args || args.key === undefined) {
+            if ((!args || args.key === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'key'");
             }
             inputs["application"] = args ? args.application : undefined;

@@ -181,10 +181,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["uuid"] = state ? state.uuid : undefined;
         } else {
             const args = argsOrState as EventSourceMappingArgs | undefined;
-            if (!args || args.eventSourceArn === undefined) {
+            if ((!args || args.eventSourceArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventSourceArn'");
             }
-            if (!args || args.functionName === undefined) {
+            if ((!args || args.functionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'functionName'");
             }
             inputs["batchSize"] = args ? args.batchSize : undefined;

@@ -99,10 +99,10 @@ export class Member extends pulumi.CustomResource {
             inputs["memberStatus"] = state ? state.memberStatus : undefined;
         } else {
             const args = argsOrState as MemberArgs | undefined;
-            if (!args || args.accountId === undefined) {
+            if ((!args || args.accountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if (!args || args.email === undefined) {
+            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'email'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

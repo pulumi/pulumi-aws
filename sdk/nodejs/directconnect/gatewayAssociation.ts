@@ -156,7 +156,7 @@ export class GatewayAssociation extends pulumi.CustomResource {
             inputs["proposalId"] = state ? state.proposalId : undefined;
         } else {
             const args = argsOrState as GatewayAssociationArgs | undefined;
-            if (!args || args.dxGatewayId === undefined) {
+            if ((!args || args.dxGatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dxGatewayId'");
             }
             inputs["allowedPrefixes"] = args ? args.allowedPrefixes : undefined;

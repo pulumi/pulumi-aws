@@ -224,13 +224,13 @@ export class MLTransform extends pulumi.CustomResource {
             inputs["workerType"] = state ? state.workerType : undefined;
         } else {
             const args = argsOrState as MLTransformArgs | undefined;
-            if (!args || args.inputRecordTables === undefined) {
+            if ((!args || args.inputRecordTables === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'inputRecordTables'");
             }
-            if (!args || args.parameters === undefined) {
+            if ((!args || args.parameters === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if (!args || args.roleArn === undefined) {
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["description"] = args ? args.description : undefined;

@@ -200,19 +200,19 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SecurityGroupRuleArgs | undefined;
-            if (!args || args.fromPort === undefined) {
+            if ((!args || args.fromPort === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fromPort'");
             }
-            if (!args || args.protocol === undefined) {
+            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if (!args || args.securityGroupId === undefined) {
+            if ((!args || args.securityGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
-            if (!args || args.toPort === undefined) {
+            if ((!args || args.toPort === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'toPort'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["cidrBlocks"] = args ? args.cidrBlocks : undefined;

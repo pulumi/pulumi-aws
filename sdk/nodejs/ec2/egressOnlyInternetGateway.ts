@@ -89,7 +89,7 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as EgressOnlyInternetGatewayArgs | undefined;
-            if (!args || args.vpcId === undefined) {
+            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["tags"] = args ? args.tags : undefined;

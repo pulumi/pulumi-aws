@@ -125,7 +125,7 @@ export class Model extends pulumi.CustomResource {
             inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as ModelArgs | undefined;
-            if (!args || args.executionRoleArn === undefined) {
+            if ((!args || args.executionRoleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
             inputs["containers"] = args ? args.containers : undefined;

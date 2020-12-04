@@ -126,10 +126,10 @@ export class InstanceGroup extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as InstanceGroupArgs | undefined;
-            if (!args || args.clusterId === undefined) {
+            if ((!args || args.clusterId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if (!args || args.instanceType === undefined) {
+            if ((!args || args.instanceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceType'");
             }
             inputs["autoscalingPolicy"] = args ? args.autoscalingPolicy : undefined;

@@ -200,10 +200,10 @@ export class LustreFileSystem extends pulumi.CustomResource {
             inputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
             const args = argsOrState as LustreFileSystemArgs | undefined;
-            if (!args || args.storageCapacity === undefined) {
+            if ((!args || args.storageCapacity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageCapacity'");
             }
-            if (!args || args.subnetIds === undefined) {
+            if ((!args || args.subnetIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetIds'");
             }
             inputs["autoImportPolicy"] = args ? args.autoImportPolicy : undefined;

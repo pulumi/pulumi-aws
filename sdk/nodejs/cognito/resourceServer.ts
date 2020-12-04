@@ -111,10 +111,10 @@ export class ResourceServer extends pulumi.CustomResource {
             inputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as ResourceServerArgs | undefined;
-            if (!args || args.identifier === undefined) {
+            if ((!args || args.identifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if (!args || args.userPoolId === undefined) {
+            if ((!args || args.userPoolId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userPoolId'");
             }
             inputs["identifier"] = args ? args.identifier : undefined;

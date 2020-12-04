@@ -94,13 +94,13 @@ export class Resource extends pulumi.CustomResource {
             inputs["restApi"] = state ? state.restApi : undefined;
         } else {
             const args = argsOrState as ResourceArgs | undefined;
-            if (!args || args.parentId === undefined) {
+            if ((!args || args.parentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'parentId'");
             }
-            if (!args || args.pathPart === undefined) {
+            if ((!args || args.pathPart === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'pathPart'");
             }
-            if (!args || args.restApi === undefined) {
+            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'restApi'");
             }
             inputs["parentId"] = args ? args.parentId : undefined;

@@ -247,13 +247,13 @@ export class ListenerRule extends pulumi.CustomResource {
             inputs["priority"] = state ? state.priority : undefined;
         } else {
             const args = argsOrState as ListenerRuleArgs | undefined;
-            if (!args || args.actions === undefined) {
+            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'actions'");
             }
-            if (!args || args.conditions === undefined) {
+            if ((!args || args.conditions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'conditions'");
             }
-            if (!args || args.listenerArn === undefined) {
+            if ((!args || args.listenerArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'listenerArn'");
             }
             inputs["actions"] = args ? args.actions : undefined;

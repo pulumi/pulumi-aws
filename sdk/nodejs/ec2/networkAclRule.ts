@@ -146,16 +146,16 @@ export class NetworkAclRule extends pulumi.CustomResource {
             inputs["toPort"] = state ? state.toPort : undefined;
         } else {
             const args = argsOrState as NetworkAclRuleArgs | undefined;
-            if (!args || args.networkAclId === undefined) {
+            if ((!args || args.networkAclId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkAclId'");
             }
-            if (!args || args.protocol === undefined) {
+            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if (!args || args.ruleAction === undefined) {
+            if ((!args || args.ruleAction === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleAction'");
             }
-            if (!args || args.ruleNumber === undefined) {
+            if ((!args || args.ruleNumber === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleNumber'");
             }
             inputs["cidrBlock"] = args ? args.cidrBlock : undefined;

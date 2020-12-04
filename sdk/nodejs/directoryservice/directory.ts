@@ -238,10 +238,10 @@ export class Directory extends pulumi.CustomResource {
             inputs["vpcSettings"] = state ? state.vpcSettings : undefined;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.password === undefined) {
+            if ((!args || args.password === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'password'");
             }
             inputs["alias"] = args ? args.alias : undefined;

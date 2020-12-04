@@ -92,13 +92,13 @@ export class DocumentationPart extends pulumi.CustomResource {
             inputs["restApiId"] = state ? state.restApiId : undefined;
         } else {
             const args = argsOrState as DocumentationPartArgs | undefined;
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.properties === undefined) {
+            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
-            if (!args || args.restApiId === undefined) {
+            if ((!args || args.restApiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'restApiId'");
             }
             inputs["location"] = args ? args.location : undefined;

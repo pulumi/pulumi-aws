@@ -163,13 +163,13 @@ export class ClusterEndpoint extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ClusterEndpointArgs | undefined;
-            if (!args || args.clusterEndpointIdentifier === undefined) {
+            if ((!args || args.clusterEndpointIdentifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterEndpointIdentifier'");
             }
-            if (!args || args.clusterIdentifier === undefined) {
+            if ((!args || args.clusterIdentifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if (!args || args.customEndpointType === undefined) {
+            if ((!args || args.customEndpointType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'customEndpointType'");
             }
             inputs["clusterEndpointIdentifier"] = args ? args.clusterEndpointIdentifier : undefined;

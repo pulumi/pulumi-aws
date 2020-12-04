@@ -133,7 +133,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
             inputs["vpcOwnerId"] = state ? state.vpcOwnerId : undefined;
         } else {
             const args = argsOrState as VpcAttachmentAccepterArgs | undefined;
-            if (!args || args.transitGatewayAttachmentId === undefined) {
+            if ((!args || args.transitGatewayAttachmentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
             inputs["tags"] = args ? args.tags : undefined;

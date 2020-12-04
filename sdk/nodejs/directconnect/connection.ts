@@ -110,10 +110,10 @@ export class Connection extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
-            if (!args || args.bandwidth === undefined) {
+            if ((!args || args.bandwidth === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bandwidth'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
             inputs["bandwidth"] = args ? args.bandwidth : undefined;

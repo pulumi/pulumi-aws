@@ -116,7 +116,7 @@ export class DistributionConfiguration extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DistributionConfigurationArgs | undefined;
-            if (!args || args.distributions === undefined) {
+            if ((!args || args.distributions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'distributions'");
             }
             inputs["description"] = args ? args.description : undefined;

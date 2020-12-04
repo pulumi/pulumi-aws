@@ -83,10 +83,10 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
             inputs["detectorId"] = state ? state.detectorId : undefined;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
-            if (!args || args.autoEnable === undefined) {
+            if ((!args || args.autoEnable === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'autoEnable'");
             }
-            if (!args || args.detectorId === undefined) {
+            if ((!args || args.detectorId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'detectorId'");
             }
             inputs["autoEnable"] = args ? args.autoEnable : undefined;

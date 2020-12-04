@@ -105,7 +105,7 @@ export class CapacityProvider extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as CapacityProviderArgs | undefined;
-            if (!args || args.autoScalingGroupProvider === undefined) {
+            if ((!args || args.autoScalingGroupProvider === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'autoScalingGroupProvider'");
             }
             inputs["autoScalingGroupProvider"] = args ? args.autoScalingGroupProvider : undefined;

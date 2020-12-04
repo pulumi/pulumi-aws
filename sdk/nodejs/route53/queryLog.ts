@@ -116,10 +116,10 @@ export class QueryLog extends pulumi.CustomResource {
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as QueryLogArgs | undefined;
-            if (!args || args.cloudwatchLogGroupArn === undefined) {
+            if ((!args || args.cloudwatchLogGroupArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cloudwatchLogGroupArn'");
             }
-            if (!args || args.zoneId === undefined) {
+            if ((!args || args.zoneId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'zoneId'");
             }
             inputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;

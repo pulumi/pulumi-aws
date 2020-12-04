@@ -132,7 +132,7 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
             inputs["tagValueScope"] = state ? state.tagValueScope : undefined;
         } else {
             const args = argsOrState as OrganizationManagedRuleArgs | undefined;
-            if (!args || args.ruleIdentifier === undefined) {
+            if ((!args || args.ruleIdentifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleIdentifier'");
             }
             inputs["description"] = args ? args.description : undefined;

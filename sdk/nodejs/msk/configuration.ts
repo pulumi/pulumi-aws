@@ -102,10 +102,10 @@ export class Configuration extends pulumi.CustomResource {
             inputs["serverProperties"] = state ? state.serverProperties : undefined;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
-            if (!args || args.kafkaVersions === undefined) {
+            if ((!args || args.kafkaVersions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kafkaVersions'");
             }
-            if (!args || args.serverProperties === undefined) {
+            if ((!args || args.serverProperties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverProperties'");
             }
             inputs["description"] = args ? args.description : undefined;

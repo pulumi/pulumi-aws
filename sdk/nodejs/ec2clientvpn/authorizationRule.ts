@@ -101,10 +101,10 @@ export class AuthorizationRule extends pulumi.CustomResource {
             inputs["targetNetworkCidr"] = state ? state.targetNetworkCidr : undefined;
         } else {
             const args = argsOrState as AuthorizationRuleArgs | undefined;
-            if (!args || args.clientVpnEndpointId === undefined) {
+            if ((!args || args.clientVpnEndpointId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientVpnEndpointId'");
             }
-            if (!args || args.targetNetworkCidr === undefined) {
+            if ((!args || args.targetNetworkCidr === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetNetworkCidr'");
             }
             inputs["accessGroupId"] = args ? args.accessGroupId : undefined;

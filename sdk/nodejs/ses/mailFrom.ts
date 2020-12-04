@@ -106,10 +106,10 @@ export class MailFrom extends pulumi.CustomResource {
             inputs["mailFromDomain"] = state ? state.mailFromDomain : undefined;
         } else {
             const args = argsOrState as MailFromArgs | undefined;
-            if (!args || args.domain === undefined) {
+            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domain'");
             }
-            if (!args || args.mailFromDomain === undefined) {
+            if ((!args || args.mailFromDomain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'mailFromDomain'");
             }
             inputs["behaviorOnMxFailure"] = args ? args.behaviorOnMxFailure : undefined;

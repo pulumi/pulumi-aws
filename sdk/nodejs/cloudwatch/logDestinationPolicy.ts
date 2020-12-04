@@ -95,10 +95,10 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
             inputs["destinationName"] = state ? state.destinationName : undefined;
         } else {
             const args = argsOrState as LogDestinationPolicyArgs | undefined;
-            if (!args || args.accessPolicy === undefined) {
+            if ((!args || args.accessPolicy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accessPolicy'");
             }
-            if (!args || args.destinationName === undefined) {
+            if ((!args || args.destinationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destinationName'");
             }
             inputs["accessPolicy"] = args ? args.accessPolicy : undefined;

@@ -63,10 +63,10 @@ export class RestApiPolicy extends pulumi.CustomResource {
             inputs["restApiId"] = state ? state.restApiId : undefined;
         } else {
             const args = argsOrState as RestApiPolicyArgs | undefined;
-            if (!args || args.policy === undefined) {
+            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (!args || args.restApiId === undefined) {
+            if ((!args || args.restApiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'restApiId'");
             }
             inputs["policy"] = args ? args.policy : undefined;

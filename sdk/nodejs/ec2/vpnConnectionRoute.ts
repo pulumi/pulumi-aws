@@ -85,10 +85,10 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
             inputs["vpnConnectionId"] = state ? state.vpnConnectionId : undefined;
         } else {
             const args = argsOrState as VpnConnectionRouteArgs | undefined;
-            if (!args || args.destinationCidrBlock === undefined) {
+            if ((!args || args.destinationCidrBlock === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if (!args || args.vpnConnectionId === undefined) {
+            if ((!args || args.vpnConnectionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpnConnectionId'");
             }
             inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;

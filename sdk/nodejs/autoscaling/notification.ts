@@ -99,13 +99,13 @@ export class Notification extends pulumi.CustomResource {
             inputs["topicArn"] = state ? state.topicArn : undefined;
         } else {
             const args = argsOrState as NotificationArgs | undefined;
-            if (!args || args.groupNames === undefined) {
+            if ((!args || args.groupNames === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupNames'");
             }
-            if (!args || args.notifications === undefined) {
+            if ((!args || args.notifications === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'notifications'");
             }
-            if (!args || args.topicArn === undefined) {
+            if ((!args || args.topicArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'topicArn'");
             }
             inputs["groupNames"] = args ? args.groupNames : undefined;

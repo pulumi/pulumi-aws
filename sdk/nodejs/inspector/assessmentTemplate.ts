@@ -106,13 +106,13 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             inputs["targetArn"] = state ? state.targetArn : undefined;
         } else {
             const args = argsOrState as AssessmentTemplateArgs | undefined;
-            if (!args || args.duration === undefined) {
+            if ((!args || args.duration === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'duration'");
             }
-            if (!args || args.rulesPackageArns === undefined) {
+            if ((!args || args.rulesPackageArns === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rulesPackageArns'");
             }
-            if (!args || args.targetArn === undefined) {
+            if ((!args || args.targetArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetArn'");
             }
             inputs["duration"] = args ? args.duration : undefined;

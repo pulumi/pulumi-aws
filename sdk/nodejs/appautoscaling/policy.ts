@@ -196,13 +196,13 @@ export class Policy extends pulumi.CustomResource {
             inputs["targetTrackingScalingPolicyConfiguration"] = state ? state.targetTrackingScalingPolicyConfiguration : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if (!args || args.resourceId === undefined) {
+            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (!args || args.scalableDimension === undefined) {
+            if ((!args || args.scalableDimension === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scalableDimension'");
             }
-            if (!args || args.serviceNamespace === undefined) {
+            if ((!args || args.serviceNamespace === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
             inputs["name"] = args ? args.name : undefined;

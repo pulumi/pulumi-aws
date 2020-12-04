@@ -106,7 +106,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as EnvironmentEC2Args | undefined;
-            if (!args || args.instanceType === undefined) {
+            if ((!args || args.instanceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceType'");
             }
             inputs["automaticStopTimeMinutes"] = args ? args.automaticStopTimeMinutes : undefined;

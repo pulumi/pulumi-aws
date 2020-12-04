@@ -107,10 +107,10 @@ export class VpcAssociationAuthorization extends pulumi.CustomResource {
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as VpcAssociationAuthorizationArgs | undefined;
-            if (!args || args.vpcId === undefined) {
+            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            if (!args || args.zoneId === undefined) {
+            if ((!args || args.zoneId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'zoneId'");
             }
             inputs["vpcId"] = args ? args.vpcId : undefined;

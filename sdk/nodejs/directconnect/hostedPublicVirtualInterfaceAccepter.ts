@@ -108,7 +108,7 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
             inputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
         } else {
             const args = argsOrState as HostedPublicVirtualInterfaceAccepterArgs | undefined;
-            if (!args || args.virtualInterfaceId === undefined) {
+            if ((!args || args.virtualInterfaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
             inputs["tags"] = args ? args.tags : undefined;

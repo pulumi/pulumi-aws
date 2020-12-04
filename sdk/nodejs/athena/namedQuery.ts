@@ -113,10 +113,10 @@ export class NamedQuery extends pulumi.CustomResource {
             inputs["workgroup"] = state ? state.workgroup : undefined;
         } else {
             const args = argsOrState as NamedQueryArgs | undefined;
-            if (!args || args.database === undefined) {
+            if ((!args || args.database === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'database'");
             }
-            if (!args || args.query === undefined) {
+            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'query'");
             }
             inputs["database"] = args ? args.database : undefined;

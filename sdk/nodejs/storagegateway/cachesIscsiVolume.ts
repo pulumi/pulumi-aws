@@ -188,16 +188,16 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             inputs["volumeSizeInBytes"] = state ? state.volumeSizeInBytes : undefined;
         } else {
             const args = argsOrState as CachesIscsiVolumeArgs | undefined;
-            if (!args || args.gatewayArn === undefined) {
+            if ((!args || args.gatewayArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            if (!args || args.networkInterfaceId === undefined) {
+            if ((!args || args.networkInterfaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if (!args || args.targetName === undefined) {
+            if ((!args || args.targetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetName'");
             }
-            if (!args || args.volumeSizeInBytes === undefined) {
+            if ((!args || args.volumeSizeInBytes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'volumeSizeInBytes'");
             }
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;

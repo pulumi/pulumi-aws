@@ -101,7 +101,7 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
             inputs["vpc"] = state ? state.vpc : undefined;
         } else {
             const args = argsOrState as PrivateDnsNamespaceArgs | undefined;
-            if (!args || args.vpc === undefined) {
+            if ((!args || args.vpc === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpc'");
             }
             inputs["description"] = args ? args.description : undefined;

@@ -105,13 +105,13 @@ export class Model extends pulumi.CustomResource {
             inputs["schema"] = state ? state.schema : undefined;
         } else {
             const args = argsOrState as ModelArgs | undefined;
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.contentType === undefined) {
+            if ((!args || args.contentType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if (!args || args.schema === undefined) {
+            if ((!args || args.schema === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'schema'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;

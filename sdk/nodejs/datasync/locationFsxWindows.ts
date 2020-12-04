@@ -122,16 +122,16 @@ export class LocationFsxWindows extends pulumi.CustomResource {
             inputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as LocationFsxWindowsArgs | undefined;
-            if (!args || args.fsxFilesystemArn === undefined) {
+            if ((!args || args.fsxFilesystemArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fsxFilesystemArn'");
             }
-            if (!args || args.password === undefined) {
+            if ((!args || args.password === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'password'");
             }
-            if (!args || args.securityGroupArns === undefined) {
+            if ((!args || args.securityGroupArns === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
-            if (!args || args.user === undefined) {
+            if ((!args || args.user === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'user'");
             }
             inputs["domain"] = args ? args.domain : undefined;

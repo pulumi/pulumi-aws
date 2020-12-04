@@ -133,16 +133,16 @@ export class MethodSettings extends pulumi.CustomResource {
             inputs["stageName"] = state ? state.stageName : undefined;
         } else {
             const args = argsOrState as MethodSettingsArgs | undefined;
-            if (!args || args.methodPath === undefined) {
+            if ((!args || args.methodPath === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'methodPath'");
             }
-            if (!args || args.restApi === undefined) {
+            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if (!args || args.settings === undefined) {
+            if ((!args || args.settings === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'settings'");
             }
-            if (!args || args.stageName === undefined) {
+            if ((!args || args.stageName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stageName'");
             }
             inputs["methodPath"] = args ? args.methodPath : undefined;

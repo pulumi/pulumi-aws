@@ -112,13 +112,13 @@ export class VaultNotifications extends pulumi.CustomResource {
             inputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
         } else {
             const args = argsOrState as VaultNotificationsArgs | undefined;
-            if (!args || args.backupVaultEvents === undefined) {
+            if ((!args || args.backupVaultEvents === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backupVaultEvents'");
             }
-            if (!args || args.backupVaultName === undefined) {
+            if ((!args || args.backupVaultName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backupVaultName'");
             }
-            if (!args || args.snsTopicArn === undefined) {
+            if ((!args || args.snsTopicArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'snsTopicArn'");
             }
             inputs["backupVaultEvents"] = args ? args.backupVaultEvents : undefined;

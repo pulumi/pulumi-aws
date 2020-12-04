@@ -124,16 +124,16 @@ export class MethodResponse extends pulumi.CustomResource {
             inputs["statusCode"] = state ? state.statusCode : undefined;
         } else {
             const args = argsOrState as MethodResponseArgs | undefined;
-            if (!args || args.httpMethod === undefined) {
+            if ((!args || args.httpMethod === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if (!args || args.resourceId === undefined) {
+            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (!args || args.restApi === undefined) {
+            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if (!args || args.statusCode === undefined) {
+            if ((!args || args.statusCode === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'statusCode'");
             }
             inputs["httpMethod"] = args ? args.httpMethod : undefined;

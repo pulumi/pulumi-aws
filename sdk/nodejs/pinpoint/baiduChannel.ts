@@ -94,13 +94,13 @@ export class BaiduChannel extends pulumi.CustomResource {
             inputs["secretKey"] = state ? state.secretKey : undefined;
         } else {
             const args = argsOrState as BaiduChannelArgs | undefined;
-            if (!args || args.apiKey === undefined) {
+            if ((!args || args.apiKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiKey'");
             }
-            if (!args || args.applicationId === undefined) {
+            if ((!args || args.applicationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (!args || args.secretKey === undefined) {
+            if ((!args || args.secretKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'secretKey'");
             }
             inputs["apiKey"] = args ? args.apiKey : undefined;

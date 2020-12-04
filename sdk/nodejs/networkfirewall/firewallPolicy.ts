@@ -137,7 +137,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["updateToken"] = state ? state.updateToken : undefined;
         } else {
             const args = argsOrState as FirewallPolicyArgs | undefined;
-            if (!args || args.firewallPolicy === undefined) {
+            if ((!args || args.firewallPolicy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'firewallPolicy'");
             }
             inputs["description"] = args ? args.description : undefined;

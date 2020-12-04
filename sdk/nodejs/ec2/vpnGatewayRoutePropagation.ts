@@ -76,10 +76,10 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
             inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as VpnGatewayRoutePropagationArgs | undefined;
-            if (!args || args.routeTableId === undefined) {
+            if ((!args || args.routeTableId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            if (!args || args.vpnGatewayId === undefined) {
+            if ((!args || args.vpnGatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
             inputs["routeTableId"] = args ? args.routeTableId : undefined;

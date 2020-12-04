@@ -173,7 +173,7 @@ export class Api extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ApiArgs | undefined;
-            if (!args || args.protocolType === undefined) {
+            if ((!args || args.protocolType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'protocolType'");
             }
             inputs["apiKeySelectionExpression"] = args ? args.apiKeySelectionExpression : undefined;

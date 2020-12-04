@@ -108,7 +108,7 @@ export class Group extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if (!args || args.resourceQuery === undefined) {
+            if ((!args || args.resourceQuery === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceQuery'");
             }
             inputs["description"] = args ? args.description : undefined;

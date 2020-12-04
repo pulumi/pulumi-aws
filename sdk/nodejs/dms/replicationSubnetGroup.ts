@@ -102,13 +102,13 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ReplicationSubnetGroupArgs | undefined;
-            if (!args || args.replicationSubnetGroupDescription === undefined) {
+            if ((!args || args.replicationSubnetGroupDescription === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'replicationSubnetGroupDescription'");
             }
-            if (!args || args.replicationSubnetGroupId === undefined) {
+            if ((!args || args.replicationSubnetGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'replicationSubnetGroupId'");
             }
-            if (!args || args.subnetIds === undefined) {
+            if ((!args || args.subnetIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetIds'");
             }
             inputs["replicationSubnetGroupDescription"] = args ? args.replicationSubnetGroupDescription : undefined;

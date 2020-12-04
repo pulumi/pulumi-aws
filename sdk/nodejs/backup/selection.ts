@@ -148,10 +148,10 @@ export class Selection extends pulumi.CustomResource {
             inputs["selectionTags"] = state ? state.selectionTags : undefined;
         } else {
             const args = argsOrState as SelectionArgs | undefined;
-            if (!args || args.iamRoleArn === undefined) {
+            if ((!args || args.iamRoleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if (!args || args.planId === undefined) {
+            if ((!args || args.planId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'planId'");
             }
             inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;

@@ -89,7 +89,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RegistryArgs | undefined;
-            if (!args || args.registryName === undefined) {
+            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryName'");
             }
             inputs["description"] = args ? args.description : undefined;

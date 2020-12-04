@@ -331,10 +331,10 @@ export class Instance extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
-            if (!args || args.ami === undefined) {
+            if ((!args || args.ami === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ami'");
             }
-            if (!args || args.instanceType === undefined) {
+            if ((!args || args.instanceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceType'");
             }
             inputs["ami"] = args ? args.ami : undefined;

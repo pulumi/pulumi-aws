@@ -132,7 +132,7 @@ export class DeliveryChannel extends pulumi.CustomResource {
             inputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
         } else {
             const args = argsOrState as DeliveryChannelArgs | undefined;
-            if (!args || args.s3BucketName === undefined) {
+            if ((!args || args.s3BucketName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 's3BucketName'");
             }
             inputs["name"] = args ? args.name : undefined;

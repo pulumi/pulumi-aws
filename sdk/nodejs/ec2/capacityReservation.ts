@@ -133,16 +133,16 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["tenancy"] = state ? state.tenancy : undefined;
         } else {
             const args = argsOrState as CapacityReservationArgs | undefined;
-            if (!args || args.availabilityZone === undefined) {
+            if ((!args || args.availabilityZone === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            if (!args || args.instanceCount === undefined) {
+            if ((!args || args.instanceCount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceCount'");
             }
-            if (!args || args.instancePlatform === undefined) {
+            if ((!args || args.instancePlatform === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instancePlatform'");
             }
-            if (!args || args.instanceType === undefined) {
+            if ((!args || args.instanceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceType'");
             }
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;

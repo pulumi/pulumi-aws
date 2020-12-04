@@ -95,10 +95,10 @@ export class Ciphertext extends pulumi.CustomResource {
             inputs["plaintext"] = state ? state.plaintext : undefined;
         } else {
             const args = argsOrState as CiphertextArgs | undefined;
-            if (!args || args.keyId === undefined) {
+            if ((!args || args.keyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if (!args || args.plaintext === undefined) {
+            if ((!args || args.plaintext === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'plaintext'");
             }
             inputs["context"] = args ? args.context : undefined;

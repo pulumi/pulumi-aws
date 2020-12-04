@@ -230,19 +230,19 @@ export class Budget extends pulumi.CustomResource {
             inputs["timeUnit"] = state ? state.timeUnit : undefined;
         } else {
             const args = argsOrState as BudgetArgs | undefined;
-            if (!args || args.budgetType === undefined) {
+            if ((!args || args.budgetType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'budgetType'");
             }
-            if (!args || args.limitAmount === undefined) {
+            if ((!args || args.limitAmount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'limitAmount'");
             }
-            if (!args || args.limitUnit === undefined) {
+            if ((!args || args.limitUnit === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'limitUnit'");
             }
-            if (!args || args.timePeriodStart === undefined) {
+            if ((!args || args.timePeriodStart === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timePeriodStart'");
             }
-            if (!args || args.timeUnit === undefined) {
+            if ((!args || args.timeUnit === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timeUnit'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

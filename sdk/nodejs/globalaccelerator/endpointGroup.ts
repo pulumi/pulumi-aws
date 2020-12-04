@@ -123,7 +123,7 @@ export class EndpointGroup extends pulumi.CustomResource {
             inputs["trafficDialPercentage"] = state ? state.trafficDialPercentage : undefined;
         } else {
             const args = argsOrState as EndpointGroupArgs | undefined;
-            if (!args || args.listenerArn === undefined) {
+            if ((!args || args.listenerArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'listenerArn'");
             }
             inputs["endpointConfigurations"] = args ? args.endpointConfigurations : undefined;

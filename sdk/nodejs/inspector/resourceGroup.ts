@@ -74,7 +74,7 @@ export class ResourceGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ResourceGroupArgs | undefined;
-            if (!args || args.tags === undefined) {
+            if ((!args || args.tags === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tags'");
             }
             inputs["tags"] = args ? args.tags : undefined;

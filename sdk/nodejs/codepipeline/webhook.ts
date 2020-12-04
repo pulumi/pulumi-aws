@@ -175,16 +175,16 @@ export class Webhook extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
-            if (!args || args.authentication === undefined) {
+            if ((!args || args.authentication === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authentication'");
             }
-            if (!args || args.filters === undefined) {
+            if ((!args || args.filters === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'filters'");
             }
-            if (!args || args.targetAction === undefined) {
+            if ((!args || args.targetAction === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetAction'");
             }
-            if (!args || args.targetPipeline === undefined) {
+            if ((!args || args.targetPipeline === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetPipeline'");
             }
             inputs["authentication"] = args ? args.authentication : undefined;

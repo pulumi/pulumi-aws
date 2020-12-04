@@ -111,10 +111,10 @@ export class DomainPermissions extends pulumi.CustomResource {
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as DomainPermissionsArgs | undefined;
-            if (!args || args.domain === undefined) {
+            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domain'");
             }
-            if (!args || args.policyDocument === undefined) {
+            if ((!args || args.policyDocument === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyDocument'");
             }
             inputs["domain"] = args ? args.domain : undefined;

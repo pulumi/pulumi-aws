@@ -112,13 +112,13 @@ export class Member extends pulumi.CustomResource {
             inputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
         } else {
             const args = argsOrState as MemberArgs | undefined;
-            if (!args || args.accountId === undefined) {
+            if ((!args || args.accountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if (!args || args.detectorId === undefined) {
+            if ((!args || args.detectorId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if (!args || args.email === undefined) {
+            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'email'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

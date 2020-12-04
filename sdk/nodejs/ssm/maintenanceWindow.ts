@@ -128,13 +128,13 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as MaintenanceWindowArgs | undefined;
-            if (!args || args.cutoff === undefined) {
+            if ((!args || args.cutoff === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cutoff'");
             }
-            if (!args || args.duration === undefined) {
+            if ((!args || args.duration === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'duration'");
             }
-            if (!args || args.schedule === undefined) {
+            if ((!args || args.schedule === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'schedule'");
             }
             inputs["allowUnassociatedTargets"] = args ? args.allowUnassociatedTargets : undefined;

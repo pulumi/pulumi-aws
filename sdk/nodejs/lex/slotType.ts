@@ -143,7 +143,7 @@ export class SlotType extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SlotTypeArgs | undefined;
-            if (!args || args.enumerationValues === undefined) {
+            if ((!args || args.enumerationValues === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enumerationValues'");
             }
             inputs["createVersion"] = args ? args.createVersion : undefined;

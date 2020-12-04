@@ -121,7 +121,7 @@ export class RecorderStatus extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as RecorderStatusArgs | undefined;
-            if (!args || args.isEnabled === undefined) {
+            if ((!args || args.isEnabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'isEnabled'");
             }
             inputs["isEnabled"] = args ? args.isEnabled : undefined;

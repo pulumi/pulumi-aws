@@ -140,19 +140,19 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             inputs["vlan"] = state ? state.vlan : undefined;
         } else {
             const args = argsOrState as HostedPrivateVirtualInterfaceArgs | undefined;
-            if (!args || args.addressFamily === undefined) {
+            if ((!args || args.addressFamily === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if (!args || args.bgpAsn === undefined) {
+            if ((!args || args.bgpAsn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bgpAsn'");
             }
-            if (!args || args.connectionId === undefined) {
+            if ((!args || args.connectionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionId'");
             }
-            if (!args || args.ownerAccountId === undefined) {
+            if ((!args || args.ownerAccountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ownerAccountId'");
             }
-            if (!args || args.vlan === undefined) {
+            if ((!args || args.vlan === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vlan'");
             }
             inputs["addressFamily"] = args ? args.addressFamily : undefined;

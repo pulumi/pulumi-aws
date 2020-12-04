@@ -118,7 +118,7 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
             inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as HostedPrivateVirtualInterfaceAccepterArgs | undefined;
-            if (!args || args.virtualInterfaceId === undefined) {
+            if ((!args || args.virtualInterfaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
             inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;

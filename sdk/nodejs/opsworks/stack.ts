@@ -202,13 +202,13 @@ export class Stack extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as StackArgs | undefined;
-            if (!args || args.defaultInstanceProfileArn === undefined) {
+            if ((!args || args.defaultInstanceProfileArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'defaultInstanceProfileArn'");
             }
-            if (!args || args.region === undefined) {
+            if ((!args || args.region === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'region'");
             }
-            if (!args || args.serviceRoleArn === undefined) {
+            if ((!args || args.serviceRoleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
             inputs["agentVersion"] = args ? args.agentVersion : undefined;

@@ -258,10 +258,10 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["writer"] = state ? state.writer : undefined;
         } else {
             const args = argsOrState as ClusterInstanceArgs | undefined;
-            if (!args || args.clusterIdentifier === undefined) {
+            if ((!args || args.clusterIdentifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if (!args || args.instanceClass === undefined) {
+            if ((!args || args.instanceClass === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceClass'");
             }
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;

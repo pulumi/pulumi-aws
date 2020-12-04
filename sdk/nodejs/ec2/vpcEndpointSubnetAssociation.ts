@@ -80,10 +80,10 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
             inputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
         } else {
             const args = argsOrState as VpcEndpointSubnetAssociationArgs | undefined;
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if (!args || args.vpcEndpointId === undefined) {
+            if ((!args || args.vpcEndpointId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
             inputs["subnetId"] = args ? args.subnetId : undefined;

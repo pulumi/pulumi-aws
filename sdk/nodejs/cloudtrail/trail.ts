@@ -276,7 +276,7 @@ export class Trail extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TrailArgs | undefined;
-            if (!args || args.s3BucketName === undefined) {
+            if ((!args || args.s3BucketName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 's3BucketName'");
             }
             inputs["cloudWatchLogsGroupArn"] = args ? args.cloudWatchLogsGroupArn : undefined;

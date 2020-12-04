@@ -119,10 +119,10 @@ export class BotAlias extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as BotAliasArgs | undefined;
-            if (!args || args.botName === undefined) {
+            if ((!args || args.botName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'botName'");
             }
-            if (!args || args.botVersion === undefined) {
+            if ((!args || args.botVersion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'botVersion'");
             }
             inputs["botName"] = args ? args.botName : undefined;

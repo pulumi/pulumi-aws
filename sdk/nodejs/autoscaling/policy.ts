@@ -151,7 +151,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["targetTrackingConfiguration"] = state ? state.targetTrackingConfiguration : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if (!args || args.autoscalingGroupName === undefined) {
+            if ((!args || args.autoscalingGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
             inputs["adjustmentType"] = args ? args.adjustmentType : undefined;

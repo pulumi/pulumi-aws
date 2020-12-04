@@ -199,7 +199,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as CertificateAuthorityArgs | undefined;
-            if (!args || args.certificateAuthorityConfiguration === undefined) {
+            if ((!args || args.certificateAuthorityConfiguration === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificateAuthorityConfiguration'");
             }
             inputs["certificateAuthorityConfiguration"] = args ? args.certificateAuthorityConfiguration : undefined;

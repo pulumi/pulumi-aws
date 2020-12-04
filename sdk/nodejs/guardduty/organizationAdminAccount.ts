@@ -79,7 +79,7 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
             inputs["adminAccountId"] = state ? state.adminAccountId : undefined;
         } else {
             const args = argsOrState as OrganizationAdminAccountArgs | undefined;
-            if (!args || args.adminAccountId === undefined) {
+            if ((!args || args.adminAccountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'adminAccountId'");
             }
             inputs["adminAccountId"] = args ? args.adminAccountId : undefined;

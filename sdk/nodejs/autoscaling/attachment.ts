@@ -110,7 +110,7 @@ export class Attachment extends pulumi.CustomResource {
             inputs["elb"] = state ? state.elb : undefined;
         } else {
             const args = argsOrState as AttachmentArgs | undefined;
-            if (!args || args.autoscalingGroupName === undefined) {
+            if ((!args || args.autoscalingGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
             inputs["albTargetGroupArn"] = args ? args.albTargetGroupArn : undefined;

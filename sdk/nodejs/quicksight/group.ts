@@ -94,7 +94,7 @@ export class Group extends pulumi.CustomResource {
             inputs["namespace"] = state ? state.namespace : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if (!args || args.groupName === undefined) {
+            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupName'");
             }
             inputs["awsAccountId"] = args ? args.awsAccountId : undefined;

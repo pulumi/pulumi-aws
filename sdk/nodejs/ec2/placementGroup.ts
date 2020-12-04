@@ -96,7 +96,7 @@ export class PlacementGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PlacementGroupArgs | undefined;
-            if (!args || args.strategy === undefined) {
+            if ((!args || args.strategy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'strategy'");
             }
             inputs["name"] = args ? args.name : undefined;

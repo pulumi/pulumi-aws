@@ -115,10 +115,10 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
             inputs["targetId"] = state ? state.targetId : undefined;
         } else {
             const args = argsOrState as TargetGroupAttachmentArgs | undefined;
-            if (!args || args.targetGroupArn === undefined) {
+            if ((!args || args.targetGroupArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetGroupArn'");
             }
-            if (!args || args.targetId === undefined) {
+            if ((!args || args.targetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetId'");
             }
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;

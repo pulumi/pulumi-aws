@@ -120,13 +120,13 @@ export class SigningProfilePermission extends pulumi.CustomResource {
             inputs["statementIdPrefix"] = state ? state.statementIdPrefix : undefined;
         } else {
             const args = argsOrState as SigningProfilePermissionArgs | undefined;
-            if (!args || args.action === undefined) {
+            if ((!args || args.action === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'action'");
             }
-            if (!args || args.principal === undefined) {
+            if ((!args || args.principal === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principal'");
             }
-            if (!args || args.profileName === undefined) {
+            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
             inputs["action"] = args ? args.action : undefined;

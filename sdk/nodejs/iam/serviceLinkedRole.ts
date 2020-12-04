@@ -109,7 +109,7 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as ServiceLinkedRoleArgs | undefined;
-            if (!args || args.awsServiceName === undefined) {
+            if ((!args || args.awsServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'awsServiceName'");
             }
             inputs["awsServiceName"] = args ? args.awsServiceName : undefined;

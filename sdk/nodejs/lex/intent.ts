@@ -249,7 +249,7 @@ export class Intent extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as IntentArgs | undefined;
-            if (!args || args.fulfillmentActivity === undefined) {
+            if ((!args || args.fulfillmentActivity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fulfillmentActivity'");
             }
             inputs["conclusionStatement"] = args ? args.conclusionStatement : undefined;

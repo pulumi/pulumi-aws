@@ -120,7 +120,7 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
             inputs["storageClassAnalysis"] = state ? state.storageClassAnalysis : undefined;
         } else {
             const args = argsOrState as AnalyticsConfigurationArgs | undefined;
-            if (!args || args.bucket === undefined) {
+            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bucket'");
             }
             inputs["bucket"] = args ? args.bucket : undefined;

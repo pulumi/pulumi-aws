@@ -97,10 +97,10 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
             inputs["computeLimits"] = state ? state.computeLimits : undefined;
         } else {
             const args = argsOrState as ManagedScalingPolicyArgs | undefined;
-            if (!args || args.clusterId === undefined) {
+            if ((!args || args.clusterId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if (!args || args.computeLimits === undefined) {
+            if ((!args || args.computeLimits === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'computeLimits'");
             }
             inputs["clusterId"] = args ? args.clusterId : undefined;

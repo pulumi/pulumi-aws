@@ -79,7 +79,7 @@ export class EmailIdentity extends pulumi.CustomResource {
             inputs["email"] = state ? state.email : undefined;
         } else {
             const args = argsOrState as EmailIdentityArgs | undefined;
-            if (!args || args.email === undefined) {
+            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'email'");
             }
             inputs["email"] = args ? args.email : undefined;

@@ -197,13 +197,13 @@ export class Instance extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
-            if (!args || args.availabilityZone === undefined) {
+            if ((!args || args.availabilityZone === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            if (!args || args.blueprintId === undefined) {
+            if ((!args || args.blueprintId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'blueprintId'");
             }
-            if (!args || args.bundleId === undefined) {
+            if ((!args || args.bundleId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bundleId'");
             }
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;

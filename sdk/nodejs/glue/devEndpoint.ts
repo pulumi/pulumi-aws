@@ -203,7 +203,7 @@ export class DevEndpoint extends pulumi.CustomResource {
             inputs["zeppelinRemoteSparkInterpreterPort"] = state ? state.zeppelinRemoteSparkInterpreterPort : undefined;
         } else {
             const args = argsOrState as DevEndpointArgs | undefined;
-            if (!args || args.roleArn === undefined) {
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["arguments"] = args ? args.arguments : undefined;

@@ -152,34 +152,34 @@ export class SamplingRule extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SamplingRuleArgs | undefined;
-            if (!args || args.fixedRate === undefined) {
+            if ((!args || args.fixedRate === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fixedRate'");
             }
-            if (!args || args.host === undefined) {
+            if ((!args || args.host === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'host'");
             }
-            if (!args || args.httpMethod === undefined) {
+            if ((!args || args.httpMethod === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if (!args || args.priority === undefined) {
+            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'priority'");
             }
-            if (!args || args.reservoirSize === undefined) {
+            if ((!args || args.reservoirSize === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'reservoirSize'");
             }
-            if (!args || args.resourceArn === undefined) {
+            if ((!args || args.resourceArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.serviceType === undefined) {
+            if ((!args || args.serviceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceType'");
             }
-            if (!args || args.urlPath === undefined) {
+            if ((!args || args.urlPath === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'urlPath'");
             }
-            if (!args || args.version === undefined) {
+            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["attributes"] = args ? args.attributes : undefined;

@@ -89,10 +89,10 @@ export class DomainPolicy extends pulumi.CustomResource {
             inputs["domainName"] = state ? state.domainName : undefined;
         } else {
             const args = argsOrState as DomainPolicyArgs | undefined;
-            if (!args || args.accessPolicies === undefined) {
+            if ((!args || args.accessPolicies === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accessPolicies'");
             }
-            if (!args || args.domainName === undefined) {
+            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domainName'");
             }
             inputs["accessPolicies"] = args ? args.accessPolicies : undefined;

@@ -175,7 +175,7 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
             inputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
         } else {
             const args = argsOrState as PeeringConnectionOptionsArgs | undefined;
-            if (!args || args.vpcPeeringConnectionId === undefined) {
+            if ((!args || args.vpcPeeringConnectionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpcPeeringConnectionId'");
             }
             inputs["accepter"] = args ? args.accepter : undefined;

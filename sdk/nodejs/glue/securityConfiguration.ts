@@ -89,7 +89,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as SecurityConfigurationArgs | undefined;
-            if (!args || args.encryptionConfiguration === undefined) {
+            if ((!args || args.encryptionConfiguration === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'encryptionConfiguration'");
             }
             inputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;

@@ -128,7 +128,7 @@ export class GlobalTable extends pulumi.CustomResource {
             inputs["replicas"] = state ? state.replicas : undefined;
         } else {
             const args = argsOrState as GlobalTableArgs | undefined;
-            if (!args || args.replicas === undefined) {
+            if ((!args || args.replicas === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'replicas'");
             }
             inputs["name"] = args ? args.name : undefined;

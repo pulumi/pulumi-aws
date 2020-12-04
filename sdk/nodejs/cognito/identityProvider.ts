@@ -111,16 +111,16 @@ export class IdentityProvider extends pulumi.CustomResource {
             inputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as IdentityProviderArgs | undefined;
-            if (!args || args.providerDetails === undefined) {
+            if ((!args || args.providerDetails === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'providerDetails'");
             }
-            if (!args || args.providerName === undefined) {
+            if ((!args || args.providerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'providerName'");
             }
-            if (!args || args.providerType === undefined) {
+            if ((!args || args.providerType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'providerType'");
             }
-            if (!args || args.userPoolId === undefined) {
+            if ((!args || args.userPoolId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userPoolId'");
             }
             inputs["attributeMapping"] = args ? args.attributeMapping : undefined;

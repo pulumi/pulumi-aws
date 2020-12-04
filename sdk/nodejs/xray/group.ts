@@ -90,10 +90,10 @@ export class Group extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if (!args || args.filterExpression === undefined) {
+            if ((!args || args.filterExpression === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'filterExpression'");
             }
-            if (!args || args.groupName === undefined) {
+            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupName'");
             }
             inputs["filterExpression"] = args ? args.filterExpression : undefined;

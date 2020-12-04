@@ -138,10 +138,10 @@ export class OptionGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as OptionGroupArgs | undefined;
-            if (!args || args.engineName === undefined) {
+            if ((!args || args.engineName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'engineName'");
             }
-            if (!args || args.majorEngineVersion === undefined) {
+            if ((!args || args.majorEngineVersion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'majorEngineVersion'");
             }
             inputs["engineName"] = args ? args.engineName : undefined;

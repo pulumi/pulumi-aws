@@ -106,7 +106,7 @@ export class Authorizer extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AuthorizerArgs | undefined;
-            if (!args || args.restApi === undefined) {
+            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'restApi'");
             }
             inputs["authorizerCredentials"] = args ? args.authorizerCredentials : undefined;

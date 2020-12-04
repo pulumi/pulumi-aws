@@ -80,10 +80,10 @@ export class ConnectionAssociation extends pulumi.CustomResource {
             inputs["lagId"] = state ? state.lagId : undefined;
         } else {
             const args = argsOrState as ConnectionAssociationArgs | undefined;
-            if (!args || args.connectionId === undefined) {
+            if ((!args || args.connectionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionId'");
             }
-            if (!args || args.lagId === undefined) {
+            if ((!args || args.lagId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lagId'");
             }
             inputs["connectionId"] = args ? args.connectionId : undefined;

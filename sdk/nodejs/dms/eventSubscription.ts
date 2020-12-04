@@ -113,10 +113,10 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EventSubscriptionArgs | undefined;
-            if (!args || args.eventCategories === undefined) {
+            if ((!args || args.eventCategories === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventCategories'");
             }
-            if (!args || args.snsTopicArn === undefined) {
+            if ((!args || args.snsTopicArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'snsTopicArn'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;
