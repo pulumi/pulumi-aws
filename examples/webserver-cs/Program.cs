@@ -11,8 +11,6 @@ using Pulumi.Aws.Inputs;
 
 class Program
 {
-    private const string size = "t2.micro";
-
     static Task<int> Main()
     {
         return Deployment.RunAsync(async () => {
@@ -48,7 +46,7 @@ nohup python -m SimpleHTTPServer 80 &
 
             var server = new Instance("web-server-www", new InstanceArgs
             {
-                InstanceType = size,
+                InstanceType = Pulumi.Aws.Ec2.InstanceType.T2_Micro,
                 VpcSecurityGroupIds = { group.Id },
                 UserData = userData,
                 Ami = ami.Id,

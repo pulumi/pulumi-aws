@@ -9,7 +9,7 @@ const config = new pulumi.Config("aws");
 const region = <aws.Region>config.require("envRegion");
 const providerOpts = { provider: new aws.Provider("prov", { region }) };
 
-let size = aws.ec2.InstanceTypes.T2_Micro;
+const size = aws.ec2.InstanceType.T2_Micro;
 
 let group = new aws.ec2.SecurityGroup("web-secgrp-2", {
     description: "Enable HTTP access",

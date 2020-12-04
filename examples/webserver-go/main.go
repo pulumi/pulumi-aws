@@ -8,8 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-const size = "t2.micro"
-
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		group, err := ec2.NewSecurityGroup(ctx, "web-secgrp-2", &ec2.SecurityGroupArgs{
@@ -43,11 +41,9 @@ func main() {
 		}
 
 		server, err := ec2.NewInstance(ctx, "web-server-www", &ec2.InstanceArgs{
-			InstanceType: pulumi.String(size),
-			SecurityGroups: pulumi.StringArray{
-				group.Name,
-			},
-			Ami: pulumi.String(ami.Id),
+			InstanceType:        ec2.InstanceType_T2_Micro,
+			VpcSecurityGroupIds: pulumi.StringArray{group.Arn},
+			Ami:                 pulumi.String(ami.Id),
 		})
 		if err != nil {
 			return err

@@ -4,7 +4,7 @@ import pulumi
 from pulumi_aws import ec2
 from ami import get_linux_ami
 
-size = 't2.micro'
+size = ec2.InstanceType.T2_MICRO
 
 group = ec2.SecurityGroup('web-secgrp',
     description='Enable HTTP access',
