@@ -47,6 +47,19 @@ import * as utilities from "../utilities";
  *     functionName: aws_lambda_function.example.arn,
  * });
  * ```
+ * ### Managed Streaming for Kafka (MSK)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: aws_msk_cluster.example.arn,
+ *     functionName: aws_lambda_function.example.arn,
+ *     topics: ["Example"],
+ *     startingPosition: "TRIM_HORIZON",
+ * });
+ * ```
  *
  * ## Import
  *
@@ -87,7 +100,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     }
 
     /**
-     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
+     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis and MSK, `10` for SQS.
      */
     public readonly batchSize!: pulumi.Output<number | undefined>;
     public readonly bisectBatchOnFunctionError!: pulumi.Output<boolean | undefined>;
@@ -97,7 +110,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
+     * The event source ARN - can be a Kinesis stream, DynamoDB stream, SQS queue or MSK cluster.
      */
     public readonly eventSourceArn!: pulumi.Output<string>;
     /**
@@ -124,7 +137,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     public readonly maximumRetryAttempts!: pulumi.Output<number>;
     public readonly parallelizationFactor!: pulumi.Output<number>;
     /**
-     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
+     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      */
     public readonly startingPosition!: pulumi.Output<string | undefined>;
     /**
@@ -133,7 +146,6 @@ export class EventSourceMapping extends pulumi.CustomResource {
      * * `maximumRetryAttempts`: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum of 0, maximum and default of 10000.
      * * `maximumRecordAgeInSeconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Minimum of 60, maximum and default of 604800.
      * * `bisectBatchOnFunctionError`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-     * * `destinationConfig`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
      */
     public readonly startingPositionTimestamp!: pulumi.Output<string | undefined>;
     /**
@@ -144,6 +156,11 @@ export class EventSourceMapping extends pulumi.CustomResource {
      * The reason the event source mapping is in its current state.
      */
     public /*out*/ readonly stateTransitionReason!: pulumi.Output<string>;
+    /**
+     * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
+     * * `destinationConfig`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     */
+    public readonly topics!: pulumi.Output<string[] | undefined>;
     /**
      * The UUID of the created event source mapping.
      */
@@ -178,6 +195,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["startingPositionTimestamp"] = state ? state.startingPositionTimestamp : undefined;
             inputs["state"] = state ? state.state : undefined;
             inputs["stateTransitionReason"] = state ? state.stateTransitionReason : undefined;
+            inputs["topics"] = state ? state.topics : undefined;
             inputs["uuid"] = state ? state.uuid : undefined;
         } else {
             const args = argsOrState as EventSourceMappingArgs | undefined;
@@ -199,6 +217,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["parallelizationFactor"] = args ? args.parallelizationFactor : undefined;
             inputs["startingPosition"] = args ? args.startingPosition : undefined;
             inputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
+            inputs["topics"] = args ? args.topics : undefined;
             inputs["functionArn"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
             inputs["lastProcessingResult"] = undefined /*out*/;
@@ -222,7 +241,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
  */
 export interface EventSourceMappingState {
     /**
-     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
+     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis and MSK, `10` for SQS.
      */
     readonly batchSize?: pulumi.Input<number>;
     readonly bisectBatchOnFunctionError?: pulumi.Input<boolean>;
@@ -232,7 +251,7 @@ export interface EventSourceMappingState {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
+     * The event source ARN - can be a Kinesis stream, DynamoDB stream, SQS queue or MSK cluster.
      */
     readonly eventSourceArn?: pulumi.Input<string>;
     /**
@@ -259,7 +278,7 @@ export interface EventSourceMappingState {
     readonly maximumRetryAttempts?: pulumi.Input<number>;
     readonly parallelizationFactor?: pulumi.Input<number>;
     /**
-     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
+     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      */
     readonly startingPosition?: pulumi.Input<string>;
     /**
@@ -268,7 +287,6 @@ export interface EventSourceMappingState {
      * * `maximumRetryAttempts`: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum of 0, maximum and default of 10000.
      * * `maximumRecordAgeInSeconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Minimum of 60, maximum and default of 604800.
      * * `bisectBatchOnFunctionError`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-     * * `destinationConfig`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
      */
     readonly startingPositionTimestamp?: pulumi.Input<string>;
     /**
@@ -280,6 +298,11 @@ export interface EventSourceMappingState {
      */
     readonly stateTransitionReason?: pulumi.Input<string>;
     /**
+     * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
+     * * `destinationConfig`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     */
+    readonly topics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The UUID of the created event source mapping.
      */
     readonly uuid?: pulumi.Input<string>;
@@ -290,7 +313,7 @@ export interface EventSourceMappingState {
  */
 export interface EventSourceMappingArgs {
     /**
-     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
+     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis and MSK, `10` for SQS.
      */
     readonly batchSize?: pulumi.Input<number>;
     readonly bisectBatchOnFunctionError?: pulumi.Input<boolean>;
@@ -300,7 +323,7 @@ export interface EventSourceMappingArgs {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
+     * The event source ARN - can be a Kinesis stream, DynamoDB stream, SQS queue or MSK cluster.
      */
     readonly eventSourceArn: pulumi.Input<string>;
     /**
@@ -315,7 +338,7 @@ export interface EventSourceMappingArgs {
     readonly maximumRetryAttempts?: pulumi.Input<number>;
     readonly parallelizationFactor?: pulumi.Input<number>;
     /**
-     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
+     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      */
     readonly startingPosition?: pulumi.Input<string>;
     /**
@@ -324,7 +347,11 @@ export interface EventSourceMappingArgs {
      * * `maximumRetryAttempts`: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum of 0, maximum and default of 10000.
      * * `maximumRecordAgeInSeconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Minimum of 60, maximum and default of 604800.
      * * `bisectBatchOnFunctionError`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-     * * `destinationConfig`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
      */
     readonly startingPositionTimestamp?: pulumi.Input<string>;
+    /**
+     * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
+     * * `destinationConfig`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     */
+    readonly topics?: pulumi.Input<pulumi.Input<string>[]>;
 }
