@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Add support for MSK `topics` to `aws.lambda.eventSourceMapping`.
+* Add support for autonaming FIFO `aws.sqs.Queue` with a `.fifo` suffix 
 * Upgrade to v2.15.3 of pulumi-terraform-bridge
   * Bug fix: Corrects a panic caused by reading sets with partially-known elements.
 
