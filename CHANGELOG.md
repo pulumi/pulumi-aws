@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add support for MSK `topics` to `aws.lambda.eventSourceMapping`.
 
 ---
 
