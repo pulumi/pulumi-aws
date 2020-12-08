@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Add support for MSK `topics` to `aws.lambda.eventSourceMapping`.
+* Add support for autonaming FIFO `aws.sqs.Queue` with a `.fifo` suffix 
 
 ---
 
