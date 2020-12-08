@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.15.2 of pulumi-terraform-bridge
+    * Bug fix: Corrects an issue where replacements were not being correctly identified and leading to panics.
 
 ---
 
