@@ -137,8 +137,6 @@ export module InstanceTypes {
     export const H1_4XLarge: InstanceType = "h1.4xlarge";
     /** Use InstanceType.H1_8XLarge instead. */
     export const H1_8XLarge: InstanceType = "h1.8xlarge";
-    /** Use InstanceType.Hs1_8XLarge instead. */
-    export const Hs1_8XLarge: InstanceType = "hs1.8xlarge";
     /** Use InstanceType.I3_16XLarge instead. */
     export const I3_16XLarge: InstanceType = "i3.16xlarge";
     /** Use InstanceType.I3_2XLarge instead. */
@@ -323,12 +321,6 @@ export module InstanceTypes {
     export const T3a_Small: InstanceType = "t3a.small";
     /** Use InstanceType.T3a_XLarge instead. */
     export const T3a_XLarge: InstanceType = "t3a.xlarge";
-    /** Use InstanceType.U_12tb1Metal instead. */
-    export const U_12tb1Metal: InstanceType = "u-12tb1.metal";
-    /** Use InstanceType.U_6tb1Metal instead. */
-    export const U_6tb1Metal: InstanceType = "u-6tb1.metal";
-    /** Use InstanceType.U_9tb1Metal instead. */
-    export const U_9tb1Metal: InstanceType = "u-9tb1.metal";
     /** Use InstanceType.X1_16XLarge instead. */
     export const X1_16XLarge: InstanceType = "x1.16xlarge";
     /** Use InstanceType.X1_32XLarge instead. */
@@ -357,4 +349,12 @@ export module InstanceTypes {
     export const Z1d_Large: InstanceType = "z1d.large";
     /** Use InstanceType.Z1d_XLarge instead. */
     export const Z1d_XLarge: InstanceType = "z1d.xlarge";
+    /** @deprecated This instance type has been deprecated */
+    export const U_12tb1Metal: InstanceType = "u-12tb1.metal";
+    /** @deprecated This instance type has been deprecated */
+    export const U_6tb1Metal: InstanceType = "u-6tb1.metal";
+    /** @deprecated This instance type has been deprecated */
+    export const U_9tb1Metal: InstanceType = "u-9tb1.metal";
+    /** @deprecated This instance type has been deprecated */
+    export const Hs1_8XLarge: InstanceType = "hs1.8xlarge";
 }
