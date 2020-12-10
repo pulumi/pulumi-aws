@@ -1152,7 +1152,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_local_gateway_route_table_vpc_association": {
 				Tok: awsResource(ec2Mod, "LocalGatewayRouteTableVpcAssociation"),
 			},
-			"aws_ec2_tag": {Tok: awsResource(ec2Mod, "Tag")},
+			"aws_ec2_tag":        {Tok: awsResource(ec2Mod, "Tag")},
+			"aws_dedicated_host": {Tok: awsResource(ec2Mod, "DedicatedHost")},
 			// EC2 Client VPN
 			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},
 			"aws_ec2_client_vpn_network_association": {Tok: awsResource(ec2ClientVpnMod, "NetworkAssociation")},
@@ -3502,6 +3503,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_local_gateway_virtual_interface_groups": {
 				Tok: awsDataSource(ec2Mod, "getLocalGatewayVirtualInterfaceGroups"),
 			},
+			"aws_dedicated_host": {Tok: awsDataSource(ec2Mod, "getDedicatedHost")},
 			// EC2 Transit Gateway
 			"aws_ec2_transit_gateway": {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
 			"aws_ec2_transit_gateway_dx_gateway_attachment": {

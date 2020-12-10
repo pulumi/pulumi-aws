@@ -15,6 +15,16 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestAccDedicatedHost(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "dedicated-host"),
+			RunUpdateTest: false,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccMinimal(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
