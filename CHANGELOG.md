@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update AWS EC2 Instance Type List.
-* Add support for EC2 Dedicated hosts
+_(none)_
 
 ---
+
+## 3.19.3 (2020-12-10)
+* Update AWS EC2 Instance Type List.
+* Add support for EC2 Dedicated hosts
 
 ## 3.19.2 (2020-12-08)
 * Add support for MSK `topics` to `aws.lambda.eventSourceMapping`.
