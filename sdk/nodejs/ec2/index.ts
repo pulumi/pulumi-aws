@@ -12,6 +12,7 @@ export * from "./amiLaunchPermission";
 export * from "./availabilityZoneGroup";
 export * from "./capacityReservation";
 export * from "./customerGateway";
+export * from "./dedicatedHost";
 export * from "./defaultNetworkAcl";
 export * from "./defaultRouteTable";
 export * from "./defaultSecurityGroup";
@@ -26,6 +27,7 @@ export * from "./flowLog";
 export * from "./getCoipPool";
 export * from "./getCoipPools";
 export * from "./getCustomerGateway";
+export * from "./getDedicatedHost";
 export * from "./getInstance";
 export * from "./getInstanceType";
 export * from "./getInstanceTypeOffering";
@@ -129,6 +131,7 @@ import { AmiLaunchPermission } from "./amiLaunchPermission";
 import { AvailabilityZoneGroup } from "./availabilityZoneGroup";
 import { CapacityReservation } from "./capacityReservation";
 import { CustomerGateway } from "./customerGateway";
+import { DedicatedHost } from "./dedicatedHost";
 import { DefaultNetworkAcl } from "./defaultNetworkAcl";
 import { DefaultRouteTable } from "./defaultRouteTable";
 import { DefaultSecurityGroup } from "./defaultSecurityGroup";
@@ -210,6 +213,8 @@ const _module = {
                 return new CapacityReservation(name, <any>undefined, { urn })
             case "aws:ec2/customerGateway:CustomerGateway":
                 return new CustomerGateway(name, <any>undefined, { urn })
+            case "aws:ec2/dedicatedHost:DedicatedHost":
+                return new DedicatedHost(name, <any>undefined, { urn })
             case "aws:ec2/defaultNetworkAcl:DefaultNetworkAcl":
                 return new DefaultNetworkAcl(name, <any>undefined, { urn })
             case "aws:ec2/defaultRouteTable:DefaultRouteTable":
@@ -346,6 +351,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/amiLaunchPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/availabilityZoneGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/capacityReservation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/customerGateway", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/dedicatedHost", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/defaultNetworkAcl", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/defaultRouteTable", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/defaultSecurityGroup", _module)

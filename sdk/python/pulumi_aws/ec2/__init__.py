@@ -11,6 +11,7 @@ from .ami_launch_permission import *
 from .availability_zone_group import *
 from .capacity_reservation import *
 from .customer_gateway import *
+from .dedicated_host import *
 from .default_network_acl import *
 from .default_route_table import *
 from .default_security_group import *
@@ -25,6 +26,7 @@ from .flow_log import *
 from .get_coip_pool import *
 from .get_coip_pools import *
 from .get_customer_gateway import *
+from .get_dedicated_host import *
 from .get_instance import *
 from .get_instance_type import *
 from .get_instance_type_offering import *
@@ -140,6 +142,8 @@ def _register_module():
                 return CapacityReservation(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ec2/customerGateway:CustomerGateway":
                 return CustomerGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ec2/dedicatedHost:DedicatedHost":
+                return DedicatedHost(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ec2/defaultNetworkAcl:DefaultNetworkAcl":
                 return DefaultNetworkAcl(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ec2/defaultRouteTable:DefaultRouteTable":
@@ -276,6 +280,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("aws", "ec2/availabilityZoneGroup", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/capacityReservation", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/customerGateway", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ec2/dedicatedHost", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/defaultNetworkAcl", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/defaultRouteTable", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/defaultSecurityGroup", _module_instance)
