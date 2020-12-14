@@ -52,12 +52,21 @@ export interface GetBotArgs {
  * A collection of values returned by getBot.
  */
 export interface GetBotResult {
+    /**
+     * The ARN of the bot.
+     */
     readonly arn: string;
+    /**
+     * Checksum of the bot used to identify a specific revision of the bot's `$LATEST` version.
+     */
     readonly checksum: string;
     /**
      * Specifies if this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
      */
     readonly childDirected: boolean;
+    /**
+     * The date that the bot was created.
+     */
     readonly createdDate: string;
     /**
      * A description of the bot.
@@ -71,6 +80,9 @@ export interface GetBotResult {
      * Set to true if natural language understanding improvements are enabled.
      */
     readonly enableModelImprovements: boolean;
+    /**
+     * If the `status` is `FAILED`, the reason why the bot failed to build.
+     */
     readonly failureReason: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -80,6 +92,9 @@ export interface GetBotResult {
      * The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
      */
     readonly idleSessionTtlInSeconds: number;
+    /**
+     * The date that the bot was updated.
+     */
     readonly lastUpdatedDate: string;
     /**
      * Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
@@ -93,7 +108,13 @@ export interface GetBotResult {
      * The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
      */
     readonly nluIntentConfidenceThreshold: number;
+    /**
+     * The status of the bot.
+     */
     readonly status: string;
+    /**
+     * The version of the bot. For a new bot, the version is always `$LATEST`.
+     */
     readonly version?: string;
     /**
      * The Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.

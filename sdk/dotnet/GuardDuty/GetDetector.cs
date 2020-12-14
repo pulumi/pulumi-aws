@@ -60,7 +60,7 @@ namespace Pulumi.Aws.GuardDuty
         /// The frequency of notifications sent about subsequent finding occurrences.
         /// </summary>
         public readonly string FindingPublishingFrequency;
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// The service-linked role that grants GuardDuty access to the resources in the AWS account.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.GuardDuty
         private GetDetectorResult(
             string findingPublishingFrequency,
 
-            string? id,
+            string id,
 
             string serviceRoleArn,
 

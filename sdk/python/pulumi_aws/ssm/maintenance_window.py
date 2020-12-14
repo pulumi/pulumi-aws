@@ -23,6 +23,7 @@ class MaintenanceWindow(pulumi.CustomResource):
                  end_date: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
+                 schedule_offset: Optional[pulumi.Input[int]] = None,
                  schedule_timezone: Optional[pulumi.Input[str]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -64,6 +65,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param pulumi.Input[str] end_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
         :param pulumi.Input[str] name: The name of the maintenance window.
         :param pulumi.Input[str] schedule: The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+        :param pulumi.Input[int] schedule_offset: The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
         :param pulumi.Input[str] schedule_timezone: Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         :param pulumi.Input[str] start_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
@@ -99,6 +101,7 @@ class MaintenanceWindow(pulumi.CustomResource):
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__['schedule'] = schedule
+            __props__['schedule_offset'] = schedule_offset
             __props__['schedule_timezone'] = schedule_timezone
             __props__['start_date'] = start_date
             __props__['tags'] = tags
@@ -120,6 +123,7 @@ class MaintenanceWindow(pulumi.CustomResource):
             end_date: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             schedule: Optional[pulumi.Input[str]] = None,
+            schedule_offset: Optional[pulumi.Input[int]] = None,
             schedule_timezone: Optional[pulumi.Input[str]] = None,
             start_date: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'MaintenanceWindow':
@@ -138,6 +142,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param pulumi.Input[str] end_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
         :param pulumi.Input[str] name: The name of the maintenance window.
         :param pulumi.Input[str] schedule: The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+        :param pulumi.Input[int] schedule_offset: The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
         :param pulumi.Input[str] schedule_timezone: Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         :param pulumi.Input[str] start_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
@@ -154,6 +159,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         __props__["end_date"] = end_date
         __props__["name"] = name
         __props__["schedule"] = schedule
+        __props__["schedule_offset"] = schedule_offset
         __props__["schedule_timezone"] = schedule_timezone
         __props__["start_date"] = start_date
         __props__["tags"] = tags
@@ -222,6 +228,14 @@ class MaintenanceWindow(pulumi.CustomResource):
         The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
         """
         return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="scheduleOffset")
+    def schedule_offset(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+        """
+        return pulumi.get(self, "schedule_offset")
 
     @property
     @pulumi.getter(name="scheduleTimezone")

@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class LaunchTemplateNetworkInterfaceGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+        /// </summary>
+        [Input("associateCarrierIpAddress")]
+        public Input<string>? AssociateCarrierIpAddress { get; set; }
+
+        /// <summary>
         /// Associate a public ip address with the network interface.  Boolean value.
         /// </summary>
         [Input("associatePublicIpAddress")]

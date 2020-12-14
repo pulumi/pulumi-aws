@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// EC2 Transit Gateway VPC Attachment identifier
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// Whether IPv6 support is enabled.
         /// </summary>
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             ImmutableArray<Outputs.GetVpcAttachmentFilterResult> filters,
 
-            string? id,
+            string id,
 
             string ipv6Support,
 

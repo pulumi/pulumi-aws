@@ -97,7 +97,7 @@ type LookupRouteTableResult struct {
 	DefaultPropagationRouteTable bool                  `pulumi:"defaultPropagationRouteTable"`
 	Filters                      []GetRouteTableFilter `pulumi:"filters"`
 	// EC2 Transit Gateway Route Table identifier
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway Route Table
 	Tags map[string]string `pulumi:"tags"`
 	// EC2 Transit Gateway identifier

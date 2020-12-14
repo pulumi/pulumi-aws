@@ -136,7 +136,7 @@ class GetTransitGatewayResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
+    def id(self) -> str:
         """
         EC2 Transit Gateway identifier
         """

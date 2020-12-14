@@ -87,6 +87,12 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// The ID of the specific launch template to retrieve.
+        /// </summary>
+        [Input("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
         /// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
         /// </summary>
         [Input("name")]
@@ -159,7 +165,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchTemplateIamInstanceProfileResult> IamInstanceProfiles;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of the launch template.
         /// </summary>
         public readonly string Id;
         /// <summary>

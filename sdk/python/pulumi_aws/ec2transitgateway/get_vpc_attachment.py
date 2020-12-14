@@ -76,7 +76,7 @@ class GetVpcAttachmentResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
+    def id(self) -> str:
         """
         EC2 Transit Gateway VPC Attachment identifier
         """

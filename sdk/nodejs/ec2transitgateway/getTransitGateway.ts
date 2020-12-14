@@ -107,7 +107,7 @@ export interface GetTransitGatewayResult {
     /**
      * EC2 Transit Gateway identifier
      */
-    readonly id?: string;
+    readonly id: string;
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
      */

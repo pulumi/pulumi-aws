@@ -37,12 +37,13 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// The Snapshot ID to mount.
         /// </summary>
         public readonly string? SnapshotId;
+        public readonly int? Throughput;
         /// <summary>
         /// The size of the volume in gigabytes.
         /// </summary>
         public readonly int? VolumeSize;
         /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
+        /// The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         /// </summary>
         public readonly string? VolumeType;
 
@@ -58,6 +59,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? snapshotId,
 
+            int? throughput,
+
             int? volumeSize,
 
             string? volumeType)
@@ -67,6 +70,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Iops = iops;
             KmsKeyId = kmsKeyId;
             SnapshotId = snapshotId;
+            Throughput = throughput;
             VolumeSize = volumeSize;
             VolumeType = volumeType;
         }

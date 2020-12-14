@@ -108,7 +108,15 @@ __all__ = [
     'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs',
     'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs',
     'VirtualNodeSpecListenerArgs',
+    'VirtualNodeSpecListenerConnectionPoolArgs',
+    'VirtualNodeSpecListenerConnectionPoolGrpcArgs',
+    'VirtualNodeSpecListenerConnectionPoolHttp2Args',
+    'VirtualNodeSpecListenerConnectionPoolHttpArgs',
+    'VirtualNodeSpecListenerConnectionPoolTcpArgs',
     'VirtualNodeSpecListenerHealthCheckArgs',
+    'VirtualNodeSpecListenerOutlierDetectionArgs',
+    'VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs',
+    'VirtualNodeSpecListenerOutlierDetectionIntervalArgs',
     'VirtualNodeSpecListenerPortMappingArgs',
     'VirtualNodeSpecListenerTimeoutArgs',
     'VirtualNodeSpecListenerTimeoutGrpcArgs',
@@ -4047,18 +4055,26 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs
 class VirtualNodeSpecListenerArgs:
     def __init__(__self__, *,
                  port_mapping: pulumi.Input['VirtualNodeSpecListenerPortMappingArgs'],
+                 connection_pool: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolArgs']] = None,
                  health_check: Optional[pulumi.Input['VirtualNodeSpecListenerHealthCheckArgs']] = None,
+                 outlier_detection: Optional[pulumi.Input['VirtualNodeSpecListenerOutlierDetectionArgs']] = None,
                  timeout: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutArgs']] = None,
                  tls: Optional[pulumi.Input['VirtualNodeSpecListenerTlsArgs']] = None):
         """
         :param pulumi.Input['VirtualNodeSpecListenerPortMappingArgs'] port_mapping: The port mapping information for the listener.
+        :param pulumi.Input['VirtualNodeSpecListenerConnectionPoolArgs'] connection_pool: The connection pool information for the listener.
         :param pulumi.Input['VirtualNodeSpecListenerHealthCheckArgs'] health_check: The health check information for the listener.
+        :param pulumi.Input['VirtualNodeSpecListenerOutlierDetectionArgs'] outlier_detection: The outlier detection information for the listener.
         :param pulumi.Input['VirtualNodeSpecListenerTimeoutArgs'] timeout: Timeouts for different protocols.
         :param pulumi.Input['VirtualNodeSpecListenerTlsArgs'] tls: The Transport Layer Security (TLS) properties for the listener
         """
         pulumi.set(__self__, "port_mapping", port_mapping)
+        if connection_pool is not None:
+            pulumi.set(__self__, "connection_pool", connection_pool)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
+        if outlier_detection is not None:
+            pulumi.set(__self__, "outlier_detection", outlier_detection)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if tls is not None:
@@ -4077,6 +4093,18 @@ class VirtualNodeSpecListenerArgs:
         pulumi.set(self, "port_mapping", value)
 
     @property
+    @pulumi.getter(name="connectionPool")
+    def connection_pool(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolArgs']]:
+        """
+        The connection pool information for the listener.
+        """
+        return pulumi.get(self, "connection_pool")
+
+    @connection_pool.setter
+    def connection_pool(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolArgs']]):
+        pulumi.set(self, "connection_pool", value)
+
+    @property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerHealthCheckArgs']]:
         """
@@ -4087,6 +4115,18 @@ class VirtualNodeSpecListenerArgs:
     @health_check.setter
     def health_check(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerHealthCheckArgs']]):
         pulumi.set(self, "health_check", value)
+
+    @property
+    @pulumi.getter(name="outlierDetection")
+    def outlier_detection(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerOutlierDetectionArgs']]:
+        """
+        The outlier detection information for the listener.
+        """
+        return pulumi.get(self, "outlier_detection")
+
+    @outlier_detection.setter
+    def outlier_detection(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerOutlierDetectionArgs']]):
+        pulumi.set(self, "outlier_detection", value)
 
     @property
     @pulumi.getter
@@ -4111,6 +4151,181 @@ class VirtualNodeSpecListenerArgs:
     @tls.setter
     def tls(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerTlsArgs']]):
         pulumi.set(self, "tls", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerConnectionPoolArgs:
+    def __init__(__self__, *,
+                 grpc: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolGrpcArgs']] = None,
+                 http: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']] = None,
+                 http2: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']] = None,
+                 tcp: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']] = None):
+        """
+        :param pulumi.Input['VirtualNodeSpecListenerConnectionPoolGrpcArgs'] grpc: Connection pool information for gRPC listeners.
+        :param pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs'] http: Connection pool information for HTTP listeners.
+        :param pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args'] http2: Connection pool information for HTTP2 listeners.
+        :param pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs'] tcp: Connection pool information for TCP listeners.
+        """
+        if grpc is not None:
+            pulumi.set(__self__, "grpc", grpc)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if http2 is not None:
+            pulumi.set(__self__, "http2", http2)
+        if tcp is not None:
+            pulumi.set(__self__, "tcp", tcp)
+
+    @property
+    @pulumi.getter
+    def grpc(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolGrpcArgs']]:
+        """
+        Connection pool information for gRPC listeners.
+        """
+        return pulumi.get(self, "grpc")
+
+    @grpc.setter
+    def grpc(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolGrpcArgs']]):
+        pulumi.set(self, "grpc", value)
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]:
+        """
+        Connection pool information for HTTP listeners.
+        """
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]):
+        pulumi.set(self, "http", value)
+
+    @property
+    @pulumi.getter
+    def http2(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]:
+        """
+        Connection pool information for HTTP2 listeners.
+        """
+        return pulumi.get(self, "http2")
+
+    @http2.setter
+    def http2(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]):
+        pulumi.set(self, "http2", value)
+
+    @property
+    @pulumi.getter
+    def tcp(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]:
+        """
+        Connection pool information for TCP listeners.
+        """
+        return pulumi.get(self, "tcp")
+
+    @tcp.setter
+    def tcp(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]):
+        pulumi.set(self, "tcp", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerConnectionPoolGrpcArgs:
+    def __init__(__self__, *,
+                 max_requests: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_requests", max_requests)
+
+    @property
+    @pulumi.getter(name="maxRequests")
+    def max_requests(self) -> pulumi.Input[int]:
+        """
+        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_requests")
+
+    @max_requests.setter
+    def max_requests(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_requests", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerConnectionPoolHttp2Args:
+    def __init__(__self__, *,
+                 max_requests: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_requests", max_requests)
+
+    @property
+    @pulumi.getter(name="maxRequests")
+    def max_requests(self) -> pulumi.Input[int]:
+        """
+        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_requests")
+
+    @max_requests.setter
+    def max_requests(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_requests", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerConnectionPoolHttpArgs:
+    def __init__(__self__, *,
+                 max_connections: pulumi.Input[int],
+                 max_pending_requests: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        :param pulumi.Input[int] max_pending_requests: Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_connections", max_connections)
+        if max_pending_requests is not None:
+            pulumi.set(__self__, "max_pending_requests", max_pending_requests)
+
+    @property
+    @pulumi.getter(name="maxConnections")
+    def max_connections(self) -> pulumi.Input[int]:
+        """
+        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_connections")
+
+    @max_connections.setter
+    def max_connections(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_connections", value)
+
+    @property
+    @pulumi.getter(name="maxPendingRequests")
+    def max_pending_requests(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_pending_requests")
+
+    @max_pending_requests.setter
+    def max_pending_requests(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_pending_requests", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerConnectionPoolTcpArgs:
+    def __init__(__self__, *,
+                 max_connections: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_connections", max_connections)
+
+    @property
+    @pulumi.getter(name="maxConnections")
+    def max_connections(self) -> pulumi.Input[int]:
+        """
+        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_connections")
+
+    @max_connections.setter
+    def max_connections(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_connections", value)
 
 
 @pulumi.input_type
@@ -4225,6 +4440,149 @@ class VirtualNodeSpecListenerHealthCheckArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerOutlierDetectionArgs:
+    def __init__(__self__, *,
+                 base_ejection_duration: pulumi.Input['VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs'],
+                 interval: pulumi.Input['VirtualNodeSpecListenerOutlierDetectionIntervalArgs'],
+                 max_ejection_percent: pulumi.Input[int],
+                 max_server_errors: pulumi.Input[int]):
+        """
+        :param pulumi.Input['VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs'] base_ejection_duration: The base amount of time for which a host is ejected.
+        :param pulumi.Input['VirtualNodeSpecListenerOutlierDetectionIntervalArgs'] interval: The time interval between ejection sweep analysis.
+        :param pulumi.Input[int] max_ejection_percent: Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
+               Minimum value of `0`. Maximum value of `100`.
+        :param pulumi.Input[int] max_server_errors: Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "base_ejection_duration", base_ejection_duration)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
+        pulumi.set(__self__, "max_server_errors", max_server_errors)
+
+    @property
+    @pulumi.getter(name="baseEjectionDuration")
+    def base_ejection_duration(self) -> pulumi.Input['VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs']:
+        """
+        The base amount of time for which a host is ejected.
+        """
+        return pulumi.get(self, "base_ejection_duration")
+
+    @base_ejection_duration.setter
+    def base_ejection_duration(self, value: pulumi.Input['VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs']):
+        pulumi.set(self, "base_ejection_duration", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input['VirtualNodeSpecListenerOutlierDetectionIntervalArgs']:
+        """
+        The time interval between ejection sweep analysis.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input['VirtualNodeSpecListenerOutlierDetectionIntervalArgs']):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="maxEjectionPercent")
+    def max_ejection_percent(self) -> pulumi.Input[int]:
+        """
+        Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
+        Minimum value of `0`. Maximum value of `100`.
+        """
+        return pulumi.get(self, "max_ejection_percent")
+
+    @max_ejection_percent.setter
+    def max_ejection_percent(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_ejection_percent", value)
+
+    @property
+    @pulumi.getter(name="maxServerErrors")
+    def max_server_errors(self) -> pulumi.Input[int]:
+        """
+        Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_server_errors")
+
+    @max_server_errors.setter
+    def max_server_errors(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_server_errors", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerOutlierDetectionIntervalArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

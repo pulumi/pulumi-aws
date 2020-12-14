@@ -76,7 +76,7 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     public readonly blockDeviceMappings!: pulumi.Output<outputs.imagebuilder.ImageRecipeBlockDeviceMapping[] | undefined>;
     /**
-     * Configuration block(s) with components for the image recipe. Detailed below.
+     * Ordered configuration block(s) with components for the image recipe. Detailed below.
      */
     public readonly components!: pulumi.Output<outputs.imagebuilder.ImageRecipeComponent[]>;
     /**
@@ -182,7 +182,7 @@ export interface ImageRecipeState {
      */
     readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeBlockDeviceMapping>[]>;
     /**
-     * Configuration block(s) with components for the image recipe. Detailed below.
+     * Ordered configuration block(s) with components for the image recipe. Detailed below.
      */
     readonly components?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponent>[]>;
     /**
@@ -228,7 +228,7 @@ export interface ImageRecipeArgs {
      */
     readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeBlockDeviceMapping>[]>;
     /**
-     * Configuration block(s) with components for the image recipe. Detailed below.
+     * Ordered configuration block(s) with components for the image recipe. Detailed below.
      */
     readonly components: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponent>[]>;
     /**

@@ -46,6 +46,9 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
+        [Input("throughput")]
+        public Input<int>? Throughput { get; set; }
+
         /// <summary>
         /// The size of the volume in gigabytes.
         /// </summary>
@@ -53,7 +56,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? VolumeSize { get; set; }
 
         /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
+        /// The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }

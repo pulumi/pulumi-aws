@@ -66,6 +66,8 @@ type MaintenanceWindow struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
 	Schedule pulumi.StringOutput `pulumi:"schedule"`
+	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+	ScheduleOffset pulumi.IntPtrOutput `pulumi:"scheduleOffset"`
 	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
 	ScheduleTimezone pulumi.StringPtrOutput `pulumi:"scheduleTimezone"`
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
@@ -128,6 +130,8 @@ type maintenanceWindowState struct {
 	Name *string `pulumi:"name"`
 	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
 	Schedule *string `pulumi:"schedule"`
+	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+	ScheduleOffset *int `pulumi:"scheduleOffset"`
 	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
 	ScheduleTimezone *string `pulumi:"scheduleTimezone"`
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
@@ -153,6 +157,8 @@ type MaintenanceWindowState struct {
 	Name pulumi.StringPtrInput
 	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
 	Schedule pulumi.StringPtrInput
+	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+	ScheduleOffset pulumi.IntPtrInput
 	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
 	ScheduleTimezone pulumi.StringPtrInput
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
@@ -182,6 +188,8 @@ type maintenanceWindowArgs struct {
 	Name *string `pulumi:"name"`
 	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
 	Schedule string `pulumi:"schedule"`
+	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+	ScheduleOffset *int `pulumi:"scheduleOffset"`
 	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
 	ScheduleTimezone *string `pulumi:"scheduleTimezone"`
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
@@ -208,6 +216,8 @@ type MaintenanceWindowArgs struct {
 	Name pulumi.StringPtrInput
 	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
 	Schedule pulumi.StringInput
+	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+	ScheduleOffset pulumi.IntPtrInput
 	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
 	ScheduleTimezone pulumi.StringPtrInput
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.

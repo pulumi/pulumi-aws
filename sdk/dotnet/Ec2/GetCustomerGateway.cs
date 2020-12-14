@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly int BgpAsn;
         public readonly ImmutableArray<Outputs.GetCustomerGatewayFilterResult> Filters;
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// (Optional) The IP address of the gateway's Internet-routable external interface.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetCustomerGatewayFilterResult> filters,
 
-            string? id,
+            string id,
 
             string ipAddress,
 

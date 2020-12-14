@@ -4520,9 +4520,10 @@ type LaunchTemplateBlockDeviceMappingEbs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
+	Throughput *int    `pulumi:"throughput"`
 	// The size of the volume in gigabytes.
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
+	// The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -4552,9 +4553,10 @@ type LaunchTemplateBlockDeviceMappingEbsArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
 	// The size of the volume in gigabytes.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
+	// The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -4664,12 +4666,16 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) SnapshotId() pulumi.StringPtr
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+func (o LaunchTemplateBlockDeviceMappingEbsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
 // The size of the volume in gigabytes.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
+// The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -4746,6 +4752,15 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) SnapshotId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
 // The size of the volume in gigabytes.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *int {
@@ -4756,7 +4771,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) VolumeSize() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
+// The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -6614,6 +6629,8 @@ func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type LaunchTemplateNetworkInterface struct {
+	// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+	AssociateCarrierIpAddress *string `pulumi:"associateCarrierIpAddress"`
 	// Associate a public ip address with the network interface.  Boolean value.
 	AssociatePublicIpAddress *string `pulumi:"associatePublicIpAddress"`
 	// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
@@ -6652,6 +6669,8 @@ type LaunchTemplateNetworkInterfaceInput interface {
 }
 
 type LaunchTemplateNetworkInterfaceArgs struct {
+	// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+	AssociateCarrierIpAddress pulumi.StringPtrInput `pulumi:"associateCarrierIpAddress"`
 	// Associate a public ip address with the network interface.  Boolean value.
 	AssociatePublicIpAddress pulumi.StringPtrInput `pulumi:"associatePublicIpAddress"`
 	// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
@@ -6727,6 +6746,11 @@ func (o LaunchTemplateNetworkInterfaceOutput) ToLaunchTemplateNetworkInterfaceOu
 
 func (o LaunchTemplateNetworkInterfaceOutput) ToLaunchTemplateNetworkInterfaceOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceOutput {
 	return o
+}
+
+// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+func (o LaunchTemplateNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.AssociateCarrierIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // Associate a public ip address with the network interface.  Boolean value.
@@ -8782,6 +8806,7 @@ type SpotFleetRequestLaunchSpecificationEbsBlockDevice struct {
 	Iops                *int    `pulumi:"iops"`
 	KmsKeyId            *string `pulumi:"kmsKeyId"`
 	SnapshotId          *string `pulumi:"snapshotId"`
+	Throughput          *int    `pulumi:"throughput"`
 	VolumeSize          *int    `pulumi:"volumeSize"`
 	VolumeType          *string `pulumi:"volumeType"`
 }
@@ -8804,6 +8829,7 @@ type SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs struct {
 	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
 	KmsKeyId            pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
+	Throughput          pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
 	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
 }
@@ -8881,6 +8907,10 @@ func (o SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutput) KmsKeyId() pulu
 
 func (o SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecificationEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchSpecificationEbsBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
 func (o SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
@@ -9016,6 +9046,7 @@ type SpotFleetRequestLaunchSpecificationRootBlockDevice struct {
 	Encrypted           *bool   `pulumi:"encrypted"`
 	Iops                *int    `pulumi:"iops"`
 	KmsKeyId            *string `pulumi:"kmsKeyId"`
+	Throughput          *int    `pulumi:"throughput"`
 	VolumeSize          *int    `pulumi:"volumeSize"`
 	VolumeType          *string `pulumi:"volumeType"`
 }
@@ -9036,6 +9067,7 @@ type SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs struct {
 	Encrypted           pulumi.BoolPtrInput   `pulumi:"encrypted"`
 	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
 	KmsKeyId            pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	Throughput          pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
 	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
 }
@@ -9105,6 +9137,10 @@ func (o SpotFleetRequestLaunchSpecificationRootBlockDeviceOutput) Iops() pulumi.
 
 func (o SpotFleetRequestLaunchSpecificationRootBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecificationRootBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationRootBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchSpecificationRootBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
 func (o SpotFleetRequestLaunchSpecificationRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
@@ -14665,6 +14701,7 @@ type GetLaunchTemplateBlockDeviceMappingEb struct {
 	Iops                int    `pulumi:"iops"`
 	KmsKeyId            string `pulumi:"kmsKeyId"`
 	SnapshotId          string `pulumi:"snapshotId"`
+	Throughput          int    `pulumi:"throughput"`
 	VolumeSize          int    `pulumi:"volumeSize"`
 	VolumeType          string `pulumi:"volumeType"`
 }
@@ -14686,6 +14723,7 @@ type GetLaunchTemplateBlockDeviceMappingEbArgs struct {
 	Iops                pulumi.IntInput    `pulumi:"iops"`
 	KmsKeyId            pulumi.StringInput `pulumi:"kmsKeyId"`
 	SnapshotId          pulumi.StringInput `pulumi:"snapshotId"`
+	Throughput          pulumi.IntInput    `pulumi:"throughput"`
 	VolumeSize          pulumi.IntInput    `pulumi:"volumeSize"`
 	VolumeType          pulumi.StringInput `pulumi:"volumeType"`
 }
@@ -14759,6 +14797,10 @@ func (o GetLaunchTemplateBlockDeviceMappingEbOutput) KmsKeyId() pulumi.StringOut
 
 func (o GetLaunchTemplateBlockDeviceMappingEbOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplateBlockDeviceMappingEb) string { return v.SnapshotId }).(pulumi.StringOutput)
+}
+
+func (o GetLaunchTemplateBlockDeviceMappingEbOutput) Throughput() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateBlockDeviceMappingEb) int { return v.Throughput }).(pulumi.IntOutput)
 }
 
 func (o GetLaunchTemplateBlockDeviceMappingEbOutput) VolumeSize() pulumi.IntOutput {
@@ -15713,8 +15755,9 @@ func (o GetLaunchTemplateMonitoringArrayOutput) Index(i pulumi.IntInput) GetLaun
 }
 
 type GetLaunchTemplateNetworkInterface struct {
-	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination      *bool `pulumi:"deleteOnTermination"`
+	AssociateCarrierIpAddress string `pulumi:"associateCarrierIpAddress"`
+	AssociatePublicIpAddress  *bool  `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination       *bool  `pulumi:"deleteOnTermination"`
 	// Description of the launch template.
 	Description        string   `pulumi:"description"`
 	DeviceIndex        int      `pulumi:"deviceIndex"`
@@ -15740,8 +15783,9 @@ type GetLaunchTemplateNetworkInterfaceInput interface {
 }
 
 type GetLaunchTemplateNetworkInterfaceArgs struct {
-	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination      pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	AssociateCarrierIpAddress pulumi.StringInput  `pulumi:"associateCarrierIpAddress"`
+	AssociatePublicIpAddress  pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination       pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
 	// Description of the launch template.
 	Description        pulumi.StringInput      `pulumi:"description"`
 	DeviceIndex        pulumi.IntInput         `pulumi:"deviceIndex"`
@@ -15804,6 +15848,10 @@ func (o GetLaunchTemplateNetworkInterfaceOutput) ToGetLaunchTemplateNetworkInter
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) ToGetLaunchTemplateNetworkInterfaceOutputWithContext(ctx context.Context) GetLaunchTemplateNetworkInterfaceOutput {
 	return o
+}
+
+func (o GetLaunchTemplateNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) string { return v.AssociateCarrierIpAddress }).(pulumi.StringOutput)
 }
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {

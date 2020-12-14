@@ -91,6 +91,10 @@ export class MaintenanceWindow extends pulumi.CustomResource {
      */
     public readonly schedule!: pulumi.Output<string>;
     /**
+     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+     */
+    public readonly scheduleOffset!: pulumi.Output<number | undefined>;
+    /**
      * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
      */
     public readonly scheduleTimezone!: pulumi.Output<string | undefined>;
@@ -123,6 +127,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             inputs["endDate"] = state ? state.endDate : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["schedule"] = state ? state.schedule : undefined;
+            inputs["scheduleOffset"] = state ? state.scheduleOffset : undefined;
             inputs["scheduleTimezone"] = state ? state.scheduleTimezone : undefined;
             inputs["startDate"] = state ? state.startDate : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -145,6 +150,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             inputs["endDate"] = args ? args.endDate : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
+            inputs["scheduleOffset"] = args ? args.scheduleOffset : undefined;
             inputs["scheduleTimezone"] = args ? args.scheduleTimezone : undefined;
             inputs["startDate"] = args ? args.startDate : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -197,6 +203,10 @@ export interface MaintenanceWindowState {
      */
     readonly schedule?: pulumi.Input<string>;
     /**
+     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+     */
+    readonly scheduleOffset?: pulumi.Input<number>;
+    /**
      * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
      */
     readonly scheduleTimezone?: pulumi.Input<string>;
@@ -246,6 +256,10 @@ export interface MaintenanceWindowArgs {
      * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
      */
     readonly schedule: pulumi.Input<string>;
+    /**
+     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+     */
+    readonly scheduleOffset?: pulumi.Input<number>;
     /**
      * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
      */

@@ -206,7 +206,7 @@ class GetLaunchTemplateResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The provider-assigned unique ID for this managed resource.
+        The ID of the launch template.
         """
         return pulumi.get(self, "id")
 
@@ -395,6 +395,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
 
 
 def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']]] = None,
+                        id: Optional[str] = None,
                         name: Optional[str] = None,
                         tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchTemplateResult:
@@ -423,11 +424,13 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
 
 
     :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param str id: The ID of the specific launch template to retrieve.
     :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['id'] = id
     __args__['name'] = name
     __args__['tags'] = tags
     if opts is None:

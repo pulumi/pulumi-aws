@@ -101,7 +101,7 @@ type LookupTransitGatewayResult struct {
 	DnsSupport string                    `pulumi:"dnsSupport"`
 	Filters    []GetTransitGatewayFilter `pulumi:"filters"`
 	// EC2 Transit Gateway identifier
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
 	OwnerId string `pulumi:"ownerId"`
 	// Identifier of the default propagation route table.

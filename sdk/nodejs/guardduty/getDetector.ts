@@ -49,7 +49,7 @@ export interface GetDetectorResult {
      * The frequency of notifications sent about subsequent finding occurrences.
      */
     readonly findingPublishingFrequency: string;
-    readonly id?: string;
+    readonly id: string;
     /**
      * The service-linked role that grants GuardDuty access to the resources in the AWS account.
      */

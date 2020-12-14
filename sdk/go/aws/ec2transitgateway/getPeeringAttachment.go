@@ -85,7 +85,7 @@ type LookupPeeringAttachmentArgs struct {
 // A collection of values returned by getPeeringAttachment.
 type LookupPeeringAttachmentResult struct {
 	Filters []GetPeeringAttachmentFilter `pulumi:"filters"`
-	Id      *string                      `pulumi:"id"`
+	Id      string                       `pulumi:"id"`
 	// Identifier of the peer AWS account
 	PeerAccountId string `pulumi:"peerAccountId"`
 	// Identifier of the peer AWS region

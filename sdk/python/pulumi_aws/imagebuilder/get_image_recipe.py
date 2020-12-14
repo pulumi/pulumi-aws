@@ -75,7 +75,7 @@ class GetImageRecipeResult:
     @pulumi.getter
     def components(self) -> Sequence['outputs.GetImageRecipeComponentResult']:
         """
-        Set of objects with components for the image recipe.
+        List of objects with components for the image recipe.
         """
         return pulumi.get(self, "components")
 

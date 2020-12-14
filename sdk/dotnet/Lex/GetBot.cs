@@ -66,12 +66,21 @@ namespace Pulumi.Aws.Lex
     [OutputType]
     public sealed class GetBotResult
     {
+        /// <summary>
+        /// The ARN of the bot.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Checksum of the bot used to identify a specific revision of the bot's `$LATEST` version.
+        /// </summary>
         public readonly string Checksum;
         /// <summary>
         /// Specifies if this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
         /// </summary>
         public readonly bool ChildDirected;
+        /// <summary>
+        /// The date that the bot was created.
+        /// </summary>
         public readonly string CreatedDate;
         /// <summary>
         /// A description of the bot.
@@ -85,6 +94,9 @@ namespace Pulumi.Aws.Lex
         /// Set to true if natural language understanding improvements are enabled.
         /// </summary>
         public readonly bool EnableModelImprovements;
+        /// <summary>
+        /// If the `status` is `FAILED`, the reason why the bot failed to build.
+        /// </summary>
         public readonly string FailureReason;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -94,6 +106,9 @@ namespace Pulumi.Aws.Lex
         /// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
         /// </summary>
         public readonly int IdleSessionTtlInSeconds;
+        /// <summary>
+        /// The date that the bot was updated.
+        /// </summary>
         public readonly string LastUpdatedDate;
         /// <summary>
         /// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
@@ -107,7 +122,13 @@ namespace Pulumi.Aws.Lex
         /// The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
         /// </summary>
         public readonly double NluIntentConfidenceThreshold;
+        /// <summary>
+        /// The status of the bot.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// The version of the bot. For a new bot, the version is always `$LATEST`.
+        /// </summary>
         public readonly string? Version;
         /// <summary>
         /// The Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.

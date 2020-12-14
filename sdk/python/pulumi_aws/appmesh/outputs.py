@@ -109,7 +109,15 @@ __all__ = [
     'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm',
     'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile',
     'VirtualNodeSpecListener',
+    'VirtualNodeSpecListenerConnectionPool',
+    'VirtualNodeSpecListenerConnectionPoolGrpc',
+    'VirtualNodeSpecListenerConnectionPoolHttp2',
+    'VirtualNodeSpecListenerConnectionPoolHttp',
+    'VirtualNodeSpecListenerConnectionPoolTcp',
     'VirtualNodeSpecListenerHealthCheck',
+    'VirtualNodeSpecListenerOutlierDetection',
+    'VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration',
+    'VirtualNodeSpecListenerOutlierDetectionInterval',
     'VirtualNodeSpecListenerPortMapping',
     'VirtualNodeSpecListenerTimeout',
     'VirtualNodeSpecListenerTimeoutGrpc',
@@ -3518,18 +3526,26 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(dic
 class VirtualNodeSpecListener(dict):
     def __init__(__self__, *,
                  port_mapping: 'outputs.VirtualNodeSpecListenerPortMapping',
+                 connection_pool: Optional['outputs.VirtualNodeSpecListenerConnectionPool'] = None,
                  health_check: Optional['outputs.VirtualNodeSpecListenerHealthCheck'] = None,
+                 outlier_detection: Optional['outputs.VirtualNodeSpecListenerOutlierDetection'] = None,
                  timeout: Optional['outputs.VirtualNodeSpecListenerTimeout'] = None,
                  tls: Optional['outputs.VirtualNodeSpecListenerTls'] = None):
         """
         :param 'VirtualNodeSpecListenerPortMappingArgs' port_mapping: The port mapping information for the listener.
+        :param 'VirtualNodeSpecListenerConnectionPoolArgs' connection_pool: The connection pool information for the listener.
         :param 'VirtualNodeSpecListenerHealthCheckArgs' health_check: The health check information for the listener.
+        :param 'VirtualNodeSpecListenerOutlierDetectionArgs' outlier_detection: The outlier detection information for the listener.
         :param 'VirtualNodeSpecListenerTimeoutArgs' timeout: Timeouts for different protocols.
         :param 'VirtualNodeSpecListenerTlsArgs' tls: The Transport Layer Security (TLS) properties for the listener
         """
         pulumi.set(__self__, "port_mapping", port_mapping)
+        if connection_pool is not None:
+            pulumi.set(__self__, "connection_pool", connection_pool)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
+        if outlier_detection is not None:
+            pulumi.set(__self__, "outlier_detection", outlier_detection)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if tls is not None:
@@ -3544,12 +3560,28 @@ class VirtualNodeSpecListener(dict):
         return pulumi.get(self, "port_mapping")
 
     @property
+    @pulumi.getter(name="connectionPool")
+    def connection_pool(self) -> Optional['outputs.VirtualNodeSpecListenerConnectionPool']:
+        """
+        The connection pool information for the listener.
+        """
+        return pulumi.get(self, "connection_pool")
+
+    @property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional['outputs.VirtualNodeSpecListenerHealthCheck']:
         """
         The health check information for the listener.
         """
         return pulumi.get(self, "health_check")
+
+    @property
+    @pulumi.getter(name="outlierDetection")
+    def outlier_detection(self) -> Optional['outputs.VirtualNodeSpecListenerOutlierDetection']:
+        """
+        The outlier detection information for the listener.
+        """
+        return pulumi.get(self, "outlier_detection")
 
     @property
     @pulumi.getter
@@ -3566,6 +3598,160 @@ class VirtualNodeSpecListener(dict):
         The Transport Layer Security (TLS) properties for the listener
         """
         return pulumi.get(self, "tls")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerConnectionPool(dict):
+    def __init__(__self__, *,
+                 grpc: Optional['outputs.VirtualNodeSpecListenerConnectionPoolGrpc'] = None,
+                 http: Optional['outputs.VirtualNodeSpecListenerConnectionPoolHttp'] = None,
+                 http2: Optional['outputs.VirtualNodeSpecListenerConnectionPoolHttp2'] = None,
+                 tcp: Optional['outputs.VirtualNodeSpecListenerConnectionPoolTcp'] = None):
+        """
+        :param 'VirtualNodeSpecListenerConnectionPoolGrpcArgs' grpc: Connection pool information for gRPC listeners.
+        :param 'VirtualNodeSpecListenerConnectionPoolHttpArgs' http: Connection pool information for HTTP listeners.
+        :param 'VirtualNodeSpecListenerConnectionPoolHttp2Args' http2: Connection pool information for HTTP2 listeners.
+        :param 'VirtualNodeSpecListenerConnectionPoolTcpArgs' tcp: Connection pool information for TCP listeners.
+        """
+        if grpc is not None:
+            pulumi.set(__self__, "grpc", grpc)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if http2 is not None:
+            pulumi.set(__self__, "http2", http2)
+        if tcp is not None:
+            pulumi.set(__self__, "tcp", tcp)
+
+    @property
+    @pulumi.getter
+    def grpc(self) -> Optional['outputs.VirtualNodeSpecListenerConnectionPoolGrpc']:
+        """
+        Connection pool information for gRPC listeners.
+        """
+        return pulumi.get(self, "grpc")
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional['outputs.VirtualNodeSpecListenerConnectionPoolHttp']:
+        """
+        Connection pool information for HTTP listeners.
+        """
+        return pulumi.get(self, "http")
+
+    @property
+    @pulumi.getter
+    def http2(self) -> Optional['outputs.VirtualNodeSpecListenerConnectionPoolHttp2']:
+        """
+        Connection pool information for HTTP2 listeners.
+        """
+        return pulumi.get(self, "http2")
+
+    @property
+    @pulumi.getter
+    def tcp(self) -> Optional['outputs.VirtualNodeSpecListenerConnectionPoolTcp']:
+        """
+        Connection pool information for TCP listeners.
+        """
+        return pulumi.get(self, "tcp")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerConnectionPoolGrpc(dict):
+    def __init__(__self__, *,
+                 max_requests: int):
+        """
+        :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_requests", max_requests)
+
+    @property
+    @pulumi.getter(name="maxRequests")
+    def max_requests(self) -> int:
+        """
+        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_requests")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerConnectionPoolHttp2(dict):
+    def __init__(__self__, *,
+                 max_requests: int):
+        """
+        :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_requests", max_requests)
+
+    @property
+    @pulumi.getter(name="maxRequests")
+    def max_requests(self) -> int:
+        """
+        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_requests")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerConnectionPoolHttp(dict):
+    def __init__(__self__, *,
+                 max_connections: int,
+                 max_pending_requests: Optional[int] = None):
+        """
+        :param int max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        :param int max_pending_requests: Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_connections", max_connections)
+        if max_pending_requests is not None:
+            pulumi.set(__self__, "max_pending_requests", max_pending_requests)
+
+    @property
+    @pulumi.getter(name="maxConnections")
+    def max_connections(self) -> int:
+        """
+        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_connections")
+
+    @property
+    @pulumi.getter(name="maxPendingRequests")
+    def max_pending_requests(self) -> Optional[int]:
+        """
+        Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_pending_requests")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerConnectionPoolTcp(dict):
+    def __init__(__self__, *,
+                 max_connections: int):
+        """
+        :param int max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_connections", max_connections)
+
+    @property
+    @pulumi.getter(name="maxConnections")
+    def max_connections(self) -> int:
+        """
+        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_connections")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3655,6 +3841,126 @@ class VirtualNodeSpecListenerHealthCheck(dict):
         The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
         """
         return pulumi.get(self, "port")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerOutlierDetection(dict):
+    def __init__(__self__, *,
+                 base_ejection_duration: 'outputs.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration',
+                 interval: 'outputs.VirtualNodeSpecListenerOutlierDetectionInterval',
+                 max_ejection_percent: int,
+                 max_server_errors: int):
+        """
+        :param 'VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs' base_ejection_duration: The base amount of time for which a host is ejected.
+        :param 'VirtualNodeSpecListenerOutlierDetectionIntervalArgs' interval: The time interval between ejection sweep analysis.
+        :param int max_ejection_percent: Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
+               Minimum value of `0`. Maximum value of `100`.
+        :param int max_server_errors: Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "base_ejection_duration", base_ejection_duration)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
+        pulumi.set(__self__, "max_server_errors", max_server_errors)
+
+    @property
+    @pulumi.getter(name="baseEjectionDuration")
+    def base_ejection_duration(self) -> 'outputs.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration':
+        """
+        The base amount of time for which a host is ejected.
+        """
+        return pulumi.get(self, "base_ejection_duration")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> 'outputs.VirtualNodeSpecListenerOutlierDetectionInterval':
+        """
+        The time interval between ejection sweep analysis.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="maxEjectionPercent")
+    def max_ejection_percent(self) -> int:
+        """
+        Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
+        Minimum value of `0`. Maximum value of `100`.
+        """
+        return pulumi.get(self, "max_ejection_percent")
+
+    @property
+    @pulumi.getter(name="maxServerErrors")
+    def max_server_errors(self) -> int:
+        """
+        Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_server_errors")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerOutlierDetectionInterval(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

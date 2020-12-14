@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// EC2 Transit Gateway Route Table identifier
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Route Table
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             ImmutableArray<Outputs.GetRouteTableFilterResult> filters,
 
-            string? id,
+            string id,
 
             ImmutableDictionary<string, string> tags,
 

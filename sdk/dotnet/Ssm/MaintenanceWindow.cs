@@ -94,6 +94,12 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Schedule { get; private set; } = null!;
 
         /// <summary>
+        /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+        /// </summary>
+        [Output("scheduleOffset")]
+        public Output<int?> ScheduleOffset { get; private set; } = null!;
+
+        /// <summary>
         /// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         /// </summary>
         [Output("scheduleTimezone")]
@@ -206,6 +212,12 @@ namespace Pulumi.Aws.Ssm
         public Input<string> Schedule { get; set; } = null!;
 
         /// <summary>
+        /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+        /// </summary>
+        [Input("scheduleOffset")]
+        public Input<int>? ScheduleOffset { get; set; }
+
+        /// <summary>
         /// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         /// </summary>
         [Input("scheduleTimezone")]
@@ -283,6 +295,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("schedule")]
         public Input<string>? Schedule { get; set; }
+
+        /// <summary>
+        /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+        /// </summary>
+        [Input("scheduleOffset")]
+        public Input<int>? ScheduleOffset { get; set; }
 
         /// <summary>
         /// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.

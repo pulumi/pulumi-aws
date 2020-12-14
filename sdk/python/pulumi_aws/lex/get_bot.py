@@ -75,11 +75,17 @@ class GetBotResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        The ARN of the bot.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def checksum(self) -> str:
+        """
+        Checksum of the bot used to identify a specific revision of the bot's `$LATEST` version.
+        """
         return pulumi.get(self, "checksum")
 
     @property
@@ -93,6 +99,9 @@ class GetBotResult:
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
+        """
+        The date that the bot was created.
+        """
         return pulumi.get(self, "created_date")
 
     @property
@@ -122,6 +131,9 @@ class GetBotResult:
     @property
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> str:
+        """
+        If the `status` is `FAILED`, the reason why the bot failed to build.
+        """
         return pulumi.get(self, "failure_reason")
 
     @property
@@ -143,6 +155,9 @@ class GetBotResult:
     @property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
+        """
+        The date that the bot was updated.
+        """
         return pulumi.get(self, "last_updated_date")
 
     @property
@@ -172,11 +187,17 @@ class GetBotResult:
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        The status of the bot.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
+        """
+        The version of the bot. For a new bot, the version is always `$LATEST`.
+        """
         return pulumi.get(self, "version")
 
     @property
