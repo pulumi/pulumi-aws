@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const PackageType = {
+    Zip: "Zip",
+    Image: "Image",
+} as const;
+
+/**
+ * The Lambda deployment package type.
+ */
+export type PackageType = (typeof PackageType)[keyof typeof PackageType];
+
 export const Runtime = {
     DotnetCore2d1: "dotnetcore2.1",
     DotnetCore3d1: "dotnetcore3.1",

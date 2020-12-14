@@ -31,7 +31,7 @@ class Function(pulumi.CustomResource):
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 package_type: Optional[pulumi.Input[str]] = None,
+                 package_type: Optional[pulumi.Input[Union[str, 'PackageType']]] = None,
                  publish: Optional[pulumi.Input[bool]] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
@@ -71,7 +71,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: A unique name for your Lambda Function.
-        :param pulumi.Input[str] package_type: The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+        :param pulumi.Input[Union[str, 'PackageType']] package_type: The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[int] reserved_concurrent_executions: The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[str] role: IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details.
@@ -163,7 +163,7 @@ class Function(pulumi.CustomResource):
             layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             memory_size: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            package_type: Optional[pulumi.Input[str]] = None,
+            package_type: Optional[pulumi.Input[Union[str, 'PackageType']]] = None,
             publish: Optional[pulumi.Input[bool]] = None,
             qualified_arn: Optional[pulumi.Input[str]] = None,
             reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
@@ -204,7 +204,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: A unique name for your Lambda Function.
-        :param pulumi.Input[str] package_type: The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+        :param pulumi.Input[Union[str, 'PackageType']] package_type: The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[str] qualified_arn: The Amazon Resource Name (ARN) identifying your Lambda Function Version
                (if versioning is enabled via `publish = true`).

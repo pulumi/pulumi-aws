@@ -347,7 +347,7 @@ export interface FunctionState {
     /**
      * The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
      */
-    readonly packageType?: pulumi.Input<string>;
+    readonly packageType?: pulumi.Input<string | enums.lambda.PackageType>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
@@ -475,7 +475,7 @@ export interface FunctionArgs {
     /**
      * The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
      */
-    readonly packageType?: pulumi.Input<string>;
+    readonly packageType?: pulumi.Input<string | enums.lambda.PackageType>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */

@@ -356,7 +356,7 @@ namespace Pulumi.Aws.Lambda
         /// The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         /// </summary>
         [Input("packageType")]
-        public Input<string>? PackageType { get; set; }
+        public InputUnion<string, Pulumi.Aws.Lambda.PackageType>? PackageType { get; set; }
 
         /// <summary>
         /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
@@ -546,7 +546,7 @@ namespace Pulumi.Aws.Lambda
         /// The Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         /// </summary>
         [Input("packageType")]
-        public Input<string>? PackageType { get; set; }
+        public InputUnion<string, Pulumi.Aws.Lambda.PackageType>? PackageType { get; set; }
 
         /// <summary>
         /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.

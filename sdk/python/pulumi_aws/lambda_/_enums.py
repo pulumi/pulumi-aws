@@ -5,8 +5,17 @@
 from enum import Enum
 
 __all__ = [
+    'PackageType',
     'Runtime',
 ]
+
+
+class PackageType(str, Enum):
+    """
+    The Lambda deployment package type.
+    """
+    ZIP = "Zip"
+    IMAGE = "Image"
 
 
 class Runtime(str, Enum):

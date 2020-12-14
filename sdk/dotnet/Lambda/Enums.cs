@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.Aws.Lambda
 {
     /// <summary>
+    /// The Lambda deployment package type.
+    /// </summary>
+    [EnumType]
+    public readonly struct PackageType : IEquatable<PackageType>
+    {
+        private readonly string _value;
+
+        private PackageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PackageType Zip { get; } = new PackageType("Zip");
+        public static PackageType Image { get; } = new PackageType("Image");
+
+        public static bool operator ==(PackageType left, PackageType right) => left.Equals(right);
+        public static bool operator !=(PackageType left, PackageType right) => !left.Equals(right);
+
+        public static explicit operator string(PackageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PackageType other && Equals(other);
+        public bool Equals(PackageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// See https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
     /// </summary>
     [EnumType]

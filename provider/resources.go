@@ -1649,6 +1649,10 @@ func Provider() tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(lambdaMod, "Runtime", "Runtime")},
 					},
+					"package_type": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(lambdaMod, "PackageType", "PackageType")},
+					},
 				},
 			},
 			"aws_lambda_alias":                {Tok: awsResource(lambdaMod, "Alias")},
@@ -3204,6 +3208,16 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "SystemAdministrator", Value: "arn:aws:iam::aws:policy/job-function/SystemAdministrator"},
 					{Name: "VMImportExportRoleForAWSConnector", Value: "arn:aws:iam::aws:policy/service-role/VMImportExportRoleForAWSConnector"},
 					{Name: "ViewOnlyAccess", Value: "arn:aws:iam::aws:policy/job-function/ViewOnlyAccess"},
+				},
+			},
+			"aws:lambda/PackageType:PackageType": {
+				ObjectTypeSpec: schema.ObjectTypeSpec{
+					Type:        "string",
+					Description: "The Lambda deployment package type.",
+				},
+				Enum: []*schema.EnumValueSpec{
+					{Value: "Zip"},
+					{Value: "Image"},
 				},
 			},
 			"aws:lambda/Runtime:Runtime": {
