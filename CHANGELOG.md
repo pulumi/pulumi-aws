@@ -2,8 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
-
+* Upgrade to v2.15.2 of pulumi-terraform-bridg
+    * Preserve unknowns during provider preview
 ---
 
 ## 3.20.0 (2020-12-14)
