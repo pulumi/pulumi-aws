@@ -53,7 +53,7 @@ type LookupImageRecipeResult struct {
 	Arn string `pulumi:"arn"`
 	// Set of objects with block device mappings for the the image recipe.
 	BlockDeviceMappings []GetImageRecipeBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	// Set of objects with components for the image recipe.
+	// List of objects with components for the image recipe.
 	Components []GetImageRecipeComponent `pulumi:"components"`
 	// Date the image recipe was created.
 	DateCreated string `pulumi:"dateCreated"`

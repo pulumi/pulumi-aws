@@ -15,6 +15,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+/* see https://github.com/pulumi/pulumi-aws/issues/1264
 func TestAccDedicatedHosts(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
@@ -24,6 +25,7 @@ func TestAccDedicatedHosts(t *testing.T) {
 
 	integration.ProgramTest(t, &test)
 }
+*/
 
 func TestAccMinimal(t *testing.T) {
 	test := getJSBaseOptions(t).

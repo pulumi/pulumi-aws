@@ -57,7 +57,7 @@ export interface GetImageRecipeResult {
      */
     readonly blockDeviceMappings: outputs.imagebuilder.GetImageRecipeBlockDeviceMapping[];
     /**
-     * Set of objects with components for the image recipe.
+     * List of objects with components for the image recipe.
      */
     readonly components: outputs.imagebuilder.GetImageRecipeComponent[];
     /**

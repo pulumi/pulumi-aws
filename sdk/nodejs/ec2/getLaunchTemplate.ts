@@ -43,6 +43,7 @@ export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.In
     }
     return pulumi.runtime.invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", {
         "filters": args.filters,
+        "id": args.id,
         "name": args.name,
         "tags": args.tags,
     }, opts);
@@ -56,6 +57,10 @@ export interface GetLaunchTemplateArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     readonly filters?: inputs.ec2.GetLaunchTemplateFilter[];
+    /**
+     * The ID of the specific launch template to retrieve.
+     */
+    readonly id?: string;
     /**
      * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
      */
@@ -116,7 +121,7 @@ export interface GetLaunchTemplateResult {
      */
     readonly iamInstanceProfiles: outputs.ec2.GetLaunchTemplateIamInstanceProfile[];
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of the launch template.
      */
     readonly id: string;
     /**

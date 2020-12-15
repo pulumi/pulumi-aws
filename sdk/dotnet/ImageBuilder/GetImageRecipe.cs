@@ -77,7 +77,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageRecipeBlockDeviceMappingResult> BlockDeviceMappings;
         /// <summary>
-        /// Set of objects with components for the image recipe.
+        /// List of objects with components for the image recipe.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageRecipeComponentResult> Components;
         /// <summary>

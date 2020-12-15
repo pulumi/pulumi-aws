@@ -68,7 +68,7 @@ type ImageRecipe struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block(s) with block device mappings for the the image recipe. Detailed below.
 	BlockDeviceMappings ImageRecipeBlockDeviceMappingArrayOutput `pulumi:"blockDeviceMappings"`
-	// Configuration block(s) with components for the image recipe. Detailed below.
+	// Ordered configuration block(s) with components for the image recipe. Detailed below.
 	Components ImageRecipeComponentArrayOutput `pulumi:"components"`
 	// Date the image recipe was created.
 	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
@@ -130,7 +130,7 @@ type imageRecipeState struct {
 	Arn *string `pulumi:"arn"`
 	// Configuration block(s) with block device mappings for the the image recipe. Detailed below.
 	BlockDeviceMappings []ImageRecipeBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	// Configuration block(s) with components for the image recipe. Detailed below.
+	// Ordered configuration block(s) with components for the image recipe. Detailed below.
 	Components []ImageRecipeComponent `pulumi:"components"`
 	// Date the image recipe was created.
 	DateCreated *string `pulumi:"dateCreated"`
@@ -155,7 +155,7 @@ type ImageRecipeState struct {
 	Arn pulumi.StringPtrInput
 	// Configuration block(s) with block device mappings for the the image recipe. Detailed below.
 	BlockDeviceMappings ImageRecipeBlockDeviceMappingArrayInput
-	// Configuration block(s) with components for the image recipe. Detailed below.
+	// Ordered configuration block(s) with components for the image recipe. Detailed below.
 	Components ImageRecipeComponentArrayInput
 	// Date the image recipe was created.
 	DateCreated pulumi.StringPtrInput
@@ -182,7 +182,7 @@ func (ImageRecipeState) ElementType() reflect.Type {
 type imageRecipeArgs struct {
 	// Configuration block(s) with block device mappings for the the image recipe. Detailed below.
 	BlockDeviceMappings []ImageRecipeBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	// Configuration block(s) with components for the image recipe. Detailed below.
+	// Ordered configuration block(s) with components for the image recipe. Detailed below.
 	Components []ImageRecipeComponent `pulumi:"components"`
 	// Description of the image recipe.
 	Description *string `pulumi:"description"`
@@ -200,7 +200,7 @@ type imageRecipeArgs struct {
 type ImageRecipeArgs struct {
 	// Configuration block(s) with block device mappings for the the image recipe. Detailed below.
 	BlockDeviceMappings ImageRecipeBlockDeviceMappingArrayInput
-	// Configuration block(s) with components for the image recipe. Detailed below.
+	// Ordered configuration block(s) with components for the image recipe. Detailed below.
 	Components ImageRecipeComponentArrayInput
 	// Description of the image recipe.
 	Description pulumi.StringPtrInput

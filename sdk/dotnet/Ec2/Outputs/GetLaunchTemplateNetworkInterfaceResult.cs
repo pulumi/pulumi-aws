@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateNetworkInterfaceResult
     {
+        public readonly string AssociateCarrierIpAddress;
         public readonly bool? AssociatePublicIpAddress;
         public readonly bool? DeleteOnTermination;
         /// <summary>
@@ -31,6 +32,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
         [OutputConstructor]
         private GetLaunchTemplateNetworkInterfaceResult(
+            string associateCarrierIpAddress,
+
             bool? associatePublicIpAddress,
 
             bool? deleteOnTermination,
@@ -55,6 +58,7 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string subnetId)
         {
+            AssociateCarrierIpAddress = associateCarrierIpAddress;
             AssociatePublicIpAddress = associatePublicIpAddress;
             DeleteOnTermination = deleteOnTermination;
             Description = description;

@@ -93,7 +93,7 @@ export interface GetRouteTableResult {
     /**
      * EC2 Transit Gateway Route Table identifier
      */
-    readonly id?: string;
+    readonly id: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table
      */

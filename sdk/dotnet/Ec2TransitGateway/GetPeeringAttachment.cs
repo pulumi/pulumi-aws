@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class GetPeeringAttachmentResult
     {
         public readonly ImmutableArray<Outputs.GetPeeringAttachmentFilterResult> Filters;
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// Identifier of the peer AWS account
         /// </summary>
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private GetPeeringAttachmentResult(
             ImmutableArray<Outputs.GetPeeringAttachmentFilterResult> filters,
 
-            string? id,
+            string id,
 
             string peerAccountId,
 

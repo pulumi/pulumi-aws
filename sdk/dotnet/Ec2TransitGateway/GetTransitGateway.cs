@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// EC2 Transit Gateway identifier
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// Identifier of the AWS account that owns the EC2 Transit Gateway
         /// </summary>
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             ImmutableArray<Outputs.GetTransitGatewayFilterResult> filters,
 
-            string? id,
+            string id,
 
             string ownerId,
 

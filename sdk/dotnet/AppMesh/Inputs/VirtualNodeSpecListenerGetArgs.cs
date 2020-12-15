@@ -13,10 +13,22 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecListenerGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The connection pool information for the listener.
+        /// </summary>
+        [Input("connectionPool")]
+        public Input<Inputs.VirtualNodeSpecListenerConnectionPoolGetArgs>? ConnectionPool { get; set; }
+
+        /// <summary>
         /// The health check information for the listener.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.VirtualNodeSpecListenerHealthCheckGetArgs>? HealthCheck { get; set; }
+
+        /// <summary>
+        /// The outlier detection information for the listener.
+        /// </summary>
+        [Input("outlierDetection")]
+        public Input<Inputs.VirtualNodeSpecListenerOutlierDetectionGetArgs>? OutlierDetection { get; set; }
 
         /// <summary>
         /// The port mapping information for the listener.

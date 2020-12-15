@@ -51,7 +51,7 @@ class GetPeeringAttachmentResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
+    def id(self) -> str:
         return pulumi.get(self, "id")
 
     @property

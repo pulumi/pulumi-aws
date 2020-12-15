@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class LaunchTemplateNetworkInterface
     {
         /// <summary>
+        /// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+        /// </summary>
+        public readonly string? AssociateCarrierIpAddress;
+        /// <summary>
         /// Associate a public ip address with the network interface.  Boolean value.
         /// </summary>
         public readonly string? AssociatePublicIpAddress;
@@ -64,6 +68,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
         [OutputConstructor]
         private LaunchTemplateNetworkInterface(
+            string? associateCarrierIpAddress,
+
             string? associatePublicIpAddress,
 
             string? deleteOnTermination,
@@ -88,6 +94,7 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? subnetId)
         {
+            AssociateCarrierIpAddress = associateCarrierIpAddress;
             AssociatePublicIpAddress = associatePublicIpAddress;
             DeleteOnTermination = deleteOnTermination;
             Description = description;

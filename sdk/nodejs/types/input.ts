@@ -3003,9 +3003,17 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecListener {
         /**
+         * The connection pool information for the listener.
+         */
+        connectionPool?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerConnectionPool>;
+        /**
          * The health check information for the listener.
          */
         healthCheck?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerHealthCheck>;
+        /**
+         * The outlier detection information for the listener.
+         */
+        outlierDetection?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerOutlierDetection>;
         /**
          * The port mapping information for the listener.
          */
@@ -3018,6 +3026,57 @@ export namespace appmesh {
          * The Transport Layer Security (TLS) properties for the listener
          */
         tls?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerTls>;
+    }
+
+    export interface VirtualNodeSpecListenerConnectionPool {
+        /**
+         * Connection pool information for gRPC listeners.
+         */
+        grpc?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerConnectionPoolGrpc>;
+        /**
+         * Connection pool information for HTTP listeners.
+         */
+        http?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp>;
+        /**
+         * Connection pool information for HTTP2 listeners.
+         */
+        http2?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp2>;
+        /**
+         * Connection pool information for TCP listeners.
+         */
+        tcp?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerConnectionPoolTcp>;
+    }
+
+    export interface VirtualNodeSpecListenerConnectionPoolGrpc {
+        /**
+         * Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+         */
+        maxRequests: pulumi.Input<number>;
+    }
+
+    export interface VirtualNodeSpecListenerConnectionPoolHttp {
+        /**
+         * Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+         */
+        maxConnections: pulumi.Input<number>;
+        /**
+         * Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+         */
+        maxPendingRequests?: pulumi.Input<number>;
+    }
+
+    export interface VirtualNodeSpecListenerConnectionPoolHttp2 {
+        /**
+         * Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+         */
+        maxRequests: pulumi.Input<number>;
+    }
+
+    export interface VirtualNodeSpecListenerConnectionPoolTcp {
+        /**
+         * Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+         */
+        maxConnections: pulumi.Input<number>;
     }
 
     export interface VirtualNodeSpecListenerHealthCheck {
@@ -3049,6 +3108,48 @@ export namespace appmesh {
          * The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
          */
         unhealthyThreshold: pulumi.Input<number>;
+    }
+
+    export interface VirtualNodeSpecListenerOutlierDetection {
+        /**
+         * The base amount of time for which a host is ejected.
+         */
+        baseEjectionDuration: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration>;
+        /**
+         * The time interval between ejection sweep analysis.
+         */
+        interval: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerOutlierDetectionInterval>;
+        /**
+         * Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
+         * Minimum value of `0`. Maximum value of `100`.
+         */
+        maxEjectionPercent: pulumi.Input<number>;
+        /**
+         * Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
+         */
+        maxServerErrors: pulumi.Input<number>;
+    }
+
+    export interface VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface VirtualNodeSpecListenerOutlierDetectionInterval {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: pulumi.Input<number>;
     }
 
     export interface VirtualNodeSpecListenerPortMapping {
@@ -7855,12 +7956,13 @@ export namespace ec2 {
          * The Snapshot ID to mount.
          */
         snapshotId?: pulumi.Input<string>;
+        throughput?: pulumi.Input<number>;
         /**
          * The size of the volume in gigabytes.
          */
         volumeSize?: pulumi.Input<number>;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
+         * The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -7999,6 +8101,10 @@ export namespace ec2 {
     }
 
     export interface LaunchTemplateNetworkInterface {
+        /**
+         * Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+         */
+        associateCarrierIpAddress?: pulumi.Input<string>;
         /**
          * Associate a public ip address with the network interface.  Boolean value.
          */
@@ -8404,6 +8510,7 @@ export namespace ec2 {
         iops?: pulumi.Input<number>;
         kmsKeyId?: pulumi.Input<string>;
         snapshotId?: pulumi.Input<string>;
+        throughput?: pulumi.Input<number>;
         volumeSize?: pulumi.Input<number>;
         volumeType?: pulumi.Input<string>;
     }
@@ -8418,6 +8525,7 @@ export namespace ec2 {
         encrypted?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
         kmsKeyId?: pulumi.Input<string>;
+        throughput?: pulumi.Input<number>;
         volumeSize?: pulumi.Input<number>;
         volumeType?: pulumi.Input<string>;
     }

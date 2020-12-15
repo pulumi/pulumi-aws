@@ -79,7 +79,7 @@ export interface GetCustomerGatewayResult {
      */
     readonly bgpAsn: number;
     readonly filters?: outputs.ec2.GetCustomerGatewayFilter[];
-    readonly id?: string;
+    readonly id: string;
     /**
      * (Optional) The IP address of the gateway's Internet-routable external interface.
      */

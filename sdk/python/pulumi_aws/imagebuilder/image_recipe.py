@@ -63,7 +63,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeBlockDeviceMappingArgs']]]] block_device_mappings: Configuration block(s) with block device mappings for the the image recipe. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentArgs']]]] components: Configuration block(s) with components for the image recipe. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentArgs']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[str] description: Description of the image recipe.
         :param pulumi.Input[str] name: Name of the image recipe.
         :param pulumi.Input[str] parent_image: Platform of the image recipe.
@@ -134,7 +134,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: (Required) Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeBlockDeviceMappingArgs']]]] block_device_mappings: Configuration block(s) with block device mappings for the the image recipe. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentArgs']]]] components: Configuration block(s) with components for the image recipe. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentArgs']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[str] date_created: Date the image recipe was created.
         :param pulumi.Input[str] description: Description of the image recipe.
         :param pulumi.Input[str] name: Name of the image recipe.
@@ -181,7 +181,7 @@ class ImageRecipe(pulumi.CustomResource):
     @pulumi.getter
     def components(self) -> pulumi.Output[Sequence['outputs.ImageRecipeComponent']]:
         """
-        Configuration block(s) with components for the image recipe. Detailed below.
+        Ordered configuration block(s) with components for the image recipe. Detailed below.
         """
         return pulumi.get(self, "components")
 

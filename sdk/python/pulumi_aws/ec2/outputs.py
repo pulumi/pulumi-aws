@@ -2128,6 +2128,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
                  iops: Optional[int] = None,
                  kms_key_id: Optional[str] = None,
                  snapshot_id: Optional[str] = None,
+                 throughput: Optional[int] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
         """
@@ -2141,7 +2142,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
                `encrypted` must be set to `true` when this is set.
         :param str snapshot_id: The Snapshot ID to mount.
         :param int volume_size: The size of the volume in gigabytes.
-        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
+        :param str volume_type: The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -2153,6 +2154,8 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -2203,6 +2206,11 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
         return pulumi.get(self, "snapshot_id")
 
     @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        return pulumi.get(self, "throughput")
+
+    @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[int]:
         """
@@ -2214,7 +2222,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
+        The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -2631,6 +2639,7 @@ class LaunchTemplateMonitoring(dict):
 @pulumi.output_type
 class LaunchTemplateNetworkInterface(dict):
     def __init__(__self__, *,
+                 associate_carrier_ip_address: Optional[str] = None,
                  associate_public_ip_address: Optional[str] = None,
                  delete_on_termination: Optional[str] = None,
                  description: Optional[str] = None,
@@ -2644,6 +2653,7 @@ class LaunchTemplateNetworkInterface(dict):
                  security_groups: Optional[Sequence[str]] = None,
                  subnet_id: Optional[str] = None):
         """
+        :param str associate_carrier_ip_address: Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
         :param str associate_public_ip_address: Associate a public ip address with the network interface.  Boolean value.
         :param str delete_on_termination: Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
         :param str description: Description of the network interface.
@@ -2657,6 +2667,8 @@ class LaunchTemplateNetworkInterface(dict):
         :param Sequence[str] security_groups: A list of security group IDs to associate.
         :param str subnet_id: The VPC Subnet ID to associate.
         """
+        if associate_carrier_ip_address is not None:
+            pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
         if associate_public_ip_address is not None:
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if delete_on_termination is not None:
@@ -2681,6 +2693,14 @@ class LaunchTemplateNetworkInterface(dict):
             pulumi.set(__self__, "security_groups", security_groups)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="associateCarrierIpAddress")
+    def associate_carrier_ip_address(self) -> Optional[str]:
+        """
+        Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+        """
+        return pulumi.get(self, "associate_carrier_ip_address")
 
     @property
     @pulumi.getter(name="associatePublicIpAddress")
@@ -3881,6 +3901,7 @@ class SpotFleetRequestLaunchSpecificationEbsBlockDevice(dict):
                  iops: Optional[int] = None,
                  kms_key_id: Optional[str] = None,
                  snapshot_id: Optional[str] = None,
+                 throughput: Optional[int] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
         pulumi.set(__self__, "device_name", device_name)
@@ -3894,6 +3915,8 @@ class SpotFleetRequestLaunchSpecificationEbsBlockDevice(dict):
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -3928,6 +3951,11 @@ class SpotFleetRequestLaunchSpecificationEbsBlockDevice(dict):
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[str]:
         return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
@@ -3972,6 +4000,7 @@ class SpotFleetRequestLaunchSpecificationRootBlockDevice(dict):
                  encrypted: Optional[bool] = None,
                  iops: Optional[int] = None,
                  kms_key_id: Optional[str] = None,
+                 throughput: Optional[int] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
         if delete_on_termination is not None:
@@ -3982,6 +4011,8 @@ class SpotFleetRequestLaunchSpecificationRootBlockDevice(dict):
             pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -4006,6 +4037,11 @@ class SpotFleetRequestLaunchSpecificationRootBlockDevice(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
@@ -5907,6 +5943,7 @@ class GetLaunchTemplateBlockDeviceMappingEbResult(dict):
                  iops: int,
                  kms_key_id: str,
                  snapshot_id: str,
+                 throughput: int,
                  volume_size: int,
                  volume_type: str):
         pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -5914,6 +5951,7 @@ class GetLaunchTemplateBlockDeviceMappingEbResult(dict):
         pulumi.set(__self__, "iops", iops)
         pulumi.set(__self__, "kms_key_id", kms_key_id)
         pulumi.set(__self__, "snapshot_id", snapshot_id)
+        pulumi.set(__self__, "throughput", throughput)
         pulumi.set(__self__, "volume_size", volume_size)
         pulumi.set(__self__, "volume_type", volume_type)
 
@@ -5941,6 +5979,11 @@ class GetLaunchTemplateBlockDeviceMappingEbResult(dict):
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> str:
         return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> int:
+        return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
@@ -6161,6 +6204,7 @@ class GetLaunchTemplateMonitoringResult(dict):
 @pulumi.output_type
 class GetLaunchTemplateNetworkInterfaceResult(dict):
     def __init__(__self__, *,
+                 associate_carrier_ip_address: str,
                  description: str,
                  device_index: int,
                  ipv4_address_count: int,
@@ -6176,6 +6220,7 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
         """
         :param str description: Description of the launch template.
         """
+        pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "ipv4_address_count", ipv4_address_count)
@@ -6190,6 +6235,11 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+
+    @property
+    @pulumi.getter(name="associateCarrierIpAddress")
+    def associate_carrier_ip_address(self) -> str:
+        return pulumi.get(self, "associate_carrier_ip_address")
 
     @property
     @pulumi.getter

@@ -14633,8 +14633,12 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePt
 }
 
 type VirtualNodeSpecListener struct {
+	// The connection pool information for the listener.
+	ConnectionPool *VirtualNodeSpecListenerConnectionPool `pulumi:"connectionPool"`
 	// The health check information for the listener.
 	HealthCheck *VirtualNodeSpecListenerHealthCheck `pulumi:"healthCheck"`
+	// The outlier detection information for the listener.
+	OutlierDetection *VirtualNodeSpecListenerOutlierDetection `pulumi:"outlierDetection"`
 	// The port mapping information for the listener.
 	PortMapping VirtualNodeSpecListenerPortMapping `pulumi:"portMapping"`
 	// Timeouts for different protocols.
@@ -14655,8 +14659,12 @@ type VirtualNodeSpecListenerInput interface {
 }
 
 type VirtualNodeSpecListenerArgs struct {
+	// The connection pool information for the listener.
+	ConnectionPool VirtualNodeSpecListenerConnectionPoolPtrInput `pulumi:"connectionPool"`
 	// The health check information for the listener.
 	HealthCheck VirtualNodeSpecListenerHealthCheckPtrInput `pulumi:"healthCheck"`
+	// The outlier detection information for the listener.
+	OutlierDetection VirtualNodeSpecListenerOutlierDetectionPtrInput `pulumi:"outlierDetection"`
 	// The port mapping information for the listener.
 	PortMapping VirtualNodeSpecListenerPortMappingInput `pulumi:"portMapping"`
 	// Timeouts for different protocols.
@@ -14742,9 +14750,19 @@ func (o VirtualNodeSpecListenerOutput) ToVirtualNodeSpecListenerPtrOutputWithCon
 	}).(VirtualNodeSpecListenerPtrOutput)
 }
 
+// The connection pool information for the listener.
+func (o VirtualNodeSpecListenerOutput) ConnectionPool() VirtualNodeSpecListenerConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerConnectionPool { return v.ConnectionPool }).(VirtualNodeSpecListenerConnectionPoolPtrOutput)
+}
+
 // The health check information for the listener.
 func (o VirtualNodeSpecListenerOutput) HealthCheck() VirtualNodeSpecListenerHealthCheckPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerHealthCheck { return v.HealthCheck }).(VirtualNodeSpecListenerHealthCheckPtrOutput)
+}
+
+// The outlier detection information for the listener.
+func (o VirtualNodeSpecListenerOutput) OutlierDetection() VirtualNodeSpecListenerOutlierDetectionPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerOutlierDetection { return v.OutlierDetection }).(VirtualNodeSpecListenerOutlierDetectionPtrOutput)
 }
 
 // The port mapping information for the listener.
@@ -14780,6 +14798,16 @@ func (o VirtualNodeSpecListenerPtrOutput) Elem() VirtualNodeSpecListenerOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListener) VirtualNodeSpecListener { return *v }).(VirtualNodeSpecListenerOutput)
 }
 
+// The connection pool information for the listener.
+func (o VirtualNodeSpecListenerPtrOutput) ConnectionPool() VirtualNodeSpecListenerConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionPool
+	}).(VirtualNodeSpecListenerConnectionPoolPtrOutput)
+}
+
 // The health check information for the listener.
 func (o VirtualNodeSpecListenerPtrOutput) HealthCheck() VirtualNodeSpecListenerHealthCheckPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerHealthCheck {
@@ -14788,6 +14816,16 @@ func (o VirtualNodeSpecListenerPtrOutput) HealthCheck() VirtualNodeSpecListenerH
 		}
 		return v.HealthCheck
 	}).(VirtualNodeSpecListenerHealthCheckPtrOutput)
+}
+
+// The outlier detection information for the listener.
+func (o VirtualNodeSpecListenerPtrOutput) OutlierDetection() VirtualNodeSpecListenerOutlierDetectionPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerOutlierDetection {
+		if v == nil {
+			return nil
+		}
+		return v.OutlierDetection
+	}).(VirtualNodeSpecListenerOutlierDetectionPtrOutput)
 }
 
 // The port mapping information for the listener.
@@ -14818,6 +14856,749 @@ func (o VirtualNodeSpecListenerPtrOutput) Tls() VirtualNodeSpecListenerTlsPtrOut
 		}
 		return v.Tls
 	}).(VirtualNodeSpecListenerTlsPtrOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPool struct {
+	// Connection pool information for gRPC listeners.
+	Grpc *VirtualNodeSpecListenerConnectionPoolGrpc `pulumi:"grpc"`
+	// Connection pool information for HTTP listeners.
+	Http *VirtualNodeSpecListenerConnectionPoolHttp `pulumi:"http"`
+	// Connection pool information for HTTP2 listeners.
+	Http2 *VirtualNodeSpecListenerConnectionPoolHttp2 `pulumi:"http2"`
+	// Connection pool information for TCP listeners.
+	Tcp *VirtualNodeSpecListenerConnectionPoolTcp `pulumi:"tcp"`
+}
+
+// VirtualNodeSpecListenerConnectionPoolInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolArgs and VirtualNodeSpecListenerConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolInput` via:
+//
+//          VirtualNodeSpecListenerConnectionPoolArgs{...}
+type VirtualNodeSpecListenerConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerConnectionPoolOutput() VirtualNodeSpecListenerConnectionPoolOutput
+	ToVirtualNodeSpecListenerConnectionPoolOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolOutput
+}
+
+type VirtualNodeSpecListenerConnectionPoolArgs struct {
+	// Connection pool information for gRPC listeners.
+	Grpc VirtualNodeSpecListenerConnectionPoolGrpcPtrInput `pulumi:"grpc"`
+	// Connection pool information for HTTP listeners.
+	Http VirtualNodeSpecListenerConnectionPoolHttpPtrInput `pulumi:"http"`
+	// Connection pool information for HTTP2 listeners.
+	Http2 VirtualNodeSpecListenerConnectionPoolHttp2PtrInput `pulumi:"http2"`
+	// Connection pool information for TCP listeners.
+	Tcp VirtualNodeSpecListenerConnectionPoolTcpPtrInput `pulumi:"tcp"`
+}
+
+func (VirtualNodeSpecListenerConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolArgs) ToVirtualNodeSpecListenerConnectionPoolOutput() VirtualNodeSpecListenerConnectionPoolOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolArgs) ToVirtualNodeSpecListenerConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolOutput)
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolArgs) ToVirtualNodeSpecListenerConnectionPoolPtrOutput() VirtualNodeSpecListenerConnectionPoolPtrOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolArgs) ToVirtualNodeSpecListenerConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolOutput).ToVirtualNodeSpecListenerConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerConnectionPoolPtrInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolArgs, VirtualNodeSpecListenerConnectionPoolPtr and VirtualNodeSpecListenerConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolPtrInput` via:
+//
+//          VirtualNodeSpecListenerConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerConnectionPoolPtrOutput() VirtualNodeSpecListenerConnectionPoolPtrOutput
+	ToVirtualNodeSpecListenerConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolPtrOutput
+}
+
+type virtualNodeSpecListenerConnectionPoolPtrType VirtualNodeSpecListenerConnectionPoolArgs
+
+func VirtualNodeSpecListenerConnectionPoolPtr(v *VirtualNodeSpecListenerConnectionPoolArgs) VirtualNodeSpecListenerConnectionPoolPtrInput {
+	return (*virtualNodeSpecListenerConnectionPoolPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerConnectionPoolPtrType) ToVirtualNodeSpecListenerConnectionPoolPtrOutput() VirtualNodeSpecListenerConnectionPoolPtrOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerConnectionPoolPtrType) ToVirtualNodeSpecListenerConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolPtrOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolOutput) ToVirtualNodeSpecListenerConnectionPoolOutput() VirtualNodeSpecListenerConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolOutput) ToVirtualNodeSpecListenerConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolOutput) ToVirtualNodeSpecListenerConnectionPoolPtrOutput() VirtualNodeSpecListenerConnectionPoolPtrOutput {
+	return o.ToVirtualNodeSpecListenerConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolOutput) ToVirtualNodeSpecListenerConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPool {
+		return &v
+	}).(VirtualNodeSpecListenerConnectionPoolPtrOutput)
+}
+
+// Connection pool information for gRPC listeners.
+func (o VirtualNodeSpecListenerConnectionPoolOutput) Grpc() VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolGrpc {
+		return v.Grpc
+	}).(VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput)
+}
+
+// Connection pool information for HTTP listeners.
+func (o VirtualNodeSpecListenerConnectionPoolOutput) Http() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolHttp {
+		return v.Http
+	}).(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput)
+}
+
+// Connection pool information for HTTP2 listeners.
+func (o VirtualNodeSpecListenerConnectionPoolOutput) Http2() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolHttp2 {
+		return v.Http2
+	}).(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput)
+}
+
+// Connection pool information for TCP listeners.
+func (o VirtualNodeSpecListenerConnectionPoolOutput) Tcp() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolTcp { return v.Tcp }).(VirtualNodeSpecListenerConnectionPoolTcpPtrOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) ToVirtualNodeSpecListenerConnectionPoolPtrOutput() VirtualNodeSpecListenerConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) ToVirtualNodeSpecListenerConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Elem() VirtualNodeSpecListenerConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) VirtualNodeSpecListenerConnectionPool { return *v }).(VirtualNodeSpecListenerConnectionPoolOutput)
+}
+
+// Connection pool information for gRPC listeners.
+func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Grpc() VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolGrpc {
+		if v == nil {
+			return nil
+		}
+		return v.Grpc
+	}).(VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput)
+}
+
+// Connection pool information for HTTP listeners.
+func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Http() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolHttp {
+		if v == nil {
+			return nil
+		}
+		return v.Http
+	}).(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput)
+}
+
+// Connection pool information for HTTP2 listeners.
+func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Http2() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolHttp2 {
+		if v == nil {
+			return nil
+		}
+		return v.Http2
+	}).(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput)
+}
+
+// Connection pool information for TCP listeners.
+func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Tcp() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolTcp {
+		if v == nil {
+			return nil
+		}
+		return v.Tcp
+	}).(VirtualNodeSpecListenerConnectionPoolTcpPtrOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolGrpc struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+	MaxRequests int `pulumi:"maxRequests"`
+}
+
+// VirtualNodeSpecListenerConnectionPoolGrpcInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolGrpcArgs and VirtualNodeSpecListenerConnectionPoolGrpcOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolGrpcInput` via:
+//
+//          VirtualNodeSpecListenerConnectionPoolGrpcArgs{...}
+type VirtualNodeSpecListenerConnectionPoolGrpcInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerConnectionPoolGrpcOutput() VirtualNodeSpecListenerConnectionPoolGrpcOutput
+	ToVirtualNodeSpecListenerConnectionPoolGrpcOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolGrpcOutput
+}
+
+type VirtualNodeSpecListenerConnectionPoolGrpcArgs struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+}
+
+func (VirtualNodeSpecListenerConnectionPoolGrpcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolGrpc)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolGrpcArgs) ToVirtualNodeSpecListenerConnectionPoolGrpcOutput() VirtualNodeSpecListenerConnectionPoolGrpcOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolGrpcOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolGrpcArgs) ToVirtualNodeSpecListenerConnectionPoolGrpcOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolGrpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolGrpcOutput)
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolGrpcArgs) ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutput() VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolGrpcArgs) ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolGrpcOutput).ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerConnectionPoolGrpcPtrInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolGrpcArgs, VirtualNodeSpecListenerConnectionPoolGrpcPtr and VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolGrpcPtrInput` via:
+//
+//          VirtualNodeSpecListenerConnectionPoolGrpcArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerConnectionPoolGrpcPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutput() VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput
+	ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput
+}
+
+type virtualNodeSpecListenerConnectionPoolGrpcPtrType VirtualNodeSpecListenerConnectionPoolGrpcArgs
+
+func VirtualNodeSpecListenerConnectionPoolGrpcPtr(v *VirtualNodeSpecListenerConnectionPoolGrpcArgs) VirtualNodeSpecListenerConnectionPoolGrpcPtrInput {
+	return (*virtualNodeSpecListenerConnectionPoolGrpcPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerConnectionPoolGrpcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolGrpc)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerConnectionPoolGrpcPtrType) ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutput() VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerConnectionPoolGrpcPtrType) ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolGrpcOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerConnectionPoolGrpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolGrpc)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolGrpcOutput) ToVirtualNodeSpecListenerConnectionPoolGrpcOutput() VirtualNodeSpecListenerConnectionPoolGrpcOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolGrpcOutput) ToVirtualNodeSpecListenerConnectionPoolGrpcOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolGrpcOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolGrpcOutput) ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutput() VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput {
+	return o.ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolGrpcOutput) ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolGrpc) *VirtualNodeSpecListenerConnectionPoolGrpc {
+		return &v
+	}).(VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput)
+}
+
+// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualNodeSpecListenerConnectionPoolGrpcOutput) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolGrpc) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolGrpc)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput) ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutput() VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput) ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput) Elem() VirtualNodeSpecListenerConnectionPoolGrpcOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolGrpc) VirtualNodeSpecListenerConnectionPoolGrpc {
+		return *v
+	}).(VirtualNodeSpecListenerConnectionPoolGrpcOutput)
+}
+
+// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolGrpc) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolHttp2 struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+	MaxRequests int `pulumi:"maxRequests"`
+}
+
+// VirtualNodeSpecListenerConnectionPoolHttp2Input is an input type that accepts VirtualNodeSpecListenerConnectionPoolHttp2Args and VirtualNodeSpecListenerConnectionPoolHttp2Output values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolHttp2Input` via:
+//
+//          VirtualNodeSpecListenerConnectionPoolHttp2Args{...}
+type VirtualNodeSpecListenerConnectionPoolHttp2Input interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerConnectionPoolHttp2Output() VirtualNodeSpecListenerConnectionPoolHttp2Output
+	ToVirtualNodeSpecListenerConnectionPoolHttp2OutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolHttp2Output
+}
+
+type VirtualNodeSpecListenerConnectionPoolHttp2Args struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+}
+
+func (VirtualNodeSpecListenerConnectionPoolHttp2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolHttp2)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolHttp2Args) ToVirtualNodeSpecListenerConnectionPoolHttp2Output() VirtualNodeSpecListenerConnectionPoolHttp2Output {
+	return i.ToVirtualNodeSpecListenerConnectionPoolHttp2OutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolHttp2Args) ToVirtualNodeSpecListenerConnectionPoolHttp2OutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttp2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttp2Output)
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolHttp2Args) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutput() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolHttp2Args) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttp2Output).ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerConnectionPoolHttp2PtrInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolHttp2Args, VirtualNodeSpecListenerConnectionPoolHttp2Ptr and VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolHttp2PtrInput` via:
+//
+//          VirtualNodeSpecListenerConnectionPoolHttp2Args{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerConnectionPoolHttp2PtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutput() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput
+	ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput
+}
+
+type virtualNodeSpecListenerConnectionPoolHttp2PtrType VirtualNodeSpecListenerConnectionPoolHttp2Args
+
+func VirtualNodeSpecListenerConnectionPoolHttp2Ptr(v *VirtualNodeSpecListenerConnectionPoolHttp2Args) VirtualNodeSpecListenerConnectionPoolHttp2PtrInput {
+	return (*virtualNodeSpecListenerConnectionPoolHttp2PtrType)(v)
+}
+
+func (*virtualNodeSpecListenerConnectionPoolHttp2PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolHttp2)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerConnectionPoolHttp2PtrType) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutput() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerConnectionPoolHttp2PtrType) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolHttp2Output struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerConnectionPoolHttp2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolHttp2)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttp2Output) ToVirtualNodeSpecListenerConnectionPoolHttp2Output() VirtualNodeSpecListenerConnectionPoolHttp2Output {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttp2Output) ToVirtualNodeSpecListenerConnectionPoolHttp2OutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttp2Output {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttp2Output) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutput() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
+	return o.ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttp2Output) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp2) *VirtualNodeSpecListenerConnectionPoolHttp2 {
+		return &v
+	}).(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput)
+}
+
+// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualNodeSpecListenerConnectionPoolHttp2Output) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp2) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolHttp2)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutput() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) Elem() VirtualNodeSpecListenerConnectionPoolHttp2Output {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp2) VirtualNodeSpecListenerConnectionPoolHttp2 {
+		return *v
+	}).(VirtualNodeSpecListenerConnectionPoolHttp2Output)
+}
+
+// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp2) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolHttp struct {
+	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+	MaxConnections int `pulumi:"maxConnections"`
+	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
+}
+
+// VirtualNodeSpecListenerConnectionPoolHttpInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolHttpArgs and VirtualNodeSpecListenerConnectionPoolHttpOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolHttpInput` via:
+//
+//          VirtualNodeSpecListenerConnectionPoolHttpArgs{...}
+type VirtualNodeSpecListenerConnectionPoolHttpInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerConnectionPoolHttpOutput() VirtualNodeSpecListenerConnectionPoolHttpOutput
+	ToVirtualNodeSpecListenerConnectionPoolHttpOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolHttpOutput
+}
+
+type VirtualNodeSpecListenerConnectionPoolHttpArgs struct {
+	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
+	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
+}
+
+func (VirtualNodeSpecListenerConnectionPoolHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolHttp)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolHttpArgs) ToVirtualNodeSpecListenerConnectionPoolHttpOutput() VirtualNodeSpecListenerConnectionPoolHttpOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolHttpOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolHttpArgs) ToVirtualNodeSpecListenerConnectionPoolHttpOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttpOutput)
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolHttpArgs) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutput() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolHttpArgs) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttpOutput).ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerConnectionPoolHttpPtrInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolHttpArgs, VirtualNodeSpecListenerConnectionPoolHttpPtr and VirtualNodeSpecListenerConnectionPoolHttpPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolHttpPtrInput` via:
+//
+//          VirtualNodeSpecListenerConnectionPoolHttpArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerConnectionPoolHttpPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutput() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput
+	ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolHttpPtrOutput
+}
+
+type virtualNodeSpecListenerConnectionPoolHttpPtrType VirtualNodeSpecListenerConnectionPoolHttpArgs
+
+func VirtualNodeSpecListenerConnectionPoolHttpPtr(v *VirtualNodeSpecListenerConnectionPoolHttpArgs) VirtualNodeSpecListenerConnectionPoolHttpPtrInput {
+	return (*virtualNodeSpecListenerConnectionPoolHttpPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerConnectionPoolHttpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolHttp)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerConnectionPoolHttpPtrType) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutput() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerConnectionPoolHttpPtrType) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolHttpOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerConnectionPoolHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolHttp)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) ToVirtualNodeSpecListenerConnectionPoolHttpOutput() VirtualNodeSpecListenerConnectionPoolHttpOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) ToVirtualNodeSpecListenerConnectionPoolHttpOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttpOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutput() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
+	return o.ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp) *VirtualNodeSpecListenerConnectionPoolHttp {
+		return &v
+	}).(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput)
+}
+
+// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) MaxConnections() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp) int { return v.MaxConnections }).(pulumi.IntOutput)
+}
+
+// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolHttpPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolHttp)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutput() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) Elem() VirtualNodeSpecListenerConnectionPoolHttpOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp) VirtualNodeSpecListenerConnectionPoolHttp {
+		return *v
+	}).(VirtualNodeSpecListenerConnectionPoolHttpOutput)
+}
+
+// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) MaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxConnections
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPendingRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolTcp struct {
+	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+	MaxConnections int `pulumi:"maxConnections"`
+}
+
+// VirtualNodeSpecListenerConnectionPoolTcpInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolTcpArgs and VirtualNodeSpecListenerConnectionPoolTcpOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolTcpInput` via:
+//
+//          VirtualNodeSpecListenerConnectionPoolTcpArgs{...}
+type VirtualNodeSpecListenerConnectionPoolTcpInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerConnectionPoolTcpOutput() VirtualNodeSpecListenerConnectionPoolTcpOutput
+	ToVirtualNodeSpecListenerConnectionPoolTcpOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolTcpOutput
+}
+
+type VirtualNodeSpecListenerConnectionPoolTcpArgs struct {
+	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
+}
+
+func (VirtualNodeSpecListenerConnectionPoolTcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolTcp)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolTcpArgs) ToVirtualNodeSpecListenerConnectionPoolTcpOutput() VirtualNodeSpecListenerConnectionPoolTcpOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolTcpOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolTcpArgs) ToVirtualNodeSpecListenerConnectionPoolTcpOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolTcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolTcpOutput)
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolTcpArgs) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutput() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerConnectionPoolTcpArgs) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolTcpOutput).ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerConnectionPoolTcpPtrInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolTcpArgs, VirtualNodeSpecListenerConnectionPoolTcpPtr and VirtualNodeSpecListenerConnectionPoolTcpPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolTcpPtrInput` via:
+//
+//          VirtualNodeSpecListenerConnectionPoolTcpArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerConnectionPoolTcpPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutput() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput
+	ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolTcpPtrOutput
+}
+
+type virtualNodeSpecListenerConnectionPoolTcpPtrType VirtualNodeSpecListenerConnectionPoolTcpArgs
+
+func VirtualNodeSpecListenerConnectionPoolTcpPtr(v *VirtualNodeSpecListenerConnectionPoolTcpArgs) VirtualNodeSpecListenerConnectionPoolTcpPtrInput {
+	return (*virtualNodeSpecListenerConnectionPoolTcpPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerConnectionPoolTcpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolTcp)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerConnectionPoolTcpPtrType) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutput() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerConnectionPoolTcpPtrType) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolTcpPtrOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolTcpOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerConnectionPoolTcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolTcp)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolTcpOutput) ToVirtualNodeSpecListenerConnectionPoolTcpOutput() VirtualNodeSpecListenerConnectionPoolTcpOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolTcpOutput) ToVirtualNodeSpecListenerConnectionPoolTcpOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolTcpOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolTcpOutput) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutput() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
+	return o.ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolTcpOutput) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolTcp) *VirtualNodeSpecListenerConnectionPoolTcp {
+		return &v
+	}).(VirtualNodeSpecListenerConnectionPoolTcpPtrOutput)
+}
+
+// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualNodeSpecListenerConnectionPoolTcpOutput) MaxConnections() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolTcp) int { return v.MaxConnections }).(pulumi.IntOutput)
+}
+
+type VirtualNodeSpecListenerConnectionPoolTcpPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolTcp)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutput() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) Elem() VirtualNodeSpecListenerConnectionPoolTcpOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolTcp) VirtualNodeSpecListenerConnectionPoolTcp { return *v }).(VirtualNodeSpecListenerConnectionPoolTcpOutput)
+}
+
+// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+func (o VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) MaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolTcp) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxConnections
+	}).(pulumi.IntPtrOutput)
 }
 
 type VirtualNodeSpecListenerHealthCheck struct {
@@ -15062,6 +15843,506 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) UnhealthyThreshold() pulumi
 			return nil
 		}
 		return &v.UnhealthyThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeSpecListenerOutlierDetection struct {
+	// The base amount of time for which a host is ejected.
+	BaseEjectionDuration VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration `pulumi:"baseEjectionDuration"`
+	// The time interval between ejection sweep analysis.
+	Interval VirtualNodeSpecListenerOutlierDetectionInterval `pulumi:"interval"`
+	// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
+	// Minimum value of `0`. Maximum value of `100`.
+	MaxEjectionPercent int `pulumi:"maxEjectionPercent"`
+	// Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
+	MaxServerErrors int `pulumi:"maxServerErrors"`
+}
+
+// VirtualNodeSpecListenerOutlierDetectionInput is an input type that accepts VirtualNodeSpecListenerOutlierDetectionArgs and VirtualNodeSpecListenerOutlierDetectionOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerOutlierDetectionInput` via:
+//
+//          VirtualNodeSpecListenerOutlierDetectionArgs{...}
+type VirtualNodeSpecListenerOutlierDetectionInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerOutlierDetectionOutput() VirtualNodeSpecListenerOutlierDetectionOutput
+	ToVirtualNodeSpecListenerOutlierDetectionOutputWithContext(context.Context) VirtualNodeSpecListenerOutlierDetectionOutput
+}
+
+type VirtualNodeSpecListenerOutlierDetectionArgs struct {
+	// The base amount of time for which a host is ejected.
+	BaseEjectionDuration VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationInput `pulumi:"baseEjectionDuration"`
+	// The time interval between ejection sweep analysis.
+	Interval VirtualNodeSpecListenerOutlierDetectionIntervalInput `pulumi:"interval"`
+	// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
+	// Minimum value of `0`. Maximum value of `100`.
+	MaxEjectionPercent pulumi.IntInput `pulumi:"maxEjectionPercent"`
+	// Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
+	MaxServerErrors pulumi.IntInput `pulumi:"maxServerErrors"`
+}
+
+func (VirtualNodeSpecListenerOutlierDetectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerOutlierDetection)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerOutlierDetectionArgs) ToVirtualNodeSpecListenerOutlierDetectionOutput() VirtualNodeSpecListenerOutlierDetectionOutput {
+	return i.ToVirtualNodeSpecListenerOutlierDetectionOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerOutlierDetectionArgs) ToVirtualNodeSpecListenerOutlierDetectionOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerOutlierDetectionOutput)
+}
+
+func (i VirtualNodeSpecListenerOutlierDetectionArgs) ToVirtualNodeSpecListenerOutlierDetectionPtrOutput() VirtualNodeSpecListenerOutlierDetectionPtrOutput {
+	return i.ToVirtualNodeSpecListenerOutlierDetectionPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerOutlierDetectionArgs) ToVirtualNodeSpecListenerOutlierDetectionPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerOutlierDetectionOutput).ToVirtualNodeSpecListenerOutlierDetectionPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerOutlierDetectionPtrInput is an input type that accepts VirtualNodeSpecListenerOutlierDetectionArgs, VirtualNodeSpecListenerOutlierDetectionPtr and VirtualNodeSpecListenerOutlierDetectionPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerOutlierDetectionPtrInput` via:
+//
+//          VirtualNodeSpecListenerOutlierDetectionArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerOutlierDetectionPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerOutlierDetectionPtrOutput() VirtualNodeSpecListenerOutlierDetectionPtrOutput
+	ToVirtualNodeSpecListenerOutlierDetectionPtrOutputWithContext(context.Context) VirtualNodeSpecListenerOutlierDetectionPtrOutput
+}
+
+type virtualNodeSpecListenerOutlierDetectionPtrType VirtualNodeSpecListenerOutlierDetectionArgs
+
+func VirtualNodeSpecListenerOutlierDetectionPtr(v *VirtualNodeSpecListenerOutlierDetectionArgs) VirtualNodeSpecListenerOutlierDetectionPtrInput {
+	return (*virtualNodeSpecListenerOutlierDetectionPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerOutlierDetectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerOutlierDetection)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerOutlierDetectionPtrType) ToVirtualNodeSpecListenerOutlierDetectionPtrOutput() VirtualNodeSpecListenerOutlierDetectionPtrOutput {
+	return i.ToVirtualNodeSpecListenerOutlierDetectionPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerOutlierDetectionPtrType) ToVirtualNodeSpecListenerOutlierDetectionPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerOutlierDetectionPtrOutput)
+}
+
+type VirtualNodeSpecListenerOutlierDetectionOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerOutlierDetectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerOutlierDetection)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionOutput) ToVirtualNodeSpecListenerOutlierDetectionOutput() VirtualNodeSpecListenerOutlierDetectionOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionOutput) ToVirtualNodeSpecListenerOutlierDetectionOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionOutput) ToVirtualNodeSpecListenerOutlierDetectionPtrOutput() VirtualNodeSpecListenerOutlierDetectionPtrOutput {
+	return o.ToVirtualNodeSpecListenerOutlierDetectionPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionOutput) ToVirtualNodeSpecListenerOutlierDetectionPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetection) *VirtualNodeSpecListenerOutlierDetection {
+		return &v
+	}).(VirtualNodeSpecListenerOutlierDetectionPtrOutput)
+}
+
+// The base amount of time for which a host is ejected.
+func (o VirtualNodeSpecListenerOutlierDetectionOutput) BaseEjectionDuration() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetection) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
+		return v.BaseEjectionDuration
+	}).(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput)
+}
+
+// The time interval between ejection sweep analysis.
+func (o VirtualNodeSpecListenerOutlierDetectionOutput) Interval() VirtualNodeSpecListenerOutlierDetectionIntervalOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetection) VirtualNodeSpecListenerOutlierDetectionInterval {
+		return v.Interval
+	}).(VirtualNodeSpecListenerOutlierDetectionIntervalOutput)
+}
+
+// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
+// Minimum value of `0`. Maximum value of `100`.
+func (o VirtualNodeSpecListenerOutlierDetectionOutput) MaxEjectionPercent() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetection) int { return v.MaxEjectionPercent }).(pulumi.IntOutput)
+}
+
+// Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
+func (o VirtualNodeSpecListenerOutlierDetectionOutput) MaxServerErrors() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetection) int { return v.MaxServerErrors }).(pulumi.IntOutput)
+}
+
+type VirtualNodeSpecListenerOutlierDetectionPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerOutlierDetectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerOutlierDetection)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) ToVirtualNodeSpecListenerOutlierDetectionPtrOutput() VirtualNodeSpecListenerOutlierDetectionPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) ToVirtualNodeSpecListenerOutlierDetectionPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) Elem() VirtualNodeSpecListenerOutlierDetectionOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetection) VirtualNodeSpecListenerOutlierDetection { return *v }).(VirtualNodeSpecListenerOutlierDetectionOutput)
+}
+
+// The base amount of time for which a host is ejected.
+func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) BaseEjectionDuration() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetection) *VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
+		if v == nil {
+			return nil
+		}
+		return &v.BaseEjectionDuration
+	}).(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput)
+}
+
+// The time interval between ejection sweep analysis.
+func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) Interval() VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetection) *VirtualNodeSpecListenerOutlierDetectionInterval {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput)
+}
+
+// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
+// Minimum value of `0`. Maximum value of `100`.
+func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) MaxEjectionPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetection) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxEjectionPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
+func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) MaxServerErrors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetection) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxServerErrors
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationInput is an input type that accepts VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs and VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationInput` via:
+//
+//          VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs{...}
+type VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput
+	ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutputWithContext(context.Context) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput
+}
+
+type VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs) ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput {
+	return i.ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs) ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput)
+}
+
+func (i VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs) ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput {
+	return i.ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs) ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput).ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrInput is an input type that accepts VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs, VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtr and VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrInput` via:
+//
+//          VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput
+	ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutputWithContext(context.Context) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput
+}
+
+type virtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrType VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs
+
+func VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtr(v *VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrInput {
+	return (*virtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrType) ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput {
+	return i.ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrType) ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput)
+}
+
+type VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput {
+	return o.ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) *VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
+		return &v
+	}).(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) Elem() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
+		return *v
+	}).(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeSpecListenerOutlierDetectionInterval struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// VirtualNodeSpecListenerOutlierDetectionIntervalInput is an input type that accepts VirtualNodeSpecListenerOutlierDetectionIntervalArgs and VirtualNodeSpecListenerOutlierDetectionIntervalOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerOutlierDetectionIntervalInput` via:
+//
+//          VirtualNodeSpecListenerOutlierDetectionIntervalArgs{...}
+type VirtualNodeSpecListenerOutlierDetectionIntervalInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerOutlierDetectionIntervalOutput() VirtualNodeSpecListenerOutlierDetectionIntervalOutput
+	ToVirtualNodeSpecListenerOutlierDetectionIntervalOutputWithContext(context.Context) VirtualNodeSpecListenerOutlierDetectionIntervalOutput
+}
+
+type VirtualNodeSpecListenerOutlierDetectionIntervalArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (VirtualNodeSpecListenerOutlierDetectionIntervalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerOutlierDetectionInterval)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerOutlierDetectionIntervalArgs) ToVirtualNodeSpecListenerOutlierDetectionIntervalOutput() VirtualNodeSpecListenerOutlierDetectionIntervalOutput {
+	return i.ToVirtualNodeSpecListenerOutlierDetectionIntervalOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerOutlierDetectionIntervalArgs) ToVirtualNodeSpecListenerOutlierDetectionIntervalOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionIntervalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerOutlierDetectionIntervalOutput)
+}
+
+func (i VirtualNodeSpecListenerOutlierDetectionIntervalArgs) ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput() VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput {
+	return i.ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerOutlierDetectionIntervalArgs) ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerOutlierDetectionIntervalOutput).ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerOutlierDetectionIntervalPtrInput is an input type that accepts VirtualNodeSpecListenerOutlierDetectionIntervalArgs, VirtualNodeSpecListenerOutlierDetectionIntervalPtr and VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerOutlierDetectionIntervalPtrInput` via:
+//
+//          VirtualNodeSpecListenerOutlierDetectionIntervalArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerOutlierDetectionIntervalPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput() VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput
+	ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutputWithContext(context.Context) VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput
+}
+
+type virtualNodeSpecListenerOutlierDetectionIntervalPtrType VirtualNodeSpecListenerOutlierDetectionIntervalArgs
+
+func VirtualNodeSpecListenerOutlierDetectionIntervalPtr(v *VirtualNodeSpecListenerOutlierDetectionIntervalArgs) VirtualNodeSpecListenerOutlierDetectionIntervalPtrInput {
+	return (*virtualNodeSpecListenerOutlierDetectionIntervalPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerOutlierDetectionIntervalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerOutlierDetectionInterval)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerOutlierDetectionIntervalPtrType) ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput() VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput {
+	return i.ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerOutlierDetectionIntervalPtrType) ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput)
+}
+
+type VirtualNodeSpecListenerOutlierDetectionIntervalOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerOutlierDetectionIntervalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerOutlierDetectionInterval)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionIntervalOutput) ToVirtualNodeSpecListenerOutlierDetectionIntervalOutput() VirtualNodeSpecListenerOutlierDetectionIntervalOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionIntervalOutput) ToVirtualNodeSpecListenerOutlierDetectionIntervalOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionIntervalOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionIntervalOutput) ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput() VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput {
+	return o.ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionIntervalOutput) ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionInterval) *VirtualNodeSpecListenerOutlierDetectionInterval {
+		return &v
+	}).(VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerOutlierDetectionIntervalOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionInterval) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerOutlierDetectionIntervalOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionInterval) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerOutlierDetectionInterval)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput() VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) Elem() VirtualNodeSpecListenerOutlierDetectionIntervalOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetectionInterval) VirtualNodeSpecListenerOutlierDetectionInterval {
+		return *v
+	}).(VirtualNodeSpecListenerOutlierDetectionIntervalOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetectionInterval) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetectionInterval) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -19639,8 +20920,24 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolGrpcOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolHttp2Output{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolHttpOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolTcpOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolTcpPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerHealthCheckOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerHealthCheckPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutlierDetectionOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutlierDetectionPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutlierDetectionIntervalOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerPortMappingOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerPortMappingPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutOutput{})

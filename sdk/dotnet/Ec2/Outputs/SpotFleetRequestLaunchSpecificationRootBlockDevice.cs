@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly bool? Encrypted;
         public readonly int? Iops;
         public readonly string? KmsKeyId;
+        public readonly int? Throughput;
         public readonly int? VolumeSize;
         public readonly string? VolumeType;
 
@@ -30,6 +31,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? kmsKeyId,
 
+            int? throughput,
+
             int? volumeSize,
 
             string? volumeType)
@@ -38,6 +41,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Encrypted = encrypted;
             Iops = iops;
             KmsKeyId = kmsKeyId;
+            Throughput = throughput;
             VolumeSize = volumeSize;
             VolumeType = volumeType;
         }

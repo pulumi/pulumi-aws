@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        [Input("throughput")]
+        public Input<int>? Throughput { get; set; }
+
         [Input("volumeSize")]
         public Input<int>? VolumeSize { get; set; }
 

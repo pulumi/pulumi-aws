@@ -73,7 +73,7 @@ export interface GetPeeringAttachmentArgs {
  */
 export interface GetPeeringAttachmentResult {
     readonly filters?: outputs.ec2transitgateway.GetPeeringAttachmentFilter[];
-    readonly id?: string;
+    readonly id: string;
     /**
      * Identifier of the peer AWS account
      */

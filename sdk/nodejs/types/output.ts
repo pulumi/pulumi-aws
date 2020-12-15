@@ -3188,9 +3188,17 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecListener {
         /**
+         * The connection pool information for the listener.
+         */
+        connectionPool?: outputs.appmesh.VirtualNodeSpecListenerConnectionPool;
+        /**
          * The health check information for the listener.
          */
         healthCheck?: outputs.appmesh.VirtualNodeSpecListenerHealthCheck;
+        /**
+         * The outlier detection information for the listener.
+         */
+        outlierDetection?: outputs.appmesh.VirtualNodeSpecListenerOutlierDetection;
         /**
          * The port mapping information for the listener.
          */
@@ -3203,6 +3211,57 @@ export namespace appmesh {
          * The Transport Layer Security (TLS) properties for the listener
          */
         tls?: outputs.appmesh.VirtualNodeSpecListenerTls;
+    }
+
+    export interface VirtualNodeSpecListenerConnectionPool {
+        /**
+         * Connection pool information for gRPC listeners.
+         */
+        grpc?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolGrpc;
+        /**
+         * Connection pool information for HTTP listeners.
+         */
+        http?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp;
+        /**
+         * Connection pool information for HTTP2 listeners.
+         */
+        http2?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp2;
+        /**
+         * Connection pool information for TCP listeners.
+         */
+        tcp?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolTcp;
+    }
+
+    export interface VirtualNodeSpecListenerConnectionPoolGrpc {
+        /**
+         * Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+         */
+        maxRequests: number;
+    }
+
+    export interface VirtualNodeSpecListenerConnectionPoolHttp {
+        /**
+         * Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+         */
+        maxConnections: number;
+        /**
+         * Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+         */
+        maxPendingRequests?: number;
+    }
+
+    export interface VirtualNodeSpecListenerConnectionPoolHttp2 {
+        /**
+         * Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+         */
+        maxRequests: number;
+    }
+
+    export interface VirtualNodeSpecListenerConnectionPoolTcp {
+        /**
+         * Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+         */
+        maxConnections: number;
     }
 
     export interface VirtualNodeSpecListenerHealthCheck {
@@ -3234,6 +3293,48 @@ export namespace appmesh {
          * The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
          */
         unhealthyThreshold: number;
+    }
+
+    export interface VirtualNodeSpecListenerOutlierDetection {
+        /**
+         * The base amount of time for which a host is ejected.
+         */
+        baseEjectionDuration: outputs.appmesh.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration;
+        /**
+         * The time interval between ejection sweep analysis.
+         */
+        interval: outputs.appmesh.VirtualNodeSpecListenerOutlierDetectionInterval;
+        /**
+         * Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
+         * Minimum value of `0`. Maximum value of `100`.
+         */
+        maxEjectionPercent: number;
+        /**
+         * Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
+         */
+        maxServerErrors: number;
+    }
+
+    export interface VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
+    export interface VirtualNodeSpecListenerOutlierDetectionInterval {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
     }
 
     export interface VirtualNodeSpecListenerPortMapping {
@@ -7963,6 +8064,7 @@ export namespace ec2 {
         iops: number;
         kmsKeyId: string;
         snapshotId: string;
+        throughput: number;
         volumeSize: number;
         volumeType: string;
     }
@@ -8034,6 +8136,7 @@ export namespace ec2 {
     }
 
     export interface GetLaunchTemplateNetworkInterface {
+        associateCarrierIpAddress: string;
         associatePublicIpAddress?: boolean;
         deleteOnTermination?: boolean;
         /**
@@ -8709,12 +8812,13 @@ export namespace ec2 {
          * The Snapshot ID to mount.
          */
         snapshotId?: string;
+        throughput: number;
         /**
          * The size of the volume in gigabytes.
          */
         volumeSize: number;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
+         * The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
          */
         volumeType: string;
     }
@@ -8853,6 +8957,10 @@ export namespace ec2 {
     }
 
     export interface LaunchTemplateNetworkInterface {
+        /**
+         * Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+         */
+        associateCarrierIpAddress?: string;
         /**
          * Associate a public ip address with the network interface.  Boolean value.
          */
@@ -9258,6 +9366,7 @@ export namespace ec2 {
         iops: number;
         kmsKeyId: string;
         snapshotId: string;
+        throughput: number;
         volumeSize: number;
         volumeType: string;
     }
@@ -9272,6 +9381,7 @@ export namespace ec2 {
         encrypted: boolean;
         iops: number;
         kmsKeyId: string;
+        throughput: number;
         volumeSize: number;
         volumeType: string;
     }

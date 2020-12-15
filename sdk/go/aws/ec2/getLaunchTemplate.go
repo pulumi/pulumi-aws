@@ -74,6 +74,8 @@ func LookupLaunchTemplate(ctx *pulumi.Context, args *LookupLaunchTemplateArgs, o
 type LookupLaunchTemplateArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetLaunchTemplateFilter `pulumi:"filters"`
+	// The ID of the specific launch template to retrieve.
+	Id *string `pulumi:"id"`
 	// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
 	Name *string `pulumi:"name"`
 	// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
@@ -107,7 +109,7 @@ type LookupLaunchTemplateResult struct {
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfiles []GetLaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfiles"`
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the launch template.
 	Id string `pulumi:"id"`
 	// The AMI from which to launch the instance.
 	ImageId string `pulumi:"imageId"`

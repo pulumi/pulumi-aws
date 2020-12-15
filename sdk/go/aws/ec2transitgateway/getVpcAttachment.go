@@ -89,7 +89,7 @@ type LookupVpcAttachmentResult struct {
 	DnsSupport string                   `pulumi:"dnsSupport"`
 	Filters    []GetVpcAttachmentFilter `pulumi:"filters"`
 	// EC2 Transit Gateway VPC Attachment identifier
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// Whether IPv6 support is enabled.
 	Ipv6Support string `pulumi:"ipv6Support"`
 	// Identifiers of EC2 Subnets.

@@ -14,9 +14,17 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListener
     {
         /// <summary>
+        /// The connection pool information for the listener.
+        /// </summary>
+        public readonly Outputs.VirtualNodeSpecListenerConnectionPool? ConnectionPool;
+        /// <summary>
         /// The health check information for the listener.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerHealthCheck? HealthCheck;
+        /// <summary>
+        /// The outlier detection information for the listener.
+        /// </summary>
+        public readonly Outputs.VirtualNodeSpecListenerOutlierDetection? OutlierDetection;
         /// <summary>
         /// The port mapping information for the listener.
         /// </summary>
@@ -32,7 +40,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
         [OutputConstructor]
         private VirtualNodeSpecListener(
+            Outputs.VirtualNodeSpecListenerConnectionPool? connectionPool,
+
             Outputs.VirtualNodeSpecListenerHealthCheck? healthCheck,
+
+            Outputs.VirtualNodeSpecListenerOutlierDetection? outlierDetection,
 
             Outputs.VirtualNodeSpecListenerPortMapping portMapping,
 
@@ -40,7 +52,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
             Outputs.VirtualNodeSpecListenerTls? tls)
         {
+            ConnectionPool = connectionPool;
             HealthCheck = healthCheck;
+            OutlierDetection = outlierDetection;
             PortMapping = portMapping;
             Timeout = timeout;
             Tls = tls;

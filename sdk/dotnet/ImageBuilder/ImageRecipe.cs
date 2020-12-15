@@ -75,7 +75,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<ImmutableArray<Outputs.ImageRecipeBlockDeviceMapping>> BlockDeviceMappings { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) with components for the image recipe. Detailed below.
+        /// Ordered configuration block(s) with components for the image recipe. Detailed below.
         /// </summary>
         [Output("components")]
         public Output<ImmutableArray<Outputs.ImageRecipeComponent>> Components { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputList<Inputs.ImageRecipeComponentArgs>? _components;
 
         /// <summary>
-        /// Configuration block(s) with components for the image recipe. Detailed below.
+        /// Ordered configuration block(s) with components for the image recipe. Detailed below.
         /// </summary>
         public InputList<Inputs.ImageRecipeComponentArgs> Components
         {
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputList<Inputs.ImageRecipeComponentGetArgs>? _components;
 
         /// <summary>
-        /// Configuration block(s) with components for the image recipe. Detailed below.
+        /// Ordered configuration block(s) with components for the image recipe. Detailed below.
         /// </summary>
         public InputList<Inputs.ImageRecipeComponentGetArgs> Components
         {
