@@ -488,6 +488,8 @@ github.com/mitchellh/hashstructure v1.0.0/go.mod h1:QjSHrPWS+BGUVBYkbTZWEnOh3G1D
 github.com/mitchellh/mapstructure v1.0.0/go.mod h1:FVVH3fgwuzCH5S8UJGiWEs2h04kUh9fWfEaFds41c1Y=
 github.com/mitchellh/mapstructure v1.1.2 h1:fmNYVwqnSfB9mZU6OS2O6GsXM+wcskZDuKQzvN1EDeE=
 github.com/mitchellh/mapstructure v1.1.2/go.mod h1:FVVH3fgwuzCH5S8UJGiWEs2h04kUh9fWfEaFds41c1Y=
+github.com/mitchellh/mapstructure v1.4.0 h1:7ks8ZkOP5/ujthUsT07rNv+nkLXCQWKNHuwzOAesEks=
+github.com/mitchellh/mapstructure v1.4.0/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
 github.com/mitchellh/reflectwalk v1.0.0/go.mod h1:mSTlrgnPZtwu0c4WaC2kGObEpuNDbx0jmZXqmk4esnw=
 github.com/mitchellh/reflectwalk v1.0.1 h1:FVzMWA5RllMAKIdUSC8mdWo3XtwoecrH79BY70sEEpE=
 github.com/mitchellh/reflectwalk v1.0.1/go.mod h1:mSTlrgnPZtwu0c4WaC2kGObEpuNDbx0jmZXqmk4esnw=
@@ -540,12 +542,16 @@ github.com/prometheus/procfs v0.0.0-20190507164030-5867b95ac084/go.mod h1:TjEm7z
 github.com/prometheus/tsdb v0.7.1/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40TwIPHuXU=
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.15.3 h1:UzyIyVjZ7O3qacxgKbZugxrD1jZ6kCSuqq592c1iAGE=
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.15.3/go.mod h1:XQza50xY2T2b+FkrAKQeLj6sREwDzdrhvjR3eSo2Gys=
+github.com/pulumi/pulumi-terraform-bridge/v2 v2.16.0 h1:jTxndT/rY6bN3DyVIsX4Q4B+LPSAOrRlnNW/W6GzDH4=
+github.com/pulumi/pulumi-terraform-bridge/v2 v2.16.0/go.mod h1:/oSHj3Hg9zd8xT2dKVoBifeBbH+/pLPqmTDypgN5FHk=
 github.com/pulumi/pulumi/pkg/v2 v2.15.1-0.20201202214525-260620430c4c h1:M4BMhdOt1le+7JtOhR7uOVrpvu9HnN9388AI/Je9/3Y=
 github.com/pulumi/pulumi/pkg/v2 v2.15.1-0.20201202214525-260620430c4c/go.mod h1:xLEDqsipr92IXfe8EJrl8bANoEUtwmBJGBE8X8PKmP0=
 github.com/pulumi/pulumi/sdk/v2 v2.2.1/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
 github.com/pulumi/pulumi/sdk/v2 v2.2.1/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
 github.com/pulumi/pulumi/sdk/v2 v2.15.1-0.20201202214525-260620430c4c h1:nYFMU38MKDY+CuU8LpIw6AaX/wwXMNzINqXvjw5MUtQ=
 github.com/pulumi/pulumi/sdk/v2 v2.15.1-0.20201202214525-260620430c4c/go.mod h1:Z9ifPo/Q0+hUpAyguVx2gp5Sx+CBumnWvYQDhrM8l3E=
+github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Dik4Qe/+xguB8JagPyXNlbOnRiXGmq/PSPQTGunYnTk=
+github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20200910230100-328eb4ff41df h1:kXSvfAz43o0D0gfxUqVCOP3NrfnGbptJBshVsqZlBqA=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20200910230100-328eb4ff41df/go.mod h1:pVZLnLuSe/yv0XqTHFPb8xRGWPwgANT77jHeHqjXS5o=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20201214200410-d1a66a6e5f05 h1:YEjkd4gUM8e4KMqU3ceabrjEvjQsz9IvLJuIaj3wO6k=
