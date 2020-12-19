@@ -299,6 +299,12 @@ export module ManagedPolicies {
     export const AmazonEC2SpotFleetRole: ARN = "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetRole";
     /** Use ManagedPolicy.AmazonEC2SpotFleetTaggingRole instead. */
     export const AmazonEC2SpotFleetTaggingRole: ARN = "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetTaggingRole";
+    /** Use ManagedPolicy.AmazonECS_FullAccess instead. */
+    export const AmazonECS_FullAccess: ARN = "arn:aws:iam::aws:policy/AmazonECS_FullAccess"
+    /** Use ManagedPolicy.AmazonECSServiceRolePolicy instead. */
+    export const AmazonECSServiceRolePolicy: ARN = "arn:aws:iam::aws:policy/aws-service-role/AmazonECSServiceRolePolicy";
+    /** Use ManagedPolicy.AmazonECSTaskExecutionRolePolicy instead. */
+    export const AmazonECSTaskExecutionRolePolicy: ARN = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy";
     /** Use ManagedPolicy.AmazonESFullAccess instead. */
     export const AmazonESFullAccess: ARN = "arn:aws:iam::aws:policy/AmazonESFullAccess";
     /** Use ManagedPolicy.AmazonESReadOnlyAccess instead. */
