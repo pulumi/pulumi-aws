@@ -158,6 +158,9 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AmazonEC2SpotFleetAutoscaleRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetAutoscaleRole");
         public static ManagedPolicy AmazonEC2SpotFleetRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetRole");
         public static ManagedPolicy AmazonEC2SpotFleetTaggingRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetTaggingRole");
+        public static ManagedPolicy ManagedPolicyAmazonECS_FullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonECS_FullAccess");
+        public static ManagedPolicy ManagedPolicyAmazonECSServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonECSServiceRolePolicy");
+        public static ManagedPolicy ManagedPolicyAmazonECSTaskExecutionRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy");
         public static ManagedPolicy AmazonESFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonESFullAccess");
         public static ManagedPolicy AmazonESReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonESReadOnlyAccess");
         public static ManagedPolicy AmazonElastiCacheFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonElastiCacheFullAccess");
