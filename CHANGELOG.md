@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add ECS managed policies
+* Add ECS managed policies 
 * Upgrade to v2.16.0 of pulumi-terraform-bridge
     * Preserve unknowns during provider preview
 ---
