@@ -27,6 +27,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  ebs_optimized: Optional[pulumi.Input[str]] = None,
                  elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateElasticGpuSpecificationArgs']]]]] = None,
                  elastic_inference_accelerator: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateElasticInferenceAcceleratorArgs']]] = None,
+                 enclave_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateEnclaveOptionsArgs']]] = None,
                  hibernation_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateHibernationOptionsArgs']]] = None,
                  iam_instance_profile: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateIamInstanceProfileArgs']]] = None,
                  image_id: Optional[pulumi.Input[str]] = None,
@@ -79,6 +80,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateElasticGpuSpecificationArgs']]]] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
                below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateElasticInferenceAcceleratorArgs']] elastic_inference_accelerator: Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        :param pulumi.Input[pulumi.InputType['LaunchTemplateEnclaveOptionsArgs']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateHibernationOptionsArgs']] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateIamInstanceProfileArgs']] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
                below for more details.
@@ -134,6 +136,7 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__['ebs_optimized'] = ebs_optimized
             __props__['elastic_gpu_specifications'] = elastic_gpu_specifications
             __props__['elastic_inference_accelerator'] = elastic_inference_accelerator
+            __props__['enclave_options'] = enclave_options
             __props__['hibernation_options'] = hibernation_options
             __props__['iam_instance_profile'] = iam_instance_profile
             __props__['image_id'] = image_id
@@ -179,6 +182,7 @@ class LaunchTemplate(pulumi.CustomResource):
             ebs_optimized: Optional[pulumi.Input[str]] = None,
             elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateElasticGpuSpecificationArgs']]]]] = None,
             elastic_inference_accelerator: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateElasticInferenceAcceleratorArgs']]] = None,
+            enclave_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateEnclaveOptionsArgs']]] = None,
             hibernation_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateHibernationOptionsArgs']]] = None,
             iam_instance_profile: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateIamInstanceProfileArgs']]] = None,
             image_id: Optional[pulumi.Input[str]] = None,
@@ -224,6 +228,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateElasticGpuSpecificationArgs']]]] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
                below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateElasticInferenceAcceleratorArgs']] elastic_inference_accelerator: Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        :param pulumi.Input[pulumi.InputType['LaunchTemplateEnclaveOptionsArgs']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateHibernationOptionsArgs']] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateIamInstanceProfileArgs']] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
                below for more details.
@@ -268,6 +273,7 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__["ebs_optimized"] = ebs_optimized
         __props__["elastic_gpu_specifications"] = elastic_gpu_specifications
         __props__["elastic_inference_accelerator"] = elastic_inference_accelerator
+        __props__["enclave_options"] = enclave_options
         __props__["hibernation_options"] = hibernation_options
         __props__["iam_instance_profile"] = iam_instance_profile
         __props__["image_id"] = image_id
@@ -384,6 +390,14 @@ class LaunchTemplate(pulumi.CustomResource):
         Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         """
         return pulumi.get(self, "elastic_inference_accelerator")
+
+    @property
+    @pulumi.getter(name="enclaveOptions")
+    def enclave_options(self) -> pulumi.Output[Optional['outputs.LaunchTemplateEnclaveOptions']]:
+        """
+        Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        """
+        return pulumi.get(self, "enclave_options")
 
     @property
     @pulumi.getter(name="hibernationOptions")

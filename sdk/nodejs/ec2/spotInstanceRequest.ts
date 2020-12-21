@@ -126,6 +126,10 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
     /**
+     * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+     */
+    public readonly enclaveOptions!: pulumi.Output<outputs.ec2.SpotInstanceRequestEnclaveOptions>;
+    /**
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
@@ -327,6 +331,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["disableApiTermination"] = state ? state.disableApiTermination : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
+            inputs["enclaveOptions"] = state ? state.enclaveOptions : undefined;
             inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
             inputs["getPasswordData"] = state ? state.getPasswordData : undefined;
             inputs["hibernation"] = state ? state.hibernation : undefined;
@@ -388,6 +393,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
             inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
             inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
+            inputs["enclaveOptions"] = args ? args.enclaveOptions : undefined;
             inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
             inputs["getPasswordData"] = args ? args.getPasswordData : undefined;
             inputs["hibernation"] = args ? args.hibernation : undefined;
@@ -499,6 +505,10 @@ export interface SpotInstanceRequestState {
      * See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
     readonly ebsOptimized?: pulumi.Input<boolean>;
+    /**
+     * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+     */
+    readonly enclaveOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestEnclaveOptions>;
     /**
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
@@ -733,6 +743,10 @@ export interface SpotInstanceRequestArgs {
      * See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
     readonly ebsOptimized?: pulumi.Input<boolean>;
+    /**
+     * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+     */
+    readonly enclaveOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestEnclaveOptions>;
     /**
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.

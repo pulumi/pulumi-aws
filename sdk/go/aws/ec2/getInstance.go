@@ -92,6 +92,8 @@ type LookupInstanceResult struct {
 	EbsBlockDevices []GetInstanceEbsBlockDevice `pulumi:"ebsBlockDevices"`
 	// Whether the Instance is EBS optimized or not (Boolean).
 	EbsOptimized bool `pulumi:"ebsOptimized"`
+	// The enclave options of the Instance.
+	EnclaveOptions []GetInstanceEnclaveOption `pulumi:"enclaveOptions"`
 	// The ephemeral block device mappings of the Instance.
 	EphemeralBlockDevices []GetInstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	Filters               []GetInstanceFilter               `pulumi:"filters"`

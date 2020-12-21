@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Cognitoidentity;
         public readonly string? Cognitoidp;
         public readonly string? Configservice;
+        public readonly string? Connect;
         public readonly string? Cur;
         public readonly string? Dataexchange;
         public readonly string? Datapipeline;
@@ -232,6 +233,8 @@ namespace Pulumi.Aws.Outputs
             string? cognitoidp,
 
             string? configservice,
+
+            string? connect,
 
             string? cur,
 
@@ -497,6 +500,7 @@ namespace Pulumi.Aws.Outputs
             Cognitoidentity = cognitoidentity;
             Cognitoidp = cognitoidp;
             Configservice = configservice;
+            Connect = connect;
             Cur = cur;
             Dataexchange = dataexchange;
             Datapipeline = datapipeline;

@@ -34,7 +34,14 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                     {
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "Action", "network-firewall:ListFirewallPolicies" },
+    ///                             { "Action", new[]
+    ///                                 {
+    ///                                     "network-firewall:ListFirewallPolicies",
+    ///                                     "network-firewall:CreateFirewall",
+    ///                                     "network-firewall:UpdateFirewall",
+    ///                                     "network-firewall:AssociateFirewallPolicy",
+    ///                                 }
+    ///                              },
     ///                             { "Effect", "Allow" },
     ///                             { "Resource", aws_networkfirewall_firewall_policy.Example.Arn },
     ///                             { "Principal", new Dictionary&lt;string, object?&gt;
@@ -72,7 +79,13 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                     {
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "Action", "network-firewall:ListRuleGroups" },
+    ///                             { "Action", new[]
+    ///                                 {
+    ///                                     "network-firewall:ListRuleGroups",
+    ///                                     "network-firewall:CreateFirewallPolicy",
+    ///                                     "network-firewall:UpdateFirewallPolicy",
+    ///                                 }
+    ///                              },
     ///                             { "Effect", "Allow" },
     ///                             { "Resource", aws_networkfirewall_rule_group.Example.Arn },
     ///                             { "Principal", new Dictionary&lt;string, object?&gt;

@@ -27,8 +27,10 @@ import (
 //
 // ## Usage with prefix list IDs
 //
-// Prefix list IDs are managed by AWS internally. Prefix list IDs
-// are associated with a prefix list name, or service name, that is linked to a specific region.
+// Prefix Lists are either managed by AWS internally, or created by the customer using a
+// Managed Prefix List resource. Prefix Lists provided by
+// AWS are associated with a prefix list name, or service name, that is linked to a specific region.
+//
 // Prefix list IDs are exported on VPC Endpoints, so you can use this format:
 //
 // ```go
@@ -62,6 +64,8 @@ import (
 // 	})
 // }
 // ```
+//
+// You can also find a specific Prefix List using the `getPrefixList` data source.
 //
 // ## Import
 //
@@ -111,8 +115,7 @@ type SecurityGroupRule struct {
 	FromPort pulumi.IntOutput `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
-	// List of prefix list IDs (for allowing access to VPC endpoints).
-	// Only valid with `egress`.
+	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayOutput `pulumi:"prefixListIds"`
 	// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
@@ -183,8 +186,7 @@ type securityGroupRuleState struct {
 	FromPort *int `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
-	// List of prefix list IDs (for allowing access to VPC endpoints).
-	// Only valid with `egress`.
+	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
 	// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol *string `pulumi:"protocol"`
@@ -212,8 +214,7 @@ type SecurityGroupRuleState struct {
 	FromPort pulumi.IntPtrInput
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput
-	// List of prefix list IDs (for allowing access to VPC endpoints).
-	// Only valid with `egress`.
+	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput
 	// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol pulumi.StringPtrInput
@@ -245,8 +246,7 @@ type securityGroupRuleArgs struct {
 	FromPort int `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
-	// List of prefix list IDs (for allowing access to VPC endpoints).
-	// Only valid with `egress`.
+	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
 	// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol string `pulumi:"protocol"`
@@ -275,8 +275,7 @@ type SecurityGroupRuleArgs struct {
 	FromPort pulumi.IntInput
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput
-	// List of prefix list IDs (for allowing access to VPC endpoints).
-	// Only valid with `egress`.
+	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput
 	// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol pulumi.StringInput

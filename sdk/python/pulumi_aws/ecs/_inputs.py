@@ -825,7 +825,7 @@ class TaskDefinitionVolumeDockerVolumeConfigurationArgs:
         :param pulumi.Input[str] driver: The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] driver_opts: A map of Docker driver specific options.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: A map of custom metadata to add to your Docker volume.
-        :param pulumi.Input[str] scope: The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
+        :param pulumi.Input[str] scope: The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
         """
         if autoprovision is not None:
             pulumi.set(__self__, "autoprovision", autoprovision)
@@ -890,7 +890,7 @@ class TaskDefinitionVolumeDockerVolumeConfigurationArgs:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
-        The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
+        The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
         """
         return pulumi.get(self, "scope")
 

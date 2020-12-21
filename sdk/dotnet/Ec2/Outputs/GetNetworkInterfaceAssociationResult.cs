@@ -22,6 +22,14 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string AssociationId;
         /// <summary>
+        /// The carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
+        /// </summary>
+        public readonly string CarrierIp;
+        /// <summary>
+        /// The customer-owned IP address.
+        /// </summary>
+        public readonly string CustomerOwnedIp;
+        /// <summary>
         /// The ID of the Elastic IP address owner.
         /// </summary>
         public readonly string IpOwnerId;
@@ -40,6 +48,10 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string associationId,
 
+            string carrierIp,
+
+            string customerOwnedIp,
+
             string ipOwnerId,
 
             string publicDnsName,
@@ -48,6 +60,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         {
             AllocationId = allocationId;
             AssociationId = associationId;
+            CarrierIp = carrierIp;
+            CustomerOwnedIp = customerOwnedIp;
             IpOwnerId = ipOwnerId;
             PublicDnsName = publicDnsName;
             PublicIp = publicIp;

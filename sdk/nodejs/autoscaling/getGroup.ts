@@ -75,6 +75,7 @@ export interface GetGroupResult {
      * The name of the associated launch configuration.
      */
     readonly launchConfiguration: string;
+    readonly launchTemplates: outputs.autoscaling.GetGroupLaunchTemplate[];
     /**
      * One or more load balancers associated with the group.
      */

@@ -134,6 +134,8 @@ type GetElasticIpArgs struct {
 type GetElasticIpResult struct {
 	// The ID representing the association of the address with an instance in a VPC.
 	AssociationId string `pulumi:"associationId"`
+	// The carrier IP address.
+	CarrierIp string `pulumi:"carrierIp"`
 	// Customer Owned IP.
 	CustomerOwnedIp string `pulumi:"customerOwnedIp"`
 	// The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)

@@ -160,6 +160,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool EbsOptimized;
         /// <summary>
+        /// The enclave options of the Instance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetInstanceEnclaveOptionResult> EnclaveOptions;
+        /// <summary>
         /// The ephemeral block device mappings of the Instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceEphemeralBlockDeviceResult> EphemeralBlockDevices;
@@ -297,6 +301,8 @@ namespace Pulumi.Aws.Ec2
 
             bool ebsOptimized,
 
+            ImmutableArray<Outputs.GetInstanceEnclaveOptionResult> enclaveOptions,
+
             ImmutableArray<Outputs.GetInstanceEphemeralBlockDeviceResult> ephemeralBlockDevices,
 
             ImmutableArray<Outputs.GetInstanceFilterResult> filters,
@@ -369,6 +375,7 @@ namespace Pulumi.Aws.Ec2
             DisableApiTermination = disableApiTermination;
             EbsBlockDevices = ebsBlockDevices;
             EbsOptimized = ebsOptimized;
+            EnclaveOptions = enclaveOptions;
             EphemeralBlockDevices = ephemeralBlockDevices;
             Filters = filters;
             GetPasswordData = getPasswordData;

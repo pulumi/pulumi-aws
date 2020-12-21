@@ -276,6 +276,7 @@ type ProviderEndpoint struct {
 	Cognitoidentity          *string `pulumi:"cognitoidentity"`
 	Cognitoidp               *string `pulumi:"cognitoidp"`
 	Configservice            *string `pulumi:"configservice"`
+	Connect                  *string `pulumi:"connect"`
 	Cur                      *string `pulumi:"cur"`
 	Dataexchange             *string `pulumi:"dataexchange"`
 	Datapipeline             *string `pulumi:"datapipeline"`
@@ -439,6 +440,7 @@ type ProviderEndpointArgs struct {
 	Cognitoidentity          pulumi.StringPtrInput `pulumi:"cognitoidentity"`
 	Cognitoidp               pulumi.StringPtrInput `pulumi:"cognitoidp"`
 	Configservice            pulumi.StringPtrInput `pulumi:"configservice"`
+	Connect                  pulumi.StringPtrInput `pulumi:"connect"`
 	Cur                      pulumi.StringPtrInput `pulumi:"cur"`
 	Dataexchange             pulumi.StringPtrInput `pulumi:"dataexchange"`
 	Datapipeline             pulumi.StringPtrInput `pulumi:"datapipeline"`
@@ -741,6 +743,10 @@ func (o ProviderEndpointOutput) Cognitoidp() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Configservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Configservice }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Connect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Connect }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Cur() pulumi.StringPtrOutput {

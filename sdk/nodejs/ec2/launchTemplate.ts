@@ -93,6 +93,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly elasticInferenceAccelerator!: pulumi.Output<outputs.ec2.LaunchTemplateElasticInferenceAccelerator | undefined>;
     /**
+     * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+     */
+    public readonly enclaveOptions!: pulumi.Output<outputs.ec2.LaunchTemplateEnclaveOptions | undefined>;
+    /**
      * The hibernation options for the instance. See Hibernation Options below for more details.
      */
     public readonly hibernationOptions!: pulumi.Output<outputs.ec2.LaunchTemplateHibernationOptions | undefined>;
@@ -213,6 +217,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
             inputs["elasticGpuSpecifications"] = state ? state.elasticGpuSpecifications : undefined;
             inputs["elasticInferenceAccelerator"] = state ? state.elasticInferenceAccelerator : undefined;
+            inputs["enclaveOptions"] = state ? state.enclaveOptions : undefined;
             inputs["hibernationOptions"] = state ? state.hibernationOptions : undefined;
             inputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
             inputs["imageId"] = state ? state.imageId : undefined;
@@ -248,6 +253,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
             inputs["elasticGpuSpecifications"] = args ? args.elasticGpuSpecifications : undefined;
             inputs["elasticInferenceAccelerator"] = args ? args.elasticInferenceAccelerator : undefined;
+            inputs["enclaveOptions"] = args ? args.enclaveOptions : undefined;
             inputs["hibernationOptions"] = args ? args.hibernationOptions : undefined;
             inputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
             inputs["imageId"] = args ? args.imageId : undefined;
@@ -336,6 +342,10 @@ export interface LaunchTemplateState {
      * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
      */
     readonly elasticInferenceAccelerator?: pulumi.Input<inputs.ec2.LaunchTemplateElasticInferenceAccelerator>;
+    /**
+     * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+     */
+    readonly enclaveOptions?: pulumi.Input<inputs.ec2.LaunchTemplateEnclaveOptions>;
     /**
      * The hibernation options for the instance. See Hibernation Options below for more details.
      */
@@ -483,6 +493,10 @@ export interface LaunchTemplateArgs {
      * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
      */
     readonly elasticInferenceAccelerator?: pulumi.Input<inputs.ec2.LaunchTemplateElasticInferenceAccelerator>;
+    /**
+     * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+     */
+    readonly enclaveOptions?: pulumi.Input<inputs.ec2.LaunchTemplateEnclaveOptions>;
     /**
      * The hibernation options for the instance. See Hibernation Options below for more details.
      */

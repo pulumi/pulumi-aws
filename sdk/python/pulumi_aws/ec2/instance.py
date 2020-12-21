@@ -27,6 +27,7 @@ class Instance(pulumi.CustomResource):
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEbsBlockDeviceArgs']]]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
+                 enclave_options: Optional[pulumi.Input[pulumi.InputType['InstanceEnclaveOptionsArgs']]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEphemeralBlockDeviceArgs']]]]] = None,
                  get_password_data: Optional[pulumi.Input[bool]] = None,
                  hibernation: Optional[pulumi.Input[bool]] = None,
@@ -113,6 +114,7 @@ class Instance(pulumi.CustomResource):
                this will show as disabled but if the instance type is optimized by default then
                there is no need to set this and there is no effect to disabling it.
                See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+        :param pulumi.Input[pulumi.InputType['InstanceEnclaveOptionsArgs']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Customize Ephemeral (also known as
                "Instance Store") volumes on the instance. See Block Devices below for details.
         :param pulumi.Input[bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
@@ -176,6 +178,7 @@ class Instance(pulumi.CustomResource):
             __props__['disable_api_termination'] = disable_api_termination
             __props__['ebs_block_devices'] = ebs_block_devices
             __props__['ebs_optimized'] = ebs_optimized
+            __props__['enclave_options'] = enclave_options
             __props__['ephemeral_block_devices'] = ephemeral_block_devices
             __props__['get_password_data'] = get_password_data
             __props__['hibernation'] = hibernation
@@ -235,6 +238,7 @@ class Instance(pulumi.CustomResource):
             disable_api_termination: Optional[pulumi.Input[bool]] = None,
             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEbsBlockDeviceArgs']]]]] = None,
             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+            enclave_options: Optional[pulumi.Input[pulumi.InputType['InstanceEnclaveOptionsArgs']]] = None,
             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEphemeralBlockDeviceArgs']]]]] = None,
             get_password_data: Optional[pulumi.Input[bool]] = None,
             hibernation: Optional[pulumi.Input[bool]] = None,
@@ -293,6 +297,7 @@ class Instance(pulumi.CustomResource):
                this will show as disabled but if the instance type is optimized by default then
                there is no need to set this and there is no effect to disabling it.
                See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+        :param pulumi.Input[pulumi.InputType['InstanceEnclaveOptionsArgs']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Customize Ephemeral (also known as
                "Instance Store") volumes on the instance. See Block Devices below for details.
         :param pulumi.Input[bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
@@ -356,6 +361,7 @@ class Instance(pulumi.CustomResource):
         __props__["disable_api_termination"] = disable_api_termination
         __props__["ebs_block_devices"] = ebs_block_devices
         __props__["ebs_optimized"] = ebs_optimized
+        __props__["enclave_options"] = enclave_options
         __props__["ephemeral_block_devices"] = ephemeral_block_devices
         __props__["get_password_data"] = get_password_data
         __props__["hibernation"] = hibernation
@@ -478,6 +484,14 @@ class Instance(pulumi.CustomResource):
         See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         """
         return pulumi.get(self, "ebs_optimized")
+
+    @property
+    @pulumi.getter(name="enclaveOptions")
+    def enclave_options(self) -> pulumi.Output['outputs.InstanceEnclaveOptions']:
+        """
+        Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        """
+        return pulumi.get(self, "enclave_options")
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")

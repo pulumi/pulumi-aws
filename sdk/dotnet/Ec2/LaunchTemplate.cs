@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.LaunchTemplateElasticInferenceAccelerator?> ElasticInferenceAccelerator { get; private set; } = null!;
 
         /// <summary>
+        /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        /// </summary>
+        [Output("enclaveOptions")]
+        public Output<Outputs.LaunchTemplateEnclaveOptions?> EnclaveOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The hibernation options for the instance. See Hibernation Options below for more details.
         /// </summary>
         [Output("hibernationOptions")]
@@ -358,6 +364,12 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs>? ElasticInferenceAccelerator { get; set; }
 
         /// <summary>
+        /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        /// </summary>
+        [Input("enclaveOptions")]
+        public Input<Inputs.LaunchTemplateEnclaveOptionsArgs>? EnclaveOptions { get; set; }
+
+        /// <summary>
         /// The hibernation options for the instance. See Hibernation Options below for more details.
         /// </summary>
         [Input("hibernationOptions")]
@@ -618,6 +630,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("elasticInferenceAccelerator")]
         public Input<Inputs.LaunchTemplateElasticInferenceAcceleratorGetArgs>? ElasticInferenceAccelerator { get; set; }
+
+        /// <summary>
+        /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        /// </summary>
+        [Input("enclaveOptions")]
+        public Input<Inputs.LaunchTemplateEnclaveOptionsGetArgs>? EnclaveOptions { get; set; }
 
         /// <summary>
         /// The hibernation options for the instance. See Hibernation Options below for more details.

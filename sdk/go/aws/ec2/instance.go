@@ -104,6 +104,8 @@ type Instance struct {
 	// there is no need to set this and there is no effect to disabling it.
 	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
+	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+	EnclaveOptions InstanceEnclaveOptionsOutput `pulumi:"enclaveOptions"`
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
@@ -252,6 +254,8 @@ type instanceState struct {
 	// there is no need to set this and there is no effect to disabling it.
 	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
+	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+	EnclaveOptions *InstanceEnclaveOptions `pulumi:"enclaveOptions"`
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices []InstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
@@ -366,6 +370,8 @@ type InstanceState struct {
 	// there is no need to set this and there is no effect to disabling it.
 	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized pulumi.BoolPtrInput
+	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+	EnclaveOptions InstanceEnclaveOptionsPtrInput
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayInput
@@ -482,6 +488,8 @@ type instanceArgs struct {
 	// there is no need to set this and there is no effect to disabling it.
 	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
+	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+	EnclaveOptions *InstanceEnclaveOptions `pulumi:"enclaveOptions"`
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices []InstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
@@ -574,6 +582,8 @@ type InstanceArgs struct {
 	// there is no need to set this and there is no effect to disabling it.
 	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized pulumi.BoolPtrInput
+	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+	EnclaveOptions InstanceEnclaveOptionsPtrInput
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayInput

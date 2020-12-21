@@ -32,12 +32,14 @@ __all__ = [
     'FleetTargetCapacitySpecification',
     'InstanceCreditSpecification',
     'InstanceEbsBlockDevice',
+    'InstanceEnclaveOptions',
     'InstanceEphemeralBlockDevice',
     'InstanceMetadataOptions',
     'InstanceNetworkInterface',
     'InstanceRootBlockDevice',
     'LaunchConfigurationEbsBlockDevice',
     'LaunchConfigurationEphemeralBlockDevice',
+    'LaunchConfigurationMetadataOptions',
     'LaunchConfigurationRootBlockDevice',
     'LaunchTemplateBlockDeviceMapping',
     'LaunchTemplateBlockDeviceMappingEbs',
@@ -47,6 +49,7 @@ __all__ = [
     'LaunchTemplateCreditSpecification',
     'LaunchTemplateElasticGpuSpecification',
     'LaunchTemplateElasticInferenceAccelerator',
+    'LaunchTemplateEnclaveOptions',
     'LaunchTemplateHibernationOptions',
     'LaunchTemplateIamInstanceProfile',
     'LaunchTemplateInstanceMarketOptions',
@@ -57,6 +60,7 @@ __all__ = [
     'LaunchTemplateNetworkInterface',
     'LaunchTemplatePlacement',
     'LaunchTemplateTagSpecification',
+    'ManagedPrefixListEntry',
     'NetworkAclEgress',
     'NetworkAclIngress',
     'NetworkInterfaceAttachment',
@@ -76,6 +80,7 @@ __all__ = [
     'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance',
     'SpotInstanceRequestCreditSpecification',
     'SpotInstanceRequestEbsBlockDevice',
+    'SpotInstanceRequestEnclaveOptions',
     'SpotInstanceRequestEphemeralBlockDevice',
     'SpotInstanceRequestMetadataOptions',
     'SpotInstanceRequestNetworkInterface',
@@ -94,6 +99,7 @@ __all__ = [
     'GetCustomerGatewayFilterResult',
     'GetInstanceCreditSpecificationResult',
     'GetInstanceEbsBlockDeviceResult',
+    'GetInstanceEnclaveOptionResult',
     'GetInstanceEphemeralBlockDeviceResult',
     'GetInstanceFilterResult',
     'GetInstanceMetadataOptionResult',
@@ -109,11 +115,13 @@ __all__ = [
     'GetInternetGatewayFilterResult',
     'GetLaunchConfigurationEbsBlockDeviceResult',
     'GetLaunchConfigurationEphemeralBlockDeviceResult',
+    'GetLaunchConfigurationMetadataOptionResult',
     'GetLaunchConfigurationRootBlockDeviceResult',
     'GetLaunchTemplateBlockDeviceMappingResult',
     'GetLaunchTemplateBlockDeviceMappingEbResult',
     'GetLaunchTemplateCreditSpecificationResult',
     'GetLaunchTemplateElasticGpuSpecificationResult',
+    'GetLaunchTemplateEnclaveOptionResult',
     'GetLaunchTemplateFilterResult',
     'GetLaunchTemplateHibernationOptionResult',
     'GetLaunchTemplateIamInstanceProfileResult',
@@ -131,6 +139,8 @@ __all__ = [
     'GetLocalGatewayVirtualInterfaceGroupFilterResult',
     'GetLocalGatewayVirtualInterfaceGroupsFilterResult',
     'GetLocalGatewaysFilterResult',
+    'GetManagedPrefixListEntryResult',
+    'GetManagedPrefixListFilterResult',
     'GetNatGatewayFilterResult',
     'GetNetworkAclsFilterResult',
     'GetNetworkInterfaceAssociationResult',
@@ -1552,6 +1562,7 @@ class InstanceEbsBlockDevice(dict):
                  iops: Optional[int] = None,
                  kms_key_id: Optional[str] = None,
                  snapshot_id: Optional[str] = None,
+                 throughput: Optional[int] = None,
                  volume_id: Optional[str] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
@@ -1564,12 +1575,12 @@ class InstanceEbsBlockDevice(dict):
                on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
         :param int iops: The amount of provisioned
                [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This must be set with a `volume_type` of `"io1/io2"`.
+               Only valid for volume_type of `"io1"`, `"io2"` or `"gp3"`.
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param str snapshot_id: The Snapshot ID to mount.
+        :param int throughput: The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `"gp3"`.
         :param int volume_size: The size of the volume in gibibytes (GiB).
-        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
-               or `"io2"`. (Default: `"gp2"`).
+        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -1582,6 +1593,8 @@ class InstanceEbsBlockDevice(dict):
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_id is not None:
             pulumi.set(__self__, "volume_id", volume_id)
         if volume_size is not None:
@@ -1622,7 +1635,7 @@ class InstanceEbsBlockDevice(dict):
         """
         The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This must be set with a `volume_type` of `"io1/io2"`.
+        Only valid for volume_type of `"io1"`, `"io2"` or `"gp3"`.
         """
         return pulumi.get(self, "iops")
 
@@ -1643,6 +1656,14 @@ class InstanceEbsBlockDevice(dict):
         return pulumi.get(self, "snapshot_id")
 
     @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `"gp3"`.
+        """
+        return pulumi.get(self, "throughput")
+
+    @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> Optional[str]:
         return pulumi.get(self, "volume_id")
@@ -1659,10 +1680,31 @@ class InstanceEbsBlockDevice(dict):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
-        or `"io2"`. (Default: `"gp2"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         return pulumi.get(self, "volume_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InstanceEnclaveOptions(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool enabled: Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+        """
+        return pulumi.get(self, "enabled")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1815,6 +1857,7 @@ class InstanceRootBlockDevice(dict):
                  encrypted: Optional[bool] = None,
                  iops: Optional[int] = None,
                  kms_key_id: Optional[str] = None,
+                 throughput: Optional[int] = None,
                  volume_id: Optional[str] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
@@ -1824,12 +1867,11 @@ class InstanceRootBlockDevice(dict):
         :param str device_name: The name of the device to mount.
         :param bool encrypted: Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
         :param int iops: The amount of provisioned
-               [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This is only valid for `volume_type` of `"io1/io2"`, and must be specified if
-               using that type
+               [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `"io1"`, `"io2"` or `"gp3"`.
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        :param int throughput: The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `"gp3"`.
         :param int volume_size: The size of the volume in gibibytes (GiB).
-        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -1841,6 +1883,8 @@ class InstanceRootBlockDevice(dict):
             pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_id is not None:
             pulumi.set(__self__, "volume_id", volume_id)
         if volume_size is not None:
@@ -1878,9 +1922,7 @@ class InstanceRootBlockDevice(dict):
     def iops(self) -> Optional[int]:
         """
         The amount of provisioned
-        [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This is only valid for `volume_type` of `"io1/io2"`, and must be specified if
-        using that type
+        [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `"io1"`, `"io2"` or `"gp3"`.
         """
         return pulumi.get(self, "iops")
 
@@ -1891,6 +1933,14 @@ class InstanceRootBlockDevice(dict):
         Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `"gp3"`.
+        """
+        return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeId")
@@ -1909,7 +1959,7 @@ class InstanceRootBlockDevice(dict):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -2005,6 +2055,52 @@ class LaunchConfigurationEphemeralBlockDevice(dict):
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> str:
         return pulumi.get(self, "virtual_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LaunchConfigurationMetadataOptions(dict):
+    def __init__(__self__, *,
+                 http_endpoint: Optional[str] = None,
+                 http_put_response_hop_limit: Optional[int] = None,
+                 http_tokens: Optional[str] = None):
+        """
+        :param str http_endpoint: The state of the metadata service: `enabled`, `disabled`.
+        :param int http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests.
+        :param str http_tokens: If session tokens are required: `optional`, `required`.
+        """
+        if http_endpoint is not None:
+            pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_put_response_hop_limit is not None:
+            pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+        if http_tokens is not None:
+            pulumi.set(__self__, "http_tokens", http_tokens)
+
+    @property
+    @pulumi.getter(name="httpEndpoint")
+    def http_endpoint(self) -> Optional[str]:
+        """
+        The state of the metadata service: `enabled`, `disabled`.
+        """
+        return pulumi.get(self, "http_endpoint")
+
+    @property
+    @pulumi.getter(name="httpPutResponseHopLimit")
+    def http_put_response_hop_limit(self) -> Optional[int]:
+        """
+        The desired HTTP PUT response hop limit for instance metadata requests.
+        """
+        return pulumi.get(self, "http_put_response_hop_limit")
+
+    @property
+    @pulumi.getter(name="httpTokens")
+    def http_tokens(self) -> Optional[str]:
+        """
+        If session tokens are required: `optional`, `required`.
+        """
+        return pulumi.get(self, "http_tokens")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2141,6 +2237,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
         :param str kms_key_id: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
                `encrypted` must be set to `true` when this is set.
         :param str snapshot_id: The Snapshot ID to mount.
+        :param int throughput: The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
         :param int volume_size: The size of the volume in gigabytes.
         :param str volume_type: The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
@@ -2208,6 +2305,9 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
     @property
     @pulumi.getter
     def throughput(self) -> Optional[int]:
+        """
+        The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
+        """
         return pulumi.get(self, "throughput")
 
     @property
@@ -2381,6 +2481,28 @@ class LaunchTemplateElasticInferenceAccelerator(dict):
         Accelerator type.
         """
         return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LaunchTemplateEnclaveOptions(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool enabled: If set to `true`, Nitro Enclaves will be enabled on the instance.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        If set to `true`, Nitro Enclaves will be enabled on the instance.
+        """
+        return pulumi.get(self, "enabled")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2925,6 +3047,39 @@ class LaunchTemplateTagSpecification(dict):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedPrefixListEntry(dict):
+    def __init__(__self__, *,
+                 cidr: str,
+                 description: Optional[str] = None):
+        """
+        :param str cidr: The CIDR block of this entry.
+        :param str description: Description of this entry.
+        """
+        pulumi.set(__self__, "cidr", cidr)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> str:
+        """
+        The CIDR block of this entry.
+        """
+        return pulumi.get(self, "cidr")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of this entry.
+        """
+        return pulumi.get(self, "description")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3478,7 +3633,7 @@ class SecurityGroupEgress(dict):
         :param Sequence[str] cidr_blocks: List of CIDR blocks.
         :param str description: Description of this egress rule.
         :param Sequence[str] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
-        :param Sequence[str] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints)
+        :param Sequence[str] prefix_list_ids: List of Prefix List IDs.
         :param Sequence[str] security_groups: List of security group Group Names if using
                EC2-Classic, or Group IDs if using a VPC.
         :param bool self: If true, the security group itself will be added as
@@ -3553,7 +3708,7 @@ class SecurityGroupEgress(dict):
     @pulumi.getter(name="prefixListIds")
     def prefix_list_ids(self) -> Optional[Sequence[str]]:
         """
-        List of prefix list IDs (for allowing access to VPC endpoints)
+        List of Prefix List IDs.
         """
         return pulumi.get(self, "prefix_list_ids")
 
@@ -3599,7 +3754,7 @@ class SecurityGroupIngress(dict):
         :param Sequence[str] cidr_blocks: List of CIDR blocks.
         :param str description: Description of this egress rule.
         :param Sequence[str] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
-        :param Sequence[str] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints)
+        :param Sequence[str] prefix_list_ids: List of Prefix List IDs.
         :param Sequence[str] security_groups: List of security group Group Names if using
                EC2-Classic, or Group IDs if using a VPC.
         :param bool self: If true, the security group itself will be added as
@@ -3674,7 +3829,7 @@ class SecurityGroupIngress(dict):
     @pulumi.getter(name="prefixListIds")
     def prefix_list_ids(self) -> Optional[Sequence[str]]:
         """
-        List of prefix list IDs (for allowing access to VPC endpoints)
+        List of Prefix List IDs.
         """
         return pulumi.get(self, "prefix_list_ids")
 
@@ -4293,6 +4448,7 @@ class SpotInstanceRequestEbsBlockDevice(dict):
                  iops: Optional[int] = None,
                  kms_key_id: Optional[str] = None,
                  snapshot_id: Optional[str] = None,
+                 throughput: Optional[int] = None,
                  volume_id: Optional[str] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
@@ -4305,12 +4461,12 @@ class SpotInstanceRequestEbsBlockDevice(dict):
                on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
         :param int iops: The amount of provisioned
                [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This must be set with a `volume_type` of `"io1/io2"`.
+               Only valid for volume_type of `"io1"`, `"io2"` or `"gp3"`.
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param str snapshot_id: The Snapshot ID to mount.
+        :param int throughput: The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `"gp3"`.
         :param int volume_size: The size of the volume in gibibytes (GiB).
-        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
-               or `"io2"`. (Default: `"gp2"`).
+        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -4323,6 +4479,8 @@ class SpotInstanceRequestEbsBlockDevice(dict):
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_id is not None:
             pulumi.set(__self__, "volume_id", volume_id)
         if volume_size is not None:
@@ -4363,7 +4521,7 @@ class SpotInstanceRequestEbsBlockDevice(dict):
         """
         The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This must be set with a `volume_type` of `"io1/io2"`.
+        Only valid for volume_type of `"io1"`, `"io2"` or `"gp3"`.
         """
         return pulumi.get(self, "iops")
 
@@ -4384,6 +4542,14 @@ class SpotInstanceRequestEbsBlockDevice(dict):
         return pulumi.get(self, "snapshot_id")
 
     @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `"gp3"`.
+        """
+        return pulumi.get(self, "throughput")
+
+    @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> Optional[str]:
         return pulumi.get(self, "volume_id")
@@ -4400,10 +4566,31 @@ class SpotInstanceRequestEbsBlockDevice(dict):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
-        or `"io2"`. (Default: `"gp2"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         return pulumi.get(self, "volume_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SpotInstanceRequestEnclaveOptions(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool enabled: Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+        """
+        return pulumi.get(self, "enabled")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4556,6 +4743,7 @@ class SpotInstanceRequestRootBlockDevice(dict):
                  encrypted: Optional[bool] = None,
                  iops: Optional[int] = None,
                  kms_key_id: Optional[str] = None,
+                 throughput: Optional[int] = None,
                  volume_id: Optional[str] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
@@ -4565,12 +4753,11 @@ class SpotInstanceRequestRootBlockDevice(dict):
         :param str device_name: The name of the device to mount.
         :param bool encrypted: Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
         :param int iops: The amount of provisioned
-               [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This is only valid for `volume_type` of `"io1/io2"`, and must be specified if
-               using that type
+               [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `"io1"`, `"io2"` or `"gp3"`.
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        :param int throughput: The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `"gp3"`.
         :param int volume_size: The size of the volume in gibibytes (GiB).
-        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -4582,6 +4769,8 @@ class SpotInstanceRequestRootBlockDevice(dict):
             pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_id is not None:
             pulumi.set(__self__, "volume_id", volume_id)
         if volume_size is not None:
@@ -4619,9 +4808,7 @@ class SpotInstanceRequestRootBlockDevice(dict):
     def iops(self) -> Optional[int]:
         """
         The amount of provisioned
-        [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This is only valid for `volume_type` of `"io1/io2"`, and must be specified if
-        using that type
+        [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `"io1"`, `"io2"` or `"gp3"`.
         """
         return pulumi.get(self, "iops")
 
@@ -4632,6 +4819,14 @@ class SpotInstanceRequestRootBlockDevice(dict):
         Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `"gp3"`.
+        """
+        return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeId")
@@ -4650,7 +4845,7 @@ class SpotInstanceRequestRootBlockDevice(dict):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -5170,6 +5365,7 @@ class GetInstanceEbsBlockDeviceResult(dict):
                  iops: int,
                  kms_key_id: str,
                  snapshot_id: str,
+                 throughput: int,
                  volume_id: str,
                  volume_size: int,
                  volume_type: str):
@@ -5179,6 +5375,7 @@ class GetInstanceEbsBlockDeviceResult(dict):
         :param bool encrypted: If the EBS volume is encrypted.
         :param int iops: `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
         :param str snapshot_id: The ID of the snapshot.
+        :param int throughput: The throughput of the volume, in MiB/s.
         :param int volume_size: The size of the volume, in GiB.
         :param str volume_type: The type of the volume.
         """
@@ -5188,6 +5385,7 @@ class GetInstanceEbsBlockDeviceResult(dict):
         pulumi.set(__self__, "iops", iops)
         pulumi.set(__self__, "kms_key_id", kms_key_id)
         pulumi.set(__self__, "snapshot_id", snapshot_id)
+        pulumi.set(__self__, "throughput", throughput)
         pulumi.set(__self__, "volume_id", volume_id)
         pulumi.set(__self__, "volume_size", volume_size)
         pulumi.set(__self__, "volume_type", volume_type)
@@ -5238,6 +5436,14 @@ class GetInstanceEbsBlockDeviceResult(dict):
         return pulumi.get(self, "snapshot_id")
 
     @property
+    @pulumi.getter
+    def throughput(self) -> int:
+        """
+        The throughput of the volume, in MiB/s.
+        """
+        return pulumi.get(self, "throughput")
+
+    @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> str:
         return pulumi.get(self, "volume_id")
@@ -5257,6 +5463,24 @@ class GetInstanceEbsBlockDeviceResult(dict):
         The type of the volume.
         """
         return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class GetInstanceEnclaveOptionResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        """
+        :param bool enabled: Whether Nitro Enclaves are enabled.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether Nitro Enclaves are enabled.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -5368,6 +5592,7 @@ class GetInstanceRootBlockDeviceResult(dict):
                  encrypted: bool,
                  iops: int,
                  kms_key_id: str,
+                 throughput: int,
                  volume_id: str,
                  volume_size: int,
                  volume_type: str):
@@ -5376,6 +5601,7 @@ class GetInstanceRootBlockDeviceResult(dict):
         :param str device_name: The physical name of the device.
         :param bool encrypted: If the EBS volume is encrypted.
         :param int iops: `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
+        :param int throughput: The throughput of the volume, in MiB/s.
         :param int volume_size: The size of the volume, in GiB.
         :param str volume_type: The type of the volume.
         """
@@ -5384,6 +5610,7 @@ class GetInstanceRootBlockDeviceResult(dict):
         pulumi.set(__self__, "encrypted", encrypted)
         pulumi.set(__self__, "iops", iops)
         pulumi.set(__self__, "kms_key_id", kms_key_id)
+        pulumi.set(__self__, "throughput", throughput)
         pulumi.set(__self__, "volume_id", volume_id)
         pulumi.set(__self__, "volume_size", volume_size)
         pulumi.set(__self__, "volume_type", volume_type)
@@ -5424,6 +5651,14 @@ class GetInstanceRootBlockDeviceResult(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> int:
+        """
+        The throughput of the volume, in MiB/s.
+        """
+        return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeId")
@@ -5841,6 +6076,46 @@ class GetLaunchConfigurationEphemeralBlockDeviceResult(dict):
 
 
 @pulumi.output_type
+class GetLaunchConfigurationMetadataOptionResult(dict):
+    def __init__(__self__, *,
+                 http_endpoint: str,
+                 http_put_response_hop_limit: int,
+                 http_tokens: str):
+        """
+        :param str http_endpoint: The state of the metadata service: `enabled`, `disabled`.
+        :param int http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests.
+        :param str http_tokens: If session tokens are required: `optional`, `required`.
+        """
+        pulumi.set(__self__, "http_endpoint", http_endpoint)
+        pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+        pulumi.set(__self__, "http_tokens", http_tokens)
+
+    @property
+    @pulumi.getter(name="httpEndpoint")
+    def http_endpoint(self) -> str:
+        """
+        The state of the metadata service: `enabled`, `disabled`.
+        """
+        return pulumi.get(self, "http_endpoint")
+
+    @property
+    @pulumi.getter(name="httpPutResponseHopLimit")
+    def http_put_response_hop_limit(self) -> int:
+        """
+        The desired HTTP PUT response hop limit for instance metadata requests.
+        """
+        return pulumi.get(self, "http_put_response_hop_limit")
+
+    @property
+    @pulumi.getter(name="httpTokens")
+    def http_tokens(self) -> str:
+        """
+        If session tokens are required: `optional`, `required`.
+        """
+        return pulumi.get(self, "http_tokens")
+
+
+@pulumi.output_type
 class GetLaunchConfigurationRootBlockDeviceResult(dict):
     def __init__(__self__, *,
                  delete_on_termination: bool,
@@ -6021,6 +6296,24 @@ class GetLaunchTemplateElasticGpuSpecificationResult(dict):
 
 
 @pulumi.output_type
+class GetLaunchTemplateEnclaveOptionResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        """
+        :param bool enabled: Whether Nitro Enclaves are enabled.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether Nitro Enclaves are enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class GetLaunchTemplateFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
@@ -6193,11 +6486,17 @@ class GetLaunchTemplateMetadataOptionResult(dict):
 class GetLaunchTemplateMonitoringResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
+        """
+        :param bool enabled: Whether Nitro Enclaves are enabled.
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Whether Nitro Enclaves are enabled.
+        """
         return pulumi.get(self, "enabled")
 
 
@@ -6604,6 +6903,54 @@ class GetLocalGatewaysFilterResult(dict):
 
 
 @pulumi.output_type
+class GetManagedPrefixListEntryResult(dict):
+    def __init__(__self__, *,
+                 cidr: str,
+                 description: str):
+        pulumi.set(__self__, "cidr", cidr)
+        pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> str:
+        return pulumi.get(self, "cidr")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class GetManagedPrefixListFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class GetNatGatewayFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
@@ -6674,18 +7021,24 @@ class GetNetworkInterfaceAssociationResult(dict):
     def __init__(__self__, *,
                  allocation_id: str,
                  association_id: str,
+                 carrier_ip: str,
+                 customer_owned_ip: str,
                  ip_owner_id: str,
                  public_dns_name: str,
                  public_ip: str):
         """
         :param str allocation_id: The allocation ID.
         :param str association_id: The association ID.
+        :param str carrier_ip: The carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
+        :param str customer_owned_ip: The customer-owned IP address.
         :param str ip_owner_id: The ID of the Elastic IP address owner.
         :param str public_dns_name: The public DNS name.
         :param str public_ip: The address of the Elastic IP address bound to the network interface.
         """
         pulumi.set(__self__, "allocation_id", allocation_id)
         pulumi.set(__self__, "association_id", association_id)
+        pulumi.set(__self__, "carrier_ip", carrier_ip)
+        pulumi.set(__self__, "customer_owned_ip", customer_owned_ip)
         pulumi.set(__self__, "ip_owner_id", ip_owner_id)
         pulumi.set(__self__, "public_dns_name", public_dns_name)
         pulumi.set(__self__, "public_ip", public_ip)
@@ -6705,6 +7058,22 @@ class GetNetworkInterfaceAssociationResult(dict):
         The association ID.
         """
         return pulumi.get(self, "association_id")
+
+    @property
+    @pulumi.getter(name="carrierIp")
+    def carrier_ip(self) -> str:
+        """
+        The carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
+        """
+        return pulumi.get(self, "carrier_ip")
+
+    @property
+    @pulumi.getter(name="customerOwnedIp")
+    def customer_owned_ip(self) -> str:
+        """
+        The customer-owned IP address.
+        """
+        return pulumi.get(self, "customer_owned_ip")
 
     @property
     @pulumi.getter(name="ipOwnerId")

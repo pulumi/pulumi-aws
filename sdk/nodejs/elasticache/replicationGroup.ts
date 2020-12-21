@@ -143,7 +143,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly authToken!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Defaults to `true`.
+     * Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
      */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
@@ -368,7 +368,7 @@ export interface ReplicationGroupState {
      */
     readonly authToken?: pulumi.Input<string>;
     /**
-     * Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Defaults to `true`.
+     * Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
      */
     readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
@@ -505,7 +505,7 @@ export interface ReplicationGroupArgs {
      */
     readonly authToken?: pulumi.Input<string>;
     /**
-     * Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Defaults to `true`.
+     * Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
      */
     readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**

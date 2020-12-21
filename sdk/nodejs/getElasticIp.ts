@@ -103,6 +103,10 @@ export interface GetElasticIpResult {
      */
     readonly associationId: string;
     /**
+     * The carrier IP address.
+     */
+    readonly carrierIp: string;
+    /**
      * Customer Owned IP.
      */
     readonly customerOwnedIp: string;

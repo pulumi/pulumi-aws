@@ -704,7 +704,7 @@ class TaskDefinitionVolumeDockerVolumeConfiguration(dict):
         :param str driver: The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
         :param Mapping[str, str] driver_opts: A map of Docker driver specific options.
         :param Mapping[str, str] labels: A map of custom metadata to add to your Docker volume.
-        :param str scope: The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
+        :param str scope: The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
         """
         if autoprovision is not None:
             pulumi.set(__self__, "autoprovision", autoprovision)
@@ -753,7 +753,7 @@ class TaskDefinitionVolumeDockerVolumeConfiguration(dict):
     @pulumi.getter
     def scope(self) -> Optional[str]:
         """
-        The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
+        The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
         """
         return pulumi.get(self, "scope")
 

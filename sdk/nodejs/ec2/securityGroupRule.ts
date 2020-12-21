@@ -39,8 +39,10 @@ import * as utilities from "../utilities";
  * ```
  * ## Usage with prefix list IDs
  *
- * Prefix list IDs are managed by AWS internally. Prefix list IDs
- * are associated with a prefix list name, or service name, that is linked to a specific region.
+ * Prefix Lists are either managed by AWS internally, or created by the customer using a
+ * Managed Prefix List resource. Prefix Lists provided by
+ * AWS are associated with a prefix list name, or service name, that is linked to a specific region.
+ *
  * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
  *
  * ```typescript
@@ -59,6 +61,8 @@ import * as utilities from "../utilities";
  *     securityGroupId: "sg-123456",
  * });
  * ```
+ *
+ * You can also find a specific Prefix List using the `aws.getPrefixList` data source.
  *
  * ## Import
  *
@@ -143,8 +147,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      */
     public readonly ipv6CidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
-     * List of prefix list IDs (for allowing access to VPC endpoints).
-     * Only valid with `egress`.
+     * List of Prefix List IDs.
      */
     public readonly prefixListIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -259,8 +262,7 @@ export interface SecurityGroupRuleState {
      */
     readonly ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of prefix list IDs (for allowing access to VPC endpoints).
-     * Only valid with `egress`.
+     * List of Prefix List IDs.
      */
     readonly prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -313,8 +315,7 @@ export interface SecurityGroupRuleArgs {
      */
     readonly ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of prefix list IDs (for allowing access to VPC endpoints).
-     * Only valid with `egress`.
+     * List of Prefix List IDs.
      */
     readonly prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -143,6 +143,7 @@ namespace Pulumi.Aws
                 public string? Cognitoidentity { get; set; } = null!;
                 public string? Cognitoidp { get; set; } = null!;
                 public string? Configservice { get; set; } = null!;
+                public string? Connect { get; set; } = null!;
                 public string? Cur { get; set; } = null!;
                 public string? Dataexchange { get; set; } = null!;
                 public string? Datapipeline { get; set; } = null!;

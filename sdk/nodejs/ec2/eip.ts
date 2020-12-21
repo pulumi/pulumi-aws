@@ -148,6 +148,10 @@ export class Eip extends pulumi.CustomResource {
     public readonly associateWithPrivateIp!: pulumi.Output<string | undefined>;
     public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
+     * The carrier IP address.
+     */
+    public /*out*/ readonly carrierIp!: pulumi.Output<string>;
+    /**
      * Customer owned IP.
      */
     public /*out*/ readonly customerOwnedIp!: pulumi.Output<string>;
@@ -215,6 +219,7 @@ export class Eip extends pulumi.CustomResource {
             inputs["allocationId"] = state ? state.allocationId : undefined;
             inputs["associateWithPrivateIp"] = state ? state.associateWithPrivateIp : undefined;
             inputs["associationId"] = state ? state.associationId : undefined;
+            inputs["carrierIp"] = state ? state.carrierIp : undefined;
             inputs["customerOwnedIp"] = state ? state.customerOwnedIp : undefined;
             inputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             inputs["domain"] = state ? state.domain : undefined;
@@ -240,6 +245,7 @@ export class Eip extends pulumi.CustomResource {
             inputs["vpc"] = args ? args.vpc : undefined;
             inputs["allocationId"] = undefined /*out*/;
             inputs["associationId"] = undefined /*out*/;
+            inputs["carrierIp"] = undefined /*out*/;
             inputs["customerOwnedIp"] = undefined /*out*/;
             inputs["domain"] = undefined /*out*/;
             inputs["privateDns"] = undefined /*out*/;
@@ -270,6 +276,10 @@ export interface EipState {
      */
     readonly associateWithPrivateIp?: pulumi.Input<string>;
     readonly associationId?: pulumi.Input<string>;
+    /**
+     * The carrier IP address.
+     */
+    readonly carrierIp?: pulumi.Input<string>;
     /**
      * Customer owned IP.
      */

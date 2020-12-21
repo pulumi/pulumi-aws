@@ -286,6 +286,8 @@ type LaunchConfiguration struct {
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// The key name that should be used for the instance.
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
+	// The metadata options for the instance.
+	MetadataOptions LaunchConfigurationMetadataOptionsOutput `pulumi:"metadataOptions"`
 	// The name of the launch configuration. If you leave
 	// this blank, this provider will auto-generate a unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -371,6 +373,8 @@ type launchConfigurationState struct {
 	InstanceType *string `pulumi:"instanceType"`
 	// The key name that should be used for the instance.
 	KeyName *string `pulumi:"keyName"`
+	// The metadata options for the instance.
+	MetadataOptions *LaunchConfigurationMetadataOptions `pulumi:"metadataOptions"`
 	// The name of the launch configuration. If you leave
 	// this blank, this provider will auto-generate a unique name.
 	Name *string `pulumi:"name"`
@@ -422,6 +426,8 @@ type LaunchConfigurationState struct {
 	InstanceType pulumi.StringPtrInput
 	// The key name that should be used for the instance.
 	KeyName pulumi.StringPtrInput
+	// The metadata options for the instance.
+	MetadataOptions LaunchConfigurationMetadataOptionsPtrInput
 	// The name of the launch configuration. If you leave
 	// this blank, this provider will auto-generate a unique name.
 	Name pulumi.StringPtrInput
@@ -475,6 +481,8 @@ type launchConfigurationArgs struct {
 	InstanceType string `pulumi:"instanceType"`
 	// The key name that should be used for the instance.
 	KeyName *string `pulumi:"keyName"`
+	// The metadata options for the instance.
+	MetadataOptions *LaunchConfigurationMetadataOptions `pulumi:"metadataOptions"`
 	// The name of the launch configuration. If you leave
 	// this blank, this provider will auto-generate a unique name.
 	Name *string `pulumi:"name"`
@@ -525,6 +533,8 @@ type LaunchConfigurationArgs struct {
 	InstanceType pulumi.StringInput
 	// The key name that should be used for the instance.
 	KeyName pulumi.StringPtrInput
+	// The metadata options for the instance.
+	MetadataOptions LaunchConfigurationMetadataOptionsPtrInput
 	// The name of the launch configuration. If you leave
 	// this blank, this provider will auto-generate a unique name.
 	Name pulumi.StringPtrInput

@@ -70,6 +70,8 @@ type LookupLaunchConfigurationResult struct {
 	InstanceType string `pulumi:"instanceType"`
 	// The Key Name that should be used for the instance.
 	KeyName string `pulumi:"keyName"`
+	// The metadata options for the instance.
+	MetadataOptions []GetLaunchConfigurationMetadataOption `pulumi:"metadataOptions"`
 	// The Name of the launch configuration.
 	Name string `pulumi:"name"`
 	// The Tenancy of the instance.

@@ -63,8 +63,10 @@ class SecurityGroupRule(pulumi.CustomResource):
         ```
         ## Usage with prefix list IDs
 
-        Prefix list IDs are managed by AWS internally. Prefix list IDs
-        are associated with a prefix list name, or service name, that is linked to a specific region.
+        Prefix Lists are either managed by AWS internally, or created by the customer using a
+        Managed Prefix List resource. Prefix Lists provided by
+        AWS are associated with a prefix list name, or service name, that is linked to a specific region.
+
         Prefix list IDs are exported on VPC Endpoints, so you can use this format:
 
         ```python
@@ -82,6 +84,8 @@ class SecurityGroupRule(pulumi.CustomResource):
             from_port=0,
             security_group_id="sg-123456")
         ```
+
+        You can also find a specific Prefix List using the `getPrefixList` data source.
 
         ## Import
 
@@ -127,8 +131,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[int] from_port: The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints).
-               Only valid with `egress`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of Prefix List IDs.
         :param pulumi.Input[Union[str, 'ProtocolType']] protocol: The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[str] security_group_id: The security group to apply this rule to.
         :param pulumi.Input[bool] self: If true, the security group itself will be added as
@@ -209,8 +212,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[int] from_port: The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints).
-               Only valid with `egress`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of Prefix List IDs.
         :param pulumi.Input[Union[str, 'ProtocolType']] protocol: The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[str] security_group_id: The security group to apply this rule to.
         :param pulumi.Input[bool] self: If true, the security group itself will be added as
@@ -274,8 +276,7 @@ class SecurityGroupRule(pulumi.CustomResource):
     @pulumi.getter(name="prefixListIds")
     def prefix_list_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of prefix list IDs (for allowing access to VPC endpoints).
-        Only valid with `egress`.
+        List of Prefix List IDs.
         """
         return pulumi.get(self, "prefix_list_ids")
 

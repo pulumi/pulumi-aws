@@ -31,7 +31,12 @@ import (
 // 		tmpJSON0, err := json.Marshal(map[string]interface{}{
 // 			"Statement": []map[string]interface{}{
 // 				map[string]interface{}{
-// 					"Action":   "network-firewall:ListFirewallPolicies",
+// 					"Action": []string{
+// 						"network-firewall:ListFirewallPolicies",
+// 						"network-firewall:CreateFirewall",
+// 						"network-firewall:UpdateFirewall",
+// 						"network-firewall:AssociateFirewallPolicy",
+// 					},
 // 					"Effect":   "Allow",
 // 					"Resource": aws_networkfirewall_firewall_policy.Example.Arn,
 // 					"Principal": map[string]interface{}{
@@ -73,7 +78,11 @@ import (
 // 		tmpJSON0, err := json.Marshal(map[string]interface{}{
 // 			"Statement": []map[string]interface{}{
 // 				map[string]interface{}{
-// 					"Action":   "network-firewall:ListRuleGroups",
+// 					"Action": []string{
+// 						"network-firewall:ListRuleGroups",
+// 						"network-firewall:CreateFirewallPolicy",
+// 						"network-firewall:UpdateFirewallPolicy",
+// 					},
 // 					"Effect":   "Allow",
 // 					"Resource": aws_networkfirewall_rule_group.Example.Arn,
 // 					"Principal": map[string]interface{}{

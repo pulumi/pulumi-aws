@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Ipv6CidrBlocks;
         /// <summary>
-        /// List of prefix list IDs (for allowing access to VPC endpoints)
+        /// List of Prefix List IDs.
         /// </summary>
         public readonly ImmutableArray<string> PrefixListIds;
         /// <summary>

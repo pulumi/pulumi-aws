@@ -104,6 +104,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string KeyName;
         /// <summary>
+        /// The metadata options for the instance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLaunchConfigurationMetadataOptionResult> MetadataOptions;
+        /// <summary>
         /// The Name of the launch configuration.
         /// </summary>
         public readonly string Name;
@@ -160,6 +164,8 @@ namespace Pulumi.Aws.Ec2
 
             string keyName,
 
+            ImmutableArray<Outputs.GetLaunchConfigurationMetadataOptionResult> metadataOptions,
+
             string name,
 
             string placementTenancy,
@@ -187,6 +193,7 @@ namespace Pulumi.Aws.Ec2
             ImageId = imageId;
             InstanceType = instanceType;
             KeyName = keyName;
+            MetadataOptions = metadataOptions;
             Name = name;
             PlacementTenancy = placementTenancy;
             RootBlockDevices = rootBlockDevices;

@@ -28,22 +28,24 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly bool? Encrypted;
         /// <summary>
         /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This is only valid for `volume_type` of `"io1/io2"`, and must be specified if
-        /// using that type
+        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `"io1"`, `"io2"` or `"gp3"`.
         /// </summary>
         public readonly int? Iops;
         /// <summary>
         /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         /// </summary>
         public readonly string? KmsKeyId;
+        /// <summary>
+        /// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `"gp3"`.
+        /// </summary>
+        public readonly int? Throughput;
         public readonly string? VolumeId;
         /// <summary>
         /// The size of the volume in gibibytes (GiB).
         /// </summary>
         public readonly int? VolumeSize;
         /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        /// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         /// </summary>
         public readonly string? VolumeType;
 
@@ -59,6 +61,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? kmsKeyId,
 
+            int? throughput,
+
             string? volumeId,
 
             int? volumeSize,
@@ -70,6 +74,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Encrypted = encrypted;
             Iops = iops;
             KmsKeyId = kmsKeyId;
+            Throughput = throughput;
             VolumeId = volumeId;
             VolumeSize = volumeSize;
             VolumeType = volumeType;

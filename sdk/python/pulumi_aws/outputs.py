@@ -134,6 +134,7 @@ class ProviderEndpoint(dict):
                  cognitoidentity: Optional[str] = None,
                  cognitoidp: Optional[str] = None,
                  configservice: Optional[str] = None,
+                 connect: Optional[str] = None,
                  cur: Optional[str] = None,
                  dataexchange: Optional[str] = None,
                  datapipeline: Optional[str] = None,
@@ -317,6 +318,8 @@ class ProviderEndpoint(dict):
             pulumi.set(__self__, "cognitoidp", cognitoidp)
         if configservice is not None:
             pulumi.set(__self__, "configservice", configservice)
+        if connect is not None:
+            pulumi.set(__self__, "connect", connect)
         if cur is not None:
             pulumi.set(__self__, "cur", cur)
         if dataexchange is not None:
@@ -717,6 +720,11 @@ class ProviderEndpoint(dict):
     @pulumi.getter
     def configservice(self) -> Optional[str]:
         return pulumi.get(self, "configservice")
+
+    @property
+    @pulumi.getter
+    def connect(self) -> Optional[str]:
+        return pulumi.get(self, "connect")
 
     @property
     @pulumi.getter

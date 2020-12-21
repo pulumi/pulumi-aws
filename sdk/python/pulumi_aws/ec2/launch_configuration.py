@@ -26,6 +26,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                  image_id: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
+                 metadata_options: Optional[pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  placement_tenancy: Optional[pulumi.Input[str]] = None,
@@ -215,6 +216,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
+        :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave
                this blank, this provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
@@ -261,6 +263,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_type'")
             __props__['instance_type'] = instance_type
             __props__['key_name'] = key_name
+            __props__['metadata_options'] = metadata_options
             __props__['name'] = name
             __props__['name_prefix'] = name_prefix
             __props__['placement_tenancy'] = placement_tenancy
@@ -292,6 +295,7 @@ class LaunchConfiguration(pulumi.CustomResource):
             image_id: Optional[pulumi.Input[str]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
+            metadata_options: Optional[pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             placement_tenancy: Optional[pulumi.Input[str]] = None,
@@ -322,6 +326,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
+        :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave
                this blank, this provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
@@ -352,6 +357,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         __props__["image_id"] = image_id
         __props__["instance_type"] = instance_type
         __props__["key_name"] = key_name
+        __props__["metadata_options"] = metadata_options
         __props__["name"] = name
         __props__["name_prefix"] = name_prefix
         __props__["placement_tenancy"] = placement_tenancy
@@ -446,6 +452,14 @@ class LaunchConfiguration(pulumi.CustomResource):
         The key name that should be used for the instance.
         """
         return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="metadataOptions")
+    def metadata_options(self) -> pulumi.Output['outputs.LaunchConfigurationMetadataOptions']:
+        """
+        The metadata options for the instance.
+        """
+        return pulumi.get(self, "metadata_options")
 
     @property
     @pulumi.getter

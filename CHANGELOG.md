@@ -2,9 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.16.0 of pulumi-terraform-bridge
-    * Preserve unknowns during provider preview
+* Update to v3.22.0 of the AWS Terraform Provider
+
 ---
+
+## 3.21.0 (2020-12-16)
+* Upgrade to v2.16.0 of pulumi-terraform-bridge
+  * Preserve unknowns during provider preview
 
 ## 3.20.0 (2020-12-14)
 * Update to v3.21.0 of the AWS Terraform Provider

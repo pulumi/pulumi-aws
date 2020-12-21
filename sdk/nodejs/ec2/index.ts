@@ -11,6 +11,7 @@ export * from "./amiFromInstance";
 export * from "./amiLaunchPermission";
 export * from "./availabilityZoneGroup";
 export * from "./capacityReservation";
+export * from "./carrierGateway";
 export * from "./customerGateway";
 export * from "./dedicatedHost";
 export * from "./defaultNetworkAcl";
@@ -43,6 +44,7 @@ export * from "./getLocalGatewayVirtualInterface";
 export * from "./getLocalGatewayVirtualInterfaceGroup";
 export * from "./getLocalGatewayVirtualInterfaceGroups";
 export * from "./getLocalGateways";
+export * from "./getManagedPrefixList";
 export * from "./getNatGateway";
 export * from "./getNetworkAcls";
 export * from "./getNetworkInterface";
@@ -73,6 +75,7 @@ export * from "./launchTemplate";
 export * from "./localGatewayRoute";
 export * from "./localGatewayRouteTableVpcAssociation";
 export * from "./mainRouteTableAssociation";
+export * from "./managedPrefixList";
 export * from "./natGateway";
 export * from "./networkAcl";
 export * from "./networkAclRule";
@@ -130,6 +133,7 @@ import { AmiFromInstance } from "./amiFromInstance";
 import { AmiLaunchPermission } from "./amiLaunchPermission";
 import { AvailabilityZoneGroup } from "./availabilityZoneGroup";
 import { CapacityReservation } from "./capacityReservation";
+import { CarrierGateway } from "./carrierGateway";
 import { CustomerGateway } from "./customerGateway";
 import { DedicatedHost } from "./dedicatedHost";
 import { DefaultNetworkAcl } from "./defaultNetworkAcl";
@@ -151,6 +155,7 @@ import { LaunchTemplate } from "./launchTemplate";
 import { LocalGatewayRoute } from "./localGatewayRoute";
 import { LocalGatewayRouteTableVpcAssociation } from "./localGatewayRouteTableVpcAssociation";
 import { MainRouteTableAssociation } from "./mainRouteTableAssociation";
+import { ManagedPrefixList } from "./managedPrefixList";
 import { NatGateway } from "./natGateway";
 import { NetworkAcl } from "./networkAcl";
 import { NetworkAclRule } from "./networkAclRule";
@@ -211,6 +216,8 @@ const _module = {
                 return new AvailabilityZoneGroup(name, <any>undefined, { urn })
             case "aws:ec2/capacityReservation:CapacityReservation":
                 return new CapacityReservation(name, <any>undefined, { urn })
+            case "aws:ec2/carrierGateway:CarrierGateway":
+                return new CarrierGateway(name, <any>undefined, { urn })
             case "aws:ec2/customerGateway:CustomerGateway":
                 return new CustomerGateway(name, <any>undefined, { urn })
             case "aws:ec2/dedicatedHost:DedicatedHost":
@@ -253,6 +260,8 @@ const _module = {
                 return new LocalGatewayRouteTableVpcAssociation(name, <any>undefined, { urn })
             case "aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation":
                 return new MainRouteTableAssociation(name, <any>undefined, { urn })
+            case "aws:ec2/managedPrefixList:ManagedPrefixList":
+                return new ManagedPrefixList(name, <any>undefined, { urn })
             case "aws:ec2/natGateway:NatGateway":
                 return new NatGateway(name, <any>undefined, { urn })
             case "aws:ec2/networkAcl:NetworkAcl":
@@ -350,6 +359,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/amiFromInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/amiLaunchPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/availabilityZoneGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/capacityReservation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/carrierGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/customerGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/dedicatedHost", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/defaultNetworkAcl", _module)
@@ -371,6 +381,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/launchTemplate", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/localGatewayRoute", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/localGatewayRouteTableVpcAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/mainRouteTableAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/managedPrefixList", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/natGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAcl", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAclRule", _module)
