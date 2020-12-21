@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AmazonEC2SpotFleetAutoscaleRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetAutoscaleRole");
         public static ManagedPolicy AmazonEC2SpotFleetRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetRole");
         public static ManagedPolicy AmazonEC2SpotFleetTaggingRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetTaggingRole");
-        public static ManagedPolicy AmazonECS_FullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonECS_FullAccess");
+        public static ManagedPolicy AmazonECSFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonECS_FullAccess");
         public static ManagedPolicy AmazonECSServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonECSServiceRolePolicy");
         public static ManagedPolicy AmazonECSTaskExecutionRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy");
         public static ManagedPolicy AmazonESFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonESFullAccess");

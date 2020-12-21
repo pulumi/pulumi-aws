@@ -3077,7 +3077,7 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "AmazonEC2SpotFleetAutoscaleRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetAutoscaleRole"},
 					{Name: "AmazonEC2SpotFleetRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetRole"},
 					{Name: "AmazonEC2SpotFleetTaggingRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetTaggingRole"},
-					{Name: "AmazonECS_FullAccess", Value: "arn:aws:iam::aws:policy/AmazonECS_FullAccess"},
+					{Name: "AmazonECSFullAccess", Value: "arn:aws:iam::aws:policy/AmazonECS_FullAccess"},
 					{Name: "AmazonECSServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonECSServiceRolePolicy"},
 					{Name: "AmazonECSTaskExecutionRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"},
 					{Name: "AmazonESFullAccess", Value: "arn:aws:iam::aws:policy/AmazonESFullAccess"},

@@ -144,7 +144,7 @@ export const ManagedPolicy = {
     AmazonEC2SpotFleetAutoscaleRole: "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetAutoscaleRole",
     AmazonEC2SpotFleetRole: "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetRole",
     AmazonEC2SpotFleetTaggingRole: "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetTaggingRole",
-    AmazonECS_FullAccess: "arn:aws:iam::aws:policy/AmazonECS_FullAccess",
+    AmazonECSFullAccess: "arn:aws:iam::aws:policy/AmazonECS_FullAccess",
     AmazonECSServiceRolePolicy: "arn:aws:iam::aws:policy/aws-service-role/AmazonECSServiceRolePolicy",
     AmazonECSTaskExecutionRolePolicy: "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
     AmazonESFullAccess: "arn:aws:iam::aws:policy/AmazonESFullAccess",
