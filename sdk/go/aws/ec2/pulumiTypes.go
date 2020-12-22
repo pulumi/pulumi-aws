@@ -3100,17 +3100,18 @@ type InstanceEbsBlockDevice struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1/io2"`.
+	// Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
+	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+	Throughput *int    `pulumi:"throughput"`
 	VolumeId   *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
-	// or `"io2"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -3137,17 +3138,18 @@ type InstanceEbsBlockDeviceArgs struct {
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1/io2"`.
+	// Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
-	// or `"io2"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -3222,7 +3224,7 @@ func (o InstanceEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1/io2"`.
+// Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 func (o InstanceEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -3237,6 +3239,11 @@ func (o InstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+func (o InstanceEbsBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceEbsBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
 func (o InstanceEbsBlockDeviceOutput) VolumeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
 }
@@ -3246,8 +3253,7 @@ func (o InstanceEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
-// or `"io2"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o InstanceEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -3270,6 +3276,137 @@ func (o InstanceEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput) InstanceEbsB
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceEbsBlockDevice {
 		return vs[0].([]InstanceEbsBlockDevice)[vs[1].(int)]
 	}).(InstanceEbsBlockDeviceOutput)
+}
+
+type InstanceEnclaveOptions struct {
+	// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// InstanceEnclaveOptionsInput is an input type that accepts InstanceEnclaveOptionsArgs and InstanceEnclaveOptionsOutput values.
+// You can construct a concrete instance of `InstanceEnclaveOptionsInput` via:
+//
+//          InstanceEnclaveOptionsArgs{...}
+type InstanceEnclaveOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput
+	ToInstanceEnclaveOptionsOutputWithContext(context.Context) InstanceEnclaveOptionsOutput
+}
+
+type InstanceEnclaveOptionsArgs struct {
+	// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (InstanceEnclaveOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput {
+	return i.ToInstanceEnclaveOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsOutputWithContext(ctx context.Context) InstanceEnclaveOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsOutput)
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return i.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsOutput).ToInstanceEnclaveOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceEnclaveOptionsPtrInput is an input type that accepts InstanceEnclaveOptionsArgs, InstanceEnclaveOptionsPtr and InstanceEnclaveOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceEnclaveOptionsPtrInput` via:
+//
+//          InstanceEnclaveOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceEnclaveOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput
+	ToInstanceEnclaveOptionsPtrOutputWithContext(context.Context) InstanceEnclaveOptionsPtrOutput
+}
+
+type instanceEnclaveOptionsPtrType InstanceEnclaveOptionsArgs
+
+func InstanceEnclaveOptionsPtr(v *InstanceEnclaveOptionsArgs) InstanceEnclaveOptionsPtrInput {
+	return (*instanceEnclaveOptionsPtrType)(v)
+}
+
+func (*instanceEnclaveOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (i *instanceEnclaveOptionsPtrType) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return i.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceEnclaveOptionsPtrType) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsPtrOutput)
+}
+
+type InstanceEnclaveOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceEnclaveOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsOutputWithContext(ctx context.Context) InstanceEnclaveOptionsOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return o.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v InstanceEnclaveOptions) *InstanceEnclaveOptions {
+		return &v
+	}).(InstanceEnclaveOptionsPtrOutput)
+}
+
+// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+func (o InstanceEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type InstanceEnclaveOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceEnclaveOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (o InstanceEnclaveOptionsPtrOutput) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsPtrOutput) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsPtrOutput) Elem() InstanceEnclaveOptionsOutput {
+	return o.ApplyT(func(v *InstanceEnclaveOptions) InstanceEnclaveOptions { return *v }).(InstanceEnclaveOptionsOutput)
+}
+
+// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+func (o InstanceEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceEnclaveOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type InstanceEphemeralBlockDevice struct {
@@ -3686,16 +3823,16 @@ type InstanceRootBlockDevice struct {
 	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
-	// using that type
+	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	VolumeId *string `pulumi:"volumeId"`
+	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+	Throughput *int    `pulumi:"throughput"`
+	VolumeId   *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -3719,16 +3856,16 @@ type InstanceRootBlockDeviceArgs struct {
 	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
-	// using that type
+	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	VolumeId pulumi.StringPtrInput `pulumi:"volumeId"`
+	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
+	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -3826,9 +3963,7 @@ func (o InstanceRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 }
 
 // The amount of provisioned
-// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
-// using that type
+// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 func (o InstanceRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -3836,6 +3971,11 @@ func (o InstanceRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 // Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 func (o InstanceRootBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+func (o InstanceRootBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
 func (o InstanceRootBlockDeviceOutput) VolumeId() pulumi.StringPtrOutput {
@@ -3847,7 +3987,7 @@ func (o InstanceRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o InstanceRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -3902,9 +4042,7 @@ func (o InstanceRootBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 }
 
 // The amount of provisioned
-// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
-// using that type
+// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 func (o InstanceRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) *int {
 		if v == nil {
@@ -3922,6 +4060,16 @@ func (o InstanceRootBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 		}
 		return v.KmsKeyId
 	}).(pulumi.StringPtrOutput)
+}
+
+// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+func (o InstanceRootBlockDevicePtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceRootBlockDevice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o InstanceRootBlockDevicePtrOutput) VolumeId() pulumi.StringPtrOutput {
@@ -3943,7 +4091,7 @@ func (o InstanceRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o InstanceRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) *string {
 		if v == nil {
@@ -4187,6 +4335,175 @@ func (o LaunchConfigurationEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchConfigurationEphemeralBlockDevice {
 		return vs[0].([]LaunchConfigurationEphemeralBlockDevice)[vs[1].(int)]
 	}).(LaunchConfigurationEphemeralBlockDeviceOutput)
+}
+
+type LaunchConfigurationMetadataOptions struct {
+	// The state of the metadata service: `enabled`, `disabled`.
+	HttpEndpoint *string `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests.
+	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
+	// If session tokens are required: `optional`, `required`.
+	HttpTokens *string `pulumi:"httpTokens"`
+}
+
+// LaunchConfigurationMetadataOptionsInput is an input type that accepts LaunchConfigurationMetadataOptionsArgs and LaunchConfigurationMetadataOptionsOutput values.
+// You can construct a concrete instance of `LaunchConfigurationMetadataOptionsInput` via:
+//
+//          LaunchConfigurationMetadataOptionsArgs{...}
+type LaunchConfigurationMetadataOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationMetadataOptionsOutput() LaunchConfigurationMetadataOptionsOutput
+	ToLaunchConfigurationMetadataOptionsOutputWithContext(context.Context) LaunchConfigurationMetadataOptionsOutput
+}
+
+type LaunchConfigurationMetadataOptionsArgs struct {
+	// The state of the metadata service: `enabled`, `disabled`.
+	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests.
+	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
+	// If session tokens are required: `optional`, `required`.
+	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
+}
+
+func (LaunchConfigurationMetadataOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationMetadataOptions)(nil)).Elem()
+}
+
+func (i LaunchConfigurationMetadataOptionsArgs) ToLaunchConfigurationMetadataOptionsOutput() LaunchConfigurationMetadataOptionsOutput {
+	return i.ToLaunchConfigurationMetadataOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationMetadataOptionsArgs) ToLaunchConfigurationMetadataOptionsOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationMetadataOptionsOutput)
+}
+
+func (i LaunchConfigurationMetadataOptionsArgs) ToLaunchConfigurationMetadataOptionsPtrOutput() LaunchConfigurationMetadataOptionsPtrOutput {
+	return i.ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationMetadataOptionsArgs) ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationMetadataOptionsOutput).ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchConfigurationMetadataOptionsPtrInput is an input type that accepts LaunchConfigurationMetadataOptionsArgs, LaunchConfigurationMetadataOptionsPtr and LaunchConfigurationMetadataOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchConfigurationMetadataOptionsPtrInput` via:
+//
+//          LaunchConfigurationMetadataOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchConfigurationMetadataOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationMetadataOptionsPtrOutput() LaunchConfigurationMetadataOptionsPtrOutput
+	ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(context.Context) LaunchConfigurationMetadataOptionsPtrOutput
+}
+
+type launchConfigurationMetadataOptionsPtrType LaunchConfigurationMetadataOptionsArgs
+
+func LaunchConfigurationMetadataOptionsPtr(v *LaunchConfigurationMetadataOptionsArgs) LaunchConfigurationMetadataOptionsPtrInput {
+	return (*launchConfigurationMetadataOptionsPtrType)(v)
+}
+
+func (*launchConfigurationMetadataOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationMetadataOptions)(nil)).Elem()
+}
+
+func (i *launchConfigurationMetadataOptionsPtrType) ToLaunchConfigurationMetadataOptionsPtrOutput() LaunchConfigurationMetadataOptionsPtrOutput {
+	return i.ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchConfigurationMetadataOptionsPtrType) ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationMetadataOptionsPtrOutput)
+}
+
+type LaunchConfigurationMetadataOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationMetadataOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationMetadataOptions)(nil)).Elem()
+}
+
+func (o LaunchConfigurationMetadataOptionsOutput) ToLaunchConfigurationMetadataOptionsOutput() LaunchConfigurationMetadataOptionsOutput {
+	return o
+}
+
+func (o LaunchConfigurationMetadataOptionsOutput) ToLaunchConfigurationMetadataOptionsOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsOutput {
+	return o
+}
+
+func (o LaunchConfigurationMetadataOptionsOutput) ToLaunchConfigurationMetadataOptionsPtrOutput() LaunchConfigurationMetadataOptionsPtrOutput {
+	return o.ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationMetadataOptionsOutput) ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationMetadataOptions) *LaunchConfigurationMetadataOptions {
+		return &v
+	}).(LaunchConfigurationMetadataOptionsPtrOutput)
+}
+
+// The state of the metadata service: `enabled`, `disabled`.
+func (o LaunchConfigurationMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The desired HTTP PUT response hop limit for instance metadata requests.
+func (o LaunchConfigurationMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+// If session tokens are required: `optional`, `required`.
+func (o LaunchConfigurationMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
+}
+
+type LaunchConfigurationMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationMetadataOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationMetadataOptions)(nil)).Elem()
+}
+
+func (o LaunchConfigurationMetadataOptionsPtrOutput) ToLaunchConfigurationMetadataOptionsPtrOutput() LaunchConfigurationMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationMetadataOptionsPtrOutput) ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationMetadataOptionsPtrOutput) Elem() LaunchConfigurationMetadataOptionsOutput {
+	return o.ApplyT(func(v *LaunchConfigurationMetadataOptions) LaunchConfigurationMetadataOptions { return *v }).(LaunchConfigurationMetadataOptionsOutput)
+}
+
+// The state of the metadata service: `enabled`, `disabled`.
+func (o LaunchConfigurationMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The desired HTTP PUT response hop limit for instance metadata requests.
+func (o LaunchConfigurationMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationMetadataOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPutResponseHopLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// If session tokens are required: `optional`, `required`.
+func (o LaunchConfigurationMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpTokens
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchConfigurationRootBlockDevice struct {
@@ -4520,7 +4837,8 @@ type LaunchTemplateBlockDeviceMappingEbs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
-	Throughput *int    `pulumi:"throughput"`
+	// The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
+	Throughput *int `pulumi:"throughput"`
 	// The size of the volume in gigabytes.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
@@ -4553,7 +4871,8 @@ type LaunchTemplateBlockDeviceMappingEbsArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
+	// The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// The size of the volume in gigabytes.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
@@ -4666,6 +4985,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) SnapshotId() pulumi.StringPtr
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -4752,6 +5072,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) SnapshotId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *int {
 		if v == nil {
@@ -5583,6 +5904,137 @@ func (o LaunchTemplateElasticInferenceAcceleratorPtrOutput) Type() pulumi.String
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateEnclaveOptions struct {
+	// If set to `true`, Nitro Enclaves will be enabled on the instance.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// LaunchTemplateEnclaveOptionsInput is an input type that accepts LaunchTemplateEnclaveOptionsArgs and LaunchTemplateEnclaveOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateEnclaveOptionsInput` via:
+//
+//          LaunchTemplateEnclaveOptionsArgs{...}
+type LaunchTemplateEnclaveOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEnclaveOptionsOutput() LaunchTemplateEnclaveOptionsOutput
+	ToLaunchTemplateEnclaveOptionsOutputWithContext(context.Context) LaunchTemplateEnclaveOptionsOutput
+}
+
+type LaunchTemplateEnclaveOptionsArgs struct {
+	// If set to `true`, Nitro Enclaves will be enabled on the instance.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (LaunchTemplateEnclaveOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsOutput() LaunchTemplateEnclaveOptionsOutput {
+	return i.ToLaunchTemplateEnclaveOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnclaveOptionsOutput)
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return i.ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnclaveOptionsOutput).ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateEnclaveOptionsPtrInput is an input type that accepts LaunchTemplateEnclaveOptionsArgs, LaunchTemplateEnclaveOptionsPtr and LaunchTemplateEnclaveOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateEnclaveOptionsPtrInput` via:
+//
+//          LaunchTemplateEnclaveOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateEnclaveOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput
+	ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Context) LaunchTemplateEnclaveOptionsPtrOutput
+}
+
+type launchTemplateEnclaveOptionsPtrType LaunchTemplateEnclaveOptionsArgs
+
+func LaunchTemplateEnclaveOptionsPtr(v *LaunchTemplateEnclaveOptionsArgs) LaunchTemplateEnclaveOptionsPtrInput {
+	return (*launchTemplateEnclaveOptionsPtrType)(v)
+}
+
+func (*launchTemplateEnclaveOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateEnclaveOptionsPtrType) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return i.ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateEnclaveOptionsPtrType) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+type LaunchTemplateEnclaveOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEnclaveOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsOutput() LaunchTemplateEnclaveOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEnclaveOptions) *LaunchTemplateEnclaveOptions {
+		return &v
+	}).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+// If set to `true`, Nitro Enclaves will be enabled on the instance.
+func (o LaunchTemplateEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type LaunchTemplateEnclaveOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEnclaveOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateEnclaveOptionsPtrOutput) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsPtrOutput) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsPtrOutput) Elem() LaunchTemplateEnclaveOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateEnclaveOptions) LaunchTemplateEnclaveOptions { return *v }).(LaunchTemplateEnclaveOptionsOutput)
+}
+
+// If set to `true`, Nitro Enclaves will be enabled on the instance.
+func (o LaunchTemplateEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEnclaveOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type LaunchTemplateHibernationOptions struct {
@@ -7184,6 +7636,112 @@ func (o LaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) Laun
 	}).(LaunchTemplateTagSpecificationOutput)
 }
 
+type ManagedPrefixListEntry struct {
+	// The CIDR block of this entry.
+	Cidr string `pulumi:"cidr"`
+	// Description of this entry.
+	Description *string `pulumi:"description"`
+}
+
+// ManagedPrefixListEntryInput is an input type that accepts ManagedPrefixListEntryArgs and ManagedPrefixListEntryOutput values.
+// You can construct a concrete instance of `ManagedPrefixListEntryInput` via:
+//
+//          ManagedPrefixListEntryArgs{...}
+type ManagedPrefixListEntryInput interface {
+	pulumi.Input
+
+	ToManagedPrefixListEntryOutput() ManagedPrefixListEntryOutput
+	ToManagedPrefixListEntryOutputWithContext(context.Context) ManagedPrefixListEntryOutput
+}
+
+type ManagedPrefixListEntryArgs struct {
+	// The CIDR block of this entry.
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+	// Description of this entry.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+}
+
+func (ManagedPrefixListEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPrefixListEntry)(nil)).Elem()
+}
+
+func (i ManagedPrefixListEntryArgs) ToManagedPrefixListEntryOutput() ManagedPrefixListEntryOutput {
+	return i.ToManagedPrefixListEntryOutputWithContext(context.Background())
+}
+
+func (i ManagedPrefixListEntryArgs) ToManagedPrefixListEntryOutputWithContext(ctx context.Context) ManagedPrefixListEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListEntryOutput)
+}
+
+// ManagedPrefixListEntryArrayInput is an input type that accepts ManagedPrefixListEntryArray and ManagedPrefixListEntryArrayOutput values.
+// You can construct a concrete instance of `ManagedPrefixListEntryArrayInput` via:
+//
+//          ManagedPrefixListEntryArray{ ManagedPrefixListEntryArgs{...} }
+type ManagedPrefixListEntryArrayInput interface {
+	pulumi.Input
+
+	ToManagedPrefixListEntryArrayOutput() ManagedPrefixListEntryArrayOutput
+	ToManagedPrefixListEntryArrayOutputWithContext(context.Context) ManagedPrefixListEntryArrayOutput
+}
+
+type ManagedPrefixListEntryArray []ManagedPrefixListEntryInput
+
+func (ManagedPrefixListEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedPrefixListEntry)(nil)).Elem()
+}
+
+func (i ManagedPrefixListEntryArray) ToManagedPrefixListEntryArrayOutput() ManagedPrefixListEntryArrayOutput {
+	return i.ToManagedPrefixListEntryArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedPrefixListEntryArray) ToManagedPrefixListEntryArrayOutputWithContext(ctx context.Context) ManagedPrefixListEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListEntryArrayOutput)
+}
+
+type ManagedPrefixListEntryOutput struct{ *pulumi.OutputState }
+
+func (ManagedPrefixListEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPrefixListEntry)(nil)).Elem()
+}
+
+func (o ManagedPrefixListEntryOutput) ToManagedPrefixListEntryOutput() ManagedPrefixListEntryOutput {
+	return o
+}
+
+func (o ManagedPrefixListEntryOutput) ToManagedPrefixListEntryOutputWithContext(ctx context.Context) ManagedPrefixListEntryOutput {
+	return o
+}
+
+// The CIDR block of this entry.
+func (o ManagedPrefixListEntryOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedPrefixListEntry) string { return v.Cidr }).(pulumi.StringOutput)
+}
+
+// Description of this entry.
+func (o ManagedPrefixListEntryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedPrefixListEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+type ManagedPrefixListEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedPrefixListEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedPrefixListEntry)(nil)).Elem()
+}
+
+func (o ManagedPrefixListEntryArrayOutput) ToManagedPrefixListEntryArrayOutput() ManagedPrefixListEntryArrayOutput {
+	return o
+}
+
+func (o ManagedPrefixListEntryArrayOutput) ToManagedPrefixListEntryArrayOutputWithContext(ctx context.Context) ManagedPrefixListEntryArrayOutput {
+	return o
+}
+
+func (o ManagedPrefixListEntryArrayOutput) Index(i pulumi.IntInput) ManagedPrefixListEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedPrefixListEntry {
+		return vs[0].([]ManagedPrefixListEntry)[vs[1].(int)]
+	}).(ManagedPrefixListEntryOutput)
+}
+
 type NetworkAclEgress struct {
 	// The action to take.
 	Action string `pulumi:"action"`
@@ -8220,7 +8778,7 @@ type SecurityGroupEgress struct {
 	FromPort int `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
-	// List of prefix list IDs (for allowing access to VPC endpoints)
+	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
 	// The protocol. If you select a protocol of
 	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
@@ -8255,7 +8813,7 @@ type SecurityGroupEgressArgs struct {
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
-	// List of prefix list IDs (for allowing access to VPC endpoints)
+	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
 	// The protocol. If you select a protocol of
 	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
@@ -8341,7 +8899,7 @@ func (o SecurityGroupEgressOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// List of prefix list IDs (for allowing access to VPC endpoints)
+// List of Prefix List IDs.
 func (o SecurityGroupEgressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
@@ -8398,7 +8956,7 @@ type SecurityGroupIngress struct {
 	FromPort int `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
-	// List of prefix list IDs (for allowing access to VPC endpoints)
+	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
 	// The protocol. If you select a protocol of
 	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
@@ -8433,7 +8991,7 @@ type SecurityGroupIngressArgs struct {
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
-	// List of prefix list IDs (for allowing access to VPC endpoints)
+	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
 	// The protocol. If you select a protocol of
 	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
@@ -8519,7 +9077,7 @@ func (o SecurityGroupIngressOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// List of prefix list IDs (for allowing access to VPC endpoints)
+// List of Prefix List IDs.
 func (o SecurityGroupIngressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
@@ -9906,17 +10464,18 @@ type SpotInstanceRequestEbsBlockDevice struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1/io2"`.
+	// Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
+	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+	Throughput *int    `pulumi:"throughput"`
 	VolumeId   *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
-	// or `"io2"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -9943,17 +10502,18 @@ type SpotInstanceRequestEbsBlockDeviceArgs struct {
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1/io2"`.
+	// Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
-	// or `"io2"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -10028,7 +10588,7 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutpu
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1/io2"`.
+// Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -10043,6 +10603,11 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOu
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+func (o SpotInstanceRequestEbsBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
 func (o SpotInstanceRequestEbsBlockDeviceOutput) VolumeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
 }
@@ -10052,8 +10617,7 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
-// or `"io2"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o SpotInstanceRequestEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -10076,6 +10640,137 @@ func (o SpotInstanceRequestEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput) S
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotInstanceRequestEbsBlockDevice {
 		return vs[0].([]SpotInstanceRequestEbsBlockDevice)[vs[1].(int)]
 	}).(SpotInstanceRequestEbsBlockDeviceOutput)
+}
+
+type SpotInstanceRequestEnclaveOptions struct {
+	// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// SpotInstanceRequestEnclaveOptionsInput is an input type that accepts SpotInstanceRequestEnclaveOptionsArgs and SpotInstanceRequestEnclaveOptionsOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestEnclaveOptionsInput` via:
+//
+//          SpotInstanceRequestEnclaveOptionsArgs{...}
+type SpotInstanceRequestEnclaveOptionsInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestEnclaveOptionsOutput() SpotInstanceRequestEnclaveOptionsOutput
+	ToSpotInstanceRequestEnclaveOptionsOutputWithContext(context.Context) SpotInstanceRequestEnclaveOptionsOutput
+}
+
+type SpotInstanceRequestEnclaveOptionsArgs struct {
+	// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (SpotInstanceRequestEnclaveOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestEnclaveOptions)(nil)).Elem()
+}
+
+func (i SpotInstanceRequestEnclaveOptionsArgs) ToSpotInstanceRequestEnclaveOptionsOutput() SpotInstanceRequestEnclaveOptionsOutput {
+	return i.ToSpotInstanceRequestEnclaveOptionsOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestEnclaveOptionsArgs) ToSpotInstanceRequestEnclaveOptionsOutputWithContext(ctx context.Context) SpotInstanceRequestEnclaveOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestEnclaveOptionsOutput)
+}
+
+func (i SpotInstanceRequestEnclaveOptionsArgs) ToSpotInstanceRequestEnclaveOptionsPtrOutput() SpotInstanceRequestEnclaveOptionsPtrOutput {
+	return i.ToSpotInstanceRequestEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestEnclaveOptionsArgs) ToSpotInstanceRequestEnclaveOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestEnclaveOptionsOutput).ToSpotInstanceRequestEnclaveOptionsPtrOutputWithContext(ctx)
+}
+
+// SpotInstanceRequestEnclaveOptionsPtrInput is an input type that accepts SpotInstanceRequestEnclaveOptionsArgs, SpotInstanceRequestEnclaveOptionsPtr and SpotInstanceRequestEnclaveOptionsPtrOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestEnclaveOptionsPtrInput` via:
+//
+//          SpotInstanceRequestEnclaveOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotInstanceRequestEnclaveOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestEnclaveOptionsPtrOutput() SpotInstanceRequestEnclaveOptionsPtrOutput
+	ToSpotInstanceRequestEnclaveOptionsPtrOutputWithContext(context.Context) SpotInstanceRequestEnclaveOptionsPtrOutput
+}
+
+type spotInstanceRequestEnclaveOptionsPtrType SpotInstanceRequestEnclaveOptionsArgs
+
+func SpotInstanceRequestEnclaveOptionsPtr(v *SpotInstanceRequestEnclaveOptionsArgs) SpotInstanceRequestEnclaveOptionsPtrInput {
+	return (*spotInstanceRequestEnclaveOptionsPtrType)(v)
+}
+
+func (*spotInstanceRequestEnclaveOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestEnclaveOptions)(nil)).Elem()
+}
+
+func (i *spotInstanceRequestEnclaveOptionsPtrType) ToSpotInstanceRequestEnclaveOptionsPtrOutput() SpotInstanceRequestEnclaveOptionsPtrOutput {
+	return i.ToSpotInstanceRequestEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *spotInstanceRequestEnclaveOptionsPtrType) ToSpotInstanceRequestEnclaveOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestEnclaveOptionsPtrOutput)
+}
+
+type SpotInstanceRequestEnclaveOptionsOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestEnclaveOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestEnclaveOptions)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestEnclaveOptionsOutput) ToSpotInstanceRequestEnclaveOptionsOutput() SpotInstanceRequestEnclaveOptionsOutput {
+	return o
+}
+
+func (o SpotInstanceRequestEnclaveOptionsOutput) ToSpotInstanceRequestEnclaveOptionsOutputWithContext(ctx context.Context) SpotInstanceRequestEnclaveOptionsOutput {
+	return o
+}
+
+func (o SpotInstanceRequestEnclaveOptionsOutput) ToSpotInstanceRequestEnclaveOptionsPtrOutput() SpotInstanceRequestEnclaveOptionsPtrOutput {
+	return o.ToSpotInstanceRequestEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SpotInstanceRequestEnclaveOptionsOutput) ToSpotInstanceRequestEnclaveOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestEnclaveOptions) *SpotInstanceRequestEnclaveOptions {
+		return &v
+	}).(SpotInstanceRequestEnclaveOptionsPtrOutput)
+}
+
+// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+func (o SpotInstanceRequestEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type SpotInstanceRequestEnclaveOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestEnclaveOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestEnclaveOptions)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestEnclaveOptionsPtrOutput) ToSpotInstanceRequestEnclaveOptionsPtrOutput() SpotInstanceRequestEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestEnclaveOptionsPtrOutput) ToSpotInstanceRequestEnclaveOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestEnclaveOptionsPtrOutput) Elem() SpotInstanceRequestEnclaveOptionsOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestEnclaveOptions) SpotInstanceRequestEnclaveOptions { return *v }).(SpotInstanceRequestEnclaveOptionsOutput)
+}
+
+// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+func (o SpotInstanceRequestEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestEnclaveOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type SpotInstanceRequestEphemeralBlockDevice struct {
@@ -10492,16 +11187,16 @@ type SpotInstanceRequestRootBlockDevice struct {
 	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
-	// using that type
+	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	VolumeId *string `pulumi:"volumeId"`
+	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+	Throughput *int    `pulumi:"throughput"`
+	VolumeId   *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -10525,16 +11220,16 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
-	// using that type
+	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	VolumeId pulumi.StringPtrInput `pulumi:"volumeId"`
+	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
+	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -10632,9 +11327,7 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutp
 }
 
 // The amount of provisioned
-// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
-// using that type
+// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 func (o SpotInstanceRequestRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -10642,6 +11335,11 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 // Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 func (o SpotInstanceRequestRootBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+func (o SpotInstanceRequestRootBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
 func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeId() pulumi.StringPtrOutput {
@@ -10653,7 +11351,7 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutp
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -10708,9 +11406,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrO
 }
 
 // The amount of provisioned
-// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
-// using that type
+// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *int {
 		if v == nil {
@@ -10728,6 +11424,16 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtr
 		}
 		return v.KmsKeyId
 	}).(pulumi.StringPtrOutput)
+}
+
+// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+func (o SpotInstanceRequestRootBlockDevicePtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeId() pulumi.StringPtrOutput {
@@ -10749,7 +11455,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *string {
 		if v == nil {
@@ -12577,6 +13283,8 @@ type GetInstanceEbsBlockDevice struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// The ID of the snapshot.
 	SnapshotId string `pulumi:"snapshotId"`
+	// The throughput of the volume, in MiB/s.
+	Throughput int    `pulumi:"throughput"`
 	VolumeId   string `pulumi:"volumeId"`
 	// The size of the volume, in GiB.
 	VolumeSize int `pulumi:"volumeSize"`
@@ -12607,6 +13315,8 @@ type GetInstanceEbsBlockDeviceArgs struct {
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// The ID of the snapshot.
 	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	// The throughput of the volume, in MiB/s.
+	Throughput pulumi.IntInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringInput `pulumi:"volumeId"`
 	// The size of the volume, in GiB.
 	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
@@ -12694,6 +13404,11 @@ func (o GetInstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceEbsBlockDevice) string { return v.SnapshotId }).(pulumi.StringOutput)
 }
 
+// The throughput of the volume, in MiB/s.
+func (o GetInstanceEbsBlockDeviceOutput) Throughput() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceEbsBlockDevice) int { return v.Throughput }).(pulumi.IntOutput)
+}
+
 func (o GetInstanceEbsBlockDeviceOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceEbsBlockDevice) string { return v.VolumeId }).(pulumi.StringOutput)
 }
@@ -12726,6 +13441,103 @@ func (o GetInstanceEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput) GetInstan
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceEbsBlockDevice {
 		return vs[0].([]GetInstanceEbsBlockDevice)[vs[1].(int)]
 	}).(GetInstanceEbsBlockDeviceOutput)
+}
+
+type GetInstanceEnclaveOption struct {
+	// Whether Nitro Enclaves are enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// GetInstanceEnclaveOptionInput is an input type that accepts GetInstanceEnclaveOptionArgs and GetInstanceEnclaveOptionOutput values.
+// You can construct a concrete instance of `GetInstanceEnclaveOptionInput` via:
+//
+//          GetInstanceEnclaveOptionArgs{...}
+type GetInstanceEnclaveOptionInput interface {
+	pulumi.Input
+
+	ToGetInstanceEnclaveOptionOutput() GetInstanceEnclaveOptionOutput
+	ToGetInstanceEnclaveOptionOutputWithContext(context.Context) GetInstanceEnclaveOptionOutput
+}
+
+type GetInstanceEnclaveOptionArgs struct {
+	// Whether Nitro Enclaves are enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (GetInstanceEnclaveOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceEnclaveOption)(nil)).Elem()
+}
+
+func (i GetInstanceEnclaveOptionArgs) ToGetInstanceEnclaveOptionOutput() GetInstanceEnclaveOptionOutput {
+	return i.ToGetInstanceEnclaveOptionOutputWithContext(context.Background())
+}
+
+func (i GetInstanceEnclaveOptionArgs) ToGetInstanceEnclaveOptionOutputWithContext(ctx context.Context) GetInstanceEnclaveOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceEnclaveOptionOutput)
+}
+
+// GetInstanceEnclaveOptionArrayInput is an input type that accepts GetInstanceEnclaveOptionArray and GetInstanceEnclaveOptionArrayOutput values.
+// You can construct a concrete instance of `GetInstanceEnclaveOptionArrayInput` via:
+//
+//          GetInstanceEnclaveOptionArray{ GetInstanceEnclaveOptionArgs{...} }
+type GetInstanceEnclaveOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceEnclaveOptionArrayOutput() GetInstanceEnclaveOptionArrayOutput
+	ToGetInstanceEnclaveOptionArrayOutputWithContext(context.Context) GetInstanceEnclaveOptionArrayOutput
+}
+
+type GetInstanceEnclaveOptionArray []GetInstanceEnclaveOptionInput
+
+func (GetInstanceEnclaveOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceEnclaveOption)(nil)).Elem()
+}
+
+func (i GetInstanceEnclaveOptionArray) ToGetInstanceEnclaveOptionArrayOutput() GetInstanceEnclaveOptionArrayOutput {
+	return i.ToGetInstanceEnclaveOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceEnclaveOptionArray) ToGetInstanceEnclaveOptionArrayOutputWithContext(ctx context.Context) GetInstanceEnclaveOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceEnclaveOptionArrayOutput)
+}
+
+type GetInstanceEnclaveOptionOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceEnclaveOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceEnclaveOption)(nil)).Elem()
+}
+
+func (o GetInstanceEnclaveOptionOutput) ToGetInstanceEnclaveOptionOutput() GetInstanceEnclaveOptionOutput {
+	return o
+}
+
+func (o GetInstanceEnclaveOptionOutput) ToGetInstanceEnclaveOptionOutputWithContext(ctx context.Context) GetInstanceEnclaveOptionOutput {
+	return o
+}
+
+// Whether Nitro Enclaves are enabled.
+func (o GetInstanceEnclaveOptionOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetInstanceEnclaveOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetInstanceEnclaveOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceEnclaveOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceEnclaveOption)(nil)).Elem()
+}
+
+func (o GetInstanceEnclaveOptionArrayOutput) ToGetInstanceEnclaveOptionArrayOutput() GetInstanceEnclaveOptionArrayOutput {
+	return o
+}
+
+func (o GetInstanceEnclaveOptionArrayOutput) ToGetInstanceEnclaveOptionArrayOutputWithContext(ctx context.Context) GetInstanceEnclaveOptionArrayOutput {
+	return o
+}
+
+func (o GetInstanceEnclaveOptionArrayOutput) Index(i pulumi.IntInput) GetInstanceEnclaveOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceEnclaveOption {
+		return vs[0].([]GetInstanceEnclaveOption)[vs[1].(int)]
+	}).(GetInstanceEnclaveOptionOutput)
 }
 
 type GetInstanceEphemeralBlockDevice struct {
@@ -13068,7 +13880,9 @@ type GetInstanceRootBlockDevice struct {
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
 	Iops     int    `pulumi:"iops"`
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	VolumeId string `pulumi:"volumeId"`
+	// The throughput of the volume, in MiB/s.
+	Throughput int    `pulumi:"throughput"`
+	VolumeId   string `pulumi:"volumeId"`
 	// The size of the volume, in GiB.
 	VolumeSize int `pulumi:"volumeSize"`
 	// The type of the volume.
@@ -13096,7 +13910,9 @@ type GetInstanceRootBlockDeviceArgs struct {
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
 	Iops     pulumi.IntInput    `pulumi:"iops"`
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
-	VolumeId pulumi.StringInput `pulumi:"volumeId"`
+	// The throughput of the volume, in MiB/s.
+	Throughput pulumi.IntInput    `pulumi:"throughput"`
+	VolumeId   pulumi.StringInput `pulumi:"volumeId"`
 	// The size of the volume, in GiB.
 	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
 	// The type of the volume.
@@ -13176,6 +13992,11 @@ func (o GetInstanceRootBlockDeviceOutput) Iops() pulumi.IntOutput {
 
 func (o GetInstanceRootBlockDeviceOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceRootBlockDevice) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// The throughput of the volume, in MiB/s.
+func (o GetInstanceRootBlockDeviceOutput) Throughput() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceRootBlockDevice) int { return v.Throughput }).(pulumi.IntOutput)
 }
 
 func (o GetInstanceRootBlockDeviceOutput) VolumeId() pulumi.StringOutput {
@@ -14450,6 +15271,121 @@ func (o GetLaunchConfigurationEphemeralBlockDeviceArrayOutput) Index(i pulumi.In
 	}).(GetLaunchConfigurationEphemeralBlockDeviceOutput)
 }
 
+type GetLaunchConfigurationMetadataOption struct {
+	// The state of the metadata service: `enabled`, `disabled`.
+	HttpEndpoint string `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests.
+	HttpPutResponseHopLimit int `pulumi:"httpPutResponseHopLimit"`
+	// If session tokens are required: `optional`, `required`.
+	HttpTokens string `pulumi:"httpTokens"`
+}
+
+// GetLaunchConfigurationMetadataOptionInput is an input type that accepts GetLaunchConfigurationMetadataOptionArgs and GetLaunchConfigurationMetadataOptionOutput values.
+// You can construct a concrete instance of `GetLaunchConfigurationMetadataOptionInput` via:
+//
+//          GetLaunchConfigurationMetadataOptionArgs{...}
+type GetLaunchConfigurationMetadataOptionInput interface {
+	pulumi.Input
+
+	ToGetLaunchConfigurationMetadataOptionOutput() GetLaunchConfigurationMetadataOptionOutput
+	ToGetLaunchConfigurationMetadataOptionOutputWithContext(context.Context) GetLaunchConfigurationMetadataOptionOutput
+}
+
+type GetLaunchConfigurationMetadataOptionArgs struct {
+	// The state of the metadata service: `enabled`, `disabled`.
+	HttpEndpoint pulumi.StringInput `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests.
+	HttpPutResponseHopLimit pulumi.IntInput `pulumi:"httpPutResponseHopLimit"`
+	// If session tokens are required: `optional`, `required`.
+	HttpTokens pulumi.StringInput `pulumi:"httpTokens"`
+}
+
+func (GetLaunchConfigurationMetadataOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchConfigurationMetadataOption)(nil)).Elem()
+}
+
+func (i GetLaunchConfigurationMetadataOptionArgs) ToGetLaunchConfigurationMetadataOptionOutput() GetLaunchConfigurationMetadataOptionOutput {
+	return i.ToGetLaunchConfigurationMetadataOptionOutputWithContext(context.Background())
+}
+
+func (i GetLaunchConfigurationMetadataOptionArgs) ToGetLaunchConfigurationMetadataOptionOutputWithContext(ctx context.Context) GetLaunchConfigurationMetadataOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchConfigurationMetadataOptionOutput)
+}
+
+// GetLaunchConfigurationMetadataOptionArrayInput is an input type that accepts GetLaunchConfigurationMetadataOptionArray and GetLaunchConfigurationMetadataOptionArrayOutput values.
+// You can construct a concrete instance of `GetLaunchConfigurationMetadataOptionArrayInput` via:
+//
+//          GetLaunchConfigurationMetadataOptionArray{ GetLaunchConfigurationMetadataOptionArgs{...} }
+type GetLaunchConfigurationMetadataOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchConfigurationMetadataOptionArrayOutput() GetLaunchConfigurationMetadataOptionArrayOutput
+	ToGetLaunchConfigurationMetadataOptionArrayOutputWithContext(context.Context) GetLaunchConfigurationMetadataOptionArrayOutput
+}
+
+type GetLaunchConfigurationMetadataOptionArray []GetLaunchConfigurationMetadataOptionInput
+
+func (GetLaunchConfigurationMetadataOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchConfigurationMetadataOption)(nil)).Elem()
+}
+
+func (i GetLaunchConfigurationMetadataOptionArray) ToGetLaunchConfigurationMetadataOptionArrayOutput() GetLaunchConfigurationMetadataOptionArrayOutput {
+	return i.ToGetLaunchConfigurationMetadataOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchConfigurationMetadataOptionArray) ToGetLaunchConfigurationMetadataOptionArrayOutputWithContext(ctx context.Context) GetLaunchConfigurationMetadataOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchConfigurationMetadataOptionArrayOutput)
+}
+
+type GetLaunchConfigurationMetadataOptionOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchConfigurationMetadataOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchConfigurationMetadataOption)(nil)).Elem()
+}
+
+func (o GetLaunchConfigurationMetadataOptionOutput) ToGetLaunchConfigurationMetadataOptionOutput() GetLaunchConfigurationMetadataOptionOutput {
+	return o
+}
+
+func (o GetLaunchConfigurationMetadataOptionOutput) ToGetLaunchConfigurationMetadataOptionOutputWithContext(ctx context.Context) GetLaunchConfigurationMetadataOptionOutput {
+	return o
+}
+
+// The state of the metadata service: `enabled`, `disabled`.
+func (o GetLaunchConfigurationMetadataOptionOutput) HttpEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchConfigurationMetadataOption) string { return v.HttpEndpoint }).(pulumi.StringOutput)
+}
+
+// The desired HTTP PUT response hop limit for instance metadata requests.
+func (o GetLaunchConfigurationMetadataOptionOutput) HttpPutResponseHopLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchConfigurationMetadataOption) int { return v.HttpPutResponseHopLimit }).(pulumi.IntOutput)
+}
+
+// If session tokens are required: `optional`, `required`.
+func (o GetLaunchConfigurationMetadataOptionOutput) HttpTokens() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchConfigurationMetadataOption) string { return v.HttpTokens }).(pulumi.StringOutput)
+}
+
+type GetLaunchConfigurationMetadataOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchConfigurationMetadataOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchConfigurationMetadataOption)(nil)).Elem()
+}
+
+func (o GetLaunchConfigurationMetadataOptionArrayOutput) ToGetLaunchConfigurationMetadataOptionArrayOutput() GetLaunchConfigurationMetadataOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchConfigurationMetadataOptionArrayOutput) ToGetLaunchConfigurationMetadataOptionArrayOutputWithContext(ctx context.Context) GetLaunchConfigurationMetadataOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchConfigurationMetadataOptionArrayOutput) Index(i pulumi.IntInput) GetLaunchConfigurationMetadataOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchConfigurationMetadataOption {
+		return vs[0].([]GetLaunchConfigurationMetadataOption)[vs[1].(int)]
+	}).(GetLaunchConfigurationMetadataOptionOutput)
+}
+
 type GetLaunchConfigurationRootBlockDevice struct {
 	// Whether the EBS Volume will be deleted on instance termination.
 	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
@@ -15017,6 +15953,103 @@ func (o GetLaunchTemplateElasticGpuSpecificationArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateElasticGpuSpecification {
 		return vs[0].([]GetLaunchTemplateElasticGpuSpecification)[vs[1].(int)]
 	}).(GetLaunchTemplateElasticGpuSpecificationOutput)
+}
+
+type GetLaunchTemplateEnclaveOption struct {
+	// Whether Nitro Enclaves are enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// GetLaunchTemplateEnclaveOptionInput is an input type that accepts GetLaunchTemplateEnclaveOptionArgs and GetLaunchTemplateEnclaveOptionOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateEnclaveOptionInput` via:
+//
+//          GetLaunchTemplateEnclaveOptionArgs{...}
+type GetLaunchTemplateEnclaveOptionInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateEnclaveOptionOutput() GetLaunchTemplateEnclaveOptionOutput
+	ToGetLaunchTemplateEnclaveOptionOutputWithContext(context.Context) GetLaunchTemplateEnclaveOptionOutput
+}
+
+type GetLaunchTemplateEnclaveOptionArgs struct {
+	// Whether Nitro Enclaves are enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (GetLaunchTemplateEnclaveOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateEnclaveOption)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateEnclaveOptionArgs) ToGetLaunchTemplateEnclaveOptionOutput() GetLaunchTemplateEnclaveOptionOutput {
+	return i.ToGetLaunchTemplateEnclaveOptionOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateEnclaveOptionArgs) ToGetLaunchTemplateEnclaveOptionOutputWithContext(ctx context.Context) GetLaunchTemplateEnclaveOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateEnclaveOptionOutput)
+}
+
+// GetLaunchTemplateEnclaveOptionArrayInput is an input type that accepts GetLaunchTemplateEnclaveOptionArray and GetLaunchTemplateEnclaveOptionArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateEnclaveOptionArrayInput` via:
+//
+//          GetLaunchTemplateEnclaveOptionArray{ GetLaunchTemplateEnclaveOptionArgs{...} }
+type GetLaunchTemplateEnclaveOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateEnclaveOptionArrayOutput() GetLaunchTemplateEnclaveOptionArrayOutput
+	ToGetLaunchTemplateEnclaveOptionArrayOutputWithContext(context.Context) GetLaunchTemplateEnclaveOptionArrayOutput
+}
+
+type GetLaunchTemplateEnclaveOptionArray []GetLaunchTemplateEnclaveOptionInput
+
+func (GetLaunchTemplateEnclaveOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateEnclaveOption)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateEnclaveOptionArray) ToGetLaunchTemplateEnclaveOptionArrayOutput() GetLaunchTemplateEnclaveOptionArrayOutput {
+	return i.ToGetLaunchTemplateEnclaveOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateEnclaveOptionArray) ToGetLaunchTemplateEnclaveOptionArrayOutputWithContext(ctx context.Context) GetLaunchTemplateEnclaveOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateEnclaveOptionArrayOutput)
+}
+
+type GetLaunchTemplateEnclaveOptionOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateEnclaveOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateEnclaveOption)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateEnclaveOptionOutput) ToGetLaunchTemplateEnclaveOptionOutput() GetLaunchTemplateEnclaveOptionOutput {
+	return o
+}
+
+func (o GetLaunchTemplateEnclaveOptionOutput) ToGetLaunchTemplateEnclaveOptionOutputWithContext(ctx context.Context) GetLaunchTemplateEnclaveOptionOutput {
+	return o
+}
+
+// Whether Nitro Enclaves are enabled.
+func (o GetLaunchTemplateEnclaveOptionOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLaunchTemplateEnclaveOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetLaunchTemplateEnclaveOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateEnclaveOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateEnclaveOption)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateEnclaveOptionArrayOutput) ToGetLaunchTemplateEnclaveOptionArrayOutput() GetLaunchTemplateEnclaveOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateEnclaveOptionArrayOutput) ToGetLaunchTemplateEnclaveOptionArrayOutputWithContext(ctx context.Context) GetLaunchTemplateEnclaveOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateEnclaveOptionArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateEnclaveOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateEnclaveOption {
+		return vs[0].([]GetLaunchTemplateEnclaveOption)[vs[1].(int)]
+	}).(GetLaunchTemplateEnclaveOptionOutput)
 }
 
 type GetLaunchTemplateFilter struct {
@@ -15661,6 +16694,7 @@ func (o GetLaunchTemplateMetadataOptionArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetLaunchTemplateMonitoring struct {
+	// Whether Nitro Enclaves are enabled.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -15676,6 +16710,7 @@ type GetLaunchTemplateMonitoringInput interface {
 }
 
 type GetLaunchTemplateMonitoringArgs struct {
+	// Whether Nitro Enclaves are enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -15730,6 +16765,7 @@ func (o GetLaunchTemplateMonitoringOutput) ToGetLaunchTemplateMonitoringOutputWi
 	return o
 }
 
+// Whether Nitro Enclaves are enabled.
 func (o GetLaunchTemplateMonitoringOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLaunchTemplateMonitoring) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -16922,6 +17958,212 @@ func (o GetLocalGatewaysFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGate
 	}).(GetLocalGatewaysFilterOutput)
 }
 
+type GetManagedPrefixListEntry struct {
+	Cidr        string `pulumi:"cidr"`
+	Description string `pulumi:"description"`
+}
+
+// GetManagedPrefixListEntryInput is an input type that accepts GetManagedPrefixListEntryArgs and GetManagedPrefixListEntryOutput values.
+// You can construct a concrete instance of `GetManagedPrefixListEntryInput` via:
+//
+//          GetManagedPrefixListEntryArgs{...}
+type GetManagedPrefixListEntryInput interface {
+	pulumi.Input
+
+	ToGetManagedPrefixListEntryOutput() GetManagedPrefixListEntryOutput
+	ToGetManagedPrefixListEntryOutputWithContext(context.Context) GetManagedPrefixListEntryOutput
+}
+
+type GetManagedPrefixListEntryArgs struct {
+	Cidr        pulumi.StringInput `pulumi:"cidr"`
+	Description pulumi.StringInput `pulumi:"description"`
+}
+
+func (GetManagedPrefixListEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedPrefixListEntry)(nil)).Elem()
+}
+
+func (i GetManagedPrefixListEntryArgs) ToGetManagedPrefixListEntryOutput() GetManagedPrefixListEntryOutput {
+	return i.ToGetManagedPrefixListEntryOutputWithContext(context.Background())
+}
+
+func (i GetManagedPrefixListEntryArgs) ToGetManagedPrefixListEntryOutputWithContext(ctx context.Context) GetManagedPrefixListEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedPrefixListEntryOutput)
+}
+
+// GetManagedPrefixListEntryArrayInput is an input type that accepts GetManagedPrefixListEntryArray and GetManagedPrefixListEntryArrayOutput values.
+// You can construct a concrete instance of `GetManagedPrefixListEntryArrayInput` via:
+//
+//          GetManagedPrefixListEntryArray{ GetManagedPrefixListEntryArgs{...} }
+type GetManagedPrefixListEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedPrefixListEntryArrayOutput() GetManagedPrefixListEntryArrayOutput
+	ToGetManagedPrefixListEntryArrayOutputWithContext(context.Context) GetManagedPrefixListEntryArrayOutput
+}
+
+type GetManagedPrefixListEntryArray []GetManagedPrefixListEntryInput
+
+func (GetManagedPrefixListEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedPrefixListEntry)(nil)).Elem()
+}
+
+func (i GetManagedPrefixListEntryArray) ToGetManagedPrefixListEntryArrayOutput() GetManagedPrefixListEntryArrayOutput {
+	return i.ToGetManagedPrefixListEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedPrefixListEntryArray) ToGetManagedPrefixListEntryArrayOutputWithContext(ctx context.Context) GetManagedPrefixListEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedPrefixListEntryArrayOutput)
+}
+
+type GetManagedPrefixListEntryOutput struct{ *pulumi.OutputState }
+
+func (GetManagedPrefixListEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedPrefixListEntry)(nil)).Elem()
+}
+
+func (o GetManagedPrefixListEntryOutput) ToGetManagedPrefixListEntryOutput() GetManagedPrefixListEntryOutput {
+	return o
+}
+
+func (o GetManagedPrefixListEntryOutput) ToGetManagedPrefixListEntryOutputWithContext(ctx context.Context) GetManagedPrefixListEntryOutput {
+	return o
+}
+
+func (o GetManagedPrefixListEntryOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedPrefixListEntry) string { return v.Cidr }).(pulumi.StringOutput)
+}
+
+func (o GetManagedPrefixListEntryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedPrefixListEntry) string { return v.Description }).(pulumi.StringOutput)
+}
+
+type GetManagedPrefixListEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedPrefixListEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedPrefixListEntry)(nil)).Elem()
+}
+
+func (o GetManagedPrefixListEntryArrayOutput) ToGetManagedPrefixListEntryArrayOutput() GetManagedPrefixListEntryArrayOutput {
+	return o
+}
+
+func (o GetManagedPrefixListEntryArrayOutput) ToGetManagedPrefixListEntryArrayOutputWithContext(ctx context.Context) GetManagedPrefixListEntryArrayOutput {
+	return o
+}
+
+func (o GetManagedPrefixListEntryArrayOutput) Index(i pulumi.IntInput) GetManagedPrefixListEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedPrefixListEntry {
+		return vs[0].([]GetManagedPrefixListEntry)[vs[1].(int)]
+	}).(GetManagedPrefixListEntryOutput)
+}
+
+type GetManagedPrefixListFilter struct {
+	// The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetManagedPrefixListFilterInput is an input type that accepts GetManagedPrefixListFilterArgs and GetManagedPrefixListFilterOutput values.
+// You can construct a concrete instance of `GetManagedPrefixListFilterInput` via:
+//
+//          GetManagedPrefixListFilterArgs{...}
+type GetManagedPrefixListFilterInput interface {
+	pulumi.Input
+
+	ToGetManagedPrefixListFilterOutput() GetManagedPrefixListFilterOutput
+	ToGetManagedPrefixListFilterOutputWithContext(context.Context) GetManagedPrefixListFilterOutput
+}
+
+type GetManagedPrefixListFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetManagedPrefixListFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedPrefixListFilter)(nil)).Elem()
+}
+
+func (i GetManagedPrefixListFilterArgs) ToGetManagedPrefixListFilterOutput() GetManagedPrefixListFilterOutput {
+	return i.ToGetManagedPrefixListFilterOutputWithContext(context.Background())
+}
+
+func (i GetManagedPrefixListFilterArgs) ToGetManagedPrefixListFilterOutputWithContext(ctx context.Context) GetManagedPrefixListFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedPrefixListFilterOutput)
+}
+
+// GetManagedPrefixListFilterArrayInput is an input type that accepts GetManagedPrefixListFilterArray and GetManagedPrefixListFilterArrayOutput values.
+// You can construct a concrete instance of `GetManagedPrefixListFilterArrayInput` via:
+//
+//          GetManagedPrefixListFilterArray{ GetManagedPrefixListFilterArgs{...} }
+type GetManagedPrefixListFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedPrefixListFilterArrayOutput() GetManagedPrefixListFilterArrayOutput
+	ToGetManagedPrefixListFilterArrayOutputWithContext(context.Context) GetManagedPrefixListFilterArrayOutput
+}
+
+type GetManagedPrefixListFilterArray []GetManagedPrefixListFilterInput
+
+func (GetManagedPrefixListFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedPrefixListFilter)(nil)).Elem()
+}
+
+func (i GetManagedPrefixListFilterArray) ToGetManagedPrefixListFilterArrayOutput() GetManagedPrefixListFilterArrayOutput {
+	return i.ToGetManagedPrefixListFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedPrefixListFilterArray) ToGetManagedPrefixListFilterArrayOutputWithContext(ctx context.Context) GetManagedPrefixListFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedPrefixListFilterArrayOutput)
+}
+
+type GetManagedPrefixListFilterOutput struct{ *pulumi.OutputState }
+
+func (GetManagedPrefixListFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedPrefixListFilter)(nil)).Elem()
+}
+
+func (o GetManagedPrefixListFilterOutput) ToGetManagedPrefixListFilterOutput() GetManagedPrefixListFilterOutput {
+	return o
+}
+
+func (o GetManagedPrefixListFilterOutput) ToGetManagedPrefixListFilterOutputWithContext(ctx context.Context) GetManagedPrefixListFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+func (o GetManagedPrefixListFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedPrefixListFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetManagedPrefixListFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedPrefixListFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetManagedPrefixListFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedPrefixListFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedPrefixListFilter)(nil)).Elem()
+}
+
+func (o GetManagedPrefixListFilterArrayOutput) ToGetManagedPrefixListFilterArrayOutput() GetManagedPrefixListFilterArrayOutput {
+	return o
+}
+
+func (o GetManagedPrefixListFilterArrayOutput) ToGetManagedPrefixListFilterArrayOutputWithContext(ctx context.Context) GetManagedPrefixListFilterArrayOutput {
+	return o
+}
+
+func (o GetManagedPrefixListFilterArrayOutput) Index(i pulumi.IntInput) GetManagedPrefixListFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedPrefixListFilter {
+		return vs[0].([]GetManagedPrefixListFilter)[vs[1].(int)]
+	}).(GetManagedPrefixListFilterOutput)
+}
+
 type GetNatGatewayFilter struct {
 	// The name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
@@ -17151,6 +18393,10 @@ type GetNetworkInterfaceAssociation struct {
 	AllocationId string `pulumi:"allocationId"`
 	// The association ID.
 	AssociationId string `pulumi:"associationId"`
+	// The carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
+	CarrierIp string `pulumi:"carrierIp"`
+	// The customer-owned IP address.
+	CustomerOwnedIp string `pulumi:"customerOwnedIp"`
 	// The ID of the Elastic IP address owner.
 	IpOwnerId string `pulumi:"ipOwnerId"`
 	// The public DNS name.
@@ -17175,6 +18421,10 @@ type GetNetworkInterfaceAssociationArgs struct {
 	AllocationId pulumi.StringInput `pulumi:"allocationId"`
 	// The association ID.
 	AssociationId pulumi.StringInput `pulumi:"associationId"`
+	// The carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
+	CarrierIp pulumi.StringInput `pulumi:"carrierIp"`
+	// The customer-owned IP address.
+	CustomerOwnedIp pulumi.StringInput `pulumi:"customerOwnedIp"`
 	// The ID of the Elastic IP address owner.
 	IpOwnerId pulumi.StringInput `pulumi:"ipOwnerId"`
 	// The public DNS name.
@@ -17242,6 +18492,16 @@ func (o GetNetworkInterfaceAssociationOutput) AllocationId() pulumi.StringOutput
 // The association ID.
 func (o GetNetworkInterfaceAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceAssociation) string { return v.AssociationId }).(pulumi.StringOutput)
+}
+
+// The carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
+func (o GetNetworkInterfaceAssociationOutput) CarrierIp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkInterfaceAssociation) string { return v.CarrierIp }).(pulumi.StringOutput)
+}
+
+// The customer-owned IP address.
+func (o GetNetworkInterfaceAssociationOutput) CustomerOwnedIp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkInterfaceAssociation) string { return v.CustomerOwnedIp }).(pulumi.StringOutput)
 }
 
 // The ID of the Elastic IP address owner.
@@ -19843,6 +21103,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceCreditSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceEbsBlockDeviceOutput{})
 	pulumi.RegisterOutputType(InstanceEbsBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(InstanceEnclaveOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceEnclaveOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceOutput{})
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(InstanceMetadataOptionsOutput{})
@@ -19855,6 +21117,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchConfigurationEbsBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationEphemeralBlockDeviceOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationEphemeralBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationMetadataOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationRootBlockDeviceOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationRootBlockDevicePtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateBlockDeviceMappingOutput{})
@@ -19873,6 +21137,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateElasticInferenceAcceleratorOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateElasticInferenceAcceleratorPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateHibernationOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateHibernationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateIamInstanceProfileOutput{})
@@ -19893,6 +21159,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplatePlacementPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(ManagedPrefixListEntryOutput{})
+	pulumi.RegisterOutputType(ManagedPrefixListEntryArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAclEgressOutput{})
 	pulumi.RegisterOutputType(NetworkAclEgressArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAclIngressOutput{})
@@ -19930,6 +21198,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotInstanceRequestCreditSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestEbsBlockDeviceOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestEbsBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestEnclaveOptionsOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestEnclaveOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestEphemeralBlockDeviceOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestMetadataOptionsOutput{})
@@ -19966,6 +21236,8 @@ func init() {
 	pulumi.RegisterOutputType(GetInstanceCreditSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceEbsBlockDeviceOutput{})
 	pulumi.RegisterOutputType(GetInstanceEbsBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceEnclaveOptionOutput{})
+	pulumi.RegisterOutputType(GetInstanceEnclaveOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceEphemeralBlockDeviceOutput{})
 	pulumi.RegisterOutputType(GetInstanceEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceFilterOutput{})
@@ -19996,6 +21268,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLaunchConfigurationEbsBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchConfigurationEphemeralBlockDeviceOutput{})
 	pulumi.RegisterOutputType(GetLaunchConfigurationEphemeralBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchConfigurationMetadataOptionOutput{})
+	pulumi.RegisterOutputType(GetLaunchConfigurationMetadataOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchConfigurationRootBlockDeviceOutput{})
 	pulumi.RegisterOutputType(GetLaunchConfigurationRootBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateBlockDeviceMappingOutput{})
@@ -20006,6 +21280,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLaunchTemplateCreditSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateElasticGpuSpecificationOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateElasticGpuSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateEnclaveOptionOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateEnclaveOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateFilterOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateHibernationOptionOutput{})
@@ -20040,6 +21316,10 @@ func init() {
 	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetLocalGatewaysFilterOutput{})
 	pulumi.RegisterOutputType(GetLocalGatewaysFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedPrefixListEntryOutput{})
+	pulumi.RegisterOutputType(GetManagedPrefixListEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedPrefixListFilterOutput{})
+	pulumi.RegisterOutputType(GetManagedPrefixListFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkAclsFilterOutput{})

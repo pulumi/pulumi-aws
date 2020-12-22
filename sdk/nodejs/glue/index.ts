@@ -18,6 +18,7 @@ export * from "./mltransform";
 export * from "./partition";
 export * from "./registry";
 export * from "./resourcePolicy";
+export * from "./schema";
 export * from "./securityConfiguration";
 export * from "./trigger";
 export * from "./userDefinedFunction";
@@ -36,6 +37,7 @@ import { MLTransform } from "./mltransform";
 import { Partition } from "./partition";
 import { Registry } from "./registry";
 import { ResourcePolicy } from "./resourcePolicy";
+import { Schema } from "./schema";
 import { SecurityConfiguration } from "./securityConfiguration";
 import { Trigger } from "./trigger";
 import { UserDefinedFunction } from "./userDefinedFunction";
@@ -69,6 +71,8 @@ const _module = {
                 return new Registry(name, <any>undefined, { urn })
             case "aws:glue/resourcePolicy:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
+            case "aws:glue/schema:Schema":
+                return new Schema(name, <any>undefined, { urn })
             case "aws:glue/securityConfiguration:SecurityConfiguration":
                 return new SecurityConfiguration(name, <any>undefined, { urn })
             case "aws:glue/trigger:Trigger":
@@ -94,6 +98,7 @@ pulumi.runtime.registerResourceModule("aws", "glue/mLTransform", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/partition", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/registry", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/resourcePolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "glue/schema", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/securityConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/trigger", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/userDefinedFunction", _module)

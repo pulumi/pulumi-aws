@@ -103,7 +103,9 @@ type LookupLaunchTemplateResult struct {
 	// The elastic GPU to attach to the instance. See Elastic GPU
 	// below for more details.
 	ElasticGpuSpecifications []GetLaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
-	Filters                  []GetLaunchTemplateFilter                  `pulumi:"filters"`
+	// The enclave options of the Instance.
+	EnclaveOptions []GetLaunchTemplateEnclaveOption `pulumi:"enclaveOptions"`
+	Filters        []GetLaunchTemplateFilter        `pulumi:"filters"`
 	// The hibernation options for the instance.
 	HibernationOptions []GetLaunchTemplateHibernationOption `pulumi:"hibernationOptions"`
 	// The IAM Instance Profile to launch the instance with. See Instance Profile

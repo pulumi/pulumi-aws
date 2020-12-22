@@ -314,6 +314,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> KeyName { get; private set; } = null!;
 
         /// <summary>
+        /// The metadata options for the instance.
+        /// </summary>
+        [Output("metadataOptions")]
+        public Output<Outputs.LaunchConfigurationMetadataOptions> MetadataOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the launch configuration. If you leave
         /// this blank, this provider will auto-generate a unique name.
         /// </summary>
@@ -494,6 +500,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? KeyName { get; set; }
 
         /// <summary>
+        /// The metadata options for the instance.
+        /// </summary>
+        [Input("metadataOptions")]
+        public Input<Inputs.LaunchConfigurationMetadataOptionsArgs>? MetadataOptions { get; set; }
+
+        /// <summary>
         /// The name of the launch configuration. If you leave
         /// this blank, this provider will auto-generate a unique name.
         /// </summary>
@@ -651,6 +663,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
+
+        /// <summary>
+        /// The metadata options for the instance.
+        /// </summary>
+        [Input("metadataOptions")]
+        public Input<Inputs.LaunchConfigurationMetadataOptionsGetArgs>? MetadataOptions { get; set; }
 
         /// <summary>
         /// The name of the launch configuration. If you leave

@@ -37,6 +37,9 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// The Snapshot ID to mount.
         /// </summary>
         public readonly string? SnapshotId;
+        /// <summary>
+        /// The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
+        /// </summary>
         public readonly int? Throughput;
         /// <summary>
         /// The size of the volume in gigabytes.

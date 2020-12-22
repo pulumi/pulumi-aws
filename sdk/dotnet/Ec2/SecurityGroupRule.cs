@@ -54,8 +54,10 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// ## Usage with prefix list IDs
     /// 
-    /// Prefix list IDs are managed by AWS internally. Prefix list IDs
-    /// are associated with a prefix list name, or service name, that is linked to a specific region.
+    /// Prefix Lists are either managed by AWS internally, or created by the customer using a
+    /// Managed Prefix List resource. Prefix Lists provided by
+    /// AWS are associated with a prefix list name, or service name, that is linked to a specific region.
+    /// 
     /// Prefix list IDs are exported on VPC Endpoints, so you can use this format:
     /// 
     /// ```csharp
@@ -87,6 +89,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// You can also find a specific Prefix List using the `aws.getPrefixList` data source.
     /// 
     /// ## Import
     /// 
@@ -153,8 +157,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> Ipv6CidrBlocks { get; private set; } = null!;
 
         /// <summary>
-        /// List of prefix list IDs (for allowing access to VPC endpoints).
-        /// Only valid with `egress`.
+        /// List of Prefix List IDs.
         /// </summary>
         [Output("prefixListIds")]
         public Output<ImmutableArray<string>> PrefixListIds { get; private set; } = null!;
@@ -284,8 +287,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _prefixListIds;
 
         /// <summary>
-        /// List of prefix list IDs (for allowing access to VPC endpoints).
-        /// Only valid with `egress`.
+        /// List of Prefix List IDs.
         /// </summary>
         public InputList<string> PrefixListIds
         {
@@ -379,8 +381,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _prefixListIds;
 
         /// <summary>
-        /// List of prefix list IDs (for allowing access to VPC endpoints).
-        /// Only valid with `egress`.
+        /// List of Prefix List IDs.
         /// </summary>
         public InputList<string> PrefixListIds
         {

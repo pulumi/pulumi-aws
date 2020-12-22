@@ -16,6 +16,7 @@ from .ml_transform import *
 from .partition import *
 from .registry import *
 from .resource_policy import *
+from .schema import *
 from .security_configuration import *
 from .trigger import *
 from .user_defined_function import *
@@ -59,6 +60,8 @@ def _register_module():
                 return Registry(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:glue/resourcePolicy:ResourcePolicy":
                 return ResourcePolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:glue/schema:Schema":
+                return Schema(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:glue/securityConfiguration:SecurityConfiguration":
                 return SecurityConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:glue/trigger:Trigger":
@@ -84,6 +87,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("aws", "glue/partition", _module_instance)
     pulumi.runtime.register_resource_module("aws", "glue/registry", _module_instance)
     pulumi.runtime.register_resource_module("aws", "glue/resourcePolicy", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "glue/schema", _module_instance)
     pulumi.runtime.register_resource_module("aws", "glue/securityConfiguration", _module_instance)
     pulumi.runtime.register_resource_module("aws", "glue/trigger", _module_instance)
     pulumi.runtime.register_resource_module("aws", "glue/userDefinedFunction", _module_instance)

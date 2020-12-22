@@ -21,7 +21,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
+    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, enclave_options=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
         if ami and not isinstance(ami, str):
             raise TypeError("Expected argument 'ami' to be a str")
         pulumi.set(__self__, "ami", ami)
@@ -46,6 +46,9 @@ class GetInstanceResult:
         if ebs_optimized and not isinstance(ebs_optimized, bool):
             raise TypeError("Expected argument 'ebs_optimized' to be a bool")
         pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+        if enclave_options and not isinstance(enclave_options, list):
+            raise TypeError("Expected argument 'enclave_options' to be a list")
+        pulumi.set(__self__, "enclave_options", enclave_options)
         if ephemeral_block_devices and not isinstance(ephemeral_block_devices, list):
             raise TypeError("Expected argument 'ephemeral_block_devices' to be a list")
         pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
@@ -203,6 +206,14 @@ class GetInstanceResult:
         Whether the Instance is EBS optimized or not (Boolean).
         """
         return pulumi.get(self, "ebs_optimized")
+
+    @property
+    @pulumi.getter(name="enclaveOptions")
+    def enclave_options(self) -> Sequence['outputs.GetInstanceEnclaveOptionResult']:
+        """
+        The enclave options of the Instance.
+        """
+        return pulumi.get(self, "enclave_options")
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
@@ -466,6 +477,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             disable_api_termination=self.disable_api_termination,
             ebs_block_devices=self.ebs_block_devices,
             ebs_optimized=self.ebs_optimized,
+            enclave_options=self.enclave_options,
             ephemeral_block_devices=self.ephemeral_block_devices,
             filters=self.filters,
             get_password_data=self.get_password_data,
@@ -563,6 +575,7 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
         disable_api_termination=__ret__.disable_api_termination,
         ebs_block_devices=__ret__.ebs_block_devices,
         ebs_optimized=__ret__.ebs_optimized,
+        enclave_options=__ret__.enclave_options,
         ephemeral_block_devices=__ret__.ephemeral_block_devices,
         filters=__ret__.filters,
         get_password_data=__ret__.get_password_data,

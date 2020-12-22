@@ -62,7 +62,8 @@ type LookupGroupResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the associated launch configuration.
-	LaunchConfiguration string `pulumi:"launchConfiguration"`
+	LaunchConfiguration string                   `pulumi:"launchConfiguration"`
+	LaunchTemplates     []GetGroupLaunchTemplate `pulumi:"launchTemplates"`
 	// One or more load balancers associated with the group.
 	LoadBalancers []string `pulumi:"loadBalancers"`
 	// The maximum size of the group.

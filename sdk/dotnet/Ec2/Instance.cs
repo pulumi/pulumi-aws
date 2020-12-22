@@ -143,6 +143,12 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> EbsOptimized { get; private set; } = null!;
 
         /// <summary>
+        /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        /// </summary>
+        [Output("enclaveOptions")]
+        public Output<Outputs.InstanceEnclaveOptions> EnclaveOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Customize Ephemeral (also known as
         /// "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
@@ -469,6 +475,12 @@ namespace Pulumi.Aws.Ec2
         [Input("ebsOptimized")]
         public Input<bool>? EbsOptimized { get; set; }
 
+        /// <summary>
+        /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        /// </summary>
+        [Input("enclaveOptions")]
+        public Input<Inputs.InstanceEnclaveOptionsArgs>? EnclaveOptions { get; set; }
+
         [Input("ephemeralBlockDevices")]
         private InputList<Inputs.InstanceEphemeralBlockDeviceArgs>? _ephemeralBlockDevices;
 
@@ -762,6 +774,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ebsOptimized")]
         public Input<bool>? EbsOptimized { get; set; }
+
+        /// <summary>
+        /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        /// </summary>
+        [Input("enclaveOptions")]
+        public Input<Inputs.InstanceEnclaveOptionsGetArgs>? EnclaveOptions { get; set; }
 
         [Input("ephemeralBlockDevices")]
         private InputList<Inputs.InstanceEphemeralBlockDeviceGetArgs>? _ephemeralBlockDevices;

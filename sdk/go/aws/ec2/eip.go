@@ -192,6 +192,8 @@ type Eip struct {
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp pulumi.StringPtrOutput `pulumi:"associateWithPrivateIp"`
 	AssociationId          pulumi.StringOutput    `pulumi:"associationId"`
+	// The carrier IP address.
+	CarrierIp pulumi.StringOutput `pulumi:"carrierIp"`
 	// Customer owned IP.
 	CustomerOwnedIp pulumi.StringOutput `pulumi:"customerOwnedIp"`
 	// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
@@ -255,6 +257,8 @@ type eipState struct {
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp *string `pulumi:"associateWithPrivateIp"`
 	AssociationId          *string `pulumi:"associationId"`
+	// The carrier IP address.
+	CarrierIp *string `pulumi:"carrierIp"`
 	// Customer owned IP.
 	CustomerOwnedIp *string `pulumi:"customerOwnedIp"`
 	// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
@@ -290,6 +294,8 @@ type EipState struct {
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp pulumi.StringPtrInput
 	AssociationId          pulumi.StringPtrInput
+	// The carrier IP address.
+	CarrierIp pulumi.StringPtrInput
 	// Customer owned IP.
 	CustomerOwnedIp pulumi.StringPtrInput
 	// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)

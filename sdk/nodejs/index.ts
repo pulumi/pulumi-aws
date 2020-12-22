@@ -59,6 +59,7 @@ import * as codebuild from "./codebuild";
 import * as codecommit from "./codecommit";
 import * as codedeploy from "./codedeploy";
 import * as codepipeline from "./codepipeline";
+import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
 import * as cognito from "./cognito";
 import * as config from "./config";
@@ -103,6 +104,7 @@ import * as iot from "./iot";
 import * as kinesis from "./kinesis";
 import * as kinesisanalyticsv2 from "./kinesisanalyticsv2";
 import * as kms from "./kms";
+import * as lakeformation from "./lakeformation";
 import * as lambda from "./lambda";
 import * as lb from "./lb";
 import * as lex from "./lex";
@@ -135,6 +137,7 @@ import * as sagemaker from "./sagemaker";
 import * as secretsmanager from "./secretsmanager";
 import * as securityhub from "./securityhub";
 import * as serverless from "./serverless";
+import * as serverlessrepository from "./serverlessrepository";
 import * as servicecatalog from "./servicecatalog";
 import * as servicediscovery from "./servicediscovery";
 import * as servicequotas from "./servicequotas";
@@ -186,6 +189,7 @@ export {
     codecommit,
     codedeploy,
     codepipeline,
+    codestarconnections,
     codestarnotifications,
     cognito,
     config,
@@ -230,6 +234,7 @@ export {
     kinesis,
     kinesisanalyticsv2,
     kms,
+    lakeformation,
     lambda,
     lb,
     lex,
@@ -262,6 +267,7 @@ export {
     secretsmanager,
     securityhub,
     serverless,
+    serverlessrepository,
     servicecatalog,
     servicediscovery,
     servicequotas,

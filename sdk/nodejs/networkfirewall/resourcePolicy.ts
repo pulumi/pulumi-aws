@@ -18,7 +18,12 @@ import * as utilities from "../utilities";
  *     resourceArn: aws_networkfirewall_firewall_policy.example.arn,
  *     policy: JSON.stringify({
  *         Statement: [{
- *             Action: "network-firewall:ListFirewallPolicies",
+ *             Action: [
+ *                 "network-firewall:ListFirewallPolicies",
+ *                 "network-firewall:CreateFirewall",
+ *                 "network-firewall:UpdateFirewall",
+ *                 "network-firewall:AssociateFirewallPolicy",
+ *             ],
  *             Effect: "Allow",
  *             Resource: aws_networkfirewall_firewall_policy.example.arn,
  *             Principal: {
@@ -39,7 +44,11 @@ import * as utilities from "../utilities";
  *     resourceArn: aws_networkfirewall_rule_group.example.arn,
  *     policy: JSON.stringify({
  *         Statement: [{
- *             Action: "network-firewall:ListRuleGroups",
+ *             Action: [
+ *                 "network-firewall:ListRuleGroups",
+ *                 "network-firewall:CreateFirewallPolicy",
+ *                 "network-firewall:UpdateFirewallPolicy",
+ *             ],
  *             Effect: "Allow",
  *             Resource: aws_networkfirewall_rule_group.example.arn,
  *             Principal: {

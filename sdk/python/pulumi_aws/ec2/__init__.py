@@ -10,6 +10,7 @@ from .ami_from_instance import *
 from .ami_launch_permission import *
 from .availability_zone_group import *
 from .capacity_reservation import *
+from .carrier_gateway import *
 from .customer_gateway import *
 from .dedicated_host import *
 from .default_network_acl import *
@@ -42,6 +43,7 @@ from .get_local_gateway_virtual_interface import *
 from .get_local_gateway_virtual_interface_group import *
 from .get_local_gateway_virtual_interface_groups import *
 from .get_local_gateways import *
+from .get_managed_prefix_list import *
 from .get_nat_gateway import *
 from .get_network_acls import *
 from .get_network_interface import *
@@ -70,6 +72,7 @@ from .launch_template import *
 from .local_gateway_route import *
 from .local_gateway_route_table_vpc_association import *
 from .main_route_table_association import *
+from .managed_prefix_list import *
 from .nat_gateway import *
 from .network_acl import *
 from .network_acl_rule import *
@@ -140,6 +143,8 @@ def _register_module():
                 return AvailabilityZoneGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ec2/capacityReservation:CapacityReservation":
                 return CapacityReservation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ec2/carrierGateway:CarrierGateway":
+                return CarrierGateway(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ec2/customerGateway:CustomerGateway":
                 return CustomerGateway(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ec2/dedicatedHost:DedicatedHost":
@@ -182,6 +187,8 @@ def _register_module():
                 return LocalGatewayRouteTableVpcAssociation(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation":
                 return MainRouteTableAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ec2/managedPrefixList:ManagedPrefixList":
+                return ManagedPrefixList(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ec2/natGateway:NatGateway":
                 return NatGateway(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ec2/networkAcl:NetworkAcl":
@@ -279,6 +286,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("aws", "ec2/amiLaunchPermission", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/availabilityZoneGroup", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/capacityReservation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ec2/carrierGateway", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/customerGateway", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/dedicatedHost", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/defaultNetworkAcl", _module_instance)
@@ -300,6 +308,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("aws", "ec2/localGatewayRoute", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/localGatewayRouteTableVpcAssociation", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/mainRouteTableAssociation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ec2/managedPrefixList", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/natGateway", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/networkAcl", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2/networkAclRule", _module_instance)

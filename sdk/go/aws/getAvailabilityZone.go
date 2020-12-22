@@ -51,13 +51,21 @@ type GetAvailabilityZoneResult struct {
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
+	// For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
+	// For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
 	NameSuffix string `pulumi:"nameSuffix"`
 	// The name of the location from which the address is advertised.
 	NetworkBorderGroup string `pulumi:"networkBorderGroup"`
 	// For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
 	OptInStatus string `pulumi:"optInStatus"`
+	// The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+	ParentZoneId string `pulumi:"parentZoneId"`
+	// The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+	ParentZoneName string `pulumi:"parentZoneName"`
 	// The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
 	Region string `pulumi:"region"`
 	State  string `pulumi:"state"`
 	ZoneId string `pulumi:"zoneId"`
+	// The type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
+	ZoneType string `pulumi:"zoneType"`
 }

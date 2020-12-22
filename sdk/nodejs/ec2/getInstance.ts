@@ -116,6 +116,10 @@ export interface GetInstanceResult {
      */
     readonly ebsOptimized: boolean;
     /**
+     * The enclave options of the Instance.
+     */
+    readonly enclaveOptions: outputs.ec2.GetInstanceEnclaveOption[];
+    /**
      * The ephemeral block device mappings of the Instance.
      */
     readonly ephemeralBlockDevices: outputs.ec2.GetInstanceEphemeralBlockDevice[];

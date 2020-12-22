@@ -21,7 +21,7 @@ class GetAvailabilityZoneResult:
     """
     A collection of values returned by getAvailabilityZone.
     """
-    def __init__(__self__, all_availability_zones=None, filters=None, group_name=None, id=None, name=None, name_suffix=None, network_border_group=None, opt_in_status=None, region=None, state=None, zone_id=None):
+    def __init__(__self__, all_availability_zones=None, filters=None, group_name=None, id=None, name=None, name_suffix=None, network_border_group=None, opt_in_status=None, parent_zone_id=None, parent_zone_name=None, region=None, state=None, zone_id=None, zone_type=None):
         if all_availability_zones and not isinstance(all_availability_zones, bool):
             raise TypeError("Expected argument 'all_availability_zones' to be a bool")
         pulumi.set(__self__, "all_availability_zones", all_availability_zones)
@@ -46,6 +46,12 @@ class GetAvailabilityZoneResult:
         if opt_in_status and not isinstance(opt_in_status, str):
             raise TypeError("Expected argument 'opt_in_status' to be a str")
         pulumi.set(__self__, "opt_in_status", opt_in_status)
+        if parent_zone_id and not isinstance(parent_zone_id, str):
+            raise TypeError("Expected argument 'parent_zone_id' to be a str")
+        pulumi.set(__self__, "parent_zone_id", parent_zone_id)
+        if parent_zone_name and not isinstance(parent_zone_name, str):
+            raise TypeError("Expected argument 'parent_zone_name' to be a str")
+        pulumi.set(__self__, "parent_zone_name", parent_zone_name)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -55,6 +61,9 @@ class GetAvailabilityZoneResult:
         if zone_id and not isinstance(zone_id, str):
             raise TypeError("Expected argument 'zone_id' to be a str")
         pulumi.set(__self__, "zone_id", zone_id)
+        if zone_type and not isinstance(zone_type, str):
+            raise TypeError("Expected argument 'zone_type' to be a str")
+        pulumi.set(__self__, "zone_type", zone_type)
 
     @property
     @pulumi.getter(name="allAvailabilityZones")
@@ -92,6 +101,8 @@ class GetAvailabilityZoneResult:
     def name_suffix(self) -> str:
         """
         The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
+        For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
+        For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
         """
         return pulumi.get(self, "name_suffix")
 
@@ -112,6 +123,22 @@ class GetAvailabilityZoneResult:
         return pulumi.get(self, "opt_in_status")
 
     @property
+    @pulumi.getter(name="parentZoneId")
+    def parent_zone_id(self) -> str:
+        """
+        The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+        """
+        return pulumi.get(self, "parent_zone_id")
+
+    @property
+    @pulumi.getter(name="parentZoneName")
+    def parent_zone_name(self) -> str:
+        """
+        The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+        """
+        return pulumi.get(self, "parent_zone_name")
+
+    @property
     @pulumi.getter
     def region(self) -> str:
         """
@@ -129,6 +156,14 @@ class GetAvailabilityZoneResult:
     def zone_id(self) -> str:
         return pulumi.get(self, "zone_id")
 
+    @property
+    @pulumi.getter(name="zoneType")
+    def zone_type(self) -> str:
+        """
+        The type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
+        """
+        return pulumi.get(self, "zone_type")
+
 
 class AwaitableGetAvailabilityZoneResult(GetAvailabilityZoneResult):
     # pylint: disable=using-constant-test
@@ -144,9 +179,12 @@ class AwaitableGetAvailabilityZoneResult(GetAvailabilityZoneResult):
             name_suffix=self.name_suffix,
             network_border_group=self.network_border_group,
             opt_in_status=self.opt_in_status,
+            parent_zone_id=self.parent_zone_id,
+            parent_zone_name=self.parent_zone_name,
             region=self.region,
             state=self.state,
-            zone_id=self.zone_id)
+            zone_id=self.zone_id,
+            zone_type=self.zone_type)
 
 
 def get_availability_zone(all_availability_zones: Optional[bool] = None,
@@ -196,6 +234,9 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
         name_suffix=__ret__.name_suffix,
         network_border_group=__ret__.network_border_group,
         opt_in_status=__ret__.opt_in_status,
+        parent_zone_id=__ret__.parent_zone_id,
+        parent_zone_name=__ret__.parent_zone_name,
         region=__ret__.region,
         state=__ret__.state,
-        zone_id=__ret__.zone_id)
+        zone_id=__ret__.zone_id,
+        zone_type=__ret__.zone_type)

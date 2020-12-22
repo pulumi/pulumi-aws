@@ -251,6 +251,10 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      */
     public readonly keyName!: pulumi.Output<string>;
     /**
+     * The metadata options for the instance.
+     */
+    public readonly metadataOptions!: pulumi.Output<outputs.ec2.LaunchConfigurationMetadataOptions>;
+    /**
      * The name of the launch configuration. If you leave
      * this blank, this provider will auto-generate a unique name.
      */
@@ -318,6 +322,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             inputs["imageId"] = state ? state.imageId : undefined;
             inputs["instanceType"] = state ? state.instanceType : undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
+            inputs["metadataOptions"] = state ? state.metadataOptions : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["placementTenancy"] = state ? state.placementTenancy : undefined;
@@ -345,6 +350,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             inputs["imageId"] = args ? args.imageId : undefined;
             inputs["instanceType"] = args ? args.instanceType : undefined;
             inputs["keyName"] = args ? args.keyName : undefined;
+            inputs["metadataOptions"] = args ? args.metadataOptions : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["placementTenancy"] = args ? args.placementTenancy : undefined;
@@ -415,6 +421,10 @@ export interface LaunchConfigurationState {
      * The key name that should be used for the instance.
      */
     readonly keyName?: pulumi.Input<string>;
+    /**
+     * The metadata options for the instance.
+     */
+    readonly metadataOptions?: pulumi.Input<inputs.ec2.LaunchConfigurationMetadataOptions>;
     /**
      * The name of the launch configuration. If you leave
      * this blank, this provider will auto-generate a unique name.
@@ -505,6 +515,10 @@ export interface LaunchConfigurationArgs {
      * The key name that should be used for the instance.
      */
     readonly keyName?: pulumi.Input<string>;
+    /**
+     * The metadata options for the instance.
+     */
+    readonly metadataOptions?: pulumi.Input<inputs.ec2.LaunchConfigurationMetadataOptions>;
     /**
      * The name of the launch configuration. If you leave
      * this blank, this provider will auto-generate a unique name.

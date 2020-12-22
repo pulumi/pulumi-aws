@@ -154,6 +154,10 @@ namespace Pulumi.Aws.Ec2
         /// below for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationResult> ElasticGpuSpecifications;
+        /// <summary>
+        /// The enclave options of the Instance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateEnclaveOptionResult> EnclaveOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateFilterResult> Filters;
         /// <summary>
         /// The hibernation options for the instance.
@@ -260,6 +264,8 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationResult> elasticGpuSpecifications,
 
+            ImmutableArray<Outputs.GetLaunchTemplateEnclaveOptionResult> enclaveOptions,
+
             ImmutableArray<Outputs.GetLaunchTemplateFilterResult> filters,
 
             ImmutableArray<Outputs.GetLaunchTemplateHibernationOptionResult> hibernationOptions,
@@ -312,6 +318,7 @@ namespace Pulumi.Aws.Ec2
             DisableApiTermination = disableApiTermination;
             EbsOptimized = ebsOptimized;
             ElasticGpuSpecifications = elasticGpuSpecifications;
+            EnclaveOptions = enclaveOptions;
             Filters = filters;
             HibernationOptions = hibernationOptions;
             IamInstanceProfiles = iamInstanceProfiles;

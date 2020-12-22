@@ -162,6 +162,7 @@ class Eip(pulumi.CustomResource):
             __props__['vpc'] = vpc
             __props__['allocation_id'] = None
             __props__['association_id'] = None
+            __props__['carrier_ip'] = None
             __props__['customer_owned_ip'] = None
             __props__['domain'] = None
             __props__['private_dns'] = None
@@ -181,6 +182,7 @@ class Eip(pulumi.CustomResource):
             allocation_id: Optional[pulumi.Input[str]] = None,
             associate_with_private_ip: Optional[pulumi.Input[str]] = None,
             association_id: Optional[pulumi.Input[str]] = None,
+            carrier_ip: Optional[pulumi.Input[str]] = None,
             customer_owned_ip: Optional[pulumi.Input[str]] = None,
             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
             domain: Optional[pulumi.Input[str]] = None,
@@ -204,6 +206,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] associate_with_private_ip: A user specified primary or secondary private IP address to
                associate with the Elastic IP address. If no private IP address is specified,
                the Elastic IP address is associated with the primary private IP address.
+        :param pulumi.Input[str] carrier_ip: The carrier IP address.
         :param pulumi.Input[str] customer_owned_ip: Customer owned IP.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
         :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
@@ -225,6 +228,7 @@ class Eip(pulumi.CustomResource):
         __props__["allocation_id"] = allocation_id
         __props__["associate_with_private_ip"] = associate_with_private_ip
         __props__["association_id"] = association_id
+        __props__["carrier_ip"] = carrier_ip
         __props__["customer_owned_ip"] = customer_owned_ip
         __props__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
         __props__["domain"] = domain
@@ -259,6 +263,14 @@ class Eip(pulumi.CustomResource):
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "association_id")
+
+    @property
+    @pulumi.getter(name="carrierIp")
+    def carrier_ip(self) -> pulumi.Output[str]:
+        """
+        The carrier IP address.
+        """
+        return pulumi.get(self, "carrier_ip")
 
     @property
     @pulumi.getter(name="customerOwnedIp")

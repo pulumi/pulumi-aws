@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetGroupResult',
@@ -19,7 +20,7 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, arn=None, availability_zones=None, default_cooldown=None, desired_capacity=None, health_check_grace_period=None, health_check_type=None, id=None, launch_configuration=None, load_balancers=None, max_size=None, min_size=None, name=None, new_instances_protected_from_scale_in=None, placement_group=None, service_linked_role_arn=None, status=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
+    def __init__(__self__, arn=None, availability_zones=None, default_cooldown=None, desired_capacity=None, health_check_grace_period=None, health_check_type=None, id=None, launch_configuration=None, launch_templates=None, load_balancers=None, max_size=None, min_size=None, name=None, new_instances_protected_from_scale_in=None, placement_group=None, service_linked_role_arn=None, status=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +45,9 @@ class GetGroupResult:
         if launch_configuration and not isinstance(launch_configuration, str):
             raise TypeError("Expected argument 'launch_configuration' to be a str")
         pulumi.set(__self__, "launch_configuration", launch_configuration)
+        if launch_templates and not isinstance(launch_templates, list):
+            raise TypeError("Expected argument 'launch_templates' to be a list")
+        pulumi.set(__self__, "launch_templates", launch_templates)
         if load_balancers and not isinstance(load_balancers, list):
             raise TypeError("Expected argument 'load_balancers' to be a list")
         pulumi.set(__self__, "load_balancers", load_balancers)
@@ -138,6 +142,11 @@ class GetGroupResult:
         The name of the associated launch configuration.
         """
         return pulumi.get(self, "launch_configuration")
+
+    @property
+    @pulumi.getter(name="launchTemplates")
+    def launch_templates(self) -> Sequence['outputs.GetGroupLaunchTemplateResult']:
+        return pulumi.get(self, "launch_templates")
 
     @property
     @pulumi.getter(name="loadBalancers")
@@ -239,6 +248,7 @@ class AwaitableGetGroupResult(GetGroupResult):
             health_check_type=self.health_check_type,
             id=self.id,
             launch_configuration=self.launch_configuration,
+            launch_templates=self.launch_templates,
             load_balancers=self.load_balancers,
             max_size=self.max_size,
             min_size=self.min_size,
@@ -286,6 +296,7 @@ def get_group(name: Optional[str] = None,
         health_check_type=__ret__.health_check_type,
         id=__ret__.id,
         launch_configuration=__ret__.launch_configuration,
+        launch_templates=__ret__.launch_templates,
         load_balancers=__ret__.load_balancers,
         max_size=__ret__.max_size,
         min_size=__ret__.min_size,

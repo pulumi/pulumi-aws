@@ -114,6 +114,9 @@ namespace Pulumi.Aws.Inputs
         [Input("configservice")]
         public Input<string>? Configservice { get; set; }
 
+        [Input("connect")]
+        public Input<string>? Connect { get; set; }
+
         [Input("cur")]
         public Input<string>? Cur { get; set; }
 

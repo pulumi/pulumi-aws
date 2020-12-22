@@ -21,7 +21,7 @@ class GetLaunchTemplateResult:
     """
     A collection of values returned by getLaunchTemplate.
     """
-    def __init__(__self__, arn=None, block_device_mappings=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, filters=None, hibernation_options=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def __init__(__self__, arn=None, block_device_mappings=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, enclave_options=None, filters=None, hibernation_options=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetLaunchTemplateResult:
         if elastic_gpu_specifications and not isinstance(elastic_gpu_specifications, list):
             raise TypeError("Expected argument 'elastic_gpu_specifications' to be a list")
         pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
+        if enclave_options and not isinstance(enclave_options, list):
+            raise TypeError("Expected argument 'enclave_options' to be a list")
+        pulumi.set(__self__, "enclave_options", enclave_options)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -179,6 +182,14 @@ class GetLaunchTemplateResult:
         below for more details.
         """
         return pulumi.get(self, "elastic_gpu_specifications")
+
+    @property
+    @pulumi.getter(name="enclaveOptions")
+    def enclave_options(self) -> Sequence['outputs.GetLaunchTemplateEnclaveOptionResult']:
+        """
+        The enclave options of the Instance.
+        """
+        return pulumi.get(self, "enclave_options")
 
     @property
     @pulumi.getter
@@ -370,6 +381,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             disable_api_termination=self.disable_api_termination,
             ebs_optimized=self.ebs_optimized,
             elastic_gpu_specifications=self.elastic_gpu_specifications,
+            enclave_options=self.enclave_options,
             filters=self.filters,
             hibernation_options=self.hibernation_options,
             iam_instance_profiles=self.iam_instance_profiles,
@@ -448,6 +460,7 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
         disable_api_termination=__ret__.disable_api_termination,
         ebs_optimized=__ret__.ebs_optimized,
         elastic_gpu_specifications=__ret__.elastic_gpu_specifications,
+        enclave_options=__ret__.enclave_options,
         filters=__ret__.filters,
         hibernation_options=__ret__.hibernation_options,
         iam_instance_profiles=__ret__.iam_instance_profiles,

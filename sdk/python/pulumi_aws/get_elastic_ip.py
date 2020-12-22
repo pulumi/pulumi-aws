@@ -21,10 +21,13 @@ class GetElasticIpResult:
     """
     A collection of values returned by getElasticIp.
     """
-    def __init__(__self__, association_id=None, customer_owned_ip=None, customer_owned_ipv4_pool=None, domain=None, filters=None, id=None, instance_id=None, network_interface_id=None, network_interface_owner_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None):
+    def __init__(__self__, association_id=None, carrier_ip=None, customer_owned_ip=None, customer_owned_ipv4_pool=None, domain=None, filters=None, id=None, instance_id=None, network_interface_id=None, network_interface_owner_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None):
         if association_id and not isinstance(association_id, str):
             raise TypeError("Expected argument 'association_id' to be a str")
         pulumi.set(__self__, "association_id", association_id)
+        if carrier_ip and not isinstance(carrier_ip, str):
+            raise TypeError("Expected argument 'carrier_ip' to be a str")
+        pulumi.set(__self__, "carrier_ip", carrier_ip)
         if customer_owned_ip and not isinstance(customer_owned_ip, str):
             raise TypeError("Expected argument 'customer_owned_ip' to be a str")
         pulumi.set(__self__, "customer_owned_ip", customer_owned_ip)
@@ -75,6 +78,14 @@ class GetElasticIpResult:
         The ID representing the association of the address with an instance in a VPC.
         """
         return pulumi.get(self, "association_id")
+
+    @property
+    @pulumi.getter(name="carrierIp")
+    def carrier_ip(self) -> str:
+        """
+        The carrier IP address.
+        """
+        return pulumi.get(self, "carrier_ip")
 
     @property
     @pulumi.getter(name="customerOwnedIp")
@@ -193,6 +204,7 @@ class AwaitableGetElasticIpResult(GetElasticIpResult):
             yield self
         return GetElasticIpResult(
             association_id=self.association_id,
+            carrier_ip=self.carrier_ip,
             customer_owned_ip=self.customer_owned_ip,
             customer_owned_ipv4_pool=self.customer_owned_ipv4_pool,
             domain=self.domain,
@@ -275,6 +287,7 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
 
     return AwaitableGetElasticIpResult(
         association_id=__ret__.association_id,
+        carrier_ip=__ret__.carrier_ip,
         customer_owned_ip=__ret__.customer_owned_ip,
         customer_owned_ipv4_pool=__ret__.customer_owned_ipv4_pool,
         domain=__ret__.domain,

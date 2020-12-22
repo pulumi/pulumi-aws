@@ -110,6 +110,10 @@ export interface GetLaunchTemplateResult {
      * below for more details.
      */
     readonly elasticGpuSpecifications: outputs.ec2.GetLaunchTemplateElasticGpuSpecification[];
+    /**
+     * The enclave options of the Instance.
+     */
+    readonly enclaveOptions: outputs.ec2.GetLaunchTemplateEnclaveOption[];
     readonly filters?: outputs.ec2.GetLaunchTemplateFilter[];
     /**
      * The hibernation options for the instance.

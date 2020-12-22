@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// The amount of provisioned
         /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1/io2"`.
+        /// Only valid for volume_type of `"io1"`, `"io2"` or `"gp3"`.
         /// </summary>
         public readonly int? Iops;
         /// <summary>
@@ -42,14 +42,17 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// The Snapshot ID to mount.
         /// </summary>
         public readonly string? SnapshotId;
+        /// <summary>
+        /// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `"gp3"`.
+        /// </summary>
+        public readonly int? Throughput;
         public readonly string? VolumeId;
         /// <summary>
         /// The size of the volume in gibibytes (GiB).
         /// </summary>
         public readonly int? VolumeSize;
         /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
-        /// or `"io2"`. (Default: `"gp2"`).
+        /// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         /// </summary>
         public readonly string? VolumeType;
 
@@ -67,6 +70,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? snapshotId,
 
+            int? throughput,
+
             string? volumeId,
 
             int? volumeSize,
@@ -79,6 +84,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Iops = iops;
             KmsKeyId = kmsKeyId;
             SnapshotId = snapshotId;
+            Throughput = throughput;
             VolumeId = volumeId;
             VolumeSize = volumeSize;
             VolumeType = volumeType;

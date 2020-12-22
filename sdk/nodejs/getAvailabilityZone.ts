@@ -79,6 +79,8 @@ export interface GetAvailabilityZoneResult {
     readonly name: string;
     /**
      * The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
+     * For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
+     * For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
      */
     readonly nameSuffix: string;
     /**
@@ -90,9 +92,21 @@ export interface GetAvailabilityZoneResult {
      */
     readonly optInStatus: string;
     /**
+     * The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+     */
+    readonly parentZoneId: string;
+    /**
+     * The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+     */
+    readonly parentZoneName: string;
+    /**
      * The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
      */
     readonly region: string;
     readonly state: string;
     readonly zoneId: string;
+    /**
+     * The type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
+     */
+    readonly zoneType: string;
 }

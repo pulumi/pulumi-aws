@@ -20,7 +20,7 @@ class GetLaunchConfigurationResult:
     """
     A collection of values returned by getLaunchConfiguration.
     """
-    def __init__(__self__, arn=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, id=None, image_id=None, instance_type=None, key_name=None, name=None, placement_tenancy=None, root_block_devices=None, security_groups=None, spot_price=None, user_data=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None):
+    def __init__(__self__, arn=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, id=None, image_id=None, instance_type=None, key_name=None, metadata_options=None, name=None, placement_tenancy=None, root_block_devices=None, security_groups=None, spot_price=None, user_data=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,6 +54,9 @@ class GetLaunchConfigurationResult:
         if key_name and not isinstance(key_name, str):
             raise TypeError("Expected argument 'key_name' to be a str")
         pulumi.set(__self__, "key_name", key_name)
+        if metadata_options and not isinstance(metadata_options, list):
+            raise TypeError("Expected argument 'metadata_options' to be a list")
+        pulumi.set(__self__, "metadata_options", metadata_options)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -168,6 +171,14 @@ class GetLaunchConfigurationResult:
         return pulumi.get(self, "key_name")
 
     @property
+    @pulumi.getter(name="metadataOptions")
+    def metadata_options(self) -> Sequence['outputs.GetLaunchConfigurationMetadataOptionResult']:
+        """
+        The metadata options for the instance.
+        """
+        return pulumi.get(self, "metadata_options")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -249,6 +260,7 @@ class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
             image_id=self.image_id,
             instance_type=self.instance_type,
             key_name=self.key_name,
+            metadata_options=self.metadata_options,
             name=self.name,
             placement_tenancy=self.placement_tenancy,
             root_block_devices=self.root_block_devices,
@@ -296,6 +308,7 @@ def get_launch_configuration(name: Optional[str] = None,
         image_id=__ret__.image_id,
         instance_type=__ret__.instance_type,
         key_name=__ret__.key_name,
+        metadata_options=__ret__.metadata_options,
         name=__ret__.name,
         placement_tenancy=__ret__.placement_tenancy,
         root_block_devices=__ret__.root_block_devices,

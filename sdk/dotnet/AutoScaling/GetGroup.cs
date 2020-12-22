@@ -88,6 +88,7 @@ namespace Pulumi.Aws.AutoScaling
         /// The name of the associated launch configuration.
         /// </summary>
         public readonly string LaunchConfiguration;
+        public readonly ImmutableArray<Outputs.GetGroupLaunchTemplateResult> LaunchTemplates;
         /// <summary>
         /// One or more load balancers associated with the group.
         /// </summary>
@@ -148,6 +149,8 @@ namespace Pulumi.Aws.AutoScaling
 
             string launchConfiguration,
 
+            ImmutableArray<Outputs.GetGroupLaunchTemplateResult> launchTemplates,
+
             ImmutableArray<string> loadBalancers,
 
             int maxSize,
@@ -178,6 +181,7 @@ namespace Pulumi.Aws.AutoScaling
             HealthCheckType = healthCheckType;
             Id = id;
             LaunchConfiguration = launchConfiguration;
+            LaunchTemplates = launchTemplates;
             LoadBalancers = loadBalancers;
             MaxSize = maxSize;
             MinSize = minSize;

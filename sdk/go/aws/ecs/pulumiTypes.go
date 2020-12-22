@@ -2082,7 +2082,7 @@ type TaskDefinitionVolumeDockerVolumeConfiguration struct {
 	DriverOpts map[string]string `pulumi:"driverOpts"`
 	// A map of custom metadata to add to your Docker volume.
 	Labels map[string]string `pulumi:"labels"`
-	// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
+	// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
 	Scope *string `pulumi:"scope"`
 }
 
@@ -2106,7 +2106,7 @@ type TaskDefinitionVolumeDockerVolumeConfigurationArgs struct {
 	DriverOpts pulumi.StringMapInput `pulumi:"driverOpts"`
 	// A map of custom metadata to add to your Docker volume.
 	Labels pulumi.StringMapInput `pulumi:"labels"`
-	// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
+	// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
 }
 
@@ -2207,7 +2207,7 @@ func (o TaskDefinitionVolumeDockerVolumeConfigurationOutput) Labels() pulumi.Str
 	return o.ApplyT(func(v TaskDefinitionVolumeDockerVolumeConfiguration) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
-// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
+// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeDockerVolumeConfiguration) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
@@ -2272,7 +2272,7 @@ func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Labels() pulumi.
 	}).(pulumi.StringMapOutput)
 }
 
-// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
+// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeDockerVolumeConfiguration) *string {
 		if v == nil {

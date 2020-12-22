@@ -111,6 +111,36 @@ namespace Pulumi.Aws.Ec2
         [Output("customerGatewayId")]
         public Output<string> CustomerGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+        /// </summary>
+        [Output("enableAcceleration")]
+        public Output<bool> EnableAcceleration { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// </summary>
+        [Output("localIpv4NetworkCidr")]
+        public Output<string> LocalIpv4NetworkCidr { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// </summary>
+        [Output("localIpv6NetworkCidr")]
+        public Output<string> LocalIpv6NetworkCidr { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPv4 CIDR on the AWS side of the VPN connection.
+        /// </summary>
+        [Output("remoteIpv4NetworkCidr")]
+        public Output<string> RemoteIpv4NetworkCidr { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// </summary>
+        [Output("remoteIpv6NetworkCidr")]
+        public Output<string> RemoteIpv6NetworkCidr { get; private set; } = null!;
+
         [Output("routes")]
         public Output<ImmutableArray<Outputs.VpnConnectionRoute>> Routes { get; private set; } = null!;
 
@@ -163,16 +193,112 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Tunnel1CgwInsideAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The CIDR block of the inside IP addresses for the first VPN tunnel.
+        /// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        /// </summary>
+        [Output("tunnel1DpdTimeoutAction")]
+        public Output<string?> Tunnel1DpdTimeoutAction { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        /// </summary>
+        [Output("tunnel1DpdTimeoutSeconds")]
+        public Output<int?> Tunnel1DpdTimeoutSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+        /// </summary>
+        [Output("tunnel1IkeVersions")]
+        public Output<ImmutableArray<string>> Tunnel1IkeVersions { get; private set; } = null!;
+
+        /// <summary>
+        /// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
         [Output("tunnel1InsideCidr")]
         public Output<string> Tunnel1InsideCidr { get; private set; } = null!;
 
         /// <summary>
-        /// The preshared key of the first VPN tunnel.
+        /// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        /// </summary>
+        [Output("tunnel1InsideIpv6Cidr")]
+        public Output<string> Tunnel1InsideIpv6Cidr { get; private set; } = null!;
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        [Output("tunnel1Phase1DhGroupNumbers")]
+        public Output<ImmutableArray<int>> Tunnel1Phase1DhGroupNumbers { get; private set; } = null!;
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        [Output("tunnel1Phase1EncryptionAlgorithms")]
+        public Output<ImmutableArray<string>> Tunnel1Phase1EncryptionAlgorithms { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        [Output("tunnel1Phase1IntegrityAlgorithms")]
+        public Output<ImmutableArray<string>> Tunnel1Phase1IntegrityAlgorithms { get; private set; } = null!;
+
+        /// <summary>
+        /// The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        /// </summary>
+        [Output("tunnel1Phase1LifetimeSeconds")]
+        public Output<int?> Tunnel1Phase1LifetimeSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        [Output("tunnel1Phase2DhGroupNumbers")]
+        public Output<ImmutableArray<int>> Tunnel1Phase2DhGroupNumbers { get; private set; } = null!;
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        [Output("tunnel1Phase2EncryptionAlgorithms")]
+        public Output<ImmutableArray<string>> Tunnel1Phase2EncryptionAlgorithms { get; private set; } = null!;
+
+        /// <summary>
+        /// List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        [Output("tunnel1Phase2IntegrityAlgorithms")]
+        public Output<ImmutableArray<string>> Tunnel1Phase2IntegrityAlgorithms { get; private set; } = null!;
+
+        /// <summary>
+        /// The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        /// </summary>
+        [Output("tunnel1Phase2LifetimeSeconds")]
+        public Output<int?> Tunnel1Phase2LifetimeSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
         [Output("tunnel1PresharedKey")]
         public Output<string> Tunnel1PresharedKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// </summary>
+        [Output("tunnel1RekeyFuzzPercentage")]
+        public Output<int?> Tunnel1RekeyFuzzPercentage { get; private set; } = null!;
+
+        /// <summary>
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        /// </summary>
+        [Output("tunnel1RekeyMarginTimeSeconds")]
+        public Output<int?> Tunnel1RekeyMarginTimeSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+        /// </summary>
+        [Output("tunnel1ReplayWindowSize")]
+        public Output<int?> Tunnel1ReplayWindowSize { get; private set; } = null!;
+
+        /// <summary>
+        /// The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        /// </summary>
+        [Output("tunnel1StartupAction")]
+        public Output<string?> Tunnel1StartupAction { get; private set; } = null!;
 
         /// <summary>
         /// The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
@@ -205,22 +331,124 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Tunnel2CgwInsideAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The CIDR block of the inside IP addresses for the second VPN tunnel.
+        /// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        /// </summary>
+        [Output("tunnel2DpdTimeoutAction")]
+        public Output<string?> Tunnel2DpdTimeoutAction { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        /// </summary>
+        [Output("tunnel2DpdTimeoutSeconds")]
+        public Output<int?> Tunnel2DpdTimeoutSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+        /// </summary>
+        [Output("tunnel2IkeVersions")]
+        public Output<ImmutableArray<string>> Tunnel2IkeVersions { get; private set; } = null!;
+
+        /// <summary>
+        /// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
         [Output("tunnel2InsideCidr")]
         public Output<string> Tunnel2InsideCidr { get; private set; } = null!;
 
         /// <summary>
-        /// The preshared key of the second VPN tunnel.
+        /// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        /// </summary>
+        [Output("tunnel2InsideIpv6Cidr")]
+        public Output<string> Tunnel2InsideIpv6Cidr { get; private set; } = null!;
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        [Output("tunnel2Phase1DhGroupNumbers")]
+        public Output<ImmutableArray<int>> Tunnel2Phase1DhGroupNumbers { get; private set; } = null!;
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        [Output("tunnel2Phase1EncryptionAlgorithms")]
+        public Output<ImmutableArray<string>> Tunnel2Phase1EncryptionAlgorithms { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        [Output("tunnel2Phase1IntegrityAlgorithms")]
+        public Output<ImmutableArray<string>> Tunnel2Phase1IntegrityAlgorithms { get; private set; } = null!;
+
+        /// <summary>
+        /// The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        /// </summary>
+        [Output("tunnel2Phase1LifetimeSeconds")]
+        public Output<int?> Tunnel2Phase1LifetimeSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        [Output("tunnel2Phase2DhGroupNumbers")]
+        public Output<ImmutableArray<int>> Tunnel2Phase2DhGroupNumbers { get; private set; } = null!;
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        [Output("tunnel2Phase2EncryptionAlgorithms")]
+        public Output<ImmutableArray<string>> Tunnel2Phase2EncryptionAlgorithms { get; private set; } = null!;
+
+        /// <summary>
+        /// List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        [Output("tunnel2Phase2IntegrityAlgorithms")]
+        public Output<ImmutableArray<string>> Tunnel2Phase2IntegrityAlgorithms { get; private set; } = null!;
+
+        /// <summary>
+        /// The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        /// </summary>
+        [Output("tunnel2Phase2LifetimeSeconds")]
+        public Output<int?> Tunnel2Phase2LifetimeSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
         [Output("tunnel2PresharedKey")]
         public Output<string> Tunnel2PresharedKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// </summary>
+        [Output("tunnel2RekeyFuzzPercentage")]
+        public Output<int?> Tunnel2RekeyFuzzPercentage { get; private set; } = null!;
+
+        /// <summary>
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        /// </summary>
+        [Output("tunnel2RekeyMarginTimeSeconds")]
+        public Output<int?> Tunnel2RekeyMarginTimeSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+        /// </summary>
+        [Output("tunnel2ReplayWindowSize")]
+        public Output<int?> Tunnel2ReplayWindowSize { get; private set; } = null!;
+
+        /// <summary>
+        /// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        /// </summary>
+        [Output("tunnel2StartupAction")]
+        public Output<string?> Tunnel2StartupAction { get; private set; } = null!;
 
         /// <summary>
         /// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
         /// </summary>
         [Output("tunnel2VgwInsideAddress")]
         public Output<string> Tunnel2VgwInsideAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        /// </summary>
+        [Output("tunnelInsideIpVersion")]
+        public Output<string> TunnelInsideIpVersion { get; private set; } = null!;
 
         /// <summary>
         /// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
@@ -290,6 +518,36 @@ namespace Pulumi.Aws.Ec2
         public Input<string> CustomerGatewayId { get; set; } = null!;
 
         /// <summary>
+        /// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+        /// </summary>
+        [Input("enableAcceleration")]
+        public Input<bool>? EnableAcceleration { get; set; }
+
+        /// <summary>
+        /// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// </summary>
+        [Input("localIpv4NetworkCidr")]
+        public Input<string>? LocalIpv4NetworkCidr { get; set; }
+
+        /// <summary>
+        /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// </summary>
+        [Input("localIpv6NetworkCidr")]
+        public Input<string>? LocalIpv6NetworkCidr { get; set; }
+
+        /// <summary>
+        /// The IPv4 CIDR on the AWS side of the VPN connection.
+        /// </summary>
+        [Input("remoteIpv4NetworkCidr")]
+        public Input<string>? RemoteIpv4NetworkCidr { get; set; }
+
+        /// <summary>
+        /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// </summary>
+        [Input("remoteIpv6NetworkCidr")]
+        public Input<string>? RemoteIpv6NetworkCidr { get; set; }
+
+        /// <summary>
         /// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         /// </summary>
         [Input("staticRoutesOnly")]
@@ -314,28 +572,310 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? TransitGatewayId { get; set; }
 
         /// <summary>
-        /// The CIDR block of the inside IP addresses for the first VPN tunnel.
+        /// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        /// </summary>
+        [Input("tunnel1DpdTimeoutAction")]
+        public Input<string>? Tunnel1DpdTimeoutAction { get; set; }
+
+        /// <summary>
+        /// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        /// </summary>
+        [Input("tunnel1DpdTimeoutSeconds")]
+        public Input<int>? Tunnel1DpdTimeoutSeconds { get; set; }
+
+        [Input("tunnel1IkeVersions")]
+        private InputList<string>? _tunnel1IkeVersions;
+
+        /// <summary>
+        /// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+        /// </summary>
+        public InputList<string> Tunnel1IkeVersions
+        {
+            get => _tunnel1IkeVersions ?? (_tunnel1IkeVersions = new InputList<string>());
+            set => _tunnel1IkeVersions = value;
+        }
+
+        /// <summary>
+        /// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
         [Input("tunnel1InsideCidr")]
         public Input<string>? Tunnel1InsideCidr { get; set; }
 
         /// <summary>
-        /// The preshared key of the first VPN tunnel.
+        /// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        /// </summary>
+        [Input("tunnel1InsideIpv6Cidr")]
+        public Input<string>? Tunnel1InsideIpv6Cidr { get; set; }
+
+        [Input("tunnel1Phase1DhGroupNumbers")]
+        private InputList<int>? _tunnel1Phase1DhGroupNumbers;
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        public InputList<int> Tunnel1Phase1DhGroupNumbers
+        {
+            get => _tunnel1Phase1DhGroupNumbers ?? (_tunnel1Phase1DhGroupNumbers = new InputList<int>());
+            set => _tunnel1Phase1DhGroupNumbers = value;
+        }
+
+        [Input("tunnel1Phase1EncryptionAlgorithms")]
+        private InputList<string>? _tunnel1Phase1EncryptionAlgorithms;
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        public InputList<string> Tunnel1Phase1EncryptionAlgorithms
+        {
+            get => _tunnel1Phase1EncryptionAlgorithms ?? (_tunnel1Phase1EncryptionAlgorithms = new InputList<string>());
+            set => _tunnel1Phase1EncryptionAlgorithms = value;
+        }
+
+        [Input("tunnel1Phase1IntegrityAlgorithms")]
+        private InputList<string>? _tunnel1Phase1IntegrityAlgorithms;
+
+        /// <summary>
+        /// One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        public InputList<string> Tunnel1Phase1IntegrityAlgorithms
+        {
+            get => _tunnel1Phase1IntegrityAlgorithms ?? (_tunnel1Phase1IntegrityAlgorithms = new InputList<string>());
+            set => _tunnel1Phase1IntegrityAlgorithms = value;
+        }
+
+        /// <summary>
+        /// The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        /// </summary>
+        [Input("tunnel1Phase1LifetimeSeconds")]
+        public Input<int>? Tunnel1Phase1LifetimeSeconds { get; set; }
+
+        [Input("tunnel1Phase2DhGroupNumbers")]
+        private InputList<int>? _tunnel1Phase2DhGroupNumbers;
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        public InputList<int> Tunnel1Phase2DhGroupNumbers
+        {
+            get => _tunnel1Phase2DhGroupNumbers ?? (_tunnel1Phase2DhGroupNumbers = new InputList<int>());
+            set => _tunnel1Phase2DhGroupNumbers = value;
+        }
+
+        [Input("tunnel1Phase2EncryptionAlgorithms")]
+        private InputList<string>? _tunnel1Phase2EncryptionAlgorithms;
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        public InputList<string> Tunnel1Phase2EncryptionAlgorithms
+        {
+            get => _tunnel1Phase2EncryptionAlgorithms ?? (_tunnel1Phase2EncryptionAlgorithms = new InputList<string>());
+            set => _tunnel1Phase2EncryptionAlgorithms = value;
+        }
+
+        [Input("tunnel1Phase2IntegrityAlgorithms")]
+        private InputList<string>? _tunnel1Phase2IntegrityAlgorithms;
+
+        /// <summary>
+        /// List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        public InputList<string> Tunnel1Phase2IntegrityAlgorithms
+        {
+            get => _tunnel1Phase2IntegrityAlgorithms ?? (_tunnel1Phase2IntegrityAlgorithms = new InputList<string>());
+            set => _tunnel1Phase2IntegrityAlgorithms = value;
+        }
+
+        /// <summary>
+        /// The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        /// </summary>
+        [Input("tunnel1Phase2LifetimeSeconds")]
+        public Input<int>? Tunnel1Phase2LifetimeSeconds { get; set; }
+
+        /// <summary>
+        /// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
         [Input("tunnel1PresharedKey")]
         public Input<string>? Tunnel1PresharedKey { get; set; }
 
         /// <summary>
-        /// The CIDR block of the inside IP addresses for the second VPN tunnel.
+        /// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// </summary>
+        [Input("tunnel1RekeyFuzzPercentage")]
+        public Input<int>? Tunnel1RekeyFuzzPercentage { get; set; }
+
+        /// <summary>
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        /// </summary>
+        [Input("tunnel1RekeyMarginTimeSeconds")]
+        public Input<int>? Tunnel1RekeyMarginTimeSeconds { get; set; }
+
+        /// <summary>
+        /// The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+        /// </summary>
+        [Input("tunnel1ReplayWindowSize")]
+        public Input<int>? Tunnel1ReplayWindowSize { get; set; }
+
+        /// <summary>
+        /// The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        /// </summary>
+        [Input("tunnel1StartupAction")]
+        public Input<string>? Tunnel1StartupAction { get; set; }
+
+        /// <summary>
+        /// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        /// </summary>
+        [Input("tunnel2DpdTimeoutAction")]
+        public Input<string>? Tunnel2DpdTimeoutAction { get; set; }
+
+        /// <summary>
+        /// The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        /// </summary>
+        [Input("tunnel2DpdTimeoutSeconds")]
+        public Input<int>? Tunnel2DpdTimeoutSeconds { get; set; }
+
+        [Input("tunnel2IkeVersions")]
+        private InputList<string>? _tunnel2IkeVersions;
+
+        /// <summary>
+        /// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+        /// </summary>
+        public InputList<string> Tunnel2IkeVersions
+        {
+            get => _tunnel2IkeVersions ?? (_tunnel2IkeVersions = new InputList<string>());
+            set => _tunnel2IkeVersions = value;
+        }
+
+        /// <summary>
+        /// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
         [Input("tunnel2InsideCidr")]
         public Input<string>? Tunnel2InsideCidr { get; set; }
 
         /// <summary>
-        /// The preshared key of the second VPN tunnel.
+        /// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        /// </summary>
+        [Input("tunnel2InsideIpv6Cidr")]
+        public Input<string>? Tunnel2InsideIpv6Cidr { get; set; }
+
+        [Input("tunnel2Phase1DhGroupNumbers")]
+        private InputList<int>? _tunnel2Phase1DhGroupNumbers;
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        public InputList<int> Tunnel2Phase1DhGroupNumbers
+        {
+            get => _tunnel2Phase1DhGroupNumbers ?? (_tunnel2Phase1DhGroupNumbers = new InputList<int>());
+            set => _tunnel2Phase1DhGroupNumbers = value;
+        }
+
+        [Input("tunnel2Phase1EncryptionAlgorithms")]
+        private InputList<string>? _tunnel2Phase1EncryptionAlgorithms;
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        public InputList<string> Tunnel2Phase1EncryptionAlgorithms
+        {
+            get => _tunnel2Phase1EncryptionAlgorithms ?? (_tunnel2Phase1EncryptionAlgorithms = new InputList<string>());
+            set => _tunnel2Phase1EncryptionAlgorithms = value;
+        }
+
+        [Input("tunnel2Phase1IntegrityAlgorithms")]
+        private InputList<string>? _tunnel2Phase1IntegrityAlgorithms;
+
+        /// <summary>
+        /// One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        public InputList<string> Tunnel2Phase1IntegrityAlgorithms
+        {
+            get => _tunnel2Phase1IntegrityAlgorithms ?? (_tunnel2Phase1IntegrityAlgorithms = new InputList<string>());
+            set => _tunnel2Phase1IntegrityAlgorithms = value;
+        }
+
+        /// <summary>
+        /// The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        /// </summary>
+        [Input("tunnel2Phase1LifetimeSeconds")]
+        public Input<int>? Tunnel2Phase1LifetimeSeconds { get; set; }
+
+        [Input("tunnel2Phase2DhGroupNumbers")]
+        private InputList<int>? _tunnel2Phase2DhGroupNumbers;
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        public InputList<int> Tunnel2Phase2DhGroupNumbers
+        {
+            get => _tunnel2Phase2DhGroupNumbers ?? (_tunnel2Phase2DhGroupNumbers = new InputList<int>());
+            set => _tunnel2Phase2DhGroupNumbers = value;
+        }
+
+        [Input("tunnel2Phase2EncryptionAlgorithms")]
+        private InputList<string>? _tunnel2Phase2EncryptionAlgorithms;
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        public InputList<string> Tunnel2Phase2EncryptionAlgorithms
+        {
+            get => _tunnel2Phase2EncryptionAlgorithms ?? (_tunnel2Phase2EncryptionAlgorithms = new InputList<string>());
+            set => _tunnel2Phase2EncryptionAlgorithms = value;
+        }
+
+        [Input("tunnel2Phase2IntegrityAlgorithms")]
+        private InputList<string>? _tunnel2Phase2IntegrityAlgorithms;
+
+        /// <summary>
+        /// List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        public InputList<string> Tunnel2Phase2IntegrityAlgorithms
+        {
+            get => _tunnel2Phase2IntegrityAlgorithms ?? (_tunnel2Phase2IntegrityAlgorithms = new InputList<string>());
+            set => _tunnel2Phase2IntegrityAlgorithms = value;
+        }
+
+        /// <summary>
+        /// The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        /// </summary>
+        [Input("tunnel2Phase2LifetimeSeconds")]
+        public Input<int>? Tunnel2Phase2LifetimeSeconds { get; set; }
+
+        /// <summary>
+        /// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
         [Input("tunnel2PresharedKey")]
         public Input<string>? Tunnel2PresharedKey { get; set; }
+
+        /// <summary>
+        /// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// </summary>
+        [Input("tunnel2RekeyFuzzPercentage")]
+        public Input<int>? Tunnel2RekeyFuzzPercentage { get; set; }
+
+        /// <summary>
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        /// </summary>
+        [Input("tunnel2RekeyMarginTimeSeconds")]
+        public Input<int>? Tunnel2RekeyMarginTimeSeconds { get; set; }
+
+        /// <summary>
+        /// The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+        /// </summary>
+        [Input("tunnel2ReplayWindowSize")]
+        public Input<int>? Tunnel2ReplayWindowSize { get; set; }
+
+        /// <summary>
+        /// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        /// </summary>
+        [Input("tunnel2StartupAction")]
+        public Input<string>? Tunnel2StartupAction { get; set; }
+
+        /// <summary>
+        /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        /// </summary>
+        [Input("tunnelInsideIpVersion")]
+        public Input<string>? TunnelInsideIpVersion { get; set; }
 
         /// <summary>
         /// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
@@ -373,6 +913,36 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("customerGatewayId")]
         public Input<string>? CustomerGatewayId { get; set; }
+
+        /// <summary>
+        /// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+        /// </summary>
+        [Input("enableAcceleration")]
+        public Input<bool>? EnableAcceleration { get; set; }
+
+        /// <summary>
+        /// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// </summary>
+        [Input("localIpv4NetworkCidr")]
+        public Input<string>? LocalIpv4NetworkCidr { get; set; }
+
+        /// <summary>
+        /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// </summary>
+        [Input("localIpv6NetworkCidr")]
+        public Input<string>? LocalIpv6NetworkCidr { get; set; }
+
+        /// <summary>
+        /// The IPv4 CIDR on the AWS side of the VPN connection.
+        /// </summary>
+        [Input("remoteIpv4NetworkCidr")]
+        public Input<string>? RemoteIpv4NetworkCidr { get; set; }
+
+        /// <summary>
+        /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// </summary>
+        [Input("remoteIpv6NetworkCidr")]
+        public Input<string>? RemoteIpv6NetworkCidr { get; set; }
 
         [Input("routes")]
         private InputList<Inputs.VpnConnectionRouteGetArgs>? _routes;
@@ -437,16 +1007,154 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Tunnel1CgwInsideAddress { get; set; }
 
         /// <summary>
-        /// The CIDR block of the inside IP addresses for the first VPN tunnel.
+        /// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        /// </summary>
+        [Input("tunnel1DpdTimeoutAction")]
+        public Input<string>? Tunnel1DpdTimeoutAction { get; set; }
+
+        /// <summary>
+        /// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        /// </summary>
+        [Input("tunnel1DpdTimeoutSeconds")]
+        public Input<int>? Tunnel1DpdTimeoutSeconds { get; set; }
+
+        [Input("tunnel1IkeVersions")]
+        private InputList<string>? _tunnel1IkeVersions;
+
+        /// <summary>
+        /// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+        /// </summary>
+        public InputList<string> Tunnel1IkeVersions
+        {
+            get => _tunnel1IkeVersions ?? (_tunnel1IkeVersions = new InputList<string>());
+            set => _tunnel1IkeVersions = value;
+        }
+
+        /// <summary>
+        /// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
         [Input("tunnel1InsideCidr")]
         public Input<string>? Tunnel1InsideCidr { get; set; }
 
         /// <summary>
-        /// The preshared key of the first VPN tunnel.
+        /// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        /// </summary>
+        [Input("tunnel1InsideIpv6Cidr")]
+        public Input<string>? Tunnel1InsideIpv6Cidr { get; set; }
+
+        [Input("tunnel1Phase1DhGroupNumbers")]
+        private InputList<int>? _tunnel1Phase1DhGroupNumbers;
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        public InputList<int> Tunnel1Phase1DhGroupNumbers
+        {
+            get => _tunnel1Phase1DhGroupNumbers ?? (_tunnel1Phase1DhGroupNumbers = new InputList<int>());
+            set => _tunnel1Phase1DhGroupNumbers = value;
+        }
+
+        [Input("tunnel1Phase1EncryptionAlgorithms")]
+        private InputList<string>? _tunnel1Phase1EncryptionAlgorithms;
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        public InputList<string> Tunnel1Phase1EncryptionAlgorithms
+        {
+            get => _tunnel1Phase1EncryptionAlgorithms ?? (_tunnel1Phase1EncryptionAlgorithms = new InputList<string>());
+            set => _tunnel1Phase1EncryptionAlgorithms = value;
+        }
+
+        [Input("tunnel1Phase1IntegrityAlgorithms")]
+        private InputList<string>? _tunnel1Phase1IntegrityAlgorithms;
+
+        /// <summary>
+        /// One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        public InputList<string> Tunnel1Phase1IntegrityAlgorithms
+        {
+            get => _tunnel1Phase1IntegrityAlgorithms ?? (_tunnel1Phase1IntegrityAlgorithms = new InputList<string>());
+            set => _tunnel1Phase1IntegrityAlgorithms = value;
+        }
+
+        /// <summary>
+        /// The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        /// </summary>
+        [Input("tunnel1Phase1LifetimeSeconds")]
+        public Input<int>? Tunnel1Phase1LifetimeSeconds { get; set; }
+
+        [Input("tunnel1Phase2DhGroupNumbers")]
+        private InputList<int>? _tunnel1Phase2DhGroupNumbers;
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        public InputList<int> Tunnel1Phase2DhGroupNumbers
+        {
+            get => _tunnel1Phase2DhGroupNumbers ?? (_tunnel1Phase2DhGroupNumbers = new InputList<int>());
+            set => _tunnel1Phase2DhGroupNumbers = value;
+        }
+
+        [Input("tunnel1Phase2EncryptionAlgorithms")]
+        private InputList<string>? _tunnel1Phase2EncryptionAlgorithms;
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        public InputList<string> Tunnel1Phase2EncryptionAlgorithms
+        {
+            get => _tunnel1Phase2EncryptionAlgorithms ?? (_tunnel1Phase2EncryptionAlgorithms = new InputList<string>());
+            set => _tunnel1Phase2EncryptionAlgorithms = value;
+        }
+
+        [Input("tunnel1Phase2IntegrityAlgorithms")]
+        private InputList<string>? _tunnel1Phase2IntegrityAlgorithms;
+
+        /// <summary>
+        /// List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        public InputList<string> Tunnel1Phase2IntegrityAlgorithms
+        {
+            get => _tunnel1Phase2IntegrityAlgorithms ?? (_tunnel1Phase2IntegrityAlgorithms = new InputList<string>());
+            set => _tunnel1Phase2IntegrityAlgorithms = value;
+        }
+
+        /// <summary>
+        /// The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        /// </summary>
+        [Input("tunnel1Phase2LifetimeSeconds")]
+        public Input<int>? Tunnel1Phase2LifetimeSeconds { get; set; }
+
+        /// <summary>
+        /// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
         [Input("tunnel1PresharedKey")]
         public Input<string>? Tunnel1PresharedKey { get; set; }
+
+        /// <summary>
+        /// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// </summary>
+        [Input("tunnel1RekeyFuzzPercentage")]
+        public Input<int>? Tunnel1RekeyFuzzPercentage { get; set; }
+
+        /// <summary>
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        /// </summary>
+        [Input("tunnel1RekeyMarginTimeSeconds")]
+        public Input<int>? Tunnel1RekeyMarginTimeSeconds { get; set; }
+
+        /// <summary>
+        /// The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+        /// </summary>
+        [Input("tunnel1ReplayWindowSize")]
+        public Input<int>? Tunnel1ReplayWindowSize { get; set; }
+
+        /// <summary>
+        /// The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        /// </summary>
+        [Input("tunnel1StartupAction")]
+        public Input<string>? Tunnel1StartupAction { get; set; }
 
         /// <summary>
         /// The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
@@ -479,22 +1187,166 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Tunnel2CgwInsideAddress { get; set; }
 
         /// <summary>
-        /// The CIDR block of the inside IP addresses for the second VPN tunnel.
+        /// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        /// </summary>
+        [Input("tunnel2DpdTimeoutAction")]
+        public Input<string>? Tunnel2DpdTimeoutAction { get; set; }
+
+        /// <summary>
+        /// The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        /// </summary>
+        [Input("tunnel2DpdTimeoutSeconds")]
+        public Input<int>? Tunnel2DpdTimeoutSeconds { get; set; }
+
+        [Input("tunnel2IkeVersions")]
+        private InputList<string>? _tunnel2IkeVersions;
+
+        /// <summary>
+        /// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+        /// </summary>
+        public InputList<string> Tunnel2IkeVersions
+        {
+            get => _tunnel2IkeVersions ?? (_tunnel2IkeVersions = new InputList<string>());
+            set => _tunnel2IkeVersions = value;
+        }
+
+        /// <summary>
+        /// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
         [Input("tunnel2InsideCidr")]
         public Input<string>? Tunnel2InsideCidr { get; set; }
 
         /// <summary>
-        /// The preshared key of the second VPN tunnel.
+        /// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        /// </summary>
+        [Input("tunnel2InsideIpv6Cidr")]
+        public Input<string>? Tunnel2InsideIpv6Cidr { get; set; }
+
+        [Input("tunnel2Phase1DhGroupNumbers")]
+        private InputList<int>? _tunnel2Phase1DhGroupNumbers;
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        public InputList<int> Tunnel2Phase1DhGroupNumbers
+        {
+            get => _tunnel2Phase1DhGroupNumbers ?? (_tunnel2Phase1DhGroupNumbers = new InputList<int>());
+            set => _tunnel2Phase1DhGroupNumbers = value;
+        }
+
+        [Input("tunnel2Phase1EncryptionAlgorithms")]
+        private InputList<string>? _tunnel2Phase1EncryptionAlgorithms;
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        public InputList<string> Tunnel2Phase1EncryptionAlgorithms
+        {
+            get => _tunnel2Phase1EncryptionAlgorithms ?? (_tunnel2Phase1EncryptionAlgorithms = new InputList<string>());
+            set => _tunnel2Phase1EncryptionAlgorithms = value;
+        }
+
+        [Input("tunnel2Phase1IntegrityAlgorithms")]
+        private InputList<string>? _tunnel2Phase1IntegrityAlgorithms;
+
+        /// <summary>
+        /// One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        public InputList<string> Tunnel2Phase1IntegrityAlgorithms
+        {
+            get => _tunnel2Phase1IntegrityAlgorithms ?? (_tunnel2Phase1IntegrityAlgorithms = new InputList<string>());
+            set => _tunnel2Phase1IntegrityAlgorithms = value;
+        }
+
+        /// <summary>
+        /// The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        /// </summary>
+        [Input("tunnel2Phase1LifetimeSeconds")]
+        public Input<int>? Tunnel2Phase1LifetimeSeconds { get; set; }
+
+        [Input("tunnel2Phase2DhGroupNumbers")]
+        private InputList<int>? _tunnel2Phase2DhGroupNumbers;
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        public InputList<int> Tunnel2Phase2DhGroupNumbers
+        {
+            get => _tunnel2Phase2DhGroupNumbers ?? (_tunnel2Phase2DhGroupNumbers = new InputList<int>());
+            set => _tunnel2Phase2DhGroupNumbers = value;
+        }
+
+        [Input("tunnel2Phase2EncryptionAlgorithms")]
+        private InputList<string>? _tunnel2Phase2EncryptionAlgorithms;
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        public InputList<string> Tunnel2Phase2EncryptionAlgorithms
+        {
+            get => _tunnel2Phase2EncryptionAlgorithms ?? (_tunnel2Phase2EncryptionAlgorithms = new InputList<string>());
+            set => _tunnel2Phase2EncryptionAlgorithms = value;
+        }
+
+        [Input("tunnel2Phase2IntegrityAlgorithms")]
+        private InputList<string>? _tunnel2Phase2IntegrityAlgorithms;
+
+        /// <summary>
+        /// List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        public InputList<string> Tunnel2Phase2IntegrityAlgorithms
+        {
+            get => _tunnel2Phase2IntegrityAlgorithms ?? (_tunnel2Phase2IntegrityAlgorithms = new InputList<string>());
+            set => _tunnel2Phase2IntegrityAlgorithms = value;
+        }
+
+        /// <summary>
+        /// The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        /// </summary>
+        [Input("tunnel2Phase2LifetimeSeconds")]
+        public Input<int>? Tunnel2Phase2LifetimeSeconds { get; set; }
+
+        /// <summary>
+        /// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
         [Input("tunnel2PresharedKey")]
         public Input<string>? Tunnel2PresharedKey { get; set; }
+
+        /// <summary>
+        /// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// </summary>
+        [Input("tunnel2RekeyFuzzPercentage")]
+        public Input<int>? Tunnel2RekeyFuzzPercentage { get; set; }
+
+        /// <summary>
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        /// </summary>
+        [Input("tunnel2RekeyMarginTimeSeconds")]
+        public Input<int>? Tunnel2RekeyMarginTimeSeconds { get; set; }
+
+        /// <summary>
+        /// The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+        /// </summary>
+        [Input("tunnel2ReplayWindowSize")]
+        public Input<int>? Tunnel2ReplayWindowSize { get; set; }
+
+        /// <summary>
+        /// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        /// </summary>
+        [Input("tunnel2StartupAction")]
+        public Input<string>? Tunnel2StartupAction { get; set; }
 
         /// <summary>
         /// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
         /// </summary>
         [Input("tunnel2VgwInsideAddress")]
         public Input<string>? Tunnel2VgwInsideAddress { get; set; }
+
+        /// <summary>
+        /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        /// </summary>
+        [Input("tunnelInsideIpVersion")]
+        public Input<string>? TunnelInsideIpVersion { get; set; }
 
         /// <summary>
         /// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".

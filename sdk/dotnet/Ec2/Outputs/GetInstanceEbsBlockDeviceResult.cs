@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// The ID of the snapshot.
         /// </summary>
         public readonly string SnapshotId;
+        /// <summary>
+        /// The throughput of the volume, in MiB/s.
+        /// </summary>
+        public readonly int Throughput;
         public readonly string VolumeId;
         /// <summary>
         /// The size of the volume, in GiB.
@@ -58,6 +62,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string snapshotId,
 
+            int throughput,
+
             string volumeId,
 
             int volumeSize,
@@ -70,6 +76,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Iops = iops;
             KmsKeyId = kmsKeyId;
             SnapshotId = snapshotId;
+            Throughput = throughput;
             VolumeId = volumeId;
             VolumeSize = volumeSize;
             VolumeType = volumeType;

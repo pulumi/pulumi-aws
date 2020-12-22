@@ -182,6 +182,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> AssociationId { get; private set; } = null!;
 
         /// <summary>
+        /// The carrier IP address.
+        /// </summary>
+        [Output("carrierIp")]
+        public Output<string> CarrierIp { get; private set; } = null!;
+
+        /// <summary>
         /// Customer owned IP.
         /// </summary>
         [Output("customerOwnedIp")]
@@ -381,6 +387,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("associationId")]
         public Input<string>? AssociationId { get; set; }
+
+        /// <summary>
+        /// The carrier IP address.
+        /// </summary>
+        [Input("carrierIp")]
+        public Input<string>? CarrierIp { get; set; }
 
         /// <summary>
         /// Customer owned IP.

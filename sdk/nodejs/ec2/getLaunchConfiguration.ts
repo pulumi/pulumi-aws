@@ -91,6 +91,10 @@ export interface GetLaunchConfigurationResult {
      */
     readonly keyName: string;
     /**
+     * The metadata options for the instance.
+     */
+    readonly metadataOptions: outputs.ec2.GetLaunchConfigurationMetadataOption[];
+    /**
      * The Name of the launch configuration.
      */
     readonly name: string;

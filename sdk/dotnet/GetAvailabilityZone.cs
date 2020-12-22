@@ -89,6 +89,8 @@ namespace Pulumi.Aws
         public readonly string Name;
         /// <summary>
         /// The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
+        /// For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
+        /// For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
         /// </summary>
         public readonly string NameSuffix;
         /// <summary>
@@ -100,11 +102,23 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string OptInStatus;
         /// <summary>
+        /// The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+        /// </summary>
+        public readonly string ParentZoneId;
+        /// <summary>
+        /// The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+        /// </summary>
+        public readonly string ParentZoneName;
+        /// <summary>
         /// The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
         /// </summary>
         public readonly string Region;
         public readonly string State;
         public readonly string ZoneId;
+        /// <summary>
+        /// The type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
+        /// </summary>
+        public readonly string ZoneType;
 
         [OutputConstructor]
         private GetAvailabilityZoneResult(
@@ -124,11 +138,17 @@ namespace Pulumi.Aws
 
             string optInStatus,
 
+            string parentZoneId,
+
+            string parentZoneName,
+
             string region,
 
             string state,
 
-            string zoneId)
+            string zoneId,
+
+            string zoneType)
         {
             AllAvailabilityZones = allAvailabilityZones;
             Filters = filters;
@@ -138,9 +158,12 @@ namespace Pulumi.Aws
             NameSuffix = nameSuffix;
             NetworkBorderGroup = networkBorderGroup;
             OptInStatus = optInStatus;
+            ParentZoneId = parentZoneId;
+            ParentZoneName = parentZoneName;
             Region = region;
             State = state;
             ZoneId = zoneId;
+            ZoneType = zoneType;
         }
     }
 }

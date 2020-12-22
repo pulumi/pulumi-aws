@@ -168,6 +168,10 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string AssociationId;
         /// <summary>
+        /// The carrier IP address.
+        /// </summary>
+        public readonly string CarrierIp;
+        /// <summary>
         /// Customer Owned IP.
         /// </summary>
         public readonly string CustomerOwnedIp;
@@ -225,6 +229,8 @@ namespace Pulumi.Aws
         private GetElasticIpResult(
             string associationId,
 
+            string carrierIp,
+
             string customerOwnedIp,
 
             string customerOwnedIpv4Pool,
@@ -254,6 +260,7 @@ namespace Pulumi.Aws
             ImmutableDictionary<string, string> tags)
         {
             AssociationId = associationId;
+            CarrierIp = carrierIp;
             CustomerOwnedIp = customerOwnedIp;
             CustomerOwnedIpv4Pool = customerOwnedIpv4Pool;
             Domain = domain;
