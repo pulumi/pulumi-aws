@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to v3.22.0 of the AWS Terraform Provider
-* Add ECS managed policies
+_(none)_
 
 ---
+
+## 3.22.0 (2020-12-22)
+* Update to v3.22.0 of the AWS Terraform Provider
+* Add ECS managed policies
 
 ## 3.21.0 (2020-12-16)
 * Upgrade to v2.16.0 of pulumi-terraform-bridge
