@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Update to v3.22.0 of the AWS Terraform Provider
+* Add ECS managed policies
 
 ---
 
