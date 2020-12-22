@@ -5,6 +5,7 @@ CHANGELOG
 * Add ECS managed policies
 * Upgrade to v2.16.0 of pulumi-terraform-bridge
     * Preserve unknowns during provider preview
+* Update `ecs.ContainerDefinition.Secret` valueFrom to `pulumi.Input<string>`
 ---
 
 ## 3.20.0 (2020-12-14)
