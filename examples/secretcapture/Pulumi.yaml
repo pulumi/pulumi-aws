@@ -1,0 +1,3 @@
+name: secretcapture
+runtime: nodejs
+description: Test capturing secrets in callback functions.
