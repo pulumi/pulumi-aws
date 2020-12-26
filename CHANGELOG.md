@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Allow capturing secrets in CallbackFunctions
 
 ---
 
