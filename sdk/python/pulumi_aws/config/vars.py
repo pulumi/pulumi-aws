@@ -88,20 +88,20 @@ shared_credentials_file = __config__.get('sharedCredentialsFile')
 The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
 """
 
-skip_credentials_validation = __config__.get('skipCredentialsValidation')
+skip_credentials_validation = __config__.get('skipCredentialsValidation') or True
 """
 Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
 available/implemented.
 """
 
-skip_get_ec2_platforms = __config__.get('skipGetEc2Platforms')
+skip_get_ec2_platforms = __config__.get('skipGetEc2Platforms') or True
 """
 Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
 """
 
-skip_metadata_api_check = __config__.get('skipMetadataApiCheck')
+skip_metadata_api_check = __config__.get('skipMetadataApiCheck') or True
 
-skip_region_validation = __config__.get('skipRegionValidation')
+skip_region_validation = __config__.get('skipRegionValidation') or True
 """
 Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
 not public (yet).

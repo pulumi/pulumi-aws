@@ -78,21 +78,37 @@ func GetSharedCredentialsFile(ctx *pulumi.Context) string {
 // Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
 // available/implemented.
 func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "aws:skipCredentialsValidation")
+	v, err := config.TryBool(ctx, "aws:skipCredentialsValidation")
+	if err == nil {
+		return v
+	}
+	return true
 }
 
 // Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
 func GetSkipGetEc2Platforms(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "aws:skipGetEc2Platforms")
+	v, err := config.TryBool(ctx, "aws:skipGetEc2Platforms")
+	if err == nil {
+		return v
+	}
+	return true
 }
 func GetSkipMetadataApiCheck(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "aws:skipMetadataApiCheck")
+	v, err := config.TryBool(ctx, "aws:skipMetadataApiCheck")
+	if err == nil {
+		return v
+	}
+	return true
 }
 
 // Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
 // not public (yet).
 func GetSkipRegionValidation(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "aws:skipRegionValidation")
+	v, err := config.TryBool(ctx, "aws:skipRegionValidation")
+	if err == nil {
+		return v
+	}
+	return true
 }
 
 // Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.

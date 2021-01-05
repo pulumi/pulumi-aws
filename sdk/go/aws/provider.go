@@ -31,6 +31,18 @@ func NewProvider(ctx *pulumi.Context,
 	if args.Region == nil {
 		args.Region = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION").(string))
 	}
+	if args.SkipCredentialsValidation == nil {
+		args.SkipCredentialsValidation = pulumi.BoolPtr(true)
+	}
+	if args.SkipGetEc2Platforms == nil {
+		args.SkipGetEc2Platforms = pulumi.BoolPtr(true)
+	}
+	if args.SkipMetadataApiCheck == nil {
+		args.SkipMetadataApiCheck = pulumi.BoolPtr(true)
+	}
+	if args.SkipRegionValidation == nil {
+		args.SkipRegionValidation = pulumi.BoolPtr(true)
+	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:aws", name, args, &resource, opts...)
 	if err != nil {

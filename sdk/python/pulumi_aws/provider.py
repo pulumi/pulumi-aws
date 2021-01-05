@@ -99,9 +99,17 @@ class Provider(pulumi.ProviderResource):
             __props__['s3_force_path_style'] = pulumi.Output.from_input(s3_force_path_style).apply(pulumi.runtime.to_json) if s3_force_path_style is not None else None
             __props__['secret_key'] = secret_key
             __props__['shared_credentials_file'] = shared_credentials_file
+            if skip_credentials_validation is None:
+                skip_credentials_validation = True
             __props__['skip_credentials_validation'] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
+            if skip_get_ec2_platforms is None:
+                skip_get_ec2_platforms = True
             __props__['skip_get_ec2_platforms'] = pulumi.Output.from_input(skip_get_ec2_platforms).apply(pulumi.runtime.to_json) if skip_get_ec2_platforms is not None else None
+            if skip_metadata_api_check is None:
+                skip_metadata_api_check = True
             __props__['skip_metadata_api_check'] = pulumi.Output.from_input(skip_metadata_api_check).apply(pulumi.runtime.to_json) if skip_metadata_api_check is not None else None
+            if skip_region_validation is None:
+                skip_region_validation = True
             __props__['skip_region_validation'] = pulumi.Output.from_input(skip_region_validation).apply(pulumi.runtime.to_json) if skip_region_validation is not None else None
             __props__['skip_requesting_account_id'] = pulumi.Output.from_input(skip_requesting_account_id).apply(pulumi.runtime.to_json) if skip_requesting_account_id is not None else None
             __props__['token'] = token

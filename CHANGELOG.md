@@ -2,7 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Update Provider defaults:
+  * `skipCredentialsValidation` now defaults to `true`.
+  * `skipGetEc2Platforms` now defaults to `true`.
+  * `skipMetadataApiCheck` now defaults to `true`.
+  * `skipRegionValidation` now defaults to `true`.
 
 ---
 

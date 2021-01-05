@@ -52,10 +52,10 @@ export class Provider extends pulumi.ProviderResource {
             inputs["s3ForcePathStyle"] = pulumi.output(args ? args.s3ForcePathStyle : undefined).apply(JSON.stringify);
             inputs["secretKey"] = args ? args.secretKey : undefined;
             inputs["sharedCredentialsFile"] = args ? args.sharedCredentialsFile : undefined;
-            inputs["skipCredentialsValidation"] = pulumi.output(args ? args.skipCredentialsValidation : undefined).apply(JSON.stringify);
-            inputs["skipGetEc2Platforms"] = pulumi.output(args ? args.skipGetEc2Platforms : undefined).apply(JSON.stringify);
-            inputs["skipMetadataApiCheck"] = pulumi.output(args ? args.skipMetadataApiCheck : undefined).apply(JSON.stringify);
-            inputs["skipRegionValidation"] = pulumi.output(args ? args.skipRegionValidation : undefined).apply(JSON.stringify);
+            inputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) || true).apply(JSON.stringify);
+            inputs["skipGetEc2Platforms"] = pulumi.output((args ? args.skipGetEc2Platforms : undefined) || true).apply(JSON.stringify);
+            inputs["skipMetadataApiCheck"] = pulumi.output((args ? args.skipMetadataApiCheck : undefined) || true).apply(JSON.stringify);
+            inputs["skipRegionValidation"] = pulumi.output((args ? args.skipRegionValidation : undefined) || true).apply(JSON.stringify);
             inputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
             inputs["token"] = args ? args.token : undefined;
         }
